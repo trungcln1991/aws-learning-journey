@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lộ Trình AWS 6 Tháng · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1E9; --paper-2:#EDE9DD; --ink:#16130D; --ink-soft:#4A4334;
+  --line:rgba(22,19,13,.16); --line-strong:rgba(22,19,13,.34);
+  --red:#C32D1A; --green:#1C7A47; --amber:#A9700A; --muted:#7A7160; --blue:#1F5F86;
+  --term:#15120C; --term-ink:#EDE7D6;
+  --maxw:1500px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Newsreader",Georgia,serif; font-size:21px; line-height:1.62;
+  font-weight:400; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+::selection{background:var(--red);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+
+/* watermark */
+.watermark{
+  position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.watermark::after{
+  content:"trungcln";
+  font-family:"JetBrains Mono",monospace;font-size:clamp(60px,10vw,120px);
+  font-weight:700;color:rgba(22,19,13,.04);letter-spacing:.1em;text-transform:uppercase;
+  transform:rotate(-35deg);white-space:nowrap;pointer-events:none;
+  text-shadow:none;
+}
+
+/* rail */
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);
+  backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;
+  padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;
+  font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;
+  font-weight:700;color:var(--ink);text-decoration:none;width:26px;height:26px;
+  display:grid;place-items:center;border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+/* legend chips */
+.legend{display:flex;gap:7px;flex-wrap:wrap}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-green{color:var(--green);border-color:var(--green)}.c-green::before{background:var(--green)}
+.c-amber{color:var(--amber);border-color:var(--amber)}.c-amber::before{background:var(--amber)}
+.c-red{color:var(--red);border-color:var(--red)}.c-red::before{background:var(--red)}
+.c-blue{color:var(--blue);border-color:var(--blue)}.c-blue::before{background:var(--blue)}
+.c-muted{color:var(--muted);border-color:var(--muted)}.c-muted::before{background:var(--muted)}
+
+/* hero */
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;
+  font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--red)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;
+  color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;
+  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+
+/* section */
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line)}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;
+  cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-toggle{position:absolute;right:0;top:.55em;
+  font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:700;color:var(--red);
+  transition:transform .32s cubic-bezier(.4,0,.2,1);line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}
+section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;
+  transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}
+.section-body > .section-body-inner{overflow:hidden}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);
+  color:var(--red);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;
+  font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--red)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);
+  margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;
+  color:var(--red);margin-right:.55em}
+p{max-width:78ch;margin:18px 0}
+p.wide{max-width:92ch}
+strong{font-weight:600}
+.ink-mark{background:linear-gradient(transparent 62%,rgba(195,45,26,.20) 0)}
+
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}
+li{margin:11px 0;padding-left:6px}
+li::marker{color:var(--red)}
+
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:4px;
+  padding:1px 6px;color:var(--ink);white-space:nowrap}
+
+/* terminal block */
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;
+  margin:24px 0;overflow:hidden;border:2px solid var(--ink);
+  box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;
+  border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}
+.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);
+  line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}
+pre .o{color:#E7E0CC}
+pre .hl{color:#F0A93C;font-weight:700}
+pre .bad{color:#F0664C;font-weight:700}
+pre .good{color:#74C593;font-weight:700}
+pre .dim{color:#8B826C}
+pre .cy{color:#5FB7C9}
+
+/* dia block */
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);
+  line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;
+  margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.dia .bad{color:var(--red);font-weight:700}
+.dia .good{color:var(--green);font-weight:700}
+.dia .am{color:var(--amber);font-weight:700}
+.dia .mut{color:var(--muted)}
+.dia .hd{font-weight:700;color:var(--ink)}
+
+/* principle callout */
+.principle{border:2px solid var(--ink);border-left:8px solid var(--red);
+  background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;
+  border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);
+  font-weight:600;line-height:1.32;margin:0;max-width:none}
+
+/* proof */
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;
+  border-left:5px solid var(--ink);background:var(--paper-2);
+  padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}.proof .k.am{color:var(--amber)}
+.proof .v{font-size:.92em;line-height:1.5}
+.proof .v p{margin:0;max-width:none}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;
+  overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);
+  line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}.stat .n.bl{color:var(--blue)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);
+  margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;
+  border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}
+td b{font-weight:600}
+td .step{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--red)}
+
+/* pill */
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}
+.p-am{color:var(--amber);border-color:var(--amber)}
+.p-bad{color:var(--red);border-color:var(--red)}
+.p-bl{color:var(--blue);border-color:var(--blue)}
+
+/* note */
+.note{font-size:.9em;color:var(--ink-soft);border-top:1px dashed var(--line-strong);
+  padding-top:16px;margin-top:30px;max-width:84ch;font-style:italic}
+.note::before{content:"⚠ ";color:var(--amber);font-style:normal;font-weight:700}
+
+/* month card */
+.month-card{border:2px solid var(--ink);border-radius:12px;margin:30px 0;overflow:hidden;
+  box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.month-header{padding:20px 28px;display:flex;align-items:center;gap:20px;
+  border-bottom:2px solid var(--ink)}
+.month-num{font-family:"Fraunces",serif;font-weight:900;font-size:3.5rem;
+  line-height:1;letter-spacing:-.03em;min-width:80px}
+.month-info h4{font-family:"Fraunces",serif;font-weight:700;font-size:1.4rem;margin:0 0 6px}
+.month-info .month-sub{font-family:"JetBrains Mono",monospace;font-size:12px;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.month-info .month-date{font-family:"JetBrains Mono",monospace;font-size:12px;
+  color:var(--blue);margin-top:4px;font-weight:700}
+.month-body{padding:28px;background:var(--paper)}
+.month-m1 .month-header{background:linear-gradient(135deg,#1C7A47 0%,#155c35 100%);color:#fff}
+.month-m1 .month-num{color:rgba(255,255,255,.9)}
+.month-m1 .month-info h4{color:#fff}
+.month-m1 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m1 .month-info .month-date{color:rgba(255,255,255,.85)}
+.month-m2 .month-header{background:linear-gradient(135deg,#1F5F86 0%,#174b6a 100%);color:#fff}
+.month-m2 .month-num{color:rgba(255,255,255,.9)}
+.month-m2 .month-info h4{color:#fff}
+.month-m2 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m2 .month-info .month-date{color:rgba(255,255,255,.85)}
+.month-m3 .month-header{background:linear-gradient(135deg,#A9700A 0%,#866005 100%);color:#fff}
+.month-m3 .month-num{color:rgba(255,255,255,.9)}
+.month-m3 .month-info h4{color:#fff}
+.month-m3 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m3 .month-info .month-date{color:rgba(255,255,255,.85)}
+.month-m4 .month-header{background:linear-gradient(135deg,#C32D1A 0%,#9c2414 100%);color:#fff}
+.month-m4 .month-num{color:rgba(255,255,255,.9)}
+.month-m4 .month-info h4{color:#fff}
+.month-m4 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m4 .month-info .month-date{color:rgba(255,255,255,.85)}
+.month-m5 .month-header{background:linear-gradient(135deg,#5c3d8f 0%,#432d6b 100%);color:#fff}
+.month-m5 .month-num{color:rgba(255,255,255,.9)}
+.month-m5 .month-info h4{color:#fff}
+.month-m5 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m5 .month-info .month-date{color:rgba(255,255,255,.85)}
+.month-m6 .month-header{background:linear-gradient(135deg,#2d6a4a 0%,#1a4030 100%);color:#fff}
+.month-m6 .month-num{color:rgba(255,255,255,.9)}
+.month-m6 .month-info h4{color:#fff}
+.month-m6 .month-info .month-sub{color:rgba(255,255,255,.7)}
+.month-m6 .month-info .month-date{color:rgba(255,255,255,.85)}
+
+/* week grid */
+.week-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0}
+.week-box{border:1.5px solid var(--line-strong);border-radius:8px;padding:18px;background:var(--paper-2)}
+.week-title{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.week-box ul{margin:0;padding-left:1.1em}
+.week-box li{margin:8px 0;font-size:.88em;line-height:1.45}
+
+/* cert badge */
+.cert-badge{display:inline-flex;align-items:center;gap:10px;
+  border:2px solid var(--ink);border-radius:8px;padding:12px 18px;
+  background:var(--paper-2);margin:8px 6px 8px 0;font-family:"JetBrains Mono",monospace}
+.cert-badge .cert-icon{font-size:1.5rem}
+.cert-badge .cert-info{}
+.cert-badge .cert-name{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.cert-badge .cert-code{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* roadmap timeline */
+.timeline{position:relative;padding-left:40px;margin:30px 0}
+.timeline::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;
+  width:3px;background:linear-gradient(to bottom,var(--green),var(--amber),var(--red));border-radius:99px}
+.tl-item{position:relative;margin-bottom:32px}
+.tl-item::before{content:"";position:absolute;left:-32px;top:6px;
+  width:16px;height:16px;border-radius:50%;border:3px solid var(--ink);background:var(--paper)}
+.tl-item.done::before{background:var(--green);border-color:var(--green)}
+.tl-item.active::before{background:var(--amber);border-color:var(--amber);
+  box-shadow:0 0 0 4px rgba(169,112,10,.25)}
+.tl-item .tl-date{font-family:"JetBrains Mono",monospace;font-size:11px;
+  font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.tl-item .tl-title{font-family:"Fraunces",serif;font-weight:700;font-size:1.15rem;margin-bottom:6px}
+.tl-item .tl-desc{font-size:.88em;color:var(--ink-soft);max-width:60ch;line-height:1.5}
+
+/* eng vocab box */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:20px 0}
+.vocab-item{border:1.5px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--paper-2)}
+.vocab-en{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--blue)}
+.vocab-vn{font-size:.85em;color:var(--ink-soft);margin-top:3px}
+.vocab-ex{font-size:.78em;color:var(--muted);margin-top:4px;font-style:italic}
+
+/* salary bar */
+.salary-bar{margin:12px 0}
+.salary-bar .sb-label{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;display:flex;
+  justify-content:space-between;align-items:center}
+.salary-bar .sb-track{height:16px;background:var(--paper-2);border:1.5px solid var(--line);
+  border-radius:999px;overflow:hidden}
+.salary-bar .sb-fill{height:100%;border-radius:999px;transition:width .5s}
+.sb-g{background:linear-gradient(to right,var(--green),#2aad63)}
+.sb-b{background:linear-gradient(to right,var(--blue),#2e8bc0)}
+.sb-a{background:linear-gradient(to right,var(--amber),#e0950e)}
+.sb-r{background:linear-gradient(to right,var(--red),#e0483a)}
+
+/* toc */
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:2px;
+  max-width:248px;padding:16px 14px;border:2px solid var(--ink);
+  background:rgba(244,241,233,.94);backdrop-filter:blur(7px);border-radius:10px;
+  box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;
+  color:var(--ink-soft);padding:6px 8px;border-radius:5px;line-height:1.25;
+  transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}
+.toc a.active{background:var(--ink);color:var(--paper)}
+.toc a.active .tn{color:var(--paper)}
+.toc a.active .tt{font-weight:600}
+@media(max-width:1200px){.toc{display:none}}
+
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;
+  font-size:clamp(1.5rem,3.4vw,2.6rem);line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+
+section{scroll-margin-top:74px}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+
+<!-- Watermark -->
+<div class="watermark" aria-hidden="true"></div>
+
+<!-- TOC -->
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-lbl">Mục lục</div>
+  <a href="#s0"><span class="tn">00</span><span class="tt">Tổng quan</span></a>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Chọn lộ trình</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">T1 · Nền tảng</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">T2 · Core Services</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">T3 · SAA Prep</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">T4 · Thi SAA</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">T5 · DevOps</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">T6 · Pro Level</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">English Track</span></a>
+  <a href="#s9"><span class="tn">09</span><span class="tt">Thị trường</span></a>
+</nav>
+
+<!-- Rail -->
+<header class="rail">
+  <div class="wrap">
+    <span class="brand">trungcln · AWS Roadmap</span>
+    <div class="legend">
+      <span class="chip c-green">Beginner</span>
+      <span class="chip c-amber">Intermediate</span>
+      <span class="chip c-red">Advanced</span>
+      <span class="chip c-blue">English Track</span>
+    </div>
+    <nav>
+      <a href="#s0">00</a><a href="#s1">01</a><a href="#s2">02</a>
+      <a href="#s3">03</a><a href="#s4">04</a><a href="#s5">05</a>
+      <a href="#s6">06</a><a href="#s7">07</a><a href="#s8">08</a>
+      <a href="#s9">09</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">AWS Expert Roadmap · 6 Months · 2026</div>
+    <h1>Từ <em>Beginner</em> Thành AWS Expert</h1>
+    <p class="lede">Lộ trình 6 tháng được thiết kế riêng cho người đang làm IT Operations tại môi trường AWS thật — kết hợp học tiếng Anh kỹ thuật song song từng ngày.</p>
+    <div class="meta-strip">
+      <span><b>Người học:</b> 3T · Japfa Vietnam</span>
+      <span><b>Bắt đầu:</b> 01/07/2026</span>
+      <span><b>Mục tiêu:</b> SAA-C03 + DevOps Pro Path</span>
+      <span><b>Thời gian/ngày:</b> 1–2 giờ</span>
+      <span><b>Môi trường thực hành:</b> jp:poc (AWS real)</span>
+      <span><b>Cập nhật:</b> 30/06/2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========= SECTION 00 ========= -->
+<section id="s0">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">00</span>
+      <div>
+        <h2>Bức Tranh <em>Tổng Quan</em></h2>
+        <p class="s-sub">Tại sao AWS? Tại sao bây giờ? Bạn đang ở đâu trong bản đồ này?</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="principle">
+      <div class="lbl">Quan điểm từ 20 năm kinh nghiệm</div>
+      <p>Người giỏi AWS không phải người nhớ nhiều lệnh nhất — mà là người <strong>hiểu WHY</strong> đằng sau mỗi dịch vụ. Học theo lộ trình này, bạn luôn biết mình đang học cái gì và để làm gì.</p>
+    </div>
+
+    <h3><span class="tick">§</span>Bạn đang ở đâu trong bản đồ AWS?</h3>
+    <p>Tin tốt: bạn không phải zero. Bạn đang <strong>quản lý hạ tầng AWS thật</strong> tại Japfa — 7 account, Production EC2/RDS, VPN, ALB, WAF. Đây là lợi thế khổng lồ so với người học từ sách.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n ok">7</div><div class="l">AWS Accounts<br>đang quản lý thật</div></div>
+      <div class="stat"><div class="n bl">247+</div><div class="l">AWS Services<br>hiện có (2026)</div></div>
+      <div class="stat"><div class="n am">12</div><div class="l">AWS Certs<br>từ Foundation → Specialty</div></div>
+      <div class="stat"><div class="n ok">6</div><div class="l">Tháng<br>để đạt Associate level</div></div>
+    </div>
+
+    <h3><span class="tick">§</span>Bức tranh hệ sinh thái AWS</h3>
+    <div class="dia"><span class="hd">                    AWS CERTIFICATION PATH — VỊ TRÍ BẠN SẼ ĐI QUA</span>
+
+<span class="mut">  ┌─────────────────────────────────────────────────────────┐</span>
+<span class="mut">  │              FOUNDATION (không bắt buộc)                │</span>
+<span class="mut">  │  ☁️  Cloud Practitioner CLF-C02 · 1 tháng · ~$100       │</span>
+<span class="mut">  └───────────────────────┬─────────────────────────────────┘</span>
+                          │
+<span class="hd">  ┌───────────────────────▼─────────────────────────────────┐</span>
+<span class="good">  │              ASSOCIATE LEVEL ← BẠN SẼ ĐẾN ĐÂY          │</span>
+<span class="hd">  │                                                         │</span>
+<span class="good">  │  ⭐ Solutions Architect (SAA-C03)  ← ƯU TIÊN SỐ 1       │</span>
+<span class="hd">  │  🔧 SysOps Administrator (SOA-C02) ← Phù hợp IT Ops    │</span>
+<span class="mut">  │  💻 Developer Associate (DVA-C02)  ← Nếu muốn code     │</span>
+<span class="hd">  └───────────────────────┬─────────────────────────────────┘</span>
+                          │
+<span class="hd">  ┌───────────────────────▼─────────────────────────────────┐</span>
+<span class="am">  │              PROFESSIONAL LEVEL ← 12-18 THÁNG           │</span>
+<span class="hd">  │                                                         │</span>
+<span class="am">  │  🏗️  Solutions Architect Pro (SAP-C02) · ~$300          │</span>
+<span class="am">  │  ⚙️  DevOps Engineer Pro (DOP-C02)    · ~$300           │</span>
+<span class="hd">  └───────────────────────┬─────────────────────────────────┘</span>
+                          │
+<span class="hd">  ┌───────────────────────▼─────────────────────────────────┐</span>
+<span class="bad">  │              SPECIALTY · Chuyên gia thật sự              │</span>
+<span class="hd">  │                                                         │</span>
+<span class="bad">  │  🌐 Advanced Networking (ANS-C01) ← Phù hợp VPN/BGP     │</span>
+<span class="bad">  │  🔒 Security (SCS-C02)                                  │</span>
+<span class="bad">  │  🗄️  Database (DBS-C01)                                  │</span>
+<span class="hd">  └─────────────────────────────────────────────────────────┘</span>
+
+  <span class="good">★ SAA-C03 = cánh cửa mở ra tất cả — đây là cert QUAN TRỌNG nhất</span></div>
+
+    <h3><span class="tick">§</span>Lộ trình tổng thể 6 tháng</h3>
+    <div class="timeline">
+      <div class="tl-item active">
+        <div class="tl-date">Tháng 1 · Tháng 7/2026</div>
+        <div class="tl-title">Nền tảng Cloud — "Hiểu đất dưới chân"</div>
+        <div class="tl-desc">IAM, EC2, S3, VPC basics. 10 thuật ngữ tiếng Anh/ngày. Đọc được Japfa architecture.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tháng 2 · Tháng 8/2026</div>
+        <div class="tl-title">Core Services — "Biết đủ dùng"</div>
+        <div class="tl-desc">RDS, ELB, Auto Scaling, CloudWatch, Route 53. Có thể describe toàn bộ Japfa prod.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tháng 3 · Tháng 9/2026</div>
+        <div class="tl-title">SAA-C03 Preparation — "Ôn thi chuyên sâu"</div>
+        <div class="tl-desc">Architecture patterns, HA/DR, Security, Cost. Practice exam 80%+.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tháng 4 · Tháng 10/2026</div>
+        <div class="tl-title">✅ THI SAA-C03 + Operations Track</div>
+        <div class="tl-desc">Thi chứng chỉ. Bắt đầu CloudTrail, Config, SSM, advanced monitoring.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tháng 5 · Tháng 11/2026</div>
+        <div class="tl-title">DevOps & Automation — "Làm việc như engineer"</div>
+        <div class="tl-desc">Terraform deep, CloudFormation, CodePipeline, ECS. Automate 1 quy trình Japfa.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tháng 6 · Tháng 12/2026</div>
+        <div class="tl-title">Professional Path — "Dẫn dắt kiến trúc"</div>
+        <div class="tl-desc">Multi-account, advanced networking, security governance. Quyết định cert tiếp theo.</div>
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 01 ========= -->
+<section id="s1">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">01</span>
+      <div>
+        <h2>Chọn <em>Lộ Trình</em> Đúng</h2>
+        <p class="s-sub">SAA vs DevOps vs SysOps vs Networking — Phân tích thật sự từ góc nhìn thị trường</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <h3><span class="tick">§</span>Phân tích 4 lộ trình phổ biến</h3>
+    <table>
+      <tr>
+        <th>Lộ trình</th>
+        <th>Cert đầu tiên</th>
+        <th>Phù hợp với ai</th>
+        <th>Lương VN (2026)</th>
+        <th>Phù hợp 3T</th>
+      </tr>
+      <tr>
+        <td><b>Solutions Architect</b><br><span class="pill p-ok">KHUYẾN NGHỊ</span></td>
+        <td>SAA-C03</td>
+        <td>IT Ops, người muốn thiết kế hệ thống, quản lý infra</td>
+        <td>25–45M/tháng (mid)<br>50–80M/tháng (senior)</td>
+        <td><span class="pill p-ok">PHÙ HỢP NHẤT</span></td>
+      </tr>
+      <tr>
+        <td><b>DevOps Engineer</b></td>
+        <td>SAA-C03 → DOP-C02</td>
+        <td>Người có coding, muốn CI/CD, automation</td>
+        <td>30–50M/tháng (mid)<br>60–100M/tháng (senior)</td>
+        <td><span class="pill p-am">Cần học Python thêm</span></td>
+      </tr>
+      <tr>
+        <td><b>SysOps Admin</b></td>
+        <td>SOA-C02</td>
+        <td>IT Ops thuần, monitoring, security, backup</td>
+        <td>20–35M/tháng</td>
+        <td><span class="pill p-am">Tốt nhưng lương thấp hơn</span></td>
+      </tr>
+      <tr>
+        <td><b>Advanced Networking</b></td>
+        <td>SAA → ANS-C01</td>
+        <td>Network engineer, VPN, BGP, hybrid cloud</td>
+        <td>40–70M/tháng (hiếm)</td>
+        <td><span class="pill p-bl">Phù hợp, nhưng làm sau T6</span></td>
+      </tr>
+    </table>
+
+    <div class="principle">
+      <div class="lbl">Khuyến nghị cuối cùng</div>
+      <p><strong>SAA-C03 trước tiên → DevOps Pro sau.</strong> SAA là "passport" mở cửa tất cả. Rồi từ background VPN/networking của bạn, ANS-C01 là specialty hiếm và lương cao nhất ở VN. Đừng bỏ qua SAA để chạy thẳng DevOps — thiếu nền tảng sẽ rất khó.</p>
+    </div>
+
+    <h3><span class="tick">§</span>So sánh thị trường việc làm VN 2026</h3>
+    <div class="salary-bar">
+      <div class="sb-label"><span>Cloud Practitioner (CLF)</span><span>8–15M/tháng</span></div>
+      <div class="sb-track"><div class="sb-fill sb-g" style="width:20%"></div></div>
+    </div>
+    <div class="salary-bar">
+      <div class="sb-label"><span>Solutions Architect Associate (SAA)</span><span>20–40M/tháng</span></div>
+      <div class="sb-track"><div class="sb-fill sb-b" style="width:42%"></div></div>
+    </div>
+    <div class="salary-bar">
+      <div class="sb-label"><span>SysOps / Developer Associate</span><span>18–35M/tháng</span></div>
+      <div class="sb-track"><div class="sb-fill sb-g" style="width:38%"></div></div>
+    </div>
+    <div class="salary-bar">
+      <div class="sb-label"><span>DevOps / Architect Professional</span><span>40–80M/tháng</span></div>
+      <div class="sb-track"><div class="sb-fill sb-a" style="width:65%"></div></div>
+    </div>
+    <div class="salary-bar">
+      <div class="sb-label"><span>Networking / Security Specialty</span><span>50–100M/tháng</span></div>
+      <div class="sb-track"><div class="sb-fill sb-r" style="width:80%"></div></div>
+    </div>
+
+    <div class="proof">
+      <span class="k am">TIP</span>
+      <div class="v"><p>Công ty VN tuyển AWS nhất: FPT, VNG, Tiki, MoMo, VNPT, Viettel, các công ty nước ngoài (Samsung, LG, Bosch...). <strong>SAA-C03 là cert được yêu cầu nhiều nhất</strong> trong JD tuyển dụng tại VN năm 2026.</p></div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 02 ========= -->
+<section id="s2">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">02</span>
+      <div>
+        <h2>Tháng 1 <em>· Nền Tảng</em></h2>
+        <p class="s-sub">Tháng 7/2026 · Cloud Foundations — Hiểu đất dưới chân</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m1">
+      <div class="month-header">
+        <div class="month-num">T1</div>
+        <div class="month-info">
+          <h4>Cloud Foundations</h4>
+          <div class="month-sub">Beginner · Zero to Basic</div>
+          <div class="month-date">01/07/2026 → 31/07/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-green">🎯 Milestone: Hiểu Japfa architecture từ A→Z</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <p><strong>Mục tiêu cuối tháng:</strong> Bạn có thể <em>giải thích được Japfa AWS architecture</em> cho người khác nghe — EC2 là gì, VPC là gì, tại sao có ALB, Security Group hoạt động thế nào.</p>
+
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">Tuần 1 · 01–07/07</div>
+            <ul>
+              <li>☁️ Cloud là gì? On-premises vs Cloud</li>
+              <li>🌍 AWS Global: Region, AZ, Edge Location</li>
+              <li>🔑 IAM: User, Group, Role, Policy</li>
+              <li>🖥️ EC2: Instance, AMI, Security Group</li>
+              <li>📖 English: 10 terms/ngày (xem Section 08)</li>
+              <li>🏋️ Thực hành: Login Console, tạo IAM User</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 2 · 08–14/07</div>
+            <ul>
+              <li>📦 S3: Bucket, Object, Storage class, Policy</li>
+              <li>🌐 VPC: Subnet public/private, Route Table</li>
+              <li>🛡️ Security Group vs NACL</li>
+              <li>🔌 Internet Gateway, NAT Gateway</li>
+              <li>📖 English: Đọc 1 AWS Blog post/ngày</li>
+              <li>🏋️ Thực hành: Tạo VPC, launch EC2</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 3 · 15–21/07</div>
+            <ul>
+              <li>💾 EBS: Volume type, Snapshot, Encryption</li>
+              <li>⚖️ ELB: ALB vs NLB vs CLB</li>
+              <li>📊 CloudWatch: Metrics, Logs, Alarms</li>
+              <li>🏷️ Tags, Billing, Cost Explorer</li>
+              <li>📖 English: AWS Glossary 20 terms</li>
+              <li>🏋️ Thực hành: Tạo ALB, gắn EC2 target</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 4 · 22–31/07</div>
+            <ul>
+              <li>🗺️ Vẽ lại Japfa architecture từ đầu</li>
+              <li>📝 Giải thích từng service Japfa đang dùng</li>
+              <li>🔍 Đọc: describe-instances, describe-vpcs</li>
+              <li>✅ Quiz: AWS Cloud Practitioner Essentials</li>
+              <li>📖 English: Practice reading AWS docs</li>
+              <li>🏋️ Review lại tuần 1–3, chỗ nào chưa chắc</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3><span class="tick">§</span>Tài liệu học Tháng 1</h3>
+        <table>
+          <tr>
+            <th>Tài liệu</th>
+            <th>Link/Nguồn</th>
+            <th>Thời gian</th>
+            <th>Ghi chú</th>
+          </tr>
+          <tr>
+            <td><b>AWS Cloud Practitioner Essentials</b></td>
+            <td>AWS Skill Builder (miễn phí)</td>
+            <td>~6 giờ</td>
+            <td><span class="pill p-ok">BẮT ĐẦU Ở ĐÂY</span></td>
+          </tr>
+          <tr>
+            <td><b>AWS Getting Started</b></td>
+            <td>aws.amazon.com/getting-started</td>
+            <td>Tự học</td>
+            <td>Đọc theo thứ tự service</td>
+          </tr>
+          <tr>
+            <td><b>YouTube: freeCodeCamp AWS Practitioner</b></td>
+            <td>YouTube · Andrew Brown</td>
+            <td>~13 giờ</td>
+            <td>Free, tiếng Anh, có phụ đề</td>
+          </tr>
+          <tr>
+            <td><b>Tutorials Dojo — CLF Practice</b></td>
+            <td>tutorialsdojo.com</td>
+            <td>Lúc rảnh</td>
+            <td>Test thử câu hỏi cuối tuần 4</td>
+          </tr>
+        </table>
+
+        <div class="term">
+          <div class="term-bar">
+            <div class="d r"></div><div class="d y"></div><div class="d g"></div>
+            <span class="tag">Lệnh thực hành Tháng 1 · jp:poc</span>
+          </div>
+          <pre><span class="dim"># Xem tất cả EC2 instances trong account poc</span>
+<span class="cmd">aws ec2 describe-instances --profile jp:poc --output table</span>
+
+<span class="dim"># Xem VPC đang có</span>
+<span class="cmd">aws ec2 describe-vpcs --profile jp:poc --output table</span>
+
+<span class="dim"># Xem Security Groups</span>
+<span class="cmd">aws ec2 describe-security-groups --profile jp:poc --output table</span>
+
+<span class="dim"># Xem S3 buckets</span>
+<span class="cmd">aws s3 ls --profile jp:poc</span>
+
+<span class="good"># Đây là những lệnh 🟢 CHỈ ĐỌC — an toàn tuyệt đối</span></pre>
+        </div>
+
+        <div class="proof">
+          <span class="k ok">MỤC TIÊU</span>
+          <div class="v"><p>Cuối tháng 1: Bạn nhìn vào Console AWS và biết: "cái này là gì, nó làm gì, tại sao Japfa dùng nó." Không cần thuộc lòng mọi thứ — cần hiểu <strong>tư duy cloud</strong>.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 03 ========= -->
+<section id="s3">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">03</span>
+      <div>
+        <h2>Tháng 2 <em>· Core Services</em></h2>
+        <p class="s-sub">Tháng 8/2026 · Đào sâu dịch vụ cốt lõi — "Biết đủ để làm việc"</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m2">
+      <div class="month-header">
+        <div class="month-num">T2</div>
+        <div class="month-info">
+          <h4>Core Services Deep Dive</h4>
+          <div class="month-sub">Intermediate · Hands-on Production</div>
+          <div class="month-date">01/08/2026 → 31/08/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-amber">🎯 Milestone: Describe toàn bộ Japfa prod</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <p><strong>Mục tiêu cuối tháng:</strong> Bạn có thể <em>mô tả chính xác</em> từng tầng hạ tầng Japfa, biết tại sao Oracle RDS chọn Multi-AZ, tại sao WAF đứng trước ALB, Auto Scaling hoạt động ra sao.</p>
+
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">Tuần 5 · RDS & Database</div>
+            <ul>
+              <li>🗄️ RDS: Engine, Multi-AZ, Read Replica</li>
+              <li>🔄 Backup, Restore, Snapshot</li>
+              <li>🔒 Encryption at rest, in transit</li>
+              <li>📊 RDS Monitoring, CloudWatch metrics</li>
+              <li>🏋️ Thực hành: Xem Japfa RDS Oracle config</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 6 · Compute & Scaling</div>
+            <ul>
+              <li>📈 Auto Scaling Group: Policy, Cooldown</li>
+              <li>⚖️ ALB deep: Target Group, Health Check</li>
+              <li>🖼️ AMI: Create, Share, Copy cross-account</li>
+              <li>💡 EC2 instance types: families & use cases</li>
+              <li>🏋️ Thực hành: Phân tích ALB Japfa prod</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 7 · Networking Advanced</div>
+            <ul>
+              <li>🌐 VPC Peering vs Transit Gateway</li>
+              <li>🔐 VPN: Site-to-Site (giống Japfa LA/HC!)</li>
+              <li>🛣️ Route 53: DNS, Routing policies</li>
+              <li>🌍 CloudFront: CDN, Origin, Behaviors</li>
+              <li>🏋️ Thực hành: Kiểm tra TGW Japfa network</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 8 · Security & Monitoring</div>
+            <ul>
+              <li>🔒 AWS WAF: Rules, Rule groups (Japfa dùng!)</li>
+              <li>👁️ CloudTrail: Event history, S3 log delivery</li>
+              <li>🛡️ Security Hub: Findings, Standards</li>
+              <li>📊 CloudWatch: Dashboard, Composite alarm</li>
+              <li>🏋️ Thực hành: Đọc CloudTrail events thật</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3><span class="tick">§</span>Học bằng hạ tầng thật — Lợi thế của bạn</h3>
+        <div class="proof">
+          <span class="k ok">LỢI THẾ</span>
+          <div class="v"><p>Bạn có thể dùng hạ tầng Japfa thật để học. Khi học về VPN Site-to-Site — bạn đã có Japfa Long An ↔ HC tunnel thật để kiểm tra. Khi học WAF — có WAF prod thật để đọc rules. Đây là điều mà 90% người học AWS không có.</p></div>
+        </div>
+
+        <div class="term">
+          <div class="term-bar">
+            <div class="d r"></div><div class="d y"></div><div class="d g"></div>
+            <span class="tag">Lệnh thực hành Tháng 2 · Đọc Japfa thật</span>
+          </div>
+          <pre><span class="dim"># Xem RDS instances (jp:prod — chỉ đọc)</span>
+<span class="cmd">aws rds describe-db-instances --profile jp:prod --output table</span>
+
+<span class="dim"># Xem ALB và target groups</span>
+<span class="cmd">aws elbv2 describe-load-balancers --profile jp:prod --output table</span>
+<span class="cmd">aws elbv2 describe-target-groups --profile jp:prod --output table</span>
+
+<span class="dim"># Xem Transit Gateway (jp:network)</span>
+<span class="cmd">aws ec2 describe-transit-gateways --profile jp:network --output table</span>
+
+<span class="dim"># Xem VPN connections</span>
+<span class="cmd">aws ec2 describe-vpn-connections --profile jp:network --output table</span>
+
+<span class="good"># Tất cả 🟢 CHỈ ĐỌC · Không thay đổi gì cả</span></pre>
+        </div>
+
+        <h3><span class="tick">§</span>Sơ đồ liên kết dịch vụ — học theo hệ thống</h3>
+        <div class="dia"><span class="hd">  JAPFA PRODUCTION ARCHITECTURE — BẠN SẼ HIỂU HẾT SAU THÁNG 2</span>
+
+  Internet
+       │
+       ▼
+  <span class="good">[AWS WAF]</span>               ← Học Tuần 8: Rules, rate limiting, SQL injection block
+       │
+       ▼
+  <span class="good">[API Gateway / ALB]</span>     ← Học Tuần 6: Target group, health check, routing
+       │
+       ▼
+  <span class="good">[EC2: S250-Webapps]</span>     ← Học Tuần 1+6: Instance type, AMI, Auto Scaling
+       │
+       ├──────────────────────────────────┐
+       ▼                                  ▼
+  <span class="am">[RDS Oracle Multi-AZ]</span>         <span class="am">[EBS Volumes]</span>
+  ← Học Tuần 5: backup, failover    ← Học Tháng 1: snapshot, encryption
+       │
+       ├────────────────┐
+       ▼                ▼
+  <span class="bad">[VPN LA Primary]</span>   <span class="bad">[VPN HC Backup]</span>   ← Học Tuần 7: Site-to-Site VPN
+       │                │
+  <span class="mut">[FortiGate LA]</span>    <span class="mut">[FortiGate HC]</span>    ← BGP 65000 (on-prem, không quản lý từ AWS)</span></div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 04 ========= -->
+<section id="s4">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">04</span>
+      <div>
+        <h2>Tháng 3 <em>· SAA Prep</em></h2>
+        <p class="s-sub">Tháng 9/2026 · Ôn thi chuyên sâu SAA-C03</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m3">
+      <div class="month-header">
+        <div class="month-num">T3</div>
+        <div class="month-info">
+          <h4>SAA-C03 Preparation</h4>
+          <div class="month-sub">Intermediate → Advanced</div>
+          <div class="month-date">01/09/2026 → 30/09/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-red">🎯 Milestone: Practice exam 80%+</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <p><strong>Mục tiêu cuối tháng:</strong> Đạt <strong>80%+</strong> trong practice exam của Tutorials Dojo. SAA-C03 thi pass score là 720/1000 (~72%). Target của bạn: 85%+.</p>
+
+        <h3><span class="tick">§</span>4 domain chính của SAA-C03</h3>
+        <table>
+          <tr>
+            <th>Domain</th>
+            <th>Trọng số</th>
+            <th>Key topics</th>
+            <th>Liên quan Japfa</th>
+          </tr>
+          <tr>
+            <td><b>Domain 1</b><br>Design Resilient Architectures</td>
+            <td><span class="pill p-bad">26%</span></td>
+            <td>Multi-AZ, Multi-Region, Failover, ELB, Auto Scaling, S3 replication</td>
+            <td>RDS Multi-AZ, ALB, VPN failover LA→HC</td>
+          </tr>
+          <tr>
+            <td><b>Domain 2</b><br>Design High Performing Architectures</td>
+            <td><span class="pill p-am">24%</span></td>
+            <td>Caching (ElastiCache), CDN (CloudFront), EC2 placement groups, EBS types</td>
+            <td>EC2 sizing, EBS gp3</td>
+          </tr>
+          <tr>
+            <td><b>Domain 3</b><br>Design Secure Applications</td>
+            <td><span class="pill p-bad">30%</span></td>
+            <td>IAM roles/policies, KMS, SSL/TLS, WAF, Shield, Security Hub, GuardDuty</td>
+            <td>WAF, Security Hub, IAM (đã dùng!)</td>
+          </tr>
+          <tr>
+            <td><b>Domain 4</b><br>Design Cost-Optimized Architectures</td>
+            <td><span class="pill p-ok">20%</span></td>
+            <td>Reserved vs On-demand vs Spot, S3 storage class, Cost Explorer</td>
+            <td>Billing optimization</td>
+          </tr>
+        </table>
+
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">Tuần 9 · Resilient Architecture</div>
+            <ul>
+              <li>Multi-AZ vs Multi-Region design</li>
+              <li>RTO / RPO — Disaster Recovery strategies</li>
+              <li>S3 Cross-Region Replication</li>
+              <li>Global Accelerator vs CloudFront</li>
+              <li>🏋️ Thiết kế DR plan cho Japfa</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 10 · Performance</div>
+            <ul>
+              <li>ElastiCache: Redis vs Memcached</li>
+              <li>EC2 instance families deep dive</li>
+              <li>EBS: gp3, io2, sc1, st1 — chọn khi nào?</li>
+              <li>Aurora vs RDS — khi nào dùng cái nào</li>
+              <li>🏋️ Practice 50 câu domain 2</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 11 · Security Deep</div>
+            <ul>
+              <li>IAM: Trust policy, Resource policy, SCP</li>
+              <li>KMS: CMK, key rotation, data key</li>
+              <li>VPC: Security Group vs NACL — stateful vs stateless</li>
+              <li>WAF: Rule types, rate-based, managed rules</li>
+              <li>🏋️ Practice 50 câu domain 3</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 12 · Full Practice</div>
+            <ul>
+              <li>💯 Full practice exam 65 câu (Tutorials Dojo)</li>
+              <li>Review câu sai — đọc explanation kỹ</li>
+              <li>Flashcard: 100 key concepts</li>
+              <li>Ôn lại các điểm yếu</li>
+              <li>🎯 Target: ≥80% trong tất cả practice mode</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3><span class="tick">§</span>Tài liệu ôn thi SAA-C03</h3>
+        <table>
+          <tr>
+            <th>Tài liệu</th>
+            <th>Chi phí</th>
+            <th>Ghi chú</th>
+          </tr>
+          <tr>
+            <td><b>Tutorials Dojo — SAA Practice Exams</b></td>
+            <td>~$15 USD</td>
+            <td><span class="pill p-ok">BẮT BUỘC</span> · Giải thích rất chi tiết</td>
+          </tr>
+          <tr>
+            <td><b>Stephane Maarek — Ultimate AWS SAA</b></td>
+            <td>~$20 USD (Udemy)</td>
+            <td>Khóa học video tốt nhất, mua khi giảm giá</td>
+          </tr>
+          <tr>
+            <td><b>AWS Official Exam Guide</b></td>
+            <td>Miễn phí</td>
+            <td>Download từ aws.amazon.com/certification</td>
+          </tr>
+          <tr>
+            <td><b>AWS Whitepapers</b></td>
+            <td>Miễn phí</td>
+            <td>Well-Architected Framework — đọc bắt buộc</td>
+          </tr>
+        </table>
+
+        <div class="proof">
+          <span class="k am">CẢNH BÁO</span>
+          <div class="v"><p>SAA-C03 không thi về lệnh CLI cụ thể — thi về <strong>thiết kế giải pháp</strong>. Câu hỏi kiểu: "Khách hàng cần HA với RTO 4 giờ và RPO 1 giờ — giải pháp nào?" Học tư duy, không học thuộc lệnh.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 05 ========= -->
+<section id="s5">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">05</span>
+      <div>
+        <h2>Tháng 4 <em>· Thi SAA</em></h2>
+        <p class="s-sub">Tháng 10/2026 · ✅ Lấy chứng chỉ SAA-C03 + bắt đầu Operations</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m4">
+      <div class="month-header">
+        <div class="month-num">T4</div>
+        <div class="month-info">
+          <h4>SAA-C03 Exam Month</h4>
+          <div class="month-sub">Exam + Operations Track Start</div>
+          <div class="month-date">01/10/2026 → 31/10/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-red">🎯 Milestone: ✅ SAA-C03 certified!</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <h3><span class="tick">§</span>Tuần 13 — Ôn thi lần cuối + Đăng ký thi</h3>
+
+        <table>
+          <tr>
+            <th>Ngày</th>
+            <th>Việc cần làm</th>
+          </tr>
+          <tr>
+            <td>Tuần 13 (1–7/10)</td>
+            <td><b>Full review</b> · Practice exam 2 lần, review câu sai, flashcard 100 key concepts, nghỉ ngơi tốt</td>
+          </tr>
+          <tr>
+            <td>Tuần 13 (đặt lịch)</td>
+            <td><b>Đăng ký thi:</b> pearsonvue.com → AWS SAA-C03 · Chọn Online Proctored hoặc Test Center HN/HCM · Lệ phí: $150 USD (~3.8M VND)</td>
+          </tr>
+          <tr>
+            <td>Tuần 14 (8–14/10)</td>
+            <td><b>THI SAA-C03</b> · 65 câu · 130 phút · Pass = 720/1000 · KQ biết ngay sau khi thi</td>
+          </tr>
+          <tr>
+            <td>Tuần 14–16 (sau thi)</td>
+            <td><b>Bắt đầu Operations Track:</b> CloudTrail, AWS Config, Systems Manager, SSM Parameter Store</td>
+          </tr>
+        </table>
+
+        <div class="principle">
+          <div class="lbl">Mẹo thi SAA-C03</div>
+          <p>Đọc kỹ mỗi câu hỏi — tìm từ khóa: <strong>"cost-effective"</strong> → chọn Reserved/Spot; <strong>"high availability"</strong> → Multi-AZ; <strong>"scalable"</strong> → Auto Scaling; <strong>"secure"</strong> → IAM Role, not Access Key. Loại trừ câu sai trước khi chọn câu đúng.</p>
+        </div>
+
+        <h3><span class="tick">§</span>Sau khi thi xong — Operations Track</h3>
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">CloudTrail & Config</div>
+            <ul>
+              <li>CloudTrail: Event history, Management Events</li>
+              <li>AWS Config: Rules, Conformance Packs</li>
+              <li>CloudTrail → S3 → Athena query</li>
+              <li>🏋️ Đọc CloudTrail events Japfa thật</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Systems Manager</div>
+            <ul>
+              <li>SSM Session Manager: không cần SSH key!</li>
+              <li>Parameter Store: secrets management</li>
+              <li>Patch Manager: quản lý Windows updates</li>
+              <li>Run Command: chạy lệnh không cần login</li>
+              <li>🏋️ Connect SSM vào EC2 Japfa (thử jp:poc)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proof">
+          <span class="k ok">SAU KHI PASS</span>
+          <div class="v"><p>✅ Khi có SAA-C03: cập nhật LinkedIn, ghi vào CV. Lúc này bạn đã ở top 15% IT ops tại VN có AWS cert. Mức lương có thể tăng <strong>30–50%</strong> so với trước khi có cert.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 06 ========= -->
+<section id="s6">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">06</span>
+      <div>
+        <h2>Tháng 5 <em>· DevOps</em></h2>
+        <p class="s-sub">Tháng 11/2026 · Automation & Infrastructure as Code</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m5">
+      <div class="month-header">
+        <div class="month-num">T5</div>
+        <div class="month-info">
+          <h4>DevOps & Automation</h4>
+          <div class="month-sub">Advanced · IaC · CI/CD</div>
+          <div class="month-date">01/11/2026 → 30/11/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-blue">🎯 Milestone: Automate 1 quy trình Japfa</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <p><strong>Mục tiêu cuối tháng:</strong> Bạn có thể viết <em>Terraform cơ bản</em>, hiểu CI/CD pipeline, và đã tự động hóa được ít nhất 1 quy trình thủ công tại Japfa.</p>
+
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">Tuần 17 · Terraform Deep</div>
+            <ul>
+              <li>Bạn đang dùng Terraform rồi — đào sâu hơn</li>
+              <li>Modules: tạo reusable module</li>
+              <li>Remote state: S3 + DynamoDB lock</li>
+              <li>terraform import: sync existing resources</li>
+              <li>🏋️ Import 1 resource Japfa vào TF state</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 18 · CloudFormation</div>
+            <ul>
+              <li>Templates: YAML format, Parameters, Outputs</li>
+              <li>Stacks vs StackSets (Japfa dùng StackSets!)</li>
+              <li>Drift detection</li>
+              <li>cfn-lint: validate trước khi deploy</li>
+              <li>🏋️ Đọc StackSets Japfa đang dùng</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 19 · CI/CD Pipeline</div>
+            <ul>
+              <li>CodeCommit: Git trên AWS</li>
+              <li>CodeBuild: Build, test, Buildspec.yml</li>
+              <li>CodeDeploy: Deploy to EC2, Lambda</li>
+              <li>CodePipeline: Orchestrate CI/CD</li>
+              <li>🏋️ Tạo pipeline nhỏ trên jp:poc</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 20 · Lambda & EventBridge</div>
+            <ul>
+              <li>Lambda: Serverless function, triggers</li>
+              <li>EventBridge: Rules, Schedules, API Destination</li>
+              <li>SNS: Notifications, Topics, Subscriptions</li>
+              <li>SQS: Queue, DLQ, FIFO</li>
+              <li>🏋️ Tạo Lambda alert Teams tự động</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3><span class="tick">§</span>Dự án thực hành cuối tháng 5</h3>
+        <div class="principle">
+          <div class="lbl">Dự án thực tế</div>
+          <p>Tạo <strong>Lambda + EventBridge + SNS → Teams notification</strong> khi có EC2 instance nào đó stop/start trong jp:prod. Dùng Python 10 dòng. Đây là feature Japfa thực sự cần — làm xong là có giá trị ngay.</p>
+        </div>
+
+        <div class="term">
+          <div class="term-bar">
+            <div class="d r"></div><div class="d y"></div><div class="d g"></div>
+            <span class="tag">Python cơ bản cho Lambda · Học song song</span>
+          </div>
+          <pre><span class="dim"># Lambda function gửi Teams notification khi EC2 state change</span>
+<span class="cmd">import json, urllib.request</span>
+
+<span class="cmd">def lambda_handler(event, context):</span>
+<span class="cmd">    instance_id = event['detail']['instance-id']</span>
+<span class="cmd">    state = event['detail']['state']</span>
+<span class="cmd">    msg = f"⚠️ EC2 {instance_id} → {state}"</span>
+<span class="cmd">    </span>
+<span class="dim">    # Gửi Teams webhook (10 dòng!)</span>
+<span class="cmd">    payload = json.dumps({"text": msg}).encode()</span>
+<span class="cmd">    req = urllib.request.Request(WEBHOOK_URL, payload)</span>
+<span class="cmd">    urllib.request.urlopen(req)</span>
+
+<span class="good"># Python beginner level — đọc được ngay sau 1 tuần học cơ bản</span></pre>
+        </div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 07 ========= -->
+<section id="s7">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">07</span>
+      <div>
+        <h2>Tháng 6 <em>· Pro Level</em></h2>
+        <p class="s-sub">Tháng 12/2026 · Kiến trúc chuyên nghiệp & Định hướng tiếp theo</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="month-card month-m6">
+      <div class="month-header">
+        <div class="month-num">T6</div>
+        <div class="month-info">
+          <h4>Professional Path</h4>
+          <div class="month-sub">Advanced · Architecture · Multi-Account</div>
+          <div class="month-date">01/12/2026 → 31/12/2026</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip c-green">🎯 Milestone: Dẫn dắt 1 architecture decision</span>
+        </div>
+      </div>
+      <div class="month-body">
+
+        <p><strong>Mục tiêu cuối tháng:</strong> Bạn có thể <em>dẫn dắt</em> một cuộc thảo luận về kiến trúc AWS tại Japfa, đề xuất cải thiện với impact/cost/risk rõ ràng, và chọn được cert tiếp theo phù hợp.</p>
+
+        <div class="week-grid">
+          <div class="week-box">
+            <div class="week-title">Tuần 21 · Multi-Account Strategy</div>
+            <ul>
+              <li>AWS Organizations: OU, SCP — Japfa thật!</li>
+              <li>Control Tower: Landing Zone, Guardrails</li>
+              <li>AWS SSO / IAM Identity Center</li>
+              <li>RAM: Resource Access Manager</li>
+              <li>🏋️ Vẽ lại Japfa Org structure từ kiến thức</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 22 · Advanced Networking</div>
+            <ul>
+              <li>Transit Gateway: deep dive routing</li>
+              <li>Direct Connect: thay VPN cho enterprise</li>
+              <li>Network Firewall: stateful inspection</li>
+              <li>VPC Lattice: service-to-service</li>
+              <li>🏋️ Phân tích TGW routing Japfa</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 23 · Security Governance</div>
+            <ul>
+              <li>AWS Config: Conformance Packs, remediation</li>
+              <li>Security Hub: Standards, CSPM</li>
+              <li>GuardDuty: Threat detection</li>
+              <li>Macie: S3 data classification</li>
+              <li>🏋️ Đọc Security Hub findings Japfa</li>
+            </ul>
+          </div>
+          <div class="week-box">
+            <div class="week-title">Tuần 24 · Định hướng 2027</div>
+            <ul>
+              <li>📊 Review: bạn đã học được gì 6 tháng qua?</li>
+              <li>🎯 Chọn cert tiếp theo (xem bảng bên dưới)</li>
+              <li>💼 Update CV, LinkedIn</li>
+              <li>📝 Viết architecture proposal cho Japfa</li>
+              <li>🎉 Ăn mừng — bạn đã đi được rất xa!</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3><span class="tick">§</span>Chọn cert tiếp theo sau T6</h3>
+        <table>
+          <tr>
+            <th>Cert tiếp theo</th>
+            <th>Phù hợp nếu</th>
+            <th>Lương tăng</th>
+            <th>Thời gian</th>
+          </tr>
+          <tr>
+            <td><b>DevOps Engineer Pro (DOP-C02)</b></td>
+            <td>Muốn CI/CD, automation, pipeline</td>
+            <td>+40–60%</td>
+            <td>3–4 tháng</td>
+          </tr>
+          <tr>
+            <td><b>Advanced Networking (ANS-C01)</b></td>
+            <td>Background VPN/BGP/FortiGate — PHÙ HỢP NHẤT</td>
+            <td>+50–80%</td>
+            <td>3–4 tháng</td>
+          </tr>
+          <tr>
+            <td><b>Security Specialty (SCS-C02)</b></td>
+            <td>Đang làm Security Hub, WAF, GuardDuty</td>
+            <td>+40–70%</td>
+            <td>3–4 tháng</td>
+          </tr>
+          <tr>
+            <td><b>Solutions Architect Pro (SAP-C02)</b></td>
+            <td>Muốn làm senior architect</td>
+            <td>+60–100%</td>
+            <td>4–6 tháng</td>
+          </tr>
+        </table>
+
+        <div class="proof">
+          <span class="k ok">KHUYẾN NGHỊ</span>
+          <div class="v"><p>Với background VPN/BGP của bạn tại Japfa, <strong>ANS-C01 (Advanced Networking Specialty)</strong> là lựa chọn tốt nhất cho cert thứ 2. Đây là cert hiếm nhất ở VN (~200 người), nhưng demand rất cao từ telco, banking, và các công ty enterprise. Lương cao hơn cả DevOps Pro trong nhiều trường hợp.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 08 ========= -->
+<section id="s8">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">08</span>
+      <div>
+        <h2>English <em>Track</em></h2>
+        <p class="s-sub">Học tiếng Anh kỹ thuật song song — 10 phút mỗi ngày, mỗi tuần 1 chủ đề</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <div class="principle">
+      <div class="lbl">Nguyên tắc học tiếng Anh kỹ thuật</div>
+      <p>Không cần nói tiếng Anh trôi chảy để làm AWS expert. Cần <strong>đọc được documentation</strong>, <strong>hiểu error messages</strong>, và <strong>giao tiếp được qua email/chat</strong>. Tập trung vào technical English, không phải conversation.</p>
+    </div>
+
+    <h3><span class="tick">§</span>Vocab cơ bản — AWS Core Terms</h3>
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vocab-en">instance</div>
+        <div class="vocab-vn">= máy chủ ảo (server)</div>
+        <div class="vocab-ex">"Launch an EC2 instance" = Khởi động 1 máy chủ EC2</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">provision</div>
+        <div class="vocab-vn">= cấp phát / khởi tạo tài nguyên</div>
+        <div class="vocab-ex">"Provision a database" = Tạo mới 1 database</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">deploy</div>
+        <div class="vocab-vn">= triển khai (đưa code/app lên server)</div>
+        <div class="vocab-ex">"Deploy the application" = Triển khai ứng dụng</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">throughput</div>
+        <div class="vocab-vn">= lưu lượng xử lý được (data/giây)</div>
+        <div class="vocab-ex">"High throughput storage" = Lưu trữ xử lý nhiều data</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">latency</div>
+        <div class="vocab-vn">= độ trễ (thời gian response)</div>
+        <div class="vocab-ex">"Low latency" = Độ trễ thấp, phản hồi nhanh</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">resilient</div>
+        <div class="vocab-vn">= có khả năng chịu lỗi, phục hồi nhanh</div>
+        <div class="vocab-ex">"Resilient architecture" = Kiến trúc chịu lỗi tốt</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">scalable</div>
+        <div class="vocab-vn">= có thể mở rộng quy mô</div>
+        <div class="vocab-ex">"Scalable solution" = Giải pháp mở rộng được</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">stateless / stateful</div>
+        <div class="vocab-vn">= không lưu trạng thái / có lưu trạng thái</div>
+        <div class="vocab-ex">Security Group = stateful · NACL = stateless</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">propagate</div>
+        <div class="vocab-vn">= lan truyền (route propagation = tự học route)</div>
+        <div class="vocab-ex">"Route propagation enabled" = bật học route tự động</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">deprecate</div>
+        <div class="vocab-vn">= không còn được hỗ trợ nữa (cũ/bỏ)</div>
+        <div class="vocab-ex">"This feature is deprecated" = Tính năng này sẽ bị bỏ</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">ephemeral</div>
+        <div class="vocab-vn">= tạm thời, sẽ mất khi stop/terminate</div>
+        <div class="vocab-ex">"Ephemeral storage" = Lưu trữ tạm, mất khi tắt máy</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-en">idempotent</div>
+        <div class="vocab-vn">= chạy nhiều lần vẫn ra kết quả như nhau</div>
+        <div class="vocab-ex">Terraform apply nhiều lần = idempotent</div>
+      </div>
+    </div>
+
+    <h3><span class="tick">§</span>Kế hoạch học English mỗi tuần</h3>
+    <table>
+      <tr>
+        <th>Ngày</th>
+        <th>Hoạt động</th>
+        <th>Thời gian</th>
+      </tr>
+      <tr>
+        <td>Thứ Hai</td>
+        <td>Học 5 AWS vocab mới (flashcard Anki hoặc ghi tay)</td>
+        <td>10 phút</td>
+      </tr>
+      <tr>
+        <td>Thứ Ba</td>
+        <td>Đọc 1 trang AWS Documentation tiếng Anh (dùng DeepL nếu cần)</td>
+        <td>15 phút</td>
+      </tr>
+      <tr>
+        <td>Thứ Tư</td>
+        <td>Ôn lại 5 vocab từ thứ Hai, thêm 5 vocab mới</td>
+        <td>10 phút</td>
+      </tr>
+      <tr>
+        <td>Thứ Năm</td>
+        <td>Đọc 1 error message hoặc AWS blog post (không cần hiểu 100%)</td>
+        <td>15 phút</td>
+      </tr>
+      <tr>
+        <td>Thứ Sáu</td>
+        <td>Viết 3 câu tiếng Anh mô tả việc bạn làm hôm nay (kiểu email ngắn)</td>
+        <td>10 phút</td>
+      </tr>
+      <tr>
+        <td>Cuối tuần</td>
+        <td>Xem 1 video YouTube AWS (tiếng Anh, có phụ đề — tốc độ 0.75x)</td>
+        <td>30 phút</td>
+      </tr>
+    </table>
+
+    <h3><span class="tick">§</span>Mẫu email/chat tiếng Anh thường dùng</h3>
+    <div class="term">
+      <div class="term-bar">
+        <div class="d r"></div><div class="d y"></div><div class="d g"></div>
+        <span class="tag">English Templates — Copy and use</span>
+      </div>
+      <pre><span class="dim">--- Báo cáo sự cố (Incident) ---</span>
+<span class="o">Hi team,</span>
+<span class="o">We are investigating an issue with [service name] in [region].</span>
+<span class="o">Impact: [describe impact]</span>
+<span class="o">Current status: [investigating / identified / resolving]</span>
+<span class="o">ETA: [time]</span>
+<span class="o">I'll update in 30 minutes.</span>
+
+<span class="dim">--- Đề xuất thay đổi (Change request) ---</span>
+<span class="o">Hi [manager],</span>
+<span class="o">I would like to propose [what change] for [reason].</span>
+<span class="o">Impact: [what will change]</span>
+<span class="o">Risk: [potential issues]</span>
+<span class="o">Cost: [cost impact]</span>
+<span class="o">Please review and let me know.</span>
+
+<span class="dim">--- Hỏi support AWS ---</span>
+<span class="o">Hello AWS Support,</span>
+<span class="o">Account ID: [your account]</span>
+<span class="o">Region: ap-southeast-1</span>
+<span class="o">Issue: [describe clearly]</span>
+<span class="o">Error message: [paste exact error]</span>
+<span class="o">Steps I already tried: [list them]</span></pre>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- ========= SECTION 09 ========= -->
+<section id="s9">
+  <div class="wrap">
+    <div class="s-head" onclick="toggleSection(this)">
+      <span class="s-num">09</span>
+      <div>
+        <h2>Thị Trường <em>& Tương Lai</em></h2>
+        <p class="s-sub">Lộ trình 12–24 tháng, lương thực tế VN, và con đường dài hạn</p>
+      </div>
+      <span class="s-toggle">▼</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+
+    <h3><span class="tick">§</span>Lộ trình dài hạn — Tầm nhìn 24 tháng</h3>
+    <div class="dia"><span class="hd">  LONG-TERM CAREER PATH · Từ IT Ops → AWS Expert</span>
+
+  <span class="good">HIỆN TẠI (T0)</span>                <span class="am">SAU 6 THÁNG</span>              <span class="bad">SAU 12–24 THÁNG</span>
+  ─────────────────           ──────────────────        ──────────────────────
+  IT Operations Engineer  →   AWS SAA-C03 ✅         →  DevOps Pro / Architect
+  Japfa Vietnam               Mức lương +30-50%          Mức lương +80-150%
+  Quản lý 7 AWS accounts      Tự tin thiết kế           Dẫn dắt cloud strategy
+  FortiGate / VPN / VLAN       giải pháp AWS             Mentor junior engineer
+                          ↘                         ↗
+                            ANS-C01 (Networking)
+                            Cert hiếm, lương cao
+                            Phù hợp background VPN</div>
+
+    <h3><span class="tick">§</span>Mức lương thực tế thị trường VN 2026</h3>
+    <div class="stats">
+      <div class="stat"><div class="n bl">15–25M</div><div class="l">Junior Cloud Engineer<br>0–1 năm · không cert</div></div>
+      <div class="stat"><div class="n am">25–45M</div><div class="l">Cloud Engineer + SAA<br>1–3 năm experience</div></div>
+      <div class="stat"><div class="n ok">45–80M</div><div class="l">Senior Cloud / DevOps<br>+ Professional Cert</div></div>
+      <div class="stat"><div class="n bad">80–150M</div><div class="l">Cloud Architect / Lead<br>Specialty Cert + 5+ năm</div></div>
+    </div>
+
+    <h3><span class="tick">§</span>Danh sách công ty tuyển AWS ở VN</h3>
+    <table>
+      <tr>
+        <th>Loại công ty</th>
+        <th>Ví dụ</th>
+        <th>Mức lương</th>
+        <th>Yêu cầu</th>
+      </tr>
+      <tr>
+        <td>Big Tech VN</td>
+        <td>VNG, Tiki, MoMo, VPBank, Techcombank</td>
+        <td>35–80M</td>
+        <td>SAA bắt buộc, exp 2+yr</td>
+      </tr>
+      <tr>
+        <td>Telco / ISP</td>
+        <td>VNPT, Viettel, FPT Telecom</td>
+        <td>30–60M</td>
+        <td>SAA + networking</td>
+      </tr>
+      <tr>
+        <td>Nước ngoài tại VN</td>
+        <td>Samsung, LG, Bosch, KMS, NashTech</td>
+        <td>40–100M</td>
+        <td>English + SAA/Pro</td>
+      </tr>
+      <tr>
+        <td>AWS Partner / SI</td>
+        <td>CMC, Vietsoft, CloudMaster</td>
+        <td>30–70M</td>
+        <td>Multiple certs preferred</td>
+      </tr>
+      <tr>
+        <td>Remote / Freelance</td>
+        <td>Upwork, Toptal, LinkedIn Global</td>
+        <td>$2,000–$8,000/tháng</td>
+        <td>Tiếng Anh tốt + Pro cert</td>
+      </tr>
+    </table>
+
+    <h3><span class="tick">§</span>Tóm tắt lộ trình — Nhìn lại từ tổng quan</h3>
+    <div class="proof">
+      <span class="k ok">T1–T2</span>
+      <div class="v"><p><strong>Nền tảng + Core Services:</strong> Hiểu Japfa architecture từ A→Z. 10 từ tiếng Anh/ngày. Dùng jp:poc thực hành hàng tuần.</p></div>
+    </div>
+    <div class="proof">
+      <span class="k am">T3–T4</span>
+      <div class="v"><p><strong>SAA-C03:</strong> Ôn thi → Thi → Pass. Milestone quan trọng nhất. Sau đó học Operations (CloudTrail, SSM, Config).</p></div>
+    </div>
+    <div class="proof">
+      <span class="k no">T5–T6</span>
+      <div class="v"><p><strong>DevOps + Professional:</strong> Terraform deep, Lambda, CI/CD. Automation thực tế tại Japfa. Chọn cert tiếp theo phù hợp background.</p></div>
+    </div>
+
+    <div class="principle">
+      <div class="lbl">Lời khuyên từ 20 năm kinh nghiệm</div>
+      <p>Người giỏi nhất không phải người học nhiều nhất — mà là người <strong>học đúng thứ, đúng lúc, và áp dụng ngay vào thực tế</strong>. Bạn có môi trường thực tế tại Japfa — đây là tài sản quý nhất. Mỗi tuần hãy tìm 1 việc học được và áp dụng ngay vào công việc. Sau 6 tháng, bạn sẽ ngạc nhiên mình đã đi bao xa.</p>
+    </div>
+
+    <div class="cert-badge">
+      <div class="cert-icon">☁️</div>
+      <div class="cert-info">
+        <div class="cert-name">AWS Certified Solutions Architect</div>
+        <div class="cert-code">SAA-C03 · Target: 10/2026</div>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-icon">⚙️</div>
+      <div class="cert-info">
+        <div class="cert-name">DevOps Engineer Professional</div>
+        <div class="cert-code">DOP-C02 · Target: Q2/2027</div>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-icon">🌐</div>
+      <div class="cert-info">
+        <div class="cert-name">Advanced Networking Specialty</div>
+        <div class="cert-code">ANS-C01 · Target: Q3/2027</div>
+      </div>
+    </div>
+
+    </div></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="big">Hành trình ngàn dặm bắt đầu từ bước chân đầu tiên.<br>Bước đầu tiên: mở AWS Console ngay hôm nay.</div>
+    <div class="src">trungcln · Japfa Vietnam IT Operations · AWS Learning Roadmap · 30/06/2026</div>
+  </div>
+</footer>
+
+<script>
+function toggleSection(header) {
+  const section = header.closest('section');
+  section.classList.toggle('collapsed');
+}
+
+// TOC active highlight
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

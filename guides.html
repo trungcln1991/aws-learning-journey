@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Thư viện — AWS Journey</title>
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .rule-card {
+      border: 2px solid var(--ink); border-radius: 12px; overflow: hidden;
+      margin-bottom: 12px; box-shadow: 4px 4px 0 rgba(22,19,13,.08);
+    }
+    .rule-card-head {
+      padding: 12px 16px; border-bottom: 2px solid var(--ink);
+      display: flex; align-items: center; gap: 10px;
+      background: var(--paper-2);
+    }
+    .rc-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--ink); color: var(--paper);
+      font-family: monospace; font-size: .8rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .rc-num.red { background: var(--red); }
+    .rc-num.green { background: var(--green); }
+    .rc-num.blue { background: var(--blue); }
+    .rc-num.amber { background: var(--amber); }
+    .rc-title { font-weight: 700; font-size: .95rem; }
+    .rc-subtitle { font-size: .75rem; color: var(--muted); font-family: monospace; }
+    .rule-card-body { padding: 14px 16px; background: var(--paper); font-size: .88rem; line-height: 1.65; }
+    .rule-card-body strong { color: var(--red); }
+    .rule-card-body .tip-box {
+      margin-top: 10px; padding: 10px 12px;
+      background: rgba(31,95,134,.07); border-radius: 8px;
+      border-left: 3px solid var(--blue);
+      font-size: .82rem; color: var(--ink-soft);
+    }
+    .rule-card-body .example-box {
+      margin-top: 10px; padding: 10px 12px;
+      background: var(--paper-2); border-radius: 8px;
+      font-family: monospace; font-size: .8rem; line-height: 1.6;
+      border: 1px solid var(--line);
+    }
+    .guide-link {
+      display: flex; align-items: center; gap: 12px; padding: 14px 0;
+      border-bottom: 1px solid var(--line); text-decoration: none;
+      color: var(--ink); cursor: pointer;
+    }
+    .guide-link:last-child { border-bottom: none; }
+    .guide-link:hover .gl-title { color: var(--red); }
+    .gl-icon { font-size: 1.5rem; width: 36px; text-align: center; flex-shrink: 0; }
+    .gl-info { flex: 1; min-width: 0; }
+    .gl-title { font-weight: 700; font-size: .92rem; margin-bottom: 2px; transition: color .15s; }
+    .gl-sub { font-size: .75rem; color: var(--muted); font-family: monospace; }
+    .gl-arrow { color: var(--red); font-size: 1rem; flex-shrink: 0; }
+    .category-chip {
+      display: inline-block; font-family: monospace; font-size: .65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 999px; margin-right: 4px; margin-bottom: 4px;
+      border: 1.5px solid; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .chip-compute { color: var(--blue); border-color: var(--blue); }
+    .chip-network { color: #1C7A47; border-color: #1C7A47; }
+    .chip-security { color: var(--red); border-color: var(--red); }
+    .chip-database { color: var(--amber); border-color: var(--amber); }
+    .chip-runbook { color: var(--muted); border-color: var(--muted); }
+    .section-block {
+      margin: 0 16px 24px; padding: 0;
+    }
+    .section-header {
+      font-family: monospace; font-size: .68rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .15em; color: var(--muted);
+      padding: 18px 0 10px; border-top: 1px solid var(--line); margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-header:first-child { border-top: none; padding-top: 8px; }
+    .quote-block {
+      border: 2px solid var(--ink); border-radius: 12px; padding: 18px;
+      background: var(--ink); color: var(--paper); margin-bottom: 24px; margin: 0 16px 20px;
+      box-shadow: 5px 5px 0 rgba(22,19,13,.15);
+    }
+    .quote-text {
+      font-family: Georgia, serif; font-size: 1.15rem; line-height: 1.5;
+      font-style: italic; margin-bottom: 8px;
+    }
+    .quote-src { font-family: monospace; font-size: .72rem; opacity: .6; letter-spacing: .04em; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .stat-mini {
+      background: var(--ink); color: var(--paper); border-radius: 8px;
+      padding: 10px 14px; flex: 1; min-width: 80px; text-align: center;
+    }
+    .stat-mini .smn { font-size: 1.3rem; font-weight: 900; font-family: Georgia,serif; }
+    .stat-mini .sml { font-size: .65rem; font-family: monospace; text-transform: uppercase; opacity: .6; margin-top: 2px; }
+  </style>
+</head>
+<body data-page="guides">
+
+  <nav class="top-nav">
+    <span class="app-name">📖 Thư viện</span>
+  </nav>
+
+  <!-- HERO QUOTE -->
+  <div class="quote-block">
+    <div class="quote-text">"The best time to learn was yesterday. The second best time is now — và mỗi ngày 30 phút beats mỗi tuần 4 giờ."</div>
+    <div class="quote-src">— NGUYÊN TẮC SỐ 1 · AWS Journey</div>
+  </div>
+
+  <!-- ===== PHẦN 1: QUY TẮC HỌC TIẾNG ANH ===== -->
+  <div style="padding: 0 16px">
+    <div class="section-header">🇺🇸 10 Quy tắc học Tiếng Anh</div>
+  </div>
+
+  <div class="section-block">
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num red">1</div>
+        <div><div class="rc-title">Nghe nhiều hơn nói — Input trước Output</div><div class="rc-subtitle">COMPREHENSIBLE INPUT</div></div>
+      </div>
+      <div class="rule-card-body">
+        Não học ngôn ngữ qua <strong>nghe và đọc</strong>, không phải qua học ngữ pháp. Cần nghe 100 lần trước khi nói 1 lần đúng.
+        <div class="tip-box">🎯 Áp dụng: Nghe podcast AWS tiếng Anh (AWS re:Invent talks, YouTube) — không cần hiểu hết 100%, 70% là đủ. Nghe đi nghe lại cùng 1 clip.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num red">2</div>
+        <div><div class="rc-title">Học từ vựng theo CỤM, không học đơn lẻ</div><div class="rc-subtitle">COLLOCATIONS & CHUNKS</div></div>
+      </div>
+      <div class="rule-card-body">
+        Không học "launch" một mình — học "launch an instance", "launch a campaign", "launch a product". Não nhớ cụm tự nhiên hơn từ đơn.
+        <div class="example-box">✅ Đúng: "configure a security group"
+❌ Sai: học "configure" + "security" + "group" riêng</div>
+        <div class="tip-box">🎯 Trong app này: mỗi vocab card có <strong>example + usage context</strong> — đó là cụm từ thật, học cả câu.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num red">3</div>
+        <div><div class="rc-title">IPA không phải để đọc — để NHẬN DẠNG âm</div><div class="rc-subtitle">PHONEMIC AWARENESS</div></div>
+      </div>
+      <div class="rule-card-body">
+        IPA giúp bạn biết âm nào thực sự phát ra, tránh đọc theo "nhìn mặt chữ". Tiếng Anh: chính tả ≠ phát âm.
+        <div class="example-box">terminate → /ˈtɜː.mɪ.neɪt/ → TỜ-mi-nết
+(không phải "tẹc-mi-nết" như nhìn vào chữ)</div>
+        <div class="tip-box">🎯 Mỗi lần học từ mới: đọc IPA + ipa_guide → nói to 3 lần → chuyển sang từ tiếp theo.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num red">4</div>
+        <div><div class="rc-title">Spaced Repetition — ôn lại đúng thời điểm</div><div class="rc-subtitle">EBBINGHAUS FORGETTING CURVE</div></div>
+      </div>
+      <div class="rule-card-body">
+        Bạn quên 70% sau 24 giờ nếu không ôn. Nhưng ôn lại <strong>đúng lúc sắp quên</strong> giúp não giữ lâu hơn gấp đôi.
+        <div class="example-box">Học ngày 1 → Ôn ngày 2 → Ôn ngày 4 → Ôn ngày 8
+→ Sau 8 ngày: nhớ ~90% thay vì 10%</div>
+        <div class="tip-box">🎯 Streak trong app này chính là SRS — học đều mỗi ngày = ôn theo chu kỳ tự nhiên.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num red">5</div>
+        <div><div class="rc-title">Nói sai cũng được — output sợ hãi = không tiến bộ</div><div class="rc-subtitle">AFFECTIVE FILTER HYPOTHESIS</div></div>
+      </div>
+      <div class="rule-card-body">
+        Krashen (nhà ngôn ngữ học nổi tiếng): khi sợ → brain filter đóng lại → không học được. Nói sai và được sửa giúp não học nhanh hơn im lặng.
+        <div class="tip-box">🎯 Khi đọc bài học: nói to từng câu ví dụ — dù phát âm chưa chuẩn. "Fake it till you make it" có cơ sở khoa học.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num amber">6</div>
+        <div><div class="rc-title">Gắn từ mới vào thứ bạn ĐÃ biết</div><div class="rc-subtitle">SCHEMA THEORY</div></div>
+      </div>
+      <div class="rule-card-body">
+        Não học từ mới bằng cách kết nối với ký ức cũ. "Elastic" → co giãn như dây thun → EC2 co giãn theo traffic.
+        <div class="tip-box">🎯 Trong app này: mỗi từ có "Japfa connection" — gắn với hạ tầng thật bạn đang vận hành. Đó là anchor mạnh nhất.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num amber">7</div>
+        <div><div class="rc-title">30 phút mỗi ngày > 4 tiếng cuối tuần</div><div class="rc-subtitle">CONSISTENCY OVER INTENSITY</div></div>
+      </div>
+      <div class="rule-card-body">
+        Nghiên cứu: học ngôn ngữ liên tục mỗi ngày tạo synapse mới bền vững hơn học nhồi nhét. Não cần thời gian "consolidate" qua giấc ngủ.
+        <div class="example-box">30 phút/ngày × 180 ngày = 90 tiếng
+vs. 4 tiếng/tuần × 26 tuần = 104 tiếng
+→ Cùng giờ học nhưng kết quả khác hẳn</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num amber">8</div>
+        <div><div class="rc-title">Đọc để HIỂU, không đọc để dịch</div><div class="rc-subtitle">READING FOR MEANING</div></div>
+      </div>
+      <div class="rule-card-body">
+        Dịch từng từ = chậm, mệt, không tự nhiên. Đọc để lấy ý chính — bỏ qua từ chưa biết nếu context đủ hiểu. Dần dần não tự fill in blank.
+        <div class="tip-box">🎯 AWS docs tiếng Anh: đọc "Developer Guide" — không cần hiểu 100%. Đọc để biết structure, không để memorize.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num green">9</div>
+        <div><div class="rc-title">Học từ domain của mình — AWS English = cách nhanh nhất</div><div class="rc-subtitle">ESP — ENGLISH FOR SPECIFIC PURPOSES</div></div>
+      </div>
+      <div class="rule-card-body">
+        Thay vì học từ điển chung, học từ domain bạn làm việc. IT English = 2000 từ quan trọng nhất. Bạn gặp lại liên tục → nhớ lâu.
+        <div class="example-box">Từ IELTS cần: 8,000+ từ
+Từ AWS Architect cần: ~1,500 từ chuyên ngành
+→ Đầu tư đúng chỗ = ROI cao nhất</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num green">10</div>
+        <div><div class="rc-title">Measure progress — không đo = không biết tiến bộ</div><div class="rc-subtitle">DELIBERATE PRACTICE</div></div>
+      </div>
+      <div class="rule-card-body">
+        Anders Ericsson (10,000 giờ): tiến bộ thật đến từ <strong>practice có feedback</strong>, không phải lặp đi lặp lại mù quáng.
+        <div class="tip-box">🎯 Quiz trong app = feedback ngay lập tức. Score tab = đo progress. Streak = consistency. Ba cái này đủ để tiến bộ rõ sau 30 ngày.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== PHẦN 2: QUY TẮC HỌC AWS ===== -->
+  <div style="padding: 0 16px">
+    <div class="section-header">☁️ 10 Quy tắc học AWS</div>
+  </div>
+
+  <div class="section-block">
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num blue">1</div>
+        <div><div class="rc-title">Hiểu WHY trước HOW — không học thuộc lòng</div><div class="rc-subtitle">FIRST PRINCIPLES THINKING</div></div>
+      </div>
+      <div class="rule-card-body">
+        Tại sao cần IAM Role thay vì Access Key? Tại sao dùng gp3 thay gp2? Hiểu lý do → tự suy ra được câu trả lời trong kỳ thi và trong thực tế.
+        <div class="tip-box">🎯 Mỗi bài học trong app đều có "Dùng khi nào" và "Key points" — đó là WHY, không chỉ là WHAT.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num blue">2</div>
+        <div><div class="rc-title">Hands-on > đọc docs — làm thật nhớ lâu nhất</div><div class="rc-subtitle">EXPERIENTIAL LEARNING (KOLB)</div></div>
+      </div>
+      <div class="rule-card-body">
+        Đọc về EC2 = nhớ 20%. Làm lab tự tay = nhớ 75%. Dạy người khác = nhớ 90%.
+        <div class="example-box">Week 1: Đọc bài → làm quiz ← bạn đang ở đây
+Week 2-3: Làm lab trên jp:poc (free tier)
+Week 4+: Tự giải thích lại cho bản thân / người khác</div>
+        <div class="tip-box">🎯 jp:poc = sandbox để thử mọi thứ, không lo hỏng prod. Tạo EC2, xóa, tạo lại — không sao cả.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num blue">3</div>
+        <div><div class="rc-title">Map AWS vào hạ tầng Japfa thật — không học trừu tượng</div><div class="rc-subtitle">CONTEXTUAL LEARNING</div></div>
+      </div>
+      <div class="rule-card-body">
+        VPC không chỉ là "mạng ảo" — nó là mạng chứa S250-Webapps, kết nối về Long An qua VPN. ALB là thứ đứng trước app của bạn mỗi ngày.
+        <div class="example-box">Abstract: "Security Group là virtual firewall"
+Japfa context: "SG của Webapps chặn port 3389 từ 0.0.0.0/0,
+chỉ cho phép từ bastion host IP"</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num blue">4</div>
+        <div><div class="rc-title">Học theo LAYER — không học lan man</div><div class="rc-subtitle">PROGRESSIVE ELABORATION</div></div>
+      </div>
+      <div class="rule-card-body">
+        Lộ trình: IAM → Compute → Storage → Network → Database → Security → Monitoring. Mỗi layer build trên layer trước. Skip là hổng nền.
+        <div class="example-box">Tháng 1: Core Services (IAM, EC2, S3, VPC)
+Tháng 2: Scaling & HA (ALB, ASG, Multi-AZ)
+Tháng 3: Advanced (TGW, WAF, CloudFront)
+Tháng 4-5: Practice exams
+Tháng 6: SAA-C03 ✅</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num blue">5</div>
+        <div><div class="rc-title">SAA-C03 hỏi "most cost-effective" và "highest availability" — đây là 2 từ khoá</div><div class="rc-subtitle">EXAM PATTERN RECOGNITION</div></div>
+      </div>
+      <div class="rule-card-body">
+        Mỗi câu hỏi SAA thường có <strong>1 constraint</strong>: cost, availability, security, performance. Đọc kỹ constraint → lọc đáp án ngay.
+        <div class="example-box">"most cost-effective" → Reserved Instance, S3 Glacier, Spot
+"highest availability" → Multi-AZ, Auto Scaling, Route53
+"lowest latency" → CloudFront, ElastiCache, Global Accelerator
+"most secure" → Least privilege, VPC endpoint, KMS</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num green">6</div>
+        <div><div class="rc-title">Đừng học tất cả services — học ĐÚNG services thi hay hỏi</div><div class="rc-subtitle">PARETO PRINCIPLE (80/20)</div></div>
+      </div>
+      <div class="rule-card-body">
+        SAA-C03 có ~200 services nhưng 80% câu hỏi đến từ ~20 services. Focus đúng chỗ.
+        <div class="example-box">MUST KNOW (thi chắc chắn có):
+EC2, S3, VPC, IAM, RDS, Lambda, CloudFront
+ALB, ASG, Route53, CloudWatch, SQS/SNS
+
+GOOD TO KNOW:
+DynamoDB, ECS, EKS, Kinesis, Glacier</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num green">7</div>
+        <div><div class="rc-title">Vẽ diagram — không thuộc service name, thuộc FLOW</div><div class="rc-subtitle">VISUAL LEARNING + ARCHITECTURE THINKING</div></div>
+      </div>
+      <div class="rule-card-body">
+        AWS Architect suy nghĩ bằng diagram. Khi học xong 1 service: tự vẽ lại flow kết nối với services khác.
+        <div class="example-box">User → Route53 → CloudFront → ALB → EC2
+                                         ↓              ↓
+                                       WAF          RDS Multi-AZ
+                                                       ↓
+                                                  S3 (backup)</div>
+        <div class="tip-box">🎯 Guides tab này có các sơ đồ topology thật của Japfa — học pattern rồi apply vào bài thi.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num green">8</div>
+        <div><div class="rc-title">Làm practice exam từ tháng 3 — không đợi "học đủ" mới thi thử</div><div class="rc-subtitle">TESTING EFFECT (RETRIEVAL PRACTICE)</div></div>
+      </div>
+      <div class="rule-card-body">
+        Research: làm bài test giúp nhớ lâu hơn đọc lại 3 lần. Sai thì nhớ lâu hơn đúng — vì não xử lý error mạnh hơn confirmation.
+        <div class="tip-box">🎯 Nguồn thi thử SAA miễn phí: AWS Skill Builder (20 câu free), Whizlabs, Tutorials Dojo. Làm 20 câu/ngày từ tháng 3.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num amber">9</div>
+        <div><div class="rc-title">Note-taking bằng tiếng Anh — dù chậm, dù sai</div><div class="rc-subtitle">OUTPUT FORCES DEEPER PROCESSING</div></div>
+      </div>
+      <div class="rule-card-body">
+        Khi ghi chú tiếng Anh, não phải "translate concept" → hiểu sâu hơn đọc thụ động. Kết hợp học AWS + học English trong 1 hành động.
+        <div class="example-box">"EBS is persistent block storage attached to EC2.
+Unlike instance store, data survives stop/reboot.
+gp3 is preferred over gp2 — cheaper and faster."</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-head">
+        <div class="rc-num amber">10</div>
+        <div><div class="rc-title">Fail fast trong lab — đừng sợ tạo sai trên POC</div><div class="rc-subtitle">GROWTH MINDSET (CAROL DWECK)</div></div>
+      </div>
+      <div class="rule-card-body">
+        Lỗi trong POC = bài học miễn phí. Lỗi trong prod = incident. Sai sớm, sửa sớm, học nhanh — đó là cách senior engineer học.
+        <div class="tip-box">🎯 Japfa có jp:poc (account 080705553952) — free tier đủ để test EC2 t2.micro, S3, Lambda. Thử mọi thứ ở đó trước.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== PHẦN 3: RESOURCE GUIDES ===== -->
+  <div style="padding: 0 16px">
+    <div class="section-header">📋 Resource Guides — Tài liệu tham khảo</div>
+  </div>
+  <div style="margin: 0 16px 8px">
+    <span class="category-chip chip-compute">Compute</span>
+    <span class="category-chip chip-network">Network</span>
+    <span class="category-chip chip-security">Security</span>
+    <span class="category-chip chip-database">Database</span>
+    <span class="category-chip chip-runbook">Runbook</span>
+  </div>
+
+  <div style="margin: 0 16px 8px; border: 2px solid var(--ink); border-radius: 12px; padding: 0 16px; background: var(--paper); box-shadow: 4px 4px 0 rgba(22,19,13,.08)">
+
+    <a href="guides/aws-learning-roadmap-6months.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🗺️</span>
+      <div class="gl-info">
+        <div class="gl-title">AWS 6-Month Roadmap</div>
+        <div class="gl-sub">CLF-C02 → SAA-C03 → ANS-C01 · Career path · Salary VN</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-ec2-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🖥️</span>
+      <div class="gl-info">
+        <div class="gl-title">EC2 Resource Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-compute" style="font-size:.6rem;padding:2px 6px">Compute</span> Instance types · AMI · Pricing · Japfa setup</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-vpc-subnets-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🌐</span>
+      <div class="gl-info">
+        <div class="gl-title">VPC & Subnets Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-network" style="font-size:.6rem;padding:2px 6px">Network</span> CIDR · Public/Private subnet · Route Table · IGW</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-security-groups-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🛡️</span>
+      <div class="gl-info">
+        <div class="gl-title">Security Groups Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-security" style="font-size:.6rem;padding:2px 6px">Security</span> Stateful · Inbound/Outbound rules · Best practices</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-alb-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">⚖️</span>
+      <div class="gl-info">
+        <div class="gl-title">ALB — Application Load Balancer</div>
+        <div class="gl-sub"><span class="category-chip chip-network" style="font-size:.6rem;padding:2px 6px">Network</span> Target Group · Health Check · Listener rules</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-waf-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🔒</span>
+      <div class="gl-info">
+        <div class="gl-title">WAF — Web Application Firewall</div>
+        <div class="gl-sub"><span class="category-chip chip-security" style="font-size:.6rem;padding:2px 6px">Security</span> Web ACL · Rate limit · Managed rules · Japfa config</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-rds-oracle-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🗄️</span>
+      <div class="gl-info">
+        <div class="gl-title">RDS Oracle Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-database" style="font-size:.6rem;padding:2px 6px">Database</span> Multi-AZ · Snapshot · Parameter Group · Japfa prod RDS</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-tgw-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🔀</span>
+      <div class="gl-info">
+        <div class="gl-title">Transit Gateway Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-network" style="font-size:.6rem;padding:2px 6px">Network</span> TGW · Attachment · Route Table · Hub-and-spoke</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/guide-vpn-20260630.html" class="guide-link" target="_blank">
+      <span class="gl-icon">🔐</span>
+      <div class="gl-info">
+        <div class="gl-title">VPN Site-to-Site Guide</div>
+        <div class="gl-sub"><span class="category-chip chip-network" style="font-size:.6rem;padding:2px 6px">Network</span> Long An + Hương Canh · BGP · FortiGate tunnels</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- RUNBOOKS -->
+  <div style="padding: 0 16px; margin-top: 20px">
+    <div class="section-header">🔧 Runbooks — Quy trình vận hành</div>
+  </div>
+
+  <div style="margin: 0 16px 24px; border: 2px solid var(--ink); border-radius: 12px; padding: 0 16px; background: var(--paper); box-shadow: 4px 4px 0 rgba(22,19,13,.08)">
+
+    <a href="guides/runbook-cwagent-cost-fix-20260626.html" class="guide-link" target="_blank">
+      <span class="gl-icon">💰</span>
+      <div class="gl-info">
+        <div class="gl-title">Runbook: Fix CW Agent Cost</div>
+        <div class="gl-sub"><span class="category-chip chip-runbook" style="font-size:.6rem;padding:2px 6px">Runbook</span> CloudWatch Agent tối ưu chi phí · Custom metrics</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+    <a href="guides/runbook-ec2-cross-account-copy-20260626.html" class="guide-link" target="_blank">
+      <span class="gl-icon">📋</span>
+      <div class="gl-info">
+        <div class="gl-title">Runbook: EC2 Cross-Account Copy</div>
+        <div class="gl-sub"><span class="category-chip chip-runbook" style="font-size:.6rem;padding:2px 6px">Runbook</span> AMI share · jp:prod → jp:uat · KMS re-encrypt</div>
+      </div>
+      <span class="gl-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span>Trang chủ</span>
+    </a>
+    <a href="lessons.html">
+      <span class="nav-icon">📚</span>
+      <span>Bài học</span>
+    </a>
+    <a href="guides.html" class="active">
+      <span class="nav-icon">📖</span>
+      <span>Thư viện</span>
+    </a>
+    <a href="stats.html">
+      <span class="nav-icon">📊</span>
+      <span>Thống kê</span>
+    </a>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resource Guide: Site-to-Site VPN · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F1E9;--paper-2:#EDE9DD;--ink:#16130D;--ink-soft:#4A4334;--line:rgba(22,19,13,.16);--line-strong:rgba(22,19,13,.34);--red:#C32D1A;--green:#1C7A47;--amber:#A9700A;--muted:#7A7160;--blue:#1F5F86;--term:#15120C;--term-ink:#EDE7D6;--maxw:1500px;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:21px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);background-size:22px 22px}
+::selection{background:var(--blue);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:none;width:26px;height:26px;display:grid;place-items:center;border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-ok{color:var(--green);border-color:var(--green)}.c-ok::before{background:var(--green)}
+.c-warn{color:var(--amber);border-color:var(--amber)}.c-warn::before{background:var(--amber)}
+.c-info{color:var(--blue);border-color:var(--blue)}.c-info::before{background:var(--blue)}
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--blue);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--blue)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line);scroll-margin-top:74px}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);color:var(--blue);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--blue)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;color:var(--blue);margin-right:.55em}
+h4{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(.85rem,1.3vw,1rem);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:36px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+p{max-width:78ch;margin:18px 0}strong{font-weight:600}
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}li{margin:11px 0;padding-left:6px}li::marker{color:var(--blue)}
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;margin:24px 0;overflow:hidden;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}pre .hl{color:#F0A93C;font-weight:700}pre .bad{color:#F0664C;font-weight:700}pre .dim{color:#8B826C}pre .key{color:#1A1206;font-weight:700;background:#F0A93C;border-radius:3px;padding:0 4px}pre .arg{color:#C4A8F0}pre .cmt{color:#6A8F7A;font-style:italic}
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;border-left:5px solid var(--ink);background:var(--paper-2);padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}.proof .k.am{color:var(--amber)}
+.proof .v{font-size:.92em;line-height:1.5}.proof .v p{margin:0;max-width:none}
+.principle{border:2px solid var(--ink);border-left:8px solid var(--blue);background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:600;line-height:1.32;margin:0;max-width:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}.stat .n.info{color:var(--blue)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}td b{font-weight:600}
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}.p-bad{color:var(--red);border-color:var(--red)}.p-am{color:var(--amber);border-color:var(--amber)}.p-out{color:var(--muted);border-color:var(--muted)}.p-info{color:var(--blue);border-color:var(--blue)}
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem);line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:2px;max-width:248px;padding:16px 14px;border:2px solid var(--ink);background:rgba(244,241,233,.94);backdrop-filter:blur(7px);border-radius:10px;box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--ink-soft);padding:6px 8px;border-radius:5px;line-height:1.25;transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}.toc a.active{background:var(--ink);color:var(--paper)}.toc a.active .tn{color:var(--paper)}.toc a.active .tt{font-weight:600}
+@media(max-width:1180px){.toc{display:none}}
+.s-toggle{position:absolute;right:0;top:.55em;font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:700;color:var(--blue);transition:transform .32s cubic-bezier(.4,0,.2,1);line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}.section-body-inner{overflow:hidden;min-height:0}
+.btn-col{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border:1.5px solid var(--ink);border-radius:4px;cursor:pointer;background:transparent;color:var(--ink);transition:all .15s;white-space:nowrap}
+.btn-col:hover{background:var(--ink);color:var(--paper)}
+.watermark{position:fixed;top:-60%;left:-60%;width:220%;height:220%;pointer-events:none;z-index:9000;transform:rotate(-28deg);opacity:.06;background-repeat:repeat;background-size:300px 150px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width='300'%20height='150'%3E%3Ctext%20x='6'%20y='42'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3Ctext%20x='156'%20y='120'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3C%2Fsvg%3E")}
+.alert{border-radius:8px;padding:16px 22px;margin:22px 0;border:2px solid;display:flex;gap:14px;align-items:flex-start;max-width:92ch}
+.alert .a-ico{font-size:1.1rem;flex-shrink:0;line-height:1.62;font-style:normal}
+.alert .a-body{flex:1}.alert .a-body p{margin:4px 0;max-width:none}.alert .a-body strong{font-weight:600}
+.a-crit{background:rgba(195,45,26,.07);border-color:var(--red)}.a-crit .a-ico{color:var(--red)}
+.a-warn{background:rgba(169,112,10,.07);border-color:var(--amber)}.a-warn .a-ico{color:var(--amber)}
+.a-info{background:rgba(31,95,134,.07);border-color:var(--blue)}.a-info .a-ico{color:var(--blue)}
+.a-ok{background:rgba(28,122,71,.07);border-color:var(--green)}.a-ok .a-ico{color:var(--green)}
+.steps{list-style:none;margin:22px 0;max-width:86ch;counter-reset:step}
+.steps>li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:0 18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps>li:last-child{border-bottom:none}
+.steps>li::before{content:counter(step);font-family:"JetBrains Mono",monospace;font-size:.88rem;font-weight:700;background:var(--ink);color:var(--paper);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:3px}
+.step-title{font-weight:600;font-size:1rem;line-height:1.35;margin-bottom:8px}
+.step-body{font-size:.93em;color:var(--ink-soft);line-height:1.55}.step-body p{margin:6px 0;max-width:none}
+.step-exp{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--blue);border-left:3px solid var(--blue);padding:6px 12px;margin-top:10px;background:rgba(31,95,134,.05);border-radius:0 4px 4px 0}
+.step-exp::before{content:"→ Lưu ý: ";font-weight:700}
+.checklist{list-style:none;margin:18px 0;max-width:82ch;border:1.5px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}.checklist li:nth-child(even){background:var(--paper-2)}
+.cb{width:18px;height:18px;border:2px solid var(--line-strong);border-radius:3px;flex-shrink:0;margin-top:3px;display:grid;place-items:center;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700}
+.cb.todo{border-color:var(--blue)}.cl-text{line-height:1.45;font-size:.95em;flex:1}.cl-text strong{font-weight:600}.cl-text em{font-style:italic;color:var(--ink-soft)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0;max-width:100ch}
+@media(max-width:700px){.pros-cons{grid-template-columns:1fr}}
+.pc-card{border-radius:8px;padding:20px 22px;border:2px solid}.pc-card h4{border:none;margin:0 0 14px;padding:0;font-size:.9rem}
+.pc-pros{background:rgba(28,122,71,.06);border-color:var(--green)}.pc-pros h4{color:var(--green)}
+.pc-cons{background:rgba(195,45,26,.06);border-color:var(--red)}.pc-cons h4{color:var(--red)}
+.pc-card ul{margin:0 0 0 1.1em}.pc-card li{margin:8px 0;font-size:.9em}.pc-card li::marker{color:inherit}
+.cost-table td:last-child{font-family:"JetBrains Mono",monospace;font-size:.82em;font-weight:700}
+.dep-graph{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0;align-items:center}
+.dep-node{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:8px 14px;border:2px solid;border-radius:6px;white-space:nowrap}
+.dep-node.self{background:var(--blue);color:var(--paper);border-color:var(--blue)}.dep-node.req{border-color:var(--ink)}.dep-node.opt{border-color:var(--muted);color:var(--muted)}.dep-node.notify{border-color:var(--green);color:var(--green)}
+.dep-arrow{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--muted);font-weight:700}
+.sev{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;padding:4px 14px;border-radius:4px;letter-spacing:.08em;border:2px solid;display:inline-block;vertical-align:middle}
+.sev-p1{color:var(--paper);background:var(--red);border-color:var(--red)}
+.ver-table{width:auto;max-width:72ch;font-size:.82em;border:1.5px solid var(--line-strong)}
+.ver-table th{background:var(--paper-2);color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.ver-table td{font-family:"JetBrains Mono",monospace;font-size:12px}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}}
+@media print{.rail,.toc,.btn-col{display:none!important}section.collapsed .section-body{grid-template-rows:1fr!important}body{font-size:14px;background-image:none}.watermark{opacity:.10!important}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<div class="rail"><div class="wrap">
+  <span class="brand">trungcln · Resource Guide</span>
+  <div style="display:flex;gap:7px;flex-wrap:wrap">
+    <span class="chip c-info">Networking</span>
+    <span class="chip c-info">jp:network</span>
+    <span class="chip c-warn">v1.0 · 2026-06-30</span>
+  </div>
+  <nav>
+    <button class="btn-col" id="btn-col-all">▾ Thu gọn</button>
+    <a href="#s0">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a>
+    <a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a>
+  </nav>
+</div></div>
+
+<nav class="toc"><div class="toc-lbl">Nội dung</div>
+  <a href="#s0"><span class="tn">00</span><span class="tt">Tổng quan</span></a>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Cấu hình Console</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">Cấu hình CLI</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">Terraform</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">Ưu &amp; Nhược điểm</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">Chi phí &amp; Tối ưu</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">Liên kết Resource</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">Checklist Thêm/Sửa/Xóa</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">Best Practices &amp; Refs</span></a>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">trungcln · Resource Guide · Networking</div>
+  <h1>Site-to-Site <em>VPN</em></h1>
+  <p class="lede">2 kết nối VPN IPSec/BGP — Long An (primary) và Hương Canh (backup) — nối on-premises Japfa với AWS qua Transit Gateway, với VPN Auto-Heal Lambda tự động phục hồi tunnel DOWN.</p>
+  <div class="meta-strip">
+    <span>LA VPN: <b>vpn-09980936f3e3afeed</b></span>
+    <span>HC VPN: <b>vpn-03cf2ba0a1c0934db</b></span>
+    <span>Account: <b>jp:network (787309524943)</b></span>
+    <span>Region: <b>ap-southeast-1</b></span>
+    <span>Criticality: <span class="sev sev-p1">P1</span></span>
+  </div>
+</header>
+
+
+<!-- S0 -->
+<section id="s0">
+  <div class="s-head"><div class="s-num">00 / 08</div>
+    <div><h2>Tổng <em>quan</em></h2>
+      <p class="s-sub">2 Site-to-Site VPN với BGP dynamic routing và tự động failover LA → HC.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="principle"><div class="lbl">Định nghĩa</div>
+    <p>AWS Site-to-Site VPN là kết nối IPSec mã hóa giữa on-premises và AWS. Japfa dùng <strong>2 VPN connections</strong> — Long An (primary) và Hương Canh (backup) — cả hai terminate tại Transit Gateway và dùng BGP để trao đổi route tự động.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n ok">2</div><div class="l">VPN Connections (LA + HC)</div></div>
+    <div class="stat"><div class="n ok">4</div><div class="l">Tunnels (2 tunnel × 2 connections)</div></div>
+    <div class="stat"><div class="n ok">5 phút</div><div class="l">RTO Failover LA → HC (BGP auto)</div></div>
+    <div class="stat"><div class="n info">Auto-Heal</div><div class="l">Lambda tự reset tunnel DOWN</div></div>
+  </div>
+
+  <h3><span class="tick">→</span>2 VPN Connections Japfa</h3>
+  <table>
+    <thead><tr><th>Site</th><th>VPN Connection ID</th><th>Customer GW ID</th><th>On-Prem IP</th><th>FortiGate IP</th><th>ASN On-Prem</th><th>Vai trò</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Long An</b></td>
+        <td><code>vpn-09980936f3e3afeed</code></td>
+        <td><code>cgw-04872d4024c134695</code></td>
+        <td><code>27.65.195.246</code></td>
+        <td>10.82.254.254</td>
+        <td>65000</td>
+        <td><span class="pill p-ok">Primary (tuyến chính)</span></td>
+      </tr>
+      <tr>
+        <td><b>Hương Canh</b></td>
+        <td><code>vpn-03cf2ba0a1c0934db</code></td>
+        <td><code>cgw-06e3ae7e2c7d27cfc</code></td>
+        <td><code>116.104.87.186</code></td>
+        <td>10.82.254.253</td>
+        <td>65000</td>
+        <td><span class="pill p-am">Backup (AS-prepend 5×)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Sơ đồ VPN + Failover</h3>
+  <div class="dia">On-Premises Japfa
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│  [FortiGate Long An]            [FortiGate Hương Canh] │
+│  IP: 27.65.195.246              IP: 116.104.87.186     │
+│  ASN: 65000 (no prepend)        ASN: 65000 (prepend 5×)│
+│  PRIMARY — ưu tiên cao          BACKUP — ưu tiên thấp  │
+│                                                         │
+│       Tunnel 1 ←──────────────────→ Tunnel 1           │
+│       Tunnel 2 ←──────────────────→ Tunnel 2           │
+└──────────────┬──────────────────────────────────────────┘
+               │ IPSec IKEv1/IKEv2
+               ▼
+┌──────────────────────────────────────┐
+│  Transit Gateway                     │
+│  tgw-074bbf044fada8981 (ASN 64512) │
+│                                      │
+│  BGP route propagation:              │
+│  LA routes: AS_PATH = 65000         │
+│  HC routes: AS_PATH = 65000 × 5     │
+│  → Router chọn LA (path ngắn hơn)   │
+└──────────────────────────────────────┘
+               │
+    [VPC Production / VPC POC]
+    10.83.0.0/18 / 10.83.64.0/18
+
+Failover scenario:
+LA Tunnel DOWN → BGP withdraw → TGW chọn HC route
+HC Tunnel: ~2-3 phút BGP reconverge → traffic tiếp tục</div>
+
+  <div class="alert a-ok"><em class="a-ico">✓</em><div class="a-body">
+    <p><strong>VPN Auto-Heal Lambda:</strong> Japfa đã có Lambda tự giám sát tunnel status qua CloudWatch và tự reset (initiate IKE rekey) khi tunnel DOWN. RTO thực tế được rút từ ~10 phút xuống ~2 phút.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Thông số kỹ thuật mỗi VPN tunnel</h3>
+  <div class="proof">
+    <div class="k ok">Protocol</div><div class="v"><p>IPSec IKEv1 / IKEv2 — AWS hỗ trợ cả hai; FortiGate Japfa dùng IKEv1</p></div>
+    <div class="k ok">Encryption</div><div class="v"><p>AES-256 + SHA-256 — Phase 1 và Phase 2</p></div>
+    <div class="k ok">Routing</div><div class="v"><p>BGP dynamic (không dùng static) — FortiGate advertise on-prem CIDRs, AWS advertise VPC CIDRs</p></div>
+    <div class="k ok">Tunnel / Connection</div><div class="v"><p>2 tunnel per VPN connection (AWS tạo tự động để redundancy)</p></div>
+    <div class="k ok">DPD (Dead Peer Detection)</div><div class="v"><p>Enabled — phát hiện tunnel DOWN và trigger IKE re-negotiate</p></div>
+    <div class="k am">Bandwidth</div><div class="v"><p>Max 1.25 Gbps per tunnel — đủ cho workload Japfa (hiện tại &lt;50 Mbps)</p></div>
+  </div>
+
+  </div></div>
+</section>
+
+
+<!-- S1 -->
+<section id="s1">
+  <div class="s-head"><div class="s-num">01 / 08</div>
+    <div><h2>Cấu hình qua <em>Console</em></h2>
+      <p class="s-sub">Xem VPN status, tunnel health và BGP neighbors qua Console.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <ol class="steps">
+    <li>
+      <div class="step-title">Đăng nhập Console jp:network — xem VPN status</div>
+      <div class="step-body">
+        <p>SSO → <strong>jp:network (787309524943)</strong> → VPC → Site-to-Site VPN Connections.</p>
+        <p>Thấy 2 connections: Long An và Hương Canh.</p>
+        <table>
+          <thead><tr><th>Field</th><th>Giá trị bình thường</th><th>Cần lo khi nào</th></tr></thead>
+          <tbody>
+            <tr><td>State</td><td>available</td><td>deleted / pending = lỗi</td></tr>
+            <tr><td>Tunnel 1 Status</td><td>UP</td><td>DOWN → auto-heal sẽ xử lý; nếu &gt;5ph → check FortiGate</td></tr>
+            <tr><td>Tunnel 2 Status</td><td>UP (hoặc DOWN nếu không dùng)</td><td>Cả 2 DOWN = mất kết nối site đó</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Xem chi tiết tunnel — Outside IP và Inside IP</div>
+      <div class="step-body">
+        <p>Click vào 1 VPN connection → tab <strong>Tunnel details</strong>.</p>
+        <p>Mỗi tunnel có <strong>Outside IP</strong> (AWS public IP) và <strong>Inside CIDR</strong> (BGP peering address /30).</p>
+        <div class="step-exp">Outside IP thay đổi khi delete/recreate VPN — cần update FortiGate config nếu đổi</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Xem BGP routes đã propagate vào TGW</div>
+      <div class="step-body">
+        <p>VPC → Transit Gateway Route Tables → tab <strong>Routes</strong>.</p>
+        <p>Các route có <strong>Origin = Propagated</strong> là từ BGP VPN. So sánh LA và HC routes — HC sẽ có AS_PATH dài hơn (65000 × 5).</p>
+        <div class="step-exp">Nếu không thấy propagated routes từ LA nhưng thấy từ HC → LA BGP session bị down</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Kiểm tra FortiGate BGP status (nếu cần debug sâu)</div>
+      <div class="step-body">
+        <p>SSH vào FortiGate Long An (10.82.254.254) và chạy:</p>
+        <ul>
+          <li><code>get router info bgp summary</code> — Xem BGP neighbors và state (Established/Active)</li>
+          <li><code>get vpn ike status</code> — Xem IKE Phase 1 status</li>
+          <li><code>get vpn ipsec tunnel summary</code> — Xem Phase 2 và traffic counters</li>
+        </ul>
+        <div class="step-exp">BGP state "Active" (không phải "Established") = tunnel UP nhưng BGP chưa negotiate xong</div>
+      </div>
+    </li>
+  </ol>
+
+  </div></div>
+</section>
+
+
+<!-- S2 -->
+<section id="s2">
+  <div class="s-head"><div class="s-num">02 / 08</div>
+    <div><h2>Cấu hình qua <em>CLI</em></h2>
+      <p class="s-sub">AWS CLI để xem và quản lý VPN connections từ jp:network.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Lệnh đọc — kiểm tra VPN status (🟢 An toàn)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Describe VPN</span><span class="tag">🟢 READ ONLY</span></div>
+<pre>
+<span class="dim"># Xem tất cả VPN connections và tunnel status</span>
+<span class="cmd">aws ec2 describe-vpn-connections \</span>
+<span class="cmd">  --profile <span class="hl">jp:network</span> --region <span class="hl">ap-southeast-1</span> \</span>
+<span class="cmd">  --query 'VpnConnections[*].{ID:VpnConnectionId,State:State,Type:Type,CGW:CustomerGatewayId,TGW:TransitGatewayId}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem chi tiết tunnel state của Long An</span>
+<span class="cmd">aws ec2 describe-vpn-connections \</span>
+<span class="cmd">  --vpn-connection-ids <span class="hl">vpn-09980936f3e3afeed</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'VpnConnections[0].VgwTelemetry[*].{OutsideIP:OutsideIpAddress,Status:Status,AcceptedRoutes:AcceptedRouteCount,LastChanged:LastStatusChange}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem chi tiết tunnel state của Hương Canh</span>
+<span class="cmd">aws ec2 describe-vpn-connections \</span>
+<span class="cmd">  --vpn-connection-ids <span class="hl">vpn-03cf2ba0a1c0934db</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'VpnConnections[0].VgwTelemetry[*].{OutsideIP:OutsideIpAddress,Status:Status,AcceptedRoutes:AcceptedRouteCount}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem Customer Gateways</span>
+<span class="cmd">aws ec2 describe-customer-gateways \</span>
+<span class="cmd">  --customer-gateway-ids <span class="hl">cgw-04872d4024c134695</span> <span class="hl">cgw-06e3ae7e2c7d27cfc</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'CustomerGateways[*].{ID:CustomerGatewayId,IP:IpAddress,ASN:BgpAsn,State:State}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Check CloudWatch tunnel metric (xem UP/DOWN log)</span>
+<span class="cmd">aws cloudwatch get-metric-statistics \</span>
+<span class="cmd">  --namespace AWS/VPN \</span>
+<span class="cmd">  --metric-name TunnelState \</span>
+<span class="cmd">  --dimensions Name=VpnId,Value=<span class="hl">vpn-09980936f3e3afeed</span> \</span>
+<span class="cmd">  --start-time $(date -u -v-1H +%Y-%m-%dT%H:%M:%SZ) \</span>
+<span class="cmd">  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \</span>
+<span class="cmd">  --period 300 --statistics Maximum \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1</span>
+</pre></div>
+
+  <h3><span class="tick">→</span>Reset tunnel IKE (Manual VPN auto-heal — 🟡 Non-prod / Maintenance)</h3>
+
+  <div class="alert a-warn"><em class="a-ico">⚠</em><div class="a-body">
+    <p><strong>Reset VPN tunnel gây gián đoạn ~30-60 giây</strong> cho tunnel đó. Nên làm khi tunnel DOWN và auto-heal chưa xử lý, hoặc cần force renegotiate IKE.</p>
+  </div></div>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Reset VPN Tunnel (manual IKE initiation)</span><span class="tag">🟡 MAINTENANCE</span></div>
+<pre>
+<span class="dim"># Lấy Outside IP của tunnel cần reset</span>
+<span class="cmd">aws ec2 describe-vpn-connections \</span>
+<span class="cmd">  --vpn-connection-ids <span class="hl">vpn-09980936f3e3afeed</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'VpnConnections[0].VgwTelemetry[*].OutsideIpAddress'</span>
+
+<span class="dim"># Reset IKE Phase 1 của 1 tunnel (VPN sẽ re-negotiate)</span>
+<span class="cmd">aws ec2 reset-vpn-connection \</span>
+<span class="arg">  --vpn-connection-id <span class="hl">vpn-09980936f3e3afeed</span> \</span>
+<span class="arg">  --vpn-tunnel-outside-ip-address <span class="hl">{{outside-ip-tunnel-1}}</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1</span>
+
+<span class="dim"># Theo dõi tunnel UP sau ~60s</span>
+<span class="cmd">aws ec2 describe-vpn-connections \</span>
+<span class="cmd">  --vpn-connection-ids vpn-09980936f3e3afeed \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'VpnConnections[0].VgwTelemetry[*].{IP:OutsideIpAddress,Status:Status}'</span>
+</pre></div>
+
+  </div></div>
+</section>
+
+
+<!-- S3 -->
+<section id="s3">
+  <div class="s-head"><div class="s-num">03 / 08</div>
+    <div><h2>Cấu hình qua <em>Terraform</em></h2>
+      <p class="s-sub">VPN connections và Customer Gateways trong module terraform/network/.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>Terraform · vpn.tf</span><span class="tag">HCL</span></div>
+<pre>
+<span class="dim"># Customer Gateway — Long An</span>
+resource <span class="hl">"aws_customer_gateway"</span> <span class="hl">"long_an"</span> {
+  <span class="arg">bgp_asn</span>    = <span class="hl">65000</span>             <span class="dim"># FortiGate LA BGP ASN</span>
+  <span class="arg">ip_address</span> = <span class="hl">"27.65.195.246"</span>   <span class="dim"># Public IP FortiGate LA — đổi nếu ISP đổi IP</span>
+  <span class="arg">type</span>       = <span class="hl">"ipsec.1"</span>
+  tags = { Name = <span class="hl">"jp-network-cgw-aps1-long-an"</span>, Site = <span class="hl">"long-an"</span> }
+}
+
+<span class="dim"># Customer Gateway — Hương Canh</span>
+resource <span class="hl">"aws_customer_gateway"</span> <span class="hl">"huong_canh"</span> {
+  <span class="arg">bgp_asn</span>    = <span class="hl">65000</span>              <span class="dim"># Cùng ASN — phân biệt bằng IP và AS-prepend</span>
+  <span class="arg">ip_address</span> = <span class="hl">"116.104.87.186"</span>   <span class="dim"># Public IP FortiGate HC</span>
+  <span class="arg">type</span>       = <span class="hl">"ipsec.1"</span>
+  tags = { Name = <span class="hl">"jp-network-cgw-aps1-huong-canh"</span>, Site = <span class="hl">"huong-canh"</span> }
+}
+
+<span class="dim"># VPN Connection — Long An (terminate tại TGW)</span>
+resource <span class="hl">"aws_vpn_connection"</span> <span class="hl">"long_an"</span> {
+  <span class="arg">customer_gateway_id</span>   = <span class="hl">aws_customer_gateway.long_an.id</span>
+  <span class="arg">transit_gateway_id</span>    = <span class="hl">aws_ec2_transit_gateway.main.id</span>  <span class="dim"># TGW (không dùng VGW)</span>
+  <span class="arg">type</span>                  = <span class="hl">"ipsec.1"</span>
+  <span class="arg">static_routes_only</span>    = <span class="hl">false</span>   <span class="dim"># false = dùng BGP dynamic routing</span>
+  <span class="arg">enable_acceleration</span>   = <span class="hl">false</span>   <span class="dim"># Accelerated VPN (Global Accelerator) — chưa bật</span>
+  tags = { Name = <span class="hl">"jp-network-vpn-aps1-long-an"</span> }
+}
+
+<span class="dim"># VPN Connection — Hương Canh</span>
+resource <span class="hl">"aws_vpn_connection"</span> <span class="hl">"huong_canh"</span> {
+  <span class="arg">customer_gateway_id</span> = <span class="hl">aws_customer_gateway.huong_canh.id</span>
+  <span class="arg">transit_gateway_id</span>  = <span class="hl">aws_ec2_transit_gateway.main.id</span>
+  <span class="arg">type</span>                = <span class="hl">"ipsec.1"</span>
+  <span class="arg">static_routes_only</span>  = <span class="hl">false</span>
+  tags = { Name = <span class="hl">"jp-network-vpn-aps1-huong-canh"</span> }
+}
+<span class="dim"># AS-prepend 5× cấu hình phía FortiGate HC, không phải AWS side</span>
+</pre></div>
+
+  <h4>Argument quan trọng</h4>
+  <table>
+    <thead><tr><th>Argument</th><th>Value</th><th>Giải thích</th></tr></thead>
+    <tbody>
+      <tr><td><code>static_routes_only = false</code></td><td>false</td><td>false = BGP dynamic. Nếu true = phải tạo static route thủ công mỗi khi thêm subnet on-prem</td></tr>
+      <tr><td><code>transit_gateway_id</code></td><td>tgw-074b…8981</td><td>Terminate tại TGW không phải Virtual Private Gateway (VGW) — phải chọn 1 trong 2</td></tr>
+      <tr><td><code>bgp_asn</code> (Customer GW)</td><td>65000</td><td>ASN FortiGate. Không được trùng với TGW ASN (64512)</td></tr>
+      <tr><td><code>ip_address</code> (Customer GW)</td><td>IP public FortiGate</td><td>Đây là IP AWS dùng để kết nối vào — thay đổi nếu ISP thay đổi IP</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p><strong>Pre-Shared Key (PSK) không quản lý bằng TF:</strong> AWS auto-generate PSK khi tạo VPN. Download VPN config file (format FortiGate) từ Console để lấy PSK và cấu hình FortiGate. KHÔNG ghi PSK vào skill hay TF state.</p>
+  </div></div>
+
+  </div></div>
+</section>
+
+
+<!-- S4 -->
+<section id="s4">
+  <div class="s-head"><div class="s-num">04 / 08</div>
+    <div><h2>Ưu & <em>Nhược điểm</em></h2>
+      <p class="s-sub">Site-to-Site VPN vs Direct Connect cho kết nối on-prem Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="pros-cons">
+    <div class="pc-card pc-pros">
+      <h4>Ưu điểm</h4>
+      <ul>
+        <li><strong>Chi phí thấp</strong> — ~$36/tháng per connection vs Direct Connect $100-200+</li>
+        <li><strong>Redundancy 2 site</strong> — LA + HC với BGP failover tự động &lt;5 phút</li>
+        <li><strong>BGP dynamic routing</strong> — Không cần update route thủ công khi thêm subnet</li>
+        <li><strong>Mã hóa IPSec end-to-end</strong> — AES-256 toàn bộ traffic qua internet</li>
+        <li><strong>VPN Auto-Heal</strong> — Lambda tự phục hồi tunnel DOWN</li>
+        <li><strong>2 tunnel per connection</strong> — AWS cấp 2 tunnel mỗi connection để redundancy</li>
+      </ul>
+    </div>
+    <div class="pc-card pc-cons">
+      <h4>Nhược điểm / Rủi ro</h4>
+      <ul>
+        <li><strong>Phụ thuộc Internet ISP</strong> — VPN đi qua internet, không như Direct Connect dedicated</li>
+        <li><strong>Latency cao hơn Direct Connect</strong> — Internet path không guaranteed latency</li>
+        <li><strong>Bandwidth capped 1.25 Gbps</strong> — Nếu cần &gt;1 Gbps stable → cần Direct Connect</li>
+        <li><strong>PSK management thủ công</strong> — Phải update FortiGate config nếu VPN recreated</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>Khi nào nên xem xét Direct Connect</h3>
+  <table>
+    <thead><tr><th>Tiêu chí</th><th>VPN (đang dùng)</th><th>Direct Connect</th></tr></thead>
+    <tbody>
+      <tr><td>Bandwidth cần</td><td>&lt;100 Mbps (OK)</td><td>&gt;500 Mbps</td></tr>
+      <tr><td>Latency yêu cầu</td><td>&lt;50ms (OK cho IIS app)</td><td>&lt;5ms (real-time)</td></tr>
+      <tr><td>Chi phí</td><td>~$72/tháng (2 connections)</td><td>$100-500+/tháng</td></tr>
+      <tr><td>Data transfer lớn</td><td>Tốn nhiều NAT GW data cost</td><td>Không qua internet, giảm data cost</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S5 -->
+<section id="s5">
+  <div class="s-head"><div class="s-num">05 / 08</div>
+    <div><h2>Chi phí & <em>Tối ưu</em></h2>
+      <p class="s-sub">Chi phí VPN connections Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <table class="cost-table">
+    <thead><tr><th>Thành phần</th><th>Đơn giá</th><th>Japfa</th><th>Ước tính/tháng</th></tr></thead>
+    <tbody>
+      <tr><td><b>VPN Connection (giờ)</b></td><td>$0.05/h per connection</td><td>2 connections × 720h</td><td><b>~$72</b></td></tr>
+      <tr><td><b>VPN Data Transfer Out</b></td><td>$0.09/GB (first 10TB)</td><td>~10-20 GB/tháng</td><td><b>~$1-2</b></td></tr>
+      <tr><td><b>Customer Gateway</b></td><td>Miễn phí</td><td>2 CGW</td><td><b>$0</b></td></tr>
+      <tr style="background:var(--paper-2)"><td colspan="3"><b>Tổng VPN</b></td><td><b style="color:var(--amber)">~$73-74/tháng</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>Chi phí VPN Japfa rất hợp lý (~$74/tháng cho 2 connections redundant). Không có cách tối ưu thêm nhiều — VPN connection fee là cố định theo giờ.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Cân nhắc Accelerated VPN</h3>
+  <p><strong>Accelerated VPN</strong> dùng AWS Global Accelerator để route qua mạng backbone AWS thay vì internet — giảm latency và packet loss. Chi phí thêm ~$18/tháng per connection. Chưa bật cho Japfa — xem xét nếu latency LA→HC failover chậm hơn expected.</p>
+
+  </div></div>
+</section>
+
+
+<!-- S6 -->
+<section id="s6">
+  <div class="s-head"><div class="s-num">06 / 08</div>
+    <div><h2>Liên kết <em>Resource</em></h2>
+      <p class="s-sub">VPN phụ thuộc vào gì và ai phụ thuộc vào VPN.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Dependency map</h3>
+  <div class="dep-graph">
+    <div class="dep-node req">Customer GW<br><small>cgw-0487… (LA)</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node self">VPN Connections<br><small>LA + HC</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node req">Transit Gateway<br><small>tgw-074b…8981</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node notify">BGP Routes<br><small>propagate vào TGW RT</small></div>
+  </div>
+  <div class="dep-graph" style="margin-top:0">
+    <div class="dep-node req">FortiGate LA/HC<br><small>10.82.254.254/253</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node self">IPSec Tunnel</div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node notify">On-prem Users<br><small>→ AWS Apps</small></div>
+  </div>
+
+  <h3><span class="tick">→</span>Ai phụ thuộc vào VPN</h3>
+  <table>
+    <thead><tr><th>Resource / User</th><th>Phụ thuộc VPN như thế nào</th><th>Nếu VPN DOWN</th></tr></thead>
+    <tbody>
+      <tr><td><b>User trên FortiGate LA (10.82.254.254)</b></td><td>Mọi request từ on-prem tới EC2/RDS</td><td><span class="pill p-bad">Mất access webapp IIS, BankSystem, CRM</span></td></tr>
+      <tr><td><b>SAP Indonesia (JCI)</b></td><td>Kết nối tới RDS Oracle FARMIC qua VPN</td><td><span class="pill p-bad">SAP mất sync data</span></td></tr>
+      <tr><td><b>VPN Auto-Heal Lambda</b></td><td>Monitor và reset tunnel DOWN</td><td><span class="pill p-am">Lambda hoạt động độc lập trên AWS — tự phục hồi</span></td></tr>
+      <tr><td><b>EC2 bastion SSM probe</b></td><td>Probe từ on-prem check bastion connectivity</td><td><span class="pill p-am">Auto-heal sẽ phát hiện và reset</span></td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S7 -->
+<section id="s7">
+  <div class="s-head"><div class="s-num">07 / 08</div>
+    <div><h2>Checklist <em>Thêm / Sửa / Xóa</em></h2>
+      <p class="s-sub">Checklist VPN operations — xác nhận 2 lần trước mọi thay đổi.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Checklist: Thêm VPN connection mới</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tạo Customer Gateway mới</strong> — Cần biết: public IP on-prem, ASN FortiGate, type = ipsec.1</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tạo VPN connection → TGW</strong> — static_routes_only = false (BGP), attach vào TGW Japfa</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Download VPN config cho FortiGate</strong> — Format: "Fortinet FortiGate" → lấy PSK và Outside IPs</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Cấu hình FortiGate</strong> — IPSec Phase 1/2, BGP neighbor với Inside IP của tunnel</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify BGP established</strong> — FortiGate: <code>get router info bgp summary</code> → state = Established</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify routes propagate vào TGW</strong> — AWS: search-transit-gateway-routes → thấy on-prem CIDR</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Test connectivity</strong> — Ping từ on-prem mới tới EC2 private IP</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Update VPN auto-heal Lambda</strong> — Thêm VPN ID mới vào monitoring config nếu cần auto-heal</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Sửa Customer Gateway IP (ISP đổi IP)</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Không sửa được CGW IP trực tiếp</strong> — AWS không cho phép modify CGW IP sau khi tạo</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tạo CGW mới với IP mới</strong> — Tạo Customer Gateway resource mới với IP mới</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tạo VPN connection mới tới TGW</strong> — Từ CGW mới → download config → cấu hình FortiGate</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify VPN mới UP</strong> — Cả 2 tunnel UP, BGP Established</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xóa VPN + CGW cũ</strong> — Sau khi VPN mới OK hoàn toàn</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Xóa VPN connection (cực kỳ nguy hiểm)</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify site backup đang UP</strong> — Nếu xóa LA, HC phải đang UP và healthy</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Thông báo trước</strong> — User on-prem và SAP Indonesia sẽ bị ảnh hưởng trong lúc failover</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xác nhận 2 lần với 3T</strong> — VPN là P1, xóa nhầm = mất kết nối</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Sau khi xóa: verify routes failover sang backup site</strong> — Check TGW route table còn routes từ HC</div></li>
+  </ul>
+
+  </div></div>
+</section>
+
+
+<!-- S8 -->
+<section id="s8">
+  <div class="s-head"><div class="s-num">08 / 08</div>
+    <div><h2>Best Practices & <em>Tài liệu</em></h2>
+      <p class="s-sub">Nguyên tắc vận hành VPN Japfa và tài liệu tham khảo.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Best Practices</h3>
+  <h4>Reliability</h4>
+  <ul>
+    <li><strong>Luôn có 2 sites VPN</strong> — LA + HC, không bao giờ chỉ có 1 site</li>
+    <li><strong>BGP thay vì static route</strong> — Tự động propagate route khi thêm subnet on-prem mới</li>
+    <li><strong>DPD enabled</strong> — Phát hiện tunnel DOWN nhanh hơn (không phải chờ keepalive timeout)</li>
+    <li><strong>Monitor cả 2 tunnel per connection</strong> — AWS tạo 2 tunnel mỗi connection; track cả 2</li>
+  </ul>
+  <h4>Security</h4>
+  <ul>
+    <li><strong>KHÔNG ghi PSK vào skill/git</strong> — PSK là credential bảo mật; lấy từ Console VPN config download</li>
+    <li><strong>Rotate PSK định kỳ</strong> — Đặc biệt nếu có nhân viên network nghỉ việc</li>
+    <li><strong>Monitoring tunnel state</strong> — CloudWatch alarm khi TunnelState = 0 (DOWN)</li>
+  </ul>
+  <h4>Operations</h4>
+  <ul>
+    <li><strong>VPN Auto-Heal Lambda</strong> — Đã có, không cần monitor thủ công. Lambda tự reset tunnel DOWN</li>
+    <li><strong>FortiGate config backup</strong> — Trước mọi thay đổi FortiGate: <code>execute backup config ftp/sftp</code></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Gotchas & Pitfalls</h3>
+  <div class="proof">
+    <div class="k no">PITFALL</div><div class="v"><p><strong>CGW IP không thể sửa</strong> — Nếu ISP đổi IP → phải tạo CGW mới + VPN mới, không edit được. Tên convention: <code>jp-network-cgw-aps1-long-an-v2</code> khi tạo lại.</p></div>
+    <div class="k no">PITFALL</div><div class="v"><p><strong>AS-prepend cấu hình FortiGate HC, không phải AWS</strong> — AWS không có field "AS prepend" trên VPN connection. FortiGate HC route-map set as-path prepend 65000 × 5 trước khi advertise sang AWS.</p></div>
+    <div class="k am">GOTCHA</div><div class="v"><p><strong>Tunnel 2 thường DOWN</strong> — AWS cấp 2 tunnel nhưng BGP chỉ Establish 1 tại 1 thời điểm (không dùng ECMP cho same VPN connection). Tunnel 2 là hot standby — DOWN là bình thường.</p></div>
+    <div class="k ok">TIP</div><div class="v"><p><strong>Download FortiGate config ngay sau khi tạo VPN</strong> — File config từ Console có PSK, outside IPs, inside IPs, BGP config template sẵn. Download một lần, lưu nơi an toàn. KHÔNG để trên GitHub.</p></div>
+  </div>
+
+  <h3><span class="tick">→</span>Tài liệu tham khảo</h3>
+  <table>
+    <thead><tr><th>Tài liệu</th><th>Mô tả</th><th>Loại</th></tr></thead>
+    <tbody>
+      <tr><td><b>AWS Site-to-Site VPN User Guide</b></td><td>VPN, BGP, tunnel redundancy</td><td><span class="pill p-info">AWS Docs</span></td></tr>
+      <tr><td><b>Fortinet FortiGate AWS VPN Guide</b></td><td>FortiGate config template cho AWS VPN</td><td><span class="pill p-info">Fortinet Docs</span></td></tr>
+      <tr><td><b>Terraform aws_vpn_connection</b></td><td>TF provider docs</td><td><span class="pill p-info">TF Registry</span></td></tr>
+      <tr><td><b><code>infra-overview.md § 5</code></b></td><td>VPN IDs, CGW IDs, FortiGate IPs thực tế</td><td><span class="pill p-ok">Nội bộ</span></td></tr>
+      <tr><td><b><code>network/fortigate-bgp-vpn.md</code></b></td><td>FortiGate BGP commands, failover troubleshooting</td><td><span class="pill p-ok">Nội bộ Skill</span></td></tr>
+      <tr><td><b>guide-tgw-20260630.html</b></td><td>Transit Gateway — điểm terminate của VPN</td><td><span class="pill p-am">Guide</span></td></tr>
+    </tbody>
+  </table>
+
+  <table class="ver-table" style="margin-top:40px">
+    <thead><tr><th>Version</th><th>Ngày</th><th>Thay đổi</th><th>Author</th></tr></thead>
+    <tbody>
+      <tr><td>v1.0</td><td>2026-06-30</td><td>Khởi tạo</td><td>trungcln</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="big">2 VPN · BGP failover · Auto-Heal Lambda<br>— kết nối on-prem Japfa với AWS.</div>
+  <div class="src">trungcln · Resource Guide · Site-to-Site VPN · 2026-06-30 · ap-southeast-1</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.s-head').forEach(h=>{h.addEventListener('click',()=>{h.closest('section').classList.toggle('collapsed');updateToc();});});
+const btn=document.getElementById('btn-col-all');let allCol=false;
+btn.addEventListener('click',()=>{allCol=!allCol;document.querySelectorAll('section').forEach(s=>s.classList.toggle('collapsed',allCol));btn.textContent=allCol?'▸ Mở tất cả':'▾ Thu gọn';updateToc();});
+const tocLinks=document.querySelectorAll('.toc a');
+function updateToc(){const scrollY=window.scrollY+120;let active='';document.querySelectorAll('section[id]').forEach(s=>{if(s.offsetTop<=scrollY)active=s.id;});tocLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+active);});}
+window.addEventListener('scroll',updateToc,{passive:true});updateToc();
+</script>
+</body>
+</html>

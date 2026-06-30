@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resource Guide: VPC &amp; Subnets · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F1E9;--paper-2:#EDE9DD;--ink:#16130D;--ink-soft:#4A4334;--line:rgba(22,19,13,.16);--line-strong:rgba(22,19,13,.34);--red:#C32D1A;--green:#1C7A47;--amber:#A9700A;--muted:#7A7160;--blue:#1F5F86;--term:#15120C;--term-ink:#EDE7D6;--maxw:1500px;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:21px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);background-size:22px 22px}
+::selection{background:var(--blue);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:none;width:26px;height:26px;display:grid;place-items:center;border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-ok{color:var(--green);border-color:var(--green)}.c-ok::before{background:var(--green)}
+.c-warn{color:var(--amber);border-color:var(--amber)}.c-warn::before{background:var(--amber)}
+.c-info{color:var(--blue);border-color:var(--blue)}.c-info::before{background:var(--blue)}
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--blue);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--blue)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line);scroll-margin-top:74px}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);color:var(--blue);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--blue)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;color:var(--blue);margin-right:.55em}
+h4{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(.85rem,1.3vw,1rem);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:36px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+p{max-width:78ch;margin:18px 0}strong{font-weight:600}
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}li{margin:11px 0;padding-left:6px}li::marker{color:var(--blue)}
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;margin:24px 0;overflow:hidden;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}pre .hl{color:#F0A93C;font-weight:700}pre .bad{color:#F0664C;font-weight:700}pre .dim{color:#8B826C}pre .key{color:#1A1206;font-weight:700;background:#F0A93C;border-radius:3px;padding:0 4px}pre .arg{color:#C4A8F0}pre .cmt{color:#6A8F7A;font-style:italic}
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;border-left:5px solid var(--ink);background:var(--paper-2);padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}.proof .k.am{color:var(--amber)}
+.proof .v{font-size:.92em;line-height:1.5}.proof .v p{margin:0;max-width:none}
+.principle{border:2px solid var(--ink);border-left:8px solid var(--blue);background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:600;line-height:1.32;margin:0;max-width:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}.stat .n.info{color:var(--blue)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}td b{font-weight:600}
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}.p-bad{color:var(--red);border-color:var(--red)}.p-am{color:var(--amber);border-color:var(--amber)}.p-out{color:var(--muted);border-color:var(--muted)}.p-info{color:var(--blue);border-color:var(--blue)}
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem);line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:2px;max-width:248px;padding:16px 14px;border:2px solid var(--ink);background:rgba(244,241,233,.94);backdrop-filter:blur(7px);border-radius:10px;box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--ink-soft);padding:6px 8px;border-radius:5px;line-height:1.25;transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}.toc a.active{background:var(--ink);color:var(--paper)}.toc a.active .tn{color:var(--paper)}.toc a.active .tt{font-weight:600}
+@media(max-width:1180px){.toc{display:none}}
+.s-toggle{position:absolute;right:0;top:.55em;font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:700;color:var(--blue);transition:transform .32s cubic-bezier(.4,0,.2,1);line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}.section-body-inner{overflow:hidden;min-height:0}
+.btn-col{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border:1.5px solid var(--ink);border-radius:4px;cursor:pointer;background:transparent;color:var(--ink);transition:all .15s;white-space:nowrap}
+.btn-col:hover{background:var(--ink);color:var(--paper)}
+.watermark{position:fixed;top:-60%;left:-60%;width:220%;height:220%;pointer-events:none;z-index:9000;transform:rotate(-28deg);opacity:.06;background-repeat:repeat;background-size:300px 150px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width='300'%20height='150'%3E%3Ctext%20x='6'%20y='42'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3Ctext%20x='156'%20y='120'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3C%2Fsvg%3E")}
+.alert{border-radius:8px;padding:16px 22px;margin:22px 0;border:2px solid;display:flex;gap:14px;align-items:flex-start;max-width:92ch}
+.alert .a-ico{font-size:1.1rem;flex-shrink:0;line-height:1.62;font-style:normal}
+.alert .a-body{flex:1}.alert .a-body p{margin:4px 0;max-width:none}.alert .a-body strong{font-weight:600}
+.a-crit{background:rgba(195,45,26,.07);border-color:var(--red)}.a-crit .a-ico{color:var(--red)}
+.a-warn{background:rgba(169,112,10,.07);border-color:var(--amber)}.a-warn .a-ico{color:var(--amber)}
+.a-info{background:rgba(31,95,134,.07);border-color:var(--blue)}.a-info .a-ico{color:var(--blue)}
+.steps{list-style:none;margin:22px 0;max-width:86ch;counter-reset:step}
+.steps>li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:0 18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps>li:last-child{border-bottom:none}
+.steps>li::before{content:counter(step);font-family:"JetBrains Mono",monospace;font-size:.88rem;font-weight:700;background:var(--ink);color:var(--paper);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:3px}
+.step-title{font-weight:600;font-size:1rem;line-height:1.35;margin-bottom:8px}
+.step-body{font-size:.93em;color:var(--ink-soft);line-height:1.55}.step-body p{margin:6px 0;max-width:none}
+.step-exp{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--blue);border-left:3px solid var(--blue);padding:6px 12px;margin-top:10px;background:rgba(31,95,134,.05);border-radius:0 4px 4px 0}
+.step-exp::before{content:"→ Lưu ý: ";font-weight:700}
+.checklist{list-style:none;margin:18px 0;max-width:82ch;border:1.5px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}.checklist li:nth-child(even){background:var(--paper-2)}
+.cb{width:18px;height:18px;border:2px solid var(--line-strong);border-radius:3px;flex-shrink:0;margin-top:3px;display:grid;place-items:center;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700}
+.cb.todo{border-color:var(--blue)}.cl-text{line-height:1.45;font-size:.95em;flex:1}.cl-text strong{font-weight:600}.cl-text em{font-style:italic;color:var(--ink-soft)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0;max-width:100ch}
+@media(max-width:700px){.pros-cons{grid-template-columns:1fr}}
+.pc-card{border-radius:8px;padding:20px 22px;border:2px solid}.pc-card h4{border:none;margin:0 0 14px;padding:0;font-size:.9rem}
+.pc-pros{background:rgba(28,122,71,.06);border-color:var(--green)}.pc-pros h4{color:var(--green)}
+.pc-cons{background:rgba(195,45,26,.06);border-color:var(--red)}.pc-cons h4{color:var(--red)}
+.pc-card ul{margin:0 0 0 1.1em}.pc-card li{margin:8px 0;font-size:.9em}.pc-card li::marker{color:inherit}
+.cost-table td:last-child{font-family:"JetBrains Mono",monospace;font-size:.82em;font-weight:700}
+.dep-graph{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0;align-items:center}
+.dep-node{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:8px 14px;border:2px solid;border-radius:6px;white-space:nowrap}
+.dep-node.self{background:var(--blue);color:var(--paper);border-color:var(--blue)}.dep-node.req{border-color:var(--ink)}.dep-node.opt{border-color:var(--muted);color:var(--muted)}.dep-node.notify{border-color:var(--green);color:var(--green)}
+.dep-arrow{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--muted);font-weight:700}
+.sev{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;padding:4px 14px;border-radius:4px;letter-spacing:.08em;border:2px solid;display:inline-block;vertical-align:middle}
+.sev-p1{color:var(--paper);background:var(--red);border-color:var(--red)}.sev-p2{color:var(--paper);background:#C45D00;border-color:#C45D00}
+.ver-table{width:auto;max-width:72ch;font-size:.82em;border:1.5px solid var(--line-strong)}
+.ver-table th{background:var(--paper-2);color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.ver-table td{font-family:"JetBrains Mono",monospace;font-size:12px}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}}
+@media print{.rail,.toc,.btn-col{display:none!important}section.collapsed .section-body{grid-template-rows:1fr!important}body{font-size:14px;background-image:none}.watermark{opacity:.10!important}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<div class="rail"><div class="wrap">
+  <span class="brand">trungcln · Resource Guide</span>
+  <div style="display:flex;gap:7px;flex-wrap:wrap">
+    <span class="chip c-info">Networking</span>
+    <span class="chip c-info">jp:network</span>
+    <span class="chip c-warn">v1.0 · 2026-06-30</span>
+  </div>
+  <nav>
+    <button class="btn-col" id="btn-col-all">▾ Thu gọn</button>
+    <a href="#s0">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a>
+    <a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a>
+  </nav>
+</div></div>
+
+<nav class="toc"><div class="toc-lbl">Nội dung</div>
+  <a href="#s0"><span class="tn">00</span><span class="tt">Tổng quan</span></a>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Cấu hình Console</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">Cấu hình CLI</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">Terraform</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">Ưu &amp; Nhược điểm</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">Chi phí &amp; Tối ưu</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">Liên kết Resource</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">Checklist Thêm/Sửa/Xóa</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">Best Practices &amp; Refs</span></a>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">trungcln · Resource Guide · Networking</div>
+  <h1>VPC & <em>Subnets</em></h1>
+  <p class="lede">Nền tảng mạng của toàn bộ hạ tầng Japfa — 3 VPC, 4 tier subnet (Public/Private-App/Airgap-DB/TGW-Attach) × 2 AZ, được chia sẻ sang các workload account qua RAM Share.</p>
+  <div class="meta-strip">
+    <span>Phiên bản: <b>v1.0</b></span>
+    <span>Cập nhật: <b>2026-06-30</b></span>
+    <span>Owner: <b>trungcln</b></span>
+    <span>Account: <b>jp:network (787309524943)</b></span>
+    <span>Region: <b>ap-southeast-1</b></span>
+    <span>Criticality: <span class="sev sev-p1">P1</span></span>
+  </div>
+</header>
+
+
+<!-- S0 -->
+<section id="s0">
+  <div class="s-head"><div class="s-num">00 / 08</div>
+    <div><h2>Tổng <em>quan</em></h2>
+      <p class="s-sub">3 VPC, 4 tier subnet, RAM Share sang workload accounts — kiến trúc hub-and-spoke Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="principle"><div class="lbl">Định nghĩa</div>
+    <p>Amazon VPC (Virtual Private Cloud) là mạng ảo riêng biệt trong AWS — Japfa dùng mô hình <strong>Network Account centralization</strong>: jp:network sở hữu toàn bộ VPC/Subnet, chia sẻ sang jp:prod và jp:poc qua <strong>AWS RAM Share</strong>. Workload account không tự tạo VPC.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n info">3</div><div class="l">VPC (Prod · POC · Share-Svc)</div></div>
+    <div class="stat"><div class="n info">4</div><div class="l">Subnet tier × 2 AZ = 8 subnet (prod)</div></div>
+    <div class="stat"><div class="n ok">10.83.0.0/18</div><div class="l">CIDR Production VPC</div></div>
+    <div class="stat"><div class="n info">2</div><div class="l">RAM Share (Prod + POC → workload accounts)</div></div>
+  </div>
+
+  <h3><span class="tick">→</span>3 VPC Japfa</h3>
+  <table>
+    <thead><tr><th>VPC Name</th><th>CIDR</th><th>Owner</th><th>RAM Share sang</th><th>Dùng cho</th></tr></thead>
+    <tbody>
+      <tr><td><b>jp-prod-vpc-aps1-production</b></td><td><code>10.83.0.0/18</code></td><td>jp:network</td><td>jp:prod</td><td>EC2 webapp, RDS Oracle, ALB, Bastion</td></tr>
+      <tr><td><b>jp-poc-vpc-aps1-poc</b></td><td><code>10.83.64.0/18</code></td><td>jp:network</td><td>jp:poc</td><td>POC/Dev environment, thử nghiệm</td></tr>
+      <tr><td><b>jp-share-svc-vpc-aps1</b></td><td><code>10.83.128.0/20</code></td><td>jp:network</td><td>(nội bộ)</td><td>VPC Endpoint tập trung: SSM, CloudWatch, S3</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>4 Subnet Tier × 2 AZ — Production VPC</h3>
+  <table>
+    <thead><tr><th>Tier</th><th>AZ-1a (aps11)</th><th>AZ-1b (aps12)</th><th>Internet Route</th><th>Dùng cho</th></tr></thead>
+    <tbody>
+      <tr><td><b>Public</b></td><td><code>10.83.0.0/24</code></td><td><code>10.83.1.0/24</code></td><td><span class="pill p-ok">✓ IGW</span></td><td>ALB internet-facing, NAT Gateway, IGW attach</td></tr>
+      <tr><td><b>Private-App</b></td><td><code>10.83.4.0/22</code></td><td><code>10.83.8.0/22</code></td><td><span class="pill p-am">NAT GW</span></td><td>EC2 IIS webapp, Bastion, Dev instance</td></tr>
+      <tr><td><b>Airgap-DB</b></td><td><code>10.83.16.0/24</code></td><td><code>10.83.17.0/24</code></td><td><span class="pill p-bad">✗ None</span></td><td>RDS Oracle — không có route internet hoặc NAT</td></tr>
+      <tr><td><b>TGW-Attach</b></td><td><code>10.83.20.0/28</code></td><td><code>10.83.20.16/28</code></td><td><span class="pill p-out">TGW only</span></td><td>Transit Gateway ENI attachment — không dùng cho workload</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Kiến trúc subnet Japfa</h3>
+  <div class="dia">VPC Production (10.83.0.0/18) — owned by jp:network, RAM shared to jp:prod
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  [Public Subnet AZ-1a 10.83.0.0/24] [Public AZ-1b 10.83.1.0/24]│
+│   ↑ IGW (internet)     ↑ IGW                                    │
+│   ALB internet-facing  NAT Gateway                              │
+│                                                                 │
+│  [Private-App AZ-1a 10.83.4.0/22]  [Private-App AZ-1b 10.83.8.0/22]│
+│   EC2 webapp i-0cb8...              EC2 dev i-0c4b...           │
+│   EC2 bastion i-06c8...             (route: → NAT GW → internet)│
+│                                                                 │
+│  [Airgap-DB AZ-1a 10.83.16.0/24]   [Airgap-DB AZ-1b 10.83.17.0/24]│
+│   RDS Oracle :1521                  (standby nếu Multi-AZ bật) │
+│   ← NO internet route →                                        │
+│                                                                 │
+│  [TGW-Attach AZ-1a 10.83.20.0/28]  [TGW-Attach AZ-1b .16/28]  │
+│   Transit Gateway ENI               Transit Gateway ENI         │
+│   → route on-prem CIDRs            → route on-prem CIDRs       │
+└─────────────────────────────────────────────────────────────────┘
+         │
+    [Transit Gateway tgw-074bbf044fada8981]
+         │
+    [VPN → FortiGate Long An / Hương Canh → On-prem]</div>
+
+  <h3><span class="tick">→</span>RAM Share — chia sẻ subnet sang workload accounts</h3>
+  <table>
+    <thead><tr><th>RAM Share Name</th><th>Owner</th><th>Shared to</th><th>Resources shared</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>jp-prod-ram-aps1-prod-subnets</b></td>
+        <td>jp:network</td>
+        <td>jp:prod</td>
+        <td>6 subnet (Public ×2, Private-App ×2, Airgap-DB ×2) + TGW + Prefix List on-prem</td>
+      </tr>
+      <tr>
+        <td><b>jp-poc-ram-aps1-poc-subnets</b></td>
+        <td>jp:network</td>
+        <td>jp:poc</td>
+        <td>Subnet POC VPC + TGW</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p><strong>Phân quyền quan trọng:</strong> jp:network <strong>sở hữu</strong> VPC/Subnet/TGW/Route Table. jp:prod chỉ <strong>dùng</strong> subnet để launch EC2, RDS — không thể sửa route table, không thể xóa subnet. Mọi thay đổi network phải làm ở jp:network.</p>
+  </div></div>
+
+  </div></div>
+</section>
+
+
+<!-- S1 -->
+<section id="s1">
+  <div class="s-head"><div class="s-num">01 / 08</div>
+    <div><h2>Cấu hình qua <em>Console</em></h2>
+      <p class="s-sub">Xem VPC, subnet, route table và RAM Share qua AWS Console (jp:network).</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-warn"><em class="a-ico">⚠</em><div class="a-body">
+    <strong>Quan trọng:</strong> VPC/Subnet là P1 — thay đổi route table hoặc subnet config có thể làm toàn bộ hệ thống mất kết nối. Backup JSON trước mọi thay đổi.
+  </div></div>
+
+  <h3><span class="tick">→</span>Xem VPC và Subnet</h3>
+  <ol class="steps">
+    <li>
+      <div class="step-title">Đăng nhập Console jp:network</div>
+      <div class="step-body">
+        <p>SSO → <strong>jp:network (787309524943)</strong> → Console → Region: <strong>ap-southeast-1</strong>.</p>
+        <p>Search: <code>VPC</code> → Your VPCs → thấy 3 VPC của Japfa.</p>
+        <div class="step-exp">Phải vào jp:network — nếu vào jp:prod chỉ thấy subnet được share, không thể sửa</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Xem Subnets và Route Tables</div>
+      <div class="step-body">
+        <p>VPC → Subnets → filter theo VPC <code>jp-prod-vpc-aps1-production</code>.</p>
+        <p>Click từng subnet → tab <strong>Route table</strong> để xem route — quan trọng để verify airgap-db không có internet route.</p>
+        <table>
+          <thead><tr><th>Subnet tier</th><th>Route bình thường</th><th>Cần kiểm tra</th></tr></thead>
+          <tbody>
+            <tr><td>Public</td><td>0.0.0.0/0 → IGW</td><td>IGW đang attached và active</td></tr>
+            <tr><td>Private-App</td><td>0.0.0.0/0 → NAT GW</td><td>NAT GW còn active, không bị xóa</td></tr>
+            <tr><td>Airgap-DB</td><td>KHÔNG có 0.0.0.0/0</td><td>Chỉ có local route và TGW route — không có internet</td></tr>
+            <tr><td>TGW-Attach</td><td>0.0.0.0/0 → TGW</td><td>TGW đang active</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Xem RAM Share status</div>
+      <div class="step-body">
+        <p>VPC → Resource Access Manager → Shared by me → tìm <code>jp-prod-ram-aps1-prod-subnets</code>.</p>
+        <p>Xem tab <strong>Shared resources</strong> — tất cả 6 subnet phải có status <code>Associated</code>.</p>
+        <div class="step-exp">Nếu RAM Share bị xóa hoặc subnet không Associated → jp:prod không launch EC2 được</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Xem VPC Flow Logs (nếu cần debug network)</div>
+      <div class="step-body">
+        <p>VPC → chọn VPC production → tab <strong>Flow Logs</strong> → xem logs đang được gửi về CloudWatch hoặc S3.</p>
+        <p>Flow logs giúp debug: traffic bị reject, kết nối failed, SG blocking.</p>
+      </div>
+    </li>
+  </ol>
+
+  </div></div>
+</section>
+
+
+<!-- S2 -->
+<section id="s2">
+  <div class="s-head"><div class="s-num">02 / 08</div>
+    <div><h2>Cấu hình qua <em>CLI</em></h2>
+      <p class="s-sub">AWS CLI để xem VPC, subnet, route table từ jp:network.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>Tất cả lệnh VPC dùng <code>--profile jp:network</code> — không phải jp:prod. jp:prod chỉ thấy shared resources, không thể modify.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Lệnh đọc / kiểm tra (🟢 An toàn)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Describe VPC &amp; Subnets</span><span class="tag">🟢 READ ONLY</span></div>
+<pre>
+<span class="dim"># Xem tất cả VPC</span>
+<span class="cmd">aws ec2 describe-vpcs \</span>
+<span class="cmd">  --profile <span class="hl">jp:network</span> \</span>
+<span class="cmd">  --region <span class="hl">ap-southeast-1</span> \</span>
+<span class="cmd">  --query 'Vpcs[*].{ID:VpcId,CIDR:CidrBlock,Name:Tags[?Key==`Name`]|[0].Value}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem tất cả subnets trong Production VPC</span>
+<span class="cmd">aws ec2 describe-subnets \</span>
+<span class="cmd">  --filters "Name=vpc-id,Values=<span class="hl">{{vpc-id-prod}}</span>" \</span>
+<span class="cmd">  --query 'Subnets[*].{ID:SubnetId,CIDR:CidrBlock,AZ:AvailabilityZone,Name:Tags[?Key==`Name`]|[0].Value,Available:AvailableIpAddressCount}' \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem route tables — verify airgap-db không có internet route</span>
+<span class="cmd">aws ec2 describe-route-tables \</span>
+<span class="cmd">  --filters "Name=vpc-id,Values=<span class="hl">{{vpc-id-prod}}</span>" \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --output json</span>
+
+<span class="dim"># Xem RAM Share đang share gì sang jp:prod</span>
+<span class="cmd">aws ram get-resource-shares \</span>
+<span class="cmd">  --resource-owner SELF \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --query 'resourceShares[*].{Name:name,Status:status,ARN:resourceShareArn}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Xem NAT Gateway status</span>
+<span class="cmd">aws ec2 describe-nat-gateways \</span>
+<span class="cmd">  --filter "Name=vpc-id,Values=<span class="hl">{{vpc-id-prod}}</span>" \</span>
+<span class="cmd">  --query 'NatGateways[*].{ID:NatGatewayId,State:State,PublicIP:NatGatewayAddresses[0].PublicIp,Subnet:SubnetId}' \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  --output table</span>
+</pre></div>
+
+  <h3><span class="tick">→</span>Thêm route vào route table (🔴 Nguy hiểm — ảnh hưởng toàn mạng)</h3>
+
+  <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+    <strong>CẢNH BÁO MẠNG:</strong> Sai route table có thể làm mất kết nối toàn bộ hạ tầng. Export JSON backup trước, xác nhận 2 lần với 3T.
+  </div></div>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Modify Route Table</span><span class="tag">🔴 WRITE — NETWORK IMPACT</span></div>
+<pre>
+<span class="dim"># Backup route table hiện tại trước</span>
+<span class="cmd">aws ec2 describe-route-tables \</span>
+<span class="cmd">  --route-table-ids <span class="key">{{route-table-id}}</span> \</span>
+<span class="cmd">  --profile jp:network --region ap-southeast-1 \</span>
+<span class="cmd">  > backup-route-table-$(date +%Y%m%d-%H%M%S).json</span>
+
+<span class="dim"># Thêm route mới (ví dụ: on-prem CIDR mới qua TGW)</span>
+<span class="cmd">aws ec2 create-route \</span>
+<span class="arg">  --route-table-id <span class="key">{{route-table-id}}</span> \</span>
+<span class="arg">  --destination-cidr-block <span class="hl">{{10.xxx.0.0/xx}}</span> \     <span class="dim"># CIDR on-prem mới</span></span>
+<span class="arg">  --transit-gateway-id <span class="hl">tgw-074bbf044fada8981</span> \   <span class="dim"># Luôn qua TGW cho on-prem</span></span>
+<span class="cmd">  --profile jp:network \</span>
+<span class="cmd">  --region ap-southeast-1</span>
+
+<span class="dim"># Rollback: xóa route vừa thêm</span>
+<span class="bad"># aws ec2 delete-route \</span>
+<span class="bad">#   --route-table-id {{route-table-id}} \</span>
+<span class="bad">#   --destination-cidr-block {{CIDR}} \</span>
+<span class="bad">#   --profile jp:network --region ap-southeast-1</span>
+</pre></div>
+
+  </div></div>
+</section>
+
+
+<!-- S3 -->
+<section id="s3">
+  <div class="s-head"><div class="s-num">03 / 08</div>
+    <div><h2>Cấu hình qua <em>Terraform</em></h2>
+      <p class="s-sub">Module network tại <code>~/Japfa-JCV/terraform/network/</code>.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="proof">
+    <div class="k am">TF Backend</div><div class="v"><p>S3: <code>japfa-terraform-state-central-2026</code> · Profile: <code>jp:aggregator</code></p></div>
+    <div class="k ok">Module path</div><div class="v"><p><code>~/Japfa-JCV/terraform/network/vpc.tf</code></p></div>
+    <div class="k ok">TF Status</div><div class="v"><p>✅ Clean drift 26/06/2026</p></div>
+  </div>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>Terraform · vpc.tf + subnet.tf</span><span class="tag">HCL</span></div>
+<pre>
+<span class="dim"># VPC Production</span>
+resource <span class="hl">"aws_vpc"</span> <span class="hl">"prod"</span> {
+  <span class="arg">cidr_block</span>           = <span class="hl">"10.83.0.0/18"</span>       <span class="dim"># [BẮT BUỘC] CIDR không thể thay đổi sau khi tạo</span>
+  <span class="arg">enable_dns_hostnames</span> = <span class="hl">true</span>               <span class="dim"># Cần cho RDS endpoint, SSM endpoint</span>
+  <span class="arg">enable_dns_support</span>   = <span class="hl">true</span>               <span class="dim"># Bắt buộc cho DNS resolution trong VPC</span>
+  tags = { Name = <span class="hl">"jp-prod-vpc-aps1-production"</span>, Environment = <span class="hl">"production"</span>, ManagedBy = <span class="hl">"terraform"</span> }
+}
+
+<span class="dim"># Public Subnet AZ-1a</span>
+resource <span class="hl">"aws_subnet"</span> <span class="hl">"public_1a"</span> {
+  <span class="arg">vpc_id</span>                  = <span class="hl">aws_vpc.prod.id</span>
+  <span class="arg">cidr_block</span>              = <span class="hl">"10.83.0.0/24"</span>
+  <span class="arg">availability_zone</span>       = <span class="hl">"ap-southeast-1a"</span>
+  <span class="arg">map_public_ip_on_launch</span> = <span class="hl">false</span>             <span class="dim"># Không tự gắn public IP — control thủ công</span>
+  tags = { Name = <span class="hl">"jp-prod-sn-pb-aps11-public"</span>, Tier = <span class="hl">"public"</span> }
+}
+
+<span class="dim"># Private-App Subnet AZ-1a</span>
+resource <span class="hl">"aws_subnet"</span> <span class="hl">"private_app_1a"</span> {
+  <span class="arg">vpc_id</span>            = <span class="hl">aws_vpc.prod.id</span>
+  <span class="arg">cidr_block</span>        = <span class="hl">"10.83.4.0/22"</span>
+  <span class="arg">availability_zone</span> = <span class="hl">"ap-southeast-1a"</span>
+  tags = { Name = <span class="hl">"jp-prod-sn-pv-aps11-private-app"</span>, Tier = <span class="hl">"private-app"</span> }
+}
+
+<span class="dim"># Airgap-DB Subnet AZ-1a (không có route internet)</span>
+resource <span class="hl">"aws_subnet"</span> <span class="hl">"airgap_db_1a"</span> {
+  <span class="arg">vpc_id</span>            = <span class="hl">aws_vpc.prod.id</span>
+  <span class="arg">cidr_block</span>        = <span class="hl">"10.83.16.0/24"</span>
+  <span class="arg">availability_zone</span> = <span class="hl">"ap-southeast-1a"</span>
+  tags = { Name = <span class="hl">"jp-prod-sn-ag-aps11-airgap-db"</span>, Tier = <span class="hl">"airgap-db"</span> }
+}
+
+<span class="dim"># Route Table Airgap-DB — KHÔNG có internet route</span>
+resource <span class="hl">"aws_route_table"</span> <span class="hl">"airgap_db"</span> {
+  <span class="arg">vpc_id</span> = <span class="hl">aws_vpc.prod.id</span>
+  <span class="dim"># Chỉ có local route (10.83.0.0/18 → local) — không thêm bất cứ route nào khác</span>
+  tags = { Name = <span class="hl">"jp-prod-rt-airgap-db"</span> }
+}
+
+<span class="dim"># RAM Share — chia sẻ subnet sang jp:prod</span>
+resource <span class="hl">"aws_ram_resource_share"</span> <span class="hl">"prod_subnets"</span> {
+  <span class="arg">name</span>                      = <span class="hl">"jp-prod-ram-aps1-prod-subnets"</span>
+  <span class="arg">allow_external_principals</span> = <span class="hl">false</span>  <span class="dim"># Chỉ share trong cùng AWS Organization</span>
+}
+
+resource <span class="hl">"aws_ram_resource_association"</span> <span class="hl">"subnet_private_app_1a"</span> {
+  <span class="arg">resource_share_arn</span> = <span class="hl">aws_ram_resource_share.prod_subnets.arn</span>
+  <span class="arg">resource_arn</span>       = <span class="hl">aws_subnet.private_app_1a.arn</span>
+}
+
+resource <span class="hl">"aws_ram_principal_association"</span> <span class="hl">"prod_account"</span> {
+  <span class="arg">resource_share_arn</span> = <span class="hl">aws_ram_resource_share.prod_subnets.arn</span>
+  <span class="arg">principal</span>          = <span class="hl">"347486023795"</span>  <span class="dim"># jp:prod account ID</span>
+}
+</pre></div>
+
+  <h4>Argument quan trọng VPC/Subnet</h4>
+  <table>
+    <thead><tr><th>Argument</th><th>Resource</th><th>Giải thích Japfa</th></tr></thead>
+    <tbody>
+      <tr><td><code>cidr_block</code></td><td>aws_vpc</td><td>KHÔNG thể thay đổi sau khi tạo VPC. Phải plan kỹ CIDR range trước (Japfa: 10.83.0.0/18 = 16382 IPs)</td></tr>
+      <tr><td><code>enable_dns_hostnames = true</code></td><td>aws_vpc</td><td>Bắt buộc nếu dùng VPC Endpoint (SSM, CloudWatch) và RDS hostname</td></tr>
+      <tr><td><code>availability_zone</code></td><td>aws_subnet</td><td>Không thể thay đổi sau khi tạo. EC2 phải cùng AZ với subnet</td></tr>
+      <tr><td><code>allow_external_principals = false</code></td><td>aws_ram_resource_share</td><td>Chỉ share trong Org — không share ra ngoài Japfa Organization</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S4 -->
+<section id="s4">
+  <div class="s-head"><div class="s-num">04 / 08</div>
+    <div><h2>Ưu & <em>Nhược điểm</em></h2>
+      <p class="s-sub">Mô hình Network Account centralization của Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="pros-cons">
+    <div class="pc-card pc-pros">
+      <h4>Ưu điểm — Network Account Centralization</h4>
+      <ul>
+        <li><strong>Kiểm soát tập trung</strong> — Toàn bộ VPC/Route/TGW trong 1 account, dễ audit và enforce policy</li>
+        <li><strong>Workload account không tự tạo VPC</strong> — Không có VPC sprawl, không sai CIDR overlap</li>
+        <li><strong>Airgap-DB subnet</strong> — RDS hoàn toàn cô lập, không có internet route từ thiết kế</li>
+        <li><strong>4 tier rõ ràng</strong> — Dễ hiểu: Public → Private-App → Airgap-DB → TGW-Attach</li>
+        <li><strong>RAM Share efficient</strong> — 1 subnet phục vụ nhiều account, không duplicate VPC</li>
+      </ul>
+    </div>
+    <div class="pc-card pc-cons">
+      <h4>Nhược điểm / Rủi ro</h4>
+      <ul>
+        <li><strong>jp:network là SPOF quản lý</strong> — Mọi thay đổi network phải qua jp:network; nếu ai sửa nhầm sẽ ảnh hưởng toàn hạ tầng</li>
+        <li><strong>CIDR không thể đổi</strong> — VPC CIDR đã chọn không thay đổi được; phải plan kỹ từ đầu</li>
+        <li><strong>NAT GW là SPOF cho internet</strong> — 1 NAT GW per VPC; nếu NAT down thì EC2 private-app mất internet (không ảnh hưởng app vì chỉ cần inbound)</li>
+        <li><strong>Không có IPv6</strong> — Hiện chỉ dùng IPv4; nếu cần IPv6 phải thêm sau</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>So sánh mô hình network</h3>
+  <table>
+    <thead><tr><th>Mô hình</th><th>Japfa dùng?</th><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead>
+    <tbody>
+      <tr><td><b>Network Account Centralization (đang dùng)</b></td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>Tập trung, dễ audit, RAM Share hiệu quả</td><td>Dependency vào jp:network, SPOF quản lý</td></tr>
+      <tr><td><b>VPC per account (mỗi account tự quản)</b></td><td><span class="pill p-out">— Không dùng</span></td><td>Độc lập, ít dependency</td><td>VPC sprawl, khó manage CIDR, đắt hơn (nhiều NAT GW)</td></tr>
+      <tr><td><b>AWS Transit Gateway + VPN (đang dùng kết hợp)</b></td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>Hub-and-spoke, kết nối on-prem → tất cả VPC</td><td>Phức tạp hơn simple VPC Peering</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S5 -->
+<section id="s5">
+  <div class="s-head"><div class="s-num">05 / 08</div>
+    <div><h2>Chi phí & <em>Tối ưu</em></h2>
+      <p class="s-sub">Chi phí VPC, NAT Gateway và các thành phần network Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Mô hình tính phí VPC (ap-southeast-1)</h3>
+  <table class="cost-table">
+    <thead><tr><th>Thành phần</th><th>Giá</th><th>Japfa hiện tại</th><th>Ước tính/tháng</th></tr></thead>
+    <tbody>
+      <tr><td><b>VPC</b></td><td>Miễn phí</td><td>3 VPC</td><td><b>$0</b></td></tr>
+      <tr><td><b>Subnet</b></td><td>Miễn phí</td><td>~10 subnet</td><td><b>$0</b></td></tr>
+      <tr><td><b>NAT Gateway (giờ)</b></td><td>$0.059/h</td><td>1 NAT GW (Production VPC)</td><td><b>~$43</b></td></tr>
+      <tr><td><b>NAT Gateway (data)</b></td><td>$0.059/GB</td><td>~10-20 GB/tháng (EC2 update/download)</td><td><b>~$1-2</b></td></tr>
+      <tr><td><b>Internet Gateway</b></td><td>Miễn phí (giờ) + data transfer</td><td>1 IGW</td><td><b>~$5-20 (data out)</b></td></tr>
+      <tr><td><b>VPC Flow Logs (nếu bật)</b></td><td>$0.50/GB CloudWatch ingestion</td><td>Tùy config</td><td><b>Variable</b></td></tr>
+      <tr style="background:var(--paper-2)"><td colspan="3"><b>Tổng ước tính VPC components</b></td><td><b style="color:var(--amber)">~$50-65/tháng</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>Chi phí network lớn nhất là <strong>Transit Gateway</strong> (xem guide riêng TGW) và <strong>VPN tunnels</strong>. NAT GW và VPC components tương đối rẻ trong tổng thể.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Cách tối ưu chi phí</h3>
+  <table>
+    <thead><tr><th>Giải pháp</th><th>Tiết kiệm</th><th>Áp dụng Japfa?</th><th>Trade-off</th></tr></thead>
+    <tbody>
+      <tr><td><b>VPC Endpoint cho S3/SSM</b></td><td>Tránh data transfer qua NAT GW</td><td><span class="pill p-ok">✓ Đang dùng (Share-Svc VPC)</span></td><td>Complexity tăng — đã setup trong jp:shareservice</td></tr>
+      <tr><td><b>Tắt VPC Flow Logs ở prod</b></td><td>$0.50/GB ingestion</td><td><span class="pill p-am">~ Tùy nhu cầu security</span></td><td>Mất khả năng debug network nếu incident</td></tr>
+      <tr><td><b>1 NAT GW cho cả VPC (đang làm)</b></td><td>$0 — tránh 2 NAT GW</td><td><span class="pill p-ok">✓ Đang áp dụng</span></td><td>Single NAT GW = SPOF nếu AZ down</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S6 -->
+<section id="s6">
+  <div class="s-head"><div class="s-num">06 / 08</div>
+    <div><h2>Liên kết <em>Resource</em></h2>
+      <p class="s-sub">VPC/Subnet phụ thuộc gì và ai phụ thuộc vào VPC.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Dependency map</h3>
+  <div class="dep-graph">
+    <div class="dep-node req">Internet Gateway<br><small>(Public subnet)</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node self">VPC &amp; Subnets<br><small>jp:network</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node notify">RAM Share<br><small>→ jp:prod / jp:poc</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node notify">EC2 · RDS · ALB<br><small>jp:prod</small></div>
+  </div>
+
+  <h3><span class="tick">→</span>Resource phụ thuộc vào VPC/Subnet</h3>
+  <table>
+    <thead><tr><th>Resource</th><th>Account</th><th>Subnet dùng</th><th>Ảnh hưởng nếu subnet mất</th></tr></thead>
+    <tbody>
+      <tr><td><b>EC2 Webapp</b></td><td>jp:prod</td><td>Private-App AZ-1a</td><td><span class="pill p-bad">Webapp không start được</span></td></tr>
+      <tr><td><b>EC2 Bastion</b></td><td>jp:prod</td><td>Private-App AZ-1a</td><td><span class="pill p-bad">Mất SSM access + auto-heal probe</span></td></tr>
+      <tr><td><b>RDS Oracle</b></td><td>jp:prod</td><td>Airgap-DB AZ-1a</td><td><span class="pill p-bad">RDS không start được</span></td></tr>
+      <tr><td><b>ALB Public</b></td><td>jp:prod</td><td>Public AZ-1a + AZ-1b</td><td><span class="pill p-bad">ALB cần 2 AZ — mất 1 = degraded</span></td></tr>
+      <tr><td><b>ALB Internal</b></td><td>jp:prod</td><td>Private-App AZ-1a + AZ-1b</td><td><span class="pill p-bad">API Gateway VPC Link mất</span></td></tr>
+      <tr><td><b>Transit Gateway</b></td><td>jp:network</td><td>TGW-Attach AZ-1a + AZ-1b</td><td><span class="pill p-bad">Mất routing on-prem ↔ AWS</span></td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S7 -->
+<section id="s7">
+  <div class="s-head"><div class="s-num">07 / 08</div>
+    <div><h2>Checklist <em>Thêm / Sửa / Xóa</em></h2>
+      <p class="s-sub">Checklist thay đổi VPC/Subnet/Route — ảnh hưởng toàn hệ thống.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+    <strong>VPC/Subnet là foundation P1 — lỗi route table hoặc xóa subnet sẽ ngắt toàn bộ traffic production. LUÔN xác nhận 2 lần.</strong>
+  </div></div>
+
+  <h3><span class="tick">→</span>Checklist: Thêm subnet mới</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Plan CIDR không overlap</strong> — Verify CIDR mới không trùng với 10.83.0.0/18 và on-prem CIDRs</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Chọn đúng AZ</strong> — Subnet AZ không thay đổi được sau khi tạo</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Gắn Route Table đúng</strong> — Public: gắn RT có IGW; Private: NAT GW; Airgap: RT không có internet</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Thêm vào RAM Share nếu cần share sang workload</strong> — Subnet mới mặc định không được shared</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tags đầy đủ</strong> — Name, Environment, Tier (public/private-app/airgap-db)</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Import vào TF state</strong> — <code>terraform import aws_subnet.&lt;name&gt; &lt;subnet-id&gt;</code></div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Sửa Route Table</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Backup JSON route table</strong> — <code>aws ec2 describe-route-tables --route-table-ids &lt;id&gt; &gt; backup.json</code></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify target gateway còn active</strong> — TGW, IGW, NAT GW phải ở trạng thái "available"</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>KHÔNG xóa route 0.0.0.0/0 của Public subnet</strong> — Mất IGW route = ALB mất internet</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>KHÔNG thêm internet route vào Airgap-DB</strong> — Vi phạm security design của RDS subnet</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Test sau khi thêm route</strong> — Ping/curl từ instance trong subnet đó để verify route hoạt động</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Xóa VPC/Subnet (cực kỳ nguy hiểm)</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify không còn resource nào trong subnet</strong> — EC2, RDS, ALB, NAT GW, VPC Endpoint phải xóa/move trước</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xóa khỏi RAM Share trước</strong> — Revoke từ workload account trước khi xóa subnet</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Backup toàn bộ VPC config</strong> — Export JSON tất cả: route tables, SG, NACL, subnet associations</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xác nhận 2 lần với 3T</strong> — VPC là foundation, xóa không thể undo</div></li>
+  </ul>
+
+  </div></div>
+</section>
+
+
+<!-- S8 -->
+<section id="s8">
+  <div class="s-head"><div class="s-num">08 / 08</div>
+    <div><h2>Best Practices & <em>Tài liệu</em></h2>
+      <p class="s-sub">Nguyên tắc thiết kế network Japfa và tài liệu tham khảo.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Best Practices</h3>
+  <h4>Security</h4>
+  <ul>
+    <li><strong>Airgap DB subnet không có internet route</strong> — RDS không thể bị access từ internet, đây là security by design</li>
+    <li><strong>NACL thêm lớp bảo vệ</strong> — SG kiểm soát instance level; NACL kiểm soát subnet level</li>
+    <li><strong>Không bao giờ cho EC2 join Public subnet</strong> — EC2 webapp phải ở Private-App, không phải Public</li>
+  </ul>
+  <h4>Reliability</h4>
+  <ul>
+    <li><strong>Mỗi tier có subnet ở 2 AZ</strong> — Đề phòng AZ failure. ALB cần 2 AZ tối thiểu</li>
+    <li><strong>TGW-Attach cũng có 2 AZ</strong> — TGW ENI fail-safe qua 2 AZ</li>
+  </ul>
+  <h4>Operational Excellence</h4>
+  <ul>
+    <li><strong>Tất cả trong jp:network TF module</strong> — Network không được tạo thủ công trong workload accounts</li>
+    <li><strong>CIDR planning document</strong> — Ghi lại CIDR allocation để tránh conflict khi expand</li>
+  </ul>
+
+  <h3><span class="tick">→</span>Gotchas & Pitfalls</h3>
+  <div class="proof">
+    <div class="k no">PITFALL</div><div class="v"><p><strong>jp:prod không thể sửa route table</strong> — Subnet được RAM share sang jp:prod nhưng route table owner là jp:network. Nếu cần thêm route: phải làm ở jp:network, không phải jp:prod.</p></div>
+    <div class="k no">PITFALL</div><div class="v"><p><strong>VPC CIDR không thể thay đổi</strong> — Sau khi tạo VPC, CIDR cố định. Nếu cần mở rộng: chỉ có thể thêm secondary CIDR block (giới hạn 5 block/VPC).</p></div>
+    <div class="k am">GOTCHA</div><div class="v"><p><strong>Airgap subnet không có NAT</strong> — EC2 trong airgap-db không thể download gì (kể cả AWS SSM agent update). Đây là intentional — chỉ RDS mới dùng subnet này.</p></div>
+    <div class="k ok">TIP</div><div class="v"><p><strong>Private-App subnet lớn (10.83.4.0/22 = 1024 IP)</strong> — Đủ chỗ cho hàng trăm EC2. Không lo hết IP trong tương lai gần.</p></div>
+  </div>
+
+  <h3><span class="tick">→</span>Tài liệu tham khảo</h3>
+  <table>
+    <thead><tr><th>Tài liệu</th><th>Mô tả</th><th>Loại</th></tr></thead>
+    <tbody>
+      <tr><td><b>AWS VPC User Guide</b></td><td>Tài liệu VPC, subnet, route table, NACL</td><td><span class="pill p-info">AWS Docs</span></td></tr>
+      <tr><td><b>AWS RAM User Guide</b></td><td>Resource Access Manager — share VPC subnet</td><td><span class="pill p-info">AWS Docs</span></td></tr>
+      <tr><td><b>Terraform aws_vpc, aws_subnet</b></td><td>TF provider docs</td><td><span class="pill p-info">TF Registry</span></td></tr>
+      <tr><td><b><code>infra-overview.md § 4</code></b></td><td>AWS Network VPC & Subnet Japfa thực tế</td><td><span class="pill p-ok">Nội bộ</span></td></tr>
+      <tr><td><b>guide-tgw-20260630.html</b></td><td>Transit Gateway — routing on-prem ↔ AWS</td><td><span class="pill p-am">Guide</span></td></tr>
+    </tbody>
+  </table>
+
+  <table class="ver-table" style="margin-top:40px">
+    <thead><tr><th>Version</th><th>Ngày</th><th>Thay đổi</th><th>Author</th></tr></thead>
+    <tbody>
+      <tr><td>v1.0</td><td>2026-06-30</td><td>Khởi tạo</td><td>trungcln</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="big">Bất kỳ thay đổi nào cũng cần<br>xác nhận 2 lần trước khi chạy.</div>
+  <div class="src">trungcln · Resource Guide · VPC &amp; Subnets · 2026-06-30 · ap-southeast-1</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.s-head').forEach(h=>{h.addEventListener('click',()=>{h.closest('section').classList.toggle('collapsed');updateToc();});});
+const btn=document.getElementById('btn-col-all');let allCol=false;
+btn.addEventListener('click',()=>{allCol=!allCol;document.querySelectorAll('section').forEach(s=>s.classList.toggle('collapsed',allCol));btn.textContent=allCol?'▸ Mở tất cả':'▾ Thu gọn';updateToc();});
+const tocLinks=document.querySelectorAll('.toc a');
+function updateToc(){const scrollY=window.scrollY+120;let active='';document.querySelectorAll('section[id]').forEach(s=>{if(s.offsetTop<=scrollY)active=s.id;});tocLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+active);});}
+window.addEventListener('scroll',updateToc,{passive:true});updateToc();
+</script>
+</body>
+</html>

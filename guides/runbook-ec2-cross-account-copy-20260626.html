@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runbook: EC2 Cross-Account Copy · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1E9;--paper-2:#EDE9DD;--ink:#16130D;--ink-soft:#4A4334;
+  --line:rgba(22,19,13,.16);--line-strong:rgba(22,19,13,.34);
+  --red:#C32D1A;--green:#1C7A47;--amber:#A9700A;--muted:#7A7160;--blue:#1F5F86;
+  --term:#15120C;--term-ink:#EDE7D6;--maxw:1500px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;
+  font-size:21px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);background-size:22px 22px}
+::selection{background:var(--red);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);
+  backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;color:var(--ink);
+  text-decoration:none;width:26px;height:26px;display:grid;place-items:center;
+  border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-ok{color:var(--green);border-color:var(--green)}.c-ok::before{background:var(--green)}
+.c-warn{color:var(--amber);border-color:var(--amber)}.c-warn::before{background:var(--amber)}
+.c-info{color:var(--blue);border-color:var(--blue)}.c-info::before{background:var(--blue)}
+.c-fail{color:var(--red);border-color:var(--red)}.c-fail::before{background:var(--red)}
+.c-out{color:var(--muted);border-color:var(--muted)}.c-out::before{background:var(--muted)}
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;
+  font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--amber)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;
+  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line);scroll-margin-top:74px}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;
+  cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);
+  color:var(--amber);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;
+  font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--amber)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);
+  margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;color:var(--amber);margin-right:.55em}
+p{max-width:78ch;margin:18px 0}
+strong{font-weight:600}
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}
+li{margin:11px 0;padding-left:6px}
+li::marker{color:var(--amber)}
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;margin:24px 0;
+  overflow:hidden;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;
+  border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}
+.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);
+  line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}
+pre .o{color:#E7E0CC}
+pre .hl{color:#F0A93C;font-weight:700}
+pre .bad{color:#F0664C;font-weight:700}
+pre .good{color:#74C593;font-weight:700}
+pre .dim{color:#8B826C}
+pre .key{color:#1A1206;font-weight:700;background:#F0A93C;border-radius:3px;padding:0 4px}
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);
+  line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;
+  margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.dia .bad{color:var(--red);font-weight:700}
+.dia .good{color:var(--green);font-weight:700}
+.dia .am{color:var(--amber);font-weight:700}
+.dia .mut{color:var(--muted)}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;
+  border-left:5px solid var(--ink);background:var(--paper-2);
+  padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}
+.proof .v{font-size:.92em;line-height:1.5}
+.proof .v p{margin:0;max-width:none}
+.principle{border:2px solid var(--ink);border-left:8px solid var(--amber);
+  background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);
+  font-weight:600;line-height:1.32;margin:0;max-width:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}
+td b{font-weight:600}
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}
+.p-bad{color:var(--red);border-color:var(--red)}
+.p-am{color:var(--amber);border-color:var(--amber)}
+.p-out{color:var(--muted);border-color:var(--muted)}
+.note{font-size:.9em;color:var(--ink-soft);border-top:1px dashed var(--line-strong);
+  padding-top:16px;margin-top:30px;max-width:84ch;font-style:italic}
+.note::before{content:"⚠ ";color:var(--amber);font-style:normal;font-weight:700}
+.timing{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  float:right;border:1.5px solid var(--line-strong);padding:5px 12px;border-radius:999px}
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem);
+  line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:2px;max-width:248px;padding:16px 14px;
+  border:2px solid var(--ink);background:rgba(244,241,233,.94);backdrop-filter:blur(7px);
+  border-radius:10px;box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--ink-soft);
+  padding:6px 8px;border-radius:5px;line-height:1.25;transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}
+.toc a.active{background:var(--ink);color:var(--paper)}
+.toc a.active .tn{color:var(--paper)}
+.toc a.active .tt{font-weight:600}
+@media(max-width:1180px){.toc{display:none}}
+.s-toggle{position:absolute;right:0;top:.55em;font-family:"JetBrains Mono",monospace;
+  font-size:1rem;font-weight:700;color:var(--amber);transition:transform .32s cubic-bezier(.4,0,.2,1);
+  line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}
+section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}
+.section-body-inner{overflow:hidden;min-height:0}
+.btn-col{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;padding:3px 10px;border:1.5px solid var(--ink);border-radius:4px;
+  cursor:pointer;background:transparent;color:var(--ink);transition:all .15s;white-space:nowrap}
+.btn-col:hover{background:var(--ink);color:var(--paper)}
+.watermark{position:fixed;top:-60%;left:-60%;width:220%;height:220%;
+  pointer-events:none;z-index:9000;transform:rotate(-28deg);opacity:.06;
+  background-repeat:repeat;background-size:300px 150px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width='300'%20height='150'%3E%3Ctext%20x='6'%20y='42'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3Ctext%20x='156'%20y='120'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3C%2Fsvg%3E")}
+.alert{border-radius:8px;padding:16px 22px;margin:22px 0;border:2px solid;
+  display:flex;gap:14px;align-items:flex-start;max-width:92ch}
+.alert .a-ico{font-size:1.1rem;flex-shrink:0;line-height:1.62;font-style:normal}
+.alert .a-body{flex:1}
+.alert .a-body p{margin:4px 0;max-width:none}
+.alert .a-body strong{font-weight:600}
+.a-crit{background:rgba(195,45,26,.07);border-color:var(--red)}
+.a-crit .a-ico{color:var(--red)}
+.a-warn{background:rgba(169,112,10,.07);border-color:var(--amber)}
+.a-warn .a-ico{color:var(--amber)}
+.a-info{background:rgba(31,95,134,.07);border-color:var(--blue)}
+.a-info .a-ico{color:var(--blue)}
+.a-ok{background:rgba(28,122,71,.07);border-color:var(--green)}
+.a-ok .a-ico{color:var(--green)}
+.steps{list-style:none;margin:22px 0;max-width:86ch;counter-reset:step}
+.steps>li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;
+  gap:0 18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps>li:last-child{border-bottom:none}
+.steps>li::before{content:counter(step);font-family:"JetBrains Mono",monospace;
+  font-size:.88rem;font-weight:700;background:var(--ink);color:var(--paper);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:3px}
+.step-title{font-weight:600;font-size:1rem;line-height:1.35;margin-bottom:8px}
+.step-body{font-size:.93em;color:var(--ink-soft);line-height:1.55}
+.step-body p{margin:6px 0;max-width:none}
+.step-body .term,.step-body .dia{margin:10px 0}
+.step-exp{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--green);
+  border-left:3px solid var(--green);padding:6px 12px;margin-top:10px;
+  background:rgba(28,122,71,.05);border-radius:0 4px 4px 0}
+.step-exp::before{content:"→ Kết quả mong đợi: ";font-weight:700}
+.checklist{list-style:none;margin:18px 0;max-width:82ch;
+  border:1.5px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.checklist li{display:flex;gap:12px;align-items:flex-start;
+  padding:11px 16px;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li:nth-child(even){background:var(--paper-2)}
+.cb{width:18px;height:18px;border:2px solid var(--line-strong);border-radius:3px;
+  flex-shrink:0;margin-top:3px;display:grid;place-items:center;
+  font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700}
+.cb.done{background:var(--green);border-color:var(--green);color:white}
+.cb.done::after{content:"✓"}
+.cb.fail{background:var(--red);border-color:var(--red);color:white}
+.cb.fail::after{content:"✗"}
+.cb.skip{background:var(--muted);border-color:var(--muted);color:white}
+.cb.skip::after{content:"—"}
+.cl-text{line-height:1.45;font-size:.95em;flex:1}
+.cl-text strong{font-weight:600}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin:24px 0}
+.contact-card{border:1.5px solid var(--line-strong);border-radius:8px;padding:16px 18px;background:var(--paper-2)}
+.cc-tier{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cc-name{font-weight:600;font-size:1.05rem;margin-bottom:4px}
+.cc-info{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);line-height:1.65}
+.sev{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+  padding:4px 14px;border-radius:4px;letter-spacing:.08em;border:2px solid;display:inline-block;vertical-align:middle}
+.sev-p3{color:var(--ink);background:#E8C240;border-color:#C4A020}
+.sev-p4{color:var(--paper);background:var(--blue);border-color:var(--blue)}
+.ver-table{width:auto;max-width:72ch;font-size:.82em;border:1.5px solid var(--line-strong)}
+.ver-table th{background:var(--paper-2);color:var(--muted);font-family:"JetBrains Mono",monospace;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.ver-table td{font-family:"JetBrains Mono",monospace;font-size:12px}
+.tab-group{margin:24px 0}
+.tab-btns{display:flex;gap:0;border-bottom:2px solid var(--ink);margin-bottom:0}
+.tab-btn{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:8px 20px;border:2px solid var(--ink);border-bottom:none;background:var(--paper-2);
+  color:var(--muted);cursor:pointer;margin-right:-2px;border-radius:6px 6px 0 0;transition:all .15s}
+.tab-btn.active{background:var(--ink);color:var(--paper)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}
+  .timing{float:none;display:inline-block;margin-bottom:18px}.proof{grid-template-columns:1fr;gap:6px}}
+@media print{.rail,.toc,.btn-col{display:none!important}
+  section.collapsed .section-body{grid-template-rows:1fr!important}
+  body{font-size:14px;background-image:none}.watermark{opacity:.10!important}
+  .term{box-shadow:none;border:1.5px solid #999}.dia{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<!-- RAIL -->
+<div class="rail"><div class="wrap">
+  <span class="brand">trungcln · Runbook</span>
+  <div style="display:flex;gap:7px;flex-wrap:wrap">
+    <span class="chip c-ok">ACTIVE</span>
+    <span class="chip c-info">jp:prod → jp:uat</span>
+    <span class="chip c-warn">v1.0 · 2026-06-26</span>
+  </div>
+  <nav>
+    <button class="btn-col" id="btn-col-all">▾ Thu gọn</button>
+    <a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a>
+    <a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a>
+  </nav>
+</div></div>
+
+<!-- TOC -->
+<nav class="toc"><div class="toc-lbl">Nội dung</div>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Mục tiêu & Trigger</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">Điều kiện tiên quyết</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">Các bước thực hiện</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">Xác minh kết quả</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">Rollback / Hoàn tác</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">Escalation & Liên hệ</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">Lịch sử & Phiên bản</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">Tài liệu tham khảo</span></a>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="eyebrow">trungcln · Runbook · EC2 · AMI Share</div>
+  <h1>Copy EC2 <em>Cross-Account</em></h1>
+  <p class="lede">Hướng dẫn copy EC2 instance từ account này sang account khác trong cùng AWS Organization bằng phương pháp AMI Share + KMS CMK re-encryption. Áp dụng khi EBS volume mã hóa bằng AWS Managed Key.</p>
+  <div class="meta-strip">
+    <span>Phiên bản: <b>v1.0</b></span>
+    <span>Test lần cuối: <b>2026-06-26</b></span>
+    <span>Owner: <b>trungcln</b></span>
+    <span>Trạng thái: <b>ACTIVE</b></span>
+    <span>Account: <b>jp:prod → jp:uat</b></span>
+    <span>Severity: <span class="sev sev-p4">P4</span></span>
+  </div>
+</header>
+
+
+<!-- S1: MỤC TIÊU -->
+<section id="s1">
+  <div class="s-head"><div class="s-num">01 / 08</div>
+    <div><h2>Mục tiêu & <em>Trigger</em></h2>
+      <p class="s-sub">Runbook này giải quyết vấn đề gì và khi nào phải dùng.</p>
+    </div>
+  </div>
+
+  <div class="principle"><div class="lbl">Mục tiêu</div>
+    <p>Copy toàn bộ EC2 instance (bao gồm OS disk + data disk) từ <strong>jp:prod</strong> sang <strong>jp:uat</strong> mà không làm gián đoạn production, sử dụng AMI Share kết hợp KMS CMK để vượt qua giới hạn AWS Managed Key.</p>
+  </div>
+
+  <h3><span class="tick">→</span>Khi nào dùng runbook này</h3>
+  <table>
+    <thead><tr><th>Trigger</th><th>Nguồn</th><th>Mức độ</th><th>Hành động</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Cần môi trường UAT giống prod</b><br>Tạo UAT từ snapshot prod để test</td>
+        <td>Yêu cầu từ Dev/QA team</td>
+        <td><span class="pill p-am">PLANNED</span></td>
+        <td>Chạy Section 3 trong giờ hành chính</td>
+      </tr>
+      <tr>
+        <td><b>DR drill / Disaster Recovery test</b><br>Test khả năng phục hồi sang account mới</td>
+        <td>Kế hoạch DR định kỳ</td>
+        <td><span class="pill p-am">PLANNED</span></td>
+        <td>Phối hợp với team, thông báo trước</td>
+      </tr>
+      <tr>
+        <td><b>Migration account</b><br>Chuyển workload từ prod sang tài khoản riêng</td>
+        <td>Quyết định kiến trúc</td>
+        <td><span class="pill p-out">LOW</span></td>
+        <td>Lập kế hoạch trước ít nhất 1 tuần</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Tại sao phải dùng AMI Share + CMK (không share trực tiếp)</h3>
+  <div class="alert a-warn">
+    <em class="a-ico">⚠️</em>
+    <div class="a-body"><strong>AWS Managed Key (aws/ebs) không thể share cross-account.</strong>
+      <p>Nếu EBS volume mã hóa bằng AWS Managed Key, lệnh <code>modify-image-attribute</code> sẽ báo lỗi <em>"Snapshots encrypted with the AWS Managed CMK can't be shared"</em>. Phải dùng Customer Managed Key (CMK) làm trung gian.</p>
+    </div>
+  </div>
+
+  <div class="dia">
+<span class="am">LUỒNG THỰC HIỆN — AMI Share + CMK Re-encryption</span>
+
+  jp:prod (347486023795)                       jp:uat (799374460549)
+  ─────────────────────                        ──────────────────────
+  <span class="good">① Lấy AMI sẵn có</span> (hoặc create-image)
+     ami-042a2d6d54909e16c
+           │
+  <span class="good">② copy-image</span> → re-encrypt bằng CMK
+     bdd23e25-24a0-4fb0-954c-1cf087323490
+     → ami-CMK (mới)
+           │
+  <span class="good">③ KMS key policy</span> → thêm UAT root
+           │
+  <span class="good">④ modify-snapshot-attribute</span> share snapshots
+           │
+  <span class="good">⑤ modify-image-attribute</span> share AMI ──────→ <span class="good">⑥ copy-image</span> (re-encrypt aws/ebs UAT)
+                                                      → ami-UAT (owned by UAT)
+                                                             │
+                                                    <span class="good">⑦ Create SG</span> (trống, tự set sau)
+                                                             │
+                                                    <span class="good">⑧ run-instances</span>
+                                                       → i-NEW (running)
+  </div>
+
+  <h3><span class="tick">→</span>Phạm vi & Resources liên quan</h3>
+  <table>
+    <thead><tr><th>Resource</th><th>ID / ARN</th><th>Account</th><th>Vai trò</th></tr></thead>
+    <tbody>
+      <tr><td><b>Source Instance</b></td><td><code>i-0cb8bae3be071dc0e</code></td><td>jp:prod</td><td>Webapp IIS (Windows Server 2016)</td></tr>
+      <tr><td><b>Source AMI (15/06)</b></td><td><code>ami-042a2d6d54909e16c</code></td><td>jp:prod</td><td>Snapshot trước khi vá lỗ hổng</td></tr>
+      <tr><td><b>EBS CMK</b></td><td><code>bdd23e25-24a0-4fb0-954c-1cf087323490</code></td><td>jp:prod</td><td>KMS Customer Managed Key cho EBS</td></tr>
+      <tr><td><b>AMI CMK-encrypted</b></td><td><code>ami-03ecb3d14486817c0</code></td><td>jp:prod</td><td>AMI trung gian đã re-encrypt bằng CMK</td></tr>
+      <tr><td><b>UAT VPC</b></td><td><code>vpc-05f30c1c1430f39a6</code></td><td>jp:uat</td><td>japfa-uat-vpc (10.0.0.0/16)</td></tr>
+      <tr><td><b>UAT Subnet</b></td><td><code>subnet-0f3f61756bac3e53d</code></td><td>jp:uat</td><td>private-a, AZ-1a (10.0.1.0/24)</td></tr>
+      <tr><td><b>UAT AMI (final)</b></td><td><code>ami-0ed77c0c5091e67b4</code></td><td>jp:uat</td><td>AMI owned by UAT, dùng để launch</td></tr>
+      <tr><td><b>UAT Instance</b></td><td><code>i-0802acc0abeb2260e</code></td><td>jp:uat</td><td>Webapp copy trong UAT (10.0.1.93)</td></tr>
+      <tr><td><b>UAT Security Group</b></td><td><code>sg-030f2676223d7052e</code></td><td>jp:uat</td><td>jp-uat-sg-webapp (trống, tự cấu hình)</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Thời gian ước tính</h3>
+  <div class="stats">
+    <div class="stat"><div class="n am">~90</div><div class="l">phút tổng cộng</div></div>
+    <div class="stat"><div class="n ok">0</div><div class="l">phút downtime prod</div></div>
+    <div class="stat"><div class="n">270 GB</div><div class="l">dung lượng AMI webapp (OS 150 + Data 120)</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">lần copy-image (prod + UAT)</div></div>
+  </div>
+
+</section>
+
+
+<!-- S2: ĐIỀU KIỆN TIÊN QUYẾT -->
+<section id="s2">
+  <span class="timing">~5 phút</span>
+  <div class="s-head"><div class="s-num">02 / 08</div>
+    <div><h2>Điều kiện <em>tiên quyết</em></h2>
+      <p class="s-sub">Kiểm tra đầy đủ trước khi bắt đầu.</p>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <em class="a-ico">⚠️</em>
+    <div class="a-body"><strong>Thao tác jp:prod — xác nhận 2 lần trước mỗi lệnh write.</strong>
+      <p>Dù production instance không bị tắt, các lệnh tạo AMI, sửa KMS key policy, share AMI đều là write operations trên jp:prod.</p>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>Quyền truy cập</h3>
+  <ul class="checklist">
+    <li><div class="cb"></div><div class="cl-text">SSO login jp:prod: <code>aws sso login --profile jp:prod</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">SSO login jp:uat: <code>aws sso login --profile jp:uat</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Verify jp:prod: <code>aws sts get-caller-identity --profile jp:prod</code> → Account <code>347486023795</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Verify jp:uat: <code>aws sts get-caller-identity --profile jp:uat</code> → Account <code>799374460549</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Quyền cần thiết jp:prod: <strong>ec2:CopyImage, ec2:ModifyImageAttribute, ec2:ModifySnapshotAttribute, kms:PutKeyPolicy, kms:GetKeyPolicy</strong></div></li>
+    <li><div class="cb"></div><div class="cl-text">Quyền cần thiết jp:uat: <strong>ec2:CopyImage, ec2:RunInstances, ec2:CreateSecurityGroup, ec2:RevokeSecurityGroupEgress</strong> (AdministratorAccess đủ)</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Kiểm tra AMI nguồn</h3>
+
+  <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+    <span>🟢 read · kiểm tra AMI sẵn có</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Liệt kê AMI của instance webapp</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --owners self \
+  --filters "Name=name,Values=*webapp*" "Name=name,Values=*aps11*" \
+  --query 'Images[*].{ImageId:ImageId,Name:Name,State:State,CreationDate:CreationDate}' \
+  --output table
+
+<span class="dim"># Kiểm tra encryption của AMI chọn</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --image-ids <span class="hl">ami-042a2d6d54909e16c</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --query 'Images[0].BlockDeviceMappings[?Ebs.SnapshotId!=null].{Device:DeviceName,Size:Ebs.VolumeSize,Encrypted:Ebs.Encrypted,KmsKeyId:Ebs.KmsKeyId}'</pre></div>
+
+  <h3><span class="tick">→</span>Kiểm tra CMK và UAT VPC</h3>
+
+  <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+    <span>🟢 read · kiểm tra CMK + UAT VPC</span><span class="tag">jp:prod / jp:uat</span></div>
+<pre><span class="dim"># Xác nhận CMK tồn tại và Enabled</span>
+<span class="cmd">aws kms describe-key</span> \
+  --key-id <span class="hl">bdd23e25-24a0-4fb0-954c-1cf087323490</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --query 'KeyMetadata.{KeyManager:KeyManager,KeyState:KeyState,Description:Description}'
+<span class="dim"># Mong đợi: KeyManager=CUSTOMER, KeyState=Enabled</span>
+
+<span class="dim"># Xác nhận UAT có VPC</span>
+<span class="cmd">aws ec2 describe-vpcs</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'Vpcs[*].{VpcId:VpcId,CidrBlock:CidrBlock,Name:Tags[?Key==`Name`].Value|[0]}'</pre></div>
+
+  <ul class="checklist">
+    <li><div class="cb"></div><div class="cl-text">CMK <code>bdd23e25...</code> tồn tại, <strong>KeyManager=CUSTOMER</strong>, KeyState=Enabled</div></li>
+    <li><div class="cb"></div><div class="cl-text">UAT có VPC <code>vpc-05f30c1c1430f39a6</code> (10.0.0.0/16)</div></li>
+    <li><div class="cb"></div><div class="cl-text">AMI nguồn ở trạng thái <strong>available</strong></div></li>
+    <li><div class="cb"></div><div class="cl-text">Không trong giờ cao điểm production (10:00–12:00, 14:00–17:00 ICT) nếu muốn tạo AMI mới</div></li>
+  </ul>
+
+</section>
+
+
+<!-- S3: CÁC BƯỚC THỰC HIỆN -->
+<section id="s3">
+  <span class="timing">~80 phút</span>
+  <div class="s-head"><div class="s-num">03 / 08</div>
+    <div><h2>Các bước <em>thực hiện</em></h2>
+      <p class="s-sub">Thực hiện đúng thứ tự. Có 3 cách: Console · CLI · Terraform.</p>
+    </div>
+  </div>
+
+  <div class="alert a-crit">
+    <em class="a-ico">🔴</em>
+    <div class="a-body"><strong>⚠️ Bước 1–5 chạy trên jp:prod — xác nhận 2 lần trước mỗi lệnh write.</strong>
+      <p>Production instance KHÔNG bị tắt. Tuy nhiên, các thao tác KMS key policy và AMI share vẫn là write operations.</p>
+    </div>
+  </div>
+
+  <!-- TAB SWITCHER -->
+  <div class="tab-group" id="tg-main">
+    <div class="tab-btns">
+      <button class="tab-btn active" data-tg="tg-main" data-tab="cli">CLI (Recommended)</button>
+      <button class="tab-btn" data-tg="tg-main" data-tab="console">Console</button>
+      <button class="tab-btn" data-tg="tg-main" data-tab="tf">Terraform</button>
+    </div>
+
+    <!-- CLI TAB -->
+    <div class="tab-pane active" id="tg-main-cli">
+      <ol class="steps">
+
+        <li>
+          <div>
+            <div class="step-title">🟢 Chọn AMI nguồn (hoặc tạo mới nếu cần)</div>
+            <div class="step-body">
+              <p>Kiểm tra AMI sẵn có. Nếu AMI cũ quá (>2 tuần) hoặc cần snapshot tại thời điểm hiện tại, tạo AMI mới với <code>--no-reboot</code> (không tắt instance).</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🟢 read</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Xem AMI hiện có</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --owners self --filters "Name=name,Values=*webapp*" \
+  --query 'Images[*].{ImageId:ImageId,Name:Name,CreationDate:CreationDate,State:State}' \
+  --output table
+
+<span class="dim"># (Tuỳ chọn) Tạo AMI mới nếu cần snapshot tươi — ~20-40 phút</span>
+<span class="dim"># 🔴 PROD write — xác nhận trước khi chạy</span>
+<span class="cmd">aws ec2 create-image</span> \
+  --instance-id <span class="hl">i-0cb8bae3be071dc0e</span> \
+  --name "webapp-manual-backup-$(date +%Y%m%d)" \
+  --no-reboot \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1</pre></div>
+              <div class="step-exp">AMI sẵn có State=available, hoặc create-image trả về ImageId mới</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🔴 Copy AMI trong jp:prod — re-encrypt bằng CMK</div>
+            <div class="step-body">
+              <p>AWS Managed Key không share được cross-account. Phải copy AMI sang bản mới dùng Customer Managed Key (CMK) của prod. Thao tác này tạo AMI mới <strong>trong jp:prod</strong>, không ảnh hưởng instance.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🔴 prod write · ~30-40 phút</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ec2 copy-image</span> \
+  --source-region ap-southeast-1 \
+  --source-image-id <span class="hl">ami-042a2d6d54909e16c</span> \
+  --name "webapp-cmk-encrypted-for-uat-$(date +%Y%m%d)" \
+  --description "Re-encrypted with CMK for UAT cross-account copy" \
+  --encrypted \
+  --kms-key-id <span class="hl">bdd23e25-24a0-4fb0-954c-1cf087323490</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1
+<span class="dim"># Lưu ImageId trả về → dùng ở bước 4-5</span>
+
+<span class="dim"># Poll trạng thái (chờ available)</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --image-ids <span class="hl">ami-&lt;NEW-ID&gt;</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --query 'Images[0].State' --output text</pre></div>
+              <div class="step-exp">Trả về {"ImageId": "ami-xxx"} → poll đến khi State = "available"</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🔴 Cập nhật KMS key policy — thêm UAT account</div>
+            <div class="step-body">
+              <p>Cho phép UAT account sử dụng CMK của prod để decrypt snapshot khi copy sang UAT. Lấy policy hiện tại rồi merge thêm statement mới.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🔴 prod write · KMS key policy</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Xem policy hiện tại</span>
+<span class="cmd">aws kms get-key-policy</span> \
+  --key-id <span class="hl">bdd23e25-24a0-4fb0-954c-1cf087323490</span> \
+  --policy-name default \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 --output text
+
+<span class="dim"># Tạo file policy mới (giữ statement cũ, thêm UAT)</span>
+cat &gt; /tmp/cmk-policy-uat.json &lt;&lt;'EOF'
+{
+  "Version": "2012-10-17",
+  "Id": "key-default-1",
+  "Statement": [
+    {
+      "Sid": "Enable IAM User Permissions",
+      "Effect": "Allow",
+      "Principal": {"AWS": "arn:aws:iam::347486023795:root"},
+      "Action": "kms:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Allow UAT account to use CMK for AMI copy",
+      "Effect": "Allow",
+      "Principal": {"AWS": "arn:aws:iam::<span class="hl">799374460549</span>:root"},
+      "Action": ["kms:DescribeKey","kms:ReEncrypt*","kms:GenerateDataKey*","kms:CreateGrant","kms:Decrypt"],
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+
+<span class="dim"># Apply policy</span>
+<span class="cmd">aws kms put-key-policy</span> \
+  --key-id <span class="hl">bdd23e25-24a0-4fb0-954c-1cf087323490</span> \
+  --policy-name default \
+  --policy file:///tmp/cmk-policy-uat.json \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1</pre></div>
+              <div class="step-exp">Không có output = thành công. Verify: get-key-policy lại → phải thấy statement UAT</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🔴 Share snapshots của AMI CMK với UAT</div>
+            <div class="step-body">
+              <p>Ngoài share AMI, cần share từng snapshot để UAT account có thể đọc dữ liệu khi copy.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🔴 prod write · snapshot permission</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Lấy danh sách snapshot của AMI CMK</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --image-ids <span class="hl">ami-03ecb3d14486817c0</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1 \
+  --query 'Images[0].BlockDeviceMappings[?Ebs.SnapshotId!=null].Ebs.SnapshotId' \
+  --output json
+
+<span class="dim"># Share từng snapshot (thay snap-xxx bằng ID thực tế)</span>
+for snap in <span class="hl">snap-08ce815b09689f1fc snap-0d874052a3620cc9f</span>; do
+  <span class="cmd">aws ec2 modify-snapshot-attribute</span> \
+    --snapshot-id $snap \
+    --attribute createVolumePermission \
+    --operation-type add \
+    --user-ids <span class="hl">799374460549</span> \
+    --profile <span class="hl">jp:prod</span> --region ap-southeast-1
+  echo "Shared $snap"
+done</pre></div>
+              <div class="step-exp">Mỗi lệnh không có output = thành công</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🔴 Share AMI CMK với UAT account</div>
+            <div class="step-body">
+              <p>Thêm UAT account vào LaunchPermission của AMI CMK.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🔴 prod write · AMI permission</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ec2 modify-image-attribute</span> \
+  --image-id <span class="hl">ami-03ecb3d14486817c0</span> \
+  --launch-permission "Add=[{UserId=<span class="hl">799374460549</span>}]" \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1
+
+<span class="dim"># Verify</span>
+<span class="cmd">aws ec2 describe-image-attribute</span> \
+  --image-id <span class="hl">ami-03ecb3d14486817c0</span> \
+  --attribute launchPermission \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1</pre></div>
+              <div class="step-exp">LaunchPermissions = [{UserId: "799374460549"}]</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🟡 Copy AMI vào UAT — re-encrypt bằng aws/ebs của UAT</div>
+            <div class="step-body">
+              <p>UAT tự copy AMI về account của mình, re-encrypt bằng AWS managed key của UAT. Từ bước này UAT hoàn toàn độc lập với key của prod.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🟡 uat write · ~30-40 phút</span><span class="tag">jp:uat</span></div>
+<pre><span class="cmd">aws ec2 copy-image</span> \
+  --source-region ap-southeast-1 \
+  --source-image-id <span class="hl">ami-03ecb3d14486817c0</span> \
+  --name "jp-uat-ec2-webapp-from-prod-$(date +%Y%m%d)" \
+  --description "Webapp copied from prod for UAT" \
+  --encrypted \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1
+<span class="dim"># Lưu ImageId → dùng bước 8</span>
+
+<span class="dim"># Poll trạng thái</span>
+<span class="cmd">aws ec2 describe-images</span> \
+  --image-ids <span class="hl">ami-&lt;UAT-ID&gt;</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'Images[0].State' --output text</pre></div>
+              <div class="step-exp">State = "available" sau 20-40 phút</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🟡 Tạo Security Group trong UAT</div>
+            <div class="step-body">
+              <p>Tạo SG trống, xóa outbound default. Cấu hình inbound/outbound theo nhu cầu sau khi instance lên.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🟡 uat write</span><span class="tag">jp:uat</span></div>
+<pre><span class="dim"># Tạo SG</span>
+SG_ID=$(<span class="cmd">aws ec2 create-security-group</span> \
+  --group-name "jp-uat-sg-webapp" \
+  --description "Webapp UAT - inbound/outbound managed manually" \
+  --vpc-id <span class="hl">vpc-05f30c1c1430f39a6</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'GroupId' --output text)
+echo "SG: $SG_ID"
+
+<span class="dim"># Xóa outbound default (all traffic)</span>
+<span class="cmd">aws ec2 revoke-security-group-egress</span> \
+  --group-id $SG_ID \
+  --ip-permissions '[{"IpProtocol":"-1","IpRanges":[{"CidrIp":"0.0.0.0/0"}]}]' \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1</pre></div>
+              <div class="step-exp">SG ID trả về (sg-xxx), không có lỗi khi revoke</div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="step-title">🟡 Launch EC2 instance trong UAT</div>
+            <div class="step-body">
+              <p>Launch instance từ AMI UAT đã copy. Dùng subnet private. IMDSv2 bắt buộc theo chuẩn bảo mật.</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>🟡 uat write · launch instance</span><span class="tag">jp:uat</span></div>
+<pre><span class="cmd">aws ec2 run-instances</span> \
+  --image-id <span class="hl">ami-0ed77c0c5091e67b4</span> \
+  --instance-type <span class="hl">t3.medium</span> \
+  --subnet-id <span class="hl">subnet-0f3f61756bac3e53d</span> \
+  --security-group-ids <span class="hl">sg-030f2676223d7052e</span> \
+  --no-associate-public-ip-address \
+  --tag-specifications \
+    'ResourceType=instance,Tags=[{Key=Name,Value=jp-uat-ec2-webapp},{Key=Environment,Value=uat},{Key=SourceInstance,Value=i-0cb8bae3be071dc0e}]' \
+  --metadata-options HttpTokens=required,HttpEndpoint=enabled \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'Instances[0].{InstanceId:InstanceId,PrivateIp:PrivateIpAddress,State:State.Name}'
+
+<span class="dim"># Chờ running</span>
+<span class="cmd">aws ec2 wait instance-running</span> \
+  --instance-ids <span class="hl">i-&lt;UAT-INSTANCE-ID&gt;</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1</pre></div>
+              <div class="step-exp">State = "running", PrivateIp trong dải 10.0.1.0/24</div>
+            </div>
+          </div>
+        </li>
+
+      </ol>
+    </div><!-- /cli tab -->
+
+    <!-- CONSOLE TAB -->
+    <div class="tab-pane" id="tg-main-console">
+      <ol class="steps">
+        <li>
+          <div>
+            <div class="step-title">Đăng nhập Console và chọn account jp:prod</div>
+            <div class="step-body">
+              <p>Truy cập SSO portal → chọn account <strong>jp:prod (347486023795)</strong> → Management Console → region <strong>ap-southeast-1</strong>.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-title">Copy AMI nguồn với CMK (EC2 → AMIs)</div>
+            <div class="step-body">
+              <p>EC2 → Images → AMIs → chọn <code>ami-042a2d6d54909e16c</code> → <strong>Actions → Copy AMI</strong>.</p>
+              <ul>
+                <li>Destination region: <strong>ap-southeast-1</strong></li>
+                <li>Encryption: <strong>Enable</strong></li>
+                <li>KMS key: chọn <strong>bdd23e25-24a0-4fb0-954c-1cf087323490</strong> (EBS CMK)</li>
+                <li>Name: <code>webapp-cmk-encrypted-for-uat-YYYYMMDD</code></li>
+              </ul>
+              <p>Bấm <strong>Copy AMI</strong> → đợi Status = <strong>available</strong> (~30-40 phút).</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-title">Cập nhật KMS key policy (KMS → Customer managed keys)</div>
+            <div class="step-body">
+              <p>KMS → Customer managed keys → chọn key <code>bdd23e25...</code> → tab <strong>Key policy</strong> → <strong>Edit</strong>.</p>
+              <p>Thêm statement sau vào mảng <code>Statement[]</code>:</p>
+              <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+                <span>policy json — dán vào editor KMS</span><span class="tag">jp:prod</span></div>
+<pre>{
+  "Sid": "Allow UAT account to use CMK for AMI copy",
+  "Effect": "Allow",
+  "Principal": {"AWS": "<span class="hl">arn:aws:iam::799374460549:root</span>"},
+  "Action": ["kms:DescribeKey","kms:ReEncrypt*",
+             "kms:GenerateDataKey*","kms:CreateGrant","kms:Decrypt"],
+  "Resource": "*"
+}</pre></div>
+              <p>Bấm <strong>Save changes</strong>.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-title">Share snapshots và AMI với UAT (EC2 → Snapshots / AMIs)</div>
+            <div class="step-body">
+              <p><strong>Snapshot:</strong> EC2 → Elastic Block Store → Snapshots → lọc theo AMI ID vừa tạo → chọn từng snapshot → Actions → <strong>Modify permissions</strong> → Add account <code>799374460549</code>.</p>
+              <p><strong>AMI:</strong> EC2 → AMIs → chọn AMI CMK → Actions → <strong>Edit AMI permissions</strong> → Add account ID <code>799374460549</code> → Save.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-title">Copy AMI vào UAT và launch instance</div>
+            <div class="step-body">
+              <p>Đổi sang account <strong>jp:uat (799374460549)</strong> → EC2 → AMIs → <strong>Private images</strong> → tìm AMI vừa được share.</p>
+              <p>Chọn AMI → <strong>Actions → Copy AMI</strong> → Encryption: Enable (dùng aws/ebs mặc định) → đợi available.</p>
+              <p>Sau khi available: chọn AMI → <strong>Launch instance from AMI</strong>.</p>
+              <ul>
+                <li>Instance type: <strong>t3.medium</strong></li>
+                <li>Network: VPC <code>vpc-05f30c1c1430f39a6</code>, subnet <code>subnet-0f3f61756bac3e53d</code> (private-a)</li>
+                <li>Security group: tạo mới hoặc chọn <code>sg-030f2676223d7052e</code></li>
+                <li>Public IP: <strong>Disable</strong></li>
+                <li>Metadata (Advanced): <strong>IMDSv2 Required</strong></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div><!-- /console tab -->
+
+    <!-- TERRAFORM TAB -->
+    <div class="tab-pane" id="tg-main-tf">
+      <div class="alert a-info">
+        <em class="a-ico">ℹ️</em>
+        <div class="a-body"><strong>Terraform phù hợp cho lần đầu hoặc khi cần reproducible.</strong>
+          <p>Dùng 2 provider (prod + uat). KMS key policy cần cập nhật thủ công nếu chưa có trong state. Chạy <code>terraform plan</code> trước, <code>apply</code> sau khi review.</p>
+        </div>
+      </div>
+
+      <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+        <span>main.tf · ec2-cross-account-copy</span><span class="tag">terraform</span></div>
+<pre><span class="dim">### providers.tf ###</span>
+provider "aws" {
+  alias   = <span class="hl">"prod"</span>
+  profile = "jp:prod"
+  region  = "ap-southeast-1"
+}
+provider "aws" {
+  alias   = <span class="hl">"uat"</span>
+  profile = "jp:uat"
+  region  = "ap-southeast-1"
+}
+
+<span class="dim">### Bước 1: Data source — AMI nguồn trong prod ###</span>
+data "aws_ami" "webapp_source" {
+  provider    = aws.prod
+  most_recent = true
+  owners      = ["self"]
+  filter {
+    name   = "name"
+    values = ["*webapp*"]
+  }
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
+
+<span class="dim">### Bước 2: Copy AMI trong prod với CMK ###</span>
+resource "aws_ami_copy" "webapp_cmk" {
+  provider          = aws.prod
+  name              = "webapp-cmk-encrypted-for-uat-${formatdate("YYYYMMDD", timestamp())}"
+  description       = "Re-encrypted with CMK for UAT cross-account copy"
+  source_ami_id     = data.aws_ami.webapp_source.id
+  source_ami_region = "ap-southeast-1"
+  encrypted         = true
+  kms_key_id        = <span class="hl">"bdd23e25-24a0-4fb0-954c-1cf087323490"</span>
+
+  tags = {
+    ManagedBy   = "terraform"
+    Environment = "intermediate"
+    Purpose     = "uat-migration"
+  }
+}
+
+<span class="dim">### Bước 3: KMS key policy — thêm UAT (dùng aws_kms_key_policy) ###</span>
+data "aws_iam_policy_document" "cmk_with_uat" {
+  provider = aws.prod
+  statement {
+    sid       = "Enable IAM User Permissions"
+    effect    = "Allow"
+    principals { type = "AWS"; identifiers = ["arn:aws:iam::347486023795:root"] }
+    actions   = ["kms:*"]
+    resources = ["*"]
+  }
+  statement {
+    sid    = "Allow UAT account to use CMK for AMI copy"
+    effect = "Allow"
+    principals { type = "AWS"; identifiers = ["arn:aws:iam::<span class="hl">799374460549</span>:root"] }
+    actions   = ["kms:DescribeKey","kms:ReEncrypt*","kms:GenerateDataKey*","kms:CreateGrant","kms:Decrypt"]
+    resources = ["*"]
+  }
+}
+
+resource "aws_kms_key_policy" "cmk_uat_access" {
+  provider = aws.prod
+  key_id   = <span class="hl">"bdd23e25-24a0-4fb0-954c-1cf087323490"</span>
+  policy   = data.aws_iam_policy_document.cmk_with_uat.json
+}
+
+<span class="dim">### Bước 4-5: Share snapshot + AMI với UAT ###</span>
+resource "aws_ami_launch_permission" "share_to_uat" {
+  provider   = aws.prod
+  image_id   = aws_ami_copy.webapp_cmk.id
+  account_id = <span class="hl">"799374460549"</span>
+}
+
+<span class="dim">### Bước 6: Copy AMI vào UAT ###</span>
+resource "aws_ami_copy" "webapp_uat" {
+  provider          = aws.uat
+  name              = "jp-uat-ec2-webapp-from-prod-${formatdate("YYYYMMDD", timestamp())}"
+  description       = "Webapp copied from prod for UAT"
+  source_ami_id     = aws_ami_copy.webapp_cmk.id
+  source_ami_region = "ap-southeast-1"
+  encrypted         = true
+
+  depends_on = [aws_ami_launch_permission.share_to_uat, aws_kms_key_policy.cmk_uat_access]
+
+  tags = {
+    ManagedBy   = "terraform"
+    Environment = "uat"
+    Source      = "i-0cb8bae3be071dc0e"
+  }
+}
+
+<span class="dim">### Bước 7: Security Group ###</span>
+resource "aws_security_group" "webapp_uat" {
+  provider    = aws.uat
+  name        = "jp-uat-sg-webapp"
+  description = "Webapp UAT - inbound/outbound managed manually"
+  vpc_id      = <span class="hl">"vpc-05f30c1c1430f39a6"</span>
+
+  tags = { Name = "jp-uat-sg-webapp"; Environment = "uat" }
+}
+
+resource "aws_vpc_security_group_egress_rule" "deny_all" {
+  provider = aws.uat
+  <span class="dim"># Không tạo rule nào = không có egress</span>
+  <span class="dim"># Nếu cần xóa default egress: dùng lifecycle ignore hoặc aws_default_security_group</span>
+}
+
+<span class="dim">### Bước 8: Launch Instance ###</span>
+resource "aws_instance" "webapp_uat" {
+  provider               = aws.uat
+  ami                    = aws_ami_copy.webapp_uat.id
+  instance_type          = <span class="hl">"t3.medium"</span>
+  subnet_id              = <span class="hl">"subnet-0f3f61756bac3e53d"</span>
+  vpc_security_group_ids = [aws_security_group.webapp_uat.id]
+  associate_public_ip_address = false
+
+  metadata_options {
+    http_tokens   = "required"
+    http_endpoint = "enabled"
+  }
+
+  tags = {
+    Name        = "jp-uat-ec2-webapp"
+    Environment = "uat"
+    Source      = "i-0cb8bae3be071dc0e"
+    ManagedBy   = "terraform"
+  }
+}
+
+output "uat_instance_id"  { value = aws_instance.webapp_uat.id }
+output "uat_private_ip"   { value = aws_instance.webapp_uat.private_ip }
+output "uat_ami_id"       { value = aws_ami_copy.webapp_uat.id }</pre></div>
+
+      <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+        <span>chạy terraform</span><span class="tag">local</span></div>
+<pre><span class="cmd">cd</span> ~/Japfa-JCV/terraform/uat  <span class="dim"># hoặc tạo folder mới</span>
+<span class="cmd">aws sso login</span> --profile jp:prod
+<span class="cmd">aws sso login</span> --profile jp:uat
+<span class="cmd">terraform init</span>
+<span class="cmd">terraform plan</span>   <span class="dim"># review trước</span>
+<span class="cmd">terraform apply</span>  <span class="dim"># xác nhận "yes" sau khi review plan</span></pre></div>
+
+    </div><!-- /tf tab -->
+  </div><!-- /tab-group -->
+
+</section>
+
+
+<!-- S4: XÁC MINH -->
+<section id="s4">
+  <span class="timing">~5 phút</span>
+  <div class="s-head"><div class="s-num">04 / 08</div>
+    <div><h2>Xác minh <em>kết quả</em></h2>
+      <p class="s-sub">Chạy sau khi instance running — xác nhận trước khi thông báo team.</p>
+    </div>
+  </div>
+
+  <ul class="checklist">
+    <li><div class="cb done"></div><div class="cl-text"><strong>Instance running:</strong> <code>aws ec2 describe-instances --instance-ids i-0802acc0abeb2260e --profile jp:uat --query 'Reservations[0].Instances[0].State.Name'</code> → <code>"running"</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>IP trong subnet private-a:</strong> PrivateIpAddress trong dải <code>10.0.1.0/24</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>EBS volumes attached:</strong> describe-instances → BlockDeviceMappings → đủ số lượng volume</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>IMDSv2 enabled:</strong> MetadataOptions.HttpTokens = <code>required</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Kết nối RDP/SSM:</strong> Mở port RDP 3389 trong SG → thử kết nối qua SSM Session Manager hoặc RDP từ on-prem VPN</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>IIS/App khởi động:</strong> Sau khi RDP vào → Services → W3SVC running → Application Pools running</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Connection strings đã đổi:</strong> IIS config KHÔNG còn trỏ về PROD Oracle RDS (<code>jap-rds-prod-cdb-01</code>)</div></li>
+  </ul>
+
+  <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+    <span>verification · 🟢 read-only</span><span class="tag">jp:uat</span></div>
+<pre><span class="dim"># Trạng thái instance</span>
+<span class="cmd">aws ec2 describe-instances</span> \
+  --instance-ids <span class="hl">i-0802acc0abeb2260e</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'Reservations[0].Instances[0].{State:State.Name,IP:PrivateIpAddress,Type:InstanceType,IMDSv2:MetadataOptions.HttpTokens}'
+
+<span class="dim"># Kiểm tra EBS volumes attached</span>
+<span class="cmd">aws ec2 describe-instances</span> \
+  --instance-ids <span class="hl">i-0802acc0abeb2260e</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1 \
+  --query 'Reservations[0].Instances[0].BlockDeviceMappings[*].{Device:DeviceName,VolumeId:Ebs.VolumeId,State:Ebs.Status}'</pre></div>
+
+  <div class="proof">
+    <div class="k ok">Thành công khi</div><div class="v"><p>State = running · IP = 10.0.1.x · IMDSv2 = required · tất cả EBS = attached · IIS khởi động · connection string không trỏ PROD</p></div>
+    <div class="k no">Cần rollback khi</div><div class="v"><p>Instance stuck pending/stopping · EBS không attach · không kết nối được sau 15 phút · IIS báo lỗi database PROD</p></div>
+  </div>
+
+</section>
+
+
+<!-- S5: ROLLBACK -->
+<section id="s5">
+  <span class="timing">~5 phút</span>
+  <div class="s-head"><div class="s-num">05 / 08</div>
+    <div><h2>Rollback / <em>Hoàn tác</em></h2>
+      <p class="s-sub">UAT instance có thể terminate bất cứ lúc nào — production hoàn toàn không bị ảnh hưởng.</p>
+    </div>
+  </div>
+
+  <div class="alert a-ok">
+    <em class="a-ico">✅</em>
+    <div class="a-body"><strong>Rollback rủi ro thấp — production instance không bị thay đổi.</strong>
+      <p>Chỉ cần terminate UAT instance và deregister AMI trung gian nếu muốn dọn dẹp.</p>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li>
+      <div>
+        <div class="step-title">Terminate UAT instance</div>
+        <div class="step-body">
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🟡 uat write</span><span class="tag">jp:uat</span></div>
+<pre><span class="cmd">aws ec2 terminate-instances</span> \
+  --instance-ids <span class="hl">i-0802acc0abeb2260e</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1</pre></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="step-title">Dọn dẹp AMI và snapshot trung gian (tuỳ chọn)</div>
+        <div class="step-body">
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🔴 prod write · dọn AMI trung gian</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Deregister AMI CMK trung gian trong prod</span>
+<span class="cmd">aws ec2 deregister-image</span> \
+  --image-id <span class="hl">ami-03ecb3d14486817c0</span> \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1
+
+<span class="dim"># Xóa snapshots của AMI đó (lấy snap-ID từ describe-images trước khi deregister)</span>
+<span class="cmd">aws ec2 delete-snapshot</span> --snapshot-id <span class="hl">snap-xxx</span> --profile jp:prod --region ap-southeast-1
+
+<span class="dim"># Deregister AMI trong UAT</span>
+<span class="cmd">aws ec2 deregister-image</span> \
+  --image-id <span class="hl">ami-0ed77c0c5091e67b4</span> \
+  --profile <span class="hl">jp:uat</span> --region ap-southeast-1</pre></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="step-title">Revert KMS key policy (bỏ UAT khỏi CMK)</div>
+        <div class="step-body">
+          <p>Nếu không cần UAT truy cập CMK nữa, restore policy gốc chỉ có prod account.</p>
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🔴 prod write · revert KMS policy</span><span class="tag">jp:prod</span></div>
+<pre>cat &gt; /tmp/cmk-policy-original.json &lt;&lt;'EOF'
+{
+  "Version": "2012-10-17",
+  "Id": "key-default-1",
+  "Statement": [{
+    "Sid": "Enable IAM User Permissions",
+    "Effect": "Allow",
+    "Principal": {"AWS": "arn:aws:iam::<span class="hl">347486023795</span>:root"},
+    "Action": "kms:*",
+    "Resource": "*"
+  }]
+}
+EOF
+
+<span class="cmd">aws kms put-key-policy</span> \
+  --key-id <span class="hl">bdd23e25-24a0-4fb0-954c-1cf087323490</span> \
+  --policy-name default \
+  --policy file:///tmp/cmk-policy-original.json \
+  --profile <span class="hl">jp:prod</span> --region ap-southeast-1</pre></div>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+</section>
+
+
+<!-- S6: ESCALATION -->
+<section id="s6">
+  <div class="s-head"><div class="s-num">06 / 08</div>
+    <div><h2>Escalation & <em>Liên hệ</em></h2>
+      <p class="s-sub">Liên hệ theo thứ tự từ trên xuống.</p>
+    </div>
+  </div>
+
+  <div class="contacts">
+    <div class="contact-card">
+      <div class="cc-tier">Tier 1 — IT Ops (First Responder)</div>
+      <div class="cc-name">3T (trungcln)</div>
+      <div class="cc-info">Teams: trung.caolenam<br>Email: trung.caolenam@japfa.com<br>SLA: 15 phút (giờ hành chính)</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-tier">Tier 2 — Dev Team</div>
+      <div class="cc-name">Dev/QA Team</div>
+      <div class="cc-info">Khi cần cấu hình IIS/App trong UAT<br>Connection strings, App Pools, deploy code</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-tier">Vendor / External</div>
+      <div class="cc-name">AWS Support</div>
+      <div class="cc-info">console.aws.amazon.com/support<br>Khi gặp lỗi AMI copy / KMS permission lạ</div>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>Khi nào escalate</h3>
+  <table>
+    <thead><tr><th>Tình huống</th><th>Escalate đến</th><th>Thời gian tối đa</th></tr></thead>
+    <tbody>
+      <tr><td>AMI copy failed sau 60 phút</td><td><b>AWS Support</b></td><td>60 phút</td></tr>
+      <tr><td>KMS permission error không giải quyết được</td><td><b>AWS Support + Tier 1</b></td><td>30 phút</td></tr>
+      <tr><td>Instance khởi động nhưng IIS lỗi</td><td><b>Dev Team</b></td><td>Ngay khi phát hiện</td></tr>
+      <tr><td>Connection string vô tình trỏ PROD DB và có ghi dữ liệu</td><td><b>Management + DBA</b></td><td>Ngay lập tức</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+
+<!-- S7: LỊCH SỬ -->
+<section id="s7">
+  <div class="s-head"><div class="s-num">07 / 08</div>
+    <div><h2>Lịch sử & <em>Phiên bản</em></h2>
+      <p class="s-sub">Cập nhật sau mỗi lần dùng thực tế.</p>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>Version history</h3>
+  <table class="ver-table">
+    <thead><tr><th>Phiên bản</th><th>Ngày</th><th>Thay đổi</th><th>Tác giả</th></tr></thead>
+    <tbody>
+      <tr><td>v1.0</td><td>2026-06-26</td><td>Initial release — tổng hợp từ session thực tế</td><td>trungcln</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Lịch sử thực hiện</h3>
+  <table>
+    <thead><tr><th>Ngày</th><th>Người thực hiện</th><th>Lý do</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2026-06-26</td><td>trungcln</td><td>Copy webapp prod → UAT lần đầu</td>
+        <td><span class="pill p-ok">PASS</span></td>
+        <td>AMI nguồn: ami-042a2d6d54909e16c (15/06). Instance UAT: i-0802acc0abeb2260e (t3.medium, 10.0.1.93). Phát hiện cần share snapshot riêng ngoài share AMI.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-warn">
+    <em class="a-ico">⚠️</em>
+    <div class="a-body"><strong>Gotcha quan trọng phát hiện trong session:</strong>
+      <ul style="margin:8px 0 0 1.2em">
+        <li>AWS Managed Key (<code>aws/ebs</code>) <strong>không thể share cross-account</strong> → phải dùng CMK làm trung gian</li>
+        <li>Share AMI thôi chưa đủ → phải <strong>share từng snapshot</strong> bằng <code>modify-snapshot-attribute</code> riêng</li>
+        <li>AMI copy từ UAT cần <code>--source-region</code> để tránh lỗi ambiguous</li>
+        <li>EBS encryption by default = true trên jp:prod → mọi volume đều mã hóa</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- S8: TÀI LIỆU THAM KHẢO -->
+<section id="s8">
+  <div class="s-head"><div class="s-num">08 / 08</div>
+    <div><h2>Tài liệu <em>tham khảo</em></h2></div>
+  </div>
+
+  <h3><span class="tick">→</span>Checklist cuối — trước khi bàn giao UAT</h3>
+  <ul class="checklist">
+    <li><div class="cb"></div><div class="cl-text"><strong>Instance đang running</strong> — <code>i-0802acc0abeb2260e</code> state = running</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Security Group đã cấu hình inbound</strong> — RDP :3389 (hoặc SSM) từ IP được phép</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Connection strings đã đổi sang UAT/test DB</strong> — KHÔNG trỏ PROD Oracle <code>jap-rds-prod-cdb-01</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>IIS và App Pools đang chạy</strong> — W3SVC, tất cả App Pools = Started</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Windows đã activate / license hợp lệ</strong> — chạy <code>slmgr /dli</code> trong PowerShell</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Không có alarm mới trong jp:uat</strong> — <code>aws cloudwatch describe-alarms --state-value ALARM --profile jp:uat</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>AMI trung gian trong jp:prod đã deregister</strong> (nếu không dùng nữa) — <code>ami-03ecb3d14486817c0</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>KMS key policy đã revert</strong> (nếu UAT không cần dùng CMK prod) — bỏ statement UAT khỏi <code>bdd23e25...</code></div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Team UAT/Dev đã được thông báo</strong> — IP, cách kết nối, lưu ý connection string</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Runbook đã update Section 7</strong> — thêm dòng vào bảng lịch sử thực hiện</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Tài liệu tham khảo</h3>
+  <table>
+    <thead><tr><th>Tài liệu</th><th>Đường dẫn / Mô tả</th></tr></thead>
+    <tbody>
+      <tr><td><b>Infra Overview</b></td><td><code>~/Japfa-JCV/claude-config/.claude/skills/infra-overview.md</code></td></tr>
+      <tr><td><b>AWS Operations</b></td><td><code>~/Japfa-JCV/claude-config/.claude/skills/aws/aws-operations.md</code></td></tr>
+      <tr><td><b>Landing Zone (8 accounts)</b></td><td><code>~/Japfa-JCV/claude-config/.claude/skills/aws/landing-zone.md</code></td></tr>
+      <tr><td><b>AWS Docs — Share AMI</b></td><td>docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html</td></tr>
+      <tr><td><b>AWS Docs — KMS cross-account</b></td><td>docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html</td></tr>
+      <tr><td><b>Terraform — aws_ami_copy</b></td><td>registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami_copy</td></tr>
+      <tr><td><b>Terraform module (prod)</b></td><td><code>~/Japfa-JCV/terraform/prod/</code></td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">Runbook này được tạo từ session thực tế 26/06/2026. Cập nhật ngay khi hạ tầng UAT thay đổi (VPC, subnet, instance type). Không để quá 3 tháng chưa review.</p>
+
+</section>
+
+</div><!-- /wrap -->
+
+<footer><div class="wrap">
+  <p class="big">Copy EC2 cross-account không cần downtime production.</p>
+  <p class="src">Tài liệu nội bộ Japfa · trungcln · runbook-ec2-cross-account-copy · 2026-06-26</p>
+</div></footer>
+
+<script>
+(function () {
+  // Tab switcher
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tg = btn.dataset.tg;
+      const tab = btn.dataset.tab;
+      document.querySelectorAll(`[data-tg="${tg}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll(`#${tg}-cli, #${tg}-console, #${tg}-tf`).forEach(p => p.classList.remove('active'));
+      const pane = document.getElementById(`${tg}-${tab}`);
+      if (pane) pane.classList.add('active');
+    });
+  });
+
+  // Section collapse
+  const KEY = 'jcv-collapsed-ec2copy';
+  document.querySelectorAll('section[id]').forEach(sec => {
+    const head = sec.querySelector('.s-head');
+    if (!head) return;
+    const tog = document.createElement('span');
+    tog.className = 's-toggle'; tog.textContent = '▾';
+    head.appendChild(tog);
+    const inner = document.createElement('div'); inner.className = 'section-body-inner';
+    const body = document.createElement('div'); body.className = 'section-body';
+    while (head.nextSibling) inner.appendChild(head.nextSibling);
+    body.appendChild(inner); sec.appendChild(body);
+    const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (saved[sec.id]) sec.classList.add('collapsed');
+    head.addEventListener('click', () => { sec.classList.toggle('collapsed'); persist(); });
+  });
+  const btn = document.getElementById('btn-col-all');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const secs = [...document.querySelectorAll('section[id]')];
+      const anyOpen = secs.some(s => !s.classList.contains('collapsed'));
+      secs.forEach(s => s.classList.toggle('collapsed', anyOpen));
+      btn.textContent = anyOpen ? '▸ Mở rộng' : '▾ Thu gọn';
+      persist();
+    });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t && t.classList.contains('collapsed')) { t.classList.remove('collapsed'); persist(); }
+    });
+  });
+  const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
+  if (tocLinks.length) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        const link = tocLinks.find(a => a.getAttribute('href') === '#' + en.target.id);
+        if (link) link.classList.toggle('active', en.isIntersecting);
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+  }
+  function persist() {
+    const state = {};
+    document.querySelectorAll('section[id]').forEach(s => { if (s.classList.contains('collapsed')) state[s.id] = 1; });
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }
+})();
+</script>
+</body>
+</html>

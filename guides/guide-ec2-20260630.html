@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resource Guide: Amazon EC2 · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1E9;--paper-2:#EDE9DD;--ink:#16130D;--ink-soft:#4A4334;
+  --line:rgba(22,19,13,.16);--line-strong:rgba(22,19,13,.34);
+  --red:#C32D1A;--green:#1C7A47;--amber:#A9700A;--muted:#7A7160;--blue:#1F5F86;
+  --term:#15120C;--term-ink:#EDE7D6;--maxw:1500px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;
+  font-size:21px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);background-size:22px 22px}
+::selection{background:var(--blue);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);
+  backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;color:var(--ink);
+  text-decoration:none;width:26px;height:26px;display:grid;place-items:center;
+  border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-ok{color:var(--green);border-color:var(--green)}.c-ok::before{background:var(--green)}
+.c-warn{color:var(--amber);border-color:var(--amber)}.c-warn::before{background:var(--amber)}
+.c-info{color:var(--blue);border-color:var(--blue)}.c-info::before{background:var(--blue)}
+.c-fail{color:var(--red);border-color:var(--red)}.c-fail::before{background:var(--red)}
+.c-out{color:var(--muted);border-color:var(--muted)}.c-out::before{background:var(--muted)}
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--blue);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;
+  font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--blue)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;
+  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line);scroll-margin-top:74px}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;
+  cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);
+  color:var(--blue);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;
+  font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--blue)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);
+  margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;color:var(--blue);margin-right:.55em}
+h4{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(.85rem,1.3vw,1rem);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:36px 0 12px;
+  border-bottom:1px solid var(--line);padding-bottom:8px}
+p{max-width:78ch;margin:18px 0}
+strong{font-weight:600}
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}
+li{margin:11px 0;padding-left:6px}
+li::marker{color:var(--blue)}
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;margin:24px 0;
+  overflow:hidden;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;
+  border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}
+.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);
+  line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}
+pre .o{color:#E7E0CC}
+pre .hl{color:#F0A93C;font-weight:700}
+pre .bad{color:#F0664C;font-weight:700}
+pre .good{color:#74C593;font-weight:700}
+pre .dim{color:#8B826C}
+pre .key{color:#1A1206;font-weight:700;background:#F0A93C;border-radius:3px;padding:0 4px}
+pre .cmt{color:#6A8F7A;font-style:italic}
+pre .arg{color:#C4A8F0}
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);
+  line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;
+  margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.dia .bad{color:var(--red);font-weight:700}.dia .good{color:var(--green);font-weight:700}
+.dia .am{color:var(--amber);font-weight:700}.dia .mut{color:var(--muted)}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;
+  border-left:5px solid var(--ink);background:var(--paper-2);
+  padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}.proof .k.am{color:var(--amber)}
+.proof .v{font-size:.92em;line-height:1.5}
+.proof .v p{margin:0;max-width:none}
+.principle{border:2px solid var(--ink);border-left:8px solid var(--blue);
+  background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);
+  font-weight:600;line-height:1.32;margin:0;max-width:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}.stat .n.info{color:var(--blue)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}
+td b{font-weight:600}
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}
+.p-bad{color:var(--red);border-color:var(--red)}
+.p-am{color:var(--amber);border-color:var(--amber)}
+.p-out{color:var(--muted);border-color:var(--muted)}
+.p-info{color:var(--blue);border-color:var(--blue)}
+.note{font-size:.9em;color:var(--ink-soft);border-top:1px dashed var(--line-strong);
+  padding-top:16px;margin-top:30px;max-width:84ch;font-style:italic}
+.note::before{content:"⚠ ";color:var(--amber);font-style:normal;font-weight:700}
+.timing{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  float:right;border:1.5px solid var(--line-strong);padding:5px 12px;border-radius:999px}
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem);
+  line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:2px;max-width:248px;padding:16px 14px;
+  border:2px solid var(--ink);background:rgba(244,241,233,.94);backdrop-filter:blur(7px);
+  border-radius:10px;box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--ink-soft);
+  padding:6px 8px;border-radius:5px;line-height:1.25;transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}
+.toc a.active{background:var(--ink);color:var(--paper)}
+.toc a.active .tn{color:var(--paper)}
+.toc a.active .tt{font-weight:600}
+@media(max-width:1180px){.toc{display:none}}
+.s-toggle{position:absolute;right:0;top:.55em;font-family:"JetBrains Mono",monospace;
+  font-size:1rem;font-weight:700;color:var(--blue);transition:transform .32s cubic-bezier(.4,0,.2,1);
+  line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}
+section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}
+.section-body-inner{overflow:hidden;min-height:0}
+.btn-col{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;padding:3px 10px;border:1.5px solid var(--ink);border-radius:4px;
+  cursor:pointer;background:transparent;color:var(--ink);transition:all .15s;white-space:nowrap}
+.btn-col:hover{background:var(--ink);color:var(--paper)}
+.watermark{position:fixed;top:-60%;left:-60%;width:220%;height:220%;
+  pointer-events:none;z-index:9000;transform:rotate(-28deg);opacity:.06;
+  background-repeat:repeat;background-size:300px 150px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width='300'%20height='150'%3E%3Ctext%20x='6'%20y='42'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3Ctext%20x='156'%20y='120'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3C%2Fsvg%3E")}
+.alert{border-radius:8px;padding:16px 22px;margin:22px 0;border:2px solid;
+  display:flex;gap:14px;align-items:flex-start;max-width:92ch}
+.alert .a-ico{font-size:1.1rem;flex-shrink:0;line-height:1.62;font-style:normal}
+.alert .a-body{flex:1}.alert .a-body p{margin:4px 0;max-width:none}
+.alert .a-body strong{font-weight:600}
+.a-crit{background:rgba(195,45,26,.07);border-color:var(--red)}.a-crit .a-ico{color:var(--red)}
+.a-warn{background:rgba(169,112,10,.07);border-color:var(--amber)}.a-warn .a-ico{color:var(--amber)}
+.a-info{background:rgba(31,95,134,.07);border-color:var(--blue)}.a-info .a-ico{color:var(--blue)}
+.a-ok{background:rgba(28,122,71,.07);border-color:var(--green)}.a-ok .a-ico{color:var(--green)}
+.steps{list-style:none;margin:22px 0;max-width:86ch;counter-reset:step}
+.steps>li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;
+  gap:0 18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps>li:last-child{border-bottom:none}
+.steps>li::before{content:counter(step);font-family:"JetBrains Mono",monospace;
+  font-size:.88rem;font-weight:700;background:var(--ink);color:var(--paper);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:3px}
+.step-title{font-weight:600;font-size:1rem;line-height:1.35;margin-bottom:8px}
+.step-body{font-size:.93em;color:var(--ink-soft);line-height:1.55}
+.step-body p{margin:6px 0;max-width:none}
+.step-body .term,.step-body .dia{margin:10px 0}
+.step-exp{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--blue);
+  border-left:3px solid var(--blue);padding:6px 12px;margin-top:10px;
+  background:rgba(31,95,134,.05);border-radius:0 4px 4px 0}
+.step-exp::before{content:"→ Lưu ý: ";font-weight:700}
+.checklist{list-style:none;margin:18px 0;max-width:82ch;
+  border:1.5px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.checklist li{display:flex;gap:12px;align-items:flex-start;
+  padding:11px 16px;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li:nth-child(even){background:var(--paper-2)}
+.cb{width:18px;height:18px;border:2px solid var(--line-strong);border-radius:3px;
+  flex-shrink:0;margin-top:3px;display:grid;place-items:center;
+  font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700}
+.cb.done{background:var(--green);border-color:var(--green);color:white}
+.cb.done::after{content:"✓"}
+.cb.todo{border-color:var(--blue)}
+.cl-text{line-height:1.45;font-size:.95em;flex:1}
+.cl-text strong{font-weight:600}
+.cl-text em{font-style:italic;color:var(--ink-soft)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0;max-width:100ch}
+@media(max-width:700px){.pros-cons{grid-template-columns:1fr}}
+.pc-card{border-radius:8px;padding:20px 22px;border:2px solid}
+.pc-card h4{border:none;margin:0 0 14px;padding:0;font-size:.9rem}
+.pc-pros{background:rgba(28,122,71,.06);border-color:var(--green)}
+.pc-pros h4{color:var(--green)}
+.pc-cons{background:rgba(195,45,26,.06);border-color:var(--red)}
+.pc-cons h4{color:var(--red)}
+.pc-card ul{margin:0 0 0 1.1em}
+.pc-card li{margin:8px 0;font-size:.9em}
+.pc-card li::marker{color:inherit}
+.cost-table td:last-child{font-family:"JetBrains Mono",monospace;font-size:.82em;font-weight:700}
+.dep-graph{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0;align-items:center}
+.dep-node{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  padding:8px 14px;border:2px solid;border-radius:6px;white-space:nowrap}
+.dep-node.self{background:var(--blue);color:var(--paper);border-color:var(--blue)}
+.dep-node.req{border-color:var(--ink)}
+.dep-node.opt{border-color:var(--muted);color:var(--muted)}
+.dep-node.notify{border-color:var(--green);color:var(--green)}
+.dep-arrow{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--muted);font-weight:700}
+.sev{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+  padding:4px 14px;border-radius:4px;letter-spacing:.08em;border:2px solid;display:inline-block;vertical-align:middle}
+.sev-p1{color:var(--paper);background:var(--red);border-color:var(--red)}
+.sev-p2{color:var(--paper);background:#C45D00;border-color:#C45D00}
+.ver-table{width:auto;max-width:72ch;font-size:.82em;border:1.5px solid var(--line-strong)}
+.ver-table th{background:var(--paper-2);color:var(--muted);font-family:"JetBrains Mono",monospace;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.ver-table td{font-family:"JetBrains Mono",monospace;font-size:12px}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}
+  .timing{float:none;display:inline-block;margin-bottom:18px}.proof{grid-template-columns:1fr;gap:6px}}
+@media print{.rail,.toc,.btn-col{display:none!important}
+  section.collapsed .section-body{grid-template-rows:1fr!important}
+  body{font-size:14px;background-image:none}.watermark{opacity:.10!important}
+  .term{box-shadow:none;border:1.5px solid #999}.dia{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<div class="rail"><div class="wrap">
+  <span class="brand">trungcln · Resource Guide</span>
+  <div style="display:flex;gap:7px;flex-wrap:wrap">
+    <span class="chip c-info">Compute</span>
+    <span class="chip c-info">jp:prod · jp:uat</span>
+    <span class="chip c-warn">v1.0 · 2026-06-30</span>
+  </div>
+  <nav>
+    <button class="btn-col" id="btn-col-all">▾ Thu gọn</button>
+    <a href="#s0">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a>
+    <a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a>
+  </nav>
+</div></div>
+
+<nav class="toc"><div class="toc-lbl">Nội dung</div>
+  <a href="#s0"><span class="tn">00</span><span class="tt">Tổng quan</span></a>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Cấu hình Console</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">Cấu hình CLI</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">Terraform</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">Ưu &amp; Nhược điểm</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">Chi phí &amp; Tối ưu</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">Liên kết Resource</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">Checklist Thêm/Sửa/Xóa</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">Best Practices &amp; Refs</span></a>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">trungcln · Resource Guide · Amazon EC2</div>
+  <h1>Amazon <em>EC2</em></h1>
+  <p class="lede">Máy chủ ảo chạy IIS Webapp (BankSystem, CRM, FeedProd, E-Approval) và Bastion SSH/RDP tại Japfa Vietnam — trung tâm của hạ tầng Production trên AWS.</p>
+  <div class="meta-strip">
+    <span>Phiên bản: <b>v1.0</b></span>
+    <span>Cập nhật: <b>2026-06-30</b></span>
+    <span>Owner: <b>trungcln</b></span>
+    <span>Account: <b>jp:prod (347486023795)</b></span>
+    <span>Region: <b>ap-southeast-1</b></span>
+    <span>Criticality: <span class="sev sev-p1">P1</span></span>
+  </div>
+</header>
+
+
+<!-- S0 -->
+<section id="s0">
+  <div class="s-head"><div class="s-num">00 / 08</div>
+    <div><h2>Tổng <em>quan</em></h2>
+      <p class="s-sub">EC2 Japfa — 3 instance đang chạy, vai trò và cấu hình thực tế.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="principle"><div class="lbl">Định nghĩa</div>
+    <p>Amazon EC2 (Elastic Compute Cloud) là dịch vụ máy chủ ảo có thể scale linh hoạt, cho phép chạy workload Windows/Linux trên infrastructure của AWS — Japfa dùng để host IIS Webapp Production, Bastion quản trị, và Dev environment.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n info">3</div><div class="l">Instances đang chạy (prod + dev)</div></div>
+    <div class="stat"><div class="n info">12</div><div class="l">vCPUs tổng (m5.2xl×8 + m5.4xl×16 + t3.micro×2)</div></div>
+    <div class="stat"><div class="n am">87%</div><div class="l">Disk usage ổ D: webapp (104/120 GB)</div></div>
+    <div class="stat"><div class="n ok">99.9%</div><div class="l">Uptime SLA (single-AZ, no ASG)</div></div>
+  </div>
+
+  <h3><span class="tick">→</span>Tính năng chính</h3>
+  <table>
+    <thead><tr><th>Tính năng</th><th>Mô tả</th><th>Japfa dùng?</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr><td><b>IMDSv2</b></td><td>Metadata service version 2 — bảo vệ SSRF attack</td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>HttpTokens=required trên cả 3 máy (22/06/2026)</td></tr>
+      <tr><td><b>SSM Session Manager</b></td><td>Kết nối quản trị không cần mở port SSH/RDP ra internet</td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>Qua VPC Endpoint Share-Svc → bastion → webapp</td></tr>
+      <tr><td><b>AWS Backup</b></td><td>Snapshot AMI tự động theo schedule</td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>Plan <code>jp-prod-backup-plan-ec2</code> (dev: weekly)</td></tr>
+      <tr><td><b>Auto Patch (SSM)</b></td><td>Tự động patch OS qua SSM Automation</td><td><span class="pill p-ok">✓ Đang dùng</span></td><td>Bastion: thứ 7 01:00; Dev: thứ 7 06:30; Webapp: CN tuần 3 02:00</td></tr>
+      <tr><td><b>Auto Scaling Group</b></td><td>Tự động scale số lượng instance theo tải</td><td><span class="pill p-out">— Chưa dùng</span></td><td>Webapp single instance — workload ổn định, chưa cần ASG</td></tr>
+      <tr><td><b>Spot Instance</b></td><td>Instance giá rẻ, có thể bị thu hồi</td><td><span class="pill p-out">— Không dùng</span></td><td>Prod không dùng Spot — cần uptime ổn định</td></tr>
+      <tr><td><b>Power Schedule</b></td><td>Tự động start/stop theo giờ để tiết kiệm chi phí</td><td><span class="pill p-am">~ Dev only</span></td><td>Dev: tag <code>power-schedule=office-hours</code>, auto start 7h / stop 23h</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Kiến trúc Japfa — vị trí EC2</h3>
+  <div class="dia">Internet
+    │
+[WAF jp-prod-waf-aps1-webapp]
+    │
+[Public ALB jp-prod-alb-pb-aps1-public]     [API Gateway HTTP API]
+    │                                               │
+    │                                        [VPC Link]
+    │                                               │
+    └──────────────[Internal ALB jp-prod-alb-pv-aps1-internal]
+                          │
+              ┌───────────┴──────────────┐
+              │                          │
+  [EC2 Webapp i-0cb8bae3be071dc0e]   [EC2 Dev i-0c4bd97b753252f2e]
+   m5.2xlarge · Windows 2016           m5.4xlarge · Windows 2016
+   IIS :62375/:62404/:62167/:62408     office-hours schedule
+   AZ: ap-southeast-1a                 AZ: ap-southeast-1b (IP 10.83.4.67)
+              │
+   [Bastion i-06c85f69071a2522d]
+    t3.micro · Ubuntu 22.04
+    SSM-only, auto-heal probe
+              │
+   [RDS Oracle jap-rds-prod-cdb-01 :1521]
+              │
+   [VPN] → [FortiGate Long An 10.82.254.254 / Hương Canh 10.82.254.253]</div>
+
+  <h3><span class="tick">→</span>Các EC2 instances Japfa hiện có</h3>
+  <table>
+    <thead><tr><th>Instance Name</th><th>Instance ID</th><th>Type</th><th>OS</th><th>Account</th><th>Vai trò</th></tr></thead>
+    <tbody>
+      <tr><td><b>jp-prod-ec2-pv-aps11-webapp</b></td><td><code>i-0cb8bae3be071dc0e</code></td><td>m5.2xlarge</td><td>Windows 2016 <span class="pill p-am">⚠ PlatformDetails báo nhầm Linux</span></td><td>jp:prod</td><td>IIS: BankSystem :62375, CRM :62404, FeedProd, E-Approval :62167/:62408</td></tr>
+      <tr><td><b>jp-prod-ec2-pv-aps11-bastion-db</b></td><td><code>i-06c85f69071a2522d</code></td><td>t3.micro</td><td>Ubuntu 22.04</td><td>jp:prod</td><td>Bastion SSM-only + auto-heal probe target</td></tr>
+      <tr><td><b>jp-dev-ec2-pv-aps12</b></td><td><code>i-0c4bd97b753252f2e</code></td><td>m5.4xlarge</td><td>Windows 2016</td><td>jp:prod (DEV trong prod account)</td><td>Dev environment, IP 10.83.4.67, power-schedule office-hours</td></tr>
+      <tr><td><b>jp-uat-ec2-webapp</b></td><td><code>i-0802acc0abeb2260e</code></td><td>t3.medium</td><td>Windows 2016</td><td>jp:uat</td><td>UAT webapp copy từ prod AMI, IP 10.0.1.93</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-warn"><em class="a-ico">⚠</em><div class="a-body">
+    <strong>Lưu ý OS Webapp:</strong> API <code>PlatformDetails</code> báo "Linux/UNIX" nhưng thực tế là <strong>Windows Server 2016</strong> — verify qua SSM Fleet Manager hoặc Inspector. Đây là gotcha quan trọng khi patch hoặc troubleshoot.
+  </div></div>
+
+  </div></div>
+</section>
+
+
+<!-- S1 -->
+<section id="s1">
+  <div class="s-head"><div class="s-num">01 / 08</div>
+    <div><h2>Cấu hình qua <em>Console</em></h2>
+      <p class="s-sub">Hướng dẫn từng bước xem trạng thái và tạo mới EC2 qua AWS Console.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-warn"><em class="a-ico">⚠</em><div class="a-body">
+    <strong>Trước khi bắt đầu:</strong> Mọi thay đổi trên <strong>jp:prod</strong> phải xác nhận 2 lần. Đọc <code>aws-safety-checklist.md</code> trước.
+  </div></div>
+
+  <h3><span class="tick">→</span>Xem trạng thái instance hiện có</h3>
+  <ol class="steps">
+    <li>
+      <div class="step-title">Đăng nhập Console — chọn đúng account</div>
+      <div class="step-body">
+        <p>Vào <code>https://japfavn.awsapps.com/start</code> → chọn <strong>jp:prod (347486023795)</strong> → Management Console.</p>
+        <p>Verify region góc trên phải: <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</p>
+        <div class="step-exp">Tab header hiển thị "jp:prod" và "Singapore"</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Mở EC2 Dashboard</div>
+      <div class="step-body">
+        <p>Gõ <code>EC2</code> vào thanh tìm kiếm → chọn <strong>EC2</strong> → sidebar chọn <strong>Instances</strong>.</p>
+        <p>Tìm theo Instance ID hoặc filter theo tag <code>Name</code>.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Kiểm tra thông tin quan trọng</div>
+      <div class="step-body">
+        <p>Click vào instance → tab <strong>Details</strong> xem: Instance state, Type, Private IP, IAM Role, Security Groups.</p>
+        <h4>Các field cần kiểm tra</h4>
+        <table>
+          <thead><tr><th>Field</th><th>Giá trị Japfa (Webapp)</th><th>Ý nghĩa</th></tr></thead>
+          <tbody>
+            <tr><td><b>Instance state</b></td><td><code>running</code></td><td>Phải running — nếu stopped thì mất service</td></tr>
+            <tr><td><b>Instance type</b></td><td><code>m5.2xlarge</code></td><td>8 vCPU, 32GB RAM — phù hợp IIS multi-app</td></tr>
+            <tr><td><b>Private IPv4</b></td><td>Trong dải <code>10.83.4.0/22</code></td><td>Subnet private-app (RAM share từ jp:network)</td></tr>
+            <tr><td><b>IAM Instance Profile</b></td><td><code>jp-ec2-ssm-role</code></td><td>Bắt buộc cho SSM, auto-patch, CloudWatch Agent</td></tr>
+            <tr><td><b>Metadata (IMDSv2)</b></td><td><code>Required</code></td><td>HttpTokens=required — bảo vệ SSRF</td></tr>
+          </tbody>
+        </table>
+        <div class="step-exp">Nếu thấy PlatformDetails="Linux/UNIX" trên webapp — đây là bug hiển thị, OS thật là Windows 2016</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Kiểm tra Security Group gắn vào instance</div>
+      <div class="step-body">
+        <p>Tab <strong>Security</strong> → click tên Security Group → xem inbound/outbound rules.</p>
+        <p>Dev instance (<code>i-0c4bd97b753252f2e</code>) dùng SG <code>sg-0c9fc1931a841a126</code> — RDP :3389 từ <code>10.94.0.0/16</code> (Long An) + <code>10.93.0.0/16</code> (Hương Canh).</p>
+        <div class="step-exp">Không bao giờ thấy inbound 0.0.0.0/0 cho port 3389 hoặc 22 — nếu có phải cảnh báo ngay</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3><span class="tick">→</span>Tạo mới EC2 Instance (quy trình chuẩn Japfa)</h3>
+  <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+    <strong>⚠️ ĐÂY LÀ PRODUCTION:</strong> Tạo EC2 trong jp:prod cần xác nhận 2 lần. Ưu tiên dùng Terraform để đảm bảo state sync.
+  </div></div>
+  <ol class="steps">
+    <li>
+      <div class="step-title">Chọn AMI — Windows Server 2016</div>
+      <div class="step-body">
+        <p>EC2 → <strong>Launch Instance</strong> → ô AMI search: gõ <code>Windows Server 2016</code> → chọn <strong>Microsoft Windows Server 2016 Base</strong>.</p>
+        <p>Hoặc dùng AMI từ prod hiện có: <code>ami-042a2d6d54909e16c</code> (snapshot đã có IIS + ứng dụng).</p>
+        <div class="step-exp">AMI từ prod đã có IIS và app — khởi động nhanh hơn, nhưng phải cẩn thận connection strings</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Chọn Instance Type và Network</div>
+      <div class="step-body">
+        <table>
+          <thead><tr><th>Field</th><th>Giá trị Japfa</th><th>Giải thích</th></tr></thead>
+          <tbody>
+            <tr><td><b>Instance type</b></td><td><code>m5.2xlarge</code></td><td>Webapp production — 8 vCPU, 32GB. Dev có thể dùng t3.large</td></tr>
+            <tr><td><b>VPC</b></td><td>jp-prod-vpc-aps1-production</td><td>VPC do jp:network sở hữu, RAM share sang jp:prod</td></tr>
+            <tr><td><b>Subnet</b></td><td>private-app AZ-1a (10.83.4.0/22)</td><td>Không public — không gắn Public IP</td></tr>
+            <tr><td><b>Auto-assign Public IP</b></td><td><code>Disable</code></td><td>Không bao giờ gắn public IP cho webapp</td></tr>
+            <tr><td><b>IAM Instance Profile</b></td><td><code>jp-ec2-ssm-role</code></td><td>Bắt buộc — SSM, CloudWatch Agent, S3 backup</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Cấu hình Storage</div>
+      <div class="step-body">
+        <p>Root volume (C:): <strong>gp3, 100GB</strong> tối thiểu. Nếu cần drive D: thêm EBS volume thứ hai.</p>
+        <p><strong>Webapp hiện tại ổ D: đang 87% (104/120 GB)</strong> — khi tạo mới hãy dùng ít nhất 200GB cho D: nếu có nhiều app.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Tags bắt buộc</div>
+      <div class="step-body">
+        <table>
+          <thead><tr><th>Key</th><th>Value mẫu</th><th>Bắt buộc?</th></tr></thead>
+          <tbody>
+            <tr><td><code>Name</code></td><td><code>jp-prod-ec2-pv-aps11-webapp</code></td><td><span class="pill p-bad">BẮT BUỘC</span></td></tr>
+            <tr><td><code>Environment</code></td><td><code>production</code></td><td><span class="pill p-bad">BẮT BUỘC</span></td></tr>
+            <tr><td><code>ManagedBy</code></td><td><code>terraform</code></td><td><span class="pill p-am">Khuyến nghị</span></td></tr>
+            <tr><td><code>Owner</code></td><td><code>trungcln</code></td><td><span class="pill p-am">Khuyến nghị</span></td></tr>
+            <tr><td><code>Backup</code></td><td><code>jp-prod-backup-plan-ec2</code></td><td><span class="pill p-am">Nếu cần backup tự động</span></td></tr>
+            <tr><td><code>power-schedule</code></td><td><code>office-hours</code></td><td><span class="pill p-out">Chỉ cho dev/non-prod</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Review và Launch — xác nhận lần cuối</div>
+      <div class="step-body">
+        <p>Kiểm tra lại: không có Public IP, đúng subnet, đúng SG, đúng IAM profile, IMDSv2 sẽ set sau khi launch.</p>
+        <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+          <strong>jp:prod:</strong> Sau khi launch, ngay lập tức set IMDSv2 và import vào TF state để tránh drift.
+        </div></div>
+        <div class="step-exp">Instance ID xuất hiện: i-0xxxxxxxxxxxxxxxxx — ghi lại để import TF</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-title">Sau khi launch — bắt buộc set IMDSv2</div>
+      <div class="step-body">
+        <p>Console: Instance → Actions → Instance Settings → <strong>Modify instance metadata options</strong> → IMDSv2: <strong>Required</strong>.</p>
+        <div class="step-exp">Verify: curl metadata từ trong instance phải dùng token — không dùng trực tiếp HTTP</div>
+      </div>
+    </li>
+  </ol>
+
+  </div></div>
+</section>
+
+
+<!-- S2 -->
+<section id="s2">
+  <div class="s-head"><div class="s-num">02 / 08</div>
+    <div><h2>Cấu hình qua <em>CLI</em></h2>
+      <p class="s-sub">AWS CLI commands sẵn sàng chạy — đã có profile và region Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>Tất cả lệnh dưới đây đã có <code>--profile</code> và <code>--region</code>. Thay thế các giá trị trong <code>{{...}}</code> trước khi chạy.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Lệnh đọc / kiểm tra (🟢 An toàn)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Describe Instances</span><span class="tag">🟢 READ ONLY</span></div>
+<pre>
+<span class="dim"># Xem tất cả instances trong jp:prod</span>
+<span class="cmd">aws ec2 describe-instances \</span>
+<span class="cmd">  --profile <span class="hl">jp:prod</span> \</span>
+<span class="cmd">  --region <span class="hl">ap-southeast-1</span> \</span>
+<span class="cmd">  --query 'Reservations[*].Instances[*].{ID:InstanceId,Name:Tags[?Key==`Name`]|[0].Value,State:State.Name,Type:InstanceType,IP:PrivateIpAddress}' \</span>
+<span class="cmd">  --output table</span>
+
+<span class="dim"># Chi tiết 1 instance cụ thể (webapp)</span>
+<span class="cmd">aws ec2 describe-instances \</span>
+<span class="cmd">  --instance-ids <span class="hl">i-0cb8bae3be071dc0e</span> \</span>
+<span class="cmd">  --profile jp:prod \</span>
+<span class="cmd">  --region ap-southeast-1 \</span>
+<span class="cmd">  --output json</span>
+
+<span class="dim"># Kiểm tra IMDSv2 status</span>
+<span class="cmd">aws ec2 describe-instances \</span>
+<span class="cmd">  --instance-ids <span class="hl">i-0cb8bae3be071dc0e</span> \</span>
+<span class="cmd">  --query 'Reservations[0].Instances[0].MetadataOptions' \</span>
+<span class="cmd">  --profile jp:prod --region ap-southeast-1 \</span>
+<span class="cmd">  --output json</span>
+
+<span class="dim"># Xem CloudWatch metric CPUUtilization 1 giờ gần nhất</span>
+<span class="cmd">aws cloudwatch get-metric-statistics \</span>
+<span class="cmd">  --namespace AWS/EC2 \</span>
+<span class="cmd">  --metric-name CPUUtilization \</span>
+<span class="cmd">  --dimensions Name=InstanceId,Value=<span class="hl">i-0cb8bae3be071dc0e</span> \</span>
+<span class="cmd">  --start-time $(date -u -v-1H +%Y-%m-%dT%H:%M:%SZ) \</span>
+<span class="cmd">  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \</span>
+<span class="cmd">  --period 300 --statistics Average \</span>
+<span class="cmd">  --profile jp:prod --region ap-southeast-1 \</span>
+<span class="cmd">  --output table</span>
+</pre></div>
+
+  <h4>Giải thích tham số CLI quan trọng</h4>
+  <table>
+    <thead><tr><th>Tham số</th><th>Mô tả</th><th>Giá trị mẫu Japfa</th></tr></thead>
+    <tbody>
+      <tr><td><code>--profile</code></td><td>AWS SSO profile — xác định account</td><td><code>jp:prod</code>, <code>jp:uat</code></td></tr>
+      <tr><td><code>--region</code></td><td>AWS Region — luôn Singapore</td><td><code>ap-southeast-1</code></td></tr>
+      <tr><td><code>--instance-ids</code></td><td>ID instance cụ thể</td><td><code>i-0cb8bae3be071dc0e</code></td></tr>
+      <tr><td><code>--query</code></td><td>JMESPath filter — lọc field cần</td><td><code>'Reservations[*].Instances[*].InstanceId'</code></td></tr>
+      <tr><td><code>--filters</code></td><td>Filter theo tag hoặc state</td><td><code>'Name=tag:Environment,Values=production'</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Lệnh start/stop (🟡 Thay đổi — xác nhận trước)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Start / Stop</span><span class="tag">🟡 WRITE</span></div>
+<pre>
+<span class="dim"># Start instance (dev - thường dùng sau power-schedule stop)</span>
+<span class="cmd">aws ec2 start-instances \</span>
+<span class="arg">  --instance-ids <span class="hl">i-0c4bd97b753252f2e</span> \    <span class="dim"># DEV only — không dùng cho webapp prod</span></span>
+<span class="cmd">  --profile jp:prod \</span>
+<span class="cmd">  --region ap-southeast-1</span>
+
+<span class="dim"># Stop instance (cẩn thận với webapp — mất service BankSystem/CRM)</span>
+<span class="cmd">aws ec2 stop-instances \</span>
+<span class="arg">  --instance-ids <span class="key">{{INSTANCE-ID}}</span> \    <span class="dim"># Ghi rõ ID trước khi chạy</span></span>
+<span class="cmd">  --profile jp:prod \</span>
+<span class="cmd">  --region ap-southeast-1</span>
+</pre></div>
+
+  <h3><span class="tick">→</span>Tạo AMI Backup (🟡 — nên làm trước mọi thay đổi)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Create AMI</span><span class="tag">🟡 BACKUP</span></div>
+<pre>
+<span class="dim"># Tạo AMI snapshot (không cần stop instance)</span>
+<span class="cmd">aws ec2 create-image \</span>
+<span class="arg">  --instance-id <span class="hl">i-0cb8bae3be071dc0e</span> \      <span class="dim"># ID instance webapp</span></span>
+<span class="arg">  --name "jp-prod-webapp-backup-$(date +%Y%m%d-%H%M%S)" \</span>
+<span class="arg">  --description "Manual backup before change" \</span>
+<span class="arg">  --no-reboot \                                <span class="dim"># Không restart instance khi snapshot</span></span>
+<span class="arg">  --tag-specifications 'ResourceType=image,Tags=[{Key=ManagedBy,Value=ssm-autopatch},{Key=Environment,Value=production}]' \</span>
+<span class="cmd">  --profile jp:prod \</span>
+<span class="cmd">  --region ap-southeast-1</span>
+
+<span class="dim"># Chờ AMI available (5-10 phút)</span>
+<span class="cmd">aws ec2 wait image-available \</span>
+<span class="cmd">  --image-ids <span class="hl">{{AMI-ID}}</span> \</span>
+<span class="cmd">  --profile jp:prod --region ap-southeast-1</span>
+</pre></div>
+
+  <h3><span class="tick">→</span>Set IMDSv2 (🟡 — bắt buộc sau khi tạo instance mới)</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Modify Instance Metadata</span><span class="tag">🟡 SECURITY</span></div>
+<pre>
+<span class="dim"># Enforce IMDSv2 — chạy ngay sau khi tạo instance</span>
+<span class="cmd">aws ec2 modify-instance-metadata-options \</span>
+<span class="arg">  --instance-id <span class="key">{{INSTANCE-ID}}</span> \</span>
+<span class="arg">  --http-tokens required \          <span class="dim"># IMDSv2 bắt buộc</span></span>
+<span class="arg">  --http-endpoint enabled \         <span class="dim"># Giữ metadata endpoint hoạt động</span></span>
+<span class="arg">  --http-put-response-hop-limit 1 \ <span class="dim"># Chỉ instance chính, không container</span></span>
+<span class="cmd">  --profile jp:prod \</span>
+<span class="cmd">  --region ap-southeast-1</span>
+
+<span class="dim"># Verify kết quả</span>
+<span class="cmd">aws ec2 describe-instances \</span>
+<span class="cmd">  --instance-ids <span class="key">{{INSTANCE-ID}}</span> \</span>
+<span class="cmd">  --query 'Reservations[0].Instances[0].MetadataOptions' \</span>
+<span class="cmd">  --profile jp:prod --region ap-southeast-1 --output json</span>
+</pre></div>
+
+  <h3><span class="tick">→</span>Terminate / Xóa instance (🔴 Nguy hiểm)</h3>
+
+  <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+    <strong>CẢNH BÁO:</strong> Terminate instance KHÔNG thể hoàn tác. Luôn backup AMI trước và xác nhận 2 lần với 3T.
+  </div></div>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>AWS CLI · Terminate</span><span class="tag">🔴 DESTRUCTIVE</span></div>
+<pre>
+<span class="dim"># Step 1: Backup AMI trước</span>
+<span class="cmt"># (chạy lệnh create-image ở trên, chờ available)</span>
+
+<span class="dim"># Step 2: Xác nhận đúng instance</span>
+<span class="cmd">aws ec2 describe-instances \</span>
+<span class="cmd">  --instance-ids <span class="key">{{INSTANCE-ID}}</span> \</span>
+<span class="cmd">  --query 'Reservations[0].Instances[0].{Name:Tags[?Key==`Name`]|[0].Value,State:State.Name}' \</span>
+<span class="cmd">  --profile jp:prod --region ap-southeast-1 --output json</span>
+
+<span class="dim"># Step 3: Terminate (chỉ chạy sau xác nhận lần 2)</span>
+<span class="bad"># aws ec2 terminate-instances \</span>
+<span class="bad">#   --instance-ids {{INSTANCE-ID}} \</span>
+<span class="bad">#   --profile jp:prod --region ap-southeast-1</span>
+</pre></div>
+
+  </div></div>
+</section>
+
+
+<!-- S3 -->
+<section id="s3">
+  <div class="s-head"><div class="s-num">03 / 08</div>
+    <div><h2>Cấu hình qua <em>Terraform</em></h2>
+      <p class="s-sub">Infrastructure as Code — module prod tại <code>~/Japfa-JCV/terraform/prod/</code>.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="proof">
+    <div class="k am">TF Backend</div><div class="v"><p>S3: <code>japfa-terraform-state-central-2026</code> · DynamoDB lock · Profile: <code>jp:aggregator</code></p></div>
+    <div class="k ok">Module path</div><div class="v"><p><code>~/Japfa-JCV/terraform/prod/ec2.tf</code> (hoặc <code>main.tf</code>)</p></div>
+    <div class="k ok">TF Status</div><div class="v"><p>✅ Clean drift 26/06/2026 — cả 3 instance đã trong TF state</p></div>
+  </div>
+
+  <h3><span class="tick">→</span>Resource block EC2 Japfa</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>Terraform · aws_instance.tf</span><span class="tag">HCL</span></div>
+<pre>
+resource <span class="hl">"aws_instance"</span> <span class="hl">"webapp"</span> {
+
+  <span class="dim"># ── Bắt buộc ──────────────────────────────────</span>
+  <span class="arg">ami</span>           = <span class="hl">"ami-0xxxxxxxxxxxxxxxx"</span>  <span class="dim"># [BẮT BUỘC] AMI Windows Server 2016 ap-southeast-1</span>
+  <span class="arg">instance_type</span> = <span class="hl">"m5.2xlarge"</span>            <span class="dim"># [BẮT BUỘC] 8 vCPU, 32GB RAM cho IIS webapp</span>
+  <span class="arg">subnet_id</span>     = <span class="hl">data.aws_subnet.private_app_1a.id</span> <span class="dim"># RAM share từ jp:network</span>
+
+  <span class="dim"># ── Network ─────────────────────────────────</span>
+  <span class="arg">vpc_security_group_ids</span> = [<span class="hl">aws_security_group.webapp.id</span>]
+  <span class="arg">associate_public_ip_address</span> = <span class="hl">false</span>     <span class="dim"># [QUAN TRỌNG] Không bao giờ public IP</span>
+
+  <span class="dim"># ── IAM ─────────────────────────────────────</span>
+  <span class="arg">iam_instance_profile</span> = <span class="hl">"jp-ec2-ssm-role"</span> <span class="dim"># SSM + CloudWatch + S3 access</span>
+
+  <span class="dim"># ── IMDSv2 (bắt buộc) ───────────────────────</span>
+  metadata_options {
+    <span class="arg">http_endpoint</span>               = <span class="hl">"enabled"</span>
+    <span class="arg">http_tokens</span>                 = <span class="hl">"required"</span>  <span class="dim"># IMDSv2 enforce</span>
+    <span class="arg">http_put_response_hop_limit</span> = <span class="hl">1</span>
+  }
+
+  <span class="dim"># ── Storage ─────────────────────────────────</span>
+  root_block_device {
+    <span class="arg">volume_type</span>           = <span class="hl">"gp3"</span>          <span class="dim"># gp3 rẻ hơn gp2, tốt hơn cho IIS</span>
+    <span class="arg">volume_size</span>           = <span class="hl">100</span>            <span class="dim"># GB cho ổ C:</span>
+    <span class="arg">delete_on_termination</span> = <span class="hl">true</span>
+    <span class="arg">encrypted</span>             = <span class="hl">true</span>
+  }
+
+  <span class="dim"># ── Tags bắt buộc ─────────────────────────</span>
+  tags = {
+    Name        = <span class="hl">"jp-prod-ec2-pv-aps11-webapp"</span>
+    Environment = <span class="hl">"production"</span>
+    ManagedBy   = <span class="hl">"terraform"</span>
+    Owner       = <span class="hl">"trungcln"</span>
+    Backup      = <span class="hl">"jp-prod-backup-plan-ec2"</span>
+  }
+
+  <span class="dim"># ── Lifecycle ───────────────────────────────</span>
+  lifecycle {
+    <span class="dim"># Japfa ignore AMI changes — update AMI phải làm có kế hoạch, không tự replace</span>
+    <span class="arg">ignore_changes</span> = [<span class="hl">ami</span>]
+  }
+}
+
+<span class="dim"># Data source — subnet từ jp:network (RAM share)</span>
+data <span class="hl">"aws_subnet"</span> <span class="hl">"private_app_1a"</span> {
+  <span class="arg">id</span> = <span class="hl">"subnet-xxxxxxxxxxxxxxxxx"</span>  <span class="dim"># Private-App AZ-1a 10.83.4.0/22 (jp:network → RAM → jp:prod)</span>
+}
+</pre></div>
+
+  <h4>Giải thích argument quan trọng</h4>
+  <table>
+    <thead><tr><th>Argument</th><th>Type</th><th>Bắt buộc</th><th>Mặc định</th><th>Giải thích & Japfa value</th></tr></thead>
+    <tbody>
+      <tr><td><code>ami</code></td><td><span class="pill p-info">string</span></td><td><span class="pill p-bad">Bắt buộc</span></td><td>—</td><td>AMI ID phải là region ap-southeast-1 và Windows 2016. Lifecycle ignore_changes=[ami] để tránh replace unexpected</td></tr>
+      <tr><td><code>instance_type</code></td><td><span class="pill p-info">string</span></td><td><span class="pill p-bad">Bắt buộc</span></td><td>—</td><td>Japfa: m5.2xlarge (webapp), t3.micro (bastion), m5.4xlarge (dev). Thay đổi type cần stop instance</td></tr>
+      <tr><td><code>subnet_id</code></td><td><span class="pill p-info">string</span></td><td><span class="pill p-bad">Bắt buộc</span></td><td>—</td><td>Subnet Private-App từ jp:network qua RAM Share — không thể thay đổi sau khi tạo</td></tr>
+      <tr><td><code>http_tokens</code></td><td><span class="pill p-info">string</span></td><td><span class="pill p-am">Khuyến nghị</span></td><td><code>optional</code></td><td>Japfa set <code>required</code> — bắt buộc IMDSv2. Nếu để optional: Security Hub sẽ flag HIGH finding</td></tr>
+      <tr><td><code>associate_public_ip_address</code></td><td><span class="pill p-out">bool</span></td><td><span class="pill p-am">Tùy chọn</span></td><td><code>false</code></td><td>Japfa: false — không bao giờ gắn public IP cho EC2 trong private subnet</td></tr>
+      <tr><td><code>ignore_changes = [ami]</code></td><td><span class="pill p-info">lifecycle</span></td><td><span class="pill p-am">Khuyến nghị</span></td><td>—</td><td>Tránh TF plan báo replace khi AMI mới release. Update AMI phải chủ động, không để TF tự replace</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Workflow TF cho Japfa EC2</h3>
+
+  <div class="term"><div class="term-bar"><div class="d r"></div><div class="d y"></div><div class="d g"></div><span>Shell · Terraform workflow</span><span class="tag">WORKFLOW</span></div>
+<pre>
+<span class="dim"># 1. SSO login</span>
+<span class="cmd">aws sso login --profile <span class="hl">jp:prod</span></span>
+
+<span class="dim"># 2. Vào module prod</span>
+<span class="cmd">cd ~/Japfa-JCV/terraform/prod/</span>
+
+<span class="dim"># 3. Plan</span>
+<span class="cmd">terraform plan -out=tfplan</span>
+<span class="dim"># → Đọc kỹ: "x to add, y to change, z to destroy"</span>
+
+<span class="dim"># 4. [PROD: chỉ plan] — chỉ apply khi 3T gõ "đồng ý apply prod"</span>
+<span class="bad"># terraform apply tfplan   ← KHÔNG tự chạy trên prod</span>
+
+<span class="dim"># 5. Import instance đã tạo thủ công vào TF state</span>
+<span class="cmd">terraform import \</span>
+<span class="cmd">  aws_instance.webapp \</span>
+<span class="cmd">  <span class="key">i-0cb8bae3be071dc0e</span></span>
+</pre></div>
+
+  </div></div>
+</section>
+
+
+<!-- S4 -->
+<section id="s4">
+  <div class="s-head"><div class="s-num">04 / 08</div>
+    <div><h2>Ưu & <em>Nhược điểm</em></h2>
+      <p class="s-sub">Đánh giá EC2 trong context Japfa — so với giải pháp thay thế.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="pros-cons">
+    <div class="pc-card pc-pros">
+      <h4>Ưu điểm</h4>
+      <ul>
+        <li><strong>Full control OS</strong> — Cài IIS, Oracle Client, custom libraries không bị giới hạn như container</li>
+        <li><strong>Lift-and-shift dễ dàng</strong> — MGN migrate từ VMware on-prem lên, không cần refactor app</li>
+        <li><strong>Windows workload native</strong> — IIS + .NET + RDP — không cần containerize</li>
+        <li><strong>SSM Session Manager</strong> — Quản trị an toàn không cần bastion public</li>
+        <li><strong>AMI snapshot nhanh</strong> — Backup toàn bộ OS + data, rollback &lt;1 giờ</li>
+      </ul>
+    </div>
+    <div class="pc-card pc-cons">
+      <h4>Nhược điểm / Rủi ro</h4>
+      <ul>
+        <li><strong>Single AZ — SPOF</strong> — Webapp và bastion cùng AZ-1a, không có failover tự động nếu AZ down</li>
+        <li><strong>Disk ổ D: 87%</strong> — Nguy cơ đầy disk, chưa có alert tự động cho disk usage</li>
+        <li><strong>Chi phí cao hơn serverless</strong> — m5.2xlarge chạy 24/7 dù traffic thấp ban đêm</li>
+        <li><strong>OS patch manual coordination</strong> — Auto-patch có risk downtime, cần maintenance window</li>
+        <li><strong>No Auto Scaling</strong> — Không scale ngang nếu traffic đột biến</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>So sánh với giải pháp thay thế</h3>
+  <table>
+    <thead><tr><th>Giải pháp</th><th>Tình huống phù hợp</th><th>Japfa dùng?</th><th>Lý do lựa chọn</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>EC2 (đang dùng)</b></td>
+        <td>Windows workload, full control OS, lift-and-shift</td>
+        <td><span class="pill p-ok">✓ Đang dùng</span></td>
+        <td>IIS/.NET app migrate từ VMware, không cần refactor</td>
+      </tr>
+      <tr>
+        <td><b>ECS/EKS Container</b></td>
+        <td>Microservices, modern app, cần scale ngang</td>
+        <td><span class="pill p-out">— Không dùng</span></td>
+        <td>App cũ .NET Framework không containerize dễ dàng</td>
+      </tr>
+      <tr>
+        <td><b>AWS Elastic Beanstalk</b></td>
+        <td>.NET app managed platform</td>
+        <td><span class="pill p-out">— Không dùng</span></td>
+        <td>Ít control hơn EC2, khó customize IIS settings</td>
+      </tr>
+      <tr>
+        <td><b>Lambda + API GW</b></td>
+        <td>Event-driven, stateless functions</td>
+        <td><span class="pill p-out">— Không dùng (SCP chặn Lambda)</span></td>
+        <td>SCP Org chặn Lambda ở jp:prod; app monolithic không phù hợp</td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S5 -->
+<section id="s5">
+  <div class="s-head"><div class="s-num">05 / 08</div>
+    <div><h2>Chi phí & <em>Tối ưu</em></h2>
+      <p class="s-sub">Bảng giá ước tính EC2 Japfa và các cách tiết kiệm.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Ước tính chi phí hiện tại (ap-southeast-1, On-Demand)</h3>
+  <table class="cost-table">
+    <thead><tr><th>Instance</th><th>Type</th><th>Giá/giờ (USD)</th><th>Giờ/tháng</th><th>Ước tính/tháng</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>jp-prod-ec2-pv-aps11-webapp</b></td>
+        <td>m5.2xlarge (Windows)</td>
+        <td>~$0.672/h</td>
+        <td>730h (24/7)</td>
+        <td><b>~$490</b></td>
+      </tr>
+      <tr>
+        <td><b>jp-prod-ec2-pv-aps11-bastion-db</b></td>
+        <td>t3.micro (Linux)</td>
+        <td>~$0.013/h</td>
+        <td>730h (24/7)</td>
+        <td><b>~$9</b></td>
+      </tr>
+      <tr>
+        <td><b>jp-dev-ec2-pv-aps12</b></td>
+        <td>m5.4xlarge (Windows)</td>
+        <td>~$1.344/h</td>
+        <td>~480h (office-hours: 7h-23h)</td>
+        <td><b>~$645</b></td>
+      </tr>
+      <tr>
+        <td><b>EBS volumes (~400GB gp3)</b></td>
+        <td>gp3 $0.08/GB</td>
+        <td>—</td>
+        <td>~400GB</td>
+        <td><b>~$32</b></td>
+      </tr>
+      <tr style="background:var(--paper-2)">
+        <td colspan="4"><b>Tổng ước tính EC2</b></td>
+        <td><b style="color:var(--amber)">~$1,176/tháng</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>Giá Windows EC2 đắt hơn Linux ~40% do Windows license. Dev (m5.4xlarge) đắt hơn prod webapp mặc dù đã có power-schedule — xem xét downgrade type nếu dev không cần 16 vCPU.</p>
+  </div></div>
+
+  <h3><span class="tick">→</span>Cách tối ưu chi phí</h3>
+  <table>
+    <thead><tr><th>Giải pháp tiết kiệm</th><th>Tiết kiệm ước tính</th><th>Áp dụng cho Japfa?</th><th>Trade-off</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Reserved Instance 1 năm (webapp)</b></td>
+        <td>~30-40% (~$147-196/tháng)</td>
+        <td><span class="pill p-am">~ Nên xem xét</span></td>
+        <td>Commit 1 năm, kém linh hoạt nếu muốn thay type</td>
+      </tr>
+      <tr>
+        <td><b>Downgrade dev m5.4xlarge → m5.2xlarge</b></td>
+        <td>~$322/tháng</td>
+        <td><span class="pill p-am">~ Đánh giá nhu cầu</span></td>
+        <td>Cần verify dev workload có cần 16 vCPU không</td>
+      </tr>
+      <tr>
+        <td><b>Power schedule dev (đang dùng)</b></td>
+        <td>~$387/tháng (chạy 16h thay 24h)</td>
+        <td><span class="pill p-ok">✓ Đang áp dụng</span></td>
+        <td>Dev không chạy ngoài giờ office — đã ổn</td>
+      </tr>
+      <tr>
+        <td><b>Graviton (ARM) instances</b></td>
+        <td>~20% rẻ hơn x86</td>
+        <td><span class="pill p-out">— Không áp dụng</span></td>
+        <td>Windows Server chưa có ARM EC2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S6 -->
+<section id="s6">
+  <div class="s-head"><div class="s-num">06 / 08</div>
+    <div><h2>Liên kết <em>Resource</em></h2>
+      <p class="s-sub">EC2 phụ thuộc vào gì, và service nào phụ thuộc vào EC2.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Dependency map</h3>
+  <div class="dep-graph">
+    <div class="dep-node req">VPC<br><small>jp-prod-vpc-aps1-production</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node req">Subnet Private-App<br><small>10.83.4.0/22 (RAM share)</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node req">Security Group<br><small>jp:prod</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node self">EC2 Webapp<br><small>i-0cb8bae3be071dc0e</small></div>
+    <span class="dep-arrow">→</span>
+    <div class="dep-node notify">Internal ALB<br><small>Target Group</small></div>
+    <span class="dep-arrow">+</span>
+    <div class="dep-node opt">CloudWatch<br><small>Alarm + Agent</small></div>
+  </div>
+
+  <h3><span class="tick">→</span>EC2 phụ thuộc vào (Prerequisites)</h3>
+  <table>
+    <thead><tr><th>Resource</th><th>Account</th><th>Resource ID / Name</th><th>Lý do phụ thuộc</th><th>Nếu mất?</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>VPC</b></td>
+        <td>jp:network</td>
+        <td><code>jp-prod-vpc-aps1-production (10.83.0.0/18)</code></td>
+        <td>EC2 nằm trong VPC này</td>
+        <td><span class="pill p-bad">Không tạo được</span></td>
+      </tr>
+      <tr>
+        <td><b>Subnet Private-App</b></td>
+        <td>jp:network → RAM → jp:prod</td>
+        <td><code>10.83.4.0/22 (AZ-1a), 10.83.8.0/22 (AZ-1b)</code></td>
+        <td>ENI của EC2 trong subnet này</td>
+        <td><span class="pill p-bad">Không tạo được</span></td>
+      </tr>
+      <tr>
+        <td><b>Security Group</b></td>
+        <td>jp:prod</td>
+        <td>Webapp SG (IIS ports), Dev SG <code>sg-0c9fc1931a841a126</code></td>
+        <td>Kiểm soát inbound từ ALB + on-prem VPN</td>
+        <td><span class="pill p-am">Tạo được, mất traffic</span></td>
+      </tr>
+      <tr>
+        <td><b>IAM Instance Profile</b></td>
+        <td>jp:prod</td>
+        <td><code>jp-ec2-ssm-role</code></td>
+        <td>SSM Session Manager, CloudWatch Agent, S3 backup, auto-patch</td>
+        <td><span class="pill p-am">Chạy được, mất SSM/CWAgent</span></td>
+      </tr>
+      <tr>
+        <td><b>Transit Gateway</b></td>
+        <td>jp:network</td>
+        <td><code>tgw-074bbf044fada8981</code></td>
+        <td>Routing từ VPN on-prem đến EC2 qua TGW</td>
+        <td><span class="pill p-bad">Mất kết nối on-prem → webapp</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Resource phụ thuộc vào EC2 này</h3>
+  <table>
+    <thead><tr><th>Resource</th><th>Cách dùng</th><th>Ảnh hưởng nếu EC2 down</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Internal ALB Target Group (banksystem)</b></td>
+        <td>Forward port :62375 từ API Gateway</td>
+        <td><span class="pill p-bad">banksystem.japfa.com.vn không hoạt động</span></td>
+      </tr>
+      <tr>
+        <td><b>Internal ALB Target Group (crm)</b></td>
+        <td>Forward port :62404</td>
+        <td><span class="pill p-bad">crm.japfa.com.vn không hoạt động</span></td>
+      </tr>
+      <tr>
+        <td><b>Public ALB Target Group (e-approval)</b></td>
+        <td>Forward port :62167/:62408</td>
+        <td><span class="pill p-bad">e-approval.japfa.com.vn không hoạt động</span></td>
+      </tr>
+      <tr>
+        <td><b>Auto-heal probe (bastion)</b></td>
+        <td>Bastion ping on-prem qua VPN để check kết nối</td>
+        <td><span class="pill p-am">Mất probe — auto-heal không detect VPN down</span></td>
+      </tr>
+      <tr>
+        <td><b>CloudWatch Alarms</b></td>
+        <td>Monitor CPU, memory (qua CWAgent), disk</td>
+        <td><span class="pill p-am">Alarm không có data — INSUFFICIENT_DATA</span></td>
+      </tr>
+      <tr>
+        <td><b>RDS Oracle (jap-rds-prod-cdb-01)</b></td>
+        <td>EC2 webapp connect Oracle :1521</td>
+        <td><span class="pill p-am">RDS vẫn chạy nhưng không có client</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Cross-account dependencies</h3>
+  <div class="alert a-info"><em class="a-ico">ℹ</em><div class="a-body">
+    <p>EC2 trong jp:prod dùng subnet từ jp:network qua <strong>RAM Share</strong>. jp:prod không sở hữu VPC/subnet — chỉ launch instance vào đó.</p>
+  </div></div>
+  <table>
+    <thead><tr><th>Resource từ account khác</th><th>Source account</th><th>Cơ chế chia sẻ</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Subnet Private-App AZ-1a/1b</b></td>
+        <td>jp:network (787309524943)</td>
+        <td>RAM Share <code>jp-prod-ram-aps1-prod-subnets</code></td>
+        <td>jp:prod không thể tạo/xóa subnet này</td>
+      </tr>
+      <tr>
+        <td><b>Transit Gateway</b></td>
+        <td>jp:network</td>
+        <td>RAM Share</td>
+        <td>Route table VPN → EC2 được manage bởi jp:network</td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S7 -->
+<section id="s7">
+  <div class="s-head"><div class="s-num">07 / 08</div>
+    <div><h2>Checklist <em>Thêm / Sửa / Xóa</em></h2>
+      <p class="s-sub">Danh sách kiểm tra trước mỗi thao tác EC2 quan trọng tại Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <div class="alert a-warn"><em class="a-ico">⚠</em><div class="a-body">
+    <strong>Nhắc nhở:</strong> Mọi thao tác 🟡🔴 cần xác nhận 2 lần với 3T. Checklist này không thay thế xác nhận đó.
+  </div></div>
+
+  <h3><span class="tick">→</span>Checklist: Tạo mới EC2</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>SSO login đúng account</strong> — <code>aws sso login --profile jp:prod</code>, verify <code>aws sts get-caller-identity</code></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xác nhận subnet RAM share available</strong> — Subnet private-app đã được share từ jp:network chưa</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Chọn AMI đúng region ap-southeast-1</strong> — Không dùng AMI của region khác</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Không gắn Public IP</strong> — associate_public_ip_address = false</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Gắn IAM Profile</strong> — <code>jp-ec2-ssm-role</code> (bắt buộc cho SSM access)</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Tags bắt buộc</strong> — Name, Environment, ManagedBy=terraform, Owner=trungcln</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Set IMDSv2 ngay sau launch</strong> — HttpTokens=required <em>(Security Hub sẽ flag nếu bỏ qua)</em></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Gắn Security Group phù hợp</strong> — Chỉ mở port cần thiết, không 0.0.0.0/0 cho admin ports</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Import vào Terraform state</strong> — <code>terraform import aws_instance.&lt;name&gt; &lt;instance-id&gt;</code></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify SSM connectivity</strong> — Mở Session Manager từ console để test</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Cập nhật infra-overview.md</strong> — Ghi instance ID + type + vai trò mới</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Chỉnh sửa EC2 (type, storage, SG)</h3>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Backup AMI trước</strong> — <code>aws ec2 create-image --no-reboot</code> + chờ available</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Thông báo maintenance window</strong> — Sửa type/stop cần báo trước cho user (BankSystem/CRM)</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Stop instance nếu đổi type</strong> — Instance type chỉ đổi được khi stopped</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Sửa SG: không xóa rule cũ trước khi test rule mới</strong> — Add trước, verify, rồi xóa rule cũ</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Rollback plan rõ ràng</strong> — Biết lệnh restore AMI trước khi apply</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify sau sửa</strong> — Check ALB target health, test app BankSystem/CRM</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Sync TF state</strong> — Nếu sửa thủ công: <code>terraform plan</code> để phát hiện drift</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Update infra-overview.md</strong> — Ghi thay đổi type/config mới</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Checklist: Xóa / Terminate EC2</h3>
+  <div class="alert a-crit"><em class="a-ico">🔴</em><div class="a-body">
+    <strong>NGUY HIỂM:</strong> Terminate instance không thể phục hồi (ngoại trừ từ AMI backup). Phải có sự đồng ý rõ ràng từ 3T.
+  </div></div>
+  <ul class="checklist">
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Backup AMI đầy đủ</strong> — Tạo AMI, chờ available, ghi lại AMI ID</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Kiểm tra dependents</strong> — Instance còn trong ALB target group không? Đã detach chưa?</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Detach khỏi ALB Target Group trước</strong> — Tránh health check fail lan rộng</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Disable CloudWatch alarm liên quan</strong> — Tránh false alarm sau khi terminate</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Xác nhận lần 2 với 3T</strong> — Đọc to Instance ID cần xóa: <code>i-0xxxxxxxxxxxxxxxxx</code></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Remove khỏi TF state</strong> — <code>terraform state rm aws_instance.&lt;name&gt;</code></div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Verify sau terminate</strong> — Confirm billing đã dừng trong Cost Explorer ngày hôm sau</div></li>
+    <li><div class="cb todo"></div><div class="cl-text"><strong>Update infra-overview.md</strong> — Xóa entry instance đã terminate</div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Thay đổi kéo theo chi phí phụ</h3>
+  <table>
+    <thead><tr><th>Thay đổi</th><th>Chi phí phụ phát sinh</th><th>Estimate</th></tr></thead>
+    <tbody>
+      <tr><td><b>Upgrade m5.2xlarge → m5.4xlarge</b></td><td>Tăng gấp đôi instance cost</td><td>+~$490/tháng</td></tr>
+      <tr><td><b>Thêm EBS volume 100GB gp3</b></td><td>$0.08/GB/tháng</td><td>+$8/tháng</td></tr>
+      <tr><td><b>Enable Multi-AZ (chạy 2 instance)</b></td><td>x2 instance cost + EBS</td><td>+~$500/tháng</td></tr>
+      <tr><td><b>AMI snapshot giữ lâu (&gt;30 ngày)</b></td><td>EBS snapshot $0.05/GB/tháng</td><td>+$5-20/tháng/AMI</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+
+<!-- S8 -->
+<section id="s8">
+  <div class="s-head"><div class="s-num">08 / 08</div>
+    <div><h2>Best Practices & <em>Tài liệu</em></h2>
+      <p class="s-sub">Nguyên tắc vàng và tài liệu tham khảo cho EC2 Japfa.</p>
+    </div>
+    <span class="s-toggle">▾</span>
+  </div>
+  <div class="section-body"><div class="section-body-inner">
+
+  <h3><span class="tick">→</span>Best Practices theo AWS Well-Architected</h3>
+
+  <h4>Security</h4>
+  <ul>
+    <li><strong>IMDSv2 bắt buộc</strong> — HttpTokens=required trên tất cả instances (đã done 22/06/2026)</li>
+    <li><strong>Không mở SSH/RDP ra internet</strong> — Dùng SSM Session Manager qua VPC Endpoint</li>
+    <li><strong>IAM Role thay vì access key</strong> — Instance dùng role <code>jp-ec2-ssm-role</code>, không nhúng credentials</li>
+    <li><strong>Encrypt EBS volumes</strong> — Bật encryption cho tất cả EBS (at-rest encryption)</li>
+    <li><strong>Security Group least-privilege</strong> — Chỉ mở port cần thiết, source cụ thể (SG ID hoặc CIDR on-prem)</li>
+  </ul>
+
+  <h4>Reliability</h4>
+  <ul>
+    <li><strong>AMI backup trước mọi thay đổi</strong> — Auto-patch đã có bước backup AMI tự động</li>
+    <li><strong>Health check ALB</strong> — 3 target groups (banksystem/crm/feedprod) đều được check sau patch</li>
+    <li><strong>Monitor disk usage ổ D:</strong> — Hiện 87%, cần alert khi &gt;90% để tránh IIS crash</li>
+    <li><strong>Power schedule chỉ cho dev</strong> — Không bao giờ schedule stop cho webapp prod</li>
+  </ul>
+
+  <h4>Performance</h4>
+  <ul>
+    <li><strong>EBS gp3 cho storage</strong> — gp3 rẻ hơn gp2 và có thể tune IOPS/throughput độc lập</li>
+    <li><strong>Monitor CPU trước khi upgrade</strong> — Verify CPU utilization trung bình trước khi quyết định scale up</li>
+  </ul>
+
+  <h4>Cost Optimization</h4>
+  <ul>
+    <li><strong>Power schedule cho dev</strong> — <code>office-hours</code> tag: start 7h/stop 23h → tiết kiệm ~65% dev cost</li>
+    <li><strong>Reserved Instance nếu chạy &gt;1 năm</strong> — Webapp prod ổn định, RI 1 năm tiết kiệm 30-40%</li>
+  </ul>
+
+  <h4>Operational Excellence</h4>
+  <ul>
+    <li><strong>Tất cả instances phải trong TF state</strong> — Không tạo thủ công mà không import</li>
+    <li><strong>Auto-patch theo schedule</strong> — Webapp: CN tuần 3 02:00; Dev: thứ 7 06:30; Bastion: thứ 7 01:00</li>
+    <li><strong>Tags đầy đủ</strong> — Name, Environment, ManagedBy, Owner, Backup</li>
+  </ul>
+
+  <h3><span class="tick">→</span>Gotchas & Pitfalls đặc thù Japfa</h3>
+  <div class="proof">
+    <div class="k no">PITFALL</div><div class="v"><p><strong>PlatformDetails báo nhầm OS</strong> — API EC2 <code>PlatformDetails</code> webapp báo "Linux/UNIX" nhưng thực tế Windows Server 2016. Luôn verify OS qua SSM Fleet Manager hoặc Inspector, không tin API này khi troubleshoot.</p></div>
+    <div class="k no">PITFALL</div><div class="v"><p><strong>Disk ổ D: webapp 87%</strong> — Hiện 104/120 GB. Nếu đầy 100%, IIS log và session files bị lỗi → app crash. Cần alert CloudWatch cho disk usage &gt;90%.</p></div>
+    <div class="k no">PITFALL</div><div class="v"><p><strong>SCP Org chặn Lambda trong jp:prod</strong> — Không thể tạo Lambda function trong account này. Auto-patch dùng SSM Automation thay vì Lambda.</p></div>
+    <div class="k am">GOTCHA</div><div class="v"><p><strong>Subnet thuộc jp:network — không xóa được từ jp:prod</strong> — Subnet và VPC do jp:network sở hữu qua RAM Share. jp:prod chỉ launch instance, không quản lý network layer.</p></div>
+    <div class="k am">GOTCHA</div><div class="v"><p><strong>Windows TLS 1.2</strong> — Windows 2016 mặc định dùng TLS 1.0 cho PowerShell Invoke-WebRequest → Teams webhook bị lỗi. Fix: <code>[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12</code> trong SSM scripts.</p></div>
+    <div class="k ok">TIP</div><div class="v"><p><strong>AMI tag ManagedBy=ssm-autopatch</strong> — Auto-patch luôn tag AMI với key này. Khi rollback, filter AMI theo tag này để tìm backup gần nhất của từng instance.</p></div>
+    <div class="k ok">TIP</div><div class="v"><p><strong>Dev instance: verify power-schedule</strong> — Nếu dev không start sau 7h, check EventBridge Scheduler <code>jp-prod-sch-dev-autopatch</code> và SSM document <code>JapfaDev-WindowsAutoPatch</code>.</p></div>
+  </div>
+
+  <h3><span class="tick">→</span>Tài liệu tham khảo</h3>
+  <table>
+    <thead><tr><th>Tài liệu</th><th>Mô tả</th><th>Loại</th></tr></thead>
+    <tbody>
+      <tr><td><b>AWS EC2 User Guide</b></td><td>Tài liệu chính thức — launch, manage, monitor</td><td><span class="pill p-info">AWS Docs</span></td></tr>
+      <tr><td><b>Terraform aws_instance</b></td><td>TF provider docs — tất cả arguments</td><td><span class="pill p-info">TF Registry</span></td></tr>
+      <tr><td><b><code>aws/aws-operations.md</code></b></td><td>Resource IDs thực tế, IIS ports, operational notes</td><td><span class="pill p-ok">Nội bộ</span></td></tr>
+      <tr><td><b><code>infra-overview.md</code></b></td><td>Tổng quan hạ tầng — đọc đầu session</td><td><span class="pill p-ok">Nội bộ</span></td></tr>
+      <tr><td><b><code>aws-safety-checklist.md</code></b></td><td>Checklist an toàn trước thay đổi prod</td><td><span class="pill p-ok">Nội bộ</span></td></tr>
+      <tr><td><b>runbook-ec2-cross-account-copy-20260626.html</b></td><td>Copy AMI giữa các account (prod → UAT)</td><td><span class="pill p-am">Runbook</span></td></tr>
+    </tbody>
+  </table>
+
+  <table class="ver-table" style="margin-top:40px">
+    <thead><tr><th>Version</th><th>Ngày</th><th>Thay đổi</th><th>Author</th></tr></thead>
+    <tbody>
+      <tr><td>v1.0</td><td>2026-06-30</td><td>Khởi tạo</td><td>trungcln</td></tr>
+    </tbody>
+  </table>
+
+  </div></div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="big">Bất kỳ thay đổi nào cũng cần<br>xác nhận 2 lần trước khi chạy.</div>
+  <div class="src">trungcln · Resource Guide · Amazon EC2 · 2026-06-30 · ap-southeast-1</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.s-head').forEach(h=>{
+  h.addEventListener('click',()=>{
+    h.closest('section').classList.toggle('collapsed');
+    updateToc();
+  });
+});
+const btn=document.getElementById('btn-col-all');
+let allCol=false;
+btn.addEventListener('click',()=>{
+  allCol=!allCol;
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('collapsed',allCol));
+  btn.textContent=allCol?'▸ Mở tất cả':'▾ Thu gọn';
+  updateToc();
+});
+const tocLinks=document.querySelectorAll('.toc a');
+function updateToc(){
+  const scrollY=window.scrollY+120;
+  let active='';
+  document.querySelectorAll('section[id]').forEach(s=>{
+    if(s.offsetTop<=scrollY)active=s.id;
+  });
+  tocLinks.forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+active);
+  });
+}
+window.addEventListener('scroll',updateToc,{passive:true});
+updateToc();
+</script>
+</body>
+</html>

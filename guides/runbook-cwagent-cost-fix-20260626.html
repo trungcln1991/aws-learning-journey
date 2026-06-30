@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runbook: CWAgent Cost Fix · trungcln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1E9;--paper-2:#EDE9DD;--ink:#16130D;--ink-soft:#4A4334;
+  --line:rgba(22,19,13,.16);--line-strong:rgba(22,19,13,.34);
+  --red:#C32D1A;--green:#1C7A47;--amber:#A9700A;--muted:#7A7160;--blue:#1F5F86;
+  --term:#15120C;--term-ink:#EDE7D6;--maxw:1500px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;
+  font-size:21px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(22,19,13,.035) 1px,transparent 1px);background-size:22px 22px}
+::selection{background:var(--red);color:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4.5vw,86px)}
+.rail{position:sticky;top:0;z-index:50;background:rgba(244,241,233,.92);
+  backdrop-filter:blur(7px);border-bottom:2px solid var(--ink)}
+.rail .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.rail .brand{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rail nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.rail nav a{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;color:var(--ink);
+  text-decoration:none;width:26px;height:26px;display:grid;place-items:center;
+  border:1.5px solid transparent;border-radius:3px}
+.rail nav a:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1.5px solid;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%}
+.c-ok{color:var(--green);border-color:var(--green)}.c-ok::before{background:var(--green)}
+.c-warn{color:var(--amber);border-color:var(--amber)}.c-warn::before{background:var(--amber)}
+.c-info{color:var(--blue);border-color:var(--blue)}.c-info::before{background:var(--blue)}
+.c-fail{color:var(--red);border-color:var(--red)}.c-fail::before{background:var(--red)}
+.c-out{color:var(--muted);border-color:var(--muted)}.c-out::before{background:var(--muted)}
+.hero{padding:clamp(60px,11vw,150px) 0 clamp(46px,7vw,90px);border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin-bottom:26px}
+h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;
+  font-size:clamp(2.8rem,8.2vw,7rem);letter-spacing:-.02em;max-width:17ch}
+h1 em{font-style:italic;font-weight:500;color:var(--amber)}
+.lede{font-size:clamp(1.15rem,2.3vw,1.7rem);max-width:52ch;margin-top:34px;color:var(--ink-soft);line-height:1.5}
+.meta-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:46px;
+  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:20px}
+.meta-strip b{color:var(--ink);font-weight:700}
+section{padding:clamp(56px,9vw,118px) 0;border-bottom:1px solid var(--line);scroll-margin-top:74px}
+.s-head{display:flex;gap:clamp(18px,3vw,46px);align-items:flex-start;margin-bottom:46px;
+  cursor:pointer;user-select:none;position:relative;padding-right:2.2rem}
+.s-num{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:clamp(1rem,1.4vw,1.25rem);
+  color:var(--amber);padding-top:.7em;flex-shrink:0;letter-spacing:.05em}
+h2{font-family:"Fraunces",serif;font-weight:900;line-height:1.0;
+  font-size:clamp(2rem,5.4vw,4.4rem);letter-spacing:-.018em;max-width:20ch}
+h2 em{font-style:italic;font-weight:500;color:var(--amber)}
+.s-sub{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--ink-soft);max-width:64ch;margin-top:20px;line-height:1.5}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,2.05rem);
+  margin:54px 0 18px;letter-spacing:-.01em;line-height:1.15}
+h3 .tick{font-family:"JetBrains Mono",monospace;font-size:.62em;font-weight:700;color:var(--amber);margin-right:.55em}
+p{max-width:78ch;margin:18px 0}
+strong{font-weight:600}
+code{font-family:"JetBrains Mono",monospace;font-size:.82em;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+ul,ol{max-width:80ch;margin:18px 0 18px 1.3em}
+li{margin:11px 0;padding-left:6px}
+li::marker{color:var(--amber)}
+.term{background:var(--term);color:var(--term-ink);border-radius:10px;margin:24px 0;
+  overflow:hidden;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(22,19,13,.16)}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;
+  border-bottom:1px solid rgba(237,231,214,.16);font-family:"JetBrains Mono",monospace;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B7AE97}
+.term-bar .d{width:11px;height:11px;border-radius:50%}
+.term-bar .d.r{background:#E0573F}.term-bar .d.y{background:#D8A33A}.term-bar .d.g{background:#5FA877}
+.term-bar .tag{margin-left:auto;font-weight:700;color:var(--term-ink)}
+pre{font-family:"JetBrains Mono",monospace;font-size:clamp(11.5px,1.16vw,15px);
+  line-height:1.62;padding:20px clamp(16px,2vw,28px);overflow-x:auto;white-space:pre;color:var(--term-ink)}
+pre .cmd{color:#7FBF9A}
+pre .o{color:#E7E0CC}
+pre .hl{color:#F0A93C;font-weight:700}
+pre .bad{color:#F0664C;font-weight:700}
+pre .good{color:#74C593;font-weight:700}
+pre .dim{color:#8B826C}
+.dia{font-family:"JetBrains Mono",monospace;font-size:clamp(11px,1.12vw,14.5px);
+  line-height:1.55;background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:10px;padding:22px clamp(14px,2vw,26px);overflow-x:auto;white-space:pre;
+  margin:26px 0;box-shadow:7px 7px 0 rgba(22,19,13,.10)}
+.dia .bad{color:var(--red);font-weight:700}
+.dia .good{color:var(--green);font-weight:700}
+.dia .am{color:var(--amber);font-weight:700}
+.dia .mut{color:var(--muted)}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;
+  border-left:5px solid var(--ink);background:var(--paper-2);
+  padding:18px 22px;margin:22px 0;border-radius:0 8px 8px 0;max-width:94ch}
+.proof .k{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding-top:3px}
+.proof .k.ok{color:var(--green)}.proof .k.no{color:var(--red)}
+.proof .v{font-size:.92em;line-height:1.5}
+.proof .v p{margin:0;max-width:none}
+.principle{border:2px solid var(--ink);border-left:8px solid var(--amber);
+  background:var(--paper-2);padding:26px 30px;margin:34px 0;max-width:92ch;border-radius:0 10px 10px 0}
+.principle .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.principle p{font-family:"Fraunces",serif;font-size:clamp(1.2rem,2.2vw,1.7rem);
+  font-weight:600;line-height:1.32;margin:0;max-width:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:30px 0}
+.stat{background:var(--paper);padding:24px 22px}
+.stat .n{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.02em}
+.stat .n.bad{color:var(--red)}.stat .n.ok{color:var(--green)}.stat .n.am{color:var(--amber)}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:.86em;border:2px solid var(--ink)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+tr:nth-child(even) td{background:var(--paper-2)}
+td b{font-weight:600}
+.pill{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.p-ok{color:var(--green);border-color:var(--green)}
+.p-bad{color:var(--red);border-color:var(--red)}
+.p-am{color:var(--amber);border-color:var(--amber)}
+.p-out{color:var(--muted);border-color:var(--muted)}
+.note{font-size:.9em;color:var(--ink-soft);border-top:1px dashed var(--line-strong);
+  padding-top:16px;margin-top:30px;max-width:84ch;font-style:italic}
+.note::before{content:"⚠ ";color:var(--amber);font-style:normal;font-weight:700}
+.timing{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);
+  float:right;border:1.5px solid var(--line-strong);padding:5px 12px;border-radius:999px}
+footer{padding:80px 0 70px;text-align:center}
+footer .big{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem);
+  line-height:1.3;max-width:30ch;margin:0 auto 30px;color:var(--ink)}
+footer .src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.toc{position:fixed;top:50%;right:clamp(14px,2vw,34px);transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:2px;max-width:248px;padding:16px 14px;
+  border:2px solid var(--ink);background:rgba(244,241,233,.94);backdrop-filter:blur(7px);
+  border-radius:10px;box-shadow:6px 6px 0 rgba(22,19,13,.12)}
+.toc .toc-lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:7px}
+.toc a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--ink-soft);
+  padding:6px 8px;border-radius:5px;line-height:1.25;transition:background .15s,color .15s}
+.toc a .tn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--muted);min-width:14px}
+.toc a .tt{font-family:"Newsreader",serif;font-size:14.5px;font-weight:500}
+.toc a:hover{background:var(--paper-2);color:var(--ink)}
+.toc a.active{background:var(--ink);color:var(--paper)}
+.toc a.active .tn{color:var(--paper)}
+.toc a.active .tt{font-weight:600}
+@media(max-width:1180px){.toc{display:none}}
+.s-toggle{position:absolute;right:0;top:.55em;font-family:"JetBrains Mono",monospace;
+  font-size:1rem;font-weight:700;color:var(--amber);transition:transform .32s cubic-bezier(.4,0,.2,1);
+  line-height:1;pointer-events:none}
+section.collapsed .s-toggle{transform:rotate(-90deg)}
+section.collapsed .s-head{margin-bottom:0}
+.section-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
+section.collapsed .section-body{grid-template-rows:0fr}
+.section-body-inner{overflow:hidden;min-height:0}
+.btn-col{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;padding:3px 10px;border:1.5px solid var(--ink);border-radius:4px;
+  cursor:pointer;background:transparent;color:var(--ink);transition:all .15s;white-space:nowrap}
+.btn-col:hover{background:var(--ink);color:var(--paper)}
+.watermark{position:fixed;top:-60%;left:-60%;width:220%;height:220%;
+  pointer-events:none;z-index:9000;transform:rotate(-28deg);opacity:.06;
+  background-repeat:repeat;background-size:300px 150px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width='300'%20height='150'%3E%3Ctext%20x='6'%20y='42'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3Ctext%20x='156'%20y='120'%20fill='%2316130D'%20font-family='monospace'%20font-weight='700'%20font-size='22'%20letter-spacing='3'%3Etrungcln%3C%2Ftext%3E%3C%2Fsvg%3E")}
+.alert{border-radius:8px;padding:16px 22px;margin:22px 0;border:2px solid;
+  display:flex;gap:14px;align-items:flex-start;max-width:92ch}
+.alert .a-ico{font-size:1.1rem;flex-shrink:0;line-height:1.62;font-style:normal}
+.alert .a-body{flex:1}
+.alert .a-body p{margin:4px 0;max-width:none}
+.alert .a-body strong{font-weight:600}
+.a-crit{background:rgba(195,45,26,.07);border-color:var(--red)}
+.a-crit .a-ico{color:var(--red)}
+.a-warn{background:rgba(169,112,10,.07);border-color:var(--amber)}
+.a-warn .a-ico{color:var(--amber)}
+.a-info{background:rgba(31,95,134,.07);border-color:var(--blue)}
+.a-info .a-ico{color:var(--blue)}
+.a-ok{background:rgba(28,122,71,.07);border-color:var(--green)}
+.a-ok .a-ico{color:var(--green)}
+.steps{list-style:none;margin:22px 0;max-width:86ch;counter-reset:step}
+.steps>li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;
+  gap:0 18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps>li:last-child{border-bottom:none}
+.steps>li::before{content:counter(step);font-family:"JetBrains Mono",monospace;
+  font-size:.88rem;font-weight:700;background:var(--ink);color:var(--paper);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:3px}
+.step-title{font-weight:600;font-size:1rem;line-height:1.35;margin-bottom:8px}
+.step-body{font-size:.93em;color:var(--ink-soft);line-height:1.55}
+.step-body p{margin:6px 0;max-width:none}
+.step-body .term{margin:10px 0}
+.step-exp{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--green);
+  border-left:3px solid var(--green);padding:6px 12px;margin-top:10px;
+  background:rgba(28,122,71,.05);border-radius:0 4px 4px 0}
+.step-exp::before{content:"→ Kết quả mong đợi: ";font-weight:700}
+.checklist{list-style:none;margin:18px 0;max-width:82ch;
+  border:1.5px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.checklist li{display:flex;gap:12px;align-items:flex-start;
+  padding:11px 16px;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li:nth-child(even){background:var(--paper-2)}
+.cb{width:18px;height:18px;border:2px solid var(--line-strong);border-radius:3px;
+  flex-shrink:0;margin-top:3px;display:grid;place-items:center;
+  font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700}
+.cb.done{background:var(--green);border-color:var(--green);color:white}
+.cb.done::after{content:"✓"}
+.cb.fail{background:var(--red);border-color:var(--red);color:white}
+.cb.fail::after{content:"✗"}
+.cl-text{line-height:1.45;font-size:.95em;flex:1}
+.cl-text strong{font-weight:600}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin:24px 0}
+.contact-card{border:1.5px solid var(--line-strong);border-radius:8px;padding:16px 18px;background:var(--paper-2)}
+.cc-tier{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cc-name{font-weight:600;font-size:1.05rem;margin-bottom:4px}
+.cc-info{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);line-height:1.65}
+.sev{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+  padding:4px 14px;border-radius:4px;letter-spacing:.08em;border:2px solid;display:inline-block;vertical-align:middle}
+.sev-p3{color:var(--ink);background:#E8C240;border-color:#C4A020}
+.ver-table{width:auto;max-width:72ch;font-size:.82em;border:1.5px solid var(--line-strong)}
+.ver-table th{background:var(--paper-2);color:var(--muted);font-family:"JetBrains Mono",monospace;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.ver-table td{font-family:"JetBrains Mono",monospace;font-size:12px}
+/* Summary box */
+.summary-box{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--green);
+  border-radius:0 10px 10px 0;padding:28px 32px;margin:40px 0;max-width:100%}
+.summary-box .sb-title{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.summary-box table{margin:0;border:none;font-size:.82em}
+.summary-box table th{background:rgba(22,19,13,.08);color:var(--ink)}
+.summary-box table td,.summary-box table th{border-color:var(--line)}
+@media(max-width:680px){body{font-size:18px}.s-head{flex-direction:column;gap:8px}
+  .timing{float:none;display:inline-block;margin-bottom:18px}.proof{grid-template-columns:1fr;gap:6px}}
+@media print{.rail,.toc,.btn-col{display:none!important}
+  section.collapsed .section-body{grid-template-rows:1fr!important}
+  body{font-size:14px;background-image:none}.watermark{opacity:.10!important}
+  .term{box-shadow:none;border:1.5px solid #999}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<div class="rail"><div class="wrap">
+  <span class="brand">trungcln · Runbook</span>
+  <div style="display:flex;gap:7px;flex-wrap:wrap">
+    <span class="chip c-ok">COMPLETED 26/06/2026</span>
+    <span class="chip c-fail">TIẾT KIỆM $190/THÁNG</span>
+    <span class="chip c-info">jp:prod</span>
+  </div>
+  <nav>
+    <button class="btn-col" id="btn-col-all">▾ Thu gọn</button>
+    <a href="#s0">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a>
+    <a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a>
+  </nav>
+</div></div>
+
+<nav class="toc"><div class="toc-lbl">Nội dung</div>
+  <a href="#s0"><span class="tn">00</span><span class="tt">Tổng hợp công việc</span></a>
+  <a href="#s1"><span class="tn">01</span><span class="tt">Mục tiêu & Trigger</span></a>
+  <a href="#s2"><span class="tn">02</span><span class="tt">Điều kiện tiên quyết</span></a>
+  <a href="#s3"><span class="tn">03</span><span class="tt">Các bước thực hiện</span></a>
+  <a href="#s4"><span class="tn">04</span><span class="tt">Xác minh kết quả</span></a>
+  <a href="#s5"><span class="tn">05</span><span class="tt">Rollback / Hoàn tác</span></a>
+  <a href="#s6"><span class="tn">06</span><span class="tt">Escalation & Liên hệ</span></a>
+  <a href="#s7"><span class="tn">07</span><span class="tt">Lịch sử & Phiên bản</span></a>
+  <a href="#s8"><span class="tn">08</span><span class="tt">Tài liệu tham khảo</span></a>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">trungcln · Runbook · CloudWatch / CWAgent / Cost Optimization</div>
+  <h1>CWAgent Cost Fix <em>$190/tháng</em></h1>
+  <p class="lede">Xóa section W3SVC_W3WP khỏi CWAgent config để ngăn chặn 15,334 metric dimensions tích lũy vô hạn do PID-based instance trên IIS Worker Process.</p>
+  <div class="meta-strip">
+    <span>Phiên bản: <b>v1.0</b></span>
+    <span>Thực hiện: <b>26/06/2026</b></span>
+    <span>Owner: <b>trungcln</b></span>
+    <span>Trạng thái: <b>COMPLETED</b></span>
+    <span>Account: <b>jp:prod (347486023795)</b></span>
+    <span>Severity: <span class="sev sev-p3">P3</span></span>
+  </div>
+</header>
+
+
+<!-- ===== S0: TỔNG HỢP CÔNG VIỆC ===== -->
+<section id="s0">
+  <div class="s-head"><div class="s-num">00 / 08</div>
+    <div><h2>Tổng hợp <em>công việc đã làm</em></h2>
+      <p class="s-sub">Tóm tắt toàn bộ thao tác thực hiện ngày 26/06/2026 — đọc trước để nắm bức tranh tổng thể.</p>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sb-title">Kết quả thực hiện — 26/06/2026</div>
+    <table>
+      <thead><tr><th>#</th><th>Công việc</th><th>Lệnh / Hành động</th><th>Kết quả</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><b>Backup config cũ từ SSM</b></td>
+          <td><code>aws ssm get-parameter --name AmazonCloudWatch-jp-prod-webapp</code></td>
+          <td><span class="pill p-ok">DONE</span> — backup-cwagent-20260626-100811.json (3.2K)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><b>Minify config</b> (bỏ <code>_comment</code> để dưới 4096 chars)</td>
+          <td>Python script strip fields bắt đầu bằng <code>_</code> → 5,357 chars → 2,610 chars</td>
+          <td><span class="pill p-ok">DONE</span> — cw-agent-config-jp-prod-webapp-v2-min.json</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><b>Upload config v2 lên SSM Parameter Store</b></td>
+          <td><code>aws ssm put-parameter --name AmazonCloudWatch-jp-prod-webapp --overwrite</code></td>
+          <td><span class="pill p-ok">DONE</span> — Version 5, Standard tier</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><b>Restart CWAgent qua SSM Run Command</b></td>
+          <td><code>AmazonCloudWatch-ManageAgent</code> → instance <code>i-0cb8bae3be071dc0e</code></td>
+          <td><span class="pill p-ok">SUCCESS</span> — CommandId: d4beb22b-..., CWAgent restarted</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><b>Ghi vào skill aws-operations.md</b></td>
+          <td>Thêm section "CWAgent Cost Fix" với gotchas và lệnh tái sử dụng</td>
+          <td><span class="pill p-ok">DONE</span> — commit 3198411, pushed to GitHub</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n bad">15,334</div><div class="l">metric dimensions trước fix (tăng mãi)</div></div>
+    <div class="stat"><div class="n ok">~41</div><div class="l">metric dimensions sau fix (ổn định)</div></div>
+    <div class="stat"><div class="n bad">$193</div><div class="l">chi phí/tháng trước</div></div>
+    <div class="stat"><div class="n ok">~$1.50</div><div class="l">chi phí/tháng sau</div></div>
+    <div class="stat"><div class="n ok">$2,280</div><div class="l">tiết kiệm ước tính/năm</div></div>
+    <div class="stat"><div class="n am">~15'</div><div class="l">thời gian thực hiện</div></div>
+  </div>
+
+  <h3><span class="tick">→</span>Thay đổi config (trước / sau)</h3>
+  <table>
+    <thead><tr><th>Section CWAgent</th><th>Trước fix</th><th>Sau fix</th><th>Dims trước → sau</th></tr></thead>
+    <tbody>
+      <tr><td><b>W3SVC_W3WP</b></td><td>Có — <code>resources:[*]</code> với PID làm instance</td><td><b>XÓA HOÀN TOÀN</b></td><td><span class="pill p-bad">4,900+ → 0</span></td></tr>
+      <tr><td><b>Process</b></td><td><code>resources:[*]</code> — track cả notepad, chrome</td><td><code>[w3wp, dotnet]</code> — chỉ IIS workers</td><td><span class="pill p-am">165 → ~5</span></td></tr>
+      <tr><td><b>Web Service</b></td><td><code>resources:[*]</code> — track sites mặc định</td><td>6 sites production cụ thể</td><td><span class="pill p-am">93 → ~7</span></td></tr>
+      <tr><td><b>ASP.NET Applications</b></td><td><code>resources:[*]</code> — 9 app pool names</td><td>Giữ nguyên — ổn định</td><td><span class="pill p-ok">9 → 9</span></td></tr>
+      <tr><td><b>Processor / Memory / LogicalDisk</b></td><td>Machine-level, cardinality thấp</td><td>Giữ nguyên</td><td><span class="pill p-ok">~20 → ~20</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Gotchas phát hiện trong quá trình làm</h3>
+  <ul>
+    <li>SSM Standard tier giới hạn <strong>4,096 chars</strong> — file v2 gốc 5,357 chars nên phải strip <code>_comment</code> fields trước khi upload</li>
+    <li>SSM <code>--targets Key=tag:Name,Values=...</code> trả về <strong>TargetCount: 0</strong> dù instance đang chạy — phải dùng <code>--instance-ids</code> trực tiếp</li>
+    <li><code>AmazonCloudWatch-ManageAgent</code> không có param <code>restart</code> — chỉ có <code>optionalRestart</code></li>
+    <li>Tag thật của instance là <code>jp-prod-ec2-pv-aps11-webapp</code>, không phải <code>jp-prod-webapp</code></li>
+  </ul>
+
+</section>
+
+
+<!-- ===== S1: MỤC TIÊU & TRIGGER ===== -->
+<section id="s1">
+  <div class="s-head"><div class="s-num">01 / 08</div>
+    <div><h2>Mục tiêu & <em>Trigger</em></h2>
+      <p class="s-sub">Runbook này giải quyết vấn đề gì và khi nào phải dùng.</p>
+    </div>
+  </div>
+
+  <div class="principle"><div class="lbl">Vấn đề cốt lõi</div>
+    <p>CloudWatch Agent trên Windows EC2 dùng <strong>PID của IIS Worker Process</strong> làm dimension name. Mỗi lần IIS app pool recycle → PID mới → metric dimension mới được tạo → chi phí tăng vô hạn theo thời gian.</p>
+  </div>
+
+  <h3><span class="tick">→</span>Dấu hiệu nhận biết</h3>
+  <table>
+    <thead><tr><th>Dấu hiệu</th><th>Cách kiểm tra</th><th>Ngưỡng cảnh báo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Custom metric dimensions tăng liên tục</b></td>
+        <td>CloudWatch → Metrics → namespace <code>JP/CRM/Webapp</code> → đếm số dimensions</td>
+        <td>&gt; 1,000 dims → cần xem xét</td>
+      </tr>
+      <tr>
+        <td><b>Chi phí CloudWatch bất thường</b></td>
+        <td>AWS Cost Explorer → filter CloudWatch → xem <code>MetricMonitorUsage</code></td>
+        <td>&gt; $50/tháng cho non-prod metrics</td>
+      </tr>
+      <tr>
+        <td><b>W3SVC_W3WP có nhiều instance names dạng số</b></td>
+        <td>CloudWatch Metrics → W3SVC_W3WP → xem instance dimension values</td>
+        <td>Instance names là số nguyên (PID) → cần fix ngay</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="proof">
+    <div class="k ok">Trong phạm vi</div><div class="v"><p>Sửa CWAgent config trên Windows EC2 (IIS) để loại bỏ PID-based dimensions. Áp dụng cho jp:prod webapp.</p></div>
+    <div class="k no">Ngoài phạm vi</div><div class="v"><p>Xóa metrics cũ đã tích lũy (tự expire sau 2 tuần). Thay đổi application code. Sửa IIS configuration.</p></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n am">~15</div><div class="l">phút thực hiện</div></div>
+    <div class="stat"><div class="n ok">0</div><div class="l">downtime application</div></div>
+    <div class="stat"><div class="n am">~30s</div><div class="l">gián đoạn metric (CWAgent restart)</div></div>
+  </div>
+
+</section>
+
+
+<!-- ===== S2: ĐIỀU KIỆN TIÊN QUYẾT ===== -->
+<section id="s2">
+  <span class="timing">~3 phút</span>
+  <div class="s-head"><div class="s-num">02 / 08</div>
+    <div><h2>Điều kiện <em>tiên quyết</em></h2>
+      <p class="s-sub">Kiểm tra đầy đủ trước khi bắt đầu.</p>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <em class="a-ico">⚠️</em>
+    <div class="a-body"><strong>Thực hiện đầy đủ checklist trước mọi bước tiếp theo.</strong>
+      <p>Runbook này chạy trên PRODUCTION — backup bắt buộc trước khi upload config mới.</p>
+    </div>
+  </div>
+
+  <h3><span class="tick">→</span>Quyền truy cập</h3>
+  <ul class="checklist">
+    <li><div class="cb"></div><div class="cl-text">Đăng nhập SSO: <code>aws sso login --profile jp:prod</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Verify account: <code>aws sts get-caller-identity --profile jp:prod</code> → Account <code>347486023795</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Cần quyền: <strong>ssm:GetParameter, ssm:PutParameter, ssm:SendCommand, ssm:ListCommandInvocations</strong></div></li>
+  </ul>
+
+  <h3><span class="tick">→</span>Backup bắt buộc</h3>
+  <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+    <span>backup · 🟢 read-only</span><span class="tag">jp:prod</span></div>
+<pre><span class="dim"># Backup config hiện tại trước khi thay đổi</span>
+<span class="cmd">aws ssm get-parameter</span> \
+  --name <span class="hl">"AmazonCloudWatch-jp-prod-webapp"</span> \
+  --profile jp:prod --with-decryption --output json \
+  > ~/Japfa-JCV/reports/backup-cwagent-$(date +%Y%m%d-%H%M%S).json
+
+<span class="dim"># Kiểm tra file đã có nội dung</span>
+ls -lh ~/Japfa-JCV/reports/backup-cwagent-*.json | tail -1</pre></div>
+
+  <ul class="checklist">
+    <li><div class="cb"></div><div class="cl-text">File config v2 đã chuẩn bị: <code>~/Japfa-JCV/reports/cw-agent-config-jp-prod-webapp-v2.json</code></div></li>
+    <li><div class="cb"></div><div class="cl-text">Không trong giờ cao điểm (10:00–12:00, 14:00–17:00 ICT) — CWAgent restart ~30 giây</div></li>
+  </ul>
+
+</section>
+
+
+<!-- ===== S3: CÁC BƯỚC THỰC HIỆN ===== -->
+<section id="s3">
+  <span class="timing">~10 phút</span>
+  <div class="s-head"><div class="s-num">03 / 08</div>
+    <div><h2>Các bước <em>thực hiện</em></h2>
+      <p class="s-sub">Thực hiện đúng thứ tự. Dừng ngay nếu kết quả không như mong đợi.</p>
+    </div>
+  </div>
+
+  <div class="alert a-crit">
+    <em class="a-ico">🔴</em>
+    <div class="a-body"><strong>ĐÂY LÀ PRODUCTION (jp:prod — 347486023795) — xác nhận lần 2 trước bước 2 và 3</strong></div>
+  </div>
+
+  <ol class="steps">
+
+    <li>
+      <div>
+        <div class="step-title">Minify config — bỏ _comment fields</div>
+        <div class="step-body">
+          <p>SSM Standard tier giới hạn 4,096 ký tự. File v2 gốc có <code>_comment</code> nên vượt quá. Cần strip trước khi upload.</p>
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🟢 local · python</span><span class="tag">local</span></div>
+<pre><span class="cmd">python3</span> -c <span class="o">"
+import json
+
+with open('cw-agent-config-jp-prod-webapp-v2.json') as f:
+    data = json.load(f)
+
+def strip(obj):
+    if isinstance(obj, dict):
+        return {k: strip(v) for k, v in obj.items() if not k.startswith('_')}
+    elif isinstance(obj, list):
+        return [strip(i) for i in obj]
+    return obj
+
+result = json.dumps(strip(data), separators=(',', ':'))
+print(f'Size: {len(result)} chars')
+with open('cw-agent-config-jp-prod-webapp-v2-min.json', 'w') as f:
+    f.write(result)
+"</span></pre></div>
+          <div class="step-exp">Size: 2610 chars — dưới 4,096, sẵn sàng upload</div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <div class="step-title">Upload config v2 lên SSM Parameter Store</div>
+        <div class="step-body">
+          <p>Overwrite SSM Parameter với config mới. CWAgent chưa nhận ngay — cần bước 3 để push.</p>
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🔴 write · prod</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ssm put-parameter</span> \
+  --name <span class="hl">"AmazonCloudWatch-jp-prod-webapp"</span> \
+  --type String --overwrite \
+  --value <span class="hl">file://cw-agent-config-jp-prod-webapp-v2-min.json</span> \
+  --profile jp:prod --region ap-southeast-1</pre></div>
+          <div class="step-exp">{"Version": 5, "Tier": "Standard"} — Version tăng thêm 1</div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <div class="step-title">Push config + restart CWAgent qua SSM Run Command</div>
+        <div class="step-body">
+          <p>Dùng <code>--instance-ids</code> trực tiếp, KHÔNG dùng <code>--targets Key=tag:Name</code> (có thể trả về TargetCount: 0).</p>
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🔴 write · prod</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ssm send-command</span> \
+  --document-name <span class="hl">"AmazonCloudWatch-ManageAgent"</span> \
+  --parameters <span class="o">'{"action":["configure"],"mode":["ec2"],
+    "optionalConfigurationSource":["ssm"],
+    "optionalConfigurationLocation":["AmazonCloudWatch-jp-prod-webapp"],
+    "optionalRestart":["yes"]}'</span> \
+  --instance-ids <span class="hl">"i-0cb8bae3be071dc0e"</span> \
+  --profile jp:prod --region ap-southeast-1 \
+  --query <span class="o">'Command.{CommandId:CommandId,Status:Status,TargetCount:TargetCount}'</span></pre></div>
+          <div class="step-exp">{"CommandId": "...", "Status": "Pending", "TargetCount": 1}</div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <div class="step-title">Chờ 20 giây rồi kiểm tra kết quả</div>
+        <div class="step-body">
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🟢 read-only</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ssm list-command-invocations</span> \
+  --command-id <span class="hl">"&lt;CommandId từ bước 3&gt;"</span> \
+  --details --profile jp:prod --region ap-southeast-1 \
+  --query <span class="o">'CommandInvocations[*].{Status:Status,Output:CommandPlugins[0].Output}'</span></pre></div>
+          <div class="step-exp">Status: "Success" + output kết thúc bằng "AmazonCloudWatchAgent has been started"</div>
+        </div>
+      </div>
+    </li>
+
+  </ol>
+
+</section>
+
+
+<!-- ===== S4: XÁC MINH KẾT QUẢ ===== -->
+<section id="s4">
+  <span class="timing">~5 phút</span>
+  <div class="s-head"><div class="s-num">04 / 08</div>
+    <div><h2>Xác minh <em>kết quả</em></h2>
+      <p class="s-sub">Chạy sau khi hoàn thành bước cuối — xác nhận mọi thứ ổn định.</p>
+    </div>
+  </div>
+
+  <ul class="checklist">
+    <li><div class="cb done"></div><div class="cl-text"><strong>SSM Command Status = Success</strong> (đã verify trong session 26/06/2026)</div></li>
+    <li><div class="cb done"></div><div class="cl-text"><strong>CWAgent output kết thúc:</strong> "AmazonCloudWatchAgent has been stopped" → "started"</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Sau 5–10 phút:</strong> CloudWatch → Metrics → <code>JP/CRM/Webapp</code> → <code>W3SVC_W3WP</code> → không còn data mới</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Sau 2 tuần:</strong> dimensions W3SVC_W3WP cũ tự expire, số dims về ~41</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Sau 1 billing cycle:</strong> CloudWatch cost giảm từ $193 xuống ~$1.50</div></li>
+    <li><div class="cb"></div><div class="cl-text"><strong>Application vẫn chạy bình thường</strong> — kiểm tra ALB target health hoặc truy cập endpoint</div></li>
+  </ul>
+
+  <div class="proof">
+    <div class="k ok">Thành công khi</div><div class="v"><p>CWAgent status Success, không còn data mới từ W3SVC_W3WP sau 10 phút, application không bị ảnh hưởng</p></div>
+    <div class="k no">Cần rollback khi</div><div class="v"><p>CWAgent status Failed, hoặc mất metric quan trọng từ ASP.NET Applications, hoặc application lỗi</p></div>
+  </div>
+
+</section>
+
+
+<!-- ===== S5: ROLLBACK ===== -->
+<section id="s5">
+  <span class="timing">~5 phút</span>
+  <div class="s-head"><div class="s-num">05 / 08</div>
+    <div><h2>Rollback / <em>Hoàn tác</em></h2>
+      <p class="s-sub">Upload lại config cũ từ backup và restart CWAgent.</p>
+    </div>
+  </div>
+
+  <ol class="steps">
+
+    <li>
+      <div>
+        <div class="step-title">Extract config cũ từ file backup</div>
+        <div class="step-body">
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🟢 local</span><span class="tag">local</span></div>
+<pre><span class="dim"># Lấy Value từ file backup JSON</span>
+<span class="cmd">python3</span> -c <span class="o">"
+import json
+with open('backup-cwagent-20260626-100811.json') as f:
+    data = json.load(f)
+value = data['Parameter']['Value']
+with open('rollback-config.json', 'w') as f:
+    f.write(value)
+print(f'Extracted: {len(value)} chars')
+"</span></pre></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <div class="step-title">Upload lại config cũ lên SSM</div>
+        <div class="step-body">
+          <div class="term"><div class="term-bar"><span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span>🔴 write · prod</span><span class="tag">jp:prod</span></div>
+<pre><span class="cmd">aws ssm put-parameter</span> \
+  --name <span class="hl">"AmazonCloudWatch-jp-prod-webapp"</span> \
+  --type String --overwrite \
+  --value <span class="hl">file://rollback-config.json</span> \
+  --profile jp:prod --region ap-southeast-1</pre></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <div class="step-title">Restart CWAgent với config cũ</div>
+        <div class="step-body">
+          <p>Chạy lại lệnh SSM send-command y hệt bước 3 trong Section 3.</p>
+          <div class="step-exp">Status: Success, CWAgent started với config cũ</div>
+        </div>
+      </div>
+    </li>
+
+  </ol>
+
+  <p class="note">Backup file: <code>~/Japfa-JCV/reports/backup-cwagent-20260626-100811.json</code></p>
+
+</section>
+
+
+<!-- ===== S6: ESCALATION ===== -->
+<section id="s6">
+  <div class="s-head"><div class="s-num">06 / 08</div>
+    <div><h2>Escalation & <em>Liên hệ</em></h2></div>
+  </div>
+
+  <div class="contacts">
+    <div class="contact-card">
+      <div class="cc-tier">Tier 1 — IT Ops</div>
+      <div class="cc-name">3T (trungcln)</div>
+      <div class="cc-info">Teams: trung.caolenam<br>Email: trung.caolenam@japfa.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-tier">Vendor</div>
+      <div class="cc-name">AWS Support</div>
+      <div class="cc-info">console.aws.amazon.com/support<br>Case: CloudWatch / SSM issue</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ===== S7: LỊCH SỬ ===== -->
+<section id="s7">
+  <div class="s-head"><div class="s-num">07 / 08</div>
+    <div><h2>Lịch sử & <em>Phiên bản</em></h2></div>
+  </div>
+
+  <table class="ver-table">
+    <thead><tr><th>Phiên bản</th><th>Ngày</th><th>Thay đổi</th><th>Tác giả</th></tr></thead>
+    <tbody>
+      <tr><td>v1.0</td><td>2026-06-26</td><td>Initial — thực hiện fix $190/tháng thành công</td><td>trungcln</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="tick">→</span>Lịch sử thực hiện</h3>
+  <table>
+    <thead><tr><th>Ngày</th><th>Người thực hiện</th><th>Lý do</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2026-06-26</td><td>trungcln</td><td>Cost optimization — loại bỏ $190/tháng lãng phí</td>
+        <td><span class="pill p-ok">SUCCESS</span></td>
+        <td>CWAgent restart ~30s, TargetCount: 0 khi dùng tag filter → phải dùng instance-id; SSM Standard tier 4096 char limit → phải minify</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+
+<!-- ===== S8: TÀI LIỆU ===== -->
+<section id="s8">
+  <div class="s-head"><div class="s-num">08 / 08</div>
+    <div><h2>Tài liệu <em>tham khảo</em></h2></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Tài liệu</th><th>Đường dẫn</th></tr></thead>
+    <tbody>
+      <tr><td><b>Config v2 (đầy đủ)</b></td><td><code>~/Japfa-JCV/reports/cw-agent-config-jp-prod-webapp-v2.json</code></td></tr>
+      <tr><td><b>Config v2 (minified)</b></td><td><code>~/Japfa-JCV/reports/cw-agent-config-jp-prod-webapp-v2-min.json</code></td></tr>
+      <tr><td><b>Backup config cũ</b></td><td><code>~/Japfa-JCV/reports/backup-cwagent-20260626-100811.json</code></td></tr>
+      <tr><td><b>Skill aws-operations.md</b></td><td><code>.claude/skills/aws/aws-operations.md</code> → section "CWAgent Cost Fix"</td></tr>
+      <tr><td><b>Báo cáo phân tích chi phí</b></td><td><code>~/Japfa-JCV/reports/cloudwatch-cost-optimization-20260623.html</code></td></tr>
+      <tr><td><b>Kế hoạch hành động</b></td><td><code>~/Japfa-JCV/reports/cloudwatch-cost-action-plan-20260624.html</code></td></tr>
+      <tr><td><b>AWS Docs — ManageAgent</b></td><td>docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance-fleet.html</td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">Metrics cũ (W3SVC_W3WP) vẫn hiển thị trong CloudWatch ~2 tuần rồi tự expire. Không cần xóa thủ công.</p>
+
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <p class="big">Một thay đổi config CWAgent tiết kiệm $190/tháng và ngăn chi phí leo thang vô hạn.</p>
+  <p class="src">Tài liệu nội bộ Japfa · trungcln · runbook-cwagent-cost-fix · 26/06/2026</p>
+</div></footer>
+
+<script>
+(function () {
+  const KEY = 'jcv-cwagent-collapsed';
+  document.querySelectorAll('section[id]').forEach(sec => {
+    const head = sec.querySelector('.s-head');
+    if (!head) return;
+    const tog = document.createElement('span');
+    tog.className = 's-toggle'; tog.textContent = '▾';
+    head.appendChild(tog);
+    const inner = document.createElement('div'); inner.className = 'section-body-inner';
+    const body = document.createElement('div'); body.className = 'section-body';
+    while (head.nextSibling) inner.appendChild(head.nextSibling);
+    body.appendChild(inner); sec.appendChild(body);
+    const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (saved[sec.id]) sec.classList.add('collapsed');
+    head.addEventListener('click', () => { sec.classList.toggle('collapsed'); persist(); });
+  });
+  const btn = document.getElementById('btn-col-all');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const secs = [...document.querySelectorAll('section[id]')];
+      const anyOpen = secs.some(s => !s.classList.contains('collapsed'));
+      secs.forEach(s => s.classList.toggle('collapsed', anyOpen));
+      btn.textContent = anyOpen ? '▸ Mở rộng' : '▾ Thu gọn';
+      persist();
+    });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t && t.classList.contains('collapsed')) { t.classList.remove('collapsed'); persist(); }
+    });
+  });
+  const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
+  if (tocLinks.length) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        const link = tocLinks.find(a => a.getAttribute('href') === '#' + en.target.id);
+        if (link) link.classList.toggle('active', en.isIntersecting);
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+  }
+  function persist() {
+    const state = {};
+    document.querySelectorAll('section[id]').forEach(s => { if (s.classList.contains('collapsed')) state[s.id] = 1; });
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }
+})();
+</script>
+</body>
+</html>

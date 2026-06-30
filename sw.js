@@ -1,10 +1,11 @@
-const CACHE_NAME = 'aws-learn-v1';
+const CACHE_NAME = 'aws-learn-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './lesson.html',
   './lessons.html',
   './stats.html',
+  './guides.html',
   './css/app.css',
   './js/main.js',
   './js/lesson.js',
