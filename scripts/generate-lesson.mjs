@@ -113,15 +113,15 @@ IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT s
   ]
 }
 
-Requirements:
-- vocabulary: exactly 5 words, mix of nouns/verbs/adjectives
-- services: 3 AWS services related to the topic
-- concepts: 2 key concepts with ASCII diagrams
-- quiz: 5 questions (2 easy, 2 medium, 1 hard), answer index 0-3
-- All text in Vietnamese EXCEPT: word, ipa, example_en, ASCII diagram
-- Make japfa connections real and specific (jp:prod ec2 instance, Long An VPN, etc.)
-- IPA must be correct phonetic notation
-- Exam tips must reference actual SAA-C03 exam patterns`;
+STRICT REQUIREMENTS (keep responses concise to fit in tokens):
+- vocabulary: exactly 5 words. Each field max 120 chars. No long paragraphs.
+- services: exactly 3 AWS services. key_points: max 3 points, each max 80 chars.
+- concepts: exactly 2 concepts. body: max 2 sentences. diagram: simple ASCII max 10 lines.
+- quiz: exactly 5 questions. explanation: max 80 chars each.
+- All Vietnamese text EXCEPT: word, ipa, example_en, diagram content
+- IPA must be phonetically correct
+- Japfa connections: mention specific account names (jp:prod/jp:poc/etc) or real resources
+- CRITICAL: Return complete valid JSON only. No markdown fences. No truncation.`;
 }
 
 async function callClaude(prompt) {
@@ -134,7 +134,7 @@ async function callClaude(prompt) {
     },
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 4096,
+      max_tokens: 8000,
       messages: [{ role: 'user', content: prompt }]
     })
   });
