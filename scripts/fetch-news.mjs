@@ -164,6 +164,65 @@ async function fetchStatus() {
   }
 }
 
+// ===== BATCH TRANSLATION via Claude Haiku =====
+async function translateAllItems(allItems) {
+  const API_KEY = process.env.ANTHROPIC_API_KEY;
+  if (!API_KEY) {
+    console.log('  ℹ️ No ANTHROPIC_API_KEY — skipping Vietnamese translation');
+    return;
+  }
+
+  const items = allItems.filter(i => i.description && i.description.trim());
+  if (!items.length) return;
+
+  console.log(`\n🌐 Translating ${items.length} descriptions to Vietnamese (1 batch call)...`);
+
+  // Build numbered list for the prompt
+  const numbered = items.map((item, i) =>
+    `[${i}] ${item.title} — ${item.description.slice(0, 180)}`
+  ).join('\n');
+
+  const prompt = `Translate these AWS news summaries from English to Vietnamese. Rules:
+- Keep AWS service names in English (EC2, S3, Lambda, VPC, IAM, RDS, CloudWatch, etc.)
+- Keep version numbers and technical codes as-is
+- Be concise, natural Vietnamese — write like a tech news reader, not like Google Translate
+- Return ONLY a JSON array of strings in the same order as input, no markdown fences
+
+${numbered}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 4096,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`);
+    const data = await res.json();
+    const raw = data.content[0].text.trim()
+      .replace(/^```json\n?/, '').replace(/\n?```$/, '').trim();
+    const translations = JSON.parse(raw);
+
+    if (!Array.isArray(translations)) throw new Error('Response is not an array');
+    items.forEach((item, i) => {
+      if (translations[i] && typeof translations[i] === 'string') {
+        item.description_vi = translations[i];
+      }
+    });
+    console.log(`  ✅ Translated ${translations.filter(Boolean).length}/${items.length} items`);
+  } catch (err) {
+    console.error(`  ⚠️ Translation failed: ${err.message} — items will show English only`);
+  }
+}
+
 async function main() {
   console.log('🔍 Fetching AWS news feeds...\n');
 
@@ -174,6 +233,14 @@ async function main() {
   }
 
   const status = await fetchStatus();
+
+  // Batch translate all descriptions to Vietnamese
+  const allItems = [
+    ...(results.whats_new || []),
+    ...(results.security || []),
+    ...(results.blog || [])
+  ];
+  await translateAllItems(allItems);
 
   // Build news.json
   const news = {

@@ -197,7 +197,11 @@
           <span class="nc-date">${formatDate(item.date)}</span>
           ${(item.tags||[]).map(t => `<span class="nc-tag" style="color:${tagColor(t)};border-color:${tagColor(t)}">${t}</span>`).join('')}
         </div>
-        ${item.description ? `<div class="nc-desc">${item.description.slice(0,200)}${item.description.length>200?'...':''}</div>` : ''}
+        ${item.description ? `
+        <div class="nc-bilingual">
+          <div class="nc-lang-en">🇬🇧 ${item.description.slice(0,200)}${item.description.length>200?'...':''}</div>
+          ${item.description_vi ? `<div class="nc-lang-vi">🇻🇳 ${item.description_vi}</div>` : ''}
+        </div>` : ''}
         ${isLearn ? `<span class="learn-badge">📚 Liên quan bài học bạn đang học</span>` : ''}
         ${item.link ? `<span class="nc-link">Xem chi tiết → aws.amazon.com</span>` : ''}
       </a>

@@ -23,6 +23,8 @@ jobs:
 
       - name: Fetch AWS news feeds
         run: node scripts/fetch-news.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Check for changes
         id: changes
