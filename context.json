@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "skill: ghi fix SSL VPN LA — unset DNS server giải quyết internet ko vào được",
-  "updated_at": "2026-06-30T08:34:56Z"
+  "commit_msg": "session: wrap-up phiên 28 — drift detection + fix toàn bộ 5 module TF",
+  "updated_at": "2026-06-30T09:53:49Z"
 }
