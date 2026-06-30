@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-10",
+  "day": 8,
+  "week": 2,
+  "month": 1,
+  "title": "RDS & Database Fundamentals",
+  "subtitle": "Multi-AZ · Read Replica · Snapshot",
+  "category": "Database",
+  "color": "#6B3E99",
+  "emoji": "🗄️",
+  "vocabulary": [
+    {
+      "word": "Multi-AZ",
+      "ipa": "/ˌmʌlti ˈeɪ zɛd/",
+      "ipa_guide": "Đọc: MUL-ti-AY-ZED",
+      "type": "danh từ",
+      "meaning": "Triển khai cơ sở dữ liệu trên nhiều vùng khả dụng để đảm bảo tính sẵn sàng cao",
+      "example_en": "Enable Multi-AZ for your RDS instance to ensure automatic failover during AZ outage.",
+      "example_vi": "Bật Multi-AZ cho instance RDS để đảm bảo tự động chuyển đổi dự phòng.",
+      "usage": "RDS · High Availability · Disaster Recovery",
+      "japfa": "jp:prod sử dụng Multi-AZ cho database ERP chính"
+    },
+    {
+      "word": "Read Replica",
+      "ipa": "/ˈriːd ˈrɛplɪkə/",
+      "ipa_guide": "Đọc: RID-REP-li-kuh",
+      "type": "danh từ",
+      "meaning": "Bản sao chỉ đọc của database gốc, dùng để phân tán lưu lượng truy vấn",
+      "example_en": "Create a Read Replica in another region to reduce read latency for reporting queries.",
+      "example_vi": "Tạo Read Replica ở vùng khác để giảm độ trễ cho truy vấn báo cáo.",
+      "usage": "RDS · Scaling · Performance · Analytics",
+      "japfa": "jp:aggregator sử dụng Read Replica cho phân tích dữ liệu"
+    },
+    {
+      "word": "Snapshot",
+      "ipa": "/ˈsnæpʃɑt/",
+      "ipa_guide": "Đọc: SNAP-shot",
+      "type": "danh từ",
+      "meaning": "Bản sao lưu trữ toàn bộ dữ liệu database tại một thời điểm cụ thể",
+      "example_en": "Take a snapshot before applying major schema changes to enable quick rollback.",
+      "example_vi": "Tạo snapshot trước khi áp dụng thay đổi schema lớn để khôi phục nhanh.",
+      "usage": "RDS · Backup · Recovery · AWS Backup",
+      "japfa": "jp:cloudtrail lưu snapshot hàng ngày cho audit trail"
+    },
+    {
+      "word": "Failover",
+      "ipa": "/ˈfeɪlˌoʊvər/",
+      "ipa_guide": "Đọc: FAIL-OH-vur",
+      "type": "danh từ",
+      "meaning": "Quá trình tự động chuyển từ instance chính sang instance dự phòng khi gặp sự cố",
+      "example_en": "RDS Multi-AZ triggers automatic failover if the primary database becomes unavailable.",
+      "example_vi": "Multi-AZ tự động kích hoạt failover nếu database chính không khả dụng.",
+      "usage": "RDS · High Availability · Disaster Recovery",
+      "japfa": "jp:prod duy trì failover thời gian < 2 phút"
+    },
+    {
+      "word": "Replication lag",
+      "ipa": "/ˌrɛplɪˈkeɪʃən læɡ/",
+      "ipa_guide": "Đọc: REP-li-KAY-shun LAG",
+      "type": "danh từ",
+      "meaning": "Độ trễ giữa dữ liệu ghi trên master và cập nhật trên replica",
+      "example_en": "Monitor replication lag to ensure Read Replicas remain synchronized with the primary database.",
+      "example_vi": "Theo dõi replication lag để đảm bảo Read Replica đồng bộ với database gốc.",
+      "usage": "RDS · Monitoring · CloudWatch · Performance",
+      "japfa": "jp:aggregator giám sát replication lag < 100ms"
+    }
+  ],
+  "services": [
+    {
+      "name": "RDS",
+      "full": "Amazon Relational Database Service",
+      "category": "database",
+      "icon": "🗄️",
+      "what": "Quản lý cơ sở dữ liệu quan hệ được quản lý hoàn toàn hỗ trợ MySQL, PostgreSQL, MariaDB, Oracle, SQL Server. AWS xử lý backup, patching, failover tự động.",
+      "when": "Khi cần database quan hệ với SLA cao, không muốn quản lý hạ tầng, cần multi-AZ hoặc read replicas",
+      "key_points": [
+        "Hỗ trợ Multi-AZ failover tự động trong < 2 phút",
+        "Read Replicas để scale read workloads và disaster recovery",
+        "Automated backup 7 ngày, snapshot thủ công lưu vô thời hạn"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod chạy RDS MySQL cho ERP, jp:uat khỏi quản lý on-prem VMware database"
+    },
+    {
+      "name": "Aurora",
+      "full": "Amazon Aurora",
+      "category": "database",
+      "icon": "⚡",
+      "what": "Database tương thích MySQL/PostgreSQL được tối ưu hóa cho AWS với tính năng phân tán, tốc độ 5x nhanh hơn MySQL tiêu chuẩn.",
+      "when": "Cần độ tin cậy cao, throughput cao, auto-scaling read replicas, khả năng chịu lỗi tự động",
+      "key_points": [
+        "Automatic scaling replicas, pay-per-request model",
+        "Replication lag < 1ms, 6-way replication mặc định",
+        "Aurora Global Database cho multi-region active-active"
+      ],
+      "japfa": false,
+      "japfa_detail": "Japfa chưa sử dụng Aurora, dành cho tương lai khi cần scale aggressively"
+    },
+    {
+      "name": "AWS Backup",
+      "full": "AWS Backup",
+      "category": "storage",
+      "icon": "💾",
+      "what": "Dịch vụ sao lưu tập trung quản lý backup cho RDS, EBS, EFS, DynamoDB từ một bảng điều khiển duy nhất.",
+      "when": "Cần chính sách backup thống nhất trên nhiều dịch vụ, tuân thủ retention policy, multi-region backup",
+      "key_points": [
+        "Chính sách sao lưu tự động hàng ngày theo lịch trình",
+        "Cross-region backup để disaster recovery",
+        "Quản lý vòng đời backup, compliance reporting"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail sử dụng AWS Backup cho RDS snapshots với retention 90 ngày"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Multi-AZ vs Read Replica",
+      "icon": "🔄",
+      "body": "Multi-AZ là dự phòng tự động trong 2 AZ khác nhau (chính + standby sẵn sàng), nó làm tăng độ tin cậy nhưng chi phí cao. Read Replica là bản sao chỉ đọc (có thể ở region khác) dùng để scale read, không tự động failover nếu primary gặp sự cố.",
+      "diagram": "Primary (AZ-1) <--sync--> Standby (AZ-2)  [Multi-AZ]\nPrimary (AZ-1) ---async---> Read Replica (AZ-2/Region)  [Read Replica]\n                          |-> Read Replica (AZ-3)  [Scale reads]",
+      "exam_tip": "SAA-C03 thường hỏi: Multi-AZ để HA & durability, Read Replica để scale reads & DR. Multi-AZ + Read Replica có thể kết hợp.",
+      "japfa": "jp:prod sử dụng Multi-AZ cho transaction core, jp:aggregator sử dụng Read Replica cho analytics"
+    },
+    {
+      "title": "Snapshot & Backup Strategy",
+      "icon": "📸",
+      "body": "Snapshot là ảnh chụp toàn bộ database tại một thời điểm, lưu trữ trong S3. AWS Backup tự động hóa lịch snapshot, quản lý retention, cho phép cross-region copy để DR. Combine manual + automated backup theo quy định doanh nghiệp.",
+      "diagram": "Day 1: Snapshot-1 (S3) ---copy---> Region-B (DR)\nDay 2: Snapshot-2 (S3) ---copy---> Region-B\nDay 3: Snapshot-3 (S3)\n       |-> Retain 7 snapshots locally\n       |-> Retain 30 snapshots in DR region",
+      "exam_tip": "RTO/RPO: Multi-AZ failover 1-2 phút (RTO thấp), Read Replica DR manual hơn, Snapshot RTO lâu (phục hồi & start DB).",
+      "japfa": "jp:cloudtrail lưu 90 ngày snapshot, jp:prod cần RTO < 5 phút nên dùng Multi-AZ + daily snapshot"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn quản lý RDS MySQL cho jp:prod. Database cần RTO < 2 phút nếu AZ chính gặp sự cố. Giải pháp nào phù hợp?",
+      "options": [
+        "A. Chỉ sử dụng manual snapshots hàng ngày",
+        "B. Bật Multi-AZ failover tự động",
+        "C. Tạo Read Replica ở AZ khác",
+        "D. Migrate sang DynamoDB"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Multi-AZ cung cấp failover tự động < 2 phút. Read Replica không tự động, snapshot khôi phục lâu."
+    },
+    {
+      "id": 2,
+      "question": "jp:aggregator chạy truy vấn báo cáo nặng ảnh hưởng đến ERP trong jp:prod. Giải pháp tối ưu?",
+      "options": [
+        "A. Tăng instance size trong jp:prod",
+        "B. Tạo Read Replica, chạy báo cáo trên replica",
+        "C. Chuyển ERP sang Aurora",
+        "D. Giảm tần suất báo cáo"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Read Replica phân tán read workload, không ảnh hưởng primary. Tối ưu chi phí & hiệu suất."
+    },
+    {
+      "id": 3,
+      "question": "Snapshot RDS so với Multi-AZ, điểm khác biệt chính là gì?",
+      "options": [
+        "A. Snapshot là tự động, Multi-AZ thủ công",
+        "B. Snapshot chỉ lưu trữ, Multi-AZ là dự phòng hoạt động liên tục",
+        "C. Multi-AZ chỉ hỗ trợ MySQL, Snapshot mọi engine",
+        "D. Snapshot rẻ hơn, Multi-AZ đắt hơn"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Multi-AZ duy trì standby replica sẵn sàng, snapshot là file backup lưu S3, dùng khi cần khôi phục."
+    },
+    {
+      "id": 4,
+      "question": "jp:cloudtrail cần giữ 90 ngày backup RDS để audit. Dùng dịch vụ nào tự động hóa?",
+      "options": [
+        "A. CloudWatch logs",
+        "B. AWS Backup với retention policy 90 ngày",
+        "C. Manual snapshot script hàng ngày",
+        "D. EventBridge + Lambda"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "AWS Backup quản lý chính sách sao lưu tập trung, tự động retention 90 ngày, tuân thủ quy định."
+    },
+    {
+      "id": 5,
+      "question": "Read Replica replication lag 500ms có ảnh hưởng gì với transactional consistency?",
+      "options": [
+        "A. Không ảnh hưởng, user vẫn đọc dữ liệu mới nhất",
+        "B. Read Replica có dữ liệu cũ 500ms, phù hợp analytics & read-heavy",
+        "C. Cần xóa Read Replica",
+        "D. Phải convert sang DynamoDB"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Read Replica không đảm bảo consistency ngay lập tức. 500ms lag chấp nhận được cho báo cáo, không cho transaction."
+    }
+  ]
+}

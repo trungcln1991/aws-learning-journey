@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-14",
+  "day": 10,
+  "week": 3,
+  "month": 1,
+  "title": "Route 53 & DNS",
+  "subtitle": "Routing Policies · Health Check · Failover",
+  "category": "Networking",
+  "color": "#1F5F86",
+  "emoji": "🌍",
+  "vocabulary": [
+    {
+      "word": "routing policy",
+      "ipa": "/ˈruːtɪŋ ˈpɒlɪsi/",
+      "ipa_guide": "Đọc: RÚU-ting PO-li-si",
+      "type": "danh từ",
+      "meaning": "Quy tắc xác định cách Route 53 trả lời DNS queries dựa trên điều kiện",
+      "example_en": "Configure a weighted routing policy to distribute traffic across multiple regions",
+      "example_vi": "Cấu hình chính sách định tuyến có trọng số để phân phối lưu lượng",
+      "usage": "Route 53 · DNS management · Traffic distribution",
+      "japfa": "jp:prod account sử dụng weighted routing cho multi-region poultry farm monitoring"
+    },
+    {
+      "word": "health check",
+      "ipa": "/helθ tʃek/",
+      "ipa_guide": "Đọc: HELTH CHEC",
+      "type": "danh từ",
+      "meaning": "Kiểm tra định kỳ để xác định xem endpoint có khỏe mạnh và sẵn sàng nhận traffic",
+      "example_en": "Route 53 performs health checks every 30 seconds on your load balancer",
+      "example_vi": "Route 53 kiểm tra sức khỏe mỗi 30 giây",
+      "usage": "Route 53 · failover · availability monitoring",
+      "japfa": "jp:prod FortiGate VPN endpoints được monitoring qua Route 53 health checks"
+    },
+    {
+      "word": "failover",
+      "ipa": "/ˈfeɪlˌoʊvər/",
+      "ipa_guide": "Đọc: FEY-lò-vơ",
+      "type": "danh từ",
+      "meaning": "Quá trình tự động chuyển hướng traffic từ primary sang backup resource",
+      "example_en": "When primary database fails, failover routing automatically switches to standby",
+      "example_vi": "Khi database chính thất bại, failover tự động chuyển sang backup",
+      "usage": "Route 53 · RDS · disaster recovery",
+      "japfa": "jp:prod ↔ jp:uat failover routing bảo vệ Japfa's aggregator services"
+    },
+    {
+      "word": "DNS record",
+      "ipa": "/ˌdiː en ˈes ˈrekɔːrd/",
+      "ipa_guide": "Đọc: DI EN ES RE-cord",
+      "type": "danh từ",
+      "meaning": "Bản ghi chứa ánh xạ giữa tên miền và địa chỉ IP hoặc resource khác",
+      "example_en": "Create an A record in Route 53 to map japfavietnam.com to ALB IP",
+      "example_vi": "Tạo bản ghi A để ánh xạ tên miền đến địa chỉ IP",
+      "usage": "Route 53 · CloudFront · domain management",
+      "japfa": "jp:network account quản lý DNS records cho tất cả 7 Japfa accounts"
+    },
+    {
+      "word": "geolocation routing",
+      "ipa": "/ˌdʒiː oʊ loʊ ˈkeɪʃən ˈruːtɪŋ/",
+      "ipa_guide": "Đọc: JI-ò-lò-KE-shơn RÚU-ting",
+      "type": "danh từ",
+      "meaning": "Định tuyến traffic dựa trên vị trí địa lý của người dùng",
+      "example_en": "Use geolocation routing to serve Japfa customers in Vietnam from jp:prod",
+      "example_vi": "Sử dụng định tuyến theo vị trí địa lý cho khách hàng",
+      "usage": "Route 53 · regional deployments · CDN",
+      "japfa": "Japfa Vietnam có thể routing all Vietnam users to jp:prod region"
+    }
+  ],
+  "services": [
+    {
+      "name": "Route 53",
+      "full": "Amazon Route 53",
+      "category": "network",
+      "icon": "🌐",
+      "what": "Fully managed DNS web service cho phép định tuyến lưu lượng dựa trên nhiều chính sách. Tích hợp health checks và failover tự động.",
+      "when": "Khi cần DNS resolution, traffic distribution, disaster recovery, multi-region routing",
+      "key_points": [
+        "Hỗ trợ 10+ routing policies (weighted, latency, geolocation, failover)",
+        "Health checks tự động phát hiện và failover trong vài giây",
+        "Quản lý tên miền .com/.vn và DNSSEC signing"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:network account quản lý Route 53 central DNS cho tất cả 7 Japfa accounts + on-prem FortiGate VPN integration"
+    },
+    {
+      "name": "CloudWatch",
+      "full": "Amazon CloudWatch",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Dịch vụ giám sát cung cấp metrics, logs, alarms để track health checks và DNS query patterns.",
+      "when": "Theo dõi Route 53 health check status, DNS query volume, failover events",
+      "key_points": [
+        "Real-time alarms khi health checks thất bại",
+        "Insights vào DNS query patterns và traffic distribution",
+        "Integration với SNS cho notifications tới ops team"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail account nhận CloudWatch alarms từ Route 53 health checks, gửi SNS đến Japfa ops team"
+    },
+    {
+      "name": "Application Load Balancer",
+      "full": "AWS Application Load Balancer (ALB)",
+      "category": "network",
+      "icon": "⚖️",
+      "what": "Layer 7 load balancer phân phối traffic dựa trên hostname/path. Hoạt động tốt với Route 53 routing policies.",
+      "when": "Khi cần advanced routing, multiple backends, health checks cho Route 53",
+      "key_points": [
+        "Health check integration cho Route 53 failover decisions",
+        "Path-based routing cho microservices (poultry monitoring APIs)",
+        "Hỗ trợ sticky sessions và connection draining"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod ALBs cho Japfa poultry farm monitoring service behind Route 53 weighted routing"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Routing Policies trong Route 53",
+      "icon": "🛣️",
+      "body": "Route 53 cung cấp 10+ chính sách routing để quyết định endpoint nào nhận traffic. Simple routing cho single resource, weighted routing để phân phối theo tỷ lệ %, latency-based cho performance tối ưu, failover routing cho HA, geolocation routing cho regional compliance.",
+      "diagram": "User Query\n    ↓\nRoute 53 Routing Policy\n    ├→ Weighted (A: 70%, B: 30%)\n    ├→ Latency (Choose lowest RTT)\n    ├→ Failover (Primary → Secondary)\n    └→ Geolocation (VN → jp:prod)",
+      "exam_tip": "SAA-C03 thường hỏi: Dùng routing policy nào cho multi-region HA? (Failover hoặc Latency). Weighted routing cho A/B testing.",
+      "japfa": "Japfa dùng failover policy: jp:prod primary, jp:uat secondary. Weighted policy cho traffic split giữa poultry monitoring services"
+    },
+    {
+      "title": "Health Checks & Failover Flow",
+      "icon": "🏥",
+      "body": "Route 53 định kỳ kiểm tra endpoint (HTTP, TCP, CloudWatch metrics). Nếu health check thất bại liên tục, Route 53 tự động chuyển traffic sang secondary endpoint. Failover xảy ra trong 30-60 giây tùy cấu hình.",
+      "diagram": "Primary Endpoint (HEALTHY)\n    ↓ Health Check OK\nRoute 53: Serve Primary\n\nPrimary Endpoint (FAILED)\n    ↓ Health Check FAIL (3 failures)\nRoute 53: Automatic Failover\n    ↓\nSecondary Endpoint Serves Traffic",
+      "exam_tip": "Câu hỏi: Failover mất bao lâu? Trả lời: 30 giây (standard) hoặc 10 giây (fast). Health checks gọi endpoint /health endpoint.",
+      "japfa": "jp:prod primary database có health check qua HTTP. Nếu down, failover sang jp:uat trong 30 giây cho Japfa's aggregator queries"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa muốn định tuyến traffic sao cho 80% request đi đến jp:prod (primary poultry monitoring center) và 20% đi đến jp:uat. Routing policy nào phù hợp?",
+      "options": [
+        "A. Failover routing (primary/secondary)",
+        "B. Weighted routing (80/20 distribution)",
+        "C. Latency-based routing (choose lowest latency)",
+        "D. Simple routing (single resource)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Weighted routing cho phép phân phối traffic theo tỷ lệ % cụ thể. Failover chỉ dùng khi một resource down."
+    },
+    {
+      "id": 2,
+      "question": "Route 53 health check cho jp:prod ALB thất bại 3 lần liên tiếp. Bao lâu Route 53 failover sang jp:uat?",
+      "options": [
+        "A. Ngay lập tức (< 1 giây)",
+        "B. 10 giây (fast health check interval)",
+        "C. 30 giây (standard health check interval)",
+        "D. 5 phút (default interval)"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "Standard health check interval là 30 giây. Fast interval là 10 giây nhưng tốn chi phí cao hơn."
+    },
+    {
+      "id": 3,
+      "question": "Japfa's jp:network account quản lý Route 53 hosted zone cho japfavietnam.com. Bạn muốn tạo failover routing cho poultry farm APIs. Điều gì KHÔNG cần thiết?",
+      "options": [
+        "A. Tạo 2 bản ghi (PRIMARY và SECONDARY)",
+        "B. Cấu hình health check cho PRIMARY endpoint",
+        "C. Tạo AWS Certificate Manager (ACM) cert cho HTTPS",
+        "D. Set failover routing type cho cả PRIMARY và SECONDARY"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "ACM cert không cần cho Route 53 routing decision. Health checks + failover records là bắt buộc."
+    },
+    {
+      "id": 4,
+      "question": "Route 53 health check sử dụng CloudWatch metric để xác định status endpoint. Metric nào thường được dùng cho database failover?",
+      "options": [
+        "A. CPUUtilization > 80%",
+        "B. DatabaseConnections == 0 (no connections available)",
+        "C. NetworkIn > 1GB/s",
+        "D. DiskReadOps > 1000"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Khi database không có connections available, nó không healthy. Các metrics khác chỉ là performance indicators, không là health."
+    },
+    {
+      "id": 5,
+      "question": "Japfa dùng geolocation routing trong Route 53. Tất cả Vietnam traffic (vn geo location) được route đến jp:prod. Non-Vietnam traffic route đến jp:poc. Điều này đảm bảo gì?",
+      "options": [
+        "A. Latency thấp nhất cho tất cả users",
+        "B. Data residency compliance (VN data ở VN region)",
+        "C. Automatic failover khi jp:prod down",
+        "D. Load balancing đều cho tất cả regions"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Geolocation routing đảm bảo data locality/residency. VN traffic → VN region tuân thủ data protection rules."
+    }
+  ]
+}

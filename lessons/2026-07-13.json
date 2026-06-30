@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-13",
+  "day": 9,
+  "week": 3,
+  "month": 1,
+  "title": "CloudWatch & Monitoring",
+  "subtitle": "Metrics · Alarms · Logs · Dashboards",
+  "category": "Monitoring",
+  "color": "#1C7A47",
+  "emoji": "📊",
+  "vocabulary": [
+    {
+      "word": "metric",
+      "ipa": "/ˈmetrɪk/",
+      "ipa_guide": "Đọc: MET-ric",
+      "type": "danh từ",
+      "meaning": "Số liệu đo lường hiệu suất của tài nguyên AWS như CPU, bộ nhớ, mạng",
+      "example_en": "CloudWatch collects CPU utilization metrics from EC2 instances every 5 minutes",
+      "example_vi": "CloudWatch thu thập các chỉ số sử dụng CPU từ các instance EC2 mỗi 5 phút",
+      "usage": "CloudWatch · EC2 · RDS · Lambda",
+      "japfa": "jp:prod sử dụng metrics để theo dõi hiệu suất các máy chủ poultry management"
+    },
+    {
+      "word": "alarm",
+      "ipa": "/əˈlɑːrm/",
+      "ipa_guide": "Đọc: a-LARM",
+      "type": "danh từ",
+      "meaning": "Cảnh báo được kích hoạt khi một metric vượt quá ngưỡng đã định",
+      "example_en": "Set a CloudWatch alarm to notify when RDS database CPU exceeds 80%",
+      "example_vi": "Đặt alarm để thông báo khi CPU của RDS vượt quá 80%",
+      "usage": "CloudWatch · SNS · EventBridge",
+      "japfa": "jp:cloudtrail dùng alarms để cảnh báo nghi vấn về hoạt động truy cập"
+    },
+    {
+      "word": "log group",
+      "ipa": "/lɔːɡ ɡruːp/",
+      "ipa_guide": "Đọc: LOG GROP",
+      "type": "danh từ",
+      "meaning": "Tập hợp các file log từ ứng dụng hoặc dịch vụ được lưu trong CloudWatch",
+      "example_en": "Lambda functions automatically send logs to CloudWatch log groups",
+      "example_vi": "Các hàm Lambda tự động gửi logs đến các log group của CloudWatch",
+      "usage": "CloudWatch Logs · Lambda · ECS",
+      "japfa": "jp:aggregator tạo log groups để lưu trữ logs từ các Lambda xử lý dữ liệu"
+    },
+    {
+      "word": "dashboard",
+      "ipa": "/ˈdæʃbɔːrd/",
+      "ipa_guide": "Đọc: DASH-bord",
+      "type": "danh từ",
+      "meaning": "Bảng điều khiển trực quan hiển thị các metrics và alarms từ nhiều dịch vụ",
+      "example_en": "Create a CloudWatch dashboard to monitor all 7 AWS accounts simultaneously",
+      "example_vi": "Tạo dashboard để giám sát tất cả 7 tài khoản AWS cùng lúc",
+      "usage": "CloudWatch · EC2 · RDS · S3",
+      "japfa": "jp:network sử dụng dashboard để theo dõi trạng thái VPN và kết nối mạng"
+    },
+    {
+      "word": "threshold",
+      "ipa": "/ˈθreʃhoʊld/",
+      "ipa_guide": "Đọc: THRESH-hôld",
+      "type": "danh từ",
+      "meaning": "Giá trị giới hạn được định sẵn để kích hoạt alarm khi metric vượt quá",
+      "example_en": "Set a threshold of 90% memory utilization to trigger an alarm",
+      "example_vi": "Đặt ngưỡng 90% sử dụng bộ nhớ để kích hoạt alarm",
+      "usage": "CloudWatch Alarms · Auto Scaling · EventBridge",
+      "japfa": "jp:prod thiết lập threshold 75% cho CPU của RDS poultry database"
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudWatch",
+      "full": "Amazon CloudWatch",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Dịch vụ giám sát tập trung thu thập, lưu trữ và phân tích metrics, logs từ tài nguyên AWS. Cung cấp alarms và dashboards để theo dõi sức khỏe hệ thống.",
+      "when": "Khi cần theo dõi hiệu suất EC2, RDS, Lambda, cảnh báo sự cố, lưu trữ logs ứng dụng",
+      "key_points": [
+        "Thu thập metrics mặc định miễn phí (5 phút), chi tiết hơn cần tính phí",
+        "Tích hợp SNS, EventBridge để gửi thông báo qua email, SMS, Slack",
+        "Lưu trữ logs tối đa 15 tháng, hỗ trợ tìm kiếm và phân tích log insights"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa sử dụng CloudWatch để giám sát 7 tài khoản: jp:prod (EC2, RDS), jp:poc (test), jp:cloudtrail (audit logs), jp:network (VPN bandwidth)"
+    },
+    {
+      "name": "SNS",
+      "full": "Amazon Simple Notification Service",
+      "category": "serverless",
+      "icon": "📬",
+      "what": "Dịch vụ nhắn tin được quản lý, gửi thông báo đến nhiều đích (email, SMS, SQS, Lambda) dựa trên sự kiện.",
+      "when": "Khi CloudWatch alarms cần gửi thông báo tới kỹ sư ops, hoặc kích hoạt hành động tự động",
+      "key_points": [
+        "Hỗ trợ publish-subscribe pattern, một topic có thể gửi tới nhiều subscribers",
+        "Gửi nhanh, độ tin cậy cao, tích hợp sâu với AWS services",
+        "Chi phí rẻ (0.50 USD/triệu requests), chỉ trả cho messages gửi"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail sử dụng SNS để cảnh báo via email khi có unauthorized API calls"
+    },
+    {
+      "name": "EventBridge",
+      "full": "Amazon EventBridge",
+      "category": "serverless",
+      "icon": "⚡",
+      "what": "Dịch vụ định tuyến sự kiện từ nguồn (CloudWatch, AWS services, ứng dụng) tới đích (Lambda, SNS, SQS, HTTP). Thay thế CloudWatch Events.",
+      "when": "Khi cần xử lý sự kiện phức tạp, tích hợp với dịch vụ third-party, tự động hóa workflows",
+      "key_points": [
+        "Sử dụng rules dựa trên pattern matching, scheduling (cron/rate expressions)",
+        "Có thể thực thi Lambda để xử lý sự kiện, ghi lại failed events",
+        "Hỗ trợ multi-account routing, SaaS partner integrations"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator dùng EventBridge rules để tự động trigger Lambda xử lý poultry data mỗi 1 giờ"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "CloudWatch Metrics & Alarms Flow",
+      "icon": "📈",
+      "body": "Metrics là dữ liệu số thời gian thực (CPU, network, disk) từ EC2, RDS, và dịch vụ AWS khác được thu thập vào CloudWatch. Alarms theo dõi giá trị metric so với threshold, nếu vượt quá sẽ kích hoạt hành động (gửi SNS, tạo ticket).",
+      "diagram": "EC2/RDS/Lambda\n      ↓\n  [Metrics]\n      ↓\nCloudWatch\n      ↓\n[Threshold Check]\n      ↓\n  [Alarm]\n      ↓\n  SNS/Lambda",
+      "exam_tip": "SAA hỏi khi nào dùng detailed monitoring (1 phút) vs standard (5 phút), chí phí khác nhau",
+      "japfa": "jp:prod sử dụng metrics để phát hiện khi database chạy chậm, alarm gửi SNS cho team"
+    },
+    {
+      "title": "CloudWatch Logs & Log Insights",
+      "icon": "📝",
+      "body": "CloudWatch Logs lưu trữ dòng thông báo từ ứng dụng, Lambda, services. Log Insights cho phép viết câu query SQL-like để tìm lỗi, tính toán thống kê nhanh chóng mà không cần Athena.",
+      "diagram": "Lambda/App\n    ↓\n[Log Stream]\n    ↓\n[Log Group]\n    ↓\nCloudWatch Logs\n    ↓\nLog Insights Query\n    ↓\n  [Results]",
+      "exam_tip": "CloudWatch Logs giữ logs default 1 ngày, có thể cấu hình retention 1-3653 ngày, Athena để query logs lâu dài",
+      "japfa": "jp:aggregator gửi logs từ Lambda xử lý dữ liệu gà vào log group, dùng Insights để debug errors"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa muốn theo dõi CPU utilization của EC2 mỗi 1 phút thay vì mặc định 5 phút. Cần làm gì?",
+      "options": [
+        "Bật Detailed Monitoring cho EC2 instance (có chi phí thêm)",
+        "Tạo custom metric bằng CloudWatch API",
+        "Sử dụng CloudWatch agent trên EC2",
+        "Tất cả đều đúng"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "explanation": "Cả 3 cách đều có thể: bật detailed monitoring (AWS tự động), custom metric (code), hoặc agent trên OS."
+    },
+    {
+      "id": 2,
+      "question": "CloudWatch alarm ở jp:prod cho RDS đã kích hoạt, muốn tự động gửi email cho team. Nên tích hợp với service nào?",
+      "options": [
+        "SNS - gửi email qua SNS topic",
+        "Lambda - viết function gửi email",
+        "SES - dịch vụ gửi email",
+        "EventBridge - định tuyến tới email"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "SNS là cách tiêu chuẩn để CloudWatch alarms gửi notifications email/SMS nhanh chóng."
+    },
+    {
+      "id": 3,
+      "question": "jp:aggregator Lambda function ghi logs vào CloudWatch, muốn tìm tất cả lỗi 'Connection timeout' trong 1 giờ vừa rồi. Công cụ tốt nhất là gì?",
+      "options": [
+        "CloudWatch Logs Insights - viết query",
+        "Athena - query logs trong S3",
+        "CloudTrail - theo dõi API calls",
+        "EC2 Systems Manager Session Manager"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "Log Insights tìm kiếm log gần thời gian thực trong CloudWatch Logs, Athena dùng cho lịch sử lâu dài."
+    },
+    {
+      "id": 4,
+      "question": "CloudWatch Logs có data retention policy mặc định là bao lâu?",
+      "options": [
+        "1 ngày",
+        "7 ngày",
+        "30 ngày",
+        "Không giới hạn"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "Mặc định CloudWatch Logs giữ logs 1 ngày, phải cấu hình rõ ràng nếu muốn lâu hơn."
+    },
+    {
+      "id": 5,
+      "question": "jp:cloudtrail muốn cảnh báo khi có suspicious API activity (ví dụ: DeleteDBInstance gọi từ IP غريب). Kết hợp nào tốt nhất?",
+      "options": [
+        "CloudTrail + CloudWatch + SNS alert",
+        "CloudTrail + EventBridge rules + Lambda",
+        "CloudTrail + Athena query + manual alert",
+        "A và B đều có thể, tùy use case"
+      ],
+      "answer": 3,
+      "difficulty": "hard",
+      "explanation": "CloudTrail ghi API, CloudWatch/EventBridge rule để detect, SNS gửi alert nhanh, Lambda xử lý phức tạp."
+    }
+  ]
+}
