@@ -17,6 +17,33 @@ function getTodayStr() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
+// ===== WEB SPEECH TTS =====
+function speak(text, rate, btn) {
+  rate = rate || 1.0;
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn.speaking').forEach(b => b.classList.remove('speaking'));
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US';
+  utt.rate = rate;
+  if (btn) {
+    btn.classList.add('speaking');
+    utt.onend = () => btn.classList.remove('speaking');
+    utt.onerror = () => btn.classList.remove('speaking');
+  }
+  window.speechSynthesis.speak(utt);
+}
+window.speak = speak;
+
+// Event delegation for speak buttons
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.speak-btn');
+  if (!btn || !btn.dataset.speak) return;
+  speak(btn.dataset.speak, parseFloat(btn.dataset.rate || '1'), btn);
+});
+
+function esc(s) { return (s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;'); }
+
 function typeClass(type) {
   if (type.includes('động')) return 'type-verb';
   if (type.includes('tính')) return 'type-adj';
@@ -29,6 +56,10 @@ function renderVocab(vocab) {
     <div class="vocab-card">
       <div class="vocab-card-head">
         <span class="vc-word">${v.word}</span>
+        <div class="vc-speak-group">
+          <button class="speak-btn" data-speak="${esc(v.word)}" data-rate="1" title="Nghe phát âm (bình thường)">🔊</button>
+          <button class="speak-btn speak-slow" data-speak="${esc(v.word)}" data-rate="0.65" title="Nghe chậm">🐢</button>
+        </div>
         <span class="vc-type-badge ${typeClass(v.type)}">${v.type}</span>
       </div>
       <div class="vocab-card-body">
@@ -36,7 +67,10 @@ function renderVocab(vocab) {
         <div class="vc-guide">${v.ipa_guide}</div>
         <div class="vc-meaning">${v.meaning}</div>
         <div class="vc-divider"></div>
-        <div class="vc-example-en">"${v.example_en}"</div>
+        <div class="vc-example-row">
+          <div class="vc-example-en">"${v.example_en}"</div>
+          <button class="speak-btn speak-example" data-speak="${esc(v.example_en)}" data-rate="0.85" title="Nghe câu ví dụ">🎧</button>
+        </div>
         <div class="vc-example-vi">${v.example_vi}</div>
         <div class="vc-usage">Dùng trong: ${v.usage}</div>
         ${v.japfa ? `<div class="vc-japfa">🏭 Japfa: ${v.japfa}</div>` : ''}

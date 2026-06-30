@@ -9,6 +9,29 @@ function getSRS() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}
 function saveSRS(d) { localStorage.setItem(SRS_KEY, JSON.stringify(d)); }
 function todayStr() { return new Date().toISOString().slice(0, 10); }
 
+// ===== WEB SPEECH TTS =====
+function speak(text, rate, btn) {
+  rate = rate || 1.0;
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn.speaking').forEach(b => b.classList.remove('speaking'));
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US'; utt.rate = rate;
+  if (btn) {
+    btn.classList.add('speaking');
+    utt.onend = () => btn.classList.remove('speaking');
+    utt.onerror = () => btn.classList.remove('speaking');
+  }
+  window.speechSynthesis.speak(utt);
+}
+window.speak = speak;
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.speak-btn');
+  if (!btn || !btn.dataset.speak) return;
+  speak(btn.dataset.speak, parseFloat(btn.dataset.rate || '1'), btn);
+});
+function escAttr(s) { return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+
 // ===== SM-2 SPACED REPETITION =====
 function sm2Update(cardId, quality) {
   const db = getSRS();
@@ -82,6 +105,7 @@ function genWordMeaning(vocab, pool) {
   const options = shuffle([meaning, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Từ vựng',
+    word: vocab.word, example: vocab.example_en,
     question: `"${vocab.word}" có nghĩa là gì?`,
     sub: `Phát âm: ${vocab.ipa} · ${vocab.type}`,
     options,
@@ -96,6 +120,7 @@ function genIpaWord(vocab, pool) {
   const options = shuffle([vocab.word, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Phát âm IPA',
+    word: vocab.word, example: vocab.example_en,
     question: `Từ có phát âm ${vocab.ipa} là từ nào?`,
     sub: `Gợi ý cách đọc: ${vocab.ipa_guide}`,
     options,
@@ -116,6 +141,7 @@ function genFillBlank(vocab, pool) {
     const options = shuffle([vocab.word, ...distractors]);
     return {
       qtype: 'english', badge: '🇺🇸 Điền từ',
+      word: vocab.word, example: vocab.example_en,
       question: `Từ tiếng Anh nào có nghĩa là: "${vocab.meaning}"?`,
       sub: `Loại từ: ${vocab.type} · Dùng trong: ${vocab.usage}`,
       options,
@@ -127,6 +153,7 @@ function genFillBlank(vocab, pool) {
   const options = shuffle([vocab.word, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Điền từ',
+    word: vocab.word, example: vocab.example_en,
     question: `Điền vào chỗ trống:\n"${blanked}"`,
     sub: `Gợi ý: ${vocab.type} · Dùng trong: ${vocab.usage}`,
     options,
@@ -143,6 +170,7 @@ function genWordType(vocab, pool) {
   const options = shuffle([correct, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Phân loại từ',
+    word: vocab.word, example: vocab.example_en,
     question: `"${vocab.word}" thuộc loại từ nào trong tiếng Anh?`,
     sub: `${vocab.ipa} · "${vocab.example_en.slice(0,60)}..."`,
     options,
@@ -158,7 +186,8 @@ function genContext(vocab, pool) {
   const ctx = vocab.japfa || vocab.usage;
   return {
     qtype: 'english', badge: '🇺🇸 Ngữ cảnh',
-    question: `Trong ngữ cảnh: "${ctx}"\n\nTừ tiếng Anh phù hợp nhất là?`,
+    word: vocab.word, example: vocab.example_en,
+    question: `Trong ngữ cảnh:\n"${ctx}"\n\nTừ tiếng Anh phù hợp nhất là?`,
     sub: `Gợi ý loại từ: ${vocab.type}`,
     options,
     answer: options.indexOf(vocab.word),
@@ -362,6 +391,12 @@ function renderQuestion() {
         </div>
         <div style="padding:18px 16px;background:var(--paper)">
           <div style="font-size:.98rem;font-weight:700;line-height:1.55;margin-bottom:6px;white-space:pre-line" id="q-text">${q.question}</div>
+          ${q.word ? `
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+            <button class="speak-btn" data-speak="${escAttr(q.word)}" data-rate="1" title="Nghe từ (bình thường)">🔊 ${q.word}</button>
+            <button class="speak-btn speak-slow" data-speak="${escAttr(q.word)}" data-rate="0.65" title="Nghe chậm">🐢</button>
+            ${q.example ? `<button class="speak-btn speak-example" data-speak="${escAttr(q.example)}" data-rate="0.85" title="Nghe câu ví dụ">🎧 Câu ví dụ</button>` : ''}
+          </div>` : ''}
           ${q.sub ? `<div style="font-family:monospace;font-size:.75rem;color:${badgeColor};font-weight:700;margin-bottom:14px">${q.sub}</div>` : '<div style="margin-bottom:14px"></div>'}
           <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="q-opts">
             ${q.options.map((opt, i) => `

@@ -573,6 +573,36 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .stat-big-row { grid-template-columns: repeat(4, 1fr) !important; }
 }
 
+/* ===== SPEAK BUTTONS (Web Speech TTS) ===== */
+.vc-speak-group { display: flex; gap: 4px; margin-left: 4px; }
+.vc-example-row { display: flex; align-items: flex-start; gap: 8px; }
+.vc-example-row .vc-example-en { flex: 1; }
+
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 8px; border-radius: 20px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--paper-2); color: var(--ink);
+  font-size: .78rem; font-weight: 600; cursor: pointer;
+  transition: background .15s, transform .1s, border-color .15s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.speak-btn:active { transform: scale(.93); }
+.speak-btn:hover { background: var(--line); border-color: var(--ink); }
+.speak-btn.speak-slow { padding: 4px 6px; }
+.speak-btn.speak-example { font-size: .75rem; color: var(--blue); border-color: var(--blue); }
+
+/* Pulse animation when speaking */
+.speak-btn.speaking {
+  background: var(--red); color: var(--paper);
+  border-color: var(--red);
+  animation: speakPulse .6s ease infinite alternate;
+}
+@keyframes speakPulse {
+  from { box-shadow: 0 0 0 0 rgba(195,45,26,.4); }
+  to   { box-shadow: 0 0 0 6px rgba(195,45,26,0); }
+}
+
 /* ===== PIN LOCK ===== */
 #pin-overlay {
   position: fixed; inset: 0; z-index: 9999;
