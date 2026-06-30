@@ -50,6 +50,55 @@ function dayName(dateStr) {
   return ['CN','T2','T3','T4','T5','T6','T7'][d.getDay()];
 }
 
+async function loadContext() {
+  try {
+    const res = await fetch('./context.json?t=' + Date.now());
+    if (!res.ok) return null;
+    const ctx = await res.json();
+    return ctx.suggest_topics?.length ? ctx : null;
+  } catch { return null; }
+}
+
+async function renderJapfaSuggest(meta) {
+  const ctx = await loadContext();
+  if (!ctx) return;
+
+  const today = getTodayStr();
+  const matched = meta.lessons.filter(l =>
+    ctx.suggest_topics.some(topic =>
+      l.title.toLowerCase().includes(topic.toLowerCase().replace(/ &.*/,'').trim())
+    ) && l.date >= today
+  ).slice(0, 2);
+
+  if (!matched.length) return;
+
+  const updatedAt = ctx.updated_at
+    ? new Date(ctx.updated_at).toLocaleString('vi-VN', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' })
+    : '';
+
+  const card = document.getElementById('japfa-suggest-card');
+  card.innerHTML = `
+    <div class="jsc-header">
+      <span class="jsc-icon">🏭</span>
+      <div style="flex:1;min-width:0">
+        <div class="jsc-title">Vừa làm: <span class="jsc-topics">${ctx.suggest_topics.join(' · ')}</span></div>
+        <div class="jsc-meta">"${(ctx.commit_msg || '').slice(0, 55)}"${updatedAt ? ' · ' + updatedAt : ''}</div>
+      </div>
+    </div>
+    ${matched.map(l => `
+      <div class="jsc-lesson" onclick="window.location.href='lesson.html?date=${l.date}'">
+        <span style="font-size:1.4rem">${l.emoji || '☁️'}</span>
+        <div style="flex:1;min-width:0">
+          <div class="jsc-l-title">${l.title}</div>
+          <div class="jsc-l-sub">Ngày ${l.day || ''} · Liên quan đến công việc hôm nay</div>
+        </div>
+        <span class="jsc-arrow">→</span>
+      </div>
+    `).join('')}
+  `;
+  document.getElementById('japfa-suggest').style.display = 'block';
+}
+
 async function initDashboard() {
   const meta = await loadMeta();
   const progress = getProgress();
@@ -102,6 +151,9 @@ async function initDashboard() {
   document.getElementById('tc-services').textContent = todayLesson.service_count || 3;
   const dayScore = progress.scores?.[todayLesson.date];
   document.getElementById('tc-quiz').textContent = dayScore != null ? `${dayScore}/5` : '—';
+
+  // japfa activity suggestion
+  renderJapfaSuggest(meta);
 
   // weekly calendar (last 7 lessons)
   const weekGrid = document.getElementById('week-grid');

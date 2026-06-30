@@ -727,3 +727,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .pin-key:active { transform: scale(.91); background: var(--line); }
 .pin-key[data-k=""] { border-color: transparent; background: transparent; box-shadow: none; pointer-events: none; }
+
+/* ── JAPFA SUGGEST CARD ───────────────────────── */
+.japfa-suggest-card {
+  background: var(--paper-2);
+  border: 2px solid var(--amber);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.jsc-header {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; border-bottom: 1px solid var(--line);
+  background: rgba(191,127,0,.08);
+}
+.jsc-icon { font-size: 1.5rem; line-height: 1; }
+.jsc-title { font-size: .83rem; font-weight: 700; margin-bottom: 3px; }
+.jsc-topics { color: var(--amber); }
+.jsc-meta {
+  font-size: .72rem; color: var(--muted);
+  font-family: monospace; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.jsc-lesson {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; cursor: pointer;
+  transition: background .15s;
+  border-top: 1px solid var(--line);
+}
+.jsc-lesson:active { background: var(--line); }
+.jsc-l-title { font-size: .88rem; font-weight: 700; margin-bottom: 2px; }
+.jsc-l-sub { font-size: .72rem; color: var(--muted); }
+.jsc-arrow { color: var(--amber); font-weight: 700; font-size: 1rem; }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aws-learn-v7';
+const CACHE_NAME = 'aws-learn-v8';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -41,6 +41,20 @@ self.addEventListener('activate', event => {
 // Fetch: cache-first for static, network-first for lesson JSON
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+
+  // context.json + news.json: network-first so suggestions stay fresh
+  if (url.pathname.endsWith('/context.json') || url.pathname.endsWith('/news.json')) {
+    event.respondWith(
+      fetch(event.request)
+        .then(res => {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
 
   // Lesson JSON: network-first (data may update), fall back to cache
   if (url.pathname.includes('/lessons/') && url.pathname.endsWith('.json') && !url.pathname.includes('meta')) {
