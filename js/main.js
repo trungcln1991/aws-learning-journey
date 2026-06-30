@@ -17,14 +17,15 @@ function getTodayStr() {
 }
 
 function calcStreak(progress) {
-  const completed = Object.keys(progress.scores || {}).sort();
+  // Use doneOn (actual completion dates) for streak; fall back to scores keys for legacy data
+  const completed = Object.keys(progress.doneOn || progress.scores || {}).sort();
   if (!completed.length) return 0;
   const today = getTodayStr();
   let streak = 0, check = today;
   for (let i = 0; i < 365; i++) {
     if (completed.includes(check)) { streak++; }
     else if (check !== today) { break; }
-    const d = new Date(check); d.setDate(d.getDate() - 1);
+    const d = new Date(check + 'T00:00:00'); d.setDate(d.getDate() - 1);
     check = d.toISOString().slice(0, 10);
   }
   return streak;

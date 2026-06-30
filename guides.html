@@ -532,5 +532,41 @@ gp3 is preferred over gp2 — cheaper and faster."</div>
     </a>
   </nav>
 
+  <script>
+  // Accordion for rule cards
+  document.querySelectorAll('.rule-card').forEach(card => {
+    const body = card.querySelector('.rule-card-body');
+    const head = card.querySelector('.rule-card-head');
+    if (!body || !head) return;
+    // Add arrow indicator
+    const arrow = document.createElement('span');
+    arrow.className = 'rc-arrow';
+    arrow.textContent = '▼';
+    head.appendChild(arrow);
+    head.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
+      card.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // Accordion for section blocks: English rules / AWS rules / Guides
+  document.querySelectorAll('.section-header').forEach(hdr => {
+    const block = hdr.closest('div')?.nextElementSibling;
+    if (!block || !block.classList.contains('section-block')) return;
+    hdr.style.cursor = 'pointer';
+    const arrow = document.createElement('span');
+    arrow.style.cssText = 'margin-left:auto;font-size:.7rem;color:var(--muted);transition:transform .25s;display:inline-block';
+    arrow.textContent = '▼';
+    hdr.closest('div').style.display = 'flex';
+    hdr.closest('div').style.alignItems = 'center';
+    hdr.closest('div').appendChild(arrow);
+    let open = true;
+    hdr.closest('div').addEventListener('click', () => {
+      open = !open;
+      block.style.display = open ? '' : 'none';
+      arrow.style.transform = open ? '' : 'rotate(-180deg)';
+    });
+  });
+  </script>
 </body>
 </html>

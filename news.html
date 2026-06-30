@@ -212,6 +212,35 @@
   }
   window.filterNews = filterNews;
 
+  // Track accordion open state per section
+  const sectionOpen = { whats_new: true, security: false, blog: false, learn: true };
+
+  function toggleSection(type) {
+    sectionOpen[type] = !sectionOpen[type];
+    const body = document.getElementById('ns-body-' + type);
+    const hdr  = document.getElementById('ns-hdr-' + type);
+    if (!body || !hdr) return;
+    body.classList.toggle('open', sectionOpen[type]);
+    hdr.classList.toggle('open', sectionOpen[type]);
+  }
+  window.toggleSection = toggleSection;
+
+  function renderSection(type, icon, enLabel, viLabel, items) {
+    if (!items.length) return '';
+    const isOpen = sectionOpen[type];
+    return `
+      <div id="ns-hdr-${type}" class="news-section-hdr ${isOpen ? 'open' : ''}" onclick="toggleSection('${type}')">
+        <span>${icon} ${enLabel}</span>
+        <span class="ns-vi">· ${viLabel}</span>
+        <span class="ns-count">${items.length}</span>
+        <span class="ns-arrow">▼</span>
+      </div>
+      <div id="ns-body-${type}" class="news-section-body ${isOpen ? 'open' : ''}">
+        ${items.map(i => renderItem(i, type === 'learn' ? (newsData.whats_new?.includes(i) ? 'whats_new' : newsData.security?.includes(i) ? 'security' : 'blog') : type)).join('')}
+      </div>
+    `;
+  }
+
   function renderNews() {
     if (!newsData) return;
     const container = document.getElementById('news-container');
@@ -224,42 +253,25 @@
       return items;
     };
 
-    const wnItems = getItems('whats_new');
+    const wnItems  = getItems('whats_new');
     const secItems = getItems('security');
     const blogItems = getItems('blog');
 
-    if (currentFilter === 'all' || currentFilter === 'whats_new') {
-      if (wnItems.length) {
-        html += `<div class="news-section-title"><span>🆕 Services Mới & Cập Nhật</span><span class="news-count">${wnItems.length}</span></div>`;
-        html += wnItems.map(i => renderItem(i, 'whats_new')).join('');
-      }
-    }
-    if (currentFilter === 'all' || currentFilter === 'security') {
-      if (secItems.length) {
-        html += `<div class="news-section-title" style="margin-top:8px"><span>🔒 Security Bulletins</span><span class="news-count">${secItems.length}</span></div>`;
-        html += secItems.map(i => renderItem(i, 'security')).join('');
-      }
-    }
-    if (currentFilter === 'all' || currentFilter === 'blog') {
-      if (blogItems.length) {
-        html += `<div class="news-section-title" style="margin-top:8px"><span>📝 AWS Blog</span><span class="news-count">${blogItems.length}</span></div>`;
-        html += blogItems.map(i => renderItem(i, 'blog')).join('');
-      }
-    }
     if (currentFilter === 'learn') {
-      const all = [...wnItems, ...secItems, ...blogItems];
-      if (all.length) {
-        html += `<div class="news-section-title"><span>📚 Liên quan bài học bạn đang học</span><span class="news-count">${all.length}</span></div>`;
-        html += wnItems.map(i => renderItem(i, 'whats_new')).join('');
-        html += secItems.map(i => renderItem(i, 'security')).join('');
-        html += blogItems.map(i => renderItem(i, 'blog')).join('');
-      } else {
-        html = `<div class="empty-news"><div class="ei">🔍</div><div>Không có tin nào liên quan đến bài học hiện tại.</div></div>`;
-      }
+      const allLearn = [
+        ...wnItems.filter(isRelatedToLesson),
+        ...secItems.filter(isRelatedToLesson),
+        ...blogItems.filter(isRelatedToLesson)
+      ];
+      html = renderSection('learn', '📚', 'Related to your lessons', 'Liên quan bài bạn đang học', allLearn);
+      if (!allLearn.length) html = `<div class="empty-news"><div class="ei">🔍</div><div>Không có tin liên quan đến bài học hiện tại.</div></div>`;
+    } else {
+      html += renderSection('whats_new', '🆕', "What's New",       'Dịch vụ & tính năng mới',  wnItems);
+      html += renderSection('security',  '🔒', 'Security Bulletins','Bảo mật & cảnh báo',       secItems);
+      html += renderSection('blog',      '📝', 'AWS Blog',          'Bài viết & hướng dẫn',    blogItems);
     }
-    if (!html) {
-      html = `<div class="empty-news"><div class="ei">📭</div><div>Không có tin trong mục này.</div></div>`;
-    }
+
+    if (!html) html = `<div class="empty-news"><div class="ei">📭</div><div>Không có tin trong mục này.</div></div>`;
     container.innerHTML = html;
   }
 

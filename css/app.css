@@ -39,7 +39,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: .04em;
 }
 .back-btn {
-  display: flex; align-items: center; gap-6px;
+  display: flex; align-items: center; gap: 6px;
   color: var(--red); font-weight: 700; font-size: .95rem;
   padding: 6px 8px; border-radius: 6px;
   transition: background .15s;
@@ -509,10 +509,68 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   body { font-size: 15px; }
   .vc-word { font-size: 1.25rem; }
 }
-@media (min-width: 768px) {
-  body { max-width: 480px; margin: 0 auto; }
-  .bottom-nav { max-width: 480px; left: 50%; transform: translateX(-50%); }
-  .toast { max-width: 440px; }
+/* ===== ACCORDION ===== */
+.accord-hdr {
+  cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; user-select: none;
+}
+.accord-hdr .accord-arrow {
+  font-size: .7rem; color: var(--muted); margin-left: 8px;
+  transition: transform .25s; flex-shrink: 0;
+}
+.accord-hdr.open .accord-arrow { transform: rotate(-180deg); }
+.accord-body { overflow: hidden; transition: max-height .3s ease, opacity .25s; }
+.accord-body.closed { max-height: 0 !important; opacity: 0; pointer-events: none; }
+.accord-body.open { opacity: 1; }
+
+/* Rule cards as accordion */
+.rule-card { border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-bottom: 8px; }
+.rule-card-head {
+  cursor: pointer; display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; background: var(--paper-2);
+  border-bottom: 1px solid var(--line);
+}
+.rule-card-head .rc-arrow { margin-left: auto; font-size: .7rem; color: var(--muted); transition: transform .25s; }
+.rule-card.open .rc-arrow { transform: rotate(-180deg); }
+.rule-card-body { display: none; padding: 14px; }
+.rule-card.open .rule-card-body { display: block; }
+
+/* News accordion sections */
+.news-section-hdr {
+  cursor: pointer; display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; margin: 8px 0 0;
+  background: var(--ink); color: var(--paper);
+  border-radius: 8px; font-weight: 700; font-size: .88rem;
+  user-select: none;
+}
+.news-section-hdr .ns-count {
+  margin-left: auto; background: var(--paper); color: var(--ink);
+  font-size: .7rem; padding: 2px 7px; border-radius: 999px; font-weight: 700;
+}
+.news-section-hdr .ns-vi {
+  font-size: .72rem; font-weight: 400; opacity: .75; margin-left: 4px;
+}
+.news-section-hdr .ns-arrow { font-size: .65rem; opacity: .7; transition: transform .25s; }
+.news-section-hdr.open .ns-arrow { transform: rotate(-180deg); }
+.news-section-body { display: none; }
+.news-section-body.open { display: block; }
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 640px) {
+  body { max-width: 640px; margin: 0 auto; }
+  .bottom-nav { max-width: 640px; left: 50%; transform: translateX(-50%); }
+  .toast { max-width: 600px; left: 50%; transform: translateX(-50%); }
+  #pin-overlay .pin-box { width: 340px; }
+}
+@media (min-width: 1024px) {
+  body { max-width: 900px; margin: 0 auto; padding-bottom: 90px; }
+  .bottom-nav { max-width: 900px; left: 50%; transform: translateX(-50%); }
+  .toast { max-width: 860px; left: 50%; transform: translateX(-50%); }
+  .dashboard-page, .lessons-page, .stats-page { max-width: 860px; margin: 0 auto; }
+  /* 2-column lesson list on desktop */
+  #lessons-list { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  /* 4-column stats row */
+  .stat-big-row { grid-template-columns: repeat(4, 1fr) !important; }
 }
 
 /* ===== PIN LOCK ===== */

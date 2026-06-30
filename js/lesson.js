@@ -12,6 +12,11 @@ function getDateParam() {
   return params.get('date');
 }
 
+function getTodayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
 function typeClass(type) {
   if (type.includes('động')) return 'type-verb';
   if (type.includes('tính')) return 'type-adj';
@@ -201,6 +206,9 @@ function completeLesson(score, total) {
   const progress = getProgress();
   if (!progress.scores) progress.scores = {};
   progress.scores[date] = score;
+  // Track actual calendar date for streak (lesson date ≠ completion date)
+  if (!progress.doneOn) progress.doneOn = {};
+  progress.doneOn[getTodayStr()] = true;
   saveProgress(progress);
   showToast('✅ Đã lưu! Streak tăng lên rồi 🔥');
   setTimeout(() => window.location.href = 'index.html', 1800);
