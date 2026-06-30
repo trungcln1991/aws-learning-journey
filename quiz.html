@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Luyện tập — AWS Journey</title>
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .mode-card {
+      margin: 0 16px 12px;
+      border: 2px solid var(--ink);
+      border-left-width: 5px;
+      border-radius: 12px;
+      padding: 16px;
+      background: var(--paper);
+      cursor: pointer;
+      box-shadow: 4px 4px 0 rgba(22,19,13,.08);
+      transition: all .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mode-card:hover, .mode-card:active { transform: translateY(-2px); box-shadow: 5px 6px 0 rgba(22,19,13,.12); }
+    .mc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .mc-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .mc-info { flex: 1; }
+    .mc-label { font-weight: 900; font-size: 1rem; font-family: Georgia, serif; margin-bottom: 2px; }
+    .mc-desc { font-size: .8rem; color: var(--ink-soft); }
+    .mc-time { font-family: monospace; font-size: .72rem; color: var(--muted); white-space: nowrap; }
+    .mc-rule {
+      font-family: monospace; font-size: .68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px;
+    }
+    .mc-split {
+      display: flex; gap: 6px; margin-top: 8px;
+    }
+    .mc-en {
+      background: rgba(195,45,26,.1); color: var(--red);
+      border: 1.5px solid var(--red); border-radius: 999px;
+      padding: 3px 10px; font-family: monospace; font-size: .72rem; font-weight: 700;
+    }
+    .mc-aws {
+      background: rgba(31,95,134,.1); color: var(--blue);
+      border: 1.5px solid var(--blue); border-radius: 999px;
+      padding: 3px 10px; font-family: monospace; font-size: .72rem; font-weight: 700;
+    }
+
+    /* override quiz-explanation for quiz page (padding context) */
+    #quiz-app .quiz-explanation {
+      margin-top: 12px; padding: 12px;
+      background: var(--paper-2); border-radius: 8px;
+      border-left: 4px solid var(--green); font-size: .83rem;
+      line-height: 1.55; display: none; white-space: pre-line;
+    }
+    #quiz-app .quiz-explanation.show { display: block; }
+    #quiz-app .quiz-explanation.wrong-exp { border-left-color: var(--red); }
+  </style>
+</head>
+<body data-page="quiz">
+
+  <nav class="top-nav">
+    <span class="app-name">✏️ Luyện tập</span>
+    <span style="font-family:monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em">EN + AWS</span>
+  </nav>
+
+  <!-- QUIZ ENGINE -->
+  <div id="quiz-app">
+    <div class="loader">
+      <div class="spinner"></div>
+      <span style="font-family:monospace;font-size:.8rem;color:var(--muted)">Đang chuẩn bị...</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span>Trang chủ</span>
+    </a>
+    <a href="lessons.html">
+      <span class="nav-icon">📚</span>
+      <span>Bài học</span>
+    </a>
+    <a href="quiz.html" class="active">
+      <span class="nav-icon">✏️</span>
+      <span>Luyện tập</span>
+    </a>
+    <a href="guides.html">
+      <span class="nav-icon">📖</span>
+      <span>Thư viện</span>
+    </a>
+    <a href="stats.html">
+      <span class="nav-icon">📊</span>
+      <span>Thống kê</span>
+    </a>
+  </nav>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
