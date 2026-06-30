@@ -543,6 +543,57 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .ir-trans-pending { font-size: .7rem; color: var(--muted); font-style: italic; }
 
+/* ===== JAPFA FILTER ===== */
+.filter-btn[data-filter="japfa"].active { background: var(--amber); color: #fff; border-color: var(--amber); }
+
+/* ===== RECOMMENDATIONS PANEL ===== */
+.recs-panel {
+  margin: 12px 0 4px; border: 2px solid var(--ink);
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 4px 4px 0 rgba(22,19,13,.12);
+}
+.recs-title {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; background: var(--ink); color: var(--paper);
+  font-weight: 700; font-size: .87rem; font-family: monospace;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.recs-count {
+  font-size: .72rem; background: var(--paper); color: var(--ink);
+  padding: 2px 8px; border-radius: 999px; font-weight: 700;
+}
+.rec-item { padding: 11px 14px; border-bottom: 1px solid var(--line); }
+.rec-item:last-child { border-bottom: none; }
+.rec-critical { background: rgba(139,0,0,.05); }
+.rec-high     { background: rgba(195,45,26,.04); }
+.rec-medium   { background: rgba(169,112,10,.04); }
+.rec-low      { background: rgba(28,122,71,.04); }
+.ri-head { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 3px; }
+.ri-badge {
+  font-size: .62rem; color: #fff; padding: 1px 5px;
+  border-radius: 3px; font-weight: 700; font-family: monospace;
+}
+.ri-cat {
+  font-size: .68rem; font-weight: 700; font-family: monospace;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .06em;
+}
+.ri-title { font-size: .84rem; font-weight: 600; line-height: 1.3; }
+.ri-ref  { font-size: .72rem; color: var(--muted); margin-bottom: 4px; font-style: italic; }
+.ri-action { font-size: .82rem; color: var(--blue); font-weight: 500; margin-bottom: 3px; }
+.ri-vi   { font-size: .79rem; color: var(--ink-soft); margin-bottom: 4px; }
+.ri-cmd  {
+  font-family: monospace; font-size: .7rem;
+  background: #16130D; color: #7FBA00;
+  padding: 5px 10px; border-radius: 6px; margin-bottom: 6px;
+  word-break: break-all;
+}
+.ri-accounts { display: flex; gap: 4px; flex-wrap: wrap; }
+.ri-account  {
+  font-size: .67rem; font-family: monospace; font-weight: 700;
+  background: var(--paper-2); border: 1px solid var(--line-strong);
+  padding: 1px 6px; border-radius: 4px;
+}
+
 /* ===== ACCORDION ===== */
 .accord-hdr {
   cursor: pointer; display: flex; align-items: center;

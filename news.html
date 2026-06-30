@@ -133,6 +133,7 @@
     <button class="filter-btn" data-filter="security" onclick="filterNews('security', this)">🔒 Security</button>
     <button class="filter-btn" data-filter="blog" onclick="filterNews('blog', this)">📝 Blog</button>
     <button class="filter-btn" data-filter="learn" onclick="filterNews('learn', this)">📚 Liên quan bài học</button>
+    <button class="filter-btn" data-filter="japfa" onclick="filterNews('japfa', this)">🏭 Japfa</button>
   </div>
 
   <!-- NEWS CONTENT -->
@@ -270,6 +271,175 @@
     `;
   }
 
+  // ===== JAPFA RELEVANCE =====
+  // Services Japfa actually runs (from CLAUDE.md)
+  const JAPFA_KEYS = [
+    'ec2','instance type','ami','auto scaling',
+    'rds','oracle','aurora','database',
+    'alb','load balancer','nlb','elb',
+    'waf','web application firewall',
+    'vpc','subnet','security group',
+    'vpn','site-to-site','transit gateway','tgw','bgp',
+    'cloudwatch','alarm','metric','log',
+    'route 53','route53','dns',
+    'iam','identity','permission','role','policy',
+    'organizations','control tower','scp',
+    'security hub','finding','compliance',
+    'cloudtrail','audit','trail',
+    'inspector','vulnerability','cve','patch',
+    'kms','key management','encryption',
+    's3','bucket','storage',
+    'cloudfront','cdn',
+    'ssm','systems manager','patch manager',
+    'config','configuration recorder',
+    'ecs','fargate','container',
+    'bedrock','generative ai','agent'
+  ];
+
+  function isJapfaRelevant(item) {
+    const text = ((item.title||'') + ' ' + (item.description||'')).toLowerCase();
+    const tags = (item.tags||[]).map(t => t.toLowerCase());
+    return JAPFA_KEYS.some(k => text.includes(k) || tags.some(t => t.includes(k)));
+  }
+
+  // ===== RECOMMENDATIONS ENGINE =====
+  function generateRecommendations() {
+    if (!newsData) return [];
+    const all = [...(newsData.whats_new||[]), ...(newsData.security||[]), ...(newsData.blog||[])];
+    const recs = [];
+
+    // 🚨 CRITICAL: AWS Incident đang xảy ra
+    if (newsData.status?.overall === 'issues') {
+      const incidents = (newsData.status.incidents||[]).slice(0,3);
+      recs.push({
+        priority:'critical', icon:'🚨', cat:'INCIDENT',
+        title:`AWS đang có ${incidents.length} sự cố`,
+        vi:'Kiểm tra ngay ảnh hưởng đến hạ tầng Japfa',
+        action:'Check CloudWatch alarms ALARM state · Kiểm tra ALB target health · Monitor RDS connections',
+        cmd:'aws cloudwatch describe-alarms --state-value ALARM --profile jp:prod',
+        accounts:['jp:prod','jp:network'],
+        refs: incidents.map(i => stripHtml(i.title||'').slice(0,55))
+      });
+    }
+
+    // 🔴 HIGH: Security bulletins
+    const secBulletins = newsData.security || [];
+    if (secBulletins.length) {
+      recs.push({
+        priority:'high', icon:'🔴', cat:'SECURITY',
+        title:`${secBulletins.length} Security Bulletin mới cần xem`,
+        vi:'Đánh giá CVE ảnh hưởng đến EC2/RDS jp:prod',
+        action:'Chạy Inspector scan → xem Security Hub findings → ưu tiên patch CRITICAL/HIGH',
+        cmd:'aws inspector2 list-findings --filter-criteria \'{"fixAvailable":[{"comparison":"EQUALS","value":"YES"}]}\' --profile jp:aggregator',
+        accounts:['jp:aggregator','jp:prod'],
+        refs: secBulletins.slice(0,2).map(i => stripHtml(i.title||'').slice(0,55))
+      });
+    }
+
+    // 🟡 EC2 updates
+    const ec2 = all.filter(i => (i.tags||[]).includes('EC2') || /ec2|instance type|ami/.test(i.title.toLowerCase()));
+    if (ec2.length) recs.push({
+      priority:'medium', icon:'🟡', cat:'EC2',
+      title:`EC2: ${ec2.length} cập nhật liên quan`,
+      vi:'Kiểm tra instance S250-Webapps jp:prod',
+      action:'Review cập nhật xem có áp dụng cho jp:prod · Backup AMI trước khi thay đổi',
+      cmd:'aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query "Reservations[*].Instances[*].[InstanceId,Tags[?Key==\'Name\'].Value|[0],State.Name]" --output table --profile jp:prod',
+      accounts:['jp:prod'],
+      refs:[ec2[0].title.slice(0,55)]
+    });
+
+    // 🟡 RDS updates
+    const rds = all.filter(i => (i.tags||[]).includes('RDS') || /rds|oracle|database|aurora/.test(i.title.toLowerCase()));
+    if (rds.length) recs.push({
+      priority:'medium', icon:'🟡', cat:'RDS',
+      title:`RDS: ${rds.length} cập nhật database`,
+      vi:'Kiểm tra RDS Oracle jp:prod',
+      action:'Review phiên bản · Snapshot trước khi patch · Lên lịch maintenance window',
+      cmd:'aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier,Engine,EngineVersion,DBInstanceStatus]" --output table --profile jp:prod',
+      accounts:['jp:prod'],
+      refs:[rds[0].title.slice(0,55)]
+    });
+
+    // 🟡 VPN/TGW/Network
+    const net = all.filter(i => /vpn|transit gateway|tgw|bgp|network/.test(i.title.toLowerCase()) || (i.tags||[]).includes('TGW'));
+    if (net.length) recs.push({
+      priority:'medium', icon:'🟡', cat:'NETWORK',
+      title:`Network: ${net.length} cập nhật VPN/TGW`,
+      vi:'Monitor BGP tunnel Long An & Hương Canh',
+      action:'Kiểm tra tunnel status · Test failover HC nếu cần · Xem BGP route count',
+      cmd:'get router info bgp summary   (FortiGate LA: 10.82.254.254)',
+      accounts:['jp:network'],
+      refs:[net[0].title.slice(0,55)]
+    });
+
+    // 🟡 WAF updates
+    const waf = all.filter(i => (i.tags||[]).includes('WAF') || /waf|web application firewall/.test(i.title.toLowerCase()));
+    if (waf.length) recs.push({
+      priority:'medium', icon:'🟡', cat:'WAF',
+      title:`WAF: ${waf.length} tính năng/rules mới`,
+      vi:'Xem xét bật tính năng mới cho jp:prod',
+      action:'Review Web ACL logs · Xét thêm managed rule group nếu phù hợp',
+      cmd:'aws wafv2 list-web-acls --scope REGIONAL --query "WebACLs[*].[Name,Id]" --output table --profile jp:prod',
+      accounts:['jp:prod'],
+      refs:[waf[0].title.slice(0,55)]
+    });
+
+    // 🟢 CloudWatch/Monitoring
+    const cw = all.filter(i => (i.tags||[]).includes('CloudWatch') || /cloudwatch|alarm|metric|log insight/.test(i.title.toLowerCase()));
+    if (cw.length) recs.push({
+      priority:'low', icon:'🟢', cat:'MONITORING',
+      title:`CloudWatch: ${cw.length} cập nhật giám sát`,
+      vi:'Kiểm tra alarms và dashboards jp:prod',
+      action:'Review alarms ALARM state · Xét tận dụng tính năng mới cho dashboard',
+      cmd:'aws cloudwatch describe-alarms --state-value ALARM --output table --profile jp:prod',
+      accounts:['jp:prod','jp:aggregator'],
+      refs:[cw[0].title.slice(0,55)]
+    });
+
+    // 🟢 IAM/Organizations
+    const iam = all.filter(i => (i.tags||[]).includes('IAM') || /iam|identity|permission|scp|organizations/.test(i.title.toLowerCase()));
+    if (iam.length) recs.push({
+      priority:'low', icon:'🟢', cat:'IAM',
+      title:`IAM/Org: ${iam.length} cập nhật quyền truy cập`,
+      vi:'Test ở jp:poc trước · Không apply thẳng lên jp:prod',
+      action:'Review cập nhật · Test policy mới ở jp:poc → jp:uat → jp:prod',
+      cmd:'aws iam get-account-authorization-details --profile jp:poc',
+      accounts:['jp:poc','jp:uat'],
+      refs:[iam[0].title.slice(0,55)]
+    });
+
+    return recs;
+  }
+
+  function renderRecommendations(recs) {
+    if (!recs.length) return '';
+    const pbg = { critical:'#8B0000', high:'var(--red)', medium:'var(--amber)', low:'var(--green)' };
+    const plabel = { critical:'KHẨN', high:'CAO', medium:'TB', low:'THẤP' };
+    return `
+      <div class="recs-panel">
+        <div class="recs-title">
+          <span>📋 Khuyến nghị việc cần làm</span>
+          <span class="recs-count">${recs.length} mục</span>
+        </div>
+        ${recs.map(r => `
+          <div class="rec-item rec-${r.priority}">
+            <div class="ri-head">
+              <span>${r.icon}</span>
+              <span class="ri-badge" style="background:${pbg[r.priority]}">${plabel[r.priority]}</span>
+              <span class="ri-cat">${r.cat}</span>
+              <span class="ri-title">${r.title}</span>
+            </div>
+            ${r.refs?.length ? `<div class="ri-ref">↳ ${r.refs.join(' · ')}</div>` : ''}
+            <div class="ri-action">→ ${r.action}</div>
+            ${r.vi ? `<div class="ri-vi">🇻🇳 ${r.vi}</div>` : ''}
+            ${r.cmd ? `<div class="ri-cmd">${r.cmd}</div>` : ''}
+            ${r.accounts ? `<div class="ri-accounts">${r.accounts.map(a=>`<span class="ri-account">${a}</span>`).join('')}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
   function filterNews(filter, btn) {
     currentFilter = filter;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -279,7 +449,7 @@
   window.filterNews = filterNews;
 
   // Track accordion open state per section
-  const sectionOpen = { whats_new: true, security: false, blog: false, learn: true };
+  const sectionOpen = { whats_new: true, security: false, blog: false, learn: true, japfa: true };
 
   function toggleSection(type) {
     sectionOpen[type] = !sectionOpen[type];
@@ -312,29 +482,60 @@
     const container = document.getElementById('news-container');
     let html = '';
 
-    const getItems = (type) => {
-      const items = newsData[type] || [];
-      if (currentFilter === 'learn') return items.filter(isRelatedToLesson);
-      if (currentFilter !== 'all' && currentFilter !== type) return [];
-      return items;
-    };
+    if (currentFilter === 'japfa') {
+      // Japfa filter: only services Japfa uses
+      const wnJ  = (newsData.whats_new||[]).filter(isJapfaRelevant);
+      const secJ = (newsData.security||[]).filter(isJapfaRelevant);
+      const blgJ = (newsData.blog||[]).filter(isJapfaRelevant);
+      const allJ = [
+        ...wnJ.map(i => ({...i, _t:'whats_new'})),
+        ...secJ.map(i => ({...i, _t:'security'})),
+        ...blgJ.map(i => ({...i, _t:'blog'}))
+      ];
+      if (allJ.length) {
+        const isOpen = sectionOpen['japfa'] !== false;
+        html = `
+          <div id="ns-hdr-japfa" class="news-section-hdr ${isOpen?'open':''}" onclick="toggleSection('japfa')">
+            <span>🏭 Japfa Relevant</span>
+            <span class="ns-vi">· Dịch vụ Japfa đang sử dụng</span>
+            <span class="ns-count">${allJ.length}</span>
+            <span class="ns-arrow">▼</span>
+          </div>
+          <div id="ns-body-japfa" class="news-section-body ${isOpen?'open':''}">
+            ${allJ.map(i => renderItem(i, i._t)).join('')}
+          </div>
+        `;
+      } else {
+        html = `<div class="empty-news"><div class="ei">🏭</div><div>Không có tin nào liên quan đến hạ tầng Japfa hôm nay.</div></div>`;
+      }
+      html += renderRecommendations(generateRecommendations());
 
-    const wnItems  = getItems('whats_new');
-    const secItems = getItems('security');
-    const blogItems = getItems('blog');
-
-    if (currentFilter === 'learn') {
+    } else if (currentFilter === 'learn') {
+      const wnItems  = (newsData.whats_new||[]);
+      const secItems = (newsData.security||[]);
+      const blogItems = (newsData.blog||[]);
       const allLearn = [
         ...wnItems.filter(isRelatedToLesson),
         ...secItems.filter(isRelatedToLesson),
         ...blogItems.filter(isRelatedToLesson)
       ];
-      html = renderSection('learn', '📚', 'Related to your lessons', 'Liên quan bài bạn đang học', allLearn);
-      if (!allLearn.length) html = `<div class="empty-news"><div class="ei">🔍</div><div>Không có tin liên quan đến bài học hiện tại.</div></div>`;
+      html = allLearn.length
+        ? renderSection('learn', '📚', 'Related to your lessons', 'Liên quan bài bạn đang học', allLearn)
+        : `<div class="empty-news"><div class="ei">🔍</div><div>Không có tin liên quan đến bài học hiện tại.</div></div>`;
+
     } else {
-      html += renderSection('whats_new', '🆕', "What's New",       'Dịch vụ & tính năng mới',  wnItems);
-      html += renderSection('security',  '🔒', 'Security Bulletins','Bảo mật & cảnh báo',       secItems);
-      html += renderSection('blog',      '📝', 'AWS Blog',          'Bài viết & hướng dẫn',    blogItems);
+      const getItems = (type) => {
+        const items = newsData[type] || [];
+        if (currentFilter !== 'all' && currentFilter !== type) return [];
+        return items;
+      };
+      html += renderSection('whats_new', '🆕', "What's New",        'Dịch vụ & tính năng mới', getItems('whats_new'));
+      html += renderSection('security',  '🔒', 'Security Bulletins', 'Bảo mật & cảnh báo',      getItems('security'));
+      html += renderSection('blog',      '📝', 'AWS Blog',           'Bài viết & hướng dẫn',   getItems('blog'));
+      // Always show recommendations on "Tất cả" tab
+      if (currentFilter === 'all') {
+        html += renderRecommendations(generateRecommendations());
+      }
     }
 
     if (!html) html = `<div class="empty-news"><div class="ei">📭</div><div>Không có tin trong mục này.</div></div>`;
