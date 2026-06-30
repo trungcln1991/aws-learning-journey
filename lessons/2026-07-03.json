@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-03",
+  "day": 3, "week": 1, "month": 1,
+  "title": "EC2 Basics",
+  "subtitle": "Instance · AMI · Lifecycle · EBS",
+  "category": "Compute",
+  "color": "#1F5F86",
+  "emoji": "🖥️",
+  "vocabulary": [
+    {
+      "word": "instance",
+      "ipa": "/ˈɪn.stəns/",
+      "ipa_guide": "Đọc: IN-stần-s",
+      "type": "danh từ",
+      "meaning": "máy chủ ảo — 1 virtual machine chạy trên AWS",
+      "example_en": "We need to launch a new EC2 instance for the web server.",
+      "example_vi": "Chúng ta cần khởi động 1 EC2 instance mới cho web server.",
+      "usage": "EC2 · RDS · ECS · tất cả compute services",
+      "japfa": "S250-Webapps tại Japfa là 1 EC2 instance chạy Windows Server + IIS"
+    },
+    {
+      "word": "launch",
+      "ipa": "/lɔːntʃ/",
+      "ipa_guide": "Đọc: LOONCH",
+      "type": "động từ",
+      "meaning": "khởi động / tạo và bắt đầu chạy 1 instance",
+      "example_en": "Launch the instance from the AMI backup if the primary fails.",
+      "example_vi": "Khởi động instance từ AMI backup nếu máy chính bị lỗi.",
+      "usage": "EC2 Console · CLI · CloudFormation · Auto Scaling",
+      "japfa": "Trong DR plan: launch EC2 từ AMI nếu instance hiện tại bị lỗi"
+    },
+    {
+      "word": "terminate",
+      "ipa": "/ˈtɜː.mɪ.neɪt/",
+      "ipa_guide": "Đọc: TỜ-mi-nết",
+      "type": "động từ",
+      "meaning": "xóa vĩnh viễn instance — KHÔNG thể khôi phục",
+      "example_en": "Terminate the old instance after confirming the new one works.",
+      "example_vi": "Terminate instance cũ sau khi xác nhận instance mới hoạt động tốt.",
+      "usage": "EC2 lifecycle management · Cost optimization",
+      "japfa": "⚠️ TUYỆT ĐỐI không terminate instance trên jp:prod — chỉ stop nếu cần"
+    },
+    {
+      "word": "snapshot",
+      "ipa": "/ˈsnæp.ʃɒt/",
+      "ipa_guide": "Đọc: SNAP-shot",
+      "type": "danh từ",
+      "meaning": "ảnh chụp nhanh trạng thái của EBS volume tại 1 thời điểm",
+      "example_en": "Create an EBS snapshot before upgrading the OS.",
+      "example_vi": "Tạo EBS snapshot trước khi nâng cấp hệ điều hành.",
+      "usage": "Backup · AMI creation · Disaster Recovery",
+      "japfa": "Backup policy tại Japfa: EC2 snapshot weekly — gap so với DR target 15 phút"
+    },
+    {
+      "word": "elastic",
+      "ipa": "/ɪˈlæs.tɪk/",
+      "ipa_guide": "Đọc: i-LAS-tịc",
+      "type": "tính từ",
+      "meaning": "co giãn linh hoạt — có thể scale up/down theo nhu cầu",
+      "example_en": "EC2 is elastic — you can resize the instance type anytime.",
+      "example_vi": "EC2 có tính co giãn — bạn có thể đổi instance type bất cứ lúc nào.",
+      "usage": "EC2 · EBS · ELB · Elasticity concept",
+      "japfa": "Đây là lý do AWS gọi là 'Elastic' Compute Cloud — scale theo traffic thật"
+    }
+  ],
+  "services": [
+    {
+      "name": "EC2",
+      "full": "Elastic Compute Cloud",
+      "category": "compute",
+      "icon": "🖥️",
+      "what": "Máy chủ ảo trên AWS. Chọn CPU/RAM/OS, trả tiền theo giờ. Không cần mua phần cứng vật lý.",
+      "when": "Web server, app server, batch processing, dev/test environment",
+      "key_points": ["Instance type: t3.micro đến x1e.32xlarge", "Pricing: On-demand, Reserved (1-3 năm), Spot (rẻ nhất, có thể bị interrupt)", "AMI: OS image để launch instance", "Security Group: firewall ở tầng instance"],
+      "japfa": true,
+      "japfa_detail": "S250-Webapps: Windows Server, IIS, chạy banksystem + CRM + feedprod. 1 instance, không Multi-AZ → gap cần cải thiện"
+    },
+    {
+      "name": "EBS",
+      "full": "Elastic Block Store",
+      "category": "storage",
+      "icon": "💾",
+      "what": "Ổ cứng ảo gắn vào EC2. Persistent — data không mất khi stop instance (khác với instance store).",
+      "when": "OS volume, database storage, bất kỳ data cần persist sau reboot",
+      "key_points": ["gp3: General Purpose SSD — LUÔN chọn gp3 thay gp2 (rẻ hơn, nhanh hơn)", "io2: High IOPS — cho database OLTP", "st1: Throughput HDD — cho log, sequential reads", "sc1: Cold HDD — lưu trữ giá rẻ nhất"],
+      "japfa": true,
+      "japfa_detail": "EC2 Webapps của Japfa có EBS volume C: (OS) và D: (data). Snapshot weekly."
+    },
+    {
+      "name": "AMI",
+      "full": "Amazon Machine Image",
+      "category": "compute",
+      "icon": "📸",
+      "what": "Template để launch EC2 instance — gồm OS, pre-installed apps, EBS snapshot. Như 'ảnh chụp' của 1 server.",
+      "when": "Launch mới instance từ backup, scale out (nhiều instance từ 1 AMI), DR recovery",
+      "key_points": ["Public AMI: AWS hoặc AWS Marketplace cung cấp", "Private AMI: bạn tự tạo từ instance hiện có", "AMI là regional — cần copy sang region khác nếu dùng", "Launch từ AMI = server mới có đúng config như bản gốc"],
+      "japfa": true,
+      "japfa_detail": "DR plan Japfa: nếu S250-Webapps down → launch từ AMI backup (weekly) → update ALB target group"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "EC2 Instance Lifecycle",
+      "icon": "🔄",
+      "body": "Instance đi qua các trạng thái từ khi tạo đến khi xóa. Biết từng trạng thái giúp debug và quản lý chi phí.",
+      "diagram": "  Launch\n    │\n    ▼\n  PENDING → instance đang khởi động, chưa tính tiền\n    │\n    ▼\n  RUNNING → instance đang chạy, TÍNH TIỀN\n    │\n    ├─── Stop ──→ STOPPING → STOPPED (không tính tiền compute)\n    │                           │\n    │                           └─── Start ──→ RUNNING\n    │\n    └─── Terminate ──→ SHUTTING-DOWN → TERMINATED (xóa vĩnh viễn)",
+      "exam_tip": "Stopped instance: không tính tiền compute nhưng VẪN tính tiền EBS. Terminated = xóa hết, không còn gì.",
+      "japfa": "jp:prod: stop instance khi bảo trì. KHÔNG terminate — mất AMI history và cần tạo lại từ đầu"
+    },
+    {
+      "title": "Instance Store vs EBS — Ephemeral vs Persistent",
+      "icon": "💾",
+      "body": "EC2 có 2 loại storage: Instance Store (tạm thời, nhanh) và EBS (bền, có thể detach). Biết sự khác nhau là điểm thi quan trọng.",
+      "diagram": "  INSTANCE STORE (Ephemeral)\n  ├── Nằm trực tiếp trên physical server\n  ├── Rất nhanh (NVMe SSD)\n  ├── ❌ Mất data khi: stop, terminate, failure\n  └── Dùng cho: cache, temp files, buffer\n\n  EBS (Persistent)\n  ├── Tách biệt, kết nối qua network\n  ├── Chậm hơn instance store một chút\n  ├── ✅ Data survive: stop, reboot\n  └── Dùng cho: OS, database, bất kỳ data quan trọng",
+      "exam_tip": "SAA: Nếu câu hỏi nói 'data must persist after instance failure' → chọn EBS, không phải instance store.",
+      "japfa": "Tất cả EC2 tại Japfa dùng EBS (gp2/gp3) cho OS và data — không dùng instance store"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Điều gì xảy ra với data trong EBS volume khi EC2 instance bị STOP (không phải terminate)?",
+      "options": [
+        "Data bị xóa vĩnh viễn",
+        "Data được backup tự động vào S3",
+        "Data vẫn còn nguyên trong EBS, instance stop không ảnh hưởng",
+        "Data bị xóa sau 24 giờ"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "EBS là persistent storage — data tồn tại độc lập với instance lifecycle. Stop instance → EBS vẫn giữ data. Chỉ mất data khi: xóa EBS volume thủ công, hoặc terminate instance với 'Delete on Termination' = true."
+    },
+    {
+      "id": 2,
+      "question": "Loại EBS volume nào nên dùng cho hầu hết workload (OS, web server, development)?",
+      "options": [
+        "gp2 — General Purpose SSD cũ",
+        "gp3 — General Purpose SSD mới (rẻ hơn gp2, throughput cao hơn)",
+        "io2 — Provisioned IOPS (đắt nhất)",
+        "sc1 — Cold HDD (chậm nhất, rẻ nhất)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "gp3 là lựa chọn mặc định tốt nhất: rẻ hơn gp2 ~20%, throughput cao hơn (1000 MB/s vs 250 MB/s), IOPS cao hơn (16000 vs 16000 nhưng độc lập với size). Luôn chọn gp3 thay gp2 cho workload thông thường."
+    },
+    {
+      "id": 3,
+      "question": "Sự khác biệt giữa STOP và TERMINATE EC2 instance là gì?",
+      "options": [
+        "Không có sự khác biệt",
+        "Stop tạm dừng — có thể Start lại. Terminate xóa vĩnh viễn.",
+        "Stop xóa vĩnh viễn. Terminate chỉ tạm dừng.",
+        "Cả hai đều xóa vĩnh viễn nhưng terminate nhanh hơn"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "STOP = tắt máy tạm thời (như shutdown Windows). Data trong EBS vẫn còn. Có thể Start lại. Không tính tiền compute khi stopped, nhưng vẫn tính tiền EBS. TERMINATE = xóa hẳn instance (như ném máy tính vào thùng rác)."
+    },
+    {
+      "id": 4,
+      "question": "AMI (Amazon Machine Image) được dùng để làm gì?",
+      "options": [
+        "Lưu trữ database backup",
+        "Monitor performance của EC2",
+        "Template để launch EC2 instance — chứa OS và pre-installed apps",
+        "Kết nối EC2 với internet"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "AMI là template gồm: OS (Windows/Linux), applications đã cài, EBS snapshot. Từ 1 AMI có thể launch nhiều instance giống hệt nhau. Dùng trong DR: nếu server chính hỏng → launch từ AMI backup là có server mới ngay."
+    },
+    {
+      "id": 5,
+      "question": "Instance Store khác EBS ở điểm quan trọng nào?",
+      "options": [
+        "Instance Store đắt hơn EBS",
+        "Instance Store là ephemeral — data MẤT khi stop hoặc terminate",
+        "Instance Store chậm hơn EBS rất nhiều",
+        "Instance Store không thể dùng với EC2"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Instance Store = ephemeral storage. Data chỉ tồn tại khi instance đang chạy. Stop, terminate, hoặc hardware failure → DATA MẤT HẾT. Dùng cho temp files, cache — không bao giờ dùng cho data quan trọng. EBS thì data persist."
+    }
+  ]
+}

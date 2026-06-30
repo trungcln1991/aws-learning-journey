@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="AWS Learn">
+  <meta name="description" content="Học AWS mỗi ngày — SAA-C03 road to expert">
+  <title>AWS Learning Journey</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="dashboard">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <span class="app-name">☁️ AWS Journey</span>
+    <span class="streak-badge" id="streak-count">🔥 0 ngày</span>
+  </nav>
+
+  <!-- HERO / PROGRESS -->
+  <div class="dashboard-hero">
+    <div class="greeting" id="greeting">CHÀO BUỔI SÁNG, 3T 👋</div>
+    <div style="font-size:1.6rem;font-weight:900;font-family:Georgia,serif;letter-spacing:-.02em;margin-bottom:8px">
+      Tiếp tục hành trình<br>chinh phục AWS ☁️
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-label">
+        <span>Tiến độ SAA-C03</span>
+        <span id="progress-text">0/7 bài</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY'S LESSON CARD -->
+  <div class="today-card" id="today-card">
+    <div class="today-card-header" id="today-card-header" style="background:linear-gradient(135deg,#1C7A47,#1C7A47cc)">
+      <div class="tc-label" id="today-label">BÀI HÔM NAY</div>
+      <span class="tc-emoji" id="today-emoji">☁️</span>
+      <div class="tc-title" id="today-title">Đang tải...</div>
+      <div class="tc-sub" id="today-sub">Khởi động ứng dụng</div>
+    </div>
+    <div class="today-card-body">
+      <div class="today-card-stats">
+        <div class="tc-stat">
+          <div class="tc-stat-n" id="tc-vocab">5</div>
+          <div class="tc-stat-l">Từ vựng</div>
+        </div>
+        <div class="tc-stat">
+          <div class="tc-stat-n" id="tc-services">3</div>
+          <div class="tc-stat-l">AWS Services</div>
+        </div>
+        <div class="tc-stat">
+          <div class="tc-stat-n" id="tc-quiz">—</div>
+          <div class="tc-stat-l">Quiz</div>
+        </div>
+      </div>
+      <button class="btn-start" id="btn-start">▶ Bắt đầu học</button>
+    </div>
+  </div>
+
+  <!-- STATS ROW -->
+  <p class="section-title">THỐNG KÊ CỦA TÔI</p>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="sb-n green" id="stat-vocab">0</div>
+      <div class="sb-l">Từ vựng</div>
+    </div>
+    <div class="stat-box">
+      <div class="sb-n blue" id="stat-services">0</div>
+      <div class="sb-l">AWS Services</div>
+    </div>
+    <div class="stat-box">
+      <div class="sb-n red" id="stat-score">—</div>
+      <div class="sb-l">Avg Quiz</div>
+    </div>
+  </div>
+
+  <!-- WEEKLY CALENDAR -->
+  <p class="section-title">LỊCH TUẦN NÀY</p>
+  <div class="weekly-grid" id="week-grid"></div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="active">
+      <span class="nav-icon">🏠</span>
+      <span>Trang chủ</span>
+    </a>
+    <a href="lessons.html">
+      <span class="nav-icon">📚</span>
+      <span>Bài học</span>
+    </a>
+    <a href="stats.html">
+      <span class="nav-icon">📊</span>
+      <span>Thống kê</span>
+    </a>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Set greeting based on time
+    const h = new Date().getHours();
+    const g = document.getElementById('greeting');
+    if (h < 12) g.textContent = 'CHÀO BUỔI SÁNG, 3T 👋';
+    else if (h < 18) g.textContent = 'CHÀO BUỔI CHIỀU, 3T ☀️';
+    else g.textContent = 'CHÀO BUỔI TỐI, 3T 🌙';
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

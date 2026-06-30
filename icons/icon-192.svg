@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="32" fill="#16130D"/>
+  <text x="96" y="115" font-family="serif" font-size="90" text-anchor="middle" fill="#F4F1E9">☁</text>
+  <text x="96" y="170" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle" fill="#C32D1A" letter-spacing="2">AWS</text>
+</svg>

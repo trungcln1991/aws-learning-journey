@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Bài học — AWS Journey</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="lesson">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="index.html" class="back-btn">← Về</a>
+    <span class="top-nav .app-name" style="flex:1;text-align:center;font-family:Georgia,serif;font-size:.9rem;font-weight:700">
+      Bài học
+    </span>
+    <span class="lesson-date" id="lesson-date">—</span>
+  </nav>
+
+  <!-- DONE BANNER (hidden by default) -->
+  <div id="done-banner" style="display:none;background:var(--green);color:#fff;padding:10px 16px;font-size:.85rem;font-weight:700;align-items:center;gap:8px;justify-content:center">
+    ✅ Bài này đã hoàn thành! &nbsp;
+    <span id="done-score" style="opacity:.8"></span>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <span style="font-family:monospace;font-size:.8rem;color:var(--muted)">Đang tải bài học...</span>
+  </div>
+
+  <!-- LESSON CONTENT -->
+  <div id="lesson-content" style="display:none">
+
+    <!-- LESSON HERO -->
+    <div class="lesson-hero" id="lesson-hero">
+      <div class="lesson-meta" id="lesson-meta">Ngày 1 · Tuần 1 · Tháng 1</div>
+      <span class="lh-emoji" id="lesson-emoji">☁️</span>
+      <h1 id="lesson-title">Loading...</h1>
+      <p class="lh-sub" id="lesson-sub">Đang tải</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="vocab">📚 Vocab</button>
+      <button class="tab-btn" data-tab="services">☁️ AWS</button>
+      <button class="tab-btn" data-tab="concepts">💡 Concepts</button>
+      <button class="tab-btn" data-tab="quiz">✏️ Quiz</button>
+    </div>
+
+    <!-- TAB: VOCABULARY -->
+    <div class="tab-content active" id="tab-vocab">
+      <!-- rendered by lesson.js -->
+    </div>
+
+    <!-- TAB: AWS SERVICES -->
+    <div class="tab-content" id="tab-services">
+      <!-- rendered by lesson.js -->
+    </div>
+
+    <!-- TAB: CONCEPTS -->
+    <div class="tab-content" id="tab-concepts">
+      <!-- rendered by lesson.js -->
+    </div>
+
+    <!-- TAB: QUIZ -->
+    <div class="tab-content" id="tab-quiz">
+      <div id="quiz-container">
+        <!-- rendered by lesson.js -->
+      </div>
+    </div>
+
+  </div><!-- /lesson-content -->
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/lesson.js"></script>
+</body>
+</html>

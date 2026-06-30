@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-02",
+  "day": 2, "week": 1, "month": 1,
+  "title": "IAM Deep Dive",
+  "subtitle": "User · Role · Policy · Trust",
+  "category": "Security",
+  "color": "#C32D1A",
+  "emoji": "🔑",
+  "vocabulary": [
+    {
+      "word": "principal",
+      "ipa": "/ˈprɪn.sɪ.pəl/",
+      "ipa_guide": "Đọc: PRIN-si-pồl",
+      "type": "danh từ",
+      "meaning": "đối tượng trong IAM — ai đó hoặc cái gì đó thực hiện action",
+      "example_en": "The EC2 instance is the principal that assumes the IAM role.",
+      "example_vi": "EC2 instance là principal đảm nhận IAM role.",
+      "usage": "IAM Policy · Trust Policy · Security",
+      "japfa": "Các principal tại Japfa: SSO users, EC2 instances, Lambda functions"
+    },
+    {
+      "word": "policy",
+      "ipa": "/ˈpɒl.ɪ.si/",
+      "ipa_guide": "Đọc: PO-li-si",
+      "type": "danh từ",
+      "meaning": "tài liệu JSON định nghĩa quyền được phép và bị từ chối",
+      "example_en": "Attach this policy to the role to allow S3 read access.",
+      "example_vi": "Gán policy này vào role để cho phép đọc S3.",
+      "usage": "IAM · SCP · Resource Policy",
+      "japfa": "SCP (Service Control Policy) của Japfa Org giới hạn lambda, ec2 Tokyo ở nhiều account"
+    },
+    {
+      "word": "assume",
+      "ipa": "/əˈsjuːm/",
+      "ipa_guide": "Đọc: ơ-SYUUM",
+      "type": "động từ",
+      "meaning": "đảm nhận / tạm thời trở thành một role",
+      "example_en": "The Lambda function assumes the execution role to access DynamoDB.",
+      "example_vi": "Lambda function đảm nhận execution role để truy cập DynamoDB.",
+      "usage": "IAM Role · STS · Cross-account access",
+      "japfa": "EC2 instances tại Japfa assume IAM role để gọi AWS services mà không cần access key"
+    },
+    {
+      "word": "inherit",
+      "ipa": "/ɪnˈher.ɪt/",
+      "ipa_guide": "Đọc: in-HE-rịt",
+      "type": "động từ",
+      "meaning": "kế thừa — tự động nhận policy từ group cha",
+      "example_en": "Users in the Developers group inherit all group policies.",
+      "example_vi": "User trong nhóm Developers tự động kế thừa tất cả policy của nhóm.",
+      "usage": "IAM Group · Permissions management",
+      "japfa": "Tại Japfa, quyền được quản lý qua Permission Set trong Identity Center — cơ chế kế thừa khác với IAM Group"
+    },
+    {
+      "word": "permission",
+      "ipa": "/pəˈmɪʃ.ən/",
+      "ipa_guide": "Đọc: pơ-MI-shồn",
+      "type": "danh từ",
+      "meaning": "quyền được phép thực hiện một action cụ thể",
+      "example_en": "You need the s3:GetObject permission to download files from S3.",
+      "example_vi": "Bạn cần permission s3:GetObject để tải file từ S3.",
+      "usage": "IAM Policy · Security design · Least privilege",
+      "japfa": "jp:shareservice chỉ có ReadOnlyAccess permissions — không thể tạo hay xóa resource"
+    }
+  ],
+  "services": [
+    {
+      "name": "IAM Role",
+      "full": "IAM Role (vs IAM User)",
+      "category": "security",
+      "icon": "🎭",
+      "what": "Danh tính tạm thời — không có password, được EC2/Lambda/Service 'đảm nhận' (assume) để có quyền.",
+      "when": "Luôn dùng Role cho EC2, Lambda, và cross-account — không dùng Access Key trong code",
+      "key_points": ["Không có username/password", "Tự expire sau thời gian ngắn (an toàn hơn)", "EC2 assume Role qua Instance Profile", "Có Trust Policy + Permission Policy"],
+      "japfa": true,
+      "japfa_detail": "EC2 Webapps của Japfa có Instance Profile với Role để call AWS services"
+    },
+    {
+      "name": "STS",
+      "full": "Security Token Service",
+      "category": "security",
+      "icon": "🎫",
+      "what": "Cấp temporary credentials (access key + secret + session token) khi assume role. Token tự expire.",
+      "when": "Tự động được gọi khi assume role — thường không cần gọi trực tiếp",
+      "key_points": ["Temporary = an toàn hơn long-term key", "AssumeRole, AssumeRoleWithWebIdentity, GetSessionToken", "Dùng trong cross-account access", "SSO dùng STS ở hậu trường"],
+      "japfa": false,
+      "japfa_detail": "SSO tại Japfa dùng STS ở hậu trường — bạn nhận temporary token mỗi lần login"
+    },
+    {
+      "name": "IAM Policy Types",
+      "full": "Identity-based vs Resource-based Policy",
+      "category": "security",
+      "icon": "📋",
+      "what": "Có 2 loại policy chính: Identity-based (gắn vào User/Role) và Resource-based (gắn vào S3 bucket, SQS queue...).",
+      "when": "Identity-based: hầu hết trường hợp. Resource-based: cross-account access, S3 bucket policy",
+      "key_points": ["Identity-based: ai được làm gì với resource nào", "Resource-based: ai (principal) được làm gì với resource này", "Managed Policy: có thể tái sử dụng", "Inline Policy: gắn thẳng, không tái sử dụng"],
+      "japfa": true,
+      "japfa_detail": "S3 bucket policy của jp:cloudtrail cho phép các account khác ghi CloudTrail logs vào"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "IAM Policy Document (JSON)",
+      "icon": "📄",
+      "body": "Policy trong AWS là file JSON với cấu trúc cố định. Hiểu cấu trúc này giúp bạn đọc và viết policy đúng.",
+      "diagram": "  {\n    \"Version\": \"2012-10-17\",       ← Luôn dùng version này\n    \"Statement\": [\n      {\n        \"Sid\": \"AllowS3Read\",        ← ID (tùy chọn)\n        \"Effect\": \"Allow\",            ← Allow hoặc Deny\n        \"Action\": [\n          \"s3:GetObject\",             ← Action nào được phép\n          \"s3:ListBucket\"\n        ],\n        \"Resource\": [\n          \"arn:aws:s3:::my-bucket/*\"  ← Áp dụng cho resource nào\n        ]\n      }\n    ]\n  }",
+      "exam_tip": "Deny luôn thắng Allow. Nếu không có Allow → mặc định là Deny (implicit deny).",
+      "japfa": "SCP của Japfa có Statement: Effect=Deny, Action=[lambda:*, ec2:* (Tokyo)] → chặn toàn org"
+    },
+    {
+      "title": "IAM Role Assumption Flow",
+      "icon": "🔄",
+      "body": "Khi EC2 hoặc Lambda cần gọi AWS API, nó sẽ 'assume' một Role để lấy temporary credentials.",
+      "diagram": "  EC2 Instance\n    │\n    ├── 1. Gọi STS AssumeRole\n    │\n  STS Service\n    │\n    ├── 2. Kiểm tra Trust Policy: EC2 có được assume role này không?\n    │\n    ├── 3. Cấp Temporary Credentials (15 phút - 12 giờ)\n    │\n  EC2 Instance (có credentials)\n    │\n    └── 4. Gọi S3/RDS/DynamoDB với credentials này",
+      "exam_tip": "Trust Policy = ai được ASSUME role này. Permission Policy = role này được làm GÌ.",
+      "japfa": "Lambda autoheal VPN của Japfa assume role để gọi EC2 API restart tunnel khi VPN down"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Sự khác biệt chính giữa IAM User và IAM Role là gì?",
+      "options": [
+        "IAM User mạnh hơn IAM Role",
+        "IAM Role không có password — được assume tạm thời bởi service/user",
+        "IAM User chỉ dùng cho người, IAM Role chỉ dùng cho service",
+        "Không có sự khác biệt — cả hai đều có thể dùng thay thế nhau"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "IAM Role không có password hay long-term credentials. Nó được 'assume' tạm thời — EC2 assume role để có quyền call API, Lambda assume role để access DynamoDB. An toàn hơn access key nhiều."
+    },
+    {
+      "id": 2,
+      "question": "Khi viết IAM Policy, nếu một action không được liệt kê trong bất kỳ Allow statement nào, thì mặc định là?",
+      "options": [
+        "Allow (mặc định cho phép)",
+        "Cần hỏi admin",
+        "Deny (mặc định từ chối — implicit deny)",
+        "Tùy vào role được gán"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "IAM dùng Default Deny (Implicit Deny). Nếu không có Allow statement nào → bị từ chối. Nếu có cả Allow lẫn Deny → Deny thắng. Nguyên tắc: phải EXPLICITLY được Allow mới làm được."
+    },
+    {
+      "id": 3,
+      "question": "Từ 'principal' trong IAM có nghĩa là?",
+      "options": [
+        "Policy document chính",
+        "Admin account cao nhất",
+        "Đối tượng thực hiện action (user, role, service, account)",
+        "Permission set của IAM Identity Center"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "Principal = WHO thực hiện action. Có thể là: IAM User, IAM Role, AWS Service (EC2, Lambda), AWS Account ID. Trong Resource Policy, Principal xác định ai được phép access resource đó."
+    },
+    {
+      "id": 4,
+      "question": "jp:shareservice của Japfa có quyền gì?",
+      "options": [
+        "AdministratorAccess",
+        "PowerUserAccess",
+        "ReadOnlyAccess",
+        "Không có quyền gì"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "jp:shareservice chỉ có ReadOnlyAccess — không thể tạo, sửa, xóa resource. Account này chứa VPC endpoint chung và TF state, nên chỉ cần đọc là đủ. Least privilege!"
+    },
+    {
+      "id": 5,
+      "question": "Khi nào nên dùng IAM Role thay vì IAM Access Key cho EC2?",
+      "options": [
+        "Chỉ khi EC2 cần access nhiều service cùng lúc",
+        "Luôn luôn — Role an toàn hơn Access Key vì credentials tự expire",
+        "Chỉ khi EC2 ở trong private subnet",
+        "Chỉ khi dùng với Terraform"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Luôn dùng IAM Role cho EC2, không bao giờ hardcode Access Key trong EC2. Lý do: Role dùng STS → temporary credentials → tự expire (an toàn). Access Key = long-term → nếu bị lộ thì nguy hiểm mãi đến khi revoke thủ công."
+    }
+  ]
+}

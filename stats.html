@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Thống kê — AWS Journey</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="stats">
+
+  <nav class="top-nav">
+    <span class="app-name">📊 Thống kê học tập</span>
+  </nav>
+
+  <div class="stats-page">
+    <div class="stat-big-row">
+      <div class="stat-big-card">
+        <div class="sbc-n green" id="stat-streak">0</div>
+        <div class="sbc-l">🔥 Streak<br>ngày liên tiếp</div>
+      </div>
+      <div class="stat-big-card">
+        <div class="sbc-n blue" id="stat-total">0</div>
+        <div class="sbc-l">📅 Bài đã<br>hoàn thành</div>
+      </div>
+      <div class="stat-big-card">
+        <div class="sbc-n" id="stat-vocab">0</div>
+        <div class="sbc-l">📚 Từ vựng<br>đã học</div>
+      </div>
+      <div class="stat-big-card">
+        <div class="sbc-n red" id="stat-pct">0%</div>
+        <div class="sbc-l">⚡ Hoàn thành<br>lộ trình</div>
+      </div>
+    </div>
+
+    <!-- Target info -->
+    <div style="border:2px solid var(--ink);border-radius:12px;padding:16px;margin-bottom:16px;background:var(--paper);box-shadow:4px 4px 0 rgba(22,19,13,.08)">
+      <div style="font-family:monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px">MỤC TIÊU</div>
+      <div style="font-size:1rem;font-weight:700;margin-bottom:4px">🎯 SAA-C03 — Tháng 10/2026</div>
+      <div style="font-size:.85rem;color:var(--ink-soft)">AWS Solutions Architect Associate</div>
+      <div style="margin-top:12px;height:6px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+        <div id="cert-progress" style="height:100%;border-radius:999px;background:linear-gradient(to right,var(--blue),#38a4e8);width:0%;transition:width .5s"></div>
+      </div>
+      <div style="font-family:monospace;font-size:.7rem;color:var(--muted);margin-top:4px" id="cert-label">0% hoàn thành lộ trình</div>
+    </div>
+
+    <div class="score-history">
+      <div class="sh-title">Lịch sử Quiz (10 bài gần nhất)</div>
+      <div id="score-history">
+        <div class="loader"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span>Trang chủ</span>
+    </a>
+    <a href="lessons.html">
+      <span class="nav-icon">📚</span>
+      <span>Bài học</span>
+    </a>
+    <a href="stats.html" class="active">
+      <span class="nav-icon">📊</span>
+      <span>Thống kê</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Extra: update cert progress bar after main.js runs
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const pctEl = document.getElementById('stat-pct');
+        const pct = parseInt(pctEl?.textContent) || 0;
+        const bar = document.getElementById('cert-progress');
+        const label = document.getElementById('cert-label');
+        if (bar) bar.style.width = pct + '%';
+        if (label) label.textContent = `${pct}% hoàn thành lộ trình`;
+      }, 500);
+    });
+  </script>
+</body>
+</html>

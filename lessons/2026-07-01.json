@@ -1,0 +1,194 @@
+{
+  "date": "2026-07-01",
+  "day": 1, "week": 1, "month": 1,
+  "title": "AWS Global Infrastructure",
+  "subtitle": "Region · Availability Zone · Edge Location",
+  "category": "Cloud Foundations",
+  "color": "#1C7A47",
+  "emoji": "🌍",
+  "vocabulary": [
+    {
+      "word": "region",
+      "ipa": "/ˈriːdʒ.ən/",
+      "ipa_guide": "Đọc: RI-jơn",
+      "type": "danh từ",
+      "meaning": "vùng địa lý chứa nhiều data center AWS",
+      "example_en": "Japfa uses the ap-southeast-1 region in Singapore.",
+      "example_vi": "Japfa dùng region ap-southeast-1 tại Singapore.",
+      "usage": "Console · CLI · Terraform · Documentation",
+      "japfa": "ap-southeast-1 là region DUY NHẤT Japfa dùng — ap-northeast-1 (Tokyo) bị SCP chặn"
+    },
+    {
+      "word": "availability",
+      "ipa": "/əˌveɪ.ləˈbɪl.ɪ.ti/",
+      "ipa_guide": "Đọc: ơ-VÊY-lə-BI-li-ti",
+      "type": "danh từ",
+      "meaning": "khả năng hoạt động liên tục, không bị gián đoạn",
+      "example_en": "Multi-AZ increases the availability of your RDS database.",
+      "example_vi": "Multi-AZ tăng khả năng hoạt động liên tục của RDS.",
+      "usage": "Architecture design · SAA exam · SLA",
+      "japfa": "Japfa RDS Oracle chạy Multi-AZ — availability cao hơn Single-AZ"
+    },
+    {
+      "word": "credential",
+      "ipa": "/krɪˈden.ʃəl/",
+      "ipa_guide": "Đọc: cri-DEN-shồl",
+      "type": "danh từ",
+      "meaning": "thông tin xác thực — username/password, access key, token",
+      "example_en": "Never hardcode AWS credentials in your code.",
+      "example_vi": "Đừng bao giờ viết thẳng credentials vào trong code.",
+      "usage": "Security · IAM · CLI config",
+      "japfa": "Japfa dùng SSO — không có long-term credentials, an toàn hơn"
+    },
+    {
+      "word": "authenticate",
+      "ipa": "/ɔːˈθen.tɪ.keɪt/",
+      "ipa_guide": "Đọc: o-THEN-ti-kết",
+      "type": "động từ",
+      "meaning": "xác thực — chứng minh bạn là ai (WHO you are)",
+      "example_en": "Users authenticate with SSO before accessing AWS accounts.",
+      "example_vi": "Người dùng xác thực qua SSO trước khi vào AWS accounts.",
+      "usage": "Security · IAM · Login flow",
+      "japfa": "3T authenticate qua japfavn.awsapps.com/start mỗi ngày làm việc"
+    },
+    {
+      "word": "authorize",
+      "ipa": "/ˈɔː.θər.aɪz/",
+      "ipa_guide": "Đọc: O-thơ-rai-z",
+      "type": "động từ",
+      "meaning": "cấp quyền — cho phép làm gì (WHAT you can do)",
+      "example_en": "IAM policies authorize users to perform specific actions.",
+      "example_vi": "IAM policy cấp quyền cho user thực hiện các action cụ thể.",
+      "usage": "IAM · Security · Permission design",
+      "japfa": "SCP của Organizations authorize/deny action trên toàn Japfa org"
+    }
+  ],
+  "services": [
+    {
+      "name": "IAM",
+      "full": "Identity and Access Management",
+      "category": "security",
+      "icon": "🔑",
+      "what": "Quản lý ai (Who) được làm gì (What) trên AWS. Tạo User, Group, Role và gán Policy.",
+      "when": "Luôn luôn — mọi action trên AWS đều đi qua IAM trước",
+      "key_points": ["User = người dùng có password", "Role = danh tính tạm cho service/EC2", "Policy = document JSON định nghĩa quyền", "Group = nhóm user, kế thừa policy của group"],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng IAM Identity Center (SSO) — 7 profiles, mỗi người chỉ có quyền vừa đủ"
+    },
+    {
+      "name": "AWS Organizations",
+      "full": "AWS Organizations",
+      "category": "governance",
+      "icon": "🏢",
+      "what": "Quản lý nhiều AWS account trong 1 tổ chức. Áp dụng policy (SCP) cho tất cả account cùng lúc.",
+      "when": "Khi có nhiều hơn 1 AWS account — enterprise, multi-team",
+      "key_points": ["Management Account = tài khoản gốc (payer)", "OU = Organizational Unit (nhóm accounts)", "SCP = Service Control Policy (giới hạn action)", "Consolidated billing = 1 hóa đơn cho tất cả"],
+      "japfa": true,
+      "japfa_detail": "Japfa Org ID: o-tkxs2y1dfe · 8 accounts tổng · SCP chặn lambda, ec2 Tokyo, rds ở nhiều account"
+    },
+    {
+      "name": "IAM Identity Center",
+      "full": "AWS IAM Identity Center (SSO)",
+      "category": "security",
+      "icon": "🎫",
+      "what": "Single Sign-On cho AWS — login 1 lần, vào được nhiều account với quyền khác nhau mỗi account.",
+      "when": "Multi-account setup — không cần tạo IAM user riêng trong từng account",
+      "key_points": ["1 lần login → vào nhiều account", "Permissions Set = tập hợp quyền gán cho account", "Session tự expire (an toàn hơn long-term key)", "Hỗ trợ MFA, external IdP"],
+      "japfa": true,
+      "japfa_detail": "Portal: japfavn.awsapps.com/start · Region: ap-southeast-1 · 7 profiles có quyền"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "AWS Global Infrastructure Hierarchy",
+      "icon": "🏗️",
+      "body": "AWS xây dựng hạ tầng theo 3 cấp từ lớn đến nhỏ. Hiểu cấu trúc này giúp bạn thiết kế hệ thống có High Availability.",
+      "diagram": "  REGION (ap-southeast-1 · Singapore)\n  ├── AZ 1 (ap-southeast-1a) — Data center A\n  ├── AZ 2 (ap-southeast-1b) — Data center B\n  └── AZ 3 (ap-southeast-1c) — Data center C\n\n  EDGE LOCATION (CloudFront PoP)\n  └── Gần người dùng cuối — cache nội dung tĩnh",
+      "exam_tip": "SAA hay hỏi: để HA thì deploy vào ít nhất 2 AZ. Multi-AZ ≠ Multi-Region.",
+      "japfa": "Japfa dùng region Singapore (ap-southeast-1) — 3 AZ sẵn sàng. RDS Multi-AZ = dùng 2 AZ."
+    },
+    {
+      "title": "Authentication vs Authorization",
+      "icon": "🔐",
+      "body": "Hai khái niệm hay bị nhầm. Authentication = chứng minh bạn là AI. Authorization = bạn được làm GÌ.",
+      "diagram": "  AUTHENTICATION (Xác thực danh tính)\n  → Bạn là ai? Chứng minh đi.\n  → Nhập password, MFA code, SSO login\n  → Kết quả: AWS biết bạn là ai\n\n  AUTHORIZATION (Cấp quyền)\n  → Bạn được làm gì?\n  → IAM Policy, SCP, Resource Policy quyết định\n  → Kết quả: Allow hoặc Deny action",
+      "exam_tip": "Authentication = WHO. Authorization = WHAT. IAM Policy = authorization document.",
+      "japfa": "Bạn authenticate qua SSO → AWS authorize bằng Permission Set của từng profile (jp:prod = AdministratorAccess... nhưng SCP giới hạn lại)"
+    },
+    {
+      "title": "Least Privilege Principle",
+      "icon": "🎯",
+      "body": "Nguyên tắc cơ bản nhất của bảo mật AWS: CHỈ cấp quyền tối thiểu cần thiết để làm được việc. Không hơn, không kém.",
+      "diagram": "  ❌ SAI: AdministratorAccess cho mọi người\n     → 1 người bị hack = toàn bộ AWS bị xâm phạm\n\n  ✅ ĐÚNG: Least Privilege\n     Developer → chỉ EC2 ReadOnly + S3 specific bucket\n     Ops       → EC2 + RDS describe, no delete\n     Admin     → Full nhưng với MFA required",
+      "exam_tip": "SAA: luôn chọn đáp án có ít quyền nhất mà vẫn đáp ứng yêu cầu.",
+      "japfa": "jp:shareservice = ReadOnlyAccess. jp:poc = AdministratorAccess (an toàn vì là môi trường test)."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa đang dùng AWS region nào cho tất cả production systems?",
+      "options": [
+        "ap-northeast-1 (Tokyo, Japan)",
+        "ap-southeast-1 (Singapore)",
+        "us-east-1 (N. Virginia)",
+        "ap-east-1 (Hong Kong)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Japfa dùng ap-southeast-1 (Singapore) — gần Vietnam nhất, latency thấp. ap-northeast-1 (Tokyo) bị SCP chặn, không dùng được."
+    },
+    {
+      "id": 2,
+      "question": "AZ là viết tắt của cụm từ nào?",
+      "options": [
+        "Amazon Zone",
+        "Access Zone",
+        "Availability Zone",
+        "Application Zone"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "AZ = Availability Zone = data center vật lý riêng biệt trong 1 Region. Singapore có 3 AZ: 1a, 1b, 1c. Mỗi AZ cách nhau vài km, có điện và mạng riêng."
+    },
+    {
+      "id": 3,
+      "question": "Sự khác nhau giữa Authentication và Authorization là gì?",
+      "options": [
+        "Không có sự khác biệt — cả hai đều có nghĩa giống nhau",
+        "Authentication = xác thực bạn là AI, Authorization = bạn được làm GÌ",
+        "Authentication = cấp quyền, Authorization = xác thực danh tính",
+        "Authentication dùng cho IAM User, Authorization dùng cho IAM Role"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Authentication (xác thực) = chứng minh danh tính — WHO are you? (SSO login, MFA). Authorization (cấp quyền) = quyết định được làm gì — WHAT can you do? (IAM Policy, SCP)."
+    },
+    {
+      "id": 4,
+      "question": "Japfa có tổng cộng bao nhiêu AWS account trong Organization?",
+      "options": [
+        "5 accounts",
+        "6 accounts",
+        "7 accounts",
+        "8 accounts"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "explanation": "Japfa Organization có 8 accounts tổng: 7 accounts có SSO profile (aggregator, cloudtrail, network, poc, prod, shareservice, uat) + 1 Management account (393060838625) do Cloud Kinetics giữ."
+    },
+    {
+      "id": 5,
+      "question": "Theo nguyên tắc Least Privilege, khi tạo IAM policy cho developer cần đọc S3, nên cấp quyền nào?",
+      "options": [
+        "AdministratorAccess — cho tiện, muốn làm gì cũng được",
+        "AmazonS3FullAccess — read, write, delete S3",
+        "AmazonS3ReadOnlyAccess — chỉ đọc S3, không sửa không xóa",
+        "PowerUserAccess — mọi thứ trừ IAM"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "Least Privilege = cấp ít quyền nhất có thể. Developer chỉ cần đọc → AmazonS3ReadOnlyAccess là đủ. Cấp thêm quyền write/delete là thừa và tạo rủi ro bảo mật."
+    }
+  ]
+}
