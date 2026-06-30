@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aws-learn-v5';
+const CACHE_NAME = 'aws-learn-v6';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,7 @@ const STATIC_ASSETS = [
   './js/main.js',
   './js/lesson.js',
   './js/quiz.js',
+  './js/auth.js',
   './js/srs.js',
   './news.html',
   './manifest.json',
