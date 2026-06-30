@@ -3,6 +3,6 @@
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "test: verify cross-repo sync — fortigate BGP skill update",
-  "updated_at": "2026-06-30T05:59:50Z"
+  "commit_msg": "skill: ghi fix SSL VPN LA — unset DNS server giải quyết internet ko vào được",
+  "updated_at": "2026-06-30T08:34:56Z"
 }
