@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16130D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>AWS News — AWS Journey</title>
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .news-filter {
+      display: flex; overflow-x: auto; gap: 8px;
+      padding: 12px 16px; border-bottom: 1.5px solid var(--line);
+      scrollbar-width: none; position: sticky; top: 56px; z-index: 50;
+      background: rgba(244,241,233,.95); backdrop-filter: blur(8px);
+    }
+    .news-filter::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0; padding: 7px 14px; border-radius: 999px;
+      border: 2px solid var(--ink); background: var(--paper);
+      font-size: .78rem; font-weight: 700; cursor: pointer;
+      font-family: monospace; white-space: nowrap; transition: all .15s;
+      color: var(--ink); letter-spacing: .02em;
+    }
+    .filter-btn.active { background: var(--ink); color: var(--paper); }
+    .filter-btn:hover:not(.active) { background: var(--paper-2); }
+
+    .status-bar {
+      margin: 12px 16px 0;
+      padding: 10px 14px; border-radius: 10px;
+      border: 2px solid; display: flex; align-items: center; gap: 10px;
+    }
+    .status-bar.ok { border-color: var(--green); background: rgba(28,122,71,.07); }
+    .status-bar.issues { border-color: var(--red); background: rgba(195,45,26,.07); }
+    .status-bar.unknown { border-color: var(--line-strong); background: var(--paper-2); }
+    .sb-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+    .sb-dot.green { background: var(--green); }
+    .sb-dot.red { background: var(--red); }
+    .sb-dot.gray { background: var(--muted); animation: none; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+    .sb-text { flex: 1; }
+    .sb-title { font-weight: 700; font-size: .88rem; }
+    .sb-sub { font-size: .72rem; color: var(--muted); font-family: monospace; }
+
+    .news-section-title {
+      padding: 16px 16px 8px;
+      font-family: monospace; font-size: .68rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .15em; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; justify-content: space-between;
+    }
+    .news-count {
+      background: var(--ink); color: var(--paper);
+      padding: 2px 8px; border-radius: 999px;
+      font-size: .65rem; font-family: monospace;
+    }
+
+    .news-card {
+      margin: 0 16px 10px; padding: 14px;
+      border: 2px solid var(--ink); border-radius: 12px;
+      background: var(--paper); box-shadow: 3px 3px 0 rgba(22,19,13,.07);
+      cursor: pointer; transition: all .15s; text-decoration: none; display: block; color: var(--ink);
+    }
+    .news-card:hover { transform: translateY(-1px); box-shadow: 4px 5px 0 rgba(22,19,13,.1); }
+    .news-card-head { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+    .nc-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .nc-title { font-weight: 700; font-size: .9rem; line-height: 1.4; flex: 1; }
+    .nc-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+    .nc-date { font-family: monospace; font-size: .68rem; color: var(--muted); }
+    .nc-tag {
+      font-family: monospace; font-size: .62rem; font-weight: 700;
+      padding: 2px 7px; border-radius: 999px; border: 1.5px solid;
+    }
+    .nc-desc { font-size: .82rem; color: var(--ink-soft); line-height: 1.5; }
+    .nc-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 8px; font-size: .78rem; font-weight: 700;
+      color: var(--red); font-family: monospace;
+    }
+
+    .news-card.security { border-left: 4px solid var(--red); }
+    .news-card.blog { border-left: 4px solid var(--blue); }
+    .news-card.whats_new { border-left: 4px solid var(--green); }
+
+    .updated-badge {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px; font-family: monospace; font-size: .7rem;
+      color: var(--muted); border-bottom: 1px solid var(--line);
+      background: var(--paper-2);
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); animation: pulse 1.5s infinite;
+    }
+
+    .learn-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 8px; padding: 4px 10px;
+      background: rgba(28,122,71,.1); color: var(--green);
+      border-radius: 999px; font-family: monospace; font-size: .68rem;
+      font-weight: 700; border: 1px solid var(--green);
+    }
+
+    .empty-news {
+      text-align: center; padding: 32px 16px; color: var(--muted);
+    }
+    .empty-news .ei { font-size: 2.5rem; margin-bottom: 8px; }
+
+    #news-container { padding-bottom: 8px; }
+  </style>
+</head>
+<body data-page="news">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <span class="app-name">📰 AWS News</span>
+    <span id="last-update" style="font-family:monospace;font-size:.68rem;color:var(--muted)">Đang tải...</span>
+  </nav>
+
+  <!-- LIVE BADGE -->
+  <div class="updated-badge">
+    <span class="live-dot"></span>
+    <span>Cập nhật hàng ngày lúc 8:00 SA · Nguồn: aws.amazon.com</span>
+  </div>
+
+  <!-- AWS STATUS -->
+  <div id="status-bar"></div>
+
+  <!-- FILTER TABS -->
+  <div class="news-filter">
+    <button class="filter-btn active" data-filter="all" onclick="filterNews('all', this)">🌐 Tất cả</button>
+    <button class="filter-btn" data-filter="whats_new" onclick="filterNews('whats_new', this)">🆕 Services mới</button>
+    <button class="filter-btn" data-filter="security" onclick="filterNews('security', this)">🔒 Security</button>
+    <button class="filter-btn" data-filter="blog" onclick="filterNews('blog', this)">📝 Blog</button>
+    <button class="filter-btn" data-filter="learn" onclick="filterNews('learn', this)">📚 Liên quan bài học</button>
+  </div>
+
+  <!-- NEWS CONTENT -->
+  <div id="news-container">
+    <div class="loader" style="margin-top:32px">
+      <div class="spinner"></div>
+      <span style="font-family:monospace;font-size:.8rem;color:var(--muted)">Đang tải tin tức AWS...</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="index.html"><span class="nav-icon">🏠</span><span>Trang chủ</span></a>
+    <a href="lessons.html"><span class="nav-icon">📚</span><span>Bài học</span></a>
+    <a href="quiz.html"><span class="nav-icon">✏️</span><span>Luyện tập</span></a>
+    <a href="guides.html"><span class="nav-icon">📖</span><span>Thư viện</span></a>
+    <a href="news.html" class="active"><span class="nav-icon">📰</span><span>News</span></a>
+    <a href="stats.html"><span class="nav-icon">📊</span><span>Thống kê</span></a>
+  </nav>
+
+  <script>
+  let newsData = null;
+  let currentFilter = 'all';
+
+  // Topics from completed lessons for "Liên quan" filter
+  const LESSON_TOPICS = ['ec2','s3','vpc','iam','rds','alb','cloudwatch','route53','lambda','ecs'];
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    try {
+      return new Date(iso).toLocaleDateString('vi-VN', { day:'2-digit', month:'2-digit', year:'numeric' });
+    } catch { return iso.slice(0, 10); }
+  }
+
+  function tagColor(tag) {
+    const map = {
+      'EC2':'var(--blue)', 'S3':'var(--amber)', 'RDS':'#6B3E99',
+      'Lambda':'#F97316', 'VPC':'var(--blue)', 'IAM':'var(--red)',
+      'Security Hub':'var(--red)', 'Inspector':'var(--red)', 'WAF':'var(--red)',
+      'CloudWatch':'var(--green)', 'Bedrock':'#6B3E99',
+      'default': 'var(--muted)'
+    };
+    return map[tag] || map.default;
+  }
+
+  function isRelatedToLesson(item) {
+    const text = (item.title + ' ' + item.description).toLowerCase();
+    return LESSON_TOPICS.some(t => text.includes(t));
+  }
+
+  function renderItem(item, type) {
+    const icons = { whats_new: '🆕', security: '🔒', blog: '📝' };
+    const colors = { whats_new: 'var(--green)', security: 'var(--red)', blog: 'var(--blue)' };
+    const isLearn = isRelatedToLesson(item);
+    return `
+      <a href="${item.link || '#'}" class="news-card ${type}" target="_blank" rel="noopener">
+        <div class="news-card-head">
+          <span class="nc-icon">${icons[type]}</span>
+          <span class="nc-title">${item.title}</span>
+        </div>
+        <div class="nc-meta">
+          <span class="nc-date">${formatDate(item.date)}</span>
+          ${(item.tags||[]).map(t => `<span class="nc-tag" style="color:${tagColor(t)};border-color:${tagColor(t)}">${t}</span>`).join('')}
+        </div>
+        ${item.description ? `<div class="nc-desc">${item.description.slice(0,200)}${item.description.length>200?'...':''}</div>` : ''}
+        ${isLearn ? `<span class="learn-badge">📚 Liên quan bài học bạn đang học</span>` : ''}
+        ${item.link ? `<span class="nc-link">Xem chi tiết → aws.amazon.com</span>` : ''}
+      </a>
+    `;
+  }
+
+  function filterNews(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderNews();
+  }
+  window.filterNews = filterNews;
+
+  function renderNews() {
+    if (!newsData) return;
+    const container = document.getElementById('news-container');
+    let html = '';
+
+    const getItems = (type) => {
+      const items = newsData[type] || [];
+      if (currentFilter === 'learn') return items.filter(isRelatedToLesson);
+      if (currentFilter !== 'all' && currentFilter !== type) return [];
+      return items;
+    };
+
+    const wnItems = getItems('whats_new');
+    const secItems = getItems('security');
+    const blogItems = getItems('blog');
+
+    if (currentFilter === 'all' || currentFilter === 'whats_new') {
+      if (wnItems.length) {
+        html += `<div class="news-section-title"><span>🆕 Services Mới & Cập Nhật</span><span class="news-count">${wnItems.length}</span></div>`;
+        html += wnItems.map(i => renderItem(i, 'whats_new')).join('');
+      }
+    }
+    if (currentFilter === 'all' || currentFilter === 'security') {
+      if (secItems.length) {
+        html += `<div class="news-section-title" style="margin-top:8px"><span>🔒 Security Bulletins</span><span class="news-count">${secItems.length}</span></div>`;
+        html += secItems.map(i => renderItem(i, 'security')).join('');
+      }
+    }
+    if (currentFilter === 'all' || currentFilter === 'blog') {
+      if (blogItems.length) {
+        html += `<div class="news-section-title" style="margin-top:8px"><span>📝 AWS Blog</span><span class="news-count">${blogItems.length}</span></div>`;
+        html += blogItems.map(i => renderItem(i, 'blog')).join('');
+      }
+    }
+    if (currentFilter === 'learn') {
+      const all = [...wnItems, ...secItems, ...blogItems];
+      if (all.length) {
+        html += `<div class="news-section-title"><span>📚 Liên quan bài học bạn đang học</span><span class="news-count">${all.length}</span></div>`;
+        html += wnItems.map(i => renderItem(i, 'whats_new')).join('');
+        html += secItems.map(i => renderItem(i, 'security')).join('');
+        html += blogItems.map(i => renderItem(i, 'blog')).join('');
+      } else {
+        html = `<div class="empty-news"><div class="ei">🔍</div><div>Không có tin nào liên quan đến bài học hiện tại.</div></div>`;
+      }
+    }
+    if (!html) {
+      html = `<div class="empty-news"><div class="ei">📭</div><div>Không có tin trong mục này.</div></div>`;
+    }
+    container.innerHTML = html;
+  }
+
+  async function init() {
+    try {
+      const res = await fetch('./news.json');
+      if (!res.ok) throw new Error('news.json not found');
+      newsData = await res.json();
+
+      // Last updated
+      const dt = new Date(newsData.generated_at);
+      document.getElementById('last-update').textContent =
+        dt.toLocaleString('vi-VN', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+
+      // Status bar
+      const st = newsData.status || {};
+      const isOk = st.overall === 'operational';
+      const isIssue = st.overall === 'issues';
+      document.getElementById('status-bar').innerHTML = `
+        <div class="status-bar ${isOk ? 'ok' : isIssue ? 'issues' : 'unknown'}" style="margin:12px 16px 4px">
+          <span class="sb-dot ${isOk ? 'green' : isIssue ? 'red' : 'gray'}"></span>
+          <div class="sb-text">
+            <div class="sb-title">${isOk ? '✅ AWS đang hoạt động bình thường' : isIssue ? '⚠️ AWS có sự cố đang xử lý' : '❓ Không thể kiểm tra trạng thái'}</div>
+            <div class="sb-sub">Nguồn: status.aws.amazon.com · ${isOk ? 'All systems operational' : isIssue ? 'Service disruption detected' : 'Status unknown'}</div>
+          </div>
+          <a href="https://status.aws.amazon.com" target="_blank" rel="noopener"
+             style="font-family:monospace;font-size:.72rem;color:var(--muted);text-decoration:none;white-space:nowrap">Xem →</a>
+        </div>
+      `;
+      renderNews();
+    } catch {
+      document.getElementById('news-container').innerHTML = `
+        <div class="empty-news">
+          <div class="ei">⚙️</div>
+          <div style="font-weight:700;margin-bottom:8px">News chưa được tạo</div>
+          <div style="font-size:.85rem;color:var(--muted)">GitHub Actions sẽ tự fetch lúc 8h sáng mỗi ngày.<br>Hoặc chạy thủ công: Actions → Fetch AWS News → Run workflow</div>
+        </div>
+      `;
+    }
+  }
+
+  init();
+  </script>
+</body>
+</html>
