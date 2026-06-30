@@ -511,16 +511,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 /* ===== NEWS BILINGUAL ===== */
 .nc-bilingual { display: flex; flex-direction: column; gap: 4px; margin-bottom: 6px; }
-.nc-lang-en {
-  font-size: .8rem; color: var(--ink-soft); line-height: 1.5;
-  padding-left: 20px; position: relative;
-}
-.nc-lang-en::before { content: '🇬🇧'; position: absolute; left: 0; top: 0; font-size: .75rem; }
+.nc-lang-en { font-size: .8rem; color: var(--ink-soft); line-height: 1.5; }
 .nc-lang-vi {
   font-size: .82rem; color: var(--ink); line-height: 1.5; font-weight: 500;
-  padding-left: 20px; position: relative;
-  border-left: 2px solid var(--amber); margin-left: 0; padding-left: 8px;
+  border-left: 2px solid var(--amber); padding-left: 8px;
 }
+.nc-trans-pending { font-size: .72rem; color: var(--muted); font-style: italic; }
+
+/* ===== STATUS INCIDENTS ===== */
+.status-bar { margin: 12px 16px 4px; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; }
+.status-bar.issues { border-color: rgba(195,45,26,.4); }
+.sb-main {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; background: var(--paper);
+}
+.sb-link { font-family: monospace; font-size: .72rem; color: var(--muted); text-decoration: none; white-space: nowrap; margin-left: auto; }
+.incident-list { border-top: 1px solid var(--line); background: rgba(195,45,26,.04); padding: 8px 12px; display: flex; flex-direction: column; gap: 10px; }
+.incident-row { }
+.ir-title {
+  display: flex; align-items: center; gap: 6px;
+  font-size: .8rem; font-weight: 700; flex-wrap: wrap;
+}
+.ir-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+.ir-date { color: var(--muted); font-size: .72rem; font-family: monospace; margin-left: auto; }
+.ir-link { color: var(--blue); font-size: .75rem; font-family: monospace; }
+.ir-bilingual { margin-top: 4px; padding-left: 13px; display: flex; flex-direction: column; gap: 3px; }
+.ir-en { font-size: .77rem; color: var(--ink-soft); line-height: 1.45; }
+.ir-vi {
+  font-size: .78rem; color: var(--ink); font-weight: 500; line-height: 1.45;
+  border-left: 2px solid var(--amber); padding-left: 6px;
+}
+.ir-trans-pending { font-size: .7rem; color: var(--muted); font-style: italic; }
 
 /* ===== ACCORDION ===== */
 .accord-hdr {

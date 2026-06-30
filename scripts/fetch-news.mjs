@@ -83,7 +83,13 @@ function extractCDATA(str) {
 function getTag(xml, tag) {
   const m = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
   if (!m) return '';
-  return extractCDATA(m[1]).replace(/<[^>]*>/g, '').trim();
+  let text = extractCDATA(m[1]);
+  // Decode HTML entities first (RSS may encode < as &lt;), then strip tags
+  text = text
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+  text = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text;
 }
 
 function getLinkFromItem(xml) {
