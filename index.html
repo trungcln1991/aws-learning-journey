@@ -65,6 +65,16 @@
     </div>
   </div>
 
+  <!-- SRS DUE BANNER (dynamic) -->
+  <div id="srs-banner" style="display:none;margin:0 16px 12px;padding:12px 14px;border-radius:10px;border:2px solid var(--red);background:rgba(195,45,26,.06);align-items:center;gap:10px;cursor:pointer" onclick="window.location.href='quiz.html'">
+    <span style="font-size:1.4rem">🧠</span>
+    <div style="flex:1">
+      <div style="font-weight:700;font-size:.88rem" id="srs-banner-text">0 từ cần ôn SRS hôm nay</div>
+      <div style="font-size:.72rem;color:var(--muted);font-family:monospace">Spaced Repetition — ôn đúng lịch để nhớ lâu</div>
+    </div>
+    <span style="color:var(--red);font-weight:700;font-size:.9rem">Ôn →</span>
+  </div>
+
   <!-- STATS ROW -->
   <p class="section-title">THỐNG KÊ CỦA TÔI</p>
   <div class="stats-row">
@@ -124,6 +134,37 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
+
+    // Show SRS due count
+    try {
+      const srsData = JSON.parse(localStorage.getItem('aws_srs_v1') || '{}');
+      const today = new Date().toISOString().slice(0,10);
+      const due = Object.values(srsData).filter(c => c.due <= today).length;
+      if (due > 0) {
+        const banner = document.getElementById('srs-banner');
+        document.getElementById('srs-banner-text').textContent = `${due} từ cần ôn SRS hôm nay!`;
+        banner.style.display = 'flex';
+      }
+    } catch(e) {}
+
+    // Request notification permission (once, after 5s)
+    setTimeout(() => {
+      if ('Notification' in window && Notification.permission === 'default') {
+        Notification.requestPermission().then(perm => {
+          if (perm === 'granted' && 'serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then(sw => {
+              // Schedule reminder at 8:30am if not studied
+              const now = new Date();
+              const target = new Date(now);
+              target.setHours(8, 30, 0, 0);
+              if (now > target) target.setDate(target.getDate() + 1);
+              // Store intent (actual scheduling needs backend/SW periodic sync)
+              localStorage.setItem('notif_granted', 'true');
+            });
+          }
+        });
+      }
+    }, 5000);
   </script>
   <script src="js/main.js"></script>
 </body>

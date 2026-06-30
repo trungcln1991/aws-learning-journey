@@ -1,8 +1,43 @@
 'use strict';
 
 const STORAGE_KEY = 'aws_learning_v1';
+const SRS_KEY = 'aws_srs_v1';
+
 function getProgress() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } }
 function saveProgress(p) { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
+function getSRS() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } }
+function saveSRS(d) { localStorage.setItem(SRS_KEY, JSON.stringify(d)); }
+function todayStr() { return new Date().toISOString().slice(0, 10); }
+
+// ===== SM-2 SPACED REPETITION =====
+function sm2Update(cardId, quality) {
+  const db = getSRS();
+  const card = db[cardId] || { ef: 2.5, interval: 0, reps: 0, due: todayStr(), totalReviews: 0, correct: 0 };
+  card.totalReviews = (card.totalReviews || 0) + 1;
+  if (quality >= 3) {
+    card.correct = (card.correct || 0) + 1;
+    if (card.reps === 0) card.interval = 1;
+    else if (card.reps === 1) card.interval = 6;
+    else card.interval = Math.round(card.interval * card.ef);
+    card.ef = Math.max(1.3, card.ef + 0.1 - (5-quality)*(0.08+(5-quality)*0.02));
+    card.reps++;
+  } else {
+    card.reps = 0; card.interval = 1;
+  }
+  const due = new Date(todayStr()+'T00:00:00'); due.setDate(due.getDate() + card.interval);
+  card.due = due.toISOString().slice(0, 10);
+  card.lastReviewed = todayStr();
+  db[cardId] = card;
+  saveSRS(db);
+  return card;
+}
+
+function srsCardId(word, date) { return `${date}__${word}`; }
+
+function getSRSDue() {
+  const db = getSRS(); const today = todayStr();
+  return Object.entries(db).filter(([,c]) => c.due <= today).map(([id,c]) => ({id,...c}));
+}
 
 // ===== DATA LOADING =====
 async function loadMeta() {
@@ -155,11 +190,17 @@ function generateAwsQuestions(lessons, count = 9) {
 
 // ===== QUIZ MODES =====
 const MODES = {
+  srs: {
+    id: 'srs', icon: '🧠', label: 'Ôn SRS',
+    desc: 'Từ vựng sắp quên — ôn đúng lịch SM-2', color: '#6B3E99',
+    enCount: 0, awsCount: 0, time: '~3 phút', srsMode: true,
+    rule: 'Quy tắc #4: Spaced Repetition — não nhớ 10× lâu hơn'
+  },
   vocab: {
     id: 'vocab', icon: '🇺🇸', label: 'Vocab Sprint',
     desc: '10 câu Tiếng Anh — 5 dạng bài', color: '#C32D1A',
     enCount: 10, awsCount: 0, time: '~5 phút',
-    rule: 'Quy tắc #2, #3, #4: Học cụm · IPA · Spaced Rep'
+    rule: 'Quy tắc #2, #3: Học cụm · IPA · Fill blank'
   },
   aws: {
     id: 'aws', icon: '☁️', label: 'AWS Sprint',
@@ -186,18 +227,34 @@ let quizState = {};
 
 function renderModeSelect(hasLessons) {
   const app = document.getElementById('quiz-app');
+  const srsDue = getSRSDue().length;
+  const db = getSRS();
+  const srsTotal = Object.keys(db).length;
+
   app.innerHTML = `
     <div style="padding:16px 16px 8px">
       <div style="font-family:monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:4px">CHỌN CHẾ ĐỘ LUYỆN TẬP</div>
       <div style="font-size:.85rem;color:var(--ink-soft)">Phân bổ theo 10 quy tắc học khoa học</div>
     </div>
+
+    <!-- SRS STATUS BANNER -->
+    ${srsTotal > 0 ? `
+    <div style="margin:0 16px 12px;padding:12px 14px;border-radius:10px;border:2px solid ${srsDue>0?'var(--red)':'var(--green)'};background:${srsDue>0?'rgba(195,45,26,.06)':'rgba(28,122,71,.06)'};display:flex;align-items:center;gap:10px">
+      <span style="font-size:1.6rem">${srsDue>0?'⏰':'✅'}</span>
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:.9rem">${srsDue>0?`${srsDue} từ cần ôn hôm nay!`:'Đã ôn đủ hôm nay 🎉'}</div>
+        <div style="font-size:.75rem;color:var(--muted);font-family:monospace">${srsTotal} từ trong SRS · ${Object.values(db).filter(c=>c.interval>=21).length} từ mature</div>
+      </div>
+      ${srsDue>0?`<button onclick="startQuiz('srs')" style="padding:8px 14px;background:var(--red);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;white-space:nowrap">Ôn ngay →</button>`:''}
+    </div>` : ''}
+
     ${Object.values(MODES).map(m => `
-      <div class="mode-card" onclick="startQuiz('${m.id}')" style="border-left-color:${m.color}">
+      <div class="mode-card" onclick="startQuiz('${m.id}')" style="border-left-color:${m.color}${m.id==='srs'&&srsDue===0?';opacity:.5':''}" >
         <div class="mc-head">
           <span class="mc-icon">${m.icon}</span>
           <div class="mc-info">
-            <div class="mc-label">${m.label}</div>
-            <div class="mc-desc">${m.desc}</div>
+            <div class="mc-label">${m.label}${m.id==='srs'&&srsDue>0?` <span style="background:var(--red);color:#fff;font-size:.65rem;padding:2px 7px;border-radius:999px;font-family:monospace;font-weight:700;margin-left:4px">${srsDue} DUE</span>`:''}</div>
+            <div class="mc-desc">${m.id==='srs'?(srsDue>0?`${srsDue} từ cần ôn hôm nay theo lịch SM-2`:'Không có từ nào due hôm nay — học bài mới nhé!'):m.desc}</div>
           </div>
           <span class="mc-time">${m.time}</span>
         </div>
@@ -209,12 +266,13 @@ function renderModeSelect(hasLessons) {
           </div>` : ''}
       </div>
     `).join('')}
+
     ${!hasLessons ? `
       <div style="margin:16px;padding:20px;background:rgba(195,45,26,.07);border-radius:12px;border:2px dashed var(--red);text-align:center">
         <div style="font-size:2rem;margin-bottom:8px">📚</div>
-        <div style="font-weight:700;margin-bottom:4px">Chưa có bài nào hoàn thành</div>
-        <div style="font-size:.85rem;color:var(--muted)">Hoàn thành ít nhất 1 bài học để luyện quiz nhé!</div>
-        <a href="lesson.html?date=2026-07-01" style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--ink);color:var(--paper);border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none">▶ Học bài đầu tiên</a>
+        <div style="font-weight:700;margin-bottom:4px">Chưa có bài nào</div>
+        <div style="font-size:.85rem;color:var(--muted)">Học bài đầu để bắt đầu luyện quiz!</div>
+        <a href="lesson.html?date=2026-07-01" style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--ink);color:var(--paper);border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none">▶ Bài đầu tiên</a>
       </div>
     ` : ''}
   `;
@@ -226,6 +284,37 @@ async function startQuiz(modeId) {
   app.innerHTML = `<div class="loader"><div class="spinner"></div><span style="font-family:monospace;font-size:.8rem;color:var(--muted)">Đang tạo đề...</span></div>`;
 
   const lessons = await loadAllAvailableLessons();
+
+  // SRS mode: generate questions only for due cards
+  if (mode.srsMode) {
+    const due = getSRSDue();
+    if (!due.length) {
+      app.innerHTML = `<div style="padding:32px 16px;text-align:center">
+        <div style="font-size:3rem;margin-bottom:12px">✅</div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Đã ôn đủ hôm nay!</div>
+        <div style="font-size:.9rem;color:var(--muted);margin-bottom:20px">Không có từ nào cần ôn. SRS đang hoạt động tốt.</div>
+        <button onclick="renderModeSelect(true)" style="padding:12px 24px;background:var(--ink);color:var(--paper);border:none;border-radius:8px;font-weight:700;cursor:pointer">← Chọn chế độ khác</button>
+      </div>`;
+      return;
+    }
+    // Find vocab objects for due cards
+    const allVocab = lessons.flatMap(l => (l.vocabulary||[]).map(v => ({...v, lessonDate: l.date})));
+    const dueVocab = due.map(d => {
+      const [date, word] = d.id.split('__');
+      return allVocab.find(v => v.word === word && v.lessonDate === date);
+    }).filter(Boolean);
+
+    const questions = dueVocab.flatMap(v => {
+      const pool = allVocab.filter(av => av.word !== v.word);
+      const fns = [genWordMeaning, genIpaWord, genFillBlank];
+      const fn = fns[Math.floor(Math.random() * fns.length)];
+      try { return [fn(v, pool)]; } catch { return [genWordMeaning(v, pool)]; }
+    });
+    quizState = { mode, questions, current: 0, selected: null, submitted: false, scores: [], enScores: [], awsScores: [], srsCards: dueVocab.map(v => srsCardId(v.word, v.lessonDate)) };
+    renderQuestion();
+    return;
+  }
+
   const enQ = mode.enCount > 0 ? generateEnglishQuestions(lessons, mode.enCount) : [];
   const awsQ = mode.awsCount > 0 ? generateAwsQuestions(lessons, mode.awsCount) : [];
   const questions = shuffle([...enQ, ...awsQ]);
@@ -327,8 +416,18 @@ window.checkAnswer = function() {
   const q = quizState.questions[quizState.current];
   const correct = quizState.selected === q.answer;
 
-  if (q.qtype === 'english') quizState.enScores.push(correct ? 1 : 0);
-  else quizState.awsScores.push(correct ? 1 : 0);
+  if (q.qtype === 'english') {
+    quizState.enScores.push(correct ? 1 : 0);
+    // Update SRS for English vocab questions
+    if (q.vocabWord && q.lessonDate) {
+      const cardId = srsCardId(q.vocabWord, q.lessonDate);
+      sm2Update(cardId, correct ? 4 : 1);
+    } else if (quizState.srsCards?.[quizState.current]) {
+      sm2Update(quizState.srsCards[quizState.current], correct ? 4 : 1);
+    }
+  } else {
+    quizState.awsScores.push(correct ? 1 : 0);
+  }
   quizState.scores.push(correct ? 1 : 0);
 
   document.querySelectorAll('.quiz-option').forEach((el, i) => {

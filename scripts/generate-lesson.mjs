@@ -1,0 +1,207 @@
+#!/usr/bin/env node
+/**
+ * Auto-generate AWS lesson JSON files using Anthropic API
+ * Usage: ANTHROPIC_API_KEY=sk-... node scripts/generate-lesson.mjs [--count 3]
+ * Called by GitHub Actions weekly to keep content fresh
+ */
+
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dir = dirname(fileURLToPath(import.meta.url));
+const root = resolve(__dir, '..');
+
+const API_KEY = process.env.ANTHROPIC_API_KEY;
+if (!API_KEY) { console.error('Missing ANTHROPIC_API_KEY'); process.exit(1); }
+
+const COUNT = parseInt(process.argv.find((a, i, arr) => arr[i-1] === '--count') || '3');
+
+// Load curriculum & meta
+const curriculum = JSON.parse(readFileSync(resolve(__dir, 'curriculum.json'), 'utf8'));
+const meta = JSON.parse(readFileSync(resolve(root, 'lessons/meta.json'), 'utf8'));
+
+// Find next lessons to generate
+const existingDays = new Set(meta.lessons.map(l => l.day));
+const nextTopics = curriculum.topics.filter(t => !existingDays.has(t.day)).slice(0, COUNT);
+
+if (!nextTopics.length) {
+  console.log('All curriculum topics already generated!');
+  process.exit(0);
+}
+
+console.log(`Generating ${nextTopics.length} lessons: ${nextTopics.map(t => t.title).join(', ')}`);
+
+// Find next lesson date (skip weekends, continue from last lesson)
+function nextLessonDate(lastDateStr) {
+  const d = new Date(lastDateStr + 'T00:00:00');
+  d.setDate(d.getDate() + 1);
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+// Build the JSON schema prompt
+function buildPrompt(topic, lessonDate) {
+  return `You are generating a lesson JSON file for an AWS learning PWA app. The learner is a Vietnamese IT Operations engineer at Japfa Vietnam (poultry company). They manage 7 AWS accounts (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice) and on-premises infrastructure (FortiGate VPN, VMware).
+
+Generate a lesson JSON for:
+- Date: ${lessonDate}
+- Day: ${topic.day}, Week: ${topic.week}, Month: ${topic.month}
+- Title: ${topic.title}
+- Subtitle: ${topic.subtitle}
+- Category: ${topic.category}
+- Color: ${topic.color}
+- Emoji: ${topic.emoji}
+
+IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT schema:
+
+{
+  "date": "${lessonDate}",
+  "day": ${topic.day},
+  "week": ${topic.week},
+  "month": ${topic.month},
+  "title": "${topic.title}",
+  "subtitle": "${topic.subtitle}",
+  "category": "${topic.category}",
+  "color": "${topic.color}",
+  "emoji": "${topic.emoji}",
+  "vocabulary": [
+    {
+      "word": "string (AWS/IT English word)",
+      "ipa": "/IPA notation/",
+      "ipa_guide": "Vietnamese pronunciation guide, e.g. 'Đọc: OB-ject'",
+      "type": "danh từ|động từ|tính từ|trạng từ",
+      "meaning": "Vietnamese meaning — detailed",
+      "example_en": "Full English sentence using this word in AWS context",
+      "example_vi": "Vietnamese translation of example",
+      "usage": "Where this word is used, e.g. 'S3 · CLI · CloudFormation'",
+      "japfa": "Real Japfa Vietnam connection (mention specific account/resource)"
+    }
+  ],
+  "services": [
+    {
+      "name": "AWS Service short name",
+      "full": "AWS Service Full Name",
+      "category": "compute|storage|network|security|database|serverless|monitoring",
+      "icon": "emoji",
+      "what": "What it does in 1-2 sentences",
+      "when": "When to use it",
+      "key_points": ["point 1", "point 2", "point 3", "point 4"],
+      "japfa": true|false,
+      "japfa_detail": "How Japfa uses this service specifically (if japfa=true)"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Concept title",
+      "icon": "emoji",
+      "body": "Clear explanation in Vietnamese, 2-3 sentences",
+      "diagram": "ASCII diagram showing the concept (use spaces/arrows)",
+      "exam_tip": "SAA-C03 exam tip — what they commonly ask",
+      "japfa": "How this applies to Japfa Vietnam infrastructure"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Question in Vietnamese",
+      "options": ["A option", "B option", "C option", "D option"],
+      "answer": 0,
+      "difficulty": "easy|medium|hard",
+      "explanation": "Vietnamese explanation of why the answer is correct"
+    }
+  ]
+}
+
+Requirements:
+- vocabulary: exactly 5 words, mix of nouns/verbs/adjectives
+- services: 3 AWS services related to the topic
+- concepts: 2 key concepts with ASCII diagrams
+- quiz: 5 questions (2 easy, 2 medium, 1 hard), answer index 0-3
+- All text in Vietnamese EXCEPT: word, ipa, example_en, ASCII diagram
+- Make japfa connections real and specific (jp:prod ec2 instance, Long An VPN, etc.)
+- IPA must be correct phonetic notation
+- Exam tips must reference actual SAA-C03 exam patterns`;
+}
+
+async function callClaude(prompt) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key': API_KEY,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 4096,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  if (!res.ok) throw new Error(`API error: ${res.status} ${await res.text()}`);
+  const data = await res.json();
+  return data.content[0].text;
+}
+
+// Main generation loop
+let lastDate = meta.lessons.at(-1)?.date || new Date().toISOString().slice(0,10);
+const newLessons = [];
+
+for (const topic of nextTopics) {
+  const lessonDate = nextLessonDate(lastDate);
+  console.log(`\n→ Generating Day ${topic.day}: ${topic.title} (${lessonDate})`);
+
+  try {
+    const prompt = buildPrompt(topic, lessonDate);
+    const raw = await callClaude(prompt);
+
+    // Extract JSON (strip any markdown if present)
+    const jsonStr = raw.replace(/^```json\n?/, '').replace(/\n?```$/, '').trim();
+    const lesson = JSON.parse(jsonStr);
+
+    // Validate required fields
+    if (!lesson.vocabulary?.length || !lesson.services?.length || !lesson.quiz?.length) {
+      throw new Error('Missing required fields in generated lesson');
+    }
+
+    // Save lesson file
+    const filePath = resolve(root, `lessons/${lessonDate}.json`);
+    writeFileSync(filePath, JSON.stringify(lesson, null, 2), 'utf8');
+    console.log(`  ✅ Saved: lessons/${lessonDate}.json`);
+
+    // Add to meta
+    newLessons.push({
+      date: lessonDate,
+      day: topic.day,
+      title: topic.title,
+      subtitle: topic.subtitle,
+      category: topic.category,
+      week: topic.week,
+      month: topic.month,
+      color: topic.color,
+      emoji: topic.emoji,
+      vocab_count: lesson.vocabulary.length,
+      service_count: lesson.services.length
+    });
+
+    lastDate = lessonDate;
+
+    // Rate limit: wait 2s between calls
+    if (nextTopics.indexOf(topic) < nextTopics.length - 1) {
+      await new Promise(r => setTimeout(r, 2000));
+    }
+  } catch (err) {
+    console.error(`  ❌ Failed: ${err.message}`);
+  }
+}
+
+// Update meta.json
+if (newLessons.length) {
+  meta.lessons = [...meta.lessons, ...newLessons];
+  meta.last_generated = new Date().toISOString();
+  meta.total_lessons = meta.lessons.length;
+  writeFileSync(resolve(root, 'lessons/meta.json'), JSON.stringify(meta, null, 2), 'utf8');
+  console.log(`\n✅ Updated meta.json — total ${meta.lessons.length} lessons`);
+}
+
+console.log('\n🎉 Generation complete!');
