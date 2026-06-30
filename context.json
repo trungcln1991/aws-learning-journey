@@ -1,5 +1,8 @@
 {
-  "suggest_topics": [],
-  "commit_msg": "",
-  "updated_at": null
+  "suggest_topics": [
+    "VPC Fundamentals",
+    "Security Groups & NACL"
+  ],
+  "commit_msg": "test: verify cross-repo sync — fortigate BGP skill update",
+  "updated_at": "2026-06-30T05:59:50Z"
 }
