@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "AWS Global Infrastructure",
+    "S3 & Storage Classes",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "feat: replicate AWS Health-to-Teams alert to jp:network + cập nhật quy trình ADO/cost review",
-  "updated_at": "2026-07-01T07:18:37Z"
+  "commit_msg": "Ghi memory du an ca nhan personal-finance-app + auto-install Cloudflare skills",
+  "updated_at": "2026-07-01T09:42:50Z"
 }
