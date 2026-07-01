@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "feat: deploy AWS Console Login Alert to Teams (EventBridge, jp:prod + jp:network), gỡ gap #1",
-  "updated_at": "2026-07-01T04:16:18Z"
+  "commit_msg": "docs: cập nhật Login Alert Teams sang kiến trúc Lambda (user sạch/account bold/giờ VN)",
+  "updated_at": "2026-07-01T05:22:06Z"
 }
