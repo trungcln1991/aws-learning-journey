@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "AWS Global Infrastructure",
     "S3 & Storage Classes",
-    "IAM Deep Dive"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "Ghi memory du an ca nhan personal-finance-app + auto-install Cloudflare skills",
-  "updated_at": "2026-07-01T09:42:50Z"
+  "commit_msg": "feat: agent hardening (safety hook, subagent, permission allowlist) + backup S3",
+  "updated_at": "2026-07-01T16:53:37Z"
 }
