@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "docs: cập nhật Login Alert Teams sang kiến trúc Lambda (user sạch/account bold/giờ VN)",
-  "updated_at": "2026-07-01T05:22:06Z"
+  "commit_msg": "feat: replicate AWS Health-to-Teams alert to jp:network + cập nhật quy trình ADO/cost review",
+  "updated_at": "2026-07-01T07:18:37Z"
 }
