@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: wrap-up phiên 28 — drift detection + fix toàn bộ 5 module TF",
-  "updated_at": "2026-06-30T09:53:49Z"
+  "commit_msg": "feat: deploy AWS Console Login Alert to Teams (EventBridge, jp:prod + jp:network), gỡ gap #1",
+  "updated_at": "2026-07-01T04:16:18Z"
 }
