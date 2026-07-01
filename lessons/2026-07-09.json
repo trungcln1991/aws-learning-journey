@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-09",
+  "day": 7, "week": 2, "month": 1,
+  "title": "ALB & Auto Scaling",
+  "subtitle": "Load Balancer · Target Group",
+  "category": "Compute",
+  "color": "#1C7A47",
+  "emoji": "⚖️",
+  "vocabulary": [
+    {
+      "word": "load balancer",
+      "ipa": "/ləʊd ˈbæl.ən.sər/",
+      "ipa_guide": "Đọc: LỐT BAN-lần-sờ",
+      "type": "cụm từ",
+      "meaning": "phân phối traffic đến nhiều instance backend, tăng tính sẵn sàng và khả năng chịu tải",
+      "example_en": "The Application Load Balancer routes HTTPS traffic to the EC2 target group.",
+      "example_vi": "ALB định tuyến traffic HTTPS đến target group EC2.",
+      "usage": "ALB · NLB · CLB — 3 loại load balancer trên AWS",
+      "japfa": "ALB jap-alb-pd-01 chạy WMS/Sales/Cash Collection phía trước EC2 tại account 428207183585"
+    },
+    {
+      "word": "target group",
+      "ipa": "/ˈtɑː.ɡɪt ɡruːp/",
+      "ipa_guide": "Đọc: TA-ghịt GRÚP",
+      "type": "cụm từ",
+      "meaning": "nhóm các instance/IP/Lambda mà load balancer định tuyến traffic đến",
+      "example_en": "Register the new EC2 instance to the target group before removing the old one.",
+      "example_vi": "Đăng ký EC2 instance mới vào target group trước khi gỡ instance cũ.",
+      "usage": "ALB routing · Blue-green deployment · Auto Scaling integration",
+      "japfa": "DR playbook Japfa: nếu EC2 chính lỗi → launch từ AMI → update target group trỏ instance mới"
+    },
+    {
+      "word": "health check",
+      "ipa": "/helθ tʃek/",
+      "ipa_guide": "Đọc: HEO-th chéc",
+      "type": "cụm từ",
+      "meaning": "kiểm tra định kỳ xem target còn 'khỏe' không — nếu fail liên tiếp, load balancer ngừng gửi traffic tới đó",
+      "example_en": "Configure the health check path to /health so failed instances are removed automatically.",
+      "example_vi": "Cấu hình health check path là /health để instance lỗi tự động bị loại khỏi target group.",
+      "usage": "ALB target health · Auto Scaling replace unhealthy instance",
+      "japfa": "Failover playbook Japfa bước 1 khi EC2 lỗi: check ALB target health trên CloudWatch dashboard"
+    },
+    {
+      "word": "auto scaling group",
+      "ipa": "/ˈɔː.təʊ ˈskeɪ.lɪŋ ɡruːp/",
+      "ipa_guide": "Đọc: Ô-tô-XKÊ-linh GRÚP",
+      "type": "cụm từ",
+      "meaning": "ASG — tự động thêm/bớt số lượng EC2 instance theo tải, dựa trên min/max/desired capacity",
+      "example_en": "The Auto Scaling Group adds instances when CPU utilization exceeds 70%.",
+      "example_vi": "Auto Scaling Group tự thêm instance khi CPU vượt 70%.",
+      "usage": "Elasticity · Cost optimization · High availability",
+      "japfa": "Hiện S250-Webapps của Japfa chạy 1 instance duy nhất, chưa có ASG — đây là gap so với best practice HA"
+    },
+    {
+      "word": "listener",
+      "ipa": "/ˈlɪs.ən.ər/",
+      "ipa_guide": "Đọc: LÍT-sờ-nờ",
+      "type": "danh từ",
+      "meaning": "quy tắc trên load balancer lắng nghe 1 port/protocol cụ thể (VD: 443/HTTPS) và chuyển tiếp theo rule đến target group",
+      "example_en": "Add a listener on port 443 that forwards traffic to the HTTPS target group.",
+      "example_vi": "Thêm listener ở port 443 để chuyển tiếp traffic đến target group HTTPS.",
+      "usage": "ALB listener rule · path-based routing · host-based routing",
+      "japfa": "ALB jap-alb-pd-01 có listener 443 định tuyến theo path đến các service WMS/Sales/CRM khác nhau"
+    }
+  ],
+  "services": [
+    {
+      "name": "ALB",
+      "full": "Application Load Balancer",
+      "category": "networking",
+      "icon": "⚖️",
+      "what": "Load balancer tầng Layer 7 (HTTP/HTTPS) — hỗ trợ định tuyến theo path, host, header; tích hợp WAF.",
+      "when": "Web app, API, microservices cần định tuyến thông minh theo nội dung request",
+      "key_points": ["Layer 7 — hiểu được path/host/header của HTTP request", "Path-based routing: /api/* → target group A, /app/* → target group B", "Tích hợp trực tiếp AWS WAF để lọc tầng ứng dụng", "Health check tự động loại target lỗi khỏi vòng quay traffic"],
+      "japfa": true,
+      "japfa_detail": "jap-alb-pd-01 (account 428207183585) — ALB chạy WMS/Sales/Cash Collection, phía trước là AWS WAF"
+    },
+    {
+      "name": "Auto Scaling Group",
+      "full": "EC2 Auto Scaling Group (ASG)",
+      "category": "compute",
+      "icon": "📈",
+      "what": "Tự động điều chỉnh số lượng EC2 instance theo tải thực tế hoặc lịch định sẵn, đảm bảo luôn có đủ capacity.",
+      "when": "Workload có tải biến động, cần tự phục hồi khi instance lỗi (self-healing)",
+      "key_points": ["Min / Desired / Max capacity — 3 thông số cấu hình cốt lõi", "Scaling policy: Target Tracking (VD giữ CPU ~50%), Step Scaling, Scheduled", "Tự động thay instance unhealthy (dựa trên ALB health check hoặc EC2 status check)", "Kết hợp Launch Template để định nghĩa AMI/instance type khi scale ra"],
+      "japfa": true,
+      "japfa_detail": "S250-Webapps hiện KHÔNG có ASG (chỉ 1 instance, không Multi-AZ) — nếu instance lỗi phải launch thủ công từ AMI backup"
+    },
+    {
+      "name": "Target Group Health Check",
+      "full": "ALB Target Group Health Check",
+      "category": "networking",
+      "icon": "❤️‍🩹",
+      "what": "Cơ chế ALB tự kiểm tra định kỳ (HTTP GET tới path cấu hình) để biết target còn phục vụ được request hay không.",
+      "when": "Luôn nên cấu hình cho mọi target group — là điều kiện để ALB + ASG hoạt động self-healing",
+      "key_points": ["Healthy threshold / Unhealthy threshold: số lần check liên tiếp để đổi trạng thái", "Interval: khoảng cách giữa 2 lần check (giây)", "Path nên trỏ tới 1 endpoint nhẹ, không phụ thuộc DB nặng", "Unhealthy target bị loại khỏi traffic NHƯNG instance vẫn chạy (khác với ASG terminate)"],
+      "japfa": true,
+      "japfa_detail": "Bước đầu tiên trong Failover Playbook của Japfa khi nghi ngờ EC2 lỗi: kiểm tra ALB target health trên CloudWatch dashboard"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "ALB Routing — định tuyến thông minh theo nội dung request",
+      "icon": "🧭",
+      "body": "Vì ALB hoạt động ở Layer 7, nó có thể đọc được path, host header, HTTP header để quyết định gửi traffic tới target group nào — điều mà load balancer Layer 4 (NLB) không làm được.",
+      "diagram": "  Client → ALB (listener :443)\n              │\n    ┌─────────┼─────────┐\n    │         │         │\n  /wms/*   /sales/*  /cash/*\n    │         │         │\n    ▼         ▼         ▼\n  TG-WMS   TG-Sales   TG-Cash\n  (EC2)     (EC2)      (EC2)",
+      "exam_tip": "SAA: 'nhiều microservice dùng chung 1 domain, khác path' → ALB path-based routing, KHÔNG cần nhiều load balancer riêng.",
+      "japfa": "jap-alb-pd-01 dùng đúng mô hình này: 1 ALB, nhiều target group cho WMS/Sales/Cash Collection theo path khác nhau"
+    },
+    {
+      "title": "Auto Scaling + ALB = High Availability tự động",
+      "icon": "🔁",
+      "body": "ALB và ASG hoạt động cùng nhau: ALB phát hiện target lỗi qua health check → báo hiệu; ASG dựa vào đó (hoặc metric CloudWatch) để terminate instance lỗi và launch instance mới thay thế.",
+      "diagram": "  Instance bị lỗi\n    │\n    ▼\n  ALB health check FAIL liên tiếp (unhealthy threshold)\n    │\n    ▼\n  ALB ngừng gửi traffic tới instance đó\n    │\n    ▼\n  ASG phát hiện qua health check → terminate instance lỗi\n    │\n    ▼\n  ASG launch instance mới từ Launch Template → tự đăng ký vào Target Group",
+      "exam_tip": "Đây là lý do SAA luôn khuyến nghị chạy tối thiểu 2 instance qua ASG + ALB thay vì 1 instance đơn — tự phục hồi mà không cần con người can thiệp.",
+      "japfa": "Đây chính là gap hiện tại của S250-Webapps: chỉ 1 instance, chưa có ASG → nếu lỗi phải launch AMI thủ công (không tự phục hồi)"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "ALB (Application Load Balancer) hoạt động ở tầng nào trong mô hình OSI?",
+      "options": [
+        "Layer 3 (Network)",
+        "Layer 4 (Transport)",
+        "Layer 7 (Application) — hiểu được path/host/header của HTTP",
+        "Layer 2 (Data Link)"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "ALB hoạt động ở Layer 7, cho phép định tuyến dựa trên nội dung HTTP request (path, host header, HTTP header) — khác với NLB (Layer 4, chỉ dựa vào IP/port, hiệu năng cao hơn nhưng không 'hiểu' nội dung request)."
+    },
+    {
+      "id": 2,
+      "question": "Health check của Target Group dùng để làm gì?",
+      "options": [
+        "Mã hóa traffic giữa ALB và target",
+        "Tự động kiểm tra target còn phục vụ được request không, loại target lỗi khỏi vòng quay traffic",
+        "Tính chi phí sử dụng của từng target",
+        "Backup dữ liệu của target"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Health check gửi request định kỳ (thường là HTTP GET) tới 1 path cấu hình sẵn. Nếu target fail liên tiếp đủ số lần (unhealthy threshold), ALB sẽ ngừng gửi traffic tới target đó cho tới khi nó khỏe lại."
+    },
+    {
+      "id": 3,
+      "question": "3 thông số cấu hình cốt lõi của Auto Scaling Group là gì?",
+      "options": [
+        "CPU, RAM, Disk",
+        "Min, Desired, Max capacity",
+        "Region, AZ, Subnet",
+        "Public IP, Private IP, DNS"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Auto Scaling Group luôn cấu hình 3 thông số: Minimum (số instance tối thiểu luôn chạy), Desired (số instance mong muốn hiện tại), Maximum (giới hạn trên khi scale out) — đây là kiến thức nền tảng gần như chắc chắn xuất hiện trong đề thi."
+    },
+    {
+      "id": 4,
+      "question": "Vì sao chạy 1 instance đơn (không ASG, không Multi-AZ) được coi là rủi ro trong kiến trúc production?",
+      "options": [
+        "Vì AWS giới hạn 1 instance chỉ chạy được 24 giờ",
+        "Vì nếu instance đó lỗi/AZ gặp sự cố, ứng dụng downtime hoàn toàn — không có cơ chế tự phục hồi",
+        "Vì 1 instance đơn không thể gắn Elastic IP",
+        "Vì AWS tính phí cao hơn cho instance đơn lẻ"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Không có ASG/Multi-AZ nghĩa là single point of failure (SPOF) — nếu instance hoặc cả AZ đó gặp sự cố, không có instance dự phòng nào thay thế ngay, gây downtime cho tới khi con người can thiệp thủ công (VD: launch lại từ AMI)."
+    },
+    {
+      "id": 5,
+      "question": "Path-based routing trên ALB cho phép làm gì?",
+      "options": [
+        "Mã hóa riêng cho từng path",
+        "Định tuyến traffic tới các target group khác nhau tùy theo path của URL (VD: /api/* và /app/*)",
+        "Giới hạn tốc độ truy cập theo path",
+        "Chỉ hoạt động với target group loại Lambda"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Path-based routing cho phép 1 ALB duy nhất định tuyến nhiều nhóm request khác nhau (theo URL path) tới các target group riêng biệt — hữu ích khi nhiều service/microservice dùng chung 1 domain nhưng khác backend."
+    }
+  ]
+}

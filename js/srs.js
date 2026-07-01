@@ -7,12 +7,17 @@ const SRS_KEY = 'aws_srs_v1';
 function getSRS() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } }
 function saveSRS(d) { localStorage.setItem(SRS_KEY, JSON.stringify(d)); }
 
-function todayStr() { return new Date().toISOString().slice(0, 10); }
+// Local calendar date — KHÔNG dùng toISOString() (UTC), lệch ngày ở giờ VN 00:00-06:59
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
 
 function addDays(dateStr, n) {
-  const d = new Date(dateStr + 'T00:00:00');
-  d.setDate(d.getDate() + n);
-  return d.toISOString().slice(0, 10);
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + n);
+  return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, '0')}-${String(dt.getUTCDate()).padStart(2, '0')}`;
 }
 
 // quality: 0=total fail, 1=wrong, 2=wrong but easy, 3=correct hard, 4=correct, 5=perfect

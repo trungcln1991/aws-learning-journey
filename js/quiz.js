@@ -7,7 +7,18 @@ function getProgress() { try { return JSON.parse(localStorage.getItem(STORAGE_KE
 function saveProgress(p) { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
 function getSRS() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } }
 function saveSRS(d) { localStorage.setItem(SRS_KEY, JSON.stringify(d)); }
-function todayStr() { return new Date().toISOString().slice(0, 10); }
+// Local calendar date (khớp với main.js/lesson.js) — KHÔNG dùng toISOString()
+// vì đó là giờ UTC, lệch với giờ VN đặc biệt trong khung 00:00-06:59
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function addDaysStr(dateStr, delta) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + delta);
+  return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, '0')}-${String(dt.getUTCDate()).padStart(2, '0')}`;
+}
 
 // ===== WEB SPEECH TTS =====
 function speak(text, rate, btn) {
@@ -47,8 +58,7 @@ function sm2Update(cardId, quality) {
   } else {
     card.reps = 0; card.interval = 1;
   }
-  const due = new Date(todayStr()+'T00:00:00'); due.setDate(due.getDate() + card.interval);
-  card.due = due.toISOString().slice(0, 10);
+  card.due = addDaysStr(todayStr(), card.interval);
   card.lastReviewed = todayStr();
   db[cardId] = card;
   saveSRS(db);
@@ -79,7 +89,7 @@ async function loadAllCompletedLessons() {
 }
 async function loadAllAvailableLessons() {
   const meta = await loadMeta();
-  const today = new Date().toISOString().slice(0,10);
+  const today = todayStr();
   const available = meta.lessons.filter(l => l.date <= today);
   const results = await Promise.all(available.map(l => loadLesson(l.date)));
   return results.filter(Boolean);
@@ -498,7 +508,7 @@ function showResults() {
 
   // Save to progress
   const progress = getProgress();
-  const today = new Date().toISOString().slice(0,10);
+  const today = todayStr();
   if (!progress.quizHistory) progress.quizHistory = [];
   progress.quizHistory.push({ date: today, mode: mode.id, score: correct, total, enScore: enCorrect, enTotal: enScores.length, awsScore: awsCorrect, awsTotal: awsScores.length });
   if (progress.quizHistory.length > 50) progress.quizHistory = progress.quizHistory.slice(-50);

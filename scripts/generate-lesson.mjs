@@ -21,8 +21,13 @@ const COUNT = parseInt(process.argv.find((a, i, arr) => arr[i-1] === '--count') 
 const curriculum = JSON.parse(readFileSync(resolve(__dir, 'curriculum.json'), 'utf8'));
 const meta = JSON.parse(readFileSync(resolve(root, 'lessons/meta.json'), 'utf8'));
 
-// Find next lessons to generate
-const existingDays = new Set(meta.lessons.map(l => l.day));
+// Find next lessons to generate — dựa vào FILE nội dung thật đã tồn tại, không chỉ dựa vào
+// việc "day" có mặt trong meta.json. meta.json có thể chứa placeholder (day + date đã khai báo)
+// nhưng chưa từng sinh file lessons/<date>.json — nếu chỉ check meta.lessons thì các ngày này
+// bị coi là "đã xong" và bị bỏ qua VĨNH VIỄN, dẫn tới bài học không bao giờ được tạo nội dung.
+const metaByDay = new Map(meta.lessons.map(l => [l.day, l]));
+const hasContent = (l) => existsSync(resolve(root, `lessons/${l.date}.json`));
+const existingDays = new Set(meta.lessons.filter(hasContent).map(l => l.day));
 const nextTopics = curriculum.topics.filter(t => !existingDays.has(t.day)).slice(0, COUNT);
 
 if (!nextTopics.length) {
@@ -33,11 +38,14 @@ if (!nextTopics.length) {
 console.log(`Generating ${nextTopics.length} lessons: ${nextTopics.map(t => t.title).join(', ')}`);
 
 // Find next lesson date (skip weekends, continue from last lesson)
+// Tính hoàn toàn theo UTC nội bộ để không phụ thuộc timezone máy chạy script
+// (tránh lặp lại bug cũ: tạo Date theo giờ local rồi toISOString() làm lệch ngày)
 function nextLessonDate(lastDateStr) {
-  const d = new Date(lastDateStr + 'T00:00:00');
-  d.setDate(d.getDate() + 1);
-  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
-  return d.toISOString().slice(0, 10);
+  const [y, m, d] = lastDateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + 1);
+  while (dt.getUTCDay() === 0 || dt.getUTCDay() === 6) dt.setUTCDate(dt.getUTCDate() + 1);
+  return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, '0')}-${String(dt.getUTCDate()).padStart(2, '0')}`;
 }
 
 // Build the JSON schema prompt
@@ -148,8 +156,11 @@ let lastDate = meta.lessons.at(-1)?.date || new Date().toISOString().slice(0,10)
 const newLessons = [];
 
 for (const topic of nextTopics) {
-  const lessonDate = nextLessonDate(lastDate);
-  console.log(`\n→ Generating Day ${topic.day}: ${topic.title} (${lessonDate})`);
+  // Nếu day này đã có placeholder trong meta.json (thiếu file nội dung) thì dùng lại đúng ngày
+  // đã khai báo — không gán ngày mới, tránh tạo 2 bài trùng ngày hoặc lệch lịch đã công bố.
+  const placeholder = metaByDay.get(topic.day);
+  const lessonDate = placeholder ? placeholder.date : nextLessonDate(lastDate);
+  console.log(`\n→ Generating Day ${topic.day}: ${topic.title} (${lessonDate})${placeholder ? ' [backfill placeholder]' : ''}`);
 
   try {
     const prompt = buildPrompt(topic, lessonDate);
@@ -169,22 +180,23 @@ for (const topic of nextTopics) {
     writeFileSync(filePath, JSON.stringify(lesson, null, 2), 'utf8');
     console.log(`  ✅ Saved: lessons/${lessonDate}.json`);
 
-    // Add to meta
-    newLessons.push({
-      date: lessonDate,
-      day: topic.day,
-      title: topic.title,
-      subtitle: topic.subtitle,
-      category: topic.category,
-      week: topic.week,
-      month: topic.month,
-      color: topic.color,
-      emoji: topic.emoji,
-      vocab_count: lesson.vocabulary.length,
-      service_count: lesson.services.length
-    });
-
-    lastDate = lessonDate;
+    // Add to meta — chỉ khi day này CHƯA có entry sẵn (backfill placeholder thì đã có rồi)
+    if (!placeholder) {
+      newLessons.push({
+        date: lessonDate,
+        day: topic.day,
+        title: topic.title,
+        subtitle: topic.subtitle,
+        category: topic.category,
+        week: topic.week,
+        month: topic.month,
+        color: topic.color,
+        emoji: topic.emoji,
+        vocab_count: lesson.vocabulary.length,
+        service_count: lesson.services.length
+      });
+      lastDate = lessonDate;
+    }
 
     // Rate limit: wait 2s between calls
     if (nextTopics.indexOf(topic) < nextTopics.length - 1) {

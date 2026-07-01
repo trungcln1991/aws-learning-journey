@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-04",
+  "day": 4, "week": 1, "month": 1,
+  "title": "S3 & Storage Classes",
+  "subtitle": "Bucket · Object · Lifecycle",
+  "category": "Storage",
+  "color": "#A9700A",
+  "emoji": "📦",
+  "vocabulary": [
+    {
+      "word": "bucket",
+      "ipa": "/ˈbʌk.ɪt/",
+      "ipa_guide": "Đọc: BẮ-kịt",
+      "type": "danh từ",
+      "meaning": "'thùng chứa' — container cấp cao nhất trong S3, chứa object bên trong",
+      "example_en": "Create a bucket in ap-southeast-1 to store the backup files.",
+      "example_vi": "Tạo 1 bucket ở ap-southeast-1 để lưu file backup.",
+      "usage": "S3 · CloudTrail logs · Static website hosting",
+      "japfa": "jp:cloudtrail (262252231729) có bucket S3 trung tâm gom CloudTrail log của cả Organization"
+    },
+    {
+      "word": "object",
+      "ipa": "/ˈɒb.dʒɪkt/",
+      "ipa_guide": "Đọc: ÓP-jịct",
+      "type": "danh từ",
+      "meaning": "1 file bất kỳ lưu trong S3 (data + metadata + key) — không có khái niệm thư mục thật",
+      "example_en": "Each object in S3 can be up to 5TB in size.",
+      "example_vi": "Mỗi object trong S3 có thể lớn tới 5TB.",
+      "usage": "S3 object key · Versioning · Object Lock",
+      "japfa": "Log CloudTrail của mỗi account được ghi thành object riêng, key có prefix theo account ID + ngày"
+    },
+    {
+      "word": "versioning",
+      "ipa": "/ˈvɜː.ʃən.ɪŋ/",
+      "ipa_guide": "Đọc: VƠ-shần-ing",
+      "type": "danh từ",
+      "meaning": "tính năng giữ lại nhiều phiên bản của cùng 1 object khi bị ghi đè/xóa",
+      "example_en": "Enable versioning before syncing backups so accidental overwrites can be recovered.",
+      "example_vi": "Bật versioning trước khi sync backup để phục hồi được nếu lỡ ghi đè.",
+      "usage": "Backup strategy · Ransomware protection · Compliance",
+      "japfa": "Quy tắc backup Japfa: verify versioning bật trước khi aws s3 sync sang bucket backup"
+    },
+    {
+      "word": "lifecycle rule",
+      "ipa": "/ˈlaɪf.saɪ.kəl ruːl/",
+      "ipa_guide": "Đọc: LÁP-sai-cồ rul",
+      "type": "cụm từ",
+      "meaning": "quy tắc tự động chuyển object sang storage class rẻ hơn hoặc xóa sau X ngày",
+      "example_en": "Set a lifecycle rule to move logs to Glacier after 90 days.",
+      "example_vi": "Đặt lifecycle rule để chuyển log sang Glacier sau 90 ngày.",
+      "usage": "Cost optimization · Log retention · Compliance",
+      "japfa": "CloudTrail log lâu năm nên có lifecycle rule chuyển Glacier — giảm chi phí S3 archive"
+    },
+    {
+      "word": "durability",
+      "ipa": "/ˌdjʊə.rəˈbɪl.ə.ti/",
+      "ipa_guide": "Đọc: đìu-rờ-BÍL-lờ-ti",
+      "type": "danh từ",
+      "meaning": "độ bền/khả năng không mất dữ liệu — S3 Standard có 99.999999999% (11 số 9)",
+      "example_en": "S3 offers 11 nines of durability by replicating data across multiple AZs.",
+      "example_vi": "S3 có độ bền 11 số 9 nhờ replicate dữ liệu qua nhiều AZ.",
+      "usage": "S3 Standard · S3 IA · so sánh với availability (khác concept)",
+      "japfa": "Khác với EC2 (chỉ có snapshot weekly) — S3 tự động bền vững hơn nhiều nhờ multi-AZ replication"
+    }
+  ],
+  "services": [
+    {
+      "name": "S3",
+      "full": "Simple Storage Service",
+      "category": "storage",
+      "icon": "📦",
+      "what": "Object storage — lưu file bất kỳ (log, backup, ảnh, static website) dưới dạng key-value, không giới hạn dung lượng tổng.",
+      "when": "Backup, log archive (CloudTrail/ALB access log), static website hosting, data lake",
+      "key_points": ["Bucket name phải unique toàn cầu (global namespace)", "Object key = đường dẫn ảo, không phải thư mục thật", "Mặc định private — phải cấu hình Bucket Policy/ACL để public", "Server-side encryption (SSE-S3/SSE-KMS) nên bật mặc định"],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail (262252231729) dùng S3 làm Log Archive trung tâm cho toàn bộ Organization CloudTrail"
+    },
+    {
+      "name": "S3 Glacier",
+      "full": "S3 Glacier / Glacier Deep Archive",
+      "category": "storage",
+      "icon": "🧊",
+      "what": "Storage class giá rẻ nhất cho dữ liệu ít truy cập — đánh đổi bằng thời gian retrieve chậm (phút đến giờ).",
+      "when": "Log/backup lưu trữ dài hạn theo compliance, dữ liệu gần như không bao giờ đọc lại",
+      "key_points": ["Glacier Instant Retrieval: truy xuất ngay, rẻ hơn Standard", "Glacier Flexible Retrieval: vài phút–giờ, rẻ hơn nữa", "Glacier Deep Archive: 12 giờ, rẻ nhất, cho compliance 7-10 năm", "Retrieve sớm trước thời gian cam kết bị tính phí phạt"],
+      "japfa": true,
+      "japfa_detail": "Ứng viên tốt cho CloudTrail log cũ (>90 ngày) của Japfa — hiện chưa có lifecycle rule, còn để nguyên S3 Standard"
+    },
+    {
+      "name": "S3 Lifecycle",
+      "full": "S3 Lifecycle Configuration",
+      "category": "storage",
+      "icon": "♻️",
+      "what": "Bộ quy tắc tự động: chuyển storage class hoặc xóa object sau N ngày, áp dụng theo prefix/tag.",
+      "when": "Tối ưu chi phí log/backup lâu năm mà không cần thao tác thủ công",
+      "key_points": ["Transition action: chuyển class (VD: Standard → IA sau 30 ngày → Glacier sau 90 ngày)", "Expiration action: xóa hẳn sau N ngày", "Áp dụng riêng cho từng prefix (VD: chỉ logs/ folder)", "Kết hợp Versioning: có thể set rule riêng cho old version"],
+      "japfa": false,
+      "japfa_detail": ""
+    }
+  ],
+  "concepts": [
+    {
+      "title": "S3 Storage Classes — chọn đúng class theo tần suất truy cập",
+      "icon": "🗂️",
+      "body": "S3 có nhiều storage class, khác nhau ở giá lưu trữ, giá truy xuất, và độ trễ retrieve. Nguyên tắc: truy cập càng ít thường xuyên thì chọn class càng rẻ.",
+      "diagram": "  S3 Standard        → truy cập thường xuyên, latency ms, đắt nhất\n  S3 Standard-IA      → truy cập <1 lần/tháng, phí retrieve\n  S3 One Zone-IA      → như IA nhưng chỉ 1 AZ (rẻ hơn, rủi ro hơn)\n  S3 Intelligent-Tiering → AWS tự động chuyển class theo pattern truy cập\n  S3 Glacier Instant   → archive nhưng cần đọc ngay lập tức\n  S3 Glacier Flexible  → archive, chờ vài phút–giờ\n  S3 Glacier Deep Archive → archive lâu năm, chờ 12 giờ, rẻ nhất",
+      "exam_tip": "SAA hay hỏi tình huống 'access pattern không rõ' → chọn Intelligent-Tiering. 'Compliance giữ 7 năm, gần như không đọc' → Glacier Deep Archive.",
+      "japfa": "CloudTrail log Japfa hiện toàn bộ nằm ở S3 Standard — chưa tối ưu, có thể set lifecycle chuyển IA/Glacier sau 90 ngày"
+    },
+    {
+      "title": "Versioning + Lifecycle — bảo vệ dữ liệu backup",
+      "icon": "🛡️",
+      "body": "Versioning giữ lại bản cũ khi object bị ghi đè hoặc xóa (chỉ đánh dấu delete marker, không mất data thật). Kết hợp lifecycle rule để tự dọn version cũ, tránh phí tăng vô hạn.",
+      "diagram": "  Bật Versioning\n    │\n    ├── Ghi đè object → bản cũ vẫn còn (version ID khác)\n    ├── Xóa object → chỉ thêm 'delete marker', bản gốc vẫn còn\n    └── Cần dọn dẹp → Lifecycle rule: xóa non-current version sau N ngày",
+      "exam_tip": "Không thể tắt Versioning hoàn toàn sau khi bật — chỉ có thể 'Suspend'. Đây là điểm hay bị đánh lừa trong đề thi.",
+      "japfa": "Quy tắc backup S3 của Japfa: LUÔN verify versioning đã bật trước khi chạy aws s3 sync để tránh mất dữ liệu do ghi đè nhầm"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "S3 Standard cung cấp độ bền (durability) bao nhiêu?",
+      "options": [
+        "99.9%",
+        "99.99%",
+        "99.999999999% (11 số 9)",
+        "100% tuyệt đối"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "S3 (mọi storage class trừ One Zone-IA) cam kết 11 số 9 durability nhờ tự động replicate object qua tối thiểu 3 Availability Zone. Đây là con số hay xuất hiện trong đề thi SAA."
+    },
+    {
+      "id": 2,
+      "question": "Tình huống: log cần lưu 7 năm theo compliance, gần như không bao giờ đọc lại. Storage class nào tối ưu chi phí nhất?",
+      "options": [
+        "S3 Standard",
+        "S3 Standard-IA",
+        "S3 Intelligent-Tiering",
+        "S3 Glacier Deep Archive"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "explanation": "Glacier Deep Archive rẻ nhất trong tất cả storage class, phù hợp dữ liệu compliance lưu dài hạn, gần như không truy cập. Đánh đổi là thời gian retrieve tới 12 giờ — chấp nhận được vì gần như không bao giờ cần đọc gấp."
+    },
+    {
+      "id": 3,
+      "question": "Khi xóa 1 object trong bucket đã bật Versioning, điều gì xảy ra?",
+      "options": [
+        "Object bị xóa vĩnh viễn ngay lập tức",
+        "AWS thêm 1 'delete marker', bản gốc vẫn còn và có thể khôi phục",
+        "Toàn bộ bucket bị khóa",
+        "Versioning tự động tắt"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Với Versioning bật, thao tác DELETE chỉ tạo ra 1 'delete marker' làm object trở thành 'không hiển thị' ở phiên bản mới nhất — dữ liệu gốc vẫn còn trong các version cũ, có thể khôi phục bằng cách xóa delete marker đó."
+    },
+    {
+      "id": 4,
+      "question": "S3 bucket name có đặc điểm gì đặc biệt so với tên tài nguyên khác trên AWS?",
+      "options": [
+        "Chỉ cần unique trong 1 account",
+        "Chỉ cần unique trong 1 region",
+        "Phải unique trên TOÀN CẦU (global namespace)",
+        "Không cần unique, AWS tự thêm hậu tố"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "Tên bucket S3 nằm trong 1 namespace dùng chung cho TẤT CẢ khách hàng AWS trên toàn cầu — nếu tên đã có người dùng (ở bất kỳ account/region nào) thì không thể tạo trùng."
+    },
+    {
+      "id": 5,
+      "question": "Lifecycle rule trong S3 dùng để làm gì?",
+      "options": [
+        "Mã hóa dữ liệu tự động",
+        "Tự động chuyển storage class hoặc xóa object sau N ngày để tối ưu chi phí",
+        "Backup object sang region khác",
+        "Giới hạn số lượng object trong bucket"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Lifecycle rule cho phép định nghĩa hành động tự động theo thời gian: chuyển class (transition, VD Standard → IA → Glacier) hoặc xóa hẳn (expiration), áp dụng theo prefix/tag — giúp tối ưu chi phí lưu trữ dài hạn mà không cần thao tác thủ công."
+    }
+  ]
+}

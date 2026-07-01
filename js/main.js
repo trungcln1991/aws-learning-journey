@@ -16,6 +16,15 @@ function getTodayStr() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
+// Timezone-safe: tính hoàn toàn bằng UTC nội bộ, không đi qua giờ local
+// (toISOString() sau khi tạo Date theo giờ local sẽ lùi thêm 1 ngày ở múi UTC+7)
+function addDaysStr(dateStr, delta) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + delta);
+  return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, '0')}-${String(dt.getUTCDate()).padStart(2, '0')}`;
+}
+
 function calcStreak(progress) {
   // Use doneOn (actual completion dates) for streak; fall back to scores keys for legacy data
   const completed = Object.keys(progress.doneOn || progress.scores || {}).sort();
@@ -25,8 +34,7 @@ function calcStreak(progress) {
   for (let i = 0; i < 365; i++) {
     if (completed.includes(check)) { streak++; }
     else if (check !== today) { break; }
-    const d = new Date(check + 'T00:00:00'); d.setDate(d.getDate() - 1);
-    check = d.toISOString().slice(0, 10);
+    check = addDaysStr(check, -1);
   }
   return streak;
 }
@@ -155,10 +163,15 @@ async function initDashboard() {
   // japfa activity suggestion
   renderJapfaSuggest(meta);
 
-  // weekly calendar (last 7 lessons)
+  // weekly calendar — cửa sổ 7 bài trượt theo ngày hiện tại, không cố định Ngày 1-7
   const weekGrid = document.getElementById('week-grid');
   weekGrid.innerHTML = '';
-  const recentLessons = meta.lessons.slice(0, 7);
+  const todayIdx = meta.lessons.findIndex(l => l.date >= today);
+  const centerIdx = todayIdx === -1 ? meta.lessons.length - 1 : todayIdx;
+  let winStart = Math.max(0, centerIdx - 3);
+  let winEnd = Math.min(meta.lessons.length, winStart + 7);
+  winStart = Math.max(0, winEnd - 7);
+  const recentLessons = meta.lessons.slice(winStart, winEnd);
   recentLessons.forEach(lesson => {
     const done = completedDates.includes(lesson.date);
     const isToday = lesson.date === today;

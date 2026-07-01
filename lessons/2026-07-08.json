@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-08",
+  "day": 6, "week": 2, "month": 1,
+  "title": "Security Groups & NACL",
+  "subtitle": "Stateful vs Stateless",
+  "category": "Security",
+  "color": "#C32D1A",
+  "emoji": "🛡️",
+  "vocabulary": [
+    {
+      "word": "security group",
+      "ipa": "/sɪˈkjʊər.ə.ti ɡruːp/",
+      "ipa_guide": "Đọc: si-KIU-rờ-ti GRÚP",
+      "type": "cụm từ",
+      "meaning": "firewall ảo gắn ở tầng instance (ENI), chỉ có rule ALLOW, mặc định deny tất cả",
+      "example_en": "Attach the security group to the RDS instance to allow traffic only from the app tier.",
+      "example_vi": "Gắn security group vào RDS instance để chỉ cho phép traffic từ app tier.",
+      "usage": "EC2 · RDS · ALB · mọi resource có ENI",
+      "japfa": "Best practice Japfa: ưu tiên SG reference (SG-to-SG) hoặc Prefix List thay vì mở CIDR/0.0.0.0/0"
+    },
+    {
+      "word": "NACL",
+      "ipa": "/ˈnæk.əl/",
+      "ipa_guide": "Đọc: NÁC-cồ (viết tắt Network ACL)",
+      "type": "danh từ",
+      "meaning": "firewall ảo gắn ở tầng subnet, có cả rule ALLOW và DENY, xử lý theo thứ tự số rule",
+      "example_en": "Use a NACL to explicitly deny a malicious IP range at the subnet level.",
+      "example_vi": "Dùng NACL để deny hẳn 1 dải IP độc hại ở tầng subnet.",
+      "usage": "Subnet-level filtering · Block IP cụ thể (SG không làm được việc này)",
+      "japfa": "NACL ít được Japfa chỉnh tay — chủ yếu giữ default allow-all, lọc chính vẫn ở Security Group + FortiGate"
+    },
+    {
+      "word": "stateful",
+      "ipa": "/ˈsteɪt.fəl/",
+      "ipa_guide": "Đọc: STÊT-phồ",
+      "type": "tính từ",
+      "meaning": "tự động cho phép traffic phản hồi (response) mà không cần rule outbound riêng — đặc điểm của Security Group",
+      "example_en": "Security Groups are stateful, so a reply to an allowed inbound request is automatically permitted.",
+      "example_vi": "Security Group là stateful nên traffic phản hồi của 1 request được cho phép sẽ tự động được chấp nhận.",
+      "usage": "Security Group behavior — điểm phân biệt quan trọng với NACL",
+      "japfa": "Vì SG stateful nên khi mở inbound port 443 cho ALB, không cần thêm rule outbound cho traffic trả về"
+    },
+    {
+      "word": "stateless",
+      "ipa": "/ˈsteɪt.ləs/",
+      "ipa_guide": "Đọc: STÊT-lợt",
+      "type": "tính từ",
+      "meaning": "phải khai báo rule riêng cho cả inbound và outbound — traffic phản hồi KHÔNG tự động được cho phép",
+      "example_en": "NACLs are stateless, so you must add an outbound rule for the response traffic too.",
+      "example_vi": "NACL là stateless nên phải thêm rule outbound riêng cho cả traffic phản hồi.",
+      "usage": "NACL behavior — dễ gây lỗi thiếu rule outbound nếu quên",
+      "japfa": "Đây là lý do team hạ tầng thường tránh custom NACL — dễ quên rule outbound gây mất kết nối khó debug"
+    },
+    {
+      "word": "inbound / outbound rule",
+      "ipa": "/ˈɪn.baʊnd/ /ˈaʊt.baʊnd/",
+      "ipa_guide": "Đọc: IN-bao / ÁO-bao",
+      "type": "cụm từ",
+      "meaning": "rule kiểm soát traffic đi VÀO (inbound) hoặc đi RA (outbound) khỏi resource",
+      "example_en": "The default outbound rule allows all traffic, but inbound rules must be added explicitly.",
+      "example_vi": "Rule outbound mặc định cho phép tất cả, nhưng rule inbound phải khai báo rõ ràng.",
+      "usage": "Security Group default: outbound allow-all, inbound deny-all",
+      "japfa": "SG mặc định của Japfa giữ outbound allow-all (chuẩn AWS), chỉ siết chặt phía inbound theo nguyên tắc least privilege"
+    }
+  ],
+  "services": [
+    {
+      "name": "Security Group",
+      "full": "EC2 Security Group",
+      "category": "security",
+      "icon": "🛡️",
+      "what": "Firewall stateful gắn trực tiếp vào ENI của instance/RDS/ALB — chỉ có rule ALLOW, không có DENY.",
+      "when": "Kiểm soát truy cập ở tầng instance — luôn nên là tuyến phòng thủ chính",
+      "key_points": ["Chỉ ALLOW, không có DENY rule (khác NACL)", "Stateful — traffic phản hồi tự động cho phép", "Có thể reference SG khác làm source (SG-to-SG) thay vì CIDR", "1 instance có thể gắn nhiều SG cùng lúc (rule cộng dồn)"],
+      "japfa": true,
+      "japfa_detail": "Nguyên tắc ưu tiên tại Japfa: SG reference > Prefix List > CIDR cụ thể > 0.0.0.0/0 (chỉ dùng khi thực sự cần public)"
+    },
+    {
+      "name": "Network ACL",
+      "full": "Network Access Control List",
+      "category": "security",
+      "icon": "🚧",
+      "what": "Firewall stateless gắn ở tầng subnet — áp dụng cho MỌI instance trong subnet đó, có cả ALLOW và DENY.",
+      "when": "Cần chặn hẳn 1 dải IP cụ thể ở tầng subnet (SG không hỗ trợ deny)",
+      "key_points": ["Rule xử lý theo thứ tự số (rule số nhỏ hơn ưu tiên trước)", "Stateless — phải khai báo cả inbound và outbound", "Default NACL: allow all cả 2 chiều", "Custom NACL: deny all mặc định, phải tự thêm rule"],
+      "japfa": false,
+      "japfa_detail": ""
+    },
+    {
+      "name": "AWS WAF",
+      "full": "Web Application Firewall",
+      "category": "security",
+      "icon": "🧱",
+      "what": "Firewall tầng ứng dụng (Layer 7), lọc theo pattern HTTP request (SQL injection, XSS, rate limit) — khác hẳn SG/NACL (Layer 3/4).",
+      "when": "Bảo vệ ALB/API Gateway/CloudFront khỏi tấn công web phổ biến (OWASP Top 10)",
+      "key_points": ["Gắn vào ALB, API Gateway, hoặc CloudFront", "Rule dựa trên nội dung HTTP request, không chỉ IP/port", "Có Managed Rule Group của AWS (cập nhật threat tự động)", "Rate-based rule để chặn brute-force/DDoS layer 7"],
+      "japfa": true,
+      "japfa_detail": "Kiến trúc Japfa: Internet → AWS WAF → API Gateway/ALB → EC2 S250-Webapps — WAF là lớp lọc đầu tiên trước khi vào hạ tầng"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Security Group vs NACL — bảng so sánh cốt lõi",
+      "icon": "⚖️",
+      "body": "Đây là 1 trong những nội dung bị hỏi nhiều nhất trong đề thi SAA-C03. Nhớ đúng 4 điểm khác biệt là đủ trả lời hầu hết câu hỏi liên quan.",
+      "diagram": "                    SECURITY GROUP        NACL\n  Tầng áp dụng      Instance (ENI)         Subnet\n  Loại rule         Chỉ ALLOW              ALLOW + DENY\n  Trạng thái        Stateful               Stateless\n  Thứ tự rule       Không quan trọng       Theo số thứ tự (nhỏ trước)\n  Đối tượng         1 instance/nhóm ENI    Toàn bộ instance trong subnet",
+      "exam_tip": "Câu hỏi 'cần chặn hẳn 1 IP cụ thể đang tấn công' → luôn là NACL (vì SG không có DENY). Câu hỏi 'kiểm soát truy cập theo instance' → Security Group.",
+      "japfa": "Japfa lọc chính bằng Security Group (SG-to-SG reference) — NACL gần như giữ default, việc chặn IP xấu ở tầng ngoài do FortiGate xử lý"
+    },
+    {
+      "title": "Nguyên tắc chọn Source cho Inbound Rule",
+      "icon": "🎯",
+      "body": "Khi mở 1 inbound rule, nguồn (source) nên ưu tiên theo thứ tự cụ thể → lỏng lẻo, để giảm thiểu bề mặt tấn công (attack surface).",
+      "diagram": "  Ưu tiên nhất  →  SG reference (VD: chỉ SG của ALB được vào SG của EC2)\n                →  Prefix List (nhóm CIDR quản lý tập trung, dễ update)\n                →  CIDR cụ thể (VD: 10.82.0.0/16 — dải nội bộ)\n  Tránh nếu có thể → 0.0.0.0/0 (mở cho toàn internet)",
+      "exam_tip": "SAA hay ra tình huống 'ALB cần gọi vào EC2 backend, không muốn public port đó' → dùng SG reference: inbound rule của EC2 SG trỏ nguồn là ALB's SG.",
+      "japfa": "Đây chính là chuẩn Japfa đang áp dụng: SG ref > Prefix List > CIDR > 0.0.0.0/0 — chỉ mở 0.0.0.0/0 khi bắt buộc (VD: ALB public HTTPS)"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Khác biệt quan trọng nhất giữa Security Group và NACL là gì?",
+      "options": [
+        "Security Group miễn phí còn NACL tính phí",
+        "Security Group là stateful & chỉ ALLOW (tầng instance); NACL là stateless & có cả ALLOW/DENY (tầng subnet)",
+        "NACL nhanh hơn Security Group",
+        "Không có khác biệt, chỉ là 2 tên gọi khác nhau"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Security Group: gắn ở tầng instance (ENI), stateful (tự cho traffic phản hồi), chỉ có rule ALLOW. NACL: gắn ở tầng subnet, stateless (phải khai báo cả 2 chiều), có cả ALLOW và DENY — đây là điểm khác biệt cốt lõi hay được hỏi trong đề thi."
+    },
+    {
+      "id": 2,
+      "question": "Vì sao Security Group được gọi là 'stateful'?",
+      "options": [
+        "Vì nó lưu log mọi kết nối",
+        "Vì traffic phản hồi (response) của 1 request đã được allow sẽ tự động được cho phép, không cần rule outbound riêng",
+        "Vì nó có thể chặn theo trạng thái CPU của instance",
+        "Vì rule của nó không bao giờ thay đổi"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Stateful nghĩa là SG theo dõi trạng thái kết nối: nếu 1 request inbound được allow, response tương ứng tự động được phép đi ra mà không cần thêm rule outbound — khác hẳn NACL (stateless) phải khai báo cả 2 chiều."
+    },
+    {
+      "id": 3,
+      "question": "Cần chặn hẳn 1 dải IP cụ thể đang gửi traffic độc hại tới cả subnet. Nên dùng công cụ nào?",
+      "options": [
+        "Security Group, vì nó xử lý được mọi loại rule",
+        "NACL, vì Security Group không hỗ trợ DENY rule",
+        "Chỉ có thể chặn bằng cách xóa toàn bộ subnet",
+        "AWS không hỗ trợ chặn theo IP"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Security Group CHỈ có rule ALLOW — không thể tạo rule DENY để chặn 1 IP cụ thể. NACL có cả ALLOW và DENY, xử lý theo thứ tự rule, nên là công cụ đúng để chặn hẳn 1 dải IP ở tầng subnet."
+    },
+    {
+      "id": 4,
+      "question": "Best practice khi cấu hình inbound rule cho phép ALB gọi vào EC2 backend là gì?",
+      "options": [
+        "Mở 0.0.0.0/0 cho tiện, sau này tính sau",
+        "Dùng SG reference — trỏ source là Security Group của ALB thay vì CIDR cố định",
+        "Dùng NACL thay vì Security Group",
+        "Không cần rule gì, AWS tự động cho phép"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "SG reference (SG-to-SG) là best practice: inbound rule của EC2 chỉ định source = Security Group của ALB, thay vì IP/CIDR cố định. Cách này tự động cập nhật khi ALB đổi IP, và giảm bề mặt tấn công so với mở CIDR rộng hoặc 0.0.0.0/0."
+    },
+    {
+      "id": 5,
+      "question": "NACL xử lý các rule theo cách nào?",
+      "options": [
+        "Ngẫu nhiên",
+        "Theo thứ tự số rule từ nhỏ đến lớn, dừng lại ngay khi có rule khớp",
+        "Luôn ưu tiên rule DENY trước ALLOW",
+        "Áp dụng tất cả rule cùng lúc rồi cộng dồn kết quả"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "NACL đánh giá rule theo thứ tự số (rule # nhỏ nhất trước), và DỪNG NGAY khi gặp rule đầu tiên khớp với traffic — khác với Security Group nơi tất cả rule ALLOW được gộp lại (không có khái niệm thứ tự)."
+    }
+  ]
+}

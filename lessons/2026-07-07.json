@@ -1,0 +1,186 @@
+{
+  "date": "2026-07-07",
+  "day": 5, "week": 2, "month": 1,
+  "title": "VPC Fundamentals",
+  "subtitle": "Subnet · Route Table · Gateway",
+  "category": "Networking",
+  "color": "#1F5F86",
+  "emoji": "🌐",
+  "vocabulary": [
+    {
+      "word": "subnet",
+      "ipa": "/ˈsʌb.net/",
+      "ipa_guide": "Đọc: SÁP-nét",
+      "type": "danh từ",
+      "meaning": "1 dải IP con nằm trong VPC, gắn với 1 Availability Zone cụ thể",
+      "example_en": "Place the RDS instance in a private subnet, not a public one.",
+      "example_vi": "Đặt RDS instance trong private subnet, không phải public subnet.",
+      "usage": "VPC design · Public/Private subnet · Multi-AZ",
+      "japfa": "jp:network (787309524943) quản lý toàn bộ VPC/subnet của Organization Japfa"
+    },
+    {
+      "word": "route table",
+      "ipa": "/ruːt ˈteɪ.bəl/",
+      "ipa_guide": "Đọc: RÚT TÊ-bồ",
+      "type": "cụm từ",
+      "meaning": "bảng định tuyến — quyết định traffic từ subnet đi đâu (internet, VPC khác, on-premises)",
+      "example_en": "Add a route to the Transit Gateway so traffic can reach on-premises.",
+      "example_vi": "Thêm 1 route trỏ tới Transit Gateway để traffic đến được on-premises.",
+      "usage": "Public route (0.0.0.0/0 → IGW) · Private route (→ NAT/TGW)",
+      "japfa": "Route table Japfa trỏ traffic on-prem qua Transit Gateway hub → VPN tunnel LA/HC"
+    },
+    {
+      "word": "internet gateway",
+      "ipa": "/ˈɪn.tə.net ˈɡeɪt.weɪ/",
+      "ipa_guide": "Đọc: IN-tơ-nét GHÊT-quây",
+      "type": "cụm từ",
+      "meaning": "IGW — cổng nối VPC ra internet, gắn 1-1 với VPC, cho phép public IP hoạt động 2 chiều",
+      "example_en": "A public subnet needs a route to the Internet Gateway to be reachable from outside.",
+      "example_vi": "Public subnet cần route trỏ tới Internet Gateway thì mới truy cập được từ bên ngoài.",
+      "usage": "Public subnet · ALB internet-facing · Bastion host",
+      "japfa": "ALB public của Japfa (S250-Webapps) nằm ở public subnet có route tới IGW"
+    },
+    {
+      "word": "NAT gateway",
+      "ipa": "/næt ˈɡeɪt.weɪ/",
+      "ipa_guide": "Đọc: NAT GHÊT-quây",
+      "type": "cụm từ",
+      "meaning": "cho phép instance ở private subnet ra internet (VD: tải update) nhưng internet KHÔNG khởi tạo kết nối vào được",
+      "example_en": "Put a NAT Gateway in the public subnet so private instances can download patches.",
+      "example_vi": "Đặt NAT Gateway ở public subnet để instance private tải được bản vá.",
+      "usage": "Private subnet cần outbound internet · Windows Update · yum/apt update",
+      "japfa": "EC2 private (RDS Oracle, backend services) cần NAT Gateway để patch OS mà không public trực tiếp"
+    },
+    {
+      "word": "CIDR block",
+      "ipa": "/ˈsaɪ.dər blɒk/",
+      "ipa_guide": "Đọc: SAI-đờ BLỐC",
+      "type": "cụm từ",
+      "meaning": "dải địa chỉ IP viết dạng x.x.x.x/n — càng /n lớn thì dải IP càng nhỏ",
+      "example_en": "The VPC uses a /16 CIDR block, split into several /24 subnets.",
+      "example_vi": "VPC dùng CIDR /16, chia thành nhiều subnet /24.",
+      "usage": "VPC sizing · Subnet planning · tránh trùng CIDR khi peering/TGW",
+      "japfa": "CIDR các VPC Japfa được jp:network quy hoạch để không trùng nhau — bắt buộc khi nối qua Transit Gateway"
+    }
+  ],
+  "services": [
+    {
+      "name": "VPC",
+      "full": "Virtual Private Cloud",
+      "category": "networking",
+      "icon": "🌐",
+      "what": "Mạng ảo riêng biệt, cô lập logic trong AWS — nơi đặt EC2, RDS, ALB và toàn bộ tài nguyên network.",
+      "when": "Mọi workload cần network riêng, kiểm soát IP range, subnet, routing",
+      "key_points": ["1 VPC nằm trong 1 region, span nhiều AZ qua subnet", "Mặc định mỗi account có 1 Default VPC (nên dùng VPC tự tạo cho production)", "VPC Peering / Transit Gateway để nối nhiều VPC", "Security ở 2 tầng: Security Group (instance) + NACL (subnet)"],
+      "japfa": true,
+      "japfa_detail": "jp:network là account trung tâm quản lý VPC, subnet, Transit Gateway hub, VPN on-premises của toàn Organization"
+    },
+    {
+      "name": "Transit Gateway",
+      "full": "AWS Transit Gateway (TGW)",
+      "category": "networking",
+      "icon": "🔀",
+      "what": "Hub trung tâm kết nối nhiều VPC + kết nối VPN on-premises, thay vì phải Peering từng cặp VPC (mesh phức tạp).",
+      "when": "Nhiều account/VPC cần thông nhau + nối on-premises qua VPN/Direct Connect",
+      "key_points": ["Mô hình hub-and-spoke thay vì full-mesh peering", "Chia sẻ qua nhiều account bằng RAM (Resource Access Manager)", "Route table riêng cho từng attachment — kiểm soát ai thấy ai", "Kết hợp VPN tunnel để nối on-premises (FortiGate)"],
+      "japfa": true,
+      "japfa_detail": "Transit Gateway hub tại jp:network nối các VPC (prod/uat/poc) + VPN tunnel tới FortiGate Long An & Hương Canh"
+    },
+    {
+      "name": "VPN Gateway / Site-to-Site VPN",
+      "full": "AWS Site-to-Site VPN",
+      "category": "networking",
+      "icon": "🔒",
+      "what": "Kết nối mã hóa (IPsec) giữa VPC/TGW và mạng on-premises qua internet — rẻ hơn Direct Connect, setup nhanh.",
+      "when": "Cần nối on-premises datacenter với AWS mà không đi Direct Connect vật lý",
+      "key_points": ["Mỗi VPN connection có 2 tunnel (redundancy)", "Dùng BGP để trao đổi route động (auto-failover)", "Latency phụ thuộc internet — không ổn định bằng Direct Connect", "Kết hợp AS-prepend để ưu tiên tuyến chính/backup"],
+      "japfa": true,
+      "japfa_detail": "2 VPN tunnel: FortiGate Long An (Primary, ASN 65000) và Hương Canh (Backup, AS-prepend 5x) — BGP auto-failover ~2-3 phút"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Public Subnet vs Private Subnet — khác nhau ở đâu?",
+      "icon": "🚦",
+      "body": "Bản thân AWS không có nhãn 'public/private' — sự khác biệt hoàn toàn nằm ở ROUTE TABLE của subnet đó có trỏ tới Internet Gateway hay không.",
+      "diagram": "  PUBLIC SUBNET\n  Route table: 0.0.0.0/0 → Internet Gateway (igw-xxx)\n  → Instance có Public IP truy cập được 2 chiều với internet\n\n  PRIVATE SUBNET\n  Route table: 0.0.0.0/0 → NAT Gateway (nat-xxx)\n  → Instance có thể ra internet (outbound) nhưng KHÔNG ai từ internet vào được trực tiếp",
+      "exam_tip": "Câu hỏi kiểu 'vì sao subnet này là public' → luôn trả lời bằng route table, KHÔNG phải do gán Public IP cho instance.",
+      "japfa": "ALB internet-facing của Japfa nằm ở public subnet; EC2 backend + RDS Oracle nằm ở private subnet phía sau"
+    },
+    {
+      "title": "VPC Peering vs Transit Gateway — khi nào dùng cái nào",
+      "icon": "🕸️",
+      "body": "Peering nối trực tiếp 2 VPC (1-1, không transitive — VPC A peer B, B peer C thì A KHÔNG tự thấy C). Transit Gateway giải quyết vấn đề này khi có nhiều VPC.",
+      "diagram": "  Peering (2-3 VPC): còn quản lý được\n  A ─── B\n   \\   /\n    \\ /\n     C\n  → n VPC cần n(n-1)/2 kết nối peering (tăng theo cấp số)\n\n  Transit Gateway (nhiều VPC): 1 hub trung tâm\n  A ─┐\n  B ─┼── TGW ── on-premises (VPN)\n  C ─┘\n  → mỗi VPC chỉ cần 1 attachment tới TGW",
+      "exam_tip": "SAA: 'nhiều VPC across nhiều account cần thông nhau + nối on-prem' → luôn chọn Transit Gateway, không phải Peering mesh.",
+      "japfa": "Japfa dùng đúng mô hình Transit Gateway hub tại jp:network — tránh phải peering thủ công giữa prod/uat/poc"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Điều gì quyết định 1 subnet là 'public' hay 'private' trên AWS?",
+      "options": [
+        "Việc instance trong subnet có Public IP hay không",
+        "Route table của subnet có trỏ 0.0.0.0/0 tới Internet Gateway hay không",
+        "Tên đặt cho subnet (VD: 'public-subnet-1')",
+        "Subnet nằm ở AZ nào"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Public/Private chỉ là quy ước — bản chất kỹ thuật nằm ở route table: nếu có route 0.0.0.0/0 → Internet Gateway thì subnet đó public. Không có route đó (mà đi qua NAT Gateway) thì là private."
+    },
+    {
+      "id": 2,
+      "question": "NAT Gateway dùng để làm gì?",
+      "options": [
+        "Cho phép internet khởi tạo kết nối vào private subnet",
+        "Cho phép instance ở private subnet ra internet (outbound) mà không bị truy cập ngược lại",
+        "Mã hóa traffic giữa 2 VPC",
+        "Thay thế hoàn toàn Internet Gateway"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "NAT Gateway đặt ở public subnet, cho phép instance private subnet ra internet (VD: tải bản vá OS) nhưng chặn kết nối khởi tạo từ internet vào — chỉ 1 chiều outbound."
+    },
+    {
+      "id": 3,
+      "question": "Tại sao doanh nghiệp có nhiều VPC/account nên dùng Transit Gateway thay vì VPC Peering?",
+      "options": [
+        "Transit Gateway rẻ hơn Peering trong mọi trường hợp",
+        "Peering không hỗ trợ mã hóa còn Transit Gateway thì có",
+        "Peering không transitive (A-B, B-C thì A không tự thấy C) và số kết nối tăng theo cấp số khi nhiều VPC — Transit Gateway dùng mô hình hub-and-spoke đơn giản hơn",
+        "VPC Peering đã bị AWS deprecated"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "VPC Peering là kết nối 1-1, không bắc cầu (non-transitive). Với n VPC cần peering đầy đủ, số kết nối tăng theo n(n-1)/2 — khó quản lý. Transit Gateway giải quyết bằng 1 hub trung tâm, mỗi VPC chỉ cần 1 attachment."
+    },
+    {
+      "id": 4,
+      "question": "Site-to-Site VPN Connection trên AWS mặc định có bao nhiêu tunnel?",
+      "options": [
+        "1 tunnel",
+        "2 tunnel (để redundancy)",
+        "4 tunnel",
+        "Không cố định, tùy chọn khi tạo"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Mỗi Site-to-Site VPN Connection có 2 tunnel để đảm bảo tính sẵn sàng cao (nếu 1 tunnel down, traffic chuyển sang tunnel còn lại). Đây là lý do BGP thường được dùng để auto-failover giữa 2 tunnel."
+    },
+    {
+      "id": 5,
+      "question": "CIDR block /24 có bao nhiêu địa chỉ IP khả dụng để gán cho subnet?",
+      "options": [
+        "254 (256 trừ network + broadcast)",
+        "251 (256 trừ 5 địa chỉ AWS reserve)",
+        "256 chính xác",
+        "Không cố định, phụ thuộc region"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Một /24 có 256 địa chỉ, nhưng AWS reserve 5 địa chỉ đầu/cuối cho mỗi subnet (network address, VPC router, DNS, tương lai, broadcast) → còn lại 251 địa chỉ khả dụng thực tế. Đây là điểm hay bị nhầm khi tính toán CIDR trong đề thi."
+    }
+  ]
+}
