@@ -172,16 +172,46 @@ async function fetchStatus() {
   }
 }
 
+// ===== FALLBACK TRANSLATION via MyMemory (no API key needed, used for local runs) =====
+// Optional MYMEMORY_EMAIL env var raises the daily quota (1000 → 10000 words/day per MyMemory's policy)
+// and uses a separate quota bucket from anonymous requests (e.g. the client-side calls in news.html).
+async function translateViaMyMemory(text) {
+  try {
+    const email = process.env.MYMEMORY_EMAIL;
+    const emailParam = email ? `&de=${encodeURIComponent(email)}` : '';
+    const res = await fetch(
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text.slice(0, 480))}&langpair=en|vi${emailParam}`,
+      { signal: AbortSignal.timeout(8000) }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    const vi = data?.responseData?.translatedText;
+    if (vi && data.responseStatus === 200 && vi.toLowerCase() !== text.toLowerCase()) return vi;
+  } catch {}
+  return null;
+}
+
+async function translateAllItemsFallback(items) {
+  console.log(`\n🌐 No ANTHROPIC_API_KEY — falling back to MyMemory for ${items.length} descriptions...`);
+  let ok = 0;
+  for (const item of items) {
+    const vi = await translateViaMyMemory(item.description.slice(0, 400));
+    if (vi) { item.description_vi = vi; ok++; }
+    await new Promise(r => setTimeout(r, 250)); // polite delay, avoid rate limit
+  }
+  console.log(`  ✅ Translated ${ok}/${items.length} items via MyMemory`);
+}
+
 // ===== BATCH TRANSLATION via Claude Haiku =====
 async function translateAllItems(allItems) {
-  const API_KEY = process.env.ANTHROPIC_API_KEY;
-  if (!API_KEY) {
-    console.log('  ℹ️ No ANTHROPIC_API_KEY — skipping Vietnamese translation');
-    return;
-  }
-
   const items = allItems.filter(i => i.description && i.description.trim());
   if (!items.length) return;
+
+  const API_KEY = process.env.ANTHROPIC_API_KEY;
+  if (!API_KEY) {
+    await translateAllItemsFallback(items);
+    return;
+  }
 
   console.log(`\n🌐 Translating ${items.length} descriptions to Vietnamese (1 batch call)...`);
 
