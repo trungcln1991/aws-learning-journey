@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T02:11:08.599Z",
+  "generated_at": "2026-07-02T05:05:03.228Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -31,8 +31,7 @@
       "description": "Amazon Bedrock AgentCore has increased the default runtime quota limits, giving customers greater capacity to scale their agent-based workloads. AgentCore is the platform for developers to build, connect, and optimize AI agents. The new default limits support up to 5,000 active concurrent sessions in US East (N. Virginia) and US West (Oregon), and 2,500 in all other supported Regions. All AWS Regi",
       "tags": [
         "Bedrock"
-      ],
-      "description_vi": "Amazon Bedrock AgentCore đã tăng giới hạn hạn thời gian chạy mặc định, mang lại cho khách hàng khả năng lớn hơn để mở rộng khối lượng công việc dựa trên tác nhân của họ. AgentCore là nền tảng để các nhà phát triển xây dựng, kết nối và tối ưu hóa các tác nhân AI. Giới hạn mặc định mới hỗ trợ tối đa 5.000 phiên hoạt động đồng thời ở Đông Hoa Kỳ (N. Virginia) và Tây Hoa Kỳ (Oregon) và 2.500 phiên ở tất cả các Khu vực được hỗ trợ khác. Tất cả AWS Regi"
+      ]
     },
     {
       "title": "Amazon CloudWatch supports creating alarms from log queries",
@@ -42,8 +41,7 @@
       "tags": [
         "CloudWatch",
         "SageMaker"
-      ],
-      "description_vi": "Amazon CloudWatch cho phép bạn tạo cảnh báo trên dữ liệu nhật ký bằng cách sử dụng truy vấn nhật ký và được cảnh báo về các điểm bất thường mà không cần rời khỏi quy trình phân tích nhật ký của bạn. Với lần ra mắt ngày hôm nay, bạn có thể định cấu hình báo động trên truy vấn nhật ký và chỉ định ngưỡng báo động trực tiếp, do đó loại bỏ nhu cầu tạo bộ lọc số liệu hoặc số liệu tùy chỉnh trước tiên dưới dạng các bước trung gian. Điều này hợp lý hóa con đường để chủ động giám sát"
+      ]
     },
     {
       "title": "ECS Service Connect now supports Zone-Aware routing",
@@ -53,8 +51,7 @@
       "tags": [
         "ECS",
         "Cost"
-      ],
-      "description_vi": "Amazon Elastic Container Service (Amazon ECS) giới thiệu định tuyến nhận biết vùng cho ECS Service Connect, cho phép khách hàng giảm chi phí và độ trễ truyền dữ liệu Vùng sẵn sàng chéo (AZ) bằng cách tự động ưu tiên lưu lượng dịch vụ đến dịch vụ trong cùng một AZ. Với lần ra mắt này, ECS Service Connect ưu tiên định tuyến các yêu cầu đến các điểm cuối trong cùng AZ với nhiệm vụ ban đầu trong khi dynam"
+      ]
     },
     {
       "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
@@ -63,8 +60,7 @@
       "description": "Amazon Elastic Container Service (Amazon ECS) now provides real-time deployment observability in the Amazon ECS Console. With this launch, customers can track deployment progress, monitor deployment health, and diagnose failures directly from the console, and understand exactly what is happening during a deployment, identify issues as they occur, and reduce the time it takes to troubleshoot and re",
       "tags": [
         "ECS"
-      ],
-      "description_vi": "Amazon Elastic Container Service (Amazon ECS) hiện cung cấp khả năng quan sát triển khai theo thời gian thực trong Amazon ECS Console. Với lần ra mắt này, khách hàng có thể theo dõi tiến trình triển khai, theo dõi tình trạng triển khai và chẩn đoán lỗi trực tiếp từ bảng điều khiển và hiểu chính xác những gì đang xảy ra trong quá trình triển khai, xác định các vấn đề khi chúng xảy ra và giảm thời gian cần thiết để khắc phục sự cố và khắc phục sự cố"
+      ]
     },
     {
       "title": "AWS Artifact now includes Assurance Assistant for compliance inquiries",
@@ -74,16 +70,14 @@
       "tags": [
         "CloudTrail",
         "Security Hub"
-      ],
-      "description_vi": "AWS Artifact hiện bao gồm Assurance Assistant, một khả năng hỗ trợ AI tạo ra các câu trả lời dựa trên trích dẫn cho các câu hỏi về bảo mật và tuân thủ về dịch vụ AWS. AWS Artifact là dịch vụ mà qua đó AWS cung cấp các báo cáo, chứng nhận và thỏa thuận tuân thủ cho khách hàng. Assurance Assistant giúp các nhà quản lý rủi ro bên thứ ba, nhân viên tuân thủ, kỹ sư bảo mật và kiểm toán viên theo dõi"
+      ]
     },
     {
       "title": "AWS Partner Central now supports AWS Marketplace listings for co-selling",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-marketplace-co-selling-support/",
       "date": "2026-07-01T19:06:00.000Z",
       "description": "Today, AWS announces that partners can associate one or more AWS Marketplace solutions and product listings from their AWS Marketplace catalog directly to co-sell opportunities in AWS Partner Central. Previously, opportunities required partners to use solutions specially created for co-selling, which meant partners managed their solutions for the AWS Marketplace catalog and solutions for co-sellin",
-      "tags": [],
-      "description_vi": "Hôm nay, AWS thông báo rằng các đối tác có thể liên kết trực tiếp một hoặc nhiều giải pháp AWS Marketplace và danh sách sản phẩm từ catalog AWS Marketplace của họ để cùng bán cơ hội trong AWS Partner Central. Trước đây, cơ hội yêu cầu các đối tác sử dụng các giải pháp được tạo ra đặc biệt để đồng bán hàng, có nghĩa là các đối tác quản lý các giải pháp của họ cho danh mục AWS Marketplace và các giải pháp cho đồng bán hàng"
+      "tags": []
     },
     {
       "title": "Amazon RDS announces Cross-Region Automated Backups in four additional AWS Regions",
@@ -92,8 +86,7 @@
       "description": "Cross-Region Automated Backup replication for Amazon RDS is now available in four additional AWS Regions. This launch allows you to setup automated backup replication between Mexico (Central) and Europe (Ireland) or US West (N. California); between Asia Pacific (Taipei) and Asia Pacific (Singapore) or Asia Pacific (Tokyo); between Asia Pacific (New Zealand) and Asia Pacific (Singapore), Asia Pacif",
       "tags": [
         "RDS"
-      ],
-      "description_vi": "Sao lưu dự phòng tự động xuyên khu vực cho Amazon RDS hiện đã có sẵn ở bốn Khu vực AWS bổ sung. Lần ra mắt này cho phép bạn thiết lập sao lưu tự động giữa Mexico (Trung tâm) và Châu Âu (Ireland) hoặc Tây Mỹ (Bắc California); giữa Châu Á Thái Bình Dương (Đài Bắc) và Châu Á Thái Bình Dương (Singapore) hoặc Châu Á Thái Bình Dương (Tokyo); giữa Châu Á Thái Bình Dương (New Zealand) và Châu Á Thái Bình Dương (Singapore), Châu Á Thái Bình Dương"
+      ]
     },
     {
       "title": "Amazon Bedrock AgentCore now available in four additional AWS Regions",
@@ -102,8 +95,7 @@
       "description": "Amazon Bedrock AgentCore is now available in four additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Europe (Milan), and Europe (Spain). Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with securit",
       "tags": [
         "Bedrock"
-      ],
-      "description_vi": "Amazon Bedrock AgentCore hiện đã có mặt tại bốn Khu vực AWS khác: Châu Á Thái Bình Dương (Bangkok), Châu Á Thái Bình Dương (Malaysia), Châu Âu (Milan) và Châu Âu (Tây Ban Nha). Amazon Bedrock AgentCore là nền tảng để xây dựng, kết nối và tối ưu hóa các tác nhân. Nó giúp các kỹ sư vận chuyển các đại lý nhanh chóng với bất kỳ khuôn khổ và bất kỳ mô hình nào, kết nối chúng với các hệ thống và công cụ doanh nghiệp và tối ưu hóa chúng liên tục, với securit"
+      ]
     },
     {
       "title": "Amazon ECS now supports configurable deployment circuit breaker settings",
