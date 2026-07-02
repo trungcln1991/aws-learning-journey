@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "chore: đóng gap RDS storage alarm (PBI 29185 Done); ghi kiến thức alarm RDS + TLS cert vào skill",
-  "updated_at": "2026-07-02T05:45:24Z"
+  "commit_msg": "session: đóng 2 gap cost investigation (CWAgent verify + Bedrock KB one-off) — PBI 29202/29203 (phiên 40)",
+  "updated_at": "2026-07-02T09:38:09Z"
 }
