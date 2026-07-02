@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "fix: sửa nốt path sót sau tái cấu trúc (work/, reports/runbook- mâu thuẫn)",
-  "updated_at": "2026-07-02T03:07:29Z"
+  "commit_msg": "chore: đóng gap RDS storage alarm (PBI 29185 Done); ghi kiến thức alarm RDS + TLS cert vào skill",
+  "updated_at": "2026-07-02T05:45:24Z"
 }
