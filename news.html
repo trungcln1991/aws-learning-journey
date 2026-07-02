@@ -100,6 +100,23 @@
       font-weight: 700; border: 1px solid var(--green);
     }
 
+    .new-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 8px; margin-left: 6px; padding: 4px 10px;
+      background: rgba(195,45,26,.1); color: var(--red);
+      border-radius: 999px; font-family: monospace; font-size: .68rem;
+      font-weight: 700; border: 1px solid var(--red);
+    }
+
+    .new-banner {
+      margin: 12px 16px 0; padding: 10px 14px; border-radius: 10px;
+      border: 2px solid var(--red); background: rgba(195,45,26,.07);
+      font-family: monospace; font-size: .78rem; font-weight: 700;
+      color: var(--red); display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; cursor: pointer;
+    }
+    .new-banner:hover { background: rgba(195,45,26,.12); }
+
     .empty-news {
       text-align: center; padding: 32px 16px; color: var(--muted);
     }
@@ -126,9 +143,13 @@
   <!-- AWS STATUS -->
   <div id="status-bar"></div>
 
+  <!-- NEW-SINCE-LAST-VISIT BANNER -->
+  <div id="new-banner"></div>
+
   <!-- FILTER TABS -->
   <div class="news-filter">
     <button class="filter-btn active" data-filter="all" onclick="filterNews('all', this)">🌐 Tất cả</button>
+    <button class="filter-btn" data-filter="new" onclick="filterNews('new', this)">🆕 Mới từ lần trước</button>
     <button class="filter-btn" data-filter="whats_new" onclick="filterNews('whats_new', this)">🆕 Services mới</button>
     <button class="filter-btn" data-filter="security" onclick="filterNews('security', this)">🔒 Security</button>
     <button class="filter-btn" data-filter="blog" onclick="filterNews('blog', this)">📝 Blog</button>
@@ -192,6 +213,22 @@
   function isRelatedToLesson(item) {
     const text = ((item.title||'') + ' ' + (item.description||'')).toLowerCase();
     return LESSON_TOPICS.some(t => text.includes(t));
+  }
+
+  // ===== NEW-SINCE-LAST-VISIT (per-device, localStorage) =====
+  const LAST_SEEN_KEY = 'news_last_seen';
+  let prevSeenAt = null; // timestamp of the visit BEFORE this one — null on first-ever visit
+
+  function isNewSince(item) {
+    if (!prevSeenAt || !item.date) return false;
+    const t = new Date(item.date).getTime();
+    return Number.isFinite(t) && t > new Date(prevSeenAt).getTime();
+  }
+
+  function countNewItems() {
+    if (!newsData || !prevSeenAt) return 0;
+    const all = [...(newsData.whats_new||[]), ...(newsData.security||[]), ...(newsData.blog||[])];
+    return all.filter(isNewSince).length;
   }
 
   // ===== CLIENT-SIDE TRANSLATION CACHE (fallback while workflow hasn't run) =====
@@ -266,6 +303,7 @@
         </div>
         ${bilingualHtml}
         ${isLearn ? `<span class="learn-badge">📚 Liên quan bài học bạn đang học</span>` : ''}
+        ${isNewSince(item) ? `<span class="new-badge">🆕 Mới từ lần trước</span>` : ''}
         ${item.link ? `<span class="nc-link">Xem chi tiết →</span>` : ''}
       </a>
     `;
@@ -510,6 +548,23 @@
       }
       html += renderRecommendations(generateRecommendations());
 
+    } else if (currentFilter === 'new') {
+      const wnItems  = (newsData.whats_new||[]);
+      const secItems = (newsData.security||[]);
+      const blogItems = (newsData.blog||[]);
+      const allNew = [
+        ...wnItems.filter(isNewSince).map(i => ({...i, _t:'whats_new'})),
+        ...secItems.filter(isNewSince).map(i => ({...i, _t:'security'})),
+        ...blogItems.filter(isNewSince).map(i => ({...i, _t:'blog'}))
+      ];
+      if (!prevSeenAt) {
+        html = `<div class="empty-news"><div class="ei">🆕</div><div>Đây là lần đầu bạn mở trang News — chưa có mốc "lần trước" để so sánh.</div></div>`;
+      } else if (allNew.length) {
+        html = `<div class="news-section-body open">${allNew.map(i => renderItem(i, i._t)).join('')}</div>`;
+      } else {
+        html = `<div class="empty-news"><div class="ei">🆕</div><div>Không có tin mới kể từ lần bạn ghé thăm trước.</div></div>`;
+      }
+
     } else if (currentFilter === 'learn') {
       const wnItems  = (newsData.whats_new||[]);
       const secItems = (newsData.security||[]);
@@ -547,6 +602,21 @@
       const res = await fetch('./news.json');
       if (!res.ok) throw new Error('news.json not found');
       newsData = await res.json();
+
+      // Capture the PREVIOUS visit's timestamp before overwriting it with this visit
+      try { prevSeenAt = localStorage.getItem(LAST_SEEN_KEY); } catch { prevSeenAt = null; }
+      try { localStorage.setItem(LAST_SEEN_KEY, new Date().toISOString()); } catch {}
+
+      const newCount = countNewItems();
+      const bannerEl = document.getElementById('new-banner');
+      if (bannerEl) {
+        bannerEl.innerHTML = newCount > 0
+          ? `<div class="new-banner" onclick="filterNews('new', document.querySelector('[data-filter=new]'))">
+               <span>🆕 ${newCount} tin mới kể từ lần bạn ghé thăm trước</span>
+               <span>Xem →</span>
+             </div>`
+          : '';
+      }
 
       // Last updated
       const dt = new Date(newsData.generated_at);
