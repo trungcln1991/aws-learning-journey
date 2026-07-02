@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
+    "ALB & Auto Scaling",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: gộp webhook AWS Health Alert vào kênh Teams chung (PBI 29166)",
-  "updated_at": "2026-07-02T02:48:30Z"
+  "commit_msg": "docs: cập nhật path memory/skill theo cấu trúc mới (reports/guides gộp vào document/)",
+  "updated_at": "2026-07-02T03:01:31Z"
 }
