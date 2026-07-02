@@ -142,27 +142,29 @@ async function fetchFeed(feed) {
   }
 }
 
-// Fetch AWS Service Health (status.aws.amazon.com JSON)
+// Fetch AWS Service Health (status.aws.amazon.com RSS)
+const STATUS_ACTIVE_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+function isActiveIncident(item) {
+  const title = item.title.toLowerCase();
+  if (title.includes('resolved') || title.includes('operating normally')) return false;
+  if (!/issue|error|degraded|disruption|impact/.test(title)) return false;
+  const t = item.date ? new Date(item.date).getTime() : NaN;
+  return Number.isFinite(t) && (Date.now() - t) < STATUS_ACTIVE_WINDOW_MS;
+}
+
 async function fetchStatus() {
   console.log('  Fetching: AWS Service Health Dashboard');
   try {
-    const res = await fetch('https://health.aws.amazon.com/health/status', {
-      signal: AbortSignal.timeout(10000)
-    });
-    // AWS status page returns HTML; fall back to checking RSS
     const rssRes = await fetch('https://status.aws.amazon.com/rss/all.rss', {
       signal: AbortSignal.timeout(10000)
     });
     if (!rssRes.ok) return { overall: 'unknown', incidents: [] };
     const xml = await rssRes.text();
     const items = parseRSS(xml, 10);
-    const hasIssue = items.some(i =>
-      i.title.toLowerCase().includes('issue') ||
-      i.title.toLowerCase().includes('error') ||
-      i.title.toLowerCase().includes('degraded')
-    );
+    const hasActiveIssue = items.some(isActiveIncident);
     return {
-      overall: hasIssue ? 'issues' : 'operational',
+      overall: hasActiveIssue ? 'issues' : 'operational',
       incidents: items.slice(0, 5)
     };
   } catch {
