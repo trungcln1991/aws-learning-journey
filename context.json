@@ -1,9 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "ALB & Auto Scaling",
-    "RDS & Database Fundamentals"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "docs: cập nhật path memory/skill theo cấu trúc mới (reports/guides gộp vào document/)",
-  "updated_at": "2026-07-02T03:01:31Z"
+  "commit_msg": "fix: sửa nốt path sót sau tái cấu trúc (work/, reports/runbook- mâu thuẫn)",
+  "updated_at": "2026-07-02T03:07:29Z"
 }
