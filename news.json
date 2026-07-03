@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T05:05:03.228Z",
+  "generated_at": "2026-07-03T04:50:08.833Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,54 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon SageMaker Unified Studio now supports Terraform for provisioning",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-terraform/",
+      "date": "2026-07-02T21:49:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports Terraform for provisioning. Customers can use the open-source terraform-aws-sagemaker-unified-studio module to deploy a SageMaker Unified Studio domain through version-controlled templates. With this launch, platform teams can bring SageMaker Unified Studio into their existing infrastructure-as-code pipelines, maintaining consistency across development,",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon EC2 X8i instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-ec2-x8i-instances-ICN-KUL-NRT-region/",
+      "date": "2026-07-02T20:48:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the Asia Pacific (Seoul), Asia Pacific (Malaysia) and Asia Pacific (Tokyo) regions. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the clou",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 Dedicated Hosts now support AMD SEV-SNP",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-amd-sev-snp-dedicated-hosts",
+      "date": "2026-07-02T17:00:00.000Z",
+      "description": "Amazon EC2 is announcing support for AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) on Dedicated Hosts, enabling customers to run their confidential computing workloads on physical servers fully dedicated to their use. Customers can allocate a Dedicated Host with SEV-SNP enabled and launch SEV-SNP instances on it. This gives customers the benefits of Dedicated Hosts for confide",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker HyperPod now supports AMI versioning and auto-patching",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-hyperpod-ami-version-auto-patch",
+      "date": "2026-07-02T16:00:00.000Z",
+      "description": "Amazon SageMaker HyperPod now gives you visibility into the Amazon Machine Image (AMI) versions running across your clusters and automatically applies security patches without disrupting your workloads. SageMaker HyperPod is purpose-built infrastructure for training and deploying foundation models at scale. Cluster administrators previously had limited insight into which AMI versions were running,",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Config now supports 8 new resource types",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-config-new-resource-types",
+      "date": "2026-07-02T15:00:00.000Z",
+      "description": "AWS Config now supports 8 additional AWS resource types across key services including Amazon API Gateway, Amazon EC2, and Amazon S3 Vectors. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources. With this launch, if you have enabled recording for all resource types, then AWS Co",
+      "tags": [
+        "EC2",
+        "S3",
+        "CloudTrail"
+      ]
+    },
+    {
       "title": "Amazon Bedrock AgentCore increases default runtime quota limits",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-increases-default-runtime-quota-limits/",
       "date": "2026-07-01T22:00:00.000Z",
@@ -41,16 +89,6 @@
       "tags": [
         "CloudWatch",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "ECS Service Connect now supports Zone-Aware routing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-service-connect-zone-aware/",
-      "date": "2026-07-01T21:28:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) introduces zone-aware routing for ECS Service Connect, enabling customers to reduce cross Availability Zone (AZ) data transfer costs and latency by automatically prioritizing service-to-service traffic within the same AZ. With this launch, ECS Service Connect preferentially routes requests to endpoints in the same AZ as the originating task while dynam",
-      "tags": [
-        "ECS",
-        "Cost"
       ]
     },
     {
@@ -177,6 +215,15 @@
       "tags": []
     },
     {
+      "title": "Amazon Connect Customer now supports rule based redaction for agent screen recording",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/screen-recording-rule-based/",
+      "date": "2026-06-30T22:53:00.000Z",
+      "description": "Amazon Connect Customer now lets you protect sensitive information in agent screen recordings by defining rules to redact specific applications or URLs. Agent screen recording helps supervisors identify coaching opportunities, such as non-compliance with business processes by allowing them to record agents' on-screen actions during voice calls, chats, and tasks. With this feature, you can create r",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
       "title": "Amazon CloudWatch Logs enriches log events with AWS resource tags",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-cloudwatch-logs-resource-tags/",
       "date": "2026-06-30T21:15:00.000Z",
@@ -199,49 +246,6 @@
       "date": "2026-06-30T21:00:00.000Z",
       "description": "AWS CloudFormation and CDK express mode reduces deployment time by up to 4x for developers and AI agents building infrastructure, based on internal benchmarks. Express mode completes stack operations when CloudFormation confirms resource configuration is applied, rather than waiting for extended stabilization checks such as traffic readiness, region propagation, and resource cleanup. This enables ",
       "tags": []
-    },
-    {
-      "title": "Amazon RDS Enhances IAM Database Authentication with Connection Rate Scaling",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-rds-iam/",
-      "date": "2026-06-30T20:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) now offers dynamic connection scaling for IAM database authentication, allowing connection rates to scale with instance resources. IAM database authentication performance now scales with available instance resources, enabling enterprise workloads to leverage IAM authentication for high-volume connection patterns. The number of new IAM authentication ",
-      "tags": [
-        "EC2",
-        "RDS",
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS Parallel Computing Service supports in-place Slurm major version upgrades",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-parallel-computing-service-upgrade/",
-      "date": "2026-06-30T19:12:00.000Z",
-      "description": "AWS Parallel Computing Service (PCS) now supports managed in-place Slurm version upgrades for existing clusters. You can move your clusters up to three Slurm major versions ahead with no disruption to running jobs. To upgrade, update your Cluster configuration with your target Slurm version using the AWS Management Console, AWS CLI, or UpdateCluster API. PCS handles the upgrade of all managed Slur",
-      "tags": []
-    },
-    {
-      "title": "Amazon ElastiCache T4g nodes now available in additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-elasticache-t4g-additional-aws-regions/",
-      "date": "2026-06-30T19:00:00.000Z",
-      "description": "Amazon ElastiCache now supports T4g node types in the following AWS Regions: Africa (Cape Town), Asia Pacific (Jakarta), Asia Pacific (Osaka), AWS GovCloud (US-East), and AWS GovCloud (US-West). T4g nodes are powered by AWS Graviton2 processors and provide a baseline level of CPU performance with the ability to burst CPU usage at any time, making them ideal for applications that experience tempora",
-      "tags": []
-    },
-    {
-      "title": "Amazon Neptune announces dual stack support with IPv6",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-neptune-ipv6/",
-      "date": "2026-06-30T19:00:00.000Z",
-      "description": "Amazon Neptune now supports dual-stack mode, enabling database clusters to accept connections over IPv4, IPv6, or both protocols simultaneously. This allows organizations to adopt IPv6 while maintaining backward compatibility with existing IPv4 deployments. Neptune dual-stack mode supports two configurations. Private dual-stack mode provides IPv6 endpoints that remain isolated from the internet, s",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "AWS End User Messaging RCS now supports rich media and interactive messaging",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-end-user-messaging-rcs/",
-      "date": "2026-06-30T18:21:00.000Z",
-      "description": "AWS End User Messaging now supports rich media and interactive messaging for RCS across all 22 supported countries. With the new SendRcsMessage API, you can send rich cards, carousels, images, videos, and interactive suggestion buttons that let recipients take action directly inside their messaging app. RCS message recipients can tap to confirm an appointment, browse a product catalog, complete a ",
-      "tags": [
-        "RDS"
-      ]
     }
   ],
   "security": [
