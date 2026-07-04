@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "S3 & Storage Classes",
+    "IAM Deep Dive",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session: đóng 2 gap cost investigation (CWAgent verify + Bedrock KB one-off) — PBI 29202/29203 (phiên 40)",
-  "updated_at": "2026-07-02T09:38:09Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-07-04 13:38",
+  "updated_at": "2026-07-04T06:39:09Z"
 }
