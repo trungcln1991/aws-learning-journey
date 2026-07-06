@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "S3 & Storage Classes",
-    "IAM Deep Dive",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals",
+    "EC2 Basics"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-07-04 13:38",
-  "updated_at": "2026-07-04T06:39:09Z"
+  "commit_msg": "session: Weekly Security Review + fResetBroken close + gen-ai EC2 investigation (06/07/2026)",
+  "updated_at": "2026-07-06T02:34:21Z"
 }
