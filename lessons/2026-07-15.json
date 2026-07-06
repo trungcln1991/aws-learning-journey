@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-15",
+  "day": 11,
+  "week": 3,
+  "month": 1,
+  "title": "CloudFront & CDN",
+  "subtitle": "Distribution · Origin · Cache Behavior · WAF",
+  "category": "Networking",
+  "color": "#A9700A",
+  "emoji": "⚡",
+  "vocabulary": [
+    {
+      "word": "Distribution",
+      "ipa": "/dɪˈstrɪbjuːʃən/",
+      "ipa_guide": "Đọc: DIS-tri-BYU-shən",
+      "type": "danh từ",
+      "meaning": "Một cấu hình CloudFront để phân phối nội dung tới người dùng cuối qua các edge location toàn cầu",
+      "example_en": "You must create a CloudFront distribution to cache your S3 objects globally.",
+      "example_vi": "Bạn phải tạo một distribution CloudFront để cache các object S3 của bạn trên toàn cầu.",
+      "usage": "CloudFront · Console · API",
+      "japfa": "jp:prod sử dụng distribution CloudFront để phân phối video lẩu gà tới khách hàng"
+    },
+    {
+      "word": "Origin",
+      "ipa": "/ˈɒrɪdʒɪn/",
+      "ipa_guide": "Đọc: OR-i-jin",
+      "type": "danh từ",
+      "meaning": "Nguồn nội dung gốc mà CloudFront sẽ cache, có thể là S3, ELB, hay server tùy chỉnh",
+      "example_en": "Set your S3 bucket as the origin for the CloudFront distribution.",
+      "example_vi": "Đặt S3 bucket của bạn làm origin cho distribution CloudFront.",
+      "usage": "CloudFront · S3 · EC2 · ALB",
+      "japfa": "jp:prod sử dụng S3 bucket làm origin để lưu trữ hình ảnh sản phẩm"
+    },
+    {
+      "word": "Cache Behavior",
+      "ipa": "/kæʃ bɪˈheɪvjər/",
+      "ipa_guide": "Đọc: KASH BI-HAY-vyer",
+      "type": "danh từ",
+      "meaning": "Quy tắc xác định cách CloudFront cache nội dung dựa trên đường dẫn URL hoặc tiêu đề yêu cầu",
+      "example_en": "Configure cache behavior to cache images for 1 day and HTML for 5 minutes.",
+      "example_vi": "Cấu hình cache behavior để cache hình ảnh 1 ngày và HTML 5 phút.",
+      "usage": "CloudFront · Distribution · TTL",
+      "japfa": "jp:aggregator sử dụng cache behavior để tối ưu hóa tốc độ tải dữ liệu tổng hợp"
+    },
+    {
+      "word": "Edge Location",
+      "ipa": "/edʒ ləʊˈkeɪʃən/",
+      "ipa_guide": "Đọc: EJ LO-KAY-shən",
+      "type": "danh từ",
+      "meaning": "Máy chủ cache toàn cầu của CloudFront nằm gần người dùng cuối để giảm độ trễ",
+      "example_en": "CloudFront has over 400 edge locations worldwide to serve content faster.",
+      "example_vi": "CloudFront có hơn 400 edge location trên toàn thế giới để phục vụ nội dung nhanh hơn.",
+      "usage": "CloudFront · Global · Performance",
+      "japfa": "jp:prod sử dụng edge location ở Tokyo và Singapore để phục vụ khách hàng Đông Nam Á"
+    },
+    {
+      "word": "WAF",
+      "ipa": "/wæf/",
+      "ipa_guide": "Đọc: WAF (từ viết tắt)",
+      "type": "danh từ",
+      "meaning": "Web Application Firewall - tường lửa ứng dụng web để bảo vệ CloudFront khỏi tấn công",
+      "example_en": "Attach an AWS WAF to your CloudFront distribution to block malicious requests.",
+      "example_vi": "Gắn AWS WAF vào distribution CloudFront để chặn các yêu cầu độc hại.",
+      "usage": "CloudFront · Security · WAF",
+      "japfa": "jp:prod gắn WAF vào CloudFront để bảo vệ website bán hàng gà khỏi DDoS"
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudFront",
+      "full": "Amazon CloudFront",
+      "category": "network",
+      "icon": "⚡",
+      "what": "Dịch vụ CDN toàn cầu phân phối nội dung tới người dùng với độ trễ thấp. Tích hợp với S3, EC2, ELB và origin tùy chỉnh.",
+      "when": "Khi cần phục vụ nội dung nhanh cho người dùng toàn cầu, giảm tải origin, hoặc cải thiện hiệu suất ứng dụng",
+      "key_points": [
+        "Cache nội dung tại 400+ edge location toàn cầu",
+        "Hỗ trợ HTTPS, HTTP/2, và IPv6 tự động",
+        "Tích hợp AWS WAF, Shield, và Lambda@Edge"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod dùng CloudFront phân phối hình ảnh, video sản phẩm gà tới khách hàng. jp:shareservice dùng cho tài liệu nội bộ"
+    },
+    {
+      "name": "S3",
+      "full": "Amazon Simple Storage Service",
+      "category": "storage",
+      "icon": "📦",
+      "what": "Dịch vụ lưu trữ vật thể có tính khả dụng cao. Thường được sử dụng làm origin cho CloudFront.",
+      "when": "Lưu trữ nội dung tĩnh (hình ảnh, video, tài liệu), log file, hoặc backup dữ liệu",
+      "key_points": [
+        "Tính khả dụng 99.99%, độ bền 99.999999999%",
+        "Có thể cấu hình làm origin cho CloudFront",
+        "Hỗ trợ versioning, lifecycle policy, encryption"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod lưu ảnh sản phẩm gà trong S3. jp:cloudtrail dùng S3 để lưu log CloudTrail"
+    },
+    {
+      "name": "WAF",
+      "full": "AWS Web Application Firewall",
+      "category": "security",
+      "icon": "🛡️",
+      "what": "Tường lửa ứng dụng web bảo vệ CloudFront, ALB, API Gateway khỏi tấn công lớp 7",
+      "when": "Cần bảo vệ ứng dụng web khỏi SQL injection, XSS, DDoS, hoặc yêu cầu không hợp lệ",
+      "key_points": [
+        "Tạo quy tắc tùy chỉnh để chặn hoặc cho phép yêu cầu",
+        "Hỗ trợ IP reputation list, geo-blocking, rate limiting",
+        "Tích hợp sâu với CloudFront, ALB, API Gateway"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod gắn WAF vào CloudFront để chặn DDoS tấn công vào website bán hàng"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "CloudFront Distribution Flow",
+      "icon": "🔄",
+      "body": "Khi người dùng yêu cầu nội dung, CloudFront kiểm tra edge location gần nhất. Nếu cache hit, trả về nội dung ngay. Nếu cache miss, CloudFront lấy từ origin (S3/EC2), cache tại edge location, rồi trả về người dùng.",
+      "diagram": "User Request\n      |\n      v\nCloudFront Edge Location\n      |\n   (Cache Hit?) \n   /            \\\nYes              No\n|                 |\nReturn Cache   Fetch from Origin\n                   |\n                   v\n                S3/EC2/ALB\n                   |\n                   v\n              Cache at Edge\n                   |\n                   v\n              Return to User",
+      "exam_tip": "SAA thường hỏi flow cache và khi nào cache bị invalidate. Hiểu TTL, versioning, và CloudFront invalidation rất quan trọng.",
+      "japfa": "jp:prod sử dụng flow này để phân phối hình ảnh sản phẩm gà. Khi cập nhật ảnh, phải invalidate cache để khách hàng thấy ảnh mới"
+    },
+    {
+      "title": "Cache Behavior & TTL Strategy",
+      "icon": "⏱️",
+      "body": "Cache Behavior định nghĩa TTL (Time To Live) cho từng loại nội dung. Ảnh tĩnh TTL cao (1-30 ngày), HTML/API TTL thấp (0-5 phút). Sử dụng query string, cookie, header để phân biệt cache cho các phiên bản khác nhau.",
+      "diagram": "GET /images/product.jpg\n    |\n    v\nCache Behavior: images/* \n    |\n  TTL=86400 (1 day)\n    |\n    v\nStored 1 day at Edge\n\nGET /api/data?id=123\n    |\n    v\nCache Behavior: /api/*\n    |\n  TTL=300 (5 min)\n    |\n    v\nStored 5 min at Edge",
+      "exam_tip": "Câu hỏi SAA về TTL, query string forwarding, cookie handling. Hiểu sự khác biệt giữa Compress, Query String, Cookie rất cần thiết.",
+      "japfa": "jp:aggregator dùng TTL thấp cho dữ liệu tổng hợp (thay đổi hàng giờ) nhưng TTL cao cho dữ liệu lịch sử"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn đang làm việc cho jp:prod. Website bán gà Japfa cần phục vụ hình ảnh sản phẩm nhanh tới khách hàng Đông Nam Á. Bạn nên sử dụng dịch vụ nào?",
+      "options": [
+        "EC2 instance ở Tokyo chạy web server",
+        "CloudFront distribution với S3 làm origin",
+        "EBS volume gắn vào ALB",
+        "Direct S3 public access"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "CloudFront phân phối nội dụng qua 400+ edge location toàn cầu, giảm độ trễ. S3 làm origin tiết kiệm chi phí."
+    },
+    {
+      "id": 2,
+      "question": "TTL của CloudFront Cache Behavior là 300 giây. Người dùng tại edge location A yêu cầu file, 150 giây sau người dùng tại edge location B yêu cầu cùng file. Điều gì sẽ xảy ra?",
+      "options": [
+        "Edge B phải fetch từ origin vì TTL đã hết",
+        "Edge B lấy từ origin pool dùng chung",
+        "Edge B lấy từ cache của Edge A",
+        "Edge B phải fetch mới từ origin"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "explanation": "Mỗi edge location có cache riêng. Edge B không thấy cache của Edge A. Phải fetch từ origin hoặc regional cache."
+    },
+    {
+      "id": 3,
+      "question": "jp:prod có CloudFront distribution với Origin là S3 bucket. Bạn cập nhật ảnh sản phẩm nhưng khách hàng vẫn thấy ảnh cũ. Giải pháp là gì?",
+      "options": [
+        "Chờ TTL hết (có thể vài giờ)",
+        "Tạo distribution CloudFront mới",
+        "Sử dụng CloudFront Invalidation để xóa cache ngay",
+        "Xóa S3 bucket và tạo lại"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "explanation": "CloudFront Invalidation xóa cache ngay tại tất cả edge location. Được sử dụng khi cần cập nhật nội dung khẩn cấp."
+    },
+    {
+      "id": 4,
+      "question": "Bạn cấu hình CloudFront Cache Behavior để forward query string. URL: /product?size=large&color=red. Điều gì sẽ xảy ra?",
+      "options": [
+        "Query string bị bỏ đi, chỉ cache /product",
+        "Mỗi query string khác nhau được cache riêng",
+        "Query string được compress trước khi cache",
+        "CloudFront từ chối query string"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Forward query string = mỗi tổ hợp query string khác nhau được cache riêng. ?size=large cách cache với ?size=small."
+    },
+    {
+      "id": 5,
+      "question": "jp:prod muốn bảo vệ CloudFront distribution khỏi tấn công DDoS và SQL injection. Bạn nên dùng dịch vụ nào?",
+      "options": [
+        "AWS Shield Standard (miễn phí, tự động)",
+        "AWS WAF + Shield Advanced",
+        "Security Group trên EC2 origin",
+        "VPN encryption"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "WAF bảo vệ lớp 7 (SQL injection, XSS). Shield Advanced chống DDoS lớp 3-4. Cùng sử dụng để bảo vệ toàn diện."
+    }
+  ]
+}

@@ -134,8 +134,47 @@
       "emoji": "🌍",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-07-15",
+      "day": 11,
+      "title": "CloudFront & CDN",
+      "subtitle": "Distribution · Origin · Cache Behavior · WAF",
+      "category": "Networking",
+      "week": 3,
+      "month": 1,
+      "color": "#A9700A",
+      "emoji": "⚡",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-16",
+      "day": 12,
+      "title": "SNS & SQS Messaging",
+      "subtitle": "Topic · Queue · Fan-out · Dead Letter",
+      "category": "Integration",
+      "week": 3,
+      "month": 1,
+      "color": "#C32D1A",
+      "emoji": "📨",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-17",
+      "day": 13,
+      "title": "Lambda & Serverless Intro",
+      "subtitle": "Function · Trigger · Event · Execution Role",
+      "category": "Serverless",
+      "week": 4,
+      "month": 1,
+      "color": "#F97316",
+      "emoji": "⚡",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-06-30T04:36:16.583Z",
-  "total_lessons": 10
+  "last_generated": "2026-07-06T02:58:20.096Z",
+  "total_lessons": 13
 }

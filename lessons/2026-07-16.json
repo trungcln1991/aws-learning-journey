@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-16",
+  "day": 12,
+  "week": 3,
+  "month": 1,
+  "title": "SNS & SQS Messaging",
+  "subtitle": "Topic · Queue · Fan-out · Dead Letter",
+  "category": "Integration",
+  "color": "#C32D1A",
+  "emoji": "📨",
+  "vocabulary": [
+    {
+      "word": "Topic",
+      "ipa": "/ˈtɒpɪk/",
+      "ipa_guide": "Đọc: TO-pic",
+      "type": "danh từ",
+      "meaning": "Chủ đề hoặc điểm đích trong SNS nơi các message được publish",
+      "example_en": "Publishers send messages to an SNS topic for distribution",
+      "example_vi": "Các nhà xuất bản gửi message đến một SNS topic để phân phối",
+      "usage": "SNS · Event-driven · Fan-out",
+      "japfa": "jp:aggregator sử dụng SNS topics để phát sự kiện sản xuất"
+    },
+    {
+      "word": "Queue",
+      "ipa": "/kjuː/",
+      "ipa_guide": "Đọc: KYU",
+      "type": "danh từ",
+      "meaning": "Hàng đợi lưu trữ message theo thứ tự FIFO hoặc tiêu chuẩn",
+      "example_en": "SQS queues store messages until a consumer processes them",
+      "example_vi": "SQS queues lưu trữ message cho đến khi consumer xử lý",
+      "usage": "SQS · Asynchronous · Decoupling",
+      "japfa": "jp:prod sử dụng SQS queues để xử lý đơn hàng bán lẻ"
+    },
+    {
+      "word": "Fan-out",
+      "ipa": "/ˈfænˌaʊt/",
+      "ipa_guide": "Đọc: FAN-out",
+      "type": "danh từ",
+      "meaning": "Mẫu gửi một message từ SNS topic tới nhiều SQS queues",
+      "example_en": "SNS-to-SQS fan-out pattern enables parallel message processing",
+      "example_vi": "SNS-to-SQS fan-out cho phép xử lý message song song",
+      "usage": "SNS · SQS · Architecture",
+      "japfa": "jp:aggregator sử dụng fan-out để gửi dữ liệu tới 3 SQS queues"
+    },
+    {
+      "word": "Dead Letter Queue",
+      "ipa": "/ˈdɛd ˈlɛtər ˈkjuː/",
+      "ipa_guide": "Đọc: DED LE-ter KYU",
+      "type": "danh từ",
+      "meaning": "Queue đặc biệt lưu trữ message thất bại sau nhiều lần thử",
+      "example_en": "Failed messages are sent to DLQ for investigation and debugging",
+      "example_vi": "Message thất bại được gửi tới DLQ để điều tra",
+      "usage": "SQS · Error handling · Monitoring",
+      "japfa": "jp:cloudtrail giám sát DLQ từ jp:prod để phát hiện lỗi"
+    },
+    {
+      "word": "Visibility Timeout",
+      "ipa": "/ˌvɪzɪˈbɪləti ˈtaɪmaʊt/",
+      "ipa_guide": "Đọc: VIZ-i-bil-i-ti TIME-out",
+      "type": "danh từ",
+      "meaning": "Khoảng thời gian message bị ẩn sau khi consumer nhận",
+      "example_en": "SQS visibility timeout prevents duplicate message processing",
+      "example_vi": "SQS visibility timeout ngăn xử lý message trùng lặp",
+      "usage": "SQS · Configuration · Best Practice",
+      "japfa": "jp:poc thiết lập visibility timeout 30s cho xử lý đơn hàng"
+    }
+  ],
+  "services": [
+    {
+      "name": "SNS",
+      "full": "AWS Simple Notification Service",
+      "category": "serverless",
+      "icon": "📢",
+      "what": "Dịch vụ pub/sub được quản lý hoàn toàn cho gửi message tới nhiều đích. SNS publish message từ publishers tới topics và phân phối tới subscribers.",
+      "when": "Khi bạn cần gửi thông báo, sự kiện tới nhiều ứng dụng hoặc dịch vụ đồng thời.",
+      "key_points": [
+        "Pub/sub messaging model với topics và subscriptions",
+        "Hỗ trợ SQS, Lambda, HTTP endpoints, email, SMS",
+        "Lưu trữ message trong 15 phút, xoá sau khi gửi thành công"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator sử dụng SNS topics để phát sự kiện sản xuất hàng ngày tới jp:prod và jp:poc"
+    },
+    {
+      "name": "SQS",
+      "full": "AWS Simple Queue Service",
+      "category": "serverless",
+      "icon": "📦",
+      "what": "Dịch vụ queue được quản lý hoàn toàn cho lưu trữ message. Consumers lấy message từ queue, xử lý, rồi xoá message sau khi hoàn tất.",
+      "when": "Khi bạn cần decoupling ứng dụng, xử lý asynchronous, hoặc tạo buffer cho tải công việc không đều.",
+      "key_points": [
+        "FIFO hoặc Standard queue, hỗ trợ message retention tới 14 ngày",
+        "Visibility timeout bảo vệ message khỏi xử lý trùng lặp",
+        "Tích hợp Dead Letter Queue để xử lý message thất bại"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng SQS queues để xử lý đơn hàng bán lẻ asynchronously từ web platform"
+    },
+    {
+      "name": "CloudWatch",
+      "full": "AWS CloudWatch Monitoring",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Dịch vụ giám sát và logging tích hợp cho AWS. Theo dõi metrics từ SNS/SQS như ApproximateNumberOfMessagesVisible, NumberOfMessagesSent.",
+      "when": "Để giám sát hiệu suất SNS topics và SQS queues, phát hiện bottlenecks, độ trễ, và lỗi.",
+      "key_points": [
+        "Metrics tự động từ SNS/SQS mà không cần agent",
+        "Đặt alarms khi metrics vượt ngưỡng, trigger SNS notifications",
+        "Logs từ Lambda subscribers giúp debug xử lý message"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail sử dụng CloudWatch để giám sát SQS queue depths từ jp:prod và jp:aggregator"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "SNS-to-SQS Fan-out Pattern",
+      "icon": "🔀",
+      "body": "Fan-out pattern kết hợp SNS topic với nhiều SQS queues subscribers. Message được publish một lần tới SNS topic, rồi SNS tự động gửi bản sao tới tất cả SQS queues đã subscribe, cho phép xử lý song song từ các consumer độc lập.",
+      "diagram": "  Publisher\n      |\n      v\n  SNS Topic\n   /   |   \\\n  v    v    v\nQueue1 Queue2 Queue3\n  |      |      |\n  v      v      v\nConsumer1 Consumer2 Consumer3",
+      "exam_tip": "SAA sẽ hỏi khi nào dùng fan-out vs direct SQS. Fan-out khi cần multiple independent consumers.",
+      "japfa": "jp:aggregator publish sự kiện sản xuất tới SNS topic, fan-out tới SQS queues của jp:prod (bán lẻ), jp:poc (test), jp:shareservice (báo cáo)"
+    },
+    {
+      "title": "Dead Letter Queue (DLQ) Error Handling",
+      "icon": "💀",
+      "body": "DLQ là queue đặc biệt tự động lưu trữ message khi consumer thất bại sau số lần retry được cấu hình (MaximumReceiveCount). DLQ giúp tách biệt message có vấn đề để điều tra, debug, và xử lý thủ công mà không ảnh hưởng đến queue chính.",
+      "diagram": "SQS Queue (MaximumReceiveCount=3)\n    |\n    v\n  Consumer\n    |\n    +-- Success? --> Delete\n    |\n    +-- Retry <3? --> Retry\n    |\n    +-- Retry >=3? --> Send to DLQ\n                      |\n                      v\n                   Dead Letter Queue",
+      "exam_tip": "SAA hỏi về DLQ configuration. Cần set MaximumReceiveCount và tạo separate DLQ subscription.",
+      "japfa": "jp:prod cấu hình DLQ cho order processing queue, jp:cloudtrail giám sát DLQ để phát hiện thất bại đơn hàng"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa jp:aggregator cần gửi sự kiện sản xuất tới 3 hệ thống độc lập (jp:prod, jp:poc, jp:shareservice) cùng lúc. Kiến trúc nào tốt nhất?",
+      "options": [
+        "A) SNS topic publish trực tiếp tới 3 Lambda functions",
+        "B) SNS topic fan-out tới 3 SQS queues, mỗi queue có riêng consumers",
+        "C) Gửi 3 message riêng biệt tới 3 SQS queues khác nhau",
+        "D) Dùng EventBridge router tới 3 HTTP endpoints"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Fan-out SNS-to-SQS cho phép decoupling tốt nhất: SNS publish 1 lần, SQS xử lý asynchronously và independently"
+    },
+    {
+      "id": 2,
+      "question": "Trong SQS queue của jp:prod, nếu consumer thất bại 3 lần liên tiếp (MaximumReceiveCount=3), message đi đâu?",
+      "options": [
+        "A) Xoá vĩnh viễn từ queue",
+        "B) Gửi tới Dead Letter Queue (DLQ) nếu được cấu hình",
+        "C) Quay về queue gốc và được xử lý lại",
+        "D) Gửi email alert tới administrator"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Message thất bại được tự động chuyển tới DLQ để điều tra. DLQ cần được cấu hình riêng."
+    },
+    {
+      "id": 3,
+      "question": "SNS topic của jp:aggregator gửi message tới SQS queue. Consumer nhận message rồi MarkMessageAsProcessed thành công. Tiếp theo?",
+      "options": [
+        "A) Message vẫn ở queue, có thể bị xử lý lại",
+        "B) Consumer phải call DeleteMessage, SNS sẽ gửi message mới",
+        "C) Consumer phải call DeleteMessage, message sẽ bị xoá khỏi queue",
+        "D) Message tự động xoá sau visibility timeout"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "SQS không tự xoá message. Consumer phải explicitly call DeleteMessage API sau khi xử lý thành công."
+    },
+    {
+      "id": 4,
+      "question": "jp:cloudtrail giám sát SQS queue của jp:prod. Metric nào cho biết số message đang chờ xử lý?",
+      "options": [
+        "A) MessageCount (tổng message bao giờ gửi)",
+        "B) ApproximateNumberOfMessagesVisible (message chưa xử lý)",
+        "C) NumberOfMessagesSent (message được gửi bao giờ)",
+        "D) NumberOfMessagesDeleted (message đã xoá bao giờ)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "ApproximateNumberOfMessagesVisible là metric CloudWatch cho số message hiện tại chưa xử lý trong queue"
+    },
+    {
+      "id": 5,
+      "question": "Nếu jp:shareservice consumer xử lý message từ SNS topic chậm (5 phút/message), nên tăng cái gì để tránh timeout?",
+      "options": [
+        "A) SNS topic retention period (max 15 phút)",
+        "B) SQS queue visibility timeout thành >5 phút",
+        "C) SNS subscription filter policy",
+        "D) CloudWatch alarm threshold"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Visibility timeout phải >= thời gian xử lý. Mặc định 30s, phải tăng lên 5+ phút để tránh duplicate processing"
+    }
+  ]
+}

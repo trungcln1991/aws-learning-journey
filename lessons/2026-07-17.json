@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-17",
+  "day": 13,
+  "week": 4,
+  "month": 1,
+  "title": "Lambda & Serverless Intro",
+  "subtitle": "Function · Trigger · Event · Execution Role",
+  "category": "Serverless",
+  "color": "#F97316",
+  "emoji": "⚡",
+  "vocabulary": [
+    {
+      "word": "Lambda",
+      "ipa": "/ˈlæmdə/",
+      "ipa_guide": "Đọc: LÀM-đơ",
+      "type": "danh từ",
+      "meaning": "Dịch vụ tính toán không máy chủ của AWS cho phép chạy code mà không cần quản lý máy chủ",
+      "example_en": "Deploy a Lambda function to process S3 events automatically",
+      "example_vi": "Triển khai hàm Lambda để xử lý sự kiện S3 một cách tự động",
+      "usage": "Serverless · Triggers · EventBridge",
+      "japfa": "jp:prod sử dụng Lambda để xử lý logs từ FortiGate VPN"
+    },
+    {
+      "word": "Trigger",
+      "ipa": "/ˈtrɪɡər/",
+      "ipa_guide": "Đọc: TRÍCH-gơ",
+      "type": "danh từ",
+      "meaning": "Sự kiện hoặc điều kiện kích hoạt thực thi một Lambda function",
+      "example_en": "An S3 PUT event can trigger a Lambda function to resize images",
+      "example_vi": "Sự kiện PUT trên S3 có thể kích hoạt Lambda để thay đổi kích thước ảnh",
+      "usage": "S3 · SNS · SQS · EventBridge",
+      "japfa": "jp:aggregator dùng S3 trigger để tự động xử lý dữ liệu poultry"
+    },
+    {
+      "word": "Event",
+      "ipa": "/ɪˈvent/",
+      "ipa_guide": "Đọc: i-VEN-t",
+      "type": "danh từ",
+      "meaning": "Dữ liệu gửi tới Lambda function chứa thông tin về hành động kích hoạt",
+      "example_en": "The Lambda event object contains the S3 bucket name and object key",
+      "example_vi": "Object event của Lambda chứa tên bucket S3 và khóa đối tượng",
+      "usage": "Lambda · SNS · SQS · API Gateway",
+      "japfa": "jp:cloudtrail gửi events tới Lambda để kiểm toán API calls"
+    },
+    {
+      "word": "Execution Role",
+      "ipa": "/ɪɡˈzekjətɪv roʊl/",
+      "ipa_guide": "Đọc: IG-ZEK-yơ-tiv RÔL",
+      "type": "danh từ",
+      "meaning": "IAM role cấp quyền cho Lambda function truy cập các dịch vụ AWS khác",
+      "example_en": "The Lambda execution role grants permission to read from DynamoDB",
+      "example_vi": "Execution role của Lambda cấp quyền đọc từ DynamoDB",
+      "usage": "IAM · Lambda · Security",
+      "japfa": "jp:prod Lambda role cho phép đọc/ghi CloudWatch Logs"
+    },
+    {
+      "word": "Serverless",
+      "ipa": "/ˈsɜrvərləs/",
+      "ipa_guide": "Đọc: SỀR-vơ-lơs",
+      "type": "tính từ",
+      "meaning": "Kiến trúc không yêu cầu quản lý máy chủ hoặc hạ tầng phức tạp",
+      "example_en": "Serverless architecture scales automatically based on workload",
+      "example_vi": "Kiến trúc serverless tự động mở rộng dựa trên tải công việc",
+      "usage": "Lambda · API Gateway · DynamoDB",
+      "japfa": "jp:poc thử nghiệm serverless cho xử lý dữ liệu giá thức ăn"
+    }
+  ],
+  "services": [
+    {
+      "name": "Lambda",
+      "full": "AWS Lambda",
+      "category": "serverless",
+      "icon": "⚡",
+      "what": "Dịch vụ tính toán không máy chủ cho phép chạy code Python, Node.js, Java, C# mà không cần quản lý máy chủ. Lambda tự động mở rộng quy mô dựa trên nhu cầu.",
+      "when": "Xử lý sự kiện thời gian thực, xử lý tệp S3, xử lý dữ liệu stream, API backend, tác vụ lập lịch định kỳ",
+      "key_points": [
+        "Chỉ trả phí cho thời gian tính toán thực tế, không có chi phí máy chủ nhàn rỗi",
+        "Tự động mở rộng từ 0 đến hàng nghìn đồng thời thực thi",
+        "Hỗ trợ 15 phút timeout, tích hợp với 200+ dịch vụ AWS"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng Lambda xử lý metrics từ chuồng gà, jp:aggregator chạy daily batch jobs tính toán sản lượng trứng"
+    },
+    {
+      "name": "EventBridge",
+      "full": "Amazon EventBridge",
+      "category": "serverless",
+      "icon": "🌉",
+      "what": "Dịch vụ định tuyến sự kiện kết nối các ứng dụng AWS, SaaS và on-premises. Cho phép tạo quy tắc để định tuyến sự kiện tới đích.",
+      "when": "Xây dựng kiến trúc sự kiện, tích hợp ứng dụng SaaS, theo dõi sự thay đổi tài nguyên AWS, tạo quy trình tự động",
+      "key_points": [
+        "Hỗ trợ quy tắc để lọc và định tuyến sự kiện dựa trên nội dung",
+        "Tích hợp với Lambda, SNS, SQS, Kinesis, Step Functions",
+        "Hỗ trợ sự kiện cấp độ 99.99% SLA"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail gửi CloudTrail events tới EventBridge, định tuyến tới Lambda để kiểm toán thay đổi trên jp:network"
+    },
+    {
+      "name": "IAM",
+      "full": "AWS Identity & Access Management",
+      "category": "security",
+      "icon": "🔐",
+      "what": "Dịch vụ quản lý danh tính, xác thực và ủy quyền cho tất cả tài nguyên AWS. Tạo users, roles, policies để kiểm soát truy cập.",
+      "when": "Cấp quyền cho Lambda functions, tạo execution roles, quản lý truy cập người dùng, triển khai least privilege",
+      "key_points": [
+        "Lambda execution role phải có policy cho phép truy cập S3, DynamoDB, CloudWatch",
+        "Sử dụng resource-based policies cho phép services gọi Lambda",
+        "Kiểm toán quyền bằng IAM Access Analyzer"
+      ],
+      "japfa": true,
+      "japfa_detail": "Mỗi tài khoản jp:prod/jp:uat/jp:poc có execution roles riêng cho Lambda, tuân theo least privilege principle"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Lambda Execution Flow",
+      "icon": "⚡",
+      "body": "Khi một sự kiện kích hoạt Lambda, AWS khởi tạo container, chạy code và trả về kết quả. Execution role xác định quyền truy cập Lambda tới dịch vụ AWS khác.",
+      "diagram": "Event → EventBridge/S3/SNS → Lambda Trigger\n              ↓\n      Lambda Container Init\n              ↓\n      Code Execution (Execution Role)\n              ↓\n      Invoke CloudWatch Logs\n              ↓\n      Return Response",
+      "exam_tip": "SAA hỏi về event structure, timeout settings, memory allocation ảnh hưởng CPU. Biết execution role vs resource policy khác nhau.",
+      "japfa": "jp:prod Lambda xử lý sự kiện S3 từ camera giám sát chuồng, dùng execution role đọc S3, ghi DynamoDB scores"
+    },
+    {
+      "title": "Trigger vs Event",
+      "icon": "🔔",
+      "body": "Trigger là cách thức kích hoạt Lambda (ví dụ S3 PUT event). Event là dữ liệu gửi tới Lambda handler chứa chi tiết về trigger. Một trigger định tuyến nhiều loại events.",
+      "diagram": "S3 (Trigger Source)\n    ↓\n    [PUT, DELETE, POST events]\n    ↓\nLambda Handler Receives:\n    {\n      'bucket': 'my-bucket',\n      'key': 'image.jpg',\n      'eventName': 'ObjectCreated:Put'\n    }",
+      "exam_tip": "Phân biệt trigger configuration (S3 bucket → Lambda ARN) vs event object (data trong handler). Một trigger có thể lọc events theo prefix/suffix.",
+      "japfa": "jp:aggregator S3 trigger lọc *.csv files từ VMware backup, event object chứa file path, Lambda parse CSV"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Khi Lambda function cần đọc dữ liệu từ S3 bucket, cấp phép nào là bắt buộc?",
+      "options": [
+        "Thêm s3:GetObject vào Execution Role policy",
+        "Thêm lambda:InvokeFunction vào S3 bucket policy",
+        "Cấp quyền root user cho Lambda",
+        "Lambda tự động có quyền đọc S3 mà không cần policy"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "Execution Role là IAM role gán cho Lambda, cần s3:GetObject để đọc objects. S3 bucket policy dùng cho resource-based access."
+    },
+    {
+      "id": 2,
+      "question": "Điều gì xảy ra khi S3 PUT event kích hoạt Lambda function?",
+      "options": [
+        "Lambda container khởi tạo, code chạy với permissions từ Execution Role, ghi logs CloudWatch",
+        "S3 bucket trực tiếp thực thi Lambda code trên máy chủ S3",
+        "Lambda cần yêu cầu quyền từ user mỗi khi gọi",
+        "Event data không được gửi tới Lambda handler"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "Lambda trigger khởi chạy async, AWS tạo container, event object chứa S3 metadata, execution role kiểm soát quyền truy cập."
+    },
+    {
+      "id": 3,
+      "question": "Japfa jp:aggregator cần Lambda xử lý CSV files từ S3 mỗi 5 phút. Dùng trigger nào?",
+      "options": [
+        "EventBridge rule với cron schedule, target Lambda",
+        "CloudWatch Events chỉ theo dõi log patterns",
+        "S3 PUT event trigger để chờ file upload",
+        "SNS topic manual invoke"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "EventBridge cron schedule là cách tốt nhất cho tác vụ định kỳ. S3 trigger chỉ kích hoạt khi file upload."
+    },
+    {
+      "id": 4,
+      "question": "Execution Role khác gì Resource-Based Policy trong Lambda?",
+      "options": [
+        "Execution Role cấp quyền cho Lambda gọi AWS services, Resource Policy cho phép services gọi Lambda",
+        "Cả hai làm chuyện y hệt, chỉ tên khác",
+        "Execution Role chỉ dùng trên jp:prod, Resource Policy dùng trên jp:uat",
+        "Resource Policy bắt buộc, Execution Role không cần"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "Execution Role ≈ assume role quyền cho Lambda. Resource Policy ≈ allow statement cho phép S3/EventBridge invoke Lambda."
+    },
+    {
+      "id": 5,
+      "question": "Lambda event object từ S3 trigger chứa thông tin gì?",
+      "options": [
+        "bucket name, object key, event type (Put/Delete), timestamp",
+        "Chỉ file content dạng binary",
+        "IAM user credentials của uploader",
+        "Private IP của S3 server"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "S3 event object chứa Records array với bucket, key, eventName, eventTime. File content phải fetch bằng s3:GetObject call."
+    }
+  ]
+}
