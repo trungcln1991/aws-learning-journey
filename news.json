@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T05:03:14.660Z",
+  "generated_at": "2026-07-06T05:18:42.597Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -31,7 +31,8 @@
       "description": "Amazon SageMaker Unified Studio now supports Terraform for provisioning. Customers can use the open-source terraform-aws-sagemaker-unified-studio module to deploy a SageMaker Unified Studio domain through version-controlled templates. With this launch, platform teams can bring SageMaker Unified Studio into their existing infrastructure-as-code pipelines, maintaining consistency across development,",
       "tags": [
         "SageMaker"
-      ]
+      ],
+      "description_vi": "Amazon SageMaker Unified Studio hiện hỗ trợ Terraform để provisioning — Khách hàng có thể sử dụng mô-đun terraform-aws-sagemaker-unified-studio mã nguồn mở để triển khai SageMaker Unified"
     },
     {
       "title": "Amazon EC2 X8i instances are now available in additional regions",
@@ -40,7 +41,8 @@
       "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the Asia Pacific (Seoul), Asia Pacific (Malaysia) and Asia Pacific (Tokyo) regions. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the clou",
       "tags": [
         "EC2"
-      ]
+      ],
+      "description_vi": "Amazon EC2 X8i instances hiện có sẵn ở các khu vực bổ sung — Bắt đầu từ hôm nay, Amazon EC2 X8i instances có sẵn ở các khu vực Asia Pacific (Seoul), Asia Pacific (Malaysia) và Asia Pacific (Tokyo)"
     },
     {
       "title": "Amazon EC2 Dedicated Hosts now support AMD SEV-SNP",
@@ -49,7 +51,8 @@
       "description": "Amazon EC2 is announcing support for AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) on Dedicated Hosts, enabling customers to run their confidential computing workloads on physical servers fully dedicated to their use. Customers can allocate a Dedicated Host with SEV-SNP enabled and launch SEV-SNP instances on it. This gives customers the benefits of Dedicated Hosts for confide",
       "tags": [
         "EC2"
-      ]
+      ],
+      "description_vi": "Amazon EC2 Dedicated Hosts hiện hỗ trợ AMD SEV-SNP — Amazon EC2 công bố hỗ trợ AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) trên Dedicated Hosts, cho phép khách hàng chạy confidential computing"
     },
     {
       "title": "Amazon SageMaker HyperPod now supports AMI versioning and auto-patching",
@@ -59,7 +62,8 @@
       "tags": [
         "Bedrock",
         "SageMaker"
-      ]
+      ],
+      "description_vi": "Amazon SageMaker HyperPod hiện hỗ trợ versioning AMI và auto-patching — Amazon SageMaker HyperPod giờ cho bạn thấy rõ các phiên bản Amazon Machine Image (AMI) chạy trên các cluster và tự động áp dụng security patches mà không gián đoạn"
     },
     {
       "title": "AWS Config now supports 8 new resource types",
@@ -70,7 +74,8 @@
         "EC2",
         "S3",
         "CloudTrail"
-      ]
+      ],
+      "description_vi": "AWS Config hiện hỗ trợ 8 loại tài nguyên mới — AWS Config hiện hỗ trợ 8 loại tài nguyên AWS bổ sung trên các dịch vụ chính bao gồm Amazon API Gateway, Amazon EC2 và Amazon S3 Vectors"
     },
     {
       "title": "Amazon Bedrock AgentCore increases default runtime quota limits",
@@ -79,7 +84,8 @@
       "description": "Amazon Bedrock AgentCore has increased the default runtime quota limits, giving customers greater capacity to scale their agent-based workloads. AgentCore is the platform for developers to build, connect, and optimize AI agents. The new default limits support up to 5,000 active concurrent sessions in US East (N. Virginia) and US West (Oregon), and 2,500 in all other supported Regions. All AWS Regi",
       "tags": [
         "Bedrock"
-      ]
+      ],
+      "description_vi": "Amazon Bedrock AgentCore tăng giới hạn quota runtime mặc định — Amazon Bedrock AgentCore đã tăng giới hạn quota runtime mặc định, cho phép khách hàng mở rộng quy mô agent-based workloads của họ"
     },
     {
       "title": "Amazon CloudWatch supports creating alarms from log queries",
@@ -89,7 +95,8 @@
       "tags": [
         "CloudWatch",
         "SageMaker"
-      ]
+      ],
+      "description_vi": "Amazon CloudWatch hỗ trợ tạo alarm từ log queries — Amazon CloudWatch cho phép bạn tạo alarm trên dữ liệu log bằng log queries và nhận cảnh báo về anomalies mà không cần rời khỏi log analysis workflow"
     },
     {
       "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
@@ -98,7 +105,8 @@
       "description": "Amazon Elastic Container Service (Amazon ECS) now provides real-time deployment observability in the Amazon ECS Console. With this launch, customers can track deployment progress, monitor deployment health, and diagnose failures directly from the console, and understand exactly what is happening during a deployment, identify issues as they occur, and reduce the time it takes to troubleshoot and re",
       "tags": [
         "ECS"
-      ]
+      ],
+      "description_vi": "Amazon ECS hiện cung cấp real-time deployment observability trong AWS Management Console — Amazon ECS giờ cung cấp real-time deployment observability trong Amazon ECS Console, cho phép khách hàng theo dõi tiến trình triển khai"
     },
     {
       "title": "AWS Artifact now includes Assurance Assistant for compliance inquiries",
@@ -108,14 +116,16 @@
       "tags": [
         "CloudTrail",
         "Security Hub"
-      ]
+      ],
+      "description_vi": "AWS Artifact hiện bao gồm Assurance Assistant để truy vấn compliance — AWS Artifact hiện bao gồm Assurance Assistant, một tính năng AI-powered tạo ra các phản hồi có trích dẫn cho các câu hỏi về bảo mật và compliance của AWS"
     },
     {
       "title": "AWS Partner Central now supports AWS Marketplace listings for co-selling",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-marketplace-co-selling-support/",
       "date": "2026-07-01T19:06:00.000Z",
       "description": "Today, AWS announces that partners can associate one or more AWS Marketplace solutions and product listings from their AWS Marketplace catalog directly to co-sell opportunities in AWS Partner Central. Previously, opportunities required partners to use solutions specially created for co-selling, which meant partners managed their solutions for the AWS Marketplace catalog and solutions for co-sellin",
-      "tags": []
+      "tags": [],
+      "description_vi": "AWS Partner Central hiện hỗ trợ AWS Marketplace listings cho co-selling — AWS công bố rằng các đối tác có thể liên kết một hoặc nhiều giải pháp AWS Marketplace từ catalog của họ trực tiếp đến các cơ hội co-sell"
     },
     {
       "title": "Amazon RDS announces Cross-Region Automated Backups in four additional AWS Regions",
@@ -124,7 +134,8 @@
       "description": "Cross-Region Automated Backup replication for Amazon RDS is now available in four additional AWS Regions. This launch allows you to setup automated backup replication between Mexico (Central) and Europe (Ireland) or US West (N. California); between Asia Pacific (Taipei) and Asia Pacific (Singapore) or Asia Pacific (Tokyo); between Asia Pacific (New Zealand) and Asia Pacific (Singapore), Asia Pacif",
       "tags": [
         "RDS"
-      ]
+      ],
+      "description_vi": "Amazon RDS công bố Cross-Region Automated Backups ở bốn khu vực AWS bổ sung — Cross-Region Automated Backup replication cho Amazon RDS hiện có sẵn ở bốn khu vực AWS bổ sung, cho phép bạn thiết lập replication backup tự động"
     },
     {
       "title": "Amazon Bedrock AgentCore now available in four additional AWS Regions",
@@ -133,7 +144,8 @@
       "description": "Amazon Bedrock AgentCore is now available in four additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Europe (Milan), and Europe (Spain). Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with securit",
       "tags": [
         "Bedrock"
-      ]
+      ],
+      "description_vi": "Amazon Bedrock AgentCore hiện có sẵn ở bốn khu vực AWS bổ sung — Amazon Bedrock AgentCore hiện có sẵn ở bốn khu vực AWS bổ sung: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Europe (Milan) và Europe (Spain)"
     },
     {
       "title": "Amazon ECS now supports configurable deployment circuit breaker settings",
@@ -142,7 +154,8 @@
       "description": "Amazon Elastic Container Service (Amazon ECS) now gives you more control over when a service deployment is considered failed and automatically rolled back. You can now customize deployment circuit breaker settings to match your application's startup behavior, deployment needs, and tolerance for task failures, so rollback works the way you need across different applications and environments. The EC",
       "tags": [
         "ECS"
-      ]
+      ],
+      "description_vi": "Amazon ECS hiện hỗ trợ configurable deployment circuit breaker settings — Amazon ECS giờ cho bạn kiểm soát nhiều hơn khi nào một service deployment được coi là thất bại và tự động rollback"
     },
     {
       "title": "Amazon GuardDuty adds sensitive file modification threat detections",
@@ -153,14 +166,16 @@
         "EC2",
         "CloudWatch",
         "ECS"
-      ]
+      ],
+      "description_vi": "Amazon GuardDuty thêm sensitive file modification threat detections — Amazon GuardDuty Runtime Monitoring hiện bao gồm ba threat detections mới cảnh báo cho security teams khi các file sensitive bị sửa đổi trên EC2 instances và container workloads"
     },
     {
       "title": "AWS AppConfig launches managed experimentation tools for A/B testing",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/6/aws-appconfig-experimentation/",
       "date": "2026-07-01T16:30:00.000Z",
       "description": "Today, AWS announces the general availability of experimentation tools in AWS AppConfig, a new capability that enables you to run A/B tests and feature experiments without building or managing separate experimentation infrastructure. Built on 25+ years of Amazon experimentation best practices, AWS AppConfig experimentation tools use AI-driven guidance to help you build robust experiments while pro",
-      "tags": []
+      "tags": [],
+      "description_vi": "AWS AppConfig ra mắt managed experimentation tools để A/B testing — AWS công bố tính khả dụng chung của experimentation tools trong AWS AppConfig, một tính năng mới cho phép bạn chạy A/B tests mà không cần xây dựng"
     },
     {
       "title": "Amazon ECS Express Mode now supports custom task definitions",
@@ -169,7 +184,8 @@
       "description": "Amazon Elastic Container Service (Amazon ECS) Express Mode now supports custom task definitions, giving you the flexibility to use existing ECS application configurations and advanced task-level customizations with Express Mode’s simplified deployment experience. This also enables you to reuse task definitions from your existing CI/CD pipelines and infrastructure-as-code workflows, allowing you to",
       "tags": [
         "ECS"
-      ]
+      ],
+      "description_vi": "Amazon ECS Express Mode hiện hỗ trợ custom task definitions — Amazon ECS Express Mode hiện hỗ trợ custom task definitions, cho bạn tính linh hoạt sử dụng các cấu hình ECS ứng dụng hiện có"
     },
     {
       "title": "Amazon EKS now supports Kubernetes version rollback",
@@ -178,7 +194,8 @@
       "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports Kubernetes version rollback , enabling you to revert to the previous Kubernetes minor version within 7 days if any issues arise after an upgrade. This provides an additional safety net for your upgrade workflow, allowing you to validate the new version under real production conditions and rollback if needed. You can initiate a rollback us",
       "tags": [
         "EKS"
-      ]
+      ],
+      "description_vi": "Amazon EKS hiện hỗ trợ Kubernetes version rollback — Amazon EKS hiện hỗ trợ Kubernetes version rollback, cho phép bạn hoàn nguyên phiên bản Kubernetes minor trong vòng 7 ngày nếu có vấn đề"
     },
     {
       "title": "Amazon Managed Service for Prometheus achieves FedRAMP High and DoD IL-4/5 authorization in AWS GovCloud (US)",
@@ -188,14 +205,16 @@
       "tags": [
         "Organizations",
         "Security Hub"
-      ]
+      ],
+      "description_vi": "Amazon Managed Service for Prometheus đạt FedRAMP High và DoD IL-4/5 authorization ở AWS GovCloud (US) — Amazon Managed Service for Prometheus hiện có FedRAMP High và DoD CC SRG Impact Level 4 và 5 authorization"
     },
     {
       "title": "AWS Security Agent now available in Asia Pacific (Mumbai), Asia Pacific (Singapore), and South America (São Paulo)",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-agent-asia-pacific/",
       "date": "2026-07-01T15:26:00.000Z",
       "description": "Starting today, AWS Security Agent (now part of AWS Continuum ) is available in three additional AWS Regions: Asia Pacific (Mumbai), Asia Pacific (Singapore), and South America (São Paulo). Customers in these Regions can now access core capabilities of Security Agent to proactively secure their applications throughout the development lifecycle. With this expansion, customers gain access to STRIDE-",
-      "tags": []
+      "tags": [],
+      "description_vi": "AWS Security Agent hiện có sẵn ở Asia Pacific (Mumbai), Asia Pacific (Singapore) và South America (São Paulo) — Bắt đầu từ hôm nay, AWS Security Agent (giờ là phần của AWS Continuum) có sẵn ở ba khu vực AWS bổ sung"
     },
     {
       "title": "Amazon RDS for Db2 now supports self-managed Active Directory",
@@ -205,14 +224,16 @@
       "tags": [
         "EC2",
         "RDS"
-      ]
+      ],
+      "description_vi": "Amazon RDS for Db2 hiện hỗ trợ self-managed Active Directory — Amazon RDS for Db2 hiện cho phép khách hàng trực tiếp tham gia các RDS for Db2 DB instances vào các domain của Microsoft Active Directory tự quản lý"
     },
     {
       "title": "Amazon OpenSearch Service optimized for log analytics",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service-optimized-log-analytics",
       "date": "2026-07-01T02:30:00.000Z",
       "description": "Today, Amazon OpenSearch Service introduces a new engine purpose-built for log analytics workloads, delivering up to 4x better price-performance on internal benchmarks. It combines this efficiency with the full-text search capabilities that OpenSearch is known for, so users can still run the ad hoc queries that incident investigation depends on. As log volumes grow with cloud-native architectures,",
-      "tags": []
+      "tags": [],
+      "description_vi": "Amazon OpenSearch Service được tối ưu hóa cho log analytics — Amazon OpenSearch Service giới thiệu một engine mới được thiết kế đặc biệt cho log analytics workloads, cung cấp hiệu suất giá tốt hơn 4x"
     },
     {
       "title": "Amazon Connect Customer now supports rule based redaction for agent screen recording",
@@ -221,7 +242,8 @@
       "description": "Amazon Connect Customer now lets you protect sensitive information in agent screen recordings by defining rules to redact specific applications or URLs. Agent screen recording helps supervisors identify coaching opportunities, such as non-compliance with business processes by allowing them to record agents' on-screen actions during voice calls, chats, and tasks. With this feature, you can create r",
       "tags": [
         "Security Hub"
-      ]
+      ],
+      "description_vi": "Amazon Connect Customer hiện hỗ trợ rule-based redaction cho agent screen recording — Amazon Connect Customer giờ cho phép bạn bảo vệ thông tin sensitive trong agent screen recordings bằng cách định nghĩa các rule để redact ứng dụng hoặc URL cụ thể"
     },
     {
       "title": "Amazon CloudWatch Logs enriches log events with AWS resource tags",
@@ -231,21 +253,24 @@
       "tags": [
         "CloudWatch",
         "Cost"
-      ]
+      ],
+      "description_vi": "Amazon CloudWatch Logs làm phong phú log events với AWS resource tags — Amazon CloudWatch Logs hiện làm phong phú log events với resource tags, giúp dễ dàng hơn lọc, tìm kiếm và phân tích logs theo metadata quan trọng"
     },
     {
       "title": "AWS CloudFormation and CDK accelerate development feedback loops with pre-deployment validation on all stack operations",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-cloudformation/",
       "date": "2026-06-30T21:00:00.000Z",
       "description": "AWS CloudFormation customers can now get immediate feedback on deployment errors in seconds, eliminating the need to wait through a full provision-and-rollback cycle to discover preventable failures. CloudFormation now runs pre-deployment validation on Create Stack and Update Stack operations, catching common deployment errors before resource provisioning begins. This accelerates development veloc",
-      "tags": []
+      "tags": [],
+      "description_vi": "AWS CloudFormation và CDK tăng tốc feedback loops với pre-deployment validation — CloudFormation customers hiện có thể nhận được phản hồi ngay lập tức về lỗi triển khai trong vòng vài giây, loại bỏ nhu cầu chờ đợi một chu kỳ provision-and-rollback đầy đủ"
     },
     {
       "title": "AWS CloudFormation and CDK express mode speeds up infrastructure deployments by up to 4x",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-cloudformation-cdk/",
       "date": "2026-06-30T21:00:00.000Z",
       "description": "AWS CloudFormation and CDK express mode reduces deployment time by up to 4x for developers and AI agents building infrastructure, based on internal benchmarks. Express mode completes stack operations when CloudFormation confirms resource configuration is applied, rather than waiting for extended stabilization checks such as traffic readiness, region propagation, and resource cleanup. This enables ",
-      "tags": []
+      "tags": [],
+      "description_vi": "AWS CloudFormation và CDK express mode tăng tốc độ triển khai cơ sở hạ tầng lên tới 4x — AWS CloudFormation và CDK express mode giảm thời gian triển khai lên tới 4x cho developers và AI agents xây dựng cơ sở hạ tầng"
     }
   ],
   "security": [
@@ -254,7 +279,8 @@
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-030-aws/",
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-030-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/13/2026 10:00 PM PDT This is an ongoing issue. This bulletin will be updated as more information becomes available. Description: AWS is aware of the copy.fail or DirtyFrag class of issues - a set of privilege escalation issues affecting the Linux Kernel. We will update this bulletin as more infor",
-      "tags": []
+      "tags": [],
+      "description_vi": "Cập nhật liên tục về Copy.fail và các biến thể — Bulletin ID: 2026-030-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 05/13/2026 10:00 PM PDT Đây là một vấn đề đang diễn ra"
     },
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
@@ -264,7 +290,8 @@
       "tags": [
         "WAF",
         "Inspector"
-      ]
+      ],
+      "description_vi": "CVE-2026-13762 và CVE-2026-13763 - Vấn đề với HTTP/2 multi-frame request body inspection trong AWS WAF — Bulletin ID: 2026-048-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 06/29/2026 11:15 PM PDT"
     },
     {
       "title": "Issue with AWS-LC: an open-source, general-purpose cryptographic library (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338)",
@@ -273,14 +300,16 @@
       "description": "Bulletin ID: 2026-005-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/03/02 14:30 PM PST Description: AWS-LC is an open-source, general-purpose cryptographic library. We identified three distinct issues: - CVE-2026-3336: PKCS7_verify Certificate Chain Validation Bypass in AWS-LC Improper certificate validation in PKCS7_verify() in AWS-LC allows an unauthenticated",
       "tags": [
         "Inspector"
-      ]
+      ],
+      "description_vi": "Vấn đề với AWS-LC: thư viện cryptographic mã nguồn mở (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338) — Bulletin ID: 2026-005-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 2026/03/02 14:30 PM PST"
     },
     {
       "title": "Issues with AWS Research and Engineering Studio (RES)",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-014-aws/",
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-014-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/06 14:00 PM PDT Description: Research and Engineering Studio (RES) on AWS is an open source, web portal design for administrators to create and manage secure cloud-based research and engineering environments. We have identified the following issues with the AWS Research and Engineering Studi",
-      "tags": []
+      "tags": [],
+      "description_vi": "Vấn đề với AWS Research and Engineering Studio (RES) — Bulletin ID: 2026-014-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 2026/04/06 14:00 PM PDT"
     },
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
@@ -289,7 +318,8 @@
       "description": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT Description: FreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size ",
       "tags": [
         "Inspector"
-      ]
+      ],
+      "description_vi": "Vấn đề với FreeRTOS-Plus-TCP - MAC Address Validation Bypass và ICMP Echo Reply Integer Underflow — Bulletin ID: 2026-021-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 2026/04/29 12:00 PM PDT"
     },
     {
       "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
@@ -299,7 +329,8 @@
       "tags": [
         "IAM",
         "Inspector"
-      ]
+      ],
+      "description_vi": "CVE-2026-13769 – Insecure file permissions trong AWS CLI — Bulletin ID: 2026-049-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 07/01/2026 11:45 AM PDT"
     },
     {
       "title": "CVE-2026-12957 and CVE-2026-12958 - Issues in Language Servers for AWS and Amazon Q Developer Plugins",
@@ -308,7 +339,8 @@
       "description": "Bulletin ID: 2026-047-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/23/2026 09:30 AM PDT Description: Language Servers for AWS provide the underlying language-server runtime that powers Amazon Q Developer's AI coding assistance across its IDE plugins (Visual Studio Code, JetBrains, Eclipse, and Visual Studio). We identified CVE-2026-12957, an improper trust bound",
       "tags": [
         "Inspector"
-      ]
+      ],
+      "description_vi": "CVE-2026-12957 và CVE-2026-12958 - Vấn đề trong Language Servers cho AWS và Amazon Q Developer Plugins — Bulletin ID: 2026-047-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 06/23/2026 09:30 AM PDT"
     },
     {
       "title": "Security Findings in SageMaker Python SDK",
@@ -319,7 +351,8 @@
         "S3",
         "Lambda",
         "SageMaker"
-      ]
+      ],
+      "description_vi": "Security Findings trong SageMaker Python SDK — Bulletin ID: 2026-004-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 2026/02/02 14:30 PM PST"
     },
     {
       "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
@@ -330,7 +363,8 @@
         "ALB",
         "SageMaker",
         "Inspector"
-      ]
+      ],
+      "description_vi": "Vấn đề với Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 & CVE-2026-8597) — Bulletin ID: 2026-031-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 05/14/2026 13:00 PM PDT"
     },
     {
       "title": "CVE-2026-7424 - Integer Underflow in DHCPv6 Sub-Option Parser in FreeRTOS-Plus-TCP",
@@ -340,7 +374,8 @@
       "tags": [
         "Route 53",
         "Inspector"
-      ]
+      ],
+      "description_vi": "CVE-2026-7424 - Integer Underflow trong DHCPv6 Sub-Option Parser trong FreeRTOS-Plus-TCP — Bulletin ID: 2026-022-AWS Scope: AWS Loại nội dung: Quan trọng (cần chú ý) Ngày công bố: 2026/04/29 12:20 PM PDT"
     }
   ],
   "blog": [
@@ -351,7 +386,8 @@
       "description": "Learn how Kubernetes version rollbacks for Amazon EKS let you reverse cluster upgrades within seven days. This new feature provides a safety net for upgrade failures—no cluster rebuilds required—turning Kubernetes version upgrades into a reversible, low-risk operation.",
       "tags": [
         "EKS"
-      ]
+      ],
+      "description_vi": "Nâng cấp Amazon EKS clusters với tự tin sử dụng Kubernetes version rollbacks — Tìm hiểu cách Kubernetes version rollbacks cho Amazon EKS cho phép bạn đảo ngược cluster upgrades trong bảy ngày, cung cấp lưới an toàn cho upgrade failures"
     },
     {
       "title": "Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode",
@@ -360,7 +396,8 @@
       "description": "AWS CloudFormation speeds up infrastructure deployment with Express mode, enabling AI agents and developers to receive deployment confirmation in seconds and iterate faster. Available in all commercial Regions at no additional cost.",
       "tags": [
         "Cost"
-      ]
+      ],
+      "description_vi": "Tăng tốc độ triển khai cơ sở hạ tầng lên tới 4x với AWS CloudFormation Express mode — AWS CloudFormation tăng tốc độ triển khai cơ sở hạ tầng với Express mode, cho phép AI agents và developers nhận xác nhận triển khai trong vòng vài giây"
     },
     {
       "title": "Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available",
@@ -369,7 +406,8 @@
       "description": "Amazon EC2 C9g and C9gd instances, powered by AWS Graviton5, are now generally available. They deliver up to 25% better compute performance than Graviton4-based instances, 5x larger cache, fastest memory of any processor instances in the cloud, and local NVMe storage options (C9gd).",
       "tags": [
         "EC2"
-      ]
+      ],
+      "description_vi": "Amazon EC2 C9g và C9gd instances được cung cấp bởi AWS Graviton5 processors hiện khả dụng — Amazon EC2 C9g và C9gd instances, được cung cấp bởi AWS Graviton5, hiện khả dụng chung, cung cấp hiệu suất compute tốt hơn 25% so với các instances dựa trên Graviton4"
     },
     {
       "title": "Automate public TLS certificate issuance with ACME support in AWS Certificate Manager",
@@ -378,7 +416,8 @@
       "description": "AWS Certificate Manager now supports the ACME protocol for public TLS certificates, enabling automated issuance and renewal through any ACMEv2-compatible client on any workload. Administrators get centralized governance, IAM-based access controls, and domain scoping, reducing operational risk as certificate lifetimes continue to reduce.",
       "tags": [
         "IAM"
-      ]
+      ],
+      "description_vi": "Tự động hóa issuance public TLS certificate với ACME support trong AWS Certificate Manager — AWS Certificate Manager hiện hỗ trợ ACME protocol cho public TLS certificates, cho phép issuance và renewal tự động thông qua bất kỳ ACMEv2-compatible client nào"
     },
     {
       "title": "AWS Weekly Roundup: Agentic CX designer for Amazon Connect Customer, EC2 AMI Watermarks, Open Governance for MySQL, and more (June 29, 2026)",
@@ -389,7 +428,8 @@
         "EC2",
         "RDS",
         "Lambda"
-      ]
+      ],
+      "description_vi": "AWS Weekly Roundup: Agentic CX designer cho Amazon Connect Customer, EC2 AMI Watermarks, Open Governance cho MySQL, và hơn nữa (June 29, 2026) — Đã là một giai đoạn bận rộn trên circuit AWS Summit. Tại NYC Summit, tôi đã giảng dạy một workshop về Building AI architectures with AWS Serverless"
     },
     {
       "title": "Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs",
@@ -398,7 +438,8 @@
       "description": "AWS launches a new serverless compute primitive, AWS Lambda MicroVMs. VM-level, isolated sandboxes with no shared kernel or resources between sessions. Rapid launch and resume, full lifecycle control, state preservation up to 8 hours, no infrastructure to manage.",
       "tags": [
         "Lambda"
-      ]
+      ],
+      "description_vi": "Chạy isolated sandboxes với full lifecycle control: AWS Lambda giới thiệu MicroVMs — AWS khởi chạy một serverless compute primitive mới, AWS Lambda MicroVMs, các VM-level isolated sandboxes không có shared kernel hoặc resources giữa các session"
     },
     {
       "title": "AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi, Grok 4.3 in Bedrock, price reductions, and more (June 22, 2026)",
@@ -407,7 +448,8 @@
       "description": "Last week AWS Summit New York City brought together thousands of customers, partners, and builders for a free, one-day event showcasing the latest in cloud and AI innovation. Dr. Swami Sivasubramanian, VP of Agentic AI at AWS unveiled a stack of AI launches in his keynote, all built around one thesis: agents that compound value […]",
       "tags": [
         "Bedrock"
-      ]
+      ],
+      "description_vi": "AWS Weekly Roundup: NY Summit recap, Local Zone ở Hanoi, Grok 4.3 trong Bedrock, price reductions, và hơn nữa (June 22, 2026) — Tuần trước AWS Summit New York City tập hợp hàng ngàn khách hàng, đối tác và builders cho một sự kiện miễn phí một ngày"
     },
     {
       "title": "Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs",
@@ -416,7 +458,8 @@
       "description": "Announcing the general availability of Amazon Elastic Compute Cloud (Amazon EC2) G7 instances, delivering high performance GPU acceleration for AI inference, graphics, and data analytics workloads.",
       "tags": [
         "EC2"
-      ]
+      ],
+      "description_vi": "Công bố Amazon EC2 G7 instances được tăng tốc bởi NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs — Công bố tính khả dụng chung của Amazon EC2 G7 instances, cung cấp GPU acceleration hiệu suất cao cho AI inference, graphics và data analytics"
     },
     {
       "title": "Amazon ECS introduces new high-resolution metrics for faster service auto scaling",
@@ -426,14 +469,16 @@
       "tags": [
         "CloudWatch",
         "ECS"
-      ]
+      ],
+      "description_vi": "Amazon ECS giới thiệu high-resolution metrics mới để nhanh hơn service auto scaling — Amazon ECS service auto scaling tự động điều chỉnh task counts để đáp ứng workload demand với các comprehensive scaling policies, bao gồm predictive scaling"
     },
     {
       "title": "Top announcements of the AWS Summit in New York, 2026",
       "link": "https://aws.amazon.com/blogs/aws/top-announcements-of-the-aws-summit-in-new-york-2026/",
       "date": "2026-06-17T16:36:08.000Z",
       "description": "A recap of the top announcements from AWS's New York Summit 2026",
-      "tags": []
+      "tags": [],
+      "description_vi": "Top announcements từ AWS Summit ở New York, 2026 — Tóm tắt các top announcements từ AWS New York Summit 2026"
     }
   ],
   "status": {
