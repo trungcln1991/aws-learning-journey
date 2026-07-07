@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "RDS & Database Fundamentals",
-    "EC2 Basics"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: Weekly Security Review + fResetBroken close + gen-ai EC2 investigation (06/07/2026)",
-  "updated_at": "2026-07-06T02:34:21Z"
+  "commit_msg": "session: dọn IAM/CVE/alarm/login-alert 07/07 + fix PBI date discipline",
+  "updated_at": "2026-07-07T05:10:33Z"
 }
