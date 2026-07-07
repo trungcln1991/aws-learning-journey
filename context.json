@@ -3,6 +3,6 @@
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "session: VPN autoheal indo IP tĩnh + fix watchdog crash loop 19 ngày (PBI 29484)",
-  "updated_at": "2026-07-07T09:53:11Z"
+  "commit_msg": "session: thêm office-export/markitdown/writing-style tooling + scope superpowers plugin",
+  "updated_at": "2026-07-07T13:34:12Z"
 }
