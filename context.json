@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: dọn IAM/CVE/alarm/login-alert 07/07 + fix PBI date discipline",
-  "updated_at": "2026-07-07T05:10:33Z"
+  "commit_msg": "session: VPN autoheal indo IP tĩnh + fix watchdog crash loop 19 ngày (PBI 29484)",
+  "updated_at": "2026-07-07T09:53:11Z"
 }
