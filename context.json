@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: thêm office-export/markitdown/writing-style tooling + scope superpowers plugin",
-  "updated_at": "2026-07-07T13:34:12Z"
+  "commit_msg": "session: weekly backup verification + cost review 08/07, phát hiện + root-cause RDS backup maintenance window + UAT cost spike",
+  "updated_at": "2026-07-08T04:17:21Z"
 }
