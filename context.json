@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: weekly backup verification + cost review 08/07, phát hiện + root-cause RDS backup maintenance window + UAT cost spike",
-  "updated_at": "2026-07-08T04:17:21Z"
+  "commit_msg": "fix: watchdog Lambda crash khi invoke nhầm site monitor_only",
+  "updated_at": "2026-07-08T05:26:52Z"
 }
