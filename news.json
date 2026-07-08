@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T05:00:02.371Z",
+  "generated_at": "2026-07-08T04:21:13.941Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,128 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon GameLift Streams introduces secure terminal access for stream sessions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-terminal-access/",
+      "date": "2026-07-07T21:26:00.000Z",
+      "description": "Amazon GameLift Streams now supports Stream Session Admin Shell, a secure terminal connection to the live runtime environment of a stream session for real-time troubleshooting. You can inspect logs, query running processes, check GPU utilization, and examine application state — all without managing SSH keys, open ports, or infrastructure credentials. Stream Session Admin Shell provides a terminal ",
+      "tags": []
+    },
+    {
+      "title": "Amazon S3 Vectors is now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-vectors-available-aws-govcloud-regions/",
+      "date": "2026-07-07T19:00:00.000Z",
+      "description": "Amazon S3 Vectors is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon S3 Vectors is purpose-built vector storage for AI agents, inference, Retrieval Augmented Generation (RAG), and semantic search at billion-vector scale. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3, with a dedicated set of APIs that let you store, acces",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "AWS Security Hub extends unified security management to Microsoft Azure",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-hub-supports-monitoring-microsoft-azure/",
+      "date": "2026-07-07T18:21:00.000Z",
+      "description": "Today, AWS announces that AWS Security Hub now monitors Microsoft Azure resources, extending risk analytics, cloud security posture management, vulnerability management, and security response management across both clouds. Many AWS customers running workloads in AWS and Azure have had to operate separate security tools for each environment, making it difficult to prioritize risks holistically or r",
+      "tags": [
+        "Security Hub",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon ECS Managed Instances reduces GPU management fees by up to 60%",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-managed-instances-gpu-price/",
+      "date": "2026-07-07T18:00:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) Managed Instances now offers significantly reduced management fees for GPU and accelerated instance types. Beginning July 1, 2026, G-series ECS management fees are reduced by 35%, and P-series and AWS Trainium fees are reduced by 60%. These reductions apply automatically and no action is required from customers already using GPU instances with ECS Mana",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon EMR Serverless now supports larger worker sizes to run more compute and memory intensive workloads",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-emr-serverless/",
+      "date": "2026-07-07T17:06:00.000Z",
+      "description": "Amazon EMR Serverless now offers larger worker configurations of 32 vCPUs with up to 244 GB of memory, allowing you to run more compute and memory-intensive workloads. Previously, the largest worker configuration available on EMR Serverless was 16 vCPUs with up to 120 GB of memory. Larger workers can help you improve the runtime performance as well as cost profiles for your workloads. For shuffle-",
+      "tags": [
+        "Lambda",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C8ine instances are now available in AWS Europe (Frankfurt) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c8ine-aws-frankfurt/",
+      "date": "2026-07-07T17:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8ine instances are available in the AWS Europe (Frankfurt) region. C8ine instances are powered by custom sixth generation Intel Xeon Scalable processors, available only on AWS. These instances feature the latest sixth generation AWS Nitro cards, delivering up to 43% higher performance compared to previous generation C6in instances. C8ine i",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker now supports data lineage in IAM-based domains",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-data-lineage-iam-domain",
+      "date": "2026-07-07T17:00:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports OpenLineage compatible data lineage in IAM-based domains, capturing lineage events from Apache Spark jobs run on Amazon EMR, AWS Glue, SageMaker Visual ETL, and notebooks. This capability is already available in IAM Identity Center-based domains. The interactive lineage graph provides an aggregate visual representation of how data moves from source to c",
+      "tags": [
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Redshift RG instances now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-rg-instances-aws-govcloud",
+      "date": "2026-07-07T16:00:00.000Z",
+      "description": "Amazon Redshift RG instances, powered by AWS Graviton processors, are now available in the AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions. RG instances deliver better performance, running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 instances, at 30% lower price per vCPU. RG instances include Redshift's custom-built vectorized data lake query engi",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon RDS for Oracle now supports Oracle Database 26ai",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-oracle-database-26ai/",
+      "date": "2026-07-07T15:00:00.000Z",
+      "description": "Amazon RDS for Oracle now supports Oracle Database 26ai, Oracle's latest Long Term Support Release, with Amazon Bedrock integration which provides access to foundation models such as Anthropic Claude, Amazon Nova, and Meta Llama. With Oracle Database 26ai, you can leverage Oracle's Select AI feature to generate and run SQL queries from natural language prompts, increasing productivity for both dev",
+      "tags": [
+        "RDS",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon S3 Express One Zone is now available in the AWS Europe (Frankfurt) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-express-one-zone-europe-frankfurt/",
+      "date": "2026-07-07T13:00:00.000Z",
+      "description": "The Amazon S3 Express One Zone storage class is now available in the AWS Europe (Frankfurt) Region. Amazon S3 Express One Zone is a high-performance, single-Availability Zone storage class purpose-built to deliver consistent single-digit millisecond data access for your most frequently accessed data and latency-sensitive applications. S3 Express One Zone delivers data access speed up to 10x faster",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Amazon EKS Auto Mode reduces GPU management fees by up to 60%",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-auto-mode-gpu-price",
+      "date": "2026-07-07T12:00:00.000Z",
+      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) Auto Mode now offers significantly reduced management fees for GPU and accelerated instance types. Beginning July 1, 2026, G-series Auto Mode management fees are reduced by 35%, and P-series and AWS Trainium fees are reduced by 60%. These reductions apply automatically to all EKS Auto Mode clusters and no action is required from customers already usin",
+      "tags": [
+        "EC2",
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio now supports importing existing MWAA environments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-import-existing-mwaa-environments/",
+      "date": "2026-07-07T02:00:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports connecting existing Amazon Managed Workflows for Apache Airflow (MWAA) environments to projects. Data engineers and platform teams who already operate MWAA environments can now manage their Airflow workflows from the same interface they use for analytics and machine learning, without recreating configurations or migrating DAGs. To connect an existing en",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Security Hub adds impact analysis for exposure findings",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/impact-analysis-aws-security-hub/",
+      "date": "2026-07-06T21:45:00.000Z",
+      "description": "Today, AWS Security Hub adds impact analysis to exposure findings, helping security teams understand the full scope of what an attacker could reach if an exposure is exploited. Impact analysis extends exposure findings by mapping the downstream resources that could be compromised beyond the initially exposed resource, giving teams deeper visibility into organizational risk. Security Hub analyzes t",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
       "title": "Amazon SageMaker HyperPod now supports disaggregated prefill and decode",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-sagemaker-hyperpod-dpd/",
       "date": "2026-07-06T21:29:00.000Z",
@@ -48,6 +170,15 @@
       "description": "Amazon SageMaker Studio now supports direct integration from Hugging Face, letting you go from discovering a model to working with it inside a fully configured Studio environment in a single click. Select any supported model on Hugging Face and choose \"Customize on SageMaker AI\" or \"Deploy on SageMaker AI\" to land directly on the corresponding workflow page with the model pre-loaded and ready to u",
       "tags": [
         "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS introduces declarative controls for VPC Encryption Controls",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/vpc-encryption-controls-declarative-controls/",
+      "date": "2026-07-06T18:19:00.000Z",
+      "description": "You can now use declarative policies to turn on VPC Encryption Controls in monitor or enforce mode across all VPCs in your environment. This enhancement allows you to centrally define and manage your desired VPC Encryption Controls settings and apply it everywhere. You can exercise these controls for your account, organization or specific organizational unit. VPC Encryption Controls offers you sim",
+      "tags": [
+        "VPC"
       ]
     },
     {
@@ -118,135 +249,6 @@
       "description": "Amazon EC2 is announcing support for AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) on Dedicated Hosts, enabling customers to run their confidential computing workloads on physical servers fully dedicated to their use. Customers can allocate a Dedicated Host with SEV-SNP enabled and launch SEV-SNP instances on it. This gives customers the benefits of Dedicated Hosts for confide",
       "tags": [
         "EC2"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker HyperPod now supports AMI versioning and auto-patching",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-hyperpod-ami-version-auto-patch",
-      "date": "2026-07-02T16:00:00.000Z",
-      "description": "Amazon SageMaker HyperPod now gives you visibility into the Amazon Machine Image (AMI) versions running across your clusters and automatically applies security patches without disrupting your workloads. SageMaker HyperPod is purpose-built infrastructure for training and deploying foundation models at scale. Cluster administrators previously had limited insight into which AMI versions were running,",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Config now supports 8 new resource types",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-config-new-resource-types",
-      "date": "2026-07-02T15:00:00.000Z",
-      "description": "AWS Config now supports 8 additional AWS resource types across key services including Amazon API Gateway, Amazon EC2, and Amazon S3 Vectors. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources. With this launch, if you have enabled recording for all resource types, then AWS Co",
-      "tags": [
-        "EC2",
-        "S3",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock AgentCore increases default runtime quota limits",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-increases-default-runtime-quota-limits/",
-      "date": "2026-07-01T22:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore has increased the default runtime quota limits, giving customers greater capacity to scale their agent-based workloads. AgentCore is the platform for developers to build, connect, and optimize AI agents. The new default limits support up to 5,000 active concurrent sessions in US East (N. Virginia) and US West (Oregon), and 2,500 in all other supported Regions. All AWS Regi",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch supports creating alarms from log queries",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-log-alarms/",
-      "date": "2026-07-01T21:30:00.000Z",
-      "description": "Amazon CloudWatch allows you to create alarms on log data using log queries, and get alerted on anomalies without leaving your log analysis workflow. With today's launch, you can configure an alarm on log query and specify the alarm threshold directly, thereby eliminating the need to first create metric filters or custom metrics as intermediate steps. This streamlines the path to actively monitori",
-      "tags": [
-        "CloudWatch",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-aws-management-console/",
-      "date": "2026-07-01T20:48:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now provides real-time deployment observability in the Amazon ECS Console. With this launch, customers can track deployment progress, monitor deployment health, and diagnose failures directly from the console, and understand exactly what is happening during a deployment, identify issues as they occur, and reduce the time it takes to troubleshoot and re",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS Artifact now includes Assurance Assistant for compliance inquiries",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-artifact-assurance-assistant/",
-      "date": "2026-07-01T20:01:00.000Z",
-      "description": "AWS Artifact now includes Assurance Assistant, an AI-powered capability that generates citation-backed responses to security and compliance questions about AWS services. AWS Artifact is the service through which AWS provides compliance reports, certifications, and agreements to customers. Assurance Assistant helps third-party risk managers, compliance officers, security engineers, and auditors acc",
-      "tags": [
-        "CloudTrail",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS Partner Central now supports AWS Marketplace listings for co-selling",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-marketplace-co-selling-support/",
-      "date": "2026-07-01T19:06:00.000Z",
-      "description": "Today, AWS announces that partners can associate one or more AWS Marketplace solutions and product listings from their AWS Marketplace catalog directly to co-sell opportunities in AWS Partner Central. Previously, opportunities required partners to use solutions specially created for co-selling, which meant partners managed their solutions for the AWS Marketplace catalog and solutions for co-sellin",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS now supports configurable deployment circuit breaker settings",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-circuit-breaker-settings/",
-      "date": "2026-07-01T17:00:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now gives you more control over when a service deployment is considered failed and automatically rolled back. You can now customize deployment circuit breaker settings to match your application's startup behavior, deployment needs, and tolerance for task failures, so rollback works the way you need across different applications and environments. The EC",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon RDS announces Cross-Region Automated Backups in four additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-cross-region-automated-backups-additional-aws-regions/",
-      "date": "2026-07-01T17:00:00.000Z",
-      "description": "Cross-Region Automated Backup replication for Amazon RDS is now available in four additional AWS Regions. This launch allows you to setup automated backup replication between Mexico (Central) and Europe (Ireland) or US West (N. California); between Asia Pacific (Taipei) and Asia Pacific (Singapore) or Asia Pacific (Tokyo); between Asia Pacific (New Zealand) and Asia Pacific (Singapore), Asia Pacif",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock AgentCore now available in four additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-bedrock-agentcore-four-additional-regions/",
-      "date": "2026-07-01T17:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore is now available in four additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Europe (Milan), and Europe (Spain). Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with securit",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon GuardDuty adds sensitive file modification threat detections",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-guardduty-sfm/",
-      "date": "2026-07-01T16:58:00.000Z",
-      "description": "Amazon GuardDuty Runtime Monitoring now includes three new threat detections that alert security teams when sensitive files are modified on Amazon EC2 instances and container workloads running on Amazon EKS or Amazon ECS. These findings help identify post-compromise attacker activities by monitoring critical system files, including configuration files, authentication settings, and system logs. Thi",
-      "tags": [
-        "EC2",
-        "CloudWatch",
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS AppConfig launches managed experimentation tools for A/B testing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/6/aws-appconfig-experimentation/",
-      "date": "2026-07-01T16:30:00.000Z",
-      "description": "Today, AWS announces the general availability of experimentation tools in AWS AppConfig, a new capability that enables you to run A/B tests and feature experiments without building or managing separate experimentation infrastructure. Built on 25+ years of Amazon experimentation best practices, AWS AppConfig experimentation tools use AI-driven guidance to help you build robust experiments while pro",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS Express Mode now supports custom task definitions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-express-mode-custom-task-def/",
-      "date": "2026-07-01T16:05:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) Express Mode now supports custom task definitions, giving you the flexibility to use existing ECS application configurations and advanced task-level customizations with Express Mode’s simplified deployment experience. This also enables you to reuse task definitions from your existing CI/CD pipelines and infrastructure-as-code workflows, allowing you to",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon EKS now supports Kubernetes version rollback",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-version-rollback",
-      "date": "2026-07-01T16:00:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports Kubernetes version rollback , enabling you to revert to the previous Kubernetes minor version within 7 days if any issues arise after an upgrade. This provides an additional safety net for your upgrade workflow, allowing you to validate the new version under real production conditions and rollback if needed. You can initiate a rollback us",
-      "tags": [
-        "EKS"
       ]
     }
   ],
@@ -439,44 +441,8 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
-      {
-        "title": "Service is operating normally: [RESOLVED] Increased Launch Template API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-06T14:53:11.000Z",
-        "description": "Between 2:56 AM and 6:54 AM PDT, we experienced increased error rates when calling EC2 Launch Template APIs in the US-EAST-1 Region. During this time, affected customers may have experienced errors when creating, modifying, or describing Launch Templates. Other AWS services that rely on Launch Templates were also impacted. Amazon EC2 instances and Amazon EKS workloads already running on provisione",
-        "tags": [
-          "EC2",
-          "EKS"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Launch Template API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-06T14:12:24.000Z",
-        "description": "We are seeing initial signs of recovery and continue to work toward full recovery.",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Increased Launch Template API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-06T13:34:47.000Z",
-        "description": "Starting at 2:56 AM PDT, we began experiencing increased error rates when calling EC2 Launch Template APIs in the US-EAST-1 Region. Our engineers have been engaged and are actively working to mitigate the impact. Additionally, Amazon Elastic Kubernetes (EKS) customers may experience errors when creating or updating clusters, or when launching and scaling nodes via Managed Node Groups, EKS Auto Mod",
-        "tags": [
-          "EC2",
-          "EKS"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Launch Template API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-06T12:45:29.000Z",
-        "description": "We are investigating increased error rates when calling EC2 Launch Template APIs in US-EAST-1 Region. During this time, affected customers may experience errors when creating, modifying, or referencing launch templates. Other AWS services that rely on launch templates may also be impacted. We will provide another update by 6:30 AM PDT or sooner, if we have additional information to share.",
-        "tags": [
-          "EC2"
-        ]
-      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -485,6 +451,38 @@
         "tags": [
           "Lambda"
         ]
+      },
+      {
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "tags": [
+          "S3"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T14:02:57.000Z",
+        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
+        "tags": []
       }
     ]
   }
