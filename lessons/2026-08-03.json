@@ -154,7 +154,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "B đúng. KMS CMK mã hóa dữ liệu; CloudTrail ghi lại mọi API gọi KMS (ai, khi nào); Config Rule kiểm tra DynamoDB encryption enabled và kích hoạt remediation nếu bị vô hiệu."
+      "explanation": "B đúng. KMS CMK mã hóa dữ liệu; CloudTrail ghi lại mọi API gọi KMS (ai, khi nào); Config Rule kiểm tra DynamoDB encryption enabled và kích hoạt remediation nếu bị vô hiệu.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "B đúng. Evictions cao = bộ nhớ đầy, dữ liệu bị loại bỏ. Giải pháp: tăng node size, add replicas, hoặc giảm TTL/optimize key để fit vào 2GB."
+      "explanation": "B đúng. Evictions cao = bộ nhớ đầy, dữ liệu bị loại bỏ. Giải pháp: tăng node size, add replicas, hoặc giảm TTL/optimize key để fit vào 2GB.",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "A đúng. CloudTrail logs chứa 'CreateKey' event; CloudWatch Logs Insights query, Lambda parse policy → check jp:network principal → cảnh báo. B/C/D không phù hợp."
+      "explanation": "A đúng. CloudTrail logs chứa 'CreateKey' event; CloudWatch Logs Insights query, Lambda parse policy → check jp:network principal → cảnh báo. B/C/D không phù hợp.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "A đúng. GSI cho phép query by (region, date); giảm Primary WCU vì 90% traffic dùng GSI; DAX cache top regions further reduce latency. B quá tốn kém; C/D thay đổi cấu hình không cần thiết."
+      "explanation": "A đúng. GSI cho phép query by (region, date); giảm Primary WCU vì 90% traffic dùng GSI; DAX cache top regions further reduce latency. B quá tốn kém; C/D thay đổi cấu hình không cần thiết.",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "A đúng (best practice). Config Rule run compliance check on KMS Key Policy BEFORE rolling deployment start → fail early, avoid 15-batch wastage. B phát hiện muộn (sau deployment); C/D manual, không automate."
+      "explanation": "A đúng (best practice). Config Rule run compliance check on KMS Key Policy BEFORE rolling deployment start → fail early, avoid 15-batch wastage. B phát hiện muộn (sau deployment); C/D manual, không automate.",
+      "domain": "secure"
     }
   ]
 }

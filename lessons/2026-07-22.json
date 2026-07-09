@@ -142,7 +142,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "VPC Peering là non-transitive, full mesh cần N(N-1)/2 = 7×6/2 = 21 peerings. TGW chỉ cần 7 attachments."
+      "explanation": "VPC Peering là non-transitive, full mesh cần N(N-1)/2 = 7×6/2 = 21 peerings. TGW chỉ cần 7 attachments.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "VPC route table phải có route trỏ destination tới TGW attachment; TGW route table cũng phải allow traffic."
+      "explanation": "VPC route table phải có route trỏ destination tới TGW attachment; TGW route table cũng phải allow traffic.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "S3 Gateway Endpoint cho phép EC2 access S3 mà không qua internet, miễn phí, giảm 80% transfer cost."
+      "explanation": "S3 Gateway Endpoint cho phép EC2 access S3 mà không qua internet, miễn phí, giảm 80% transfer cost.",
+      "domain": "cost"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "PrivateLink = Endpoint Service (provider) + Interface Endpoint (consumer). jp:prod tạo Interface Endpoint để connect đến jp:shareservice service."
+      "explanation": "PrivateLink = Endpoint Service (provider) + Interface Endpoint (consumer). jp:prod tạo Interface Endpoint để connect đến jp:shareservice service.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "TGW hỗ trợ site-to-site VPN; 1 VPN attachment qua TGW kết nối tất cả 7 accounts. Giải pháp đơn giản, scalable."
+      "explanation": "TGW hỗ trợ site-to-site VPN; 1 VPN attachment qua TGW kết nối tất cả 7 accounts. Giải pháp đơn giản, scalable.",
+      "domain": "secure"
     }
   ]
 }

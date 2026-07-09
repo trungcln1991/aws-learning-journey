@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "CloudFront phân phối nội dụng qua 400+ edge location toàn cầu, giảm độ trễ. S3 làm origin tiết kiệm chi phí."
+      "explanation": "CloudFront phân phối nội dụng qua 400+ edge location toàn cầu, giảm độ trễ. S3 làm origin tiết kiệm chi phí.",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 3,
       "difficulty": "medium",
-      "explanation": "Mỗi edge location có cache riêng. Edge B không thấy cache của Edge A. Phải fetch từ origin hoặc regional cache."
+      "explanation": "Mỗi edge location có cache riêng. Edge B không thấy cache của Edge A. Phải fetch từ origin hoặc regional cache.",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "CloudFront Invalidation xóa cache ngay tại tất cả edge location. Được sử dụng khi cần cập nhật nội dung khẩn cấp."
+      "explanation": "CloudFront Invalidation xóa cache ngay tại tất cả edge location. Được sử dụng khi cần cập nhật nội dung khẩn cấp.",
+      "domain": "performant"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Forward query string = mỗi tổ hợp query string khác nhau được cache riêng. ?size=large cách cache với ?size=small."
+      "explanation": "Forward query string = mỗi tổ hợp query string khác nhau được cache riêng. ?size=large cách cache với ?size=small.",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "WAF bảo vệ lớp 7 (SQL injection, XSS). Shield Advanced chống DDoS lớp 3-4. Cùng sử dụng để bảo vệ toàn diện."
+      "explanation": "WAF bảo vệ lớp 7 (SQL injection, XSS). Shield Advanced chống DDoS lớp 3-4. Cùng sử dụng để bảo vệ toàn diện.",
+      "domain": "secure"
     }
   ]
 }

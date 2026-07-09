@@ -154,7 +154,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Failover routing là dành cho active-passive setup. Health check phát hiện primary unhealthy, Route 53 tự động failover sang SECONDARY. Weighted routing không tự động failover."
+      "explanation": "Failover routing là dành cho active-passive setup. Health check phát hiện primary unhealthy, Route 53 tự động failover sang SECONDARY. Weighted routing không tự động failover.",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Path pattern *.jpg|*.png sai syntax. Đúng là /images/* hoặc /assets/*. File extension pattern không được hỗ trợ trực tiếp trong path pattern."
+      "explanation": "Path pattern *.jpg|*.png sai syntax. Đúng là /images/* hoặc /assets/*. File extension pattern không được hỗ trợ trực tiếp trong path pattern.",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Dead Letter Queue là AWS best practice cho failed message handling. Sau maxReceiveCount retries, message tự động move tới DLQ. Combined với CloudWatch logs, dễ debug lỗi."
+      "explanation": "Dead Letter Queue là AWS best practice cho failed message handling. Sau maxReceiveCount retries, message tự động move tới DLQ. Combined với CloudWatch logs, dễ debug lỗi.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Option B tuân theo least privilege. Lambda delete messages từ SQS, không Receive SNS (SQS pulls messages, SNS không). CloudWatch logs cần CreateLogGroup, PutLogEvents."
+      "explanation": "Option B tuân theo least privilege. Lambda delete messages từ SQS, không Receive SNS (SQS pulls messages, SNS không). CloudWatch logs cần CreateLogGroup, PutLogEvents.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "WAF có thể attach tới CloudFront mà không cần redeploy. Rate limiting + IP reputation rules trong WAF là defense layer tối ưu cho DDoS. Các option khác không hiệu quả."
+      "explanation": "WAF có thể attach tới CloudFront mà không cần redeploy. Rate limiting + IP reputation rules trong WAF là defense layer tối ưu cho DDoS. Các option khác không hiệu quả.",
+      "domain": "secure"
     }
   ]
 }

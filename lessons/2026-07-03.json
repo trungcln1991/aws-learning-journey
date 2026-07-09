@@ -1,6 +1,8 @@
 {
   "date": "2026-07-03",
-  "day": 3, "week": 1, "month": 1,
+  "day": 3,
+  "week": 1,
+  "month": 1,
   "title": "EC2 Basics",
   "subtitle": "Instance · AMI · Lifecycle · EBS",
   "category": "Compute",
@@ -71,7 +73,12 @@
       "icon": "🖥️",
       "what": "Máy chủ ảo trên AWS. Chọn CPU/RAM/OS, trả tiền theo giờ. Không cần mua phần cứng vật lý.",
       "when": "Web server, app server, batch processing, dev/test environment",
-      "key_points": ["Instance type: t3.micro đến x1e.32xlarge", "Pricing: On-demand, Reserved (1-3 năm), Spot (rẻ nhất, có thể bị interrupt)", "AMI: OS image để launch instance", "Security Group: firewall ở tầng instance"],
+      "key_points": [
+        "Instance type: t3.micro đến x1e.32xlarge",
+        "Pricing: On-demand, Reserved (1-3 năm), Spot (rẻ nhất, có thể bị interrupt)",
+        "AMI: OS image để launch instance",
+        "Security Group: firewall ở tầng instance"
+      ],
       "japfa": true,
       "japfa_detail": "S250-Webapps: Windows Server, IIS, chạy banksystem + CRM + feedprod. 1 instance, không Multi-AZ → gap cần cải thiện"
     },
@@ -82,7 +89,12 @@
       "icon": "💾",
       "what": "Ổ cứng ảo gắn vào EC2. Persistent — data không mất khi stop instance (khác với instance store).",
       "when": "OS volume, database storage, bất kỳ data cần persist sau reboot",
-      "key_points": ["gp3: General Purpose SSD — LUÔN chọn gp3 thay gp2 (rẻ hơn, nhanh hơn)", "io2: High IOPS — cho database OLTP", "st1: Throughput HDD — cho log, sequential reads", "sc1: Cold HDD — lưu trữ giá rẻ nhất"],
+      "key_points": [
+        "gp3: General Purpose SSD — LUÔN chọn gp3 thay gp2 (rẻ hơn, nhanh hơn)",
+        "io2: High IOPS — cho database OLTP",
+        "st1: Throughput HDD — cho log, sequential reads",
+        "sc1: Cold HDD — lưu trữ giá rẻ nhất"
+      ],
       "japfa": true,
       "japfa_detail": "EC2 Webapps của Japfa có EBS volume C: (OS) và D: (data). Snapshot weekly."
     },
@@ -93,7 +105,12 @@
       "icon": "📸",
       "what": "Template để launch EC2 instance — gồm OS, pre-installed apps, EBS snapshot. Như 'ảnh chụp' của 1 server.",
       "when": "Launch mới instance từ backup, scale out (nhiều instance từ 1 AMI), DR recovery",
-      "key_points": ["Public AMI: AWS hoặc AWS Marketplace cung cấp", "Private AMI: bạn tự tạo từ instance hiện có", "AMI là regional — cần copy sang region khác nếu dùng", "Launch từ AMI = server mới có đúng config như bản gốc"],
+      "key_points": [
+        "Public AMI: AWS hoặc AWS Marketplace cung cấp",
+        "Private AMI: bạn tự tạo từ instance hiện có",
+        "AMI là regional — cần copy sang region khác nếu dùng",
+        "Launch từ AMI = server mới có đúng config như bản gốc"
+      ],
       "japfa": true,
       "japfa_detail": "DR plan Japfa: nếu S250-Webapps down → launch từ AMI backup (weekly) → update ALB target group"
     }
@@ -128,7 +145,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "EBS là persistent storage — data tồn tại độc lập với instance lifecycle. Stop instance → EBS vẫn giữ data. Chỉ mất data khi: xóa EBS volume thủ công, hoặc terminate instance với 'Delete on Termination' = true."
+      "explanation": "EBS là persistent storage — data tồn tại độc lập với instance lifecycle. Stop instance → EBS vẫn giữ data. Chỉ mất data khi: xóa EBS volume thủ công, hoặc terminate instance với 'Delete on Termination' = true.",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -141,7 +159,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "gp3 là lựa chọn mặc định tốt nhất: rẻ hơn gp2 ~20%, throughput cao hơn (1000 MB/s vs 250 MB/s), IOPS cao hơn (16000 vs 16000 nhưng độc lập với size). Luôn chọn gp3 thay gp2 cho workload thông thường."
+      "explanation": "gp3 là lựa chọn mặc định tốt nhất: rẻ hơn gp2 ~20%, throughput cao hơn (1000 MB/s vs 250 MB/s), IOPS cao hơn (16000 vs 16000 nhưng độc lập với size). Luôn chọn gp3 thay gp2 cho workload thông thường.",
+      "domain": "cost"
     },
     {
       "id": 3,
@@ -154,7 +173,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "STOP = tắt máy tạm thời (như shutdown Windows). Data trong EBS vẫn còn. Có thể Start lại. Không tính tiền compute khi stopped, nhưng vẫn tính tiền EBS. TERMINATE = xóa hẳn instance (như ném máy tính vào thùng rác)."
+      "explanation": "STOP = tắt máy tạm thời (như shutdown Windows). Data trong EBS vẫn còn. Có thể Start lại. Không tính tiền compute khi stopped, nhưng vẫn tính tiền EBS. TERMINATE = xóa hẳn instance (như ném máy tính vào thùng rác).",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -167,7 +187,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "AMI là template gồm: OS (Windows/Linux), applications đã cài, EBS snapshot. Từ 1 AMI có thể launch nhiều instance giống hệt nhau. Dùng trong DR: nếu server chính hỏng → launch từ AMI backup là có server mới ngay."
+      "explanation": "AMI là template gồm: OS (Windows/Linux), applications đã cài, EBS snapshot. Từ 1 AMI có thể launch nhiều instance giống hệt nhau. Dùng trong DR: nếu server chính hỏng → launch từ AMI backup là có server mới ngay.",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -180,7 +201,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Instance Store = ephemeral storage. Data chỉ tồn tại khi instance đang chạy. Stop, terminate, hoặc hardware failure → DATA MẤT HẾT. Dùng cho temp files, cache — không bao giờ dùng cho data quan trọng. EBS thì data persist."
+      "explanation": "Instance Store = ephemeral storage. Data chỉ tồn tại khi instance đang chạy. Stop, terminate, hoặc hardware failure → DATA MẤT HẾT. Dùng cho temp files, cache — không bao giờ dùng cho data quan trọng. EBS thì data persist.",
+      "domain": "resilient"
     }
   ]
 }

@@ -1,6 +1,8 @@
 {
   "date": "2026-07-09",
-  "day": 7, "week": 2, "month": 1,
+  "day": 7,
+  "week": 2,
+  "month": 1,
   "title": "ALB & Auto Scaling",
   "subtitle": "Load Balancer · Target Group",
   "category": "Compute",
@@ -71,7 +73,12 @@
       "icon": "⚖️",
       "what": "Load balancer tầng Layer 7 (HTTP/HTTPS) — hỗ trợ định tuyến theo path, host, header; tích hợp WAF.",
       "when": "Web app, API, microservices cần định tuyến thông minh theo nội dung request",
-      "key_points": ["Layer 7 — hiểu được path/host/header của HTTP request", "Path-based routing: /api/* → target group A, /app/* → target group B", "Tích hợp trực tiếp AWS WAF để lọc tầng ứng dụng", "Health check tự động loại target lỗi khỏi vòng quay traffic"],
+      "key_points": [
+        "Layer 7 — hiểu được path/host/header của HTTP request",
+        "Path-based routing: /api/* → target group A, /app/* → target group B",
+        "Tích hợp trực tiếp AWS WAF để lọc tầng ứng dụng",
+        "Health check tự động loại target lỗi khỏi vòng quay traffic"
+      ],
       "japfa": true,
       "japfa_detail": "jap-alb-pd-01 (account 428207183585) — ALB chạy WMS/Sales/Cash Collection, phía trước là AWS WAF"
     },
@@ -82,7 +89,12 @@
       "icon": "📈",
       "what": "Tự động điều chỉnh số lượng EC2 instance theo tải thực tế hoặc lịch định sẵn, đảm bảo luôn có đủ capacity.",
       "when": "Workload có tải biến động, cần tự phục hồi khi instance lỗi (self-healing)",
-      "key_points": ["Min / Desired / Max capacity — 3 thông số cấu hình cốt lõi", "Scaling policy: Target Tracking (VD giữ CPU ~50%), Step Scaling, Scheduled", "Tự động thay instance unhealthy (dựa trên ALB health check hoặc EC2 status check)", "Kết hợp Launch Template để định nghĩa AMI/instance type khi scale ra"],
+      "key_points": [
+        "Min / Desired / Max capacity — 3 thông số cấu hình cốt lõi",
+        "Scaling policy: Target Tracking (VD giữ CPU ~50%), Step Scaling, Scheduled",
+        "Tự động thay instance unhealthy (dựa trên ALB health check hoặc EC2 status check)",
+        "Kết hợp Launch Template để định nghĩa AMI/instance type khi scale ra"
+      ],
       "japfa": true,
       "japfa_detail": "S250-Webapps hiện KHÔNG có ASG (chỉ 1 instance, không Multi-AZ) — nếu instance lỗi phải launch thủ công từ AMI backup"
     },
@@ -93,7 +105,12 @@
       "icon": "❤️‍🩹",
       "what": "Cơ chế ALB tự kiểm tra định kỳ (HTTP GET tới path cấu hình) để biết target còn phục vụ được request hay không.",
       "when": "Luôn nên cấu hình cho mọi target group — là điều kiện để ALB + ASG hoạt động self-healing",
-      "key_points": ["Healthy threshold / Unhealthy threshold: số lần check liên tiếp để đổi trạng thái", "Interval: khoảng cách giữa 2 lần check (giây)", "Path nên trỏ tới 1 endpoint nhẹ, không phụ thuộc DB nặng", "Unhealthy target bị loại khỏi traffic NHƯNG instance vẫn chạy (khác với ASG terminate)"],
+      "key_points": [
+        "Healthy threshold / Unhealthy threshold: số lần check liên tiếp để đổi trạng thái",
+        "Interval: khoảng cách giữa 2 lần check (giây)",
+        "Path nên trỏ tới 1 endpoint nhẹ, không phụ thuộc DB nặng",
+        "Unhealthy target bị loại khỏi traffic NHƯNG instance vẫn chạy (khác với ASG terminate)"
+      ],
       "japfa": true,
       "japfa_detail": "Bước đầu tiên trong Failover Playbook của Japfa khi nghi ngờ EC2 lỗi: kiểm tra ALB target health trên CloudWatch dashboard"
     }
@@ -128,7 +145,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "ALB hoạt động ở Layer 7, cho phép định tuyến dựa trên nội dung HTTP request (path, host header, HTTP header) — khác với NLB (Layer 4, chỉ dựa vào IP/port, hiệu năng cao hơn nhưng không 'hiểu' nội dung request)."
+      "explanation": "ALB hoạt động ở Layer 7, cho phép định tuyến dựa trên nội dung HTTP request (path, host header, HTTP header) — khác với NLB (Layer 4, chỉ dựa vào IP/port, hiệu năng cao hơn nhưng không 'hiểu' nội dung request).",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -141,7 +159,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Health check gửi request định kỳ (thường là HTTP GET) tới 1 path cấu hình sẵn. Nếu target fail liên tiếp đủ số lần (unhealthy threshold), ALB sẽ ngừng gửi traffic tới target đó cho tới khi nó khỏe lại."
+      "explanation": "Health check gửi request định kỳ (thường là HTTP GET) tới 1 path cấu hình sẵn. Nếu target fail liên tiếp đủ số lần (unhealthy threshold), ALB sẽ ngừng gửi traffic tới target đó cho tới khi nó khỏe lại.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -154,7 +173,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Auto Scaling Group luôn cấu hình 3 thông số: Minimum (số instance tối thiểu luôn chạy), Desired (số instance mong muốn hiện tại), Maximum (giới hạn trên khi scale out) — đây là kiến thức nền tảng gần như chắc chắn xuất hiện trong đề thi."
+      "explanation": "Auto Scaling Group luôn cấu hình 3 thông số: Minimum (số instance tối thiểu luôn chạy), Desired (số instance mong muốn hiện tại), Maximum (giới hạn trên khi scale out) — đây là kiến thức nền tảng gần như chắc chắn xuất hiện trong đề thi.",
+      "domain": "performant"
     },
     {
       "id": 4,
@@ -167,7 +187,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Không có ASG/Multi-AZ nghĩa là single point of failure (SPOF) — nếu instance hoặc cả AZ đó gặp sự cố, không có instance dự phòng nào thay thế ngay, gây downtime cho tới khi con người can thiệp thủ công (VD: launch lại từ AMI)."
+      "explanation": "Không có ASG/Multi-AZ nghĩa là single point of failure (SPOF) — nếu instance hoặc cả AZ đó gặp sự cố, không có instance dự phòng nào thay thế ngay, gây downtime cho tới khi con người can thiệp thủ công (VD: launch lại từ AMI).",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -180,7 +201,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Path-based routing cho phép 1 ALB duy nhất định tuyến nhiều nhóm request khác nhau (theo URL path) tới các target group riêng biệt — hữu ích khi nhiều service/microservice dùng chung 1 domain nhưng khác backend."
+      "explanation": "Path-based routing cho phép 1 ALB duy nhất định tuyến nhiều nhóm request khác nhau (theo URL path) tới các target group riêng biệt — hữu ích khi nhiều service/microservice dùng chung 1 domain nhưng khác backend.",
+      "domain": "performant"
     }
   ]
 }

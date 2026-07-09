@@ -142,7 +142,8 @@
       ],
       "answer": 3,
       "difficulty": "medium",
-      "explanation": "Cả 3 cách đều có thể: bật detailed monitoring (AWS tự động), custom metric (code), hoặc agent trên OS."
+      "explanation": "Cả 3 cách đều có thể: bật detailed monitoring (AWS tự động), custom metric (code), hoặc agent trên OS.",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "SNS là cách tiêu chuẩn để CloudWatch alarms gửi notifications email/SMS nhanh chóng."
+      "explanation": "SNS là cách tiêu chuẩn để CloudWatch alarms gửi notifications email/SMS nhanh chóng.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "Log Insights tìm kiếm log gần thời gian thực trong CloudWatch Logs, Athena dùng cho lịch sử lâu dài."
+      "explanation": "Log Insights tìm kiếm log gần thời gian thực trong CloudWatch Logs, Athena dùng cho lịch sử lâu dài.",
+      "domain": "performant"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "Mặc định CloudWatch Logs giữ logs 1 ngày, phải cấu hình rõ ràng nếu muốn lâu hơn."
+      "explanation": "Mặc định CloudWatch Logs giữ logs 1 ngày, phải cấu hình rõ ràng nếu muốn lâu hơn.",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 3,
       "difficulty": "hard",
-      "explanation": "CloudTrail ghi API, CloudWatch/EventBridge rule để detect, SNS gửi alert nhanh, Lambda xử lý phức tạp."
+      "explanation": "CloudTrail ghi API, CloudWatch/EventBridge rule để detect, SNS gửi alert nhanh, Lambda xử lý phức tạp.",
+      "domain": "secure"
     }
   ]
 }

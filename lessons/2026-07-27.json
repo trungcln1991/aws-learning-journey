@@ -154,7 +154,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Envelope encryption cho phép mã hóa local mà không cần gửi dữ liệu lớn đến KMS, giảm latency và chi phí API"
+      "explanation": "Envelope encryption cho phép mã hóa local mà không cần gửi dữ liệu lớn đến KMS, giảm latency và chi phí API",
+      "domain": "cost"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 2,
       "difficulty": "hard",
-      "explanation": "Cross-account decrypt cần CÁCH HAI: key policy grant quyền + IAM policy grant quyền. Thiếu một cái = từ chối"
+      "explanation": "Cross-account decrypt cần CÁCH HAI: key policy grant quyền + IAM policy grant quyền. Thiếu một cái = từ chối",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Key rotation chỉ tạo key material mới cho encrypt tương lai. Dữ liệu cũ vẫn dùng phiên bản khóa cũ, tự động decrypt"
+      "explanation": "Key rotation chỉ tạo key material mới cho encrypt tương lai. Dữ liệu cũ vẫn dùng phiên bản khóa cũ, tự động decrypt",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "Secrets Manager mã hóa tất cả bí mật bằng AWS managed key aws/secretsmanager mặc định, user có thể dùng CMK"
+      "explanation": "Secrets Manager mã hóa tất cả bí mật bằng AWS managed key aws/secretsmanager mặc định, user có thể dùng CMK",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "CloudTrail ghi lại mỗi lệnh GetSecretValue kèm user/role, timestamp, IP. Tốt nhất để audit truy cập bí mật"
+      "explanation": "CloudTrail ghi lại mỗi lệnh GetSecretValue kèm user/role, timestamp, IP. Tốt nhất để audit truy cập bí mật",
+      "domain": "secure"
     }
   ]
 }

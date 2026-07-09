@@ -154,7 +154,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Blue/green cho phép test environment mới trước khi chuyển traffic, và rollback tức thì nếu lỗi."
+      "explanation": "Blue/green cho phép test environment mới trước khi chuyển traffic, và rollback tức thì nếu lỗi.",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": ".ebextensions/ là thư mục chứa YAML config files, cho phép tùy chỉnh EC2 instance, install packages, set environment variables."
+      "explanation": ".ebextensions/ là thư mục chứa YAML config files, cho phép tùy chỉnh EC2 instance, install packages, set environment variables.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Path-based routing cho phép ALB kiểm tra URL path và chuyển tới target group khác nhau dựa trên path pattern."
+      "explanation": "Path-based routing cho phép ALB kiểm tra URL path và chuyển tới target group khác nhau dựa trên path pattern.",
+      "domain": "performant"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "EB dùng Auto Scaling Group để quản lý EC2 instances, CloudWatch alarm trigger khi CPU vượt ngưỡng, thêm instances mới."
+      "explanation": "EB dùng Auto Scaling Group để quản lý EC2 instances, CloudWatch alarm trigger khi CPU vượt ngưỡng, thêm instances mới.",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Rolling deployment cần ≥2 instances; EB cập nhật batch, giữ ≥1 instance running để tránh downtime hoàn toàn."
+      "explanation": "Rolling deployment cần ≥2 instances; EB cập nhật batch, giữ ≥1 instance running để tránh downtime hoàn toàn.",
+      "domain": "resilient"
     }
   ]
 }

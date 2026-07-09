@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Fan-out SNS-to-SQS cho phép decoupling tốt nhất: SNS publish 1 lần, SQS xử lý asynchronously và independently"
+      "explanation": "Fan-out SNS-to-SQS cho phép decoupling tốt nhất: SNS publish 1 lần, SQS xử lý asynchronously và independently",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Message thất bại được tự động chuyển tới DLQ để điều tra. DLQ cần được cấu hình riêng."
+      "explanation": "Message thất bại được tự động chuyển tới DLQ để điều tra. DLQ cần được cấu hình riêng.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "SQS không tự xoá message. Consumer phải explicitly call DeleteMessage API sau khi xử lý thành công."
+      "explanation": "SQS không tự xoá message. Consumer phải explicitly call DeleteMessage API sau khi xử lý thành công.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "ApproximateNumberOfMessagesVisible là metric CloudWatch cho số message hiện tại chưa xử lý trong queue"
+      "explanation": "ApproximateNumberOfMessagesVisible là metric CloudWatch cho số message hiện tại chưa xử lý trong queue",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Visibility timeout phải >= thời gian xử lý. Mặc định 30s, phải tăng lên 5+ phút để tránh duplicate processing"
+      "explanation": "Visibility timeout phải >= thời gian xử lý. Mặc định 30s, phải tăng lên 5+ phút để tránh duplicate processing",
+      "domain": "resilient"
     }
   ]
 }

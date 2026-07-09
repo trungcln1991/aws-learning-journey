@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Fargate là serverless — AWS quản lý infrastructure, bạn chỉ deploy container. EC2 yêu cầu quản lý instances."
+      "explanation": "Fargate là serverless — AWS quản lý infrastructure, bạn chỉ deploy container. EC2 yêu cầu quản lý instances.",
+      "domain": "cost"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Task Definition là blueprint — định nghĩa toàn bộ config container. Service quản lý số lượng instances."
+      "explanation": "Task Definition là blueprint — định nghĩa toàn bộ config container. Service quản lý số lượng instances.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "ECS Service auto-healing — tự launch tasks mới nếu tasks fail, luôn duy trì desired count."
+      "explanation": "ECS Service auto-healing — tự launch tasks mới nếu tasks fail, luôn duy trì desired count.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Fargate serverless — loại bỏ ops burden của EC2 management. EC2 mang lại control nhưng phức tạp hơn."
+      "explanation": "Fargate serverless — loại bỏ ops burden của EC2 management. EC2 mang lại control nhưng phức tạp hơn.",
+      "domain": "cost"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Update Task Definition với new image → Service detects → rolling update tasks. ECR không auto-deploy."
+      "explanation": "Update Task Definition với new image → Service detects → rolling update tasks. ECR không auto-deploy.",
+      "domain": "resilient"
     }
   ]
 }

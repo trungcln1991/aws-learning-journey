@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Web ACL (Access Control List) là container chứa danh sách quy tắc WAF. Security Group, Network ACL, Route 53 là dịch vụ khác."
+      "explanation": "Web ACL (Access Control List) là container chứa danh sách quy tắc WAF. Security Group, Network ACL, Route 53 là dịch vụ khác.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Shield Standard bảo vệ tầng 3 (IP) và tầng 4 (TCP/UDP). L7 bảo vệ là Shield Advanced."
+      "explanation": "Shield Standard bảo vệ tầng 3 (IP) và tầng 4 (TCP/UDP). L7 bảo vệ là Shield Advanced.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Rate limiting giới hạn số request từ một IP trong thời gian nhất định, ngăn brute force."
+      "explanation": "Rate limiting giới hạn số request từ một IP trong thời gian nhất định, ngăn brute force.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Khi request match một rule, WAF thực hiện action ngay (BLOCK/ALLOW) không check rule tiếp theo."
+      "explanation": "Khi request match một rule, WAF thực hiện action ngay (BLOCK/ALLOW) không check rule tiếp theo.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Shield Advanced thêm L7 protection, DDoS Response Team 24/7, insurance. Standard tự động miễn phí cho tất cả AWS account."
+      "explanation": "Shield Advanced thêm L7 protection, DDoS Response Team 24/7, insurance. Standard tự động miễn phí cho tất cả AWS account.",
+      "domain": "secure"
     }
   ]
 }

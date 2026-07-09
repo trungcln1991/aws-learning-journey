@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Cần VGW (ở AWS) và CGW (ở on-premises). VGW attach vào VPC, CGW định nghĩa FortiGate ở Japfa."
+      "explanation": "Cần VGW (ở AWS) và CGW (ở on-premises). VGW attach vào VPC, CGW định nghĩa FortiGate ở Japfa.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "S2S VPN AWS tự động failover giữa 2 tunnels. Tunnel 2 active ngay, không down time."
+      "explanation": "S2S VPN AWS tự động failover giữa 2 tunnels. Tunnel 2 active ngay, không down time.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Best practice: 2 DX connections tới 2 AWS regions/locations, dùng LAG (Link Aggregation) cho 20Gbps capacity và HA"
+      "explanation": "Best practice: 2 DX connections tới 2 AWS regions/locations, dùng LAG (Link Aggregation) cho 20Gbps capacity và HA",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "BGP session cần 2 cạnh có ASN khác nhau. VGW = 65001, FortiGate = 65000, tránh confed issues."
+      "explanation": "BGP session cần 2 cạnh có ASN khác nhau. VGW = 65001, FortiGate = 65000, tránh confed issues.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Overlap: S2S VPN chạy, setup DX parallel, VGW route cả 2 (DX primary, VPN backup), rồi test trước disable VPN."
+      "explanation": "Overlap: S2S VPN chạy, setup DX parallel, VGW route cả 2 (DX primary, VPN backup), rồi test trước disable VPN.",
+      "domain": "resilient"
     }
   ]
 }

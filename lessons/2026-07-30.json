@@ -154,7 +154,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "ElastiCache Redis lưu dữ liệu trong memory, giảm latency từ database từ 500ms xuống 5-10ms. Cache-aside phù hợp cho read-heavy operations."
+      "explanation": "ElastiCache Redis lưu dữ liệu trong memory, giảm latency từ database từ 500ms xuống 5-10ms. Cache-aside phù hợp cho read-heavy operations.",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "Cache-aside là lazy loading (miss đọc DB); write-through ghi vào cả cache+DB ngay lập tức để đảm bảo consistency."
+      "explanation": "Cache-aside là lazy loading (miss đọc DB); write-through ghi vào cả cache+DB ngay lập tức để đảm bảo consistency.",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "Khi ElastiCache eviction policy (LRU/LFU) không thể giải phóng bộ nhớ, Redis reject writes. Cần tăng node size hoặc memory."
+      "explanation": "Khi ElastiCache eviction policy (LRU/LFU) không thể giải phóng bộ nhớ, Redis reject writes. Cần tăng node size hoặc memory.",
+      "domain": "performant"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "Cache Hit Rate (mục tiêu >80%), Eviction Rate (thấp = tốt), NetworkBytesIn là ElastiCache metrics chính trong CloudWatch."
+      "explanation": "Cache Hit Rate (mục tiêu >80%), Eviction Rate (thấp = tốt), NetworkBytesIn là ElastiCache metrics chính trong CloudWatch.",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "Session data ephemeral (tạm thời), không cần persistence; Memcached simple & fast. Redis phù hợp hơn cho critical/persistent data."
+      "explanation": "Session data ephemeral (tạm thời), không cần persistence; Memcached simple & fast. Redis phù hợp hơn cho critical/persistent data.",
+      "domain": "cost"
     }
   ]
 }

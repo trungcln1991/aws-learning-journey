@@ -1,6 +1,8 @@
 {
   "date": "2026-07-07",
-  "day": 5, "week": 2, "month": 1,
+  "day": 5,
+  "week": 2,
+  "month": 1,
   "title": "VPC Fundamentals",
   "subtitle": "Subnet · Route Table · Gateway",
   "category": "Networking",
@@ -71,7 +73,12 @@
       "icon": "🌐",
       "what": "Mạng ảo riêng biệt, cô lập logic trong AWS — nơi đặt EC2, RDS, ALB và toàn bộ tài nguyên network.",
       "when": "Mọi workload cần network riêng, kiểm soát IP range, subnet, routing",
-      "key_points": ["1 VPC nằm trong 1 region, span nhiều AZ qua subnet", "Mặc định mỗi account có 1 Default VPC (nên dùng VPC tự tạo cho production)", "VPC Peering / Transit Gateway để nối nhiều VPC", "Security ở 2 tầng: Security Group (instance) + NACL (subnet)"],
+      "key_points": [
+        "1 VPC nằm trong 1 region, span nhiều AZ qua subnet",
+        "Mặc định mỗi account có 1 Default VPC (nên dùng VPC tự tạo cho production)",
+        "VPC Peering / Transit Gateway để nối nhiều VPC",
+        "Security ở 2 tầng: Security Group (instance) + NACL (subnet)"
+      ],
       "japfa": true,
       "japfa_detail": "jp:network là account trung tâm quản lý VPC, subnet, Transit Gateway hub, VPN on-premises của toàn Organization"
     },
@@ -82,7 +89,12 @@
       "icon": "🔀",
       "what": "Hub trung tâm kết nối nhiều VPC + kết nối VPN on-premises, thay vì phải Peering từng cặp VPC (mesh phức tạp).",
       "when": "Nhiều account/VPC cần thông nhau + nối on-premises qua VPN/Direct Connect",
-      "key_points": ["Mô hình hub-and-spoke thay vì full-mesh peering", "Chia sẻ qua nhiều account bằng RAM (Resource Access Manager)", "Route table riêng cho từng attachment — kiểm soát ai thấy ai", "Kết hợp VPN tunnel để nối on-premises (FortiGate)"],
+      "key_points": [
+        "Mô hình hub-and-spoke thay vì full-mesh peering",
+        "Chia sẻ qua nhiều account bằng RAM (Resource Access Manager)",
+        "Route table riêng cho từng attachment — kiểm soát ai thấy ai",
+        "Kết hợp VPN tunnel để nối on-premises (FortiGate)"
+      ],
       "japfa": true,
       "japfa_detail": "Transit Gateway hub tại jp:network nối các VPC (prod/uat/poc) + VPN tunnel tới FortiGate Long An & Hương Canh"
     },
@@ -93,7 +105,12 @@
       "icon": "🔒",
       "what": "Kết nối mã hóa (IPsec) giữa VPC/TGW và mạng on-premises qua internet — rẻ hơn Direct Connect, setup nhanh.",
       "when": "Cần nối on-premises datacenter với AWS mà không đi Direct Connect vật lý",
-      "key_points": ["Mỗi VPN connection có 2 tunnel (redundancy)", "Dùng BGP để trao đổi route động (auto-failover)", "Latency phụ thuộc internet — không ổn định bằng Direct Connect", "Kết hợp AS-prepend để ưu tiên tuyến chính/backup"],
+      "key_points": [
+        "Mỗi VPN connection có 2 tunnel (redundancy)",
+        "Dùng BGP để trao đổi route động (auto-failover)",
+        "Latency phụ thuộc internet — không ổn định bằng Direct Connect",
+        "Kết hợp AS-prepend để ưu tiên tuyến chính/backup"
+      ],
       "japfa": true,
       "japfa_detail": "2 VPN tunnel: FortiGate Long An (Primary, ASN 65000) và Hương Canh (Backup, AS-prepend 5x) — BGP auto-failover ~2-3 phút"
     }
@@ -128,7 +145,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Public/Private chỉ là quy ước — bản chất kỹ thuật nằm ở route table: nếu có route 0.0.0.0/0 → Internet Gateway thì subnet đó public. Không có route đó (mà đi qua NAT Gateway) thì là private."
+      "explanation": "Public/Private chỉ là quy ước — bản chất kỹ thuật nằm ở route table: nếu có route 0.0.0.0/0 → Internet Gateway thì subnet đó public. Không có route đó (mà đi qua NAT Gateway) thì là private.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -141,7 +159,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "NAT Gateway đặt ở public subnet, cho phép instance private subnet ra internet (VD: tải bản vá OS) nhưng chặn kết nối khởi tạo từ internet vào — chỉ 1 chiều outbound."
+      "explanation": "NAT Gateway đặt ở public subnet, cho phép instance private subnet ra internet (VD: tải bản vá OS) nhưng chặn kết nối khởi tạo từ internet vào — chỉ 1 chiều outbound.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -154,7 +173,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "VPC Peering là kết nối 1-1, không bắc cầu (non-transitive). Với n VPC cần peering đầy đủ, số kết nối tăng theo n(n-1)/2 — khó quản lý. Transit Gateway giải quyết bằng 1 hub trung tâm, mỗi VPC chỉ cần 1 attachment."
+      "explanation": "VPC Peering là kết nối 1-1, không bắc cầu (non-transitive). Với n VPC cần peering đầy đủ, số kết nối tăng theo n(n-1)/2 — khó quản lý. Transit Gateway giải quyết bằng 1 hub trung tâm, mỗi VPC chỉ cần 1 attachment.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -167,7 +187,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Mỗi Site-to-Site VPN Connection có 2 tunnel để đảm bảo tính sẵn sàng cao (nếu 1 tunnel down, traffic chuyển sang tunnel còn lại). Đây là lý do BGP thường được dùng để auto-failover giữa 2 tunnel."
+      "explanation": "Mỗi Site-to-Site VPN Connection có 2 tunnel để đảm bảo tính sẵn sàng cao (nếu 1 tunnel down, traffic chuyển sang tunnel còn lại). Đây là lý do BGP thường được dùng để auto-failover giữa 2 tunnel.",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -180,7 +201,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Một /24 có 256 địa chỉ, nhưng AWS reserve 5 địa chỉ đầu/cuối cho mỗi subnet (network address, VPC router, DNS, tương lai, broadcast) → còn lại 251 địa chỉ khả dụng thực tế. Đây là điểm hay bị nhầm khi tính toán CIDR trong đề thi."
+      "explanation": "Một /24 có 256 địa chỉ, nhưng AWS reserve 5 địa chỉ đầu/cuối cho mỗi subnet (network address, VPC router, DNS, tương lai, broadcast) → còn lại 251 địa chỉ khả dụng thực tế. Đây là điểm hay bị nhầm khi tính toán CIDR trong đề thi.",
+      "domain": "secure"
     }
   ]
 }

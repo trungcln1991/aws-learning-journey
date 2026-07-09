@@ -1,6 +1,8 @@
 {
   "date": "2026-07-08",
-  "day": 6, "week": 2, "month": 1,
+  "day": 6,
+  "week": 2,
+  "month": 1,
   "title": "Security Groups & NACL",
   "subtitle": "Stateful vs Stateless",
   "category": "Security",
@@ -71,7 +73,12 @@
       "icon": "🛡️",
       "what": "Firewall stateful gắn trực tiếp vào ENI của instance/RDS/ALB — chỉ có rule ALLOW, không có DENY.",
       "when": "Kiểm soát truy cập ở tầng instance — luôn nên là tuyến phòng thủ chính",
-      "key_points": ["Chỉ ALLOW, không có DENY rule (khác NACL)", "Stateful — traffic phản hồi tự động cho phép", "Có thể reference SG khác làm source (SG-to-SG) thay vì CIDR", "1 instance có thể gắn nhiều SG cùng lúc (rule cộng dồn)"],
+      "key_points": [
+        "Chỉ ALLOW, không có DENY rule (khác NACL)",
+        "Stateful — traffic phản hồi tự động cho phép",
+        "Có thể reference SG khác làm source (SG-to-SG) thay vì CIDR",
+        "1 instance có thể gắn nhiều SG cùng lúc (rule cộng dồn)"
+      ],
       "japfa": true,
       "japfa_detail": "Nguyên tắc ưu tiên tại Japfa: SG reference > Prefix List > CIDR cụ thể > 0.0.0.0/0 (chỉ dùng khi thực sự cần public)"
     },
@@ -82,7 +89,12 @@
       "icon": "🚧",
       "what": "Firewall stateless gắn ở tầng subnet — áp dụng cho MỌI instance trong subnet đó, có cả ALLOW và DENY.",
       "when": "Cần chặn hẳn 1 dải IP cụ thể ở tầng subnet (SG không hỗ trợ deny)",
-      "key_points": ["Rule xử lý theo thứ tự số (rule số nhỏ hơn ưu tiên trước)", "Stateless — phải khai báo cả inbound và outbound", "Default NACL: allow all cả 2 chiều", "Custom NACL: deny all mặc định, phải tự thêm rule"],
+      "key_points": [
+        "Rule xử lý theo thứ tự số (rule số nhỏ hơn ưu tiên trước)",
+        "Stateless — phải khai báo cả inbound và outbound",
+        "Default NACL: allow all cả 2 chiều",
+        "Custom NACL: deny all mặc định, phải tự thêm rule"
+      ],
       "japfa": false,
       "japfa_detail": ""
     },
@@ -93,7 +105,12 @@
       "icon": "🧱",
       "what": "Firewall tầng ứng dụng (Layer 7), lọc theo pattern HTTP request (SQL injection, XSS, rate limit) — khác hẳn SG/NACL (Layer 3/4).",
       "when": "Bảo vệ ALB/API Gateway/CloudFront khỏi tấn công web phổ biến (OWASP Top 10)",
-      "key_points": ["Gắn vào ALB, API Gateway, hoặc CloudFront", "Rule dựa trên nội dung HTTP request, không chỉ IP/port", "Có Managed Rule Group của AWS (cập nhật threat tự động)", "Rate-based rule để chặn brute-force/DDoS layer 7"],
+      "key_points": [
+        "Gắn vào ALB, API Gateway, hoặc CloudFront",
+        "Rule dựa trên nội dung HTTP request, không chỉ IP/port",
+        "Có Managed Rule Group của AWS (cập nhật threat tự động)",
+        "Rate-based rule để chặn brute-force/DDoS layer 7"
+      ],
       "japfa": true,
       "japfa_detail": "Kiến trúc Japfa: Internet → AWS WAF → API Gateway/ALB → EC2 S250-Webapps — WAF là lớp lọc đầu tiên trước khi vào hạ tầng"
     }
@@ -128,7 +145,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Security Group: gắn ở tầng instance (ENI), stateful (tự cho traffic phản hồi), chỉ có rule ALLOW. NACL: gắn ở tầng subnet, stateless (phải khai báo cả 2 chiều), có cả ALLOW và DENY — đây là điểm khác biệt cốt lõi hay được hỏi trong đề thi."
+      "explanation": "Security Group: gắn ở tầng instance (ENI), stateful (tự cho traffic phản hồi), chỉ có rule ALLOW. NACL: gắn ở tầng subnet, stateless (phải khai báo cả 2 chiều), có cả ALLOW và DENY — đây là điểm khác biệt cốt lõi hay được hỏi trong đề thi.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -141,7 +159,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Stateful nghĩa là SG theo dõi trạng thái kết nối: nếu 1 request inbound được allow, response tương ứng tự động được phép đi ra mà không cần thêm rule outbound — khác hẳn NACL (stateless) phải khai báo cả 2 chiều."
+      "explanation": "Stateful nghĩa là SG theo dõi trạng thái kết nối: nếu 1 request inbound được allow, response tương ứng tự động được phép đi ra mà không cần thêm rule outbound — khác hẳn NACL (stateless) phải khai báo cả 2 chiều.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -154,7 +173,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Security Group CHỈ có rule ALLOW — không thể tạo rule DENY để chặn 1 IP cụ thể. NACL có cả ALLOW và DENY, xử lý theo thứ tự rule, nên là công cụ đúng để chặn hẳn 1 dải IP ở tầng subnet."
+      "explanation": "Security Group CHỈ có rule ALLOW — không thể tạo rule DENY để chặn 1 IP cụ thể. NACL có cả ALLOW và DENY, xử lý theo thứ tự rule, nên là công cụ đúng để chặn hẳn 1 dải IP ở tầng subnet.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -167,7 +187,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "SG reference (SG-to-SG) là best practice: inbound rule của EC2 chỉ định source = Security Group của ALB, thay vì IP/CIDR cố định. Cách này tự động cập nhật khi ALB đổi IP, và giảm bề mặt tấn công so với mở CIDR rộng hoặc 0.0.0.0/0."
+      "explanation": "SG reference (SG-to-SG) là best practice: inbound rule của EC2 chỉ định source = Security Group của ALB, thay vì IP/CIDR cố định. Cách này tự động cập nhật khi ALB đổi IP, và giảm bề mặt tấn công so với mở CIDR rộng hoặc 0.0.0.0/0.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -180,7 +201,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "NACL đánh giá rule theo thứ tự số (rule # nhỏ nhất trước), và DỪNG NGAY khi gặp rule đầu tiên khớp với traffic — khác với Security Group nơi tất cả rule ALLOW được gộp lại (không có khái niệm thứ tự)."
+      "explanation": "NACL đánh giá rule theo thứ tự số (rule # nhỏ nhất trước), và DỪNG NGAY khi gặp rule đầu tiên khớp với traffic — khác với Security Group nơi tất cả rule ALLOW được gộp lại (không có khái niệm thứ tự).",
+      "domain": "secure"
     }
   ]
 }

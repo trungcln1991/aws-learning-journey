@@ -154,7 +154,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Organization trail trên jp:cloudtrail account tự động nhận logs từ member accounts, gửi vào S3 tập trung. Đây là best practice cho multi-account setup."
+      "explanation": "Organization trail trên jp:cloudtrail account tự động nhận logs từ member accounts, gửi vào S3 tập trung. Đây là best practice cho multi-account setup.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Config Rules evaluate theo schedule mặc định mỗi 15 phút hoặc trigger bằng ConfigurationItemChangeNotification ngay khi resource change."
+      "explanation": "Config Rules evaluate theo schedule mặc định mỗi 15 phút hoặc trigger bằng ConfigurationItemChangeNotification ngay khi resource change.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 3,
       "difficulty": "hard",
-      "explanation": "CloudTrail ghi SSM Automation invocation, Systems Manager ghi execution details. Cả hai cần check để có full picture."
+      "explanation": "CloudTrail ghi SSM Automation invocation, Systems Manager ghi execution details. Cả hai cần check để có full picture.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "S3 Object Lock COMPLIANCE mode ngăn chặn xóa vĩnh viễn, thậm chí root user cũng không thể xóa được. Best practice cho audit trails."
+      "explanation": "S3 Object Lock COMPLIANCE mode ngăn chặn xóa vĩnh viễn, thậm chí root user cũng không thể xóa được. Best practice cho audit trails.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "Management Events ghi PutObject API call; Data Events ghi chi tiết S3 object operations. Cần enable cả hai để audit S3 hoạt động đầy đủ."
+      "explanation": "Management Events ghi PutObject API call; Data Events ghi chi tiết S3 object operations. Cần enable cả hai để audit S3 hoạt động đầy đủ.",
+      "domain": "secure"
     }
   ]
 }

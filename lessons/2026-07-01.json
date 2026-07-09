@@ -1,6 +1,8 @@
 {
   "date": "2026-07-01",
-  "day": 1, "week": 1, "month": 1,
+  "day": 1,
+  "week": 1,
+  "month": 1,
   "title": "AWS Global Infrastructure",
   "subtitle": "Region · Availability Zone · Edge Location",
   "category": "Cloud Foundations",
@@ -71,7 +73,12 @@
       "icon": "🔑",
       "what": "Quản lý ai (Who) được làm gì (What) trên AWS. Tạo User, Group, Role và gán Policy.",
       "when": "Luôn luôn — mọi action trên AWS đều đi qua IAM trước",
-      "key_points": ["User = người dùng có password", "Role = danh tính tạm cho service/EC2", "Policy = document JSON định nghĩa quyền", "Group = nhóm user, kế thừa policy của group"],
+      "key_points": [
+        "User = người dùng có password",
+        "Role = danh tính tạm cho service/EC2",
+        "Policy = document JSON định nghĩa quyền",
+        "Group = nhóm user, kế thừa policy của group"
+      ],
       "japfa": true,
       "japfa_detail": "Japfa dùng IAM Identity Center (SSO) — 7 profiles, mỗi người chỉ có quyền vừa đủ"
     },
@@ -82,7 +89,12 @@
       "icon": "🏢",
       "what": "Quản lý nhiều AWS account trong 1 tổ chức. Áp dụng policy (SCP) cho tất cả account cùng lúc.",
       "when": "Khi có nhiều hơn 1 AWS account — enterprise, multi-team",
-      "key_points": ["Management Account = tài khoản gốc (payer)", "OU = Organizational Unit (nhóm accounts)", "SCP = Service Control Policy (giới hạn action)", "Consolidated billing = 1 hóa đơn cho tất cả"],
+      "key_points": [
+        "Management Account = tài khoản gốc (payer)",
+        "OU = Organizational Unit (nhóm accounts)",
+        "SCP = Service Control Policy (giới hạn action)",
+        "Consolidated billing = 1 hóa đơn cho tất cả"
+      ],
       "japfa": true,
       "japfa_detail": "Japfa Org ID: o-tkxs2y1dfe · 8 accounts tổng · SCP chặn lambda, ec2 Tokyo, rds ở nhiều account"
     },
@@ -93,7 +105,12 @@
       "icon": "🎫",
       "what": "Single Sign-On cho AWS — login 1 lần, vào được nhiều account với quyền khác nhau mỗi account.",
       "when": "Multi-account setup — không cần tạo IAM user riêng trong từng account",
-      "key_points": ["1 lần login → vào nhiều account", "Permissions Set = tập hợp quyền gán cho account", "Session tự expire (an toàn hơn long-term key)", "Hỗ trợ MFA, external IdP"],
+      "key_points": [
+        "1 lần login → vào nhiều account",
+        "Permissions Set = tập hợp quyền gán cho account",
+        "Session tự expire (an toàn hơn long-term key)",
+        "Hỗ trợ MFA, external IdP"
+      ],
       "japfa": true,
       "japfa_detail": "Portal: japfavn.awsapps.com/start · Region: ap-southeast-1 · 7 profiles có quyền"
     }
@@ -136,7 +153,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Japfa dùng ap-southeast-1 (Singapore) — gần Vietnam nhất, latency thấp. ap-northeast-1 (Tokyo) bị SCP chặn, không dùng được."
+      "explanation": "Japfa dùng ap-southeast-1 (Singapore) — gần Vietnam nhất, latency thấp. ap-northeast-1 (Tokyo) bị SCP chặn, không dùng được.",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -149,7 +167,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "AZ = Availability Zone = data center vật lý riêng biệt trong 1 Region. Singapore có 3 AZ: 1a, 1b, 1c. Mỗi AZ cách nhau vài km, có điện và mạng riêng."
+      "explanation": "AZ = Availability Zone = data center vật lý riêng biệt trong 1 Region. Singapore có 3 AZ: 1a, 1b, 1c. Mỗi AZ cách nhau vài km, có điện và mạng riêng.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -162,7 +181,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Authentication (xác thực) = chứng minh danh tính — WHO are you? (SSO login, MFA). Authorization (cấp quyền) = quyết định được làm gì — WHAT can you do? (IAM Policy, SCP)."
+      "explanation": "Authentication (xác thực) = chứng minh danh tính — WHO are you? (SSO login, MFA). Authorization (cấp quyền) = quyết định được làm gì — WHAT can you do? (IAM Policy, SCP).",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -175,7 +195,8 @@
       ],
       "answer": 3,
       "difficulty": "medium",
-      "explanation": "Japfa Organization có 8 accounts tổng: 7 accounts có SSO profile (aggregator, cloudtrail, network, poc, prod, shareservice, uat) + 1 Management account (393060838625) do Cloud Kinetics giữ."
+      "explanation": "Japfa Organization có 8 accounts tổng: 7 accounts có SSO profile (aggregator, cloudtrail, network, poc, prod, shareservice, uat) + 1 Management account (393060838625) do Cloud Kinetics giữ.",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -188,7 +209,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "Least Privilege = cấp ít quyền nhất có thể. Developer chỉ cần đọc → AmazonS3ReadOnlyAccess là đủ. Cấp thêm quyền write/delete là thừa và tạo rủi ro bảo mật."
+      "explanation": "Least Privilege = cấp ít quyền nhất có thể. Developer chỉ cần đọc → AmazonS3ReadOnlyAccess là đủ. Cấp thêm quyền write/delete là thừa và tạo rủi ro bảo mật.",
+      "domain": "secure"
     }
   ]
 }

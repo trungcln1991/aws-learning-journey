@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Weighted routing cho phép phân phối traffic theo tỷ lệ % cụ thể. Failover chỉ dùng khi một resource down."
+      "explanation": "Weighted routing cho phép phân phối traffic theo tỷ lệ % cụ thể. Failover chỉ dùng khi một resource down.",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "Standard health check interval là 30 giây. Fast interval là 10 giây nhưng tốn chi phí cao hơn."
+      "explanation": "Standard health check interval là 30 giây. Fast interval là 10 giây nhưng tốn chi phí cao hơn.",
+      "domain": "resilient"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "ACM cert không cần cho Route 53 routing decision. Health checks + failover records là bắt buộc."
+      "explanation": "ACM cert không cần cho Route 53 routing decision. Health checks + failover records là bắt buộc.",
+      "domain": "secure"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Khi database không có connections available, nó không healthy. Các metrics khác chỉ là performance indicators, không là health."
+      "explanation": "Khi database không có connections available, nó không healthy. Các metrics khác chỉ là performance indicators, không là health.",
+      "domain": "resilient"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Geolocation routing đảm bảo data locality/residency. VN traffic → VN region tuân thủ data protection rules."
+      "explanation": "Geolocation routing đảm bảo data locality/residency. VN traffic → VN region tuân thủ data protection rules.",
+      "domain": "secure"
     }
   ]
 }

@@ -154,7 +154,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "Partition key quyết định distribution của data qua các partition, ảnh hưởng throughput"
+      "explanation": "Partition key quyết định distribution của data qua các partition, ảnh hưởng throughput",
+      "domain": "performant"
     },
     {
       "id": 2,
@@ -167,7 +168,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "GSI cho phép query với different partition key, tính phí throughput riêng"
+      "explanation": "GSI cho phép query với different partition key, tính phí throughput riêng",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Streams record modifications, trigger event-driven workflows qua Lambda"
+      "explanation": "Streams record modifications, trigger event-driven workflows qua Lambda",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -193,7 +196,8 @@
       ],
       "answer": 2,
       "difficulty": "medium",
-      "explanation": "DAX in-memory cache trước DynamoDB, dramatic latency reduction cho reads"
+      "explanation": "DAX in-memory cache trước DynamoDB, dramatic latency reduction cho reads",
+      "domain": "performant"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "Status có độ cardinality thấp, tất cả traffic vào 1-2 partitions → throttling"
+      "explanation": "Status có độ cardinality thấp, tất cả traffic vào 1-2 partitions → throttling",
+      "domain": "performant"
     }
   ]
 }

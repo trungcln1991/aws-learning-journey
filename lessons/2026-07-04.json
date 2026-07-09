@@ -1,6 +1,8 @@
 {
   "date": "2026-07-04",
-  "day": 4, "week": 1, "month": 1,
+  "day": 4,
+  "week": 1,
+  "month": 1,
   "title": "S3 & Storage Classes",
   "subtitle": "Bucket · Object · Lifecycle",
   "category": "Storage",
@@ -71,7 +73,12 @@
       "icon": "📦",
       "what": "Object storage — lưu file bất kỳ (log, backup, ảnh, static website) dưới dạng key-value, không giới hạn dung lượng tổng.",
       "when": "Backup, log archive (CloudTrail/ALB access log), static website hosting, data lake",
-      "key_points": ["Bucket name phải unique toàn cầu (global namespace)", "Object key = đường dẫn ảo, không phải thư mục thật", "Mặc định private — phải cấu hình Bucket Policy/ACL để public", "Server-side encryption (SSE-S3/SSE-KMS) nên bật mặc định"],
+      "key_points": [
+        "Bucket name phải unique toàn cầu (global namespace)",
+        "Object key = đường dẫn ảo, không phải thư mục thật",
+        "Mặc định private — phải cấu hình Bucket Policy/ACL để public",
+        "Server-side encryption (SSE-S3/SSE-KMS) nên bật mặc định"
+      ],
       "japfa": true,
       "japfa_detail": "jp:cloudtrail (262252231729) dùng S3 làm Log Archive trung tâm cho toàn bộ Organization CloudTrail"
     },
@@ -82,7 +89,12 @@
       "icon": "🧊",
       "what": "Storage class giá rẻ nhất cho dữ liệu ít truy cập — đánh đổi bằng thời gian retrieve chậm (phút đến giờ).",
       "when": "Log/backup lưu trữ dài hạn theo compliance, dữ liệu gần như không bao giờ đọc lại",
-      "key_points": ["Glacier Instant Retrieval: truy xuất ngay, rẻ hơn Standard", "Glacier Flexible Retrieval: vài phút–giờ, rẻ hơn nữa", "Glacier Deep Archive: 12 giờ, rẻ nhất, cho compliance 7-10 năm", "Retrieve sớm trước thời gian cam kết bị tính phí phạt"],
+      "key_points": [
+        "Glacier Instant Retrieval: truy xuất ngay, rẻ hơn Standard",
+        "Glacier Flexible Retrieval: vài phút–giờ, rẻ hơn nữa",
+        "Glacier Deep Archive: 12 giờ, rẻ nhất, cho compliance 7-10 năm",
+        "Retrieve sớm trước thời gian cam kết bị tính phí phạt"
+      ],
       "japfa": true,
       "japfa_detail": "Ứng viên tốt cho CloudTrail log cũ (>90 ngày) của Japfa — hiện chưa có lifecycle rule, còn để nguyên S3 Standard"
     },
@@ -93,7 +105,12 @@
       "icon": "♻️",
       "what": "Bộ quy tắc tự động: chuyển storage class hoặc xóa object sau N ngày, áp dụng theo prefix/tag.",
       "when": "Tối ưu chi phí log/backup lâu năm mà không cần thao tác thủ công",
-      "key_points": ["Transition action: chuyển class (VD: Standard → IA sau 30 ngày → Glacier sau 90 ngày)", "Expiration action: xóa hẳn sau N ngày", "Áp dụng riêng cho từng prefix (VD: chỉ logs/ folder)", "Kết hợp Versioning: có thể set rule riêng cho old version"],
+      "key_points": [
+        "Transition action: chuyển class (VD: Standard → IA sau 30 ngày → Glacier sau 90 ngày)",
+        "Expiration action: xóa hẳn sau N ngày",
+        "Áp dụng riêng cho từng prefix (VD: chỉ logs/ folder)",
+        "Kết hợp Versioning: có thể set rule riêng cho old version"
+      ],
       "japfa": false,
       "japfa_detail": ""
     }
@@ -128,7 +145,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "S3 (mọi storage class trừ One Zone-IA) cam kết 11 số 9 durability nhờ tự động replicate object qua tối thiểu 3 Availability Zone. Đây là con số hay xuất hiện trong đề thi SAA."
+      "explanation": "S3 (mọi storage class trừ One Zone-IA) cam kết 11 số 9 durability nhờ tự động replicate object qua tối thiểu 3 Availability Zone. Đây là con số hay xuất hiện trong đề thi SAA.",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -141,7 +159,8 @@
       ],
       "answer": 3,
       "difficulty": "medium",
-      "explanation": "Glacier Deep Archive rẻ nhất trong tất cả storage class, phù hợp dữ liệu compliance lưu dài hạn, gần như không truy cập. Đánh đổi là thời gian retrieve tới 12 giờ — chấp nhận được vì gần như không bao giờ cần đọc gấp."
+      "explanation": "Glacier Deep Archive rẻ nhất trong tất cả storage class, phù hợp dữ liệu compliance lưu dài hạn, gần như không truy cập. Đánh đổi là thời gian retrieve tới 12 giờ — chấp nhận được vì gần như không bao giờ cần đọc gấp.",
+      "domain": "cost"
     },
     {
       "id": 3,
@@ -154,7 +173,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Với Versioning bật, thao tác DELETE chỉ tạo ra 1 'delete marker' làm object trở thành 'không hiển thị' ở phiên bản mới nhất — dữ liệu gốc vẫn còn trong các version cũ, có thể khôi phục bằng cách xóa delete marker đó."
+      "explanation": "Với Versioning bật, thao tác DELETE chỉ tạo ra 1 'delete marker' làm object trở thành 'không hiển thị' ở phiên bản mới nhất — dữ liệu gốc vẫn còn trong các version cũ, có thể khôi phục bằng cách xóa delete marker đó.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -167,7 +187,8 @@
       ],
       "answer": 2,
       "difficulty": "easy",
-      "explanation": "Tên bucket S3 nằm trong 1 namespace dùng chung cho TẤT CẢ khách hàng AWS trên toàn cầu — nếu tên đã có người dùng (ở bất kỳ account/region nào) thì không thể tạo trùng."
+      "explanation": "Tên bucket S3 nằm trong 1 namespace dùng chung cho TẤT CẢ khách hàng AWS trên toàn cầu — nếu tên đã có người dùng (ở bất kỳ account/region nào) thì không thể tạo trùng.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -180,7 +201,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Lifecycle rule cho phép định nghĩa hành động tự động theo thời gian: chuyển class (transition, VD Standard → IA → Glacier) hoặc xóa hẳn (expiration), áp dụng theo prefix/tag — giúp tối ưu chi phí lưu trữ dài hạn mà không cần thao tác thủ công."
+      "explanation": "Lifecycle rule cho phép định nghĩa hành động tự động theo thời gian: chuyển class (transition, VD Standard → IA → Glacier) hoặc xóa hẳn (expiration), áp dụng theo prefix/tag — giúp tối ưu chi phí lưu trữ dài hạn mà không cần thao tác thủ công.",
+      "domain": "cost"
     }
   ]
 }

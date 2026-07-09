@@ -142,7 +142,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "Multi-AZ cung cấp failover tự động < 2 phút. Read Replica không tự động, snapshot khôi phục lâu."
+      "explanation": "Multi-AZ cung cấp failover tự động < 2 phút. Read Replica không tự động, snapshot khôi phục lâu.",
+      "domain": "resilient"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Read Replica phân tán read workload, không ảnh hưởng primary. Tối ưu chi phí & hiệu suất."
+      "explanation": "Read Replica phân tán read workload, không ảnh hưởng primary. Tối ưu chi phí & hiệu suất.",
+      "domain": "performant"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 1,
       "difficulty": "medium",
-      "explanation": "Multi-AZ duy trì standby replica sẵn sàng, snapshot là file backup lưu S3, dùng khi cần khôi phục."
+      "explanation": "Multi-AZ duy trì standby replica sẵn sàng, snapshot là file backup lưu S3, dùng khi cần khôi phục.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 1,
       "difficulty": "easy",
-      "explanation": "AWS Backup quản lý chính sách sao lưu tập trung, tự động retention 90 ngày, tuân thủ quy định."
+      "explanation": "AWS Backup quản lý chính sách sao lưu tập trung, tự động retention 90 ngày, tuân thủ quy định.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 1,
       "difficulty": "hard",
-      "explanation": "Read Replica không đảm bảo consistency ngay lập tức. 500ms lag chấp nhận được cho báo cáo, không cho transaction."
+      "explanation": "Read Replica không đảm bảo consistency ngay lập tức. 500ms lag chấp nhận được cho báo cáo, không cho transaction.",
+      "domain": "resilient"
     }
   ]
 }

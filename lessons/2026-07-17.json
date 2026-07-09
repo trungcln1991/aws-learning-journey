@@ -142,7 +142,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "Execution Role là IAM role gán cho Lambda, cần s3:GetObject để đọc objects. S3 bucket policy dùng cho resource-based access."
+      "explanation": "Execution Role là IAM role gán cho Lambda, cần s3:GetObject để đọc objects. S3 bucket policy dùng cho resource-based access.",
+      "domain": "secure"
     },
     {
       "id": 2,
@@ -155,7 +156,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "Lambda trigger khởi chạy async, AWS tạo container, event object chứa S3 metadata, execution role kiểm soát quyền truy cập."
+      "explanation": "Lambda trigger khởi chạy async, AWS tạo container, event object chứa S3 metadata, execution role kiểm soát quyền truy cập.",
+      "domain": "secure"
     },
     {
       "id": 3,
@@ -168,7 +170,8 @@
       ],
       "answer": 0,
       "difficulty": "medium",
-      "explanation": "EventBridge cron schedule là cách tốt nhất cho tác vụ định kỳ. S3 trigger chỉ kích hoạt khi file upload."
+      "explanation": "EventBridge cron schedule là cách tốt nhất cho tác vụ định kỳ. S3 trigger chỉ kích hoạt khi file upload.",
+      "domain": "resilient"
     },
     {
       "id": 4,
@@ -181,7 +184,8 @@
       ],
       "answer": 0,
       "difficulty": "hard",
-      "explanation": "Execution Role ≈ assume role quyền cho Lambda. Resource Policy ≈ allow statement cho phép S3/EventBridge invoke Lambda."
+      "explanation": "Execution Role ≈ assume role quyền cho Lambda. Resource Policy ≈ allow statement cho phép S3/EventBridge invoke Lambda.",
+      "domain": "secure"
     },
     {
       "id": 5,
@@ -194,7 +198,8 @@
       ],
       "answer": 0,
       "difficulty": "easy",
-      "explanation": "S3 event object chứa Records array với bucket, key, eventName, eventTime. File content phải fetch bằng s3:GetObject call."
+      "explanation": "S3 event object chứa Records array với bucket, key, eventName, eventTime. File content phải fetch bằng s3:GetObject call.",
+      "domain": "secure"
     }
   ]
 }
