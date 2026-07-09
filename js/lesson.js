@@ -26,6 +26,18 @@ function getSRSDueCount() {
   } catch { return 0; }
 }
 
+// ===== SAA-C03 DOMAIN TRACKING (đọc chung key 'aws_domain_stats_v1' với quiz.js) =====
+function trackDomain(domain, correct) {
+  if (!domain) return;
+  try {
+    const stats = JSON.parse(localStorage.getItem('aws_domain_stats_v1')) || {};
+    if (!stats[domain]) stats[domain] = { correct: 0, total: 0 };
+    stats[domain].total++;
+    if (correct) stats[domain].correct++;
+    localStorage.setItem('aws_domain_stats_v1', JSON.stringify(stats));
+  } catch {}
+}
+
 // ===== WEB SPEECH TTS =====
 function speak(text, rate, btn) {
   rate = rate || 1.0;
@@ -186,6 +198,7 @@ function submitAnswer() {
   const q = quizState.questions[quizState.current];
   const correct = quizState.selected === q.answer;
   quizState.scores.push(correct ? 1 : 0);
+  trackDomain(q.domain, correct);
 
   const opts = document.querySelectorAll('.quiz-option');
   opts.forEach((el, i) => {

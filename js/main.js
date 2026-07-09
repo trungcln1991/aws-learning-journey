@@ -216,6 +216,53 @@ async function initLessonsList() {
   });
 }
 
+const DOMAIN_LABELS = {
+  secure:     { vi: 'Bảo mật',           weight: 30, color: 'var(--red)' },
+  resilient:  { vi: 'Khả năng phục hồi', weight: 26, color: 'var(--blue)' },
+  performant: { vi: 'Hiệu năng cao',     weight: 24, color: 'var(--amber)' },
+  cost:       { vi: 'Tối ưu chi phí',    weight: 20, color: 'var(--green)' }
+};
+function getDomainStats() { try { return JSON.parse(localStorage.getItem('aws_domain_stats_v1')) || {}; } catch { return {}; } }
+
+function renderDomainBreakdown() {
+  const stats = getDomainStats();
+  const domains = Object.keys(DOMAIN_LABELS);
+  const answered = domains.filter(d => stats[d]?.total > 0);
+  if (!answered.length) return;
+
+  const box = document.getElementById('domain-breakdown');
+  box.innerHTML = domains.map(d => {
+    const s = stats[d] || { correct: 0, total: 0 };
+    const pct = s.total ? Math.round(s.correct / s.total * 100) : null;
+    const label = DOMAIN_LABELS[d];
+    return `
+      <div style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:3px">
+          <span style="font-weight:700">${label.vi} <span style="color:var(--muted);font-family:monospace;font-size:.7rem">(${label.weight}% đề thi)</span></span>
+          <span style="font-family:monospace;color:var(--muted)">${pct === null ? '— chưa làm' : `${s.correct}/${s.total} · ${pct}%`}</span>
+        </div>
+        <div style="height:8px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+          <div style="height:100%;width:${pct ?? 0}%;background:${label.color};border-radius:999px"></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Weakest domain (đủ ít nhất 3 câu để có ý nghĩa thống kê)
+  const eligible = answered.filter(d => stats[d].total >= 3);
+  if (eligible.length) {
+    const weakest = eligible.reduce((a, b) =>
+      (stats[a].correct / stats[a].total) <= (stats[b].correct / stats[b].total) ? a : b
+    );
+    const pct = Math.round(stats[weakest].correct / stats[weakest].total * 100);
+    if (pct < 80) {
+      const el = document.getElementById('domain-weakest');
+      el.style.display = 'block';
+      el.innerHTML = `⚠️ Yếu nhất: <strong>${DOMAIN_LABELS[weakest].vi}</strong> (${pct}%) — chiếm ${DOMAIN_LABELS[weakest].weight}% đề thi, nên ưu tiên ôn lại.`;
+    }
+  }
+}
+
 async function initStats() {
   const progress = getProgress();
   const meta = await loadMeta();
@@ -227,6 +274,8 @@ async function initStats() {
   document.getElementById('stat-vocab').textContent = completed.length * 5;
   document.getElementById('stat-pct').textContent =
     completed.length ? Math.round(completed.length / meta.lessons.length * 100) + '%' : '0%';
+
+  renderDomainBreakdown();
 
   const hist = document.getElementById('score-history');
   hist.innerHTML = '';

@@ -67,6 +67,25 @@ function sm2Update(cardId, quality) {
 
 function srsCardId(word, date) { return `${date}__${word}`; }
 
+// ===== SAA-C03 DOMAIN TRACKING (4 domain thi thật — dùng cho Thống kê + Mock Exam) =====
+const DOMAIN_KEY = 'aws_domain_stats_v1';
+const DOMAIN_LABELS = {
+  secure:     { vi: 'Bảo mật',           en: 'Design Secure Architectures',        weight: 30, color: 'var(--red)' },
+  resilient:  { vi: 'Khả năng phục hồi', en: 'Design Resilient Architectures',     weight: 26, color: 'var(--blue)' },
+  performant: { vi: 'Hiệu năng cao',     en: 'Design High-Performing Architectures', weight: 24, color: 'var(--amber)' },
+  cost:       { vi: 'Tối ưu chi phí',    en: 'Design Cost-Optimized Architectures', weight: 20, color: 'var(--green)' }
+};
+function getDomainStats() { try { return JSON.parse(localStorage.getItem(DOMAIN_KEY)) || {}; } catch { return {}; } }
+function saveDomainStats(d) { localStorage.setItem(DOMAIN_KEY, JSON.stringify(d)); }
+function trackDomain(domain, correct) {
+  if (!domain || !DOMAIN_LABELS[domain]) return;
+  const stats = getDomainStats();
+  if (!stats[domain]) stats[domain] = { correct: 0, total: 0 };
+  stats[domain].total++;
+  if (correct) stats[domain].correct++;
+  saveDomainStats(stats);
+}
+
 // ===== ACTIVE RECALL: fuzzy answer matching (typing, không phải trắc nghiệm) =====
 function normText(s) {
   return (s || '').toString().trim().toLowerCase()
@@ -405,6 +424,20 @@ function generateAwsQuestions(lessons, count = 9) {
   return shuffle(allQ).slice(0, count);
 }
 
+// Đúng tỷ trọng 4 domain thi thật (Secure 30% · Resilient 26% · Performant 24% · Cost 20% của 65 câu)
+const MOCK_EXAM_TARGETS = { secure: 20, resilient: 17, performant: 16, cost: 12 };
+function generateMockExamQuestions(lessons) {
+  const allQ = lessons.flatMap(l =>
+    (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '📝 Mock Exam', lessonTitle: l.title }))
+  );
+  const picked = [];
+  for (const [domain, target] of Object.entries(MOCK_EXAM_TARGETS)) {
+    const pool = shuffle(allQ.filter(q => q.domain === domain));
+    picked.push(...pool.slice(0, target));
+  }
+  return shuffle(picked);
+}
+
 // ===== QUIZ MODES =====
 const MODES = {
   srs: {
@@ -442,6 +475,12 @@ const MODES = {
     desc: 'GÕ đáp án — dịch · điền từ · lệnh CLI, không có sẵn để chọn', color: '#16130D',
     enCount: 6, cliCount: 4, time: '~10 phút', recallMode: true,
     rule: 'Quy tắc #9: Generation Effect — tự viết ra nhớ sâu hơn chọn trắc nghiệm'
+  },
+  mockexam: {
+    id: 'mockexam', icon: '📝', label: 'Mock Exam',
+    desc: 'Tới 65 câu · 130 phút · đúng tỷ trọng 4 domain như đề thật — không xem đáp án ngay', color: '#C32D1A',
+    time: '130 phút', mockExamMode: true,
+    rule: 'Mô phỏng áp lực phòng thi thật — chấm 1 lần khi nộp bài'
   }
 };
 
@@ -592,6 +631,21 @@ async function startQuiz(modeId) {
     return;
   }
 
+  // Mock Exam: mô phỏng đề thi thật — 65 câu đúng tỷ trọng domain, có giờ, không xem đáp án ngay
+  if (mode.mockExamMode) {
+    const questions = generateMockExamQuestions(lessons);
+    if (questions.length < 10) {
+      app.innerHTML = `<div class="empty-state" style="padding:48px 16px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:12px">😕</div>
+        <div>Chưa đủ câu hỏi đã gắn domain để tạo Mock Exam (cần tối thiểu 10, hiện có ${questions.length}).<br>Học thêm vài bài rồi quay lại nhé!</div>
+        <button onclick="renderModeSelect(false)" style="margin-top:16px;padding:10px 20px;background:var(--ink);color:var(--paper);border-radius:8px;font-weight:700;border:none;cursor:pointer">← Quay lại</button>
+      </div>`;
+      return;
+    }
+    startMockExam(questions);
+    return;
+  }
+
   const enQ = mode.enCount > 0 ? generateEnglishQuestions(lessons, mode.enCount) : [];
   const awsQ = mode.awsCount > 0 ? generateAwsQuestions(lessons, mode.awsCount) : [];
   const questions = shuffle([...enQ, ...awsQ]);
@@ -717,6 +771,7 @@ window.checkAnswer = function() {
     }
   } else {
     quizState.awsScores.push(correct ? 1 : 0);
+    trackDomain(q.domain, correct);
   }
   quizState.scores.push(correct ? 1 : 0);
 
@@ -783,6 +838,7 @@ function finalizeTyped(correct) {
     if (q.vocabWord && q.lessonDate) sm2Update(srsCardId(q.vocabWord, q.lessonDate), correct ? 4 : 1);
   } else {
     quizState.awsScores.push(correct ? 1 : 0);
+    trackDomain(q.domain, correct);
   }
   quizState.scores.push(correct ? 1 : 0);
 
@@ -880,6 +936,189 @@ function getRecommendation(pct, enScores, awsScores) {
   if (!tips.length) tips.push('🎯 Tiếp tục đều đặn mỗi ngày — <strong>30 phút/ngày beats 4 tiếng cuối tuần</strong> (Quy tắc #7).');
   return tips.join('<br>');
 }
+
+// ===== MOCK EXAM ENGINE (không xem đáp án ngay — chấm 1 lần khi nộp bài, giống thi thật) =====
+const EXAM_DURATION_SEC = 130 * 60;
+let examTimerId = null;
+
+function startMockExam(questions) {
+  quizState = {
+    mode: MODES.mockexam, questions, current: 0,
+    examAnswers: new Array(questions.length).fill(null),
+    examSecondsLeft: EXAM_DURATION_SEC
+  };
+  examTimerId = setInterval(() => {
+    quizState.examSecondsLeft--;
+    const t = document.getElementById('exam-timer');
+    if (t) {
+      t.textContent = formatExamTime(quizState.examSecondsLeft);
+      if (quizState.examSecondsLeft <= 600) t.style.color = 'var(--red)';
+    }
+    if (quizState.examSecondsLeft <= 0) { clearInterval(examTimerId); finishExam(); }
+  }, 1000);
+  renderExamQuestion();
+}
+
+function formatExamTime(sec) {
+  const m = Math.floor(Math.max(0, sec) / 60), s = Math.max(0, sec) % 60;
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function exitMockExam() {
+  if (examTimerId) { clearInterval(examTimerId); examTimerId = null; }
+  renderModeSelect(true);
+}
+window.exitMockExam = exitMockExam;
+
+function renderExamQuestion() {
+  const { questions, current, examAnswers } = quizState;
+  const q = questions[current];
+  const total = questions.length;
+  const answeredCount = examAnswers.filter(a => a !== null).length;
+
+  document.getElementById('quiz-app').innerHTML = `
+    <div style="padding:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="flex:1;height:6px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+          <div style="height:100%;width:${Math.round((current+1)/total*100)}%;background:var(--red);border-radius:999px"></div>
+        </div>
+        <span id="exam-timer" style="font-family:monospace;font-size:.85rem;font-weight:900;white-space:nowrap">${formatExamTime(quizState.examSecondsLeft)}</span>
+        <button onclick="exitMockExam()" style="font-size:.8rem;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px 6px;font-family:monospace">✕ Thoát</button>
+      </div>
+
+      <div style="border:2px solid var(--ink);border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 rgba(22,19,13,.1)">
+        <div style="background:var(--ink);color:var(--paper);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;font-family:monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">
+          <span style="background:var(--red);padding:3px 10px;border-radius:999px">Câu ${current+1}/${total}</span>
+          <span style="opacity:.6">Đã trả lời: ${answeredCount}/${total}</span>
+        </div>
+        <div style="padding:18px 16px;background:var(--paper)">
+          <div style="font-size:.98rem;font-weight:700;line-height:1.55;margin-bottom:14px;white-space:pre-line">${q.question}</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="exam-opts">
+            ${q.options.map((opt, i) => `
+              <li class="quiz-option${examAnswers[current] === i ? ' selected' : ''}" data-idx="${i}" onclick="examSelectOpt(${i})">
+                <span class="opt-key">${String.fromCharCode(65+i)}.</span>
+                <span>${opt}</span>
+              </li>
+            `).join('')}
+          </ul>
+          <div style="display:flex;gap:8px;margin-top:14px">
+            <button onclick="examNav(-1)" ${current === 0 ? 'disabled' : ''} style="flex:1;padding:12px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;cursor:pointer;opacity:${current===0?'.4':'1'}">← Câu trước</button>
+            ${current + 1 < total
+              ? `<button onclick="examNav(1)" style="flex:1;padding:12px;border-radius:8px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:700;cursor:pointer">Câu tiếp →</button>`
+              : `<button onclick="confirmFinishExam()" style="flex:1;padding:12px;border-radius:8px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:700;cursor:pointer">📝 Nộp bài</button>`
+            }
+          </div>
+          ${current + 1 === total ? '' : `<button onclick="confirmFinishExam()" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:var(--muted);font-size:.78rem;font-family:monospace;cursor:pointer;text-decoration:underline">Nộp bài sớm (còn ${total - answeredCount} câu chưa trả lời)</button>`}
+          <div id="exam-confirm-box" style="display:none;margin-top:12px;padding:12px;background:rgba(195,45,26,.06);border-radius:8px;border:2px solid var(--red)">
+            <div class="ecb-text" style="font-size:.85rem;font-weight:700;margin-bottom:10px"></div>
+            <div style="display:flex;gap:8px">
+              <button onclick="document.getElementById('exam-confirm-box').style.display='none'" style="flex:1;padding:10px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;cursor:pointer">Chưa, quay lại</button>
+              <button onclick="finishExam()" style="flex:1;padding:10px;border-radius:8px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:700;cursor:pointer">✅ Nộp bài</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+window.examSelectOpt = function(idx) {
+  quizState.examAnswers[quizState.current] = idx;
+  document.querySelectorAll('#exam-opts .quiz-option').forEach((el, i) => el.classList.toggle('selected', i === idx));
+};
+
+window.examNav = function(delta) {
+  quizState.current = Math.max(0, Math.min(quizState.questions.length - 1, quizState.current + delta));
+  renderExamQuestion();
+};
+
+window.confirmFinishExam = function() {
+  const unanswered = quizState.examAnswers.filter(a => a === null).length;
+  const box = document.getElementById('exam-confirm-box');
+  box.querySelector('.ecb-text').textContent = unanswered > 0
+    ? `Còn ${unanswered} câu chưa trả lời. Nộp bài luôn?`
+    : 'Nộp bài Mock Exam?';
+  box.style.display = 'block';
+};
+
+function finishExam() {
+  if (examTimerId) { clearInterval(examTimerId); examTimerId = null; }
+  const { questions, examAnswers } = quizState;
+  const domainScore = { secure: [0,0], resilient: [0,0], performant: [0,0], cost: [0,0] };
+  let correct = 0;
+
+  questions.forEach((q, i) => {
+    const isCorrect = examAnswers[i] === q.answer;
+    if (isCorrect) correct++;
+    trackDomain(q.domain, isCorrect);
+    if (domainScore[q.domain]) {
+      domainScore[q.domain][1]++;
+      if (isCorrect) domainScore[q.domain][0]++;
+    }
+  });
+
+  const total = questions.length;
+  const pct = Math.round(correct / total * 100);
+  const passed = pct >= 72; // xấp xỉ ngưỡng đậu thật (720/1000 scaled score) — chỉ mang tính mô phỏng
+
+  const progress = getProgress();
+  if (!progress.mockExamHistory) progress.mockExamHistory = [];
+  progress.mockExamHistory.push({ date: todayStr(), score: correct, total, pct, passed });
+  saveProgress(progress);
+
+  document.getElementById('quiz-app').innerHTML = `
+    <div style="padding:16px">
+      <div style="border:2px solid var(--ink);border-radius:12px;padding:24px 16px;text-align:center;box-shadow:5px 5px 0 rgba(22,19,13,.12);background:var(--paper);margin-bottom:14px">
+        <div style="font-size:3rem;margin-bottom:8px">${passed ? '🎉' : '📚'}</div>
+        <div style="font-family:monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)">KẾT QUẢ MOCK EXAM</div>
+        <div style="font-size:4rem;font-weight:900;font-family:Georgia,serif;color:${passed?'var(--green)':'var(--red)'};line-height:1;margin:8px 0 4px">${correct}/${total}</div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:4px">${pct}% chính xác</div>
+        <div style="display:inline-block;padding:6px 16px;border-radius:999px;font-weight:700;font-size:.85rem;background:${passed?'rgba(28,122,71,.1)':'rgba(195,45,26,.1)'};color:${passed?'var(--green)':'var(--red)'}">
+          ${passed ? '✅ ĐẬU (mô phỏng — ngưỡng ~72%)' : '❌ CHƯA ĐẬU (mô phỏng — ngưỡng ~72%)'}
+        </div>
+
+        <div style="margin-top:18px;text-align:left">
+          ${Object.entries(domainScore).map(([d, [c, t]]) => {
+            if (!t) return '';
+            const dp = Math.round(c/t*100);
+            return `<div style="margin-bottom:10px">
+              <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:3px">
+                <span style="font-weight:700">${DOMAIN_LABELS[d].vi}</span>
+                <span style="font-family:monospace;color:var(--muted)">${c}/${t} · ${dp}%</span>
+              </div>
+              <div style="height:8px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+                <div style="height:100%;width:${dp}%;background:${DOMAIN_LABELS[d].color};border-radius:999px"></div>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+
+      <button onclick="renderExamReview()" style="width:100%;padding:13px;border-radius:8px;background:var(--paper);color:var(--ink);font-size:.95rem;font-weight:700;border:2px solid var(--ink);margin-bottom:8px;cursor:pointer">📋 Xem lại từng câu (kèm đáp án đúng)</button>
+      <button onclick="renderModeSelect(true)" style="width:100%;padding:12px;border-radius:8px;background:var(--ink);color:var(--paper);font-size:.9rem;font-weight:700;border:2px solid var(--ink);cursor:pointer">← Về chọn chế độ</button>
+    </div>
+  `;
+}
+
+window.renderExamReview = function() {
+  const { questions, examAnswers } = quizState;
+  document.getElementById('quiz-app').innerHTML = `
+    <div style="padding:16px">
+      <button onclick="renderModeSelect(true)" style="margin-bottom:12px;padding:8px 14px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;cursor:pointer;font-size:.82rem">← Về chọn chế độ</button>
+      ${questions.map((q, i) => {
+        const correct = examAnswers[i] === q.answer;
+        return `
+        <div style="border:2px solid ${correct?'var(--green)':'var(--red)'};border-radius:10px;padding:14px;margin-bottom:10px;background:var(--paper)">
+          <div style="font-size:.68rem;font-family:monospace;color:var(--muted);margin-bottom:6px">CÂU ${i+1} · ${DOMAIN_LABELS[q.domain]?.vi || '—'} · ${correct ? '✅ Đúng' : examAnswers[i]===null ? '⬜ Bỏ trống' : '❌ Sai'}</div>
+          <div style="font-weight:700;font-size:.9rem;margin-bottom:8px;white-space:pre-line">${q.question}</div>
+          <div style="font-size:.85rem;color:var(--ink-soft);margin-bottom:6px">Đáp án đúng: <strong>${q.options[q.answer]}</strong></div>
+          <div style="font-size:.8rem;color:var(--muted);line-height:1.5">${q.explanation}</div>
+        </div>`;
+      }).join('')}
+      <button onclick="renderModeSelect(true)" style="width:100%;padding:13px;border-radius:8px;background:var(--ink);color:var(--paper);font-size:.95rem;font-weight:700;border:2px solid var(--ink);cursor:pointer">← Về chọn chế độ</button>
+    </div>
+  `;
+};
 
 // ===== INIT =====
 async function init() {

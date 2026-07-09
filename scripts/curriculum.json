@@ -42,6 +42,48 @@
     { "day":39, "week":1, "month":3, "title":"API Gateway & REST APIs", "subtitle":"Stage · Method · Integration · Throttling · Auth", "category":"Serverless", "color":"#F97316", "emoji":"🔌" },
     { "day":40, "week":1, "month":3, "title":"Cognito & Identity", "subtitle":"User Pool · Identity Pool · Federation · JWT", "category":"Security", "color":"#C32D1A", "emoji":"👤" },
     { "day":41, "week":1, "month":3, "title":"Global Accelerator & Edge", "subtitle":"Anycast · Edge location · Traffic dial · Health check", "category":"Networking", "color":"#1F5F86", "emoji":"🌏" },
-    { "day":42, "week":1, "month":3, "title":"Month 3 Review — Architecting Solutions", "subtitle":"Kinesis · Athena · API Gateway · Cognito · Global Accelerator recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" }
+    { "day":42, "week":1, "month":3, "title":"Month 3 Review — Architecting Solutions", "subtitle":"Kinesis · Athena · API Gateway · Cognito · Global Accelerator recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":43, "week":1, "month":4, "title":"Storage Gateway & DataSync", "subtitle":"Hybrid storage · File/Volume/Tape Gateway · Online transfer", "category":"Storage", "color":"#A9700A", "emoji":"🌉" },
+    { "day":44, "week":1, "month":4, "title":"AWS Batch & EKS", "subtitle":"Batch jobs · Container orchestration · Fargate vs self-managed", "category":"Compute", "color":"#1F5F86", "emoji":"🐋" },
+    { "day":45, "week":1, "month":4, "title":"Systems Manager", "subtitle":"Session Manager · Parameter Store · Patch Manager · Run Command", "category":"Operations", "color":"#7A7160", "emoji":"🛠️" },
+    { "day":46, "week":1, "month":4, "title":"Trusted Advisor & Compute Optimizer", "subtitle":"Cost/Security/Performance checks · Right-sizing recommendations", "category":"Cost", "color":"#1C7A47", "emoji":"🧭" },
+    { "day":47, "week":1, "month":4, "title":"AWS Backup Deep Dive", "subtitle":"Backup Vault · Cross-Region Copy · Lifecycle · Compliance", "category":"Storage", "color":"#A9700A", "emoji":"🗃️" },
+    { "day":48, "week":1, "month":4, "title":"Review — Hybrid & Operations", "subtitle":"Storage Gateway · Batch/EKS · Systems Manager · Trusted Advisor · Backup recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":49, "week":2, "month":4, "title":"Redshift & EMR", "subtitle":"Data warehouse · Big data processing · Redshift vs EMR trade-offs", "category":"Analytics", "color":"#6B3E99", "emoji":"🏭" },
+    { "day":50, "week":2, "month":4, "title":"Aurora Global Database & Serverless v2", "subtitle":"Cross-region reads · Auto-scaling capacity · Failover", "category":"Database", "color":"#6B3E99", "emoji":"🌌" },
+    { "day":51, "week":2, "month":4, "title":"RDS Proxy & Read Replica Patterns", "subtitle":"Connection pooling · Failover · Read scaling strategies", "category":"Database", "color":"#6B3E99", "emoji":"🔗" },
+    { "day":52, "week":2, "month":4, "title":"DMS & Migration Services", "subtitle":"Schema Conversion Tool · Homogeneous/heterogeneous migration", "category":"Migration", "color":"#A9700A", "emoji":"🚚" },
+    { "day":53, "week":2, "month":4, "title":"Multi-Account Strategy & Landing Zone", "subtitle":"Control Tower · OU design · SCP hierarchy · Account vending", "category":"Governance", "color":"#7A7160", "emoji":"🗺️" },
+    { "day":54, "week":2, "month":4, "title":"Month 4 Review & Mock Exam", "subtitle":"Redshift/EMR · Aurora · RDS Proxy · DMS · Landing Zone recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":55, "week":1, "month":5, "title":"GuardDuty, Security Hub & Inspector", "subtitle":"Threat detection · Compliance findings · Vulnerability scanning", "category":"Security", "color":"#C32D1A", "emoji":"🕵️" },
+    { "day":56, "week":1, "month":5, "title":"Macie & Detective", "subtitle":"Sensitive data discovery · Security investigation graph", "category":"Security", "color":"#C32D1A", "emoji":"🔎" },
+    { "day":57, "week":1, "month":5, "title":"VPC Lattice & PrivateLink Deep Dive", "subtitle":"Service-to-service networking · Private connectivity patterns", "category":"Networking", "color":"#1F5F86", "emoji":"🕸️" },
+    { "day":58, "week":1, "month":5, "title":"Direct Connect Resiliency Models", "subtitle":"Multiple connections · SiteLink · Failover design", "category":"Networking", "color":"#1F5F86", "emoji":"🔗" },
+    { "day":59, "week":1, "month":5, "title":"Resource Tagging & Governance at Scale", "subtitle":"Tag policies · Cost allocation tags · Config rules enforcement", "category":"Governance", "color":"#7A7160", "emoji":"🏷️" },
+    { "day":60, "week":1, "month":5, "title":"Review — Security Monitoring & Networking", "subtitle":"GuardDuty/Inspector · Macie · VPC Lattice · Direct Connect · Tagging recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":61, "week":2, "month":5, "title":"Well-Architected: Reliability Pillar", "subtitle":"Fault isolation · Backup/DR design · Change management", "category":"Architecture", "color":"#C32D1A", "emoji":"🏗️" },
+    { "day":62, "week":2, "month":5, "title":"Well-Architected: Performance Efficiency Pillar", "subtitle":"Right resource selection · Monitoring · Trade-offs at scale", "category":"Architecture", "color":"#F97316", "emoji":"⚡" },
+    { "day":63, "week":2, "month":5, "title":"Well-Architected: Cost Optimization Pillar", "subtitle":"Cost-aware architecture · Expenditure awareness · Optimize over time", "category":"Architecture", "color":"#1C7A47", "emoji":"💰" },
+    { "day":64, "week":2, "month":5, "title":"Well-Architected: Operational Excellence Pillar", "subtitle":"IaC · Runbooks · Small frequent reversible changes", "category":"Architecture", "color":"#7A7160", "emoji":"⚙️" },
+    { "day":65, "week":2, "month":5, "title":"Well-Architected: Security Pillar", "subtitle":"Defense in depth · Strong identity foundation · Automate security", "category":"Architecture", "color":"#C32D1A", "emoji":"🛡️" },
+    { "day":66, "week":2, "month":5, "title":"Review — Well-Architected Framework", "subtitle":"5 pillar review — Reliability đến Security recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":67, "week":1, "month":6, "title":"DR Deep Dive: Pilot Light vs Warm Standby vs Multi-Site", "subtitle":"RTO/RPO trade-offs theo từng chiến lược DR", "category":"Architecture", "color":"#C32D1A", "emoji":"🚨" },
+    { "day":68, "week":1, "month":6, "title":"Elastic Disaster Recovery (DRS) & Application Migration Service", "subtitle":"Continuous replication · Cutover · Lift-and-shift migration", "category":"Migration", "color":"#A9700A", "emoji":"🛟" },
+    { "day":69, "week":1, "month":6, "title":"S3 Advanced: Cross-Region Replication & Storage Lens", "subtitle":"CRR/SRR · Storage Lens dashboard · Cost visibility", "category":"Storage", "color":"#A9700A", "emoji":"🔬" },
+    { "day":70, "week":1, "month":6, "title":"EC2 Advanced: Placement Groups, Dedicated Hosts & Spot Strategies", "subtitle":"Cluster/Spread/Partition placement · Spot interruption handling", "category":"Compute", "color":"#1F5F86", "emoji":"🎛️" },
+    { "day":71, "week":1, "month":6, "title":"DynamoDB Global Tables & Advanced Patterns", "subtitle":"Multi-region active-active · Conflict resolution", "category":"Database", "color":"#6B3E99", "emoji":"🌐" },
+    { "day":72, "week":1, "month":6, "title":"Review — Advanced DR & Storage", "subtitle":"DR strategies · DRS · S3 advanced · EC2 advanced · DynamoDB Global Tables recap", "category":"Review", "color":"#7A7160", "emoji":"🎯" },
+
+    { "day":73, "week":2, "month":6, "title":"Exam Strategy: Reading Scenarios & Elimination Techniques", "subtitle":"Từ khóa bẫy · Loại trừ đáp án sai · Quản lý thời gian 130 phút", "category":"ExamPrep", "color":"#16130D", "emoji":"📝" },
+    { "day":74, "week":2, "month":6, "title":"Common SAA-C03 Traps & Gotchas", "subtitle":"Câu hỏi hay đánh lừa · Phân biệt đáp án gần đúng", "category":"ExamPrep", "color":"#16130D", "emoji":"⚠️" },
+    { "day":75, "week":2, "month":6, "title":"Case Study: 3-Tier Web Application", "subtitle":"ALB + ASG + RDS Multi-AZ — thiết kế end-to-end", "category":"Architecture", "color":"#1F5F86", "emoji":"🏢" },
+    { "day":76, "week":2, "month":6, "title":"Case Study: Data Lake & Analytics Pipeline", "subtitle":"S3 + Glue + Athena + Redshift — pipeline hoàn chỉnh", "category":"Architecture", "color":"#6B3E99", "emoji":"🏞️" },
+    { "day":77, "week":2, "month":6, "title":"Case Study: Hybrid & Disaster Recovery", "subtitle":"VPN + DX + DRS — kết nối hybrid + failover", "category":"Architecture", "color":"#C32D1A", "emoji":"🌉" },
+    { "day":78, "week":2, "month":6, "title":"Final Review — Full Curriculum Recap", "subtitle":"Case study 3-tier/data lake/hybrid recap — sẵn sàng thi thật", "category":"Review", "color":"#7A7160", "emoji":"🏁" }
   ]
 }

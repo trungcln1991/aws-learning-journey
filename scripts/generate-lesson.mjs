@@ -17,6 +17,15 @@ if (!API_KEY) { console.error('Missing ANTHROPIC_API_KEY'); process.exit(1); }
 
 const COUNT = parseInt(process.argv.find((a, i, arr) => arr[i-1] === '--count') || '3');
 
+// 4 domain thi thật SAA-C03 (theo AWS exam guide) — dùng để gắn nhãn quiz.domain, phục vụ
+// Mock Exam mode (lấy đúng tỷ trọng câu hỏi theo domain) + biểu đồ điểm yếu trong Thống kê.
+const DOMAIN_GUIDE = `SAA-C03 exam domains — tag each quiz question with exactly ONE domain code:
+- "secure" (Domain 1: Design Secure Architectures, 30% of real exam) — IAM, KMS, encryption, network security (SG/NACL/WAF), least privilege, compliance
+- "resilient" (Domain 2: Design Resilient Architectures, 26%) — Multi-AZ, DR, decoupling (SQS/SNS), auto-healing, backup/restore, fault tolerance
+- "performant" (Domain 3: Design High-Performing Architectures, 24%) — caching, CDN, read replicas, auto scaling, storage/compute selection for performance
+- "cost" (Domain 4: Design Cost-Optimized Architectures, 20%) — Reserved/Spot, storage tiering, right-sizing, serverless vs always-on cost trade-offs
+Pick the domain that BEST matches what the question is actually testing (not just which service it mentions).`;
+
 // Load curriculum & meta
 const curriculum = JSON.parse(readFileSync(resolve(__dir, 'curriculum.json'), 'utf8'));
 const meta = JSON.parse(readFileSync(resolve(root, 'lessons/meta.json'), 'utf8'));
@@ -60,6 +69,8 @@ Generate a lesson JSON for:
 - Category: ${topic.category}
 - Color: ${topic.color}
 - Emoji: ${topic.emoji}
+
+${DOMAIN_GUIDE}
 
 IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT schema:
 
@@ -120,6 +131,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT s
       "options": ["A option", "B option", "C option", "D option"],
       "answer": 0,
       "difficulty": "easy|medium|hard",
+      "domain": "secure|resilient|performant|cost",
       "explanation": "Vietnamese explanation of why the answer is correct"
     }
   ]
@@ -131,6 +143,7 @@ STRICT REQUIREMENTS (keep responses concise to fit in tokens):
 - services.cli: a real, correct AWS CLI v2 read-only command (describe/list/get) — used to teach hands-on CLI recall, must actually work
 - concepts: exactly 2 concepts. body: max 2 sentences. diagram: simple ASCII max 10 lines.
 - quiz: exactly 5 questions. explanation: max 80 chars each.
+- quiz.domain: exactly one of secure|resilient|performant|cost per question (see domain guide above) — required, do not omit
 - All Vietnamese text EXCEPT: word, ipa, example_en, diagram content
 - IPA must be phonetically correct
 - Japfa connections: mention specific account names (jp:prod/jp:poc/etc) or real resources
@@ -187,6 +200,8 @@ REVIEW-SPECIFIC RULES (this is what makes it a real review, not a new lesson):
 - services: pick exactly 3 services FROM THE LIST ABOVE. Fresh "what/when/key_points" wording is fine, but it must be the same real service.
 - concepts: exactly 2 concepts — make at least 1 of them a CROSS-CUTTING comparison/synthesis across 2+ of the services above (e.g. "So sánh X vs Y" or "Khi nào dùng X thay vì Y") — this is the core value of a review.
 - quiz: exactly 5 questions, each written as an SAA-C03 style scenario. Each question MUST combine 2-3 of the services/vocab above in one scenario (not test them in isolation) — mirrors how the real exam interleaves topics.
+
+${DOMAIN_GUIDE}
 
 IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT schema:
 
@@ -247,6 +262,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT s
       "options": ["A option", "B option", "C option", "D option"],
       "answer": 0,
       "difficulty": "easy|medium|hard",
+      "domain": "secure|resilient|performant|cost",
       "explanation": "Vietnamese explanation of why the answer is correct"
     }
   ]
@@ -258,6 +274,7 @@ STRICT REQUIREMENTS (keep responses concise to fit in tokens):
 - services.cli: a real, correct AWS CLI v2 read-only command (describe/list/get)
 - concepts: exactly 2 concepts. body: max 2 sentences. diagram: simple ASCII max 10 lines.
 - quiz: exactly 5 questions, each a multi-service scenario. explanation: max 80 chars each.
+- quiz.domain: exactly one of secure|resilient|performant|cost per question (see domain guide above) — required, do not omit
 - All Vietnamese text EXCEPT: word, ipa, example_en, diagram content
 - IPA must be phonetically correct
 - Japfa connections: mention specific account names (jp:prod/jp:poc/etc) or real resources
