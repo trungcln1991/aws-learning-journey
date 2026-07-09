@@ -36,7 +36,11 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet && git diff --staged --quiet; then
+          # git diff --quiet chỉ thấy file ĐÃ TRACK bị sửa, bỏ sót file MỚI (untracked) —
+          # bug thật: 1 lượt regen-backfill chỉ sinh lại đúng 1 bài đã có placeholder trong
+          # meta.json thì newLessons rỗng → meta.json không đổi → git diff thấy "sạch" dù
+          # file lesson mới đã nằm trên đĩa (untracked) → bỏ qua commit, mất nội dung vừa sinh.
+          if [ -z "$(git status --porcelain)" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
