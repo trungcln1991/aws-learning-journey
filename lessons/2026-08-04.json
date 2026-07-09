@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-04",
+  "day": 25,
+  "week": 3,
+  "month": 2,
+  "title": "CloudFormation & IaC",
+  "subtitle": "Stack · Template · Change Set · Drift Detection",
+  "category": "IaC",
+  "color": "#F97316",
+  "emoji": "📐",
+  "vocabulary": [
+    {
+      "word": "Stack",
+      "ipa": "/stæk/",
+      "ipa_guide": "Đọc: STEK",
+      "type": "danh từ",
+      "meaning": "Một tập hợp các tài nguyên AWS được quản lý như một đơn vị duy nhất thông qua CloudFormation template",
+      "example_en": "Create a CloudFormation stack to deploy an EC2 instance with security groups and an RDS database together",
+      "example_vi": "Tạo một CloudFormation stack để triển khai EC2, security group và RDS cùng lúc",
+      "usage": "CloudFormation · AWS Console · CLI",
+      "japfa": "jp:prod account sử dụng stacks để quản lý toàn bộ poultry management infrastructure"
+    },
+    {
+      "word": "Template",
+      "ipa": "/ˈtɛmplət/",
+      "ipa_guide": "Đọc: TEM-plit",
+      "type": "danh từ",
+      "meaning": "Tệp JSON hoặc YAML định nghĩa các tài nguyên AWS và cấu hình của chúng để tạo stack",
+      "example_en": "Write a CloudFormation template in YAML to define VPC, subnets, and route tables as code",
+      "example_vi": "Viết template CloudFormation bằng YAML để định nghĩa VPC, subnets và route tables",
+      "usage": "CloudFormation · Version Control · CI/CD",
+      "japfa": "jp:network account lưu trữ template cho VPN và network infrastructure dùng chung"
+    },
+    {
+      "word": "Change Set",
+      "ipa": "/tʃeɪndʒ sɛt/",
+      "ipa_guide": "Đọc: CHEINJ SET",
+      "type": "danh từ",
+      "meaning": "Tập hợp các thay đổi sẽ được áp dụng cho stack hiện có trước khi thực thi",
+      "example_en": "Review a change set to see which resources will be modified or deleted before updating the production stack",
+      "example_vi": "Xem trước change set để kiểm tra những tài nguyên sẽ thay đổi trước khi update stack production",
+      "usage": "CloudFormation · Stack Updates · Safe Deployments",
+      "japfa": "jp:prod dùng change set để an toàn kiểm tra trước khi update các tài nguyên quan trọng"
+    },
+    {
+      "word": "Drift Detection",
+      "ipa": "/drɪft dɪˈtɛkʃən/",
+      "ipa_guide": "Đọc: DRIFT di-TEC-shun",
+      "type": "danh từ",
+      "meaning": "Quá trình phát hiện các thay đổi thủ công trên tài nguyên stack so với template gốc",
+      "example_en": "Run drift detection on a CloudFormation stack to identify manual changes made via AWS Console that differ from the template",
+      "example_vi": "Chạy drift detection để phát hiện các thay đổi thủ công không khớp với template gốc",
+      "usage": "CloudFormation · Compliance · Governance",
+      "japfa": "jp:cloudtrail account giám sát drift để đảm bảo infrastructure luôn tuân thủ tiêu chuẩn"
+    },
+    {
+      "word": "Parameter",
+      "ipa": "/ˈpærəmɪtər/",
+      "ipa_guide": "Đọc: PA-ruh-mee-tur",
+      "type": "danh từ",
+      "meaning": "Giá trị đầu vào cho phép template CloudFormation linh hoạt sử dụng lại cho nhiều môi trường",
+      "example_en": "Define a Parameter in CloudFormation template to accept EnvironmentName and use it for resource naming across UAT and Prod",
+      "example_vi": "Định nghĩa Parameter để nhập EnvironmentName và sử dụng cho naming resources ở UAT và Prod",
+      "usage": "CloudFormation · Templates · Multi-environment",
+      "japfa": "jp:uat và jp:poc dùng parameters để triển khai cùng template với cấu hình khác nhau"
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudFormation",
+      "full": "AWS CloudFormation",
+      "category": "serverless",
+      "icon": "📐",
+      "what": "Infrastructure as Code dịch vụ cho phép định nghĩa và triển khai tài nguyên AWS thông qua template JSON/YAML.",
+      "when": "Khi bạn muốn version control infrastructure, tái sử dụng cấu hình, hoặc triển khai môi trường một cách tự động và nhất quán.",
+      "key_points": [
+        "Template định nghĩa tài nguyên dưới dạng mã (IaC)",
+        "Stack là đơn vị triển khai chứa toàn bộ tài nguyên liên quan",
+        "Change set cho phép xem trước thay đổi trước khi áp dụng"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng CloudFormation để quản lý EC2, RDS, VPC, và IAM roles cho poultry management system; jp:network dùng để duy trì FortiGate integration templates",
+      "cli": {
+        "task": "Liệt kê tất cả CloudFormation stacks trong account",
+        "command": "aws cloudformation list-stacks --query 'StackSummaries[].StackName' --output text"
+      }
+    },
+    {
+      "name": "IAM",
+      "full": "AWS Identity and Access Management",
+      "category": "security",
+      "icon": "🔐",
+      "what": "Quản lý quyền truy cập và danh tính cho AWS resources thông qua roles, policies, và users.",
+      "when": "Khi bạn cần kiểm soát ai có thể làm gì trên tài nguyên AWS theo nguyên tắc least privilege.",
+      "key_points": [
+        "CloudFormation templates có thể tạo IAM roles và policies như mã",
+        "Tránh hardcode credentials trong template, dùng Parameters hoặc Secrets Manager",
+        "Kiểm soát quyền CloudFormation thông qua IAM policies"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng IAM roles định nghĩa trong CloudFormation để cấp quyền cho EC2 instances, Lambda functions chỉ quyền cần thiết",
+      "cli": {
+        "task": "Liệt kê tất cả IAM roles trong account",
+        "command": "aws iam list-roles --query 'Roles[].RoleName' --output text"
+      }
+    },
+    {
+      "name": "S3",
+      "full": "Amazon Simple Storage Service",
+      "category": "storage",
+      "icon": "🪣",
+      "what": "Lưu trữ đối tượng (object) có độ bền cao, khả dụng cao, và có thể mở rộng để lưu dữ liệu bất kỳ loại nào.",
+      "when": "Khi bạn cần lưu trữ template CloudFormation, lưu backup configuration, hoặc lưu trữ dữ liệu application như logs và backups.",
+      "key_points": [
+        "Lưu CloudFormation templates trong S3 cho reusability và version control",
+        "S3 bucket policies được định nghĩa trong templates như JSON",
+        "Versioning bật trên S3 để theo dõi thay đổi template qua thời gian"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator account sử dụng S3 để lưu trữ CloudFormation templates cho báo cáo aggregated data, jp:cloudtrail dùng S3 để lưu CloudTrail logs",
+      "cli": {
+        "task": "Liệt kê tất cả S3 buckets trong account",
+        "command": "aws s3 ls --recursive"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "CloudFormation Stack Lifecycle",
+      "icon": "♻️",
+      "body": "Stack trải qua các trạng thái: CREATE_IN_PROGRESS → CREATE_COMPLETE → UPDATE_IN_PROGRESS → UPDATE_COMPLETE hoặc DELETE_IN_PROGRESS → DELETE_COMPLETE. Drift detection kiểm tra xem tài nguyên thực có khớp template không.",
+      "diagram": "CREATE_IN_PROGRESS\n        ↓\n CREATE_COMPLETE (Ready)\n        ↓\n UPDATE_IN_PROGRESS (Change Set áp dụng)\n        ↓\n UPDATE_COMPLETE (Hoàn thành)\n        ↓\n DELETE_IN_PROGRESS (Rollback nếu lỗi)\n        ↓\n DELETE_COMPLETE hoặc ROLLBACK_COMPLETE",
+      "exam_tip": "SAA-C03 hỏi về trạng thái stack, rollback tự động khi lỗi, và cách Change Set giảm thiểu downtime khi update.",
+      "japfa": "jp:prod dùng stack lifecycle để kiểm soát deploy từ template, rollback tự động nếu validation thất bại giảm downtime poultry operations."
+    },
+    {
+      "title": "Drift Detection & Compliance",
+      "icon": "🔍",
+      "body": "Drift xảy ra khi tài nguyên AWS thay đổi ngoài CloudFormation (thay đổi thủ công qua Console/CLI). Drift detection so sánh trạng thái thực với template để phát hiện không khớp.",
+      "diagram": "Template (Source of Truth)\n        ↓\n Drift Detection chạy\n        ↓\nTài nguyên AWS (Thực tế) ← So sánh\n        ↓\nKhớp (IN_SYNC) hoặc Không khớp (DRIFTED)",
+      "exam_tip": "SAA-C03 kiểm tra hiểu biết về drift là dấu hiệu governance yếu, cách phát hiện drift, và tầm quan trọng version control infrastructure.",
+      "japfa": "jp:cloudtrail account chạy drift detection hàng ngày trên jp:prod stacks để đảm bảo không có thay đổi thủ công vi phạm quy định poultry operation."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn đang quản lý CloudFormation stack trên jp:prod account cho poultry management system. Một kỹ sư operations vô tình thay đổi security group rules trực tiếp qua AWS Console thay vì cập nhật template. Công cụ nào bạn sử dụng để phát hiện sự không khớp này?",
+      "options": [
+        "CloudFormation Change Set",
+        "CloudFormation Drift Detection",
+        "AWS Config Compliance",
+        "CloudTrail Event History"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "Drift Detection phát hiện các thay đổi thủ công trên tài nguyên so với template. Change Set dùng để xem trước khi update."
+    },
+    {
+      "id": 2,
+      "question": "Bạn muốn sử dụng một CloudFormation template cho cả jp:uat và jp:poc accounts nhưng mỗi môi trường cần tên instance EC2 khác nhau. Phương pháp tốt nhất là gì?",
+      "options": [
+        "Tạo hai templates riêng biệt cho mỗi environment",
+        "Hardcode tên environment vào template",
+        "Sử dụng CloudFormation Parameters để nhập giá trị environment-specific",
+        "Sử dụng EC2 Auto Scaling"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "domain": "cost",
+      "explanation": "Parameters cho phép tái sử dụng template (cost optimization) cho nhiều environments bằng cách nhập giá trị khác nhau mà không sao chép code."
+    },
+    {
+      "id": 3,
+      "question": "Bạn chuẩn bị update một CloudFormation stack trên jp:prod có chứa RDS database, EC2 instances, và load balancer. Bạn muốn xem rõ những tài nguyên nào sẽ bị xóa, tạo, hoặc sửa trước khi thực hiện update. Bước nào bạn nên làm trước?",
+      "options": [
+        "Backup lại database và chạy UpdateStack ngay",
+        "Tạo Change Set, xem xét các thay đổi, rồi Execute Change Set",
+        "Xóa stack cũ và tạo stack mới từ template",
+        "Chạy CloudFormation Validate Template"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "Change Set cho phép xem trước những thay đổi mà không áp dụng ngay, giảm rủi ro downtime bất ngờ. Execute sau khi xác nhận an toàn."
+    },
+    {
+      "id": 4,
+      "question": "Bạn lưu trữ CloudFormation templates trên S3 bucket trên jp:shareservice account để nhiều team sử dụng chung. Bạn muốn bảo vệ templates khỏi sửa đổi không được phép. Chính sách nào nên áp dụng?",
+      "options": [
+        "Công khai S3 bucket cho tất cả users",
+        "Áp dụng S3 bucket policy với IAM roles cho phép chỉ read-only cho users cần thiết",
+        "Tắt versioning trên S3 để ngăn chặn thay đổi",
+        "Xóa tất cả IAM policies liên quan đến S3"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "IAM roles với read-only permissions trên S3 tuân thủ least privilege, bảo vệ templates khỏi thay đổi không được phép."
+    },
+    {
+      "id": 5,
+      "question": "Stack jp:prod trên account có 50 EC2 instances, 5 RDS databases, 3 load balancers. CloudFormation lỗi khi tạo một RDS instance nên toàn bộ stack không được tạo. Điều gì xảy ra và cách khắc phục?",
+      "options": [
+        "Các resources đã tạo vẫn chạy, phải xóa thủ công",
+        "CloudFormation tự động rollback, xóa tất cả tài nguyên đã tạo, stack trở về trạng thái CREATE_FAILED",
+        "Một số resources bị xóa, một số vẫn chạy gây chaos",
+        "Stack vẫn active nhưng không đầy đủ, phải chạy UpdateStack"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "domain": "resilient",
+      "explanation": "CloudFormation rollback tự động xóa các tài nguyên đã tạo thành công khi bất kỳ resource nào lỗi, đảm bảo consistency và fault tolerance."
+    }
+  ]
+}

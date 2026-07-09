@@ -316,8 +316,21 @@
       "emoji": "🎯",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-08-04",
+      "day": 25,
+      "title": "CloudFormation & IaC",
+      "subtitle": "Stack · Template · Change Set · Drift Detection",
+      "category": "IaC",
+      "week": 3,
+      "month": 2,
+      "color": "#F97316",
+      "emoji": "📐",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-07-09T06:17:33.783Z",
-  "total_lessons": 24
+  "last_generated": "2026-07-09T06:46:45.556Z",
+  "total_lessons": 25
 }
