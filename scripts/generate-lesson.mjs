@@ -317,7 +317,7 @@ for (const topic of nextTopics) {
 
     // Add to meta — chỉ khi day này CHƯA có entry sẵn (backfill placeholder thì đã có rồi)
     if (!placeholder) {
-      newLessons.push({
+      const newEntry = {
         date: lessonDate,
         day: topic.day,
         title: topic.title,
@@ -329,7 +329,12 @@ for (const topic of nextTopics) {
         emoji: topic.emoji,
         vocab_count: lesson.vocabulary.length,
         service_count: lesson.services.length
-      });
+      };
+      newLessons.push(newEntry);
+      // Cập nhật metaByDay NGAY trong vòng lặp — nếu không, getPriorRealLessons() của 1 bài Review
+      // sinh sau đó trong CÙNG lần chạy này sẽ không thấy các bài vừa sinh (metaByDay ban đầu chỉ
+      // snapshot meta.json cũ), và lặc lùi quá xa lấy nhầm nội dung của các bài học trước đó nữa.
+      metaByDay.set(topic.day, newEntry);
       lastDate = lessonDate;
     }
 
