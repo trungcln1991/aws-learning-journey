@@ -173,8 +173,73 @@
       "emoji": "⚡",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-07-20",
+      "day": 14,
+      "title": "ECS & Containers",
+      "subtitle": "Task Definition · Service · Fargate vs EC2",
+      "category": "Compute",
+      "week": 4,
+      "month": 1,
+      "color": "#1F5F86",
+      "emoji": "🐳",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-21",
+      "day": 15,
+      "title": "Week 4 Review & SAA Practice",
+      "subtitle": "Core services recap · 10 SAA-style questions",
+      "category": "Review",
+      "week": 4,
+      "month": 1,
+      "color": "#7A7160",
+      "emoji": "🎯",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-22",
+      "day": 16,
+      "title": "Transit Gateway & Advanced VPC",
+      "subtitle": "TGW · VPC Peering · PrivateLink · Endpoints",
+      "category": "Networking",
+      "week": 1,
+      "month": 2,
+      "color": "#1F5F86",
+      "emoji": "🔀",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-23",
+      "day": 17,
+      "title": "Site-to-Site VPN & Direct Connect",
+      "subtitle": "CGW · VGW · BGP · DX · Backup strategies",
+      "category": "Networking",
+      "week": 1,
+      "month": 2,
+      "color": "#1C7A47",
+      "emoji": "🔐",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-24",
+      "day": 18,
+      "title": "AWS WAF & Shield",
+      "subtitle": "Web ACL · Rules · Rate Limit · DDoS Protection",
+      "category": "Security",
+      "week": 1,
+      "month": 2,
+      "color": "#C32D1A",
+      "emoji": "🔒",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-07-06T02:58:20.096Z",
-  "total_lessons": 13
+  "last_generated": "2026-07-09T05:47:37.660Z",
+  "total_lessons": 18
 }

@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-24",
+  "day": 18,
+  "week": 1,
+  "month": 2,
+  "title": "AWS WAF & Shield",
+  "subtitle": "Web ACL · Rules · Rate Limit · DDoS Protection",
+  "category": "Security",
+  "color": "#C32D1A",
+  "emoji": "🔒",
+  "vocabulary": [
+    {
+      "word": "Web ACL",
+      "ipa": "/web ˈæk.əl/",
+      "ipa_guide": "Đọc: uép ă-kơ-el",
+      "type": "danh từ",
+      "meaning": "Danh sách kiểm soát truy cập web — định nghĩa các quy tắc bảo vệ cho ứng dụng web",
+      "example_en": "A Web ACL defines which traffic to allow or block for your CloudFront distribution.",
+      "example_vi": "Web ACL xác định lưu lượng truy cập nào được phép hoặc bị chặn cho CloudFront.",
+      "usage": "AWS WAF · CloudFront · Application Load Balancer",
+      "japfa": "jp:prod sử dụng Web ACL để bảo vệ ứng dụng quản lý trang trại gà"
+    },
+    {
+      "word": "DDoS attack",
+      "ipa": "/ˌdiː.diː.ˈɒs əˈtæk/",
+      "ipa_guide": "Đọc: dì-dì-ốt a-tặk",
+      "type": "danh từ",
+      "meaning": "Tấn công từ chối dịch vụ phân tán — gửi lưu lượng khổng lồ để làm down hệ thống",
+      "example_en": "AWS Shield Standard protects against common DDoS attacks automatically.",
+      "example_vi": "AWS Shield Standard tự động bảo vệ chống lại các tấn công DDoS thông thường.",
+      "usage": "AWS Shield · WAF · Security",
+      "japfa": "jp:prod cần bảo vệ khỏi DDoS khi phát hành báo cáo sản xuất"
+    },
+    {
+      "word": "Rate limiting",
+      "ipa": "/reɪt ˈlɪm.ɪ.tɪŋ/",
+      "ipa_guide": "Đọc: rét lim-i-ting",
+      "type": "danh từ",
+      "meaning": "Giới hạn tốc độ — kiểm soát số lượng yêu cầu từ một IP trong thời gian nhất định",
+      "example_en": "Enable rate limiting in WAF to prevent brute force attacks on your API.",
+      "example_vi": "Bật giới hạn tốc độ trong WAF để ngăn chặn tấn công brute force trên API.",
+      "usage": "AWS WAF · API Gateway · Application Load Balancer",
+      "japfa": "jp:aggregator cần rate limiting cho API nhập liệu sản xuất"
+    },
+    {
+      "word": "Rule",
+      "ipa": "/ruːl/",
+      "ipa_guide": "Đọc: rùl",
+      "type": "danh từ",
+      "meaning": "Quy tắc — điều kiện xác định khi nào để cho phép hoặc chặn lưu lượng truy cập",
+      "example_en": "Create a rule to block requests containing SQL injection patterns.",
+      "example_vi": "Tạo quy tắc để chặn yêu cầu chứa mẫu SQL injection.",
+      "usage": "AWS WAF · Network ACL · Security Groups",
+      "japfa": "jp:prod xác định quy tắc chặn truy cập từ nước ngoài"
+    },
+    {
+      "word": "Managed rule",
+      "ipa": "/ˈmæn.ɪdʒd ruːl/",
+      "ipa_guide": "Đọc: mă-nij rùl",
+      "type": "danh từ",
+      "meaning": "Quy tắc được quản lý — bộ quy tắc được AWS hoặc bên thứ ba duy trì",
+      "example_en": "AWS Managed Rules include Core Rule Set (CRS) for OWASP vulnerabilities.",
+      "example_vi": "AWS Managed Rules bao gồm Core Rule Set để bảo vệ lỗ hổng OWASP.",
+      "usage": "AWS WAF · Security",
+      "japfa": "jp:prod sử dụng Managed Rules để bảo vệ ứng dụng web"
+    }
+  ],
+  "services": [
+    {
+      "name": "WAF",
+      "full": "AWS Web Application Firewall",
+      "category": "security",
+      "icon": "🧱",
+      "what": "Firewall tầng ứng dụng bảo vệ ứng dụng web khỏi các tấn công thông thường như SQL injection, XSS, bot. Hoạt động tại CloudFront, ALB, API Gateway.",
+      "when": "Khi cần bảo vệ ứng dụng web khỏi tấn công lớp ứng dụng, kiểm soát bot, giới hạn tốc độ.",
+      "key_points": [
+        "Định nghĩa Web ACL với quy tắc custom hoặc Managed Rules",
+        "Chặn/cho phép dựa trên IP, URI, header, rate limit",
+        "Tích hợp CloudFront, ALB, API Gateway, AppSync"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng WAF trên ALB để bảo vệ ứng dụng quản lý trang trại khỏi XSS và SQL injection"
+    },
+    {
+      "name": "Shield",
+      "full": "AWS Shield",
+      "category": "security",
+      "icon": "🛡️",
+      "what": "Dịch vụ bảo vệ DDoS của AWS. Shield Standard (miễn phí) bảo vệ tự động chống DDoS tầng 3/4. Shield Advanced cung cấp bảo vệ tầng 7 nâng cao.",
+      "when": "Khi cần bảo vệ khỏi DDoS. Standard tự động, Advanced cho ứng dụng quan trọng cần bảo vệ tối đa.",
+      "key_points": [
+        "Shield Standard: tự động, miễn phí, chống L3/L4 DDoS",
+        "Shield Advanced: L7, 24/7 support, DDoS Response Team",
+        "Tích hợp Route 53, CloudFront, ELB"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod bật Shield Advanced để bảo vệ ứng dụng sản xuất khỏi DDoS, DRT hỗ trợ 24/7"
+    },
+    {
+      "name": "CloudFront",
+      "full": "Amazon CloudFront",
+      "category": "network",
+      "icon": "⚡",
+      "what": "CDN toàn cầu phân phối nội dung từ edge location gần người dùng. Tích hợp WAF và Shield tự động.",
+      "when": "Phân phối nội dung tĩnh/động toàn cầu, tăng hiệu suất, bảo vệ DDoS, cache API responses.",
+      "key_points": [
+        "Edge location 500+ điểm toàn cầu",
+        "Tích hợp WAF, Shield, Origin Shield",
+        "Giảm latency, tăng throughput, giảm cost"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng CloudFront + WAF để phân phối báo cáo sản xuất đến nhân viên Japfa"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Web ACL & Rules Flow",
+      "icon": "🔄",
+      "body": "Web ACL là container chứa danh sách quy tắc được đánh giá theo thứ tự. Khi request tới, WAF kiểm tra từng rule cho đến khi match — nếu match rule BLOCK thì chặn, match ALLOW thì cho phép, không match thì dùng default action.",
+      "diagram": "Client Request\n     ↓\n  Web ACL\n     ↓\nRule 1 (Rate limit) → MATCH → BLOCK\nRule 2 (IP whitelist) → NO MATCH\nRule 3 (SQL injection) → NO MATCH\n     ↓\nDefault Action (ALLOW)",
+      "exam_tip": "SAA-C03 hỏi về thứ tự evaluation rules và priority — quy tắc cao priority được kiểm tra trước.",
+      "japfa": "jp:prod cấu hình Web ACL theo thứ tự: 1-Rate limit bot, 2-Allow Japfa office IPs, 3-Block SQL injection"
+    },
+    {
+      "title": "Shield Standard vs Advanced",
+      "icon": "🛡️",
+      "body": "Shield Standard (miễn phí) tự động bảo vệ DDoS tầng 3/4 (SYN floods, UDP floods). Shield Advanced ($3000/tháng) thêm L7 protection, WAF rules, DDoS Response Team hỗ trợ 24/7, insurance.",
+      "diagram": "DDoS Attack\n     ↓\n┌─Standard──────┐\n│ L3/L4 Auto    │\n│ (Layer 3/4)   │\n└───────────────┘\n     ↓ (Advanced)\n┌─Advanced─────┐\n│ L7 + WAF      │\n│ DRT Support   │\n│ Insurance     │\n└───────────────┘",
+      "exam_tip": "SAA-C03 hỏi Standard miễn phí hay Advanced mất tiền? Advanced là option mất phí với DRT support.",
+      "japfa": "jp:prod chọn Shield Advanced vì ứng dụng quan trọng, cần DRT hỗ trợ khẩn cấp khi DDoS"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Khi cấu hình AWS WAF cho CloudFront, bạn tạo ra cái gì để định nghĩa các quy tắc bảo vệ?",
+      "options": [
+        "A) Security Group",
+        "B) Web ACL",
+        "C) Network ACL",
+        "D) Route 53 Policy"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Web ACL (Access Control List) là container chứa danh sách quy tắc WAF. Security Group, Network ACL, Route 53 là dịch vụ khác."
+    },
+    {
+      "id": 2,
+      "question": "AWS Shield Standard bảo vệ chống DDoS tầng nào?",
+      "options": [
+        "A) L7 (Application)",
+        "B) L3/L4 (Network)",
+        "C) L1/L2 (Physical)",
+        "D) Tất cả tầng"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Shield Standard bảo vệ tầng 3 (IP) và tầng 4 (TCP/UDP). L7 bảo vệ là Shield Advanced."
+    },
+    {
+      "id": 3,
+      "question": "Để ngăn chặn API của jp:aggregator bị brute force từ cùng một IP, bạn sử dụng tính năng gì trong WAF?",
+      "options": [
+        "A) IP whitelist",
+        "B) Rate limiting",
+        "C) Geolocation block",
+        "D) Bot control"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Rate limiting giới hạn số request từ một IP trong thời gian nhất định, ngăn brute force."
+    },
+    {
+      "id": 4,
+      "question": "Bạn có 5 quy tắc WAF với priority 1-5. Request match rule 3 (BLOCK). Điều gì xảy ra?",
+      "options": [
+        "A) Tiếp tục check rule 4,5",
+        "B) Request bị BLOCK ngay lập tức",
+        "C) Dùng rule 1,2 trước",
+        "D) ALLOW request"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Khi request match một rule, WAF thực hiện action ngay (BLOCK/ALLOW) không check rule tiếp theo."
+    },
+    {
+      "id": 5,
+      "question": "Sự khác biệt chính giữa Shield Standard và Advanced là gì?",
+      "options": [
+        "A) Standard cho on-premises, Advanced cho AWS",
+        "B) Standard tự động miễn phí, Advanced có L7+DRT+insurance",
+        "C) Advanced chỉ dùng cho S3",
+        "D) Standard chỉ bảo vệ CloudFront"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Shield Advanced thêm L7 protection, DDoS Response Team 24/7, insurance. Standard tự động miễn phí cho tất cả AWS account."
+    }
+  ]
+}

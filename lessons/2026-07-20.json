@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-20",
+  "day": 14,
+  "week": 4,
+  "month": 1,
+  "title": "ECS & Containers",
+  "subtitle": "Task Definition · Service · Fargate vs EC2",
+  "category": "Compute",
+  "color": "#1F5F86",
+  "emoji": "🐳",
+  "vocabulary": [
+    {
+      "word": "Task Definition",
+      "ipa": "/tɑːsk ˌdefɪˈnɪʃən/",
+      "ipa_guide": "Đọc: tắsk đef-i-NI-shun",
+      "type": "danh từ",
+      "meaning": "Blueprint mô tả cách chạy Docker container trong ECS — chỉ định image, memory, CPU, env vars",
+      "example_en": "You must create a Task Definition before launching any ECS service.",
+      "example_vi": "Bạn phải tạo Task Definition trước khi khởi chạy bất kỳ dịch vụ ECS nào.",
+      "usage": "ECS · Docker · CloudFormation",
+      "japfa": "jp:prod sử dụng Task Definition để deploy ứng dụng theo dõi sức khỏe gia cầm"
+    },
+    {
+      "word": "Fargate",
+      "ipa": "/ˈfɑːrɡeɪt/",
+      "ipa_guide": "Đọc: FAR-gayt",
+      "type": "danh từ",
+      "meaning": "Launch type serverless của ECS — AWS quản lý infrastructure, bạn chỉ pay-as-you-go",
+      "example_en": "Fargate eliminates the need to manage EC2 instances for container workloads.",
+      "example_vi": "Fargate loại bỏ nhu cầu quản lý EC2 instances cho khối lượng công việc container.",
+      "usage": "ECS · Serverless · Cost optimization",
+      "japfa": "jp:poc đang test Fargate để giảm chi phí vận hành ứng dụng microservice"
+    },
+    {
+      "word": "Container",
+      "ipa": "/kənˈteɪnər/",
+      "ipa_guide": "Đọc: kun-TAY-nur",
+      "type": "danh từ",
+      "meaning": "Gói ứng dụng độc lập với dependencies, libraries, runtime — được chạy bởi Docker/ECS",
+      "example_en": "Each container runs in isolation and has its own filesystem and resources.",
+      "example_vi": "Mỗi container chạy độc lập và có filesystem và tài nguyên riêng.",
+      "usage": "ECS · Docker · Kubernetes",
+      "japfa": "jp:prod chạy 50+ containers cho hệ thống quản lý kho hàng Japfa"
+    },
+    {
+      "word": "Service",
+      "ipa": "/ˈsɜːrvɪs/",
+      "ipa_guide": "Đọc: SER-vis",
+      "type": "danh từ",
+      "meaning": "ECS Service quản lý số lượng task đang chạy, load balancing, self-healing, rolling updates",
+      "example_en": "The ECS Service ensures that 3 task instances are always running.",
+      "example_vi": "ECS Service đảm bảo rằng 3 instance task luôn chạy.",
+      "usage": "ECS · Auto Scaling · Load Balancer",
+      "japfa": "jp:prod Service duy trì 5 tasks phục vụ API kiểm tra sức khỏe vật nuôi"
+    },
+    {
+      "word": "Launch Type",
+      "ipa": "/lɔːntʃ taɪp/",
+      "ipa_guide": "Đọc: lornch tayp",
+      "type": "danh từ",
+      "meaning": "Kiểu khởi chạy task — EC2 (bạn quản lý), Fargate (AWS quản lý), hoặc EXTERNAL",
+      "example_en": "You must choose between EC2 and Fargate launch types when creating a service.",
+      "example_vi": "Bạn phải lựa chọn giữa kiểu EC2 và Fargate khi tạo dịch vụ.",
+      "usage": "ECS · Architecture · Cost analysis",
+      "japfa": "jp:uat dùng EC2 launch type do yêu cầu tính năng custom monitoring FortiGate"
+    }
+  ],
+  "services": [
+    {
+      "name": "ECS",
+      "full": "Elastic Container Service",
+      "category": "compute",
+      "icon": "🐳",
+      "what": "Fully managed container orchestration service cho Docker containers. Hỗ trợ EC2 và Fargate launch types.",
+      "when": "Khi bạn cần chạy Docker containers ở quy mô lớn với auto-scaling và high availability.",
+      "key_points": [
+        "Tích hợp CloudWatch, IAM, VPC, ALB/NLB",
+        "Task Definition định nghĩa cách chạy container",
+        "Service quản lý desired count, load balancing, rolling updates"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod chạy 7 ECS clusters với 200+ tasks, kết nối với jp:network VPC qua VPN FortiGate"
+    },
+    {
+      "name": "ECR",
+      "full": "Elastic Container Registry",
+      "category": "storage",
+      "icon": "📦",
+      "what": "Private Docker container image registry được host trên AWS. Nơi lưu và quản lý Docker images.",
+      "when": "Để lưu trữ Docker images, versioning, và pull vào ECS/EKS clusters của bạn.",
+      "key_points": [
+        "IAM-based access control, encryption at rest",
+        "Tích hợp seamless với ECS, CodePipeline, Lambda",
+        "Lifecycle policies để cleanup old images"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod ECR repository chứa 45 images cho ứng dụng Japfa, pull từ jp:uat CI/CD pipeline"
+    },
+    {
+      "name": "CloudWatch",
+      "full": "Amazon CloudWatch",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Monitoring và logging service — thu thập metrics, logs từ ECS tasks, containers.",
+      "when": "Để monitor CPU/memory usage, container logs, set alarms cho ECS services.",
+      "key_points": [
+        "ECS Container Insights hiển thị performance dashboard real-time",
+        "Logs từ stdout/stderr được gửi tới CloudWatch Logs",
+        "Custom metrics và alarms cho auto-scaling triggers"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod gửi tất cả ECS logs sang jp:cloudtrail account, monitor qua CloudWatch Insights"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Fargate vs EC2 Launch Types",
+      "icon": "⚖️",
+      "body": "EC2 launch type yêu cầu bạn tự quản lý EC2 instances, patches, scaling. Fargate serverless — AWS quản lý infrastructure, bạn chỉ trả tiền per-task per-second. Chọn EC2 nếu cần custom host config, Fargate nếu cần simplicity và cost flexibility.",
+      "diagram": "EC2 Launch Type:\n  [You] → ECS Task → EC2 Instance\n           (quản lý AMI, patches, OS)\n\nFargate Launch Type:\n  [You] → ECS Task → AWS Infrastructure\n           (serverless, no EC2 overhead)",
+      "exam_tip": "SAA-C03 thường hỏi: Khi nào dùng Fargate (cost, simplicity), khi nào EC2 (performance, control)?",
+      "japfa": "jp:prod dùng EC2 (cần custom FortiGate integration), jp:poc test Fargate để PoC mới"
+    },
+    {
+      "title": "Task Definition & Service Relationship",
+      "icon": "🔗",
+      "body": "Task Definition là blueprint (image, CPU, memory, env vars). Service sử dụng Task Definition để launch và quản lý tasks — maintain desired count, handle failures, rolling updates. 1 Service có thể launch hàng chục tasks từ 1 Task Definition.",
+      "diagram": "Task Definition (v1):\n  ├─ Image: nginx:latest\n  ├─ CPU: 256\n  ├─ Memory: 512\n  └─ Env: PROD=true\n\nService (web-service):\n  ├─ Task Definition: nginx:1\n  ├─ Desired Count: 5\n  └─ [5 Running Tasks]",
+      "exam_tip": "SAA-C03: Task Definition là static config, Service là dynamic manager của tasks",
+      "japfa": "jp:prod Task Definition 'poultry-api' chạy 10 tasks qua Service 'poultry-api-svc'"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn muốn deploy ứng dụng Node.js lên ECS mà không muốn quản lý EC2 instances. Nên chọn launch type nào?",
+      "options": [
+        "EC2 launch type với Auto Scaling Group",
+        "Fargate launch type",
+        "On-premises VMware",
+        "Lambda (không phải container)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Fargate là serverless — AWS quản lý infrastructure, bạn chỉ deploy container. EC2 yêu cầu quản lý instances."
+    },
+    {
+      "id": 2,
+      "question": "Task Definition chứa những thông tin gì?",
+      "options": [
+        "Chỉ Docker image URI",
+        "Image, CPU, Memory, Env vars, Port mappings, Logging config",
+        "Số lượng tasks cần chạy",
+        "Auto Scaling policy"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Task Definition là blueprint — định nghĩa toàn bộ config container. Service quản lý số lượng instances."
+    },
+    {
+      "id": 3,
+      "question": "jp:prod có Service chạy 10 tasks. Nếu 2 tasks fail, ECS sẽ làm gì?",
+      "options": [
+        "Không làm gì, thông báo lỗi",
+        "Tự động launch 2 tasks mới để duy trì desired count = 10",
+        "Scale down còn 8 tasks",
+        "Yêu cầu manual intervention"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "ECS Service auto-healing — tự launch tasks mới nếu tasks fail, luôn duy trì desired count."
+    },
+    {
+      "id": 4,
+      "question": "Đâu là lợi ích chính của Fargate so với EC2 launch type?",
+      "options": [
+        "Tốc độ container start nhanh hơn",
+        "Không cần phải quản lý OS, patches, EC2 instance lifecycle",
+        "Chi phí luôn rẻ hơn EC2",
+        "Hỗ trợ tất cả Docker images mà không có giới hạn"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Fargate serverless — loại bỏ ops burden của EC2 management. EC2 mang lại control nhưng phức tạp hơn."
+    },
+    {
+      "id": 5,
+      "question": "jp:prod push Docker image lên ECR. Sau đó, cần làm gì để ECS tasks có thể sử dụng image đó?",
+      "options": [
+        "ECR tự động deploy lên tất cả ECS clusters",
+        "Update Task Definition với ECR image URI mới, Service sẽ rolling update",
+        "Chỉ cần push, không cần làm gì thêm",
+        "Manual SSH vào EC2 instances để pull image"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Update Task Definition với new image → Service detects → rolling update tasks. ECR không auto-deploy."
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-22",
+  "day": 16,
+  "week": 1,
+  "month": 2,
+  "title": "Transit Gateway & Advanced VPC",
+  "subtitle": "TGW · VPC Peering · PrivateLink · Endpoints",
+  "category": "Networking",
+  "color": "#1F5F86",
+  "emoji": "🔀",
+  "vocabulary": [
+    {
+      "word": "Transit Gateway",
+      "ipa": "/ˈtrænzɪt ˈɡeɪtweɪ/",
+      "ipa_guide": "Đọc: TRAN-zit GEYT-way",
+      "type": "danh từ",
+      "meaning": "Dịch vụ kết nối tập trung cho phép kết nối nhiều VPC, on-premises networks qua một điểm duy nhất",
+      "example_en": "Transit Gateway simplifies network architecture by consolidating connections from 7 AWS accounts",
+      "example_vi": "Transit Gateway đơn giản hóa kiến trúc mạng bằng cách hợp nhất kết nối từ 7 tài khoản AWS",
+      "usage": "VPC · Network Design · Multi-Account Architecture",
+      "japfa": "Japfa sử dụng TGW kết nối jp:prod, jp:uat, jp:poc với jp:network account và FortiGate VPN on-premises"
+    },
+    {
+      "word": "VPC Peering",
+      "ipa": "/ˌviː piː ˈsɪ ˈpɪrɪŋ/",
+      "ipa_guide": "Đọc: VEE-PEE-SIE PIR-ring",
+      "type": "danh từ",
+      "meaning": "Kết nối trực tiếp giữa hai VPC cho phép lưu lượng truy cập private không qua internet",
+      "example_en": "VPC Peering between jp:prod and jp:uat enables direct communication without NAT",
+      "example_vi": "VPC Peering giữa jp:prod và jp:uat cho phép giao tiếp trực tiếp mà không cần NAT",
+      "usage": "VPC · Network Connectivity · Point-to-Point",
+      "japfa": "Japfa dùng VPC Peering cho kết nối cặp giữa production và UAT environment"
+    },
+    {
+      "word": "PrivateLink",
+      "ipa": "/ˈpraɪvət lɪŋk/",
+      "ipa_guide": "Đọc: PRI-vit LINK",
+      "type": "danh từ",
+      "meaning": "Dịch vụ kết nối private giữa VPC và AWS services hoặc customer services mà không cần internet gateway",
+      "example_en": "PrivateLink enables secure access to jp:shareservice resources from any Japfa VPC",
+      "example_vi": "PrivateLink cho phép truy cập an toàn đến tài nguyên jp:shareservice từ bất kỳ VPC nào",
+      "usage": "VPC · Service Integration · Security",
+      "japfa": "Japfa cấp PrivateLink endpoints để các account khác truy cập dịch vụ shared từ jp:shareservice"
+    },
+    {
+      "word": "VPC Endpoint",
+      "ipa": "/ˌviː piː ˈsɪ ˈɛndpɔɪnt/",
+      "ipa_guide": "Đọc: VEE-PEE-SIE END-point",
+      "type": "danh từ",
+      "meaning": "Điểm kết nối private cho phép EC2 instances kết nối đến AWS services (S3, DynamoDB) mà không dùng internet",
+      "example_en": "Gateway endpoints for S3 reduce data transfer costs for jp:cloudtrail logs",
+      "example_vi": "Gateway endpoints cho S3 giảm chi phí truyền dữ liệu cho CloudTrail logs",
+      "usage": "S3 · DynamoDB · CloudTrail · Cost Optimization",
+      "japfa": "Japfa dùng S3 Gateway Endpoints trong jp:cloudtrail để lưu logs mà không qua internet"
+    },
+    {
+      "word": "Hub-and-Spoke",
+      "ipa": "/ˌhʌb ənd ˈspɔk/",
+      "ipa_guide": "Đọc: HAB-and-SPOKE",
+      "type": "danh từ",
+      "meaning": "Mô hình kiến trúc mạng với một trung tâm (hub) kết nối đến nhiều chi nhánh (spokes) như bánh xe",
+      "example_en": "Transit Gateway implements hub-and-spoke topology connecting all Japfa accounts centrally",
+      "example_vi": "Transit Gateway triển khai topologi hub-and-spoke kết nối tập trung tất cả account",
+      "usage": "Network Design · Multi-Region · Scalability",
+      "japfa": "Japfa xây dựng hub-and-spoke với jp:network làm hub, các account khác làm spokes"
+    }
+  ],
+  "services": [
+    {
+      "name": "TGW",
+      "full": "AWS Transit Gateway",
+      "category": "network",
+      "icon": "🔀",
+      "what": "Kết nối tập trung cho phép quản lý kết nối giữa VPC, on-premises networks, và remote offices qua một điểm duy nhất.",
+      "when": "Khi cần kết nối nhiều VPC hoặc on-premises infrastructure; đơn giản hóa quản lý routing",
+      "key_points": [
+        "Hỗ trợ 5000 VPC attachments, giảm độ phức tạp so với VPC Peering mesh",
+        "Tích hợp VPN, Direct Connect, on-premises networks (FortiGate cho Japfa)",
+        "Route tables riêng cho từng attachment, kiểm soát lưu lượng granular"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng TGW kết nối 7 accounts (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice) + FortiGate VPN on-premises. Giảm độ phức tạp từ 21 peerings xuống 7 attachments"
+    },
+    {
+      "name": "VPC Peering",
+      "full": "Amazon VPC Peering Connection",
+      "category": "network",
+      "icon": "🔗",
+      "what": "Kết nối trực tiếp giữa hai VPC cho phép instances giao tiếp như cùng network, không qua internet.",
+      "when": "Kết nối cặp giữa hai VPC; ít phức tạp hơn TGW khi chỉ cần 2-3 kết nối",
+      "key_points": [
+        "Kết nối one-to-one, yêu cầu tạo N(N-1)/2 peerings cho N VPCs (non-transitive)",
+        "Chi phí thấp, độ trễ thấp, không qua internet gateway",
+        "Có thể peer across regions hoặc cross-account với iam:AssumeRole"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng VPC Peering giữa jp:prod ↔ jp:uat, jp:poc ↔ jp:aggregator cho kết nối tối thiểu"
+    },
+    {
+      "name": "VPC Endpoints",
+      "full": "AWS VPC Endpoints",
+      "category": "network",
+      "icon": "🚪",
+      "what": "Kết nối private đến AWS services (S3, DynamoDB) hoặc partner services mà không cần internet gateway hay NAT.",
+      "when": "Giảm chi phí data transfer; nâng cao security bằng cách không expose traffic ra internet",
+      "key_points": [
+        "Gateway Endpoints (S3, DynamoDB): miễn phí, đơn giản, tích hợp route table",
+        "Interface Endpoints (SNS, SQS, EC2): giải pháp linh hoạt hơn, tính phí per-hour",
+        "Giảm 80% chi phí transfer khi dùng Gateway Endpoints cho S3 CloudTrail logs"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng S3 Gateway Endpoints trong jp:cloudtrail account để lưu logs mà không tốn data transfer; Interface Endpoints cho jp:shareservice gọi SNS alerts"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Transit Gateway Architecture vs VPC Peering Mesh",
+      "icon": "🏗️",
+      "body": "Transit Gateway cung cấp mô hình hub-and-spoke tập trung; VPC Peering là full mesh point-to-point. Với 7 accounts Japfa, TGW chỉ cần 7 attachments, còn Peering mesh cần 21 kết nối. TGW dễ scale và quản lý routing qua transit route tables.",
+      "diagram": "VPC Peering Mesh (7 VPCs):        Transit Gateway Hub:\n    jp:prod ←→ jp:uat                jp:prod\n    jp:prod ←→ jp:poc                   ↓\n    jp:prod ←→ jp:network        [Transit Gateway]\n    ... (18 peerings)                   ↑\n                                  7 attachments\n\nTGW giảm từ 21 → 7 kết nối",
+      "exam_tip": "SAA-C03 hỏi: 'Khi nào dùng TGW vs Peering?' Trả lời: TGW khi 3+ VPCs, scalability, on-premises. Peering cho 2 VPCs đơn giản.",
+      "japfa": "Japfa cần TGW không chỉ vì 7 accounts mà còn vì FortiGate on-premises VPN — TGW hỗ trợ site-to-site VPN, Peering không"
+    },
+    {
+      "title": "PrivateLink vs VPC Endpoints vs Peering",
+      "icon": "🔐",
+      "body": "PrivateLink là mô hình provider-consumer cho phép chia sẻ services; VPC Endpoints là client-side để kết nối AWS services; Peering là peer-to-peer VPC. PrivateLink bảo mật nhất vì service provider control quyền; Endpoints giảm cost; Peering đơn giản nhất.",
+      "diagram": "PrivateLink:                  VPC Endpoints:\nProvider VPC              Consumer VPC → S3/DynamoDB\n  [Service]                (không qua internet)\n     ↓\nEndpoint Service\n     ↓\nConsumer VPC\n  [Interface ENI]\n\nPeering: VPC ↔ VPC (full access)",
+      "exam_tip": "SAA-C03 phân biệt: PrivateLink = service sharing (1 provider, N consumers). Endpoints = AWS service access. Peering = VPC-to-VPC.",
+      "japfa": "jp:shareservice (provider) dùng PrivateLink service endpoint để jp:prod, jp:uat (consumers) access centralized resources an toàn; jp:cloudtrail dùng S3 Endpoints để lưu logs cost-effectively"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa có 7 AWS accounts. Nếu dùng VPC Peering kết nối tất cả, cần bao nhiêu peering connections?",
+      "options": [
+        "7 (mỗi account 1)",
+        "14 (mỗi pair 2)",
+        "21 (N(N-1)/2 = 7×6/2)",
+        "49 (7×7)"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "VPC Peering là non-transitive, full mesh cần N(N-1)/2 = 7×6/2 = 21 peerings. TGW chỉ cần 7 attachments."
+    },
+    {
+      "id": 2,
+      "question": "Transit Gateway của Japfa được attach vào jp:network account. jp:prod muốn gửi traffic qua TGW tới jp:uat, cần cấu hình gì?",
+      "options": [
+        "Route trong jp:prod route table trỏ đến TGW attachment ID",
+        "Chỉ cần TGW route table, không cần route trong VPC",
+        "VPC Peering giữa jp:prod và jp:uat",
+        "Security Group allow all traffic"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "VPC route table phải có route trỏ destination tới TGW attachment; TGW route table cũng phải allow traffic."
+    },
+    {
+      "id": 3,
+      "question": "Japfa CloudTrail logs được lưu vào S3 trong jp:cloudtrail account. Muốn giảm chi phí data transfer từ EC2 (jp:prod) tới S3, nên dùng gì?",
+      "options": [
+        "VPC Peering giữa jp:prod và jp:cloudtrail",
+        "S3 Gateway Endpoint trong jp:prod",
+        "PrivateLink Service Endpoint",
+        "NAT Gateway"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "S3 Gateway Endpoint cho phép EC2 access S3 mà không qua internet, miễn phí, giảm 80% transfer cost."
+    },
+    {
+      "id": 4,
+      "question": "jp:shareservice expose API endpoint qua PrivateLink. jp:prod cần access, cần tạo gì?",
+      "options": [
+        "VPC Peering",
+        "VPC Endpoint Service (Interface Endpoint) để kết nối",
+        "Transit Gateway attachment",
+        "S3 Gateway Endpoint"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "PrivateLink = Endpoint Service (provider) + Interface Endpoint (consumer). jp:prod tạo Interface Endpoint để connect đến jp:shareservice service."
+    },
+    {
+      "id": 5,
+      "question": "FortiGate VPN on-premises của Japfa cần kết nối đến AWS 7 accounts. Giải pháp tốt nhất là gì?",
+      "options": [
+        "7 site-to-site VPN connections, mỗi account 1 kết nối",
+        "Transit Gateway + 1 TGW site-to-site VPN attachment",
+        "VPC Peering từ on-premises (không support)",
+        "VPC Endpoints (chỉ cho AWS services)"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "TGW hỗ trợ site-to-site VPN; 1 VPN attachment qua TGW kết nối tất cả 7 accounts. Giải pháp đơn giản, scalable."
+    }
+  ]
+}

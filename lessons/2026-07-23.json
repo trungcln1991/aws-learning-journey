@@ -1,0 +1,200 @@
+{
+  "date": "2026-07-23",
+  "day": 17,
+  "week": 1,
+  "month": 2,
+  "title": "Site-to-Site VPN & Direct Connect",
+  "subtitle": "CGW · VGW · BGP · DX · Backup strategies",
+  "category": "Networking",
+  "color": "#1C7A47",
+  "emoji": "🔐",
+  "vocabulary": [
+    {
+      "word": "Customer Gateway",
+      "ipa": "/ˈkʌstəmər ˈɡeɪtweɪ/",
+      "ipa_guide": "Đọc: KAS-tơ-mơ GÉT-uê",
+      "type": "danh từ",
+      "meaning": "Cổng kết nối ở phía on-premises, thường là FortiGate hoặc router",
+      "example_en": "The Customer Gateway at Japfa must support IPsec protocol",
+      "example_vi": "Customer Gateway tại Japfa phải hỗ trợ giao thức IPsec",
+      "usage": "Site-to-Site VPN · AWS Console · jp:network account",
+      "japfa": "FortiGate VPN tại trụ sở Japfa Vietnam đóng vai trò CGW kết nối tới jp:network"
+    },
+    {
+      "word": "Virtual Private Gateway",
+      "ipa": "/vɜːrˈtʃuəl ˈpraɪvət ˈɡeɪtweɪ/",
+      "ipa_guide": "Đọc: VỀ-chụ-ơ PRAI-vit GÉT-uê",
+      "type": "danh từ",
+      "meaning": "Cổng VPN ở phía AWS, kết nối VPC tới on-premises",
+      "example_en": "Attach VGW to jp:prod VPC to enable site-to-site connectivity",
+      "example_vi": "Gắn VGW vào VPC jp:prod để kích hoạt kết nối giữa hai địa điểm",
+      "usage": "VPC · Route Table · jp:prod · jp:uat · jp:poc accounts",
+      "japfa": "VGW trong jp:network kết nối 7 AWS accounts của Japfa với VMware on-premises"
+    },
+    {
+      "word": "Border Gateway Protocol",
+      "ipa": "/ˈbɔːrdər ˈɡeɪtweɪ ˈprəʊtəkɔːl/",
+      "ipa_guide": "Đọc: BỜ-đơ GÉT-uê PRỐ-tơ-kol",
+      "type": "danh từ",
+      "meaning": "Giao thức định tuyến động, quảng bá các tuyến mạng giữa CGW và VGW",
+      "example_en": "Enable BGP on both gateways to dynamically route traffic between Japfa and AWS",
+      "example_vi": "Kích hoạt BGP trên cả hai cổng để định tuyến động lưu lượng",
+      "usage": "Site-to-Site VPN · Dynamic Routing · jp:network",
+      "japfa": "BGP trên FortiGate Japfa tự động cập nhật route tới VGW jp:network ASN 65000"
+    },
+    {
+      "word": "Direct Connect",
+      "ipa": "/dɪˈrekt kəˈnekt/",
+      "ipa_guide": "Đọc: DI-RÉK KO-NÉK",
+      "type": "danh từ",
+      "meaning": "Kết nối mạng chuyên dụng giữa on-premises và AWS với latency thấp, bandwidth cao",
+      "example_en": "Use AWS Direct Connect for Japfa's high-bandwidth database replication to jp:aggregator",
+      "example_vi": "Dùng Direct Connect cho sao lưu dữ liệu cao tốc của Japfa",
+      "usage": "AWS Direct Connect · LOA-CFA · Port Speed · jp:prod · jp:aggregator",
+      "japfa": "DX connection 10Gbps từ Japfa HCMC datacenter tới AWS ap-southeast-1 region"
+    },
+    {
+      "word": "Internet Protocol Security",
+      "ipa": "/ˈɪntərnet ˈprəʊtəkɔːl sɪˈkjʊərɪti/",
+      "ipa_guide": "Đọc: IN-tơ-nét PRỐ-tơ-kol SI-KYOO-ri-tee",
+      "type": "danh từ",
+      "meaning": "Giao thức mã hóa dữ liệu trong VPN, bảo vệ truyền thông giữa CGW và VGW",
+      "example_en": "Configure IPsec phase 1 and phase 2 on Japfa's FortiGate firewall",
+      "example_vi": "Cấu hình IPsec phase 1 và 2 trên tường lửa Japfa",
+      "usage": "Site-to-Site VPN · Encryption · Phase 1/2 · jp:network",
+      "japfa": "IPsec trên FortiGate Japfa mã hóa tất cả traffic tới jp:prod và jp:uat accounts"
+    }
+  ],
+  "services": [
+    {
+      "name": "S2S VPN",
+      "full": "AWS Site-to-Site VPN",
+      "category": "network",
+      "icon": "🔒",
+      "what": "Mã hóa kết nối VPN giữa on-premises và VPC thông qua internet công cộng. Hỗ trợ IPsec và BGP động.",
+      "when": "Khi cần kết nối cost-effective, setup nhanh, hoặc backup cho Direct Connect",
+      "key_points": [
+        "Hỗ trợ 2 tunnels cho HA, tự động failover",
+        "BGP tự động cập nhật route khi topologie thay đổi",
+        "Bandwidth 1.25 Gbps aggregate, tính phí theo giờ"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng S2S VPN làm backup cho DX, kết nối jp:network tới FortiGate với BGP ASN 65000"
+    },
+    {
+      "name": "DX",
+      "full": "AWS Direct Connect",
+      "category": "network",
+      "icon": "⚡",
+      "what": "Kết nối mạng chuyên dụng từ on-premises tới AWS, bypass internet công cộng, latency thấp, bandwidth cao.",
+      "when": "Cần bandwidth cao, latency thấp, hoặc kết nối ổn định cho production workloads",
+      "key_points": [
+        "Port 1G, 10G, 100G; pricing theo port speed và data transfer",
+        "Cần LOA-CFA từ AWS, coordinate với ISP/colocation provider",
+        "LAG (Link Aggregation) cho HA, best practice 2 DX connections"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa có DX 10G từ HCMC datacenter tới ap-southeast-1, kết nối jp:prod và jp:aggregator"
+    },
+    {
+      "name": "VPC",
+      "full": "Amazon Virtual Private Cloud",
+      "category": "network",
+      "icon": "🌐",
+      "what": "Mạng riêng ảo AWS, chứa EC2, RDS, các tài nguyên. Kết nối tới on-premises qua VGW.",
+      "when": "Luôn cần, nền tảng cho tất cả AWS workloads của Japfa",
+      "key_points": [
+        "Route tables định hướng traffic tới VGW khi đi on-premises",
+        "Security groups và NACLs lọc traffic giữa VPC và CGW",
+        "7 VPCs (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice)"
+      ],
+      "japfa": true,
+      "japfa_detail": "7 AWS accounts Japfa mỗi cái một VPC, kết nối qua jp:network hub VPC tới on-premises"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Site-to-Site VPN vs Direct Connect",
+      "icon": "🔐",
+      "body": "Site-to-Site VPN dùng internet công cộng, mã hóa, setup nhanh, cost thấp nhưng bandwidth bị giới hạn 1.25 Gbps. Direct Connect dùng đường chuyên dụng, không qua internet, latency thấp, bandwidth cao (1-100 Gbps) nhưng setup lâu, cost cao. Japfa dùng DX chính, S2S VPN backup.",
+      "diagram": "On-Prem (FortiGate)\n         |\n         ├─→ S2S VPN (Internet, 1.25G, IPsec) ┐\n         │                                      ├→ VPC (jp:network)\n         └─→ Direct Connect (Dedicated, 10G) ┘",
+      "exam_tip": "SAA-C03 hỏi khi nào dùng DX vs VPN: DX nếu bandwidth cao + ổn định, VPN nếu cost/speed setup là priority",
+      "japfa": "Japfa chọn DX vì traffic production (VMware→jp:prod) cần low latency; VPN backup cho failover khi DX down"
+    },
+    {
+      "title": "BGP Routing trong Site-to-Site VPN",
+      "icon": "🧭",
+      "body": "BGP (Border Gateway Protocol) tự động quảng bá các subnet từ on-premises tới AWS và ngược lại. CGW (FortiGate) và VGW trao đổi BGP update, tự động cập nhật route table trong VPC khi topology thay đổi. Mỗi gateway có ASN (Autonomous System Number) để định danh.",
+      "diagram": "FortiGate (ASN 65000)  ↔ BGP Session ↔ VGW (ASN 65000)\n   |                                          |\nSubnet: 192.168.0.0/16            VPC CIDR: 10.0.0.0/8\n                ↓ BGP Advertise ↓\n  VGW learns 192.168.0.0/16 → route to CGW\n  FortiGate learns 10.0.0.0/8 → route to VGW",
+      "exam_tip": "SAA-C03: BGP tự động, không cần statically define routes. Enable dynamic routing khi nào có thể.",
+      "japfa": "BGP trên FortiGate Japfa (ASN 65000) quảng bá 192.168.0.0/16 (on-prem subnets) tới jp:network VGW"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa muốn kết nối on-premises FortiGate tới AWS jp:prod VPC. Cần setup cái gì trên AWS side?",
+      "options": [
+        "A. Chỉ cần VPC thôi",
+        "B. Customer Gateway + Virtual Private Gateway",
+        "C. Internet Gateway + NAT Gateway",
+        "D. Application Load Balancer"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Cần VGW (ở AWS) và CGW (ở on-premises). VGW attach vào VPC, CGW định nghĩa FortiGate ở Japfa."
+    },
+    {
+      "id": 2,
+      "question": "Site-to-Site VPN của Japfa có 2 tunnels, tunnel 1 down. Traffic sẽ sao?",
+      "options": [
+        "A. Tất cả traffic mất",
+        "B. Tự động failover tới tunnel 2",
+        "C. Người admin phải switch thủ công",
+        "D. AWS sẽ alert nhưng không failover"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "S2S VPN AWS tự động failover giữa 2 tunnels. Tunnel 2 active ngay, không down time."
+    },
+    {
+      "id": 3,
+      "question": "Japfa's Direct Connect 10Gbps từ HCMC tới AWS. Để HA, nên setup gì?",
+      "options": [
+        "A. Chỉ cần 1 DX connection 10G là đủ",
+        "B. 2 DX connections tới 2 locations khác nhau, dùng LAG",
+        "C. DX + redundant S2S VPN backup",
+        "D. 1 DX + 1 S2S VPN cùng path"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Best practice: 2 DX connections tới 2 AWS regions/locations, dùng LAG (Link Aggregation) cho 20Gbps capacity và HA"
+    },
+    {
+      "id": 4,
+      "question": "BGP trên FortiGate Japfa có ASN 65000. VGW nên có ASN gì?",
+      "options": [
+        "A. Cũng phải 65000",
+        "B. Phải khác 65000 (e.g. 65001)",
+        "C. AWS VGW không cần ASN",
+        "D. ASN phải private (65000-65535) nhưng cặp đó khác nhau"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "BGP session cần 2 cạnh có ASN khác nhau. VGW = 65001, FortiGate = 65000, tránh confed issues."
+    },
+    {
+      "id": 5,
+      "question": "Japfa muốn migrate từ S2S VPN sang Direct Connect. Downtime risk như thế nào?",
+      "options": [
+        "A. Phải down S2S VPN trước, setup DX, rồi switch traffic",
+        "B. Setup DX parallel, cấu hình VGW dùng cả 2, failover gracefully",
+        "C. DX speed quá cao, phải reduce từ 10G xuống 5G trước",
+        "D. Không thể dùng cả 2 cùng lúc"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Overlap: S2S VPN chạy, setup DX parallel, VGW route cả 2 (DX primary, VPN backup), rồi test trước disable VPN."
+    }
+  ]
+}
