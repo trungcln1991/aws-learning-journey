@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-31",
+  "day": 23,
+  "week": 2,
+  "month": 2,
+  "title": "Elastic Beanstalk & App Deployment",
+  "subtitle": "Environment · Platform · Rolling Deploy · Blue/Green",
+  "category": "DevOps",
+  "color": "#1C7A47",
+  "emoji": "🌱",
+  "vocabulary": [
+    {
+      "word": "environment",
+      "ipa": "/ɪnˈvaɪrənmənt/",
+      "ipa_guide": "Đọc: EN-vai-rơn-mơnt",
+      "type": "danh từ",
+      "meaning": "Môi trường — bộ tài nguyên AWS độc lập (EC2, RDS, ELB) để chạy ứng dụng",
+      "example_en": "Create a new Elastic Beanstalk environment for your web application.",
+      "example_vi": "Tạo một môi trường Elastic Beanstalk mới cho ứng dụng web của bạn.",
+      "usage": "Elastic Beanstalk · Deployment · DevOps",
+      "japfa": "jp:prod có các environment production và jp:uat có environment testing riêng biệt"
+    },
+    {
+      "word": "platform",
+      "ipa": "/ˈplætfɔːrm/",
+      "ipa_guide": "Đọc: PLAT-form",
+      "type": "danh từ",
+      "meaning": "Nền tảng — ngôn ngữ lập trình và phiên bản runtime (Node.js, Python, Java)",
+      "example_en": "Choose the Node.js platform version 16.x for your Beanstalk app.",
+      "example_vi": "Chọn nền tảng Node.js phiên bản 16.x cho ứng dụng Beanstalk.",
+      "usage": "Elastic Beanstalk · Application Stack · Configuration",
+      "japfa": "jp:prod sử dụng Node.js 18.x cho API backend và Python 3.11 cho data processing"
+    },
+    {
+      "word": "rolling deployment",
+      "ipa": "/ˈroʊlɪŋ dɪˈplɔɪmənt/",
+      "ipa_guide": "Đọc: RO-ling DEE-ploy-mơnt",
+      "type": "danh từ",
+      "meaning": "Triển khai liên tiếp — thay thế từng instance một để tránh downtime",
+      "example_en": "Rolling deployment keeps 75% of instances running during updates.",
+      "example_vi": "Triển khai liên tiếp giữ 75% instances chạy trong suốt cập nhật.",
+      "usage": "Elastic Beanstalk · Deployment Strategy · Zero-downtime",
+      "japfa": "jp:prod dùng rolling deployment để cập nhật ứng dụng poultry tracking mà không gián đoạn"
+    },
+    {
+      "word": "blue/green deployment",
+      "ipa": "/bluː/ɡriːn dɪˈplɔɪmənt/",
+      "ipa_guide": "Đọc: BLU GRIIN DEE-ploy-mơnt",
+      "type": "danh từ",
+      "meaning": "Triển khai xanh/xanh — chạy song song hai bản, chuyển traffic sau khi test",
+      "example_en": "Blue/green deployment enables instant rollback if issues arise.",
+      "example_vi": "Triển khai xanh/xanh cho phép quay lại ngay nếu gặp vấn đề.",
+      "usage": "Elastic Beanstalk · High Availability · Canary Deploy",
+      "japfa": "jp:poc thử nghiệm blue/green cho farm management portal trước triển khai jp:prod"
+    },
+    {
+      "word": "configuration",
+      "ipa": "/ˌkɑːnfɪɡəˈreɪʃən/",
+      "ipa_guide": "Đọc: KON-fig-ơ-RAY-shơn",
+      "type": "danh từ",
+      "meaning": "Cấu hình — tập hợp các thiết lập môi trường (biến, security group, IAM)",
+      "example_en": "Store database credentials in Elastic Beanstalk configuration.",
+      "example_vi": "Lưu trữ thông tin đăng nhập cơ sở dữ liệu trong cấu hình Beanstalk.",
+      "usage": "Elastic Beanstalk · Environment Setup · .ebextensions",
+      "japfa": "jp:prod configuration chứa RDS endpoint, VPC ID, FortiGate VPN access rules"
+    }
+  ],
+  "services": [
+    {
+      "name": "EB",
+      "full": "AWS Elastic Beanstalk",
+      "category": "compute",
+      "icon": "🌱",
+      "what": "Quản lý triển khai ứng dụng web tự động trên EC2, tính phí theo tài nguyên sử dụng, hỗ trợ nhiều ngôn ngữ.",
+      "when": "Khi bạn muốn deploy ứng dụng nhanh mà không quản lý EC2 trực tiếp",
+      "key_points": [
+        "Tự động mở rộng (Auto Scaling) dựa trên CPU/traffic",
+        "Hỗ trợ rolling, blue/green, canary deployment",
+        "Tích hợp RDS, ALB, CloudWatch, VPC"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod chạy API gateway trên EB với Node.js 18.x, auto-scale 2-10 instances cho poultry farm data; jp:uat dùng EB để test bản cập nhật trước prod",
+      "cli": {
+        "task": "Liệt kê tất cả Elastic Beanstalk environments",
+        "command": "aws elasticbeanstalk describe-environments --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "ALB",
+      "full": "AWS Application Load Balancer",
+      "category": "network",
+      "icon": "⚖️",
+      "what": "Cân bằng tải Layer 7 dựa trên hostname, path, và header HTTP; điều hướng traffic tới target group.",
+      "when": "Khi cần phân tán traffic giữa nhiều instance hoặc service khác nhau",
+      "key_points": [
+        "Hỗ trợ host-based và path-based routing",
+        "Health check tự động, sticky session, SSL/TLS termination",
+        "Tích hợp Auto Scaling và EB environments"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod ALB chuyển hướng /api/* tới EB backend, /static/* tới S3 CloudFront; jp:network quản lý FortiGate NAT qua ALB",
+      "cli": {
+        "task": "Hiển thị chi tiết load balancer cụ thể",
+        "command": "aws elbv2 describe-load-balancers --names japfa-prod-alb --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "CloudWatch",
+      "full": "AWS CloudWatch",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Theo dõi metrics, logs, và events từ tài nguyên AWS; cảnh báo khi vượt ngưỡng.",
+      "when": "Khi cần monitor EB, ALB performance, CPU, memory, response time",
+      "key_points": [
+        "Logs Insights để query ứng dụng logs và access logs",
+        "Alarms tự động trigger SNS, Lambda, Auto Scaling",
+        "Dashboards hiển thị metric realtime từ EB, RDS, ALB"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod CloudWatch alarm nếu EB CPU > 80%, jp:cloudtrail ghi log tất cả API calls; jp:shareservice logs centralized từ 7 accounts",
+      "cli": {
+        "task": "Lấy CPU metric từ EB instance trong 24 giờ qua",
+        "command": "aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization --start-time 2026-07-30T00:00:00Z --end-time 2026-07-31T00:00:00Z --period 300 --statistics Average --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Rolling Deployment vs Blue/Green",
+      "icon": "🔄",
+      "body": "Rolling deployment cập nhật từng instance tuần tự, giữ service chạy suốt nhưng có downtime nhỏ. Blue/green chạy hai environment song song, chuyển traffic ngay khi sẵn sàng, cho phép rollback nhanh.",
+      "diagram": "Rolling:      Old → Old → New → New → New\n            (v1) (v1) (v1) (v2) (v2)\n\nBlue/Green:   Blue (v1) ─── traffic\n                              switch\n              Green (v2) ─── traffic",
+      "exam_tip": "SAA hỏi: Rolling deployment phù hợp khi cần update liên tục, Blue/Green khi cần zero-downtime & rollback tức thì.",
+      "japfa": "jp:prod dùng rolling cho minor update, blue/green cho major release poultry tracking system để tránh mất dữ liệu farm monitoring"
+    },
+    {
+      "title": "Elastic Beanstalk Architecture",
+      "icon": "🏗️",
+      "body": "EB quản lý stack toàn bộ: ALB cân bằng tải, Auto Scaling Group quản lý EC2 instances, security group kiểm soát inbound/outbound, RDS kết nối qua private subnet, IAM role cấp quyền truy cập AWS service.",
+      "diagram": "Internet ─── ALB ──┬── EC2 (EB env 1)\n                 └── EC2 (EB env 2)\n                      ↓\n                   RDS (Multi-AZ)\n                      ↓\n                   VPC (private subnet)",
+      "exam_tip": "EB tự tạo CloudFormation stack; bạn chỉ cần định nghĩa platform, environment variables, và .ebextensions.",
+      "japfa": "jp:prod EB environment trong VPC jp:network với security group cho phép port 443 từ FortiGate VPN, RDS endpoint ở jp:aggregator account"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn cần deploy phiên bản mới của ứng dụng poultry tracking với zero downtime. Chiến lược nào tốt nhất?",
+      "options": [
+        "Rolling deployment - cập nhật từng instance một",
+        "Blue/green deployment - chạy song song rồi chuyển traffic",
+        "All at once - dừng toàn bộ, cập nhật, khởi động lại",
+        "Immutable deployment - tạo environment mới hoàn toàn"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Blue/green cho phép test environment mới trước khi chuyển traffic, và rollback tức thì nếu lỗi."
+    },
+    {
+      "id": 2,
+      "question": "Trong Elastic Beanstalk, file nào dùng để cấu hình môi trường và chạy lệnh startup?",
+      "options": [
+        "beanstalk.config",
+        ".ebextensions/config.yml",
+        "Dockerfile",
+        "beanstalkrc"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": ".ebextensions/ là thư mục chứa YAML config files, cho phép tùy chỉnh EC2 instance, install packages, set environment variables."
+    },
+    {
+      "id": 3,
+      "question": "ALB của jp:prod cần chuyển hướng /api/* tới EB backend và /static/* tới S3. Tính năng nào cho phép điều này?",
+      "options": [
+        "Health checks",
+        "Path-based routing rules",
+        "Sticky sessions",
+        "SSL/TLS termination"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Path-based routing cho phép ALB kiểm tra URL path và chuyển tới target group khác nhau dựa trên path pattern."
+    },
+    {
+      "id": 4,
+      "question": "EB environment có CPU 85%, ALB response time 2s. Tài nguyên AWS nào sẽ tự động mở rộng?",
+      "options": [
+        "ALB scale up dựa trên response time",
+        "RDS scale up dựa trên CPU",
+        "Auto Scaling Group scale up dựa trên CloudWatch alarm",
+        "Beanstalk tự động thêm public IP"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "EB dùng Auto Scaling Group để quản lý EC2 instances, CloudWatch alarm trigger khi CPU vượt ngưỡng, thêm instances mới."
+    },
+    {
+      "id": 5,
+      "question": "Khi rolling deployment, tối thiểu bao nhiêu instance phải chạy để tránh downtime?",
+      "options": [
+        "1 instance (tối thiểu)",
+        "2 instances (batch size phải > 1)",
+        "4 instances (50% rule)",
+        "Không giới hạn, cứ deploy thôi"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Rolling deployment cần ≥2 instances; EB cập nhật batch, giữ ≥1 instance running để tránh downtime hoàn toàn."
+    }
+  ]
+}

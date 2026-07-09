@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-27",
+  "day": 19,
+  "week": 1,
+  "month": 2,
+  "title": "KMS & Secrets Manager",
+  "subtitle": "CMK · Key Policy · Envelope Encryption · Rotation",
+  "category": "Security",
+  "color": "#6B3E99",
+  "emoji": "🔐",
+  "vocabulary": [
+    {
+      "word": "Customer Master Key",
+      "ipa": "/ˈkʌstəmər ˈmɑːstər kiː/",
+      "ipa_guide": "Đọc: CAS-tơ-mơ MAS-tơ KIY",
+      "type": "danh từ",
+      "meaning": "Khóa chính do khách hàng tạo và quản lý trong KMS để mã hóa dữ liệu",
+      "example_en": "Create a CMK in KMS to encrypt sensitive database passwords in jp:prod",
+      "example_vi": "Tạo CMK trong KMS để mã hóa mật khẩu cơ sở dữ liệu nhạy cảm trong jp:prod",
+      "usage": "KMS · Key Policy · CloudFormation",
+      "japfa": "Japfa sử dụng CMK trong jp:prod để bảo vệ khóa API của VMware"
+    },
+    {
+      "word": "Envelope Encryption",
+      "ipa": "/ˈenvəloʊp ɪnˈkrɪpʃən/",
+      "ipa_guide": "Đọc: EN-vơ-lop EN-KRIP-shun",
+      "type": "danh từ",
+      "meaning": "Kỹ thuật mã hóa dữ liệu bằng khóa dữ liệu, rồi mã hóa khóa đó bằng CMK",
+      "example_en": "Use envelope encryption to encrypt large files before uploading to S3",
+      "example_vi": "Sử dụng envelope encryption để mã hóa các tập tin lớn trước khi tải lên S3",
+      "usage": "KMS · S3 · Lambda",
+      "japfa": "Japfa dùng envelope encryption cho dữ liệu thống kê sản xuất gia cầm"
+    },
+    {
+      "word": "Key Policy",
+      "ipa": "/kiː ˈpɑːləsi/",
+      "ipa_guide": "Đọc: KIY PO-lơ-si",
+      "type": "danh từ",
+      "meaning": "Chính sách JSON định nghĩa ai có quyền sử dụng hoặc quản lý khóa KMS",
+      "example_en": "Modify key policy to grant jp:shareservice account permission to decrypt",
+      "example_vi": "Chỉnh sửa key policy để cấp quyền giải mã cho tài khoản jp:shareservice",
+      "usage": "KMS · IAM · Cross-Account Access",
+      "japfa": "Japfa sử dụng key policy cho phép jp:aggregator truy cập khóa từ jp:cloudtrail"
+    },
+    {
+      "word": "Rotation",
+      "ipa": "/roʊˈteɪʃən/",
+      "ipa_guide": "Đọc: RO-TE-shun",
+      "type": "danh từ",
+      "meaning": "Quá trình thay thế định kỳ khóa bí mật hoặc khóa mã hóa để tăng bảo mật",
+      "example_en": "Enable automatic key rotation on CMK every 365 days for compliance",
+      "example_vi": "Bật xoay khóa tự động mỗi 365 ngày để tuân thủ chính sách bảo mật",
+      "usage": "KMS · Secrets Manager · Compliance",
+      "japfa": "Japfa quay khóa FortiGate VPN trong Secrets Manager mỗi quý"
+    },
+    {
+      "word": "Data Key",
+      "ipa": "/ˈdeɪtə kiː/",
+      "ipa_guide": "Đọc: DE-tơ KIY",
+      "type": "danh từ",
+      "meaning": "Khóa sử dụng trực tiếp để mã hóa dữ liệu thực tế, do KMS tạo ra",
+      "example_en": "KMS generates a data key and returns both plaintext and encrypted versions",
+      "example_vi": "KMS tạo data key và trả về cả phiên bản văn bản thuần và mã hóa",
+      "usage": "KMS · Envelope Encryption · SDK",
+      "japfa": "Japfa nhận data key từ KMS để mã hóa log từ VMware vào S3"
+    }
+  ],
+  "services": [
+    {
+      "name": "KMS",
+      "full": "AWS Key Management Service",
+      "category": "security",
+      "icon": "🔑",
+      "what": "Dịch vụ quản lý khóa mã hóa được quản lý đầy đủ. Tạo, lưu trữ và kiểm soát các khóa mã hóa.",
+      "when": "Khi cần mã hóa dữ liệu nhạy cảm, bí mật, hoặc tuân thủ yêu cầu bảo mật",
+      "key_points": [
+        "Tạo CMK hoặc sử dụng AWS managed keys",
+        "Hỗ trợ envelope encryption để mã hóa quy mô lớn",
+        "Xoay khóa tự động hoặc thủ công hàng năm"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng KMS trong jp:prod quản lý khóa mã hóa cho database VMware và API secrets từ FortiGate VPN",
+      "cli": {
+        "task": "Liệt kê tất cả CMK trong tài khoản hiện tại",
+        "command": "aws kms list-keys --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "Secrets Manager",
+      "full": "AWS Secrets Manager",
+      "category": "security",
+      "icon": "🔒",
+      "what": "Dịch vụ quản lý bí mật được mã hóa tự động. Lưu trữ, xoay vòng và kiểm soát truy cập bí mật.",
+      "when": "Cần lưu trữ mật khẩu, API keys, database credentials với xoay vòng tự động",
+      "key_points": [
+        "Mã hóa bí mật tự động bằng KMS",
+        "Xoay bí mật theo lịch trình tự động",
+        "Kiểm tra truy cập thông qua CloudTrail"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa lưu trữ FortiGate VPN credentials và RDS master password trong jp:prod, xoay hàng quý",
+      "cli": {
+        "task": "Lấy giá trị bí mật từ Secrets Manager",
+        "command": "aws secretsmanager get-secret-value --secret-id my-db-secret --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "CloudTrail",
+      "full": "AWS CloudTrail",
+      "category": "monitoring",
+      "icon": "📋",
+      "what": "Ghi lại tất cả các lệnh gọi API trong tài khoản AWS. Cung cấp kiểm tra và tuân thủ.",
+      "when": "Cần theo dõi ai truy cập, mã hóa hoặc xoay khóa KMS/Secrets Manager",
+      "key_points": [
+        "Ghi lại các sự kiện KMS như Decrypt, GenerateDataKey",
+        "Lưu trữ log trong S3 bucket an toàn",
+        "Tìm kiếm sự kiện theo bí mật hoặc khóa cụ thể"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa gửi log từ 7 tài khoản đến jp:cloudtrail, giám sát truy cập Secrets Manager",
+      "cli": {
+        "task": "Liệt kê các sự kiện CloudTrail liên quan đến KMS",
+        "command": "aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::KMS::Key --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Envelope Encryption Workflow",
+      "icon": "🔄",
+      "body": "Envelope encryption mã hóa dữ liệu lớn bằng data key do KMS tạo, sau đó mã hóa data key bằng CMK. Quy trình này cho phép mã hóa an toàn mà không gửi toàn bộ dữ liệu đến KMS.",
+      "diagram": "1. App gọi KMS GenerateDataKey\n2. KMS trả plaintext + encrypted data key\n3. App mã hóa dữ liệu với plaintext key\n4. App lưu encrypted data + encrypted key\n5. Để giải mã: App gửi encrypted key → KMS Decrypt → nhận plaintext key",
+      "exam_tip": "SAA hỏi khi nào dùng envelope encryption: dùng khi mã hóa dữ liệu > 4KB hoặc cần hiệu suất cao",
+      "japfa": "Japfa mã hóa log gia cầm hàng ngày (10GB+) bằng envelope encryption, giảm latency so với gửi hết vào KMS"
+    },
+    {
+      "title": "Key Policy vs IAM Policy",
+      "icon": "🔐",
+      "body": "Key policy là tài liệu JSON tại KMS định nghĩa quyền trên CMK cụ thể. IAM policy cấp quyền toàn cục cho user. Cả hai phải cho phép: key policy + IAM policy đều phải grant.",
+      "diagram": "User muốn Decrypt:\n┌─────────────────┐\n│  IAM Policy     │ → Cho phép kms:Decrypt?\n├─────────────────┤\n│  Key Policy     │ → Cho phép user này truy cập CMK?\n└────────┬────────┘\n         ↓\n    Cả hai = YES → Decrypt OK",
+      "exam_tip": "SAA hay hỏi: cross-account decrypt bị từ chối. Kiểm tra key policy cho phép arn:aws:iam::OTHER_ACCOUNT:root",
+      "japfa": "Japfa cho phép jp:aggregator account decrypt CMK từ jp:prod qua key policy + cross-account IAM role"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa cần mã hóa 50GB log từ gia trại mỗi ngày và lưu vào S3. Cách nào hiệu quả nhất?",
+      "options": [
+        "Gửi toàn bộ 50GB đến KMS Encrypt API",
+        "Dùng envelope encryption: GenerateDataKey → mã hóa local → gửi encrypted data + encrypted key",
+        "Dùng S3 server-side encryption với aws/s3 managed key",
+        "Mã hóa local bằng OpenSSL không dùng KMS"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Envelope encryption cho phép mã hóa local mà không cần gửi dữ liệu lớn đến KMS, giảm latency và chi phí API"
+    },
+    {
+      "id": 2,
+      "question": "User từ jp:aggregator muốn decrypt secret từ jp:prod KMS nhưng bị từ chối. Nguyên nhân nào?",
+      "options": [
+        "IAM policy cho phép nhưng key policy không grant cross-account",
+        "Key policy cho phép nhưng IAM policy không grant kms:Decrypt",
+        "Cả A và B đều có thể gây từ chối",
+        "CloudTrail ghi log lại quyền"
+      ],
+      "answer": 2,
+      "difficulty": "hard",
+      "explanation": "Cross-account decrypt cần CÁCH HAI: key policy grant quyền + IAM policy grant quyền. Thiếu một cái = từ chối"
+    },
+    {
+      "id": 3,
+      "question": "Japfa bật automatic key rotation trên CMK. Dữ liệu đã mã hóa trước đó có cần giải mã lại không?",
+      "options": [
+        "Có, phải giải mã tất cả lại bằng key mới",
+        "Không, rotation không ảnh hưởng dữ liệu cũ, CMK cũ vẫn dùng để decrypt",
+        "Có, CloudTrail sẽ cảnh báo yêu cầu re-encryption",
+        "Không rõ, phụ thuộc vào S3 version"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Key rotation chỉ tạo key material mới cho encrypt tương lai. Dữ liệu cũ vẫn dùng phiên bản khóa cũ, tự động decrypt"
+    },
+    {
+      "id": 4,
+      "question": "Secrets Manager trong jp:prod lưu RDS password. Nó được mã hóa bằng gì mặc định?",
+      "options": [
+        "AWS managed key aws/secretsmanager",
+        "CMK customer-managed do user tạo",
+        "Không mã hóa, chỉ access control qua IAM",
+        "Mã hóa local client-side"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "Secrets Manager mã hóa tất cả bí mật bằng AWS managed key aws/secretsmanager mặc định, user có thể dùng CMK"
+    },
+    {
+      "id": 5,
+      "question": "Japfa cần audit ai truy cập FortiGate VPN secret từ Secrets Manager. Tool nào là tốt nhất?",
+      "options": [
+        "Dùng Secrets Manager audit log",
+        "Dùng IAM Access Analyzer",
+        "Dùng CloudTrail lookup-events tìm GetSecretValue",
+        "Dùng VPC Flow Logs"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "CloudTrail ghi lại mỗi lệnh GetSecretValue kèm user/role, timestamp, IP. Tốt nhất để audit truy cập bí mật"
+    }
+  ]
+}

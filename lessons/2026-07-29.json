@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-29",
+  "day": 21,
+  "week": 2,
+  "month": 2,
+  "title": "DynamoDB",
+  "subtitle": "Table · Partition Key · GSI · Streams · DAX",
+  "category": "Database",
+  "color": "#6B3E99",
+  "emoji": "⚡",
+  "vocabulary": [
+    {
+      "word": "Partition Key",
+      "ipa": "/pɑːr'tɪʃən kiː/",
+      "ipa_guide": "Đọc: PAR-tishun KI",
+      "type": "danh từ",
+      "meaning": "Khóa chính dùng để phân vùng dữ liệu trong DynamoDB, xác định distribution của item",
+      "example_en": "The user_id is the partition key for the Users table in DynamoDB.",
+      "example_vi": "user_id là partition key của bảng Users trong DynamoDB.",
+      "usage": "DynamoDB · Table Design · Query Performance",
+      "japfa": "jp:prod sử dụng customer_id làm partition key cho bảng tracking"
+    },
+    {
+      "word": "Global Secondary Index",
+      "ipa": "/'ɡloʊbəl 'sɛkənderi 'ɪndɛks/",
+      "ipa_guide": "Đọc: GLO-bul SEK-un-de-ri IN-dex",
+      "type": "danh từ",
+      "meaning": "Chỉ mục thứ cấp cho phép query theo partition key khác, tính phí riêng",
+      "example_en": "Create a GSI with email as partition key to query users by email address.",
+      "example_vi": "Tạo GSI với email làm partition key để truy vấn người dùng theo email.",
+      "usage": "DynamoDB · Query Patterns · Indexing",
+      "japfa": "jp:prod có GSI trên status_date để báo cáo hiệu suất trang trại"
+    },
+    {
+      "word": "DynamoDB Streams",
+      "ipa": "/daɪ'næmoʊ'diːbi strimz/",
+      "ipa_guide": "Đọc: DAI-na-mo-di-bi STRIMZ",
+      "type": "danh từ",
+      "meaning": "Dòng thay đổi của table DynamoDB, bắt sự kiện INSERT/UPDATE/DELETE",
+      "example_en": "Enable DynamoDB Streams to capture all modifications and send to Lambda.",
+      "example_vi": "Bật DynamoDB Streams để ghi lại tất cả thay đổi và gửi tới Lambda.",
+      "usage": "DynamoDB · Event-driven Architecture · Real-time Processing",
+      "japfa": "jp:aggregator dùng Streams để sync dữ liệu từ jp:prod real-time"
+    },
+    {
+      "word": "DAX",
+      "ipa": "/dæks/",
+      "ipa_guide": "Đọc: DAKS",
+      "type": "danh từ",
+      "meaning": "DynamoDB Accelerator - cache in-memory cho DynamoDB, giảm latency",
+      "example_en": "Deploy DAX cluster in front of DynamoDB to reduce read latency by 10x.",
+      "example_vi": "Triển khai DAX cluster trước DynamoDB để giảm latency 10 lần.",
+      "usage": "DynamoDB · Caching · Performance Optimization",
+      "japfa": "jp:poc đang test DAX cho application monitoring poultry farm"
+    },
+    {
+      "word": "Sort Key",
+      "ipa": "/sɔːrt kiː/",
+      "ipa_guide": "Đọc: SORT KI",
+      "type": "danh từ",
+      "meaning": "Khóa phụ trong composite key, xếp thứ tự item trong partition",
+      "example_en": "Use timestamp as sort key to query events in chronological order.",
+      "example_vi": "Dùng timestamp làm sort key để truy vấn sự kiện theo thứ tự thời gian.",
+      "usage": "DynamoDB · Table Design · Range Queries",
+      "japfa": "jp:cloudtrail sử dụng event_time làm sort key cho audit logs"
+    }
+  ],
+  "services": [
+    {
+      "name": "DynamoDB",
+      "full": "Amazon DynamoDB",
+      "category": "database",
+      "icon": "⚡",
+      "what": "Fully managed NoSQL database với performance dự đoán được. Hỗ trợ document và key-value model.",
+      "when": "Cần database NoSQL với throughput cao, latency thấp, scales tự động",
+      "key_points": [
+        "Pay-per-request hoặc provisioned capacity billing models",
+        "Partition key + optional sort key cho flexible querying",
+        "Global tables cho replication multi-region"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng DynamoDB cho inventory tracking và real-time metrics, jp:aggregator tính toán stats",
+      "cli": {
+        "task": "Liệt kê tất cả DynamoDB tables trong region hiện tại",
+        "command": "aws dynamodb list-tables"
+      }
+    },
+    {
+      "name": "Lambda",
+      "full": "AWS Lambda",
+      "category": "serverless",
+      "icon": "λ",
+      "what": "Serverless compute service chạy code mà không cần quản lý server. Được trigger bởi events.",
+      "when": "Xử lý DynamoDB Streams events, event-driven workflows, tính toán thời gian ngắn",
+      "key_points": [
+        "Integrates với DynamoDB Streams qua event source mapping",
+        "Batch processing hoặc function-per-record invocation modes",
+        "Concurrent execution limits cần planning cho high-volume streams"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator chạy Lambda từ DynamoDB Streams để aggregate data từ jp:prod",
+      "cli": {
+        "task": "Liệt kê tất cả Lambda functions trong account hiện tại",
+        "command": "aws lambda list-functions"
+      }
+    },
+    {
+      "name": "CloudWatch",
+      "full": "Amazon CloudWatch",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Monitoring và logging service cho AWS resources. Theo dõi metrics, logs, events từ DynamoDB.",
+      "when": "Monitor DynamoDB throughput consumption, latency, throttling; set alarms",
+      "key_points": [
+        "ConsumedWriteCapacityUnits, ConsumedReadCapacityUnits metrics",
+        "Logs Insights để query DynamoDB operation logs",
+        "Alarms tự động khi reaching capacity thresholds"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail monitors DynamoDB write throttling trong jp:prod via CloudWatch alarms",
+      "cli": {
+        "task": "Lấy metrics ConsumedReadCapacityUnits của DynamoDB table",
+        "command": "aws cloudwatch get-metric-statistics --namespace AWS/DynamoDB --metric-name ConsumedReadCapacityUnits --dimensions Name=TableName,Value=YourTable --start-time 2026-07-28T00:00:00Z --end-time 2026-07-29T00:00:00Z --period 3600 --statistics Sum"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Partition Key và Distribution",
+      "icon": "🔑",
+      "body": "Partition key xác định item sẽ được lưu ở partition nào trong DynamoDB. Chọn partition key tốt đảm bảo data phân bố đều, tránh hot partition dẫn tới throttling. Partition key phải có high cardinality và access pattern đồng đều.",
+      "diagram": "Partition Key = 'customer_id'\n\n[Partition 1]  [Partition 2]  [Partition 3]\n  cust_001       cust_002       cust_003\n  cust_004       cust_005       cust_006\n  \nEven Distribution = Good Performance",
+      "exam_tip": "SAA hỏi về chọn partition key kém dẫn hot partition, throttling. Bad: status='ACTIVE'; Good: user_id+timestamp",
+      "japfa": "jp:prod từng gặp throttling vì dùng region làm partition key, đổi sang customer_id"
+    },
+    {
+      "title": "DynamoDB Streams và Event Processing",
+      "icon": "🌊",
+      "body": "DynamoDB Streams capture thay đổi (INSERT/UPDATE/DELETE) của table item, gửi tới Lambda hay Kinesis. Mỗi record chứa old image, new image, sequence number để xử lý ordered, exactly-once processing.",
+      "diagram": "DynamoDB Table [Items Change]\n        ↓\n   Streams Enabled\n        ↓\n  [NEW_IMAGE, OLD_IMAGE]\n        ↓\n  Lambda / Kinesis\n        ↓\n  Aggregation / Sync",
+      "exam_tip": "Hỏi về eventual consistency Streams vs DAX caching. Streams cho event-driven, DAX cho read optimization.",
+      "japfa": "jp:aggregator consume DynamoDB Streams từ jp:prod mỗi giây để aggregate farm metrics"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Partition key trong DynamoDB có vai trò gì?",
+      "options": [
+        "A. Xác định partition nơi item được lưu và phân bố load",
+        "B. Xác định độ bền dữ liệu (durability)",
+        "C. Xác định encryption key cho item",
+        "D. Xác định TTL của item"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "Partition key quyết định distribution của data qua các partition, ảnh hưởng throughput"
+    },
+    {
+      "id": 2,
+      "question": "Khi nào nên sử dụng Global Secondary Index (GSI)?",
+      "options": [
+        "A. Khi cần query table với partition key khác ngoài primary key",
+        "B. Khi cần backup data tới region khác",
+        "C. Khi cần giảm latency write operations",
+        "D. Khi cần tính phí cố định cho table"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "GSI cho phép query với different partition key, tính phí throughput riêng"
+    },
+    {
+      "id": 3,
+      "question": "DynamoDB Streams dùng để làm gì?",
+      "options": [
+        "A. Cache data in-memory để reduce latency",
+        "B. Capture thay đổi (INSERT/UPDATE/DELETE) từ table, gửi tới Lambda/Kinesis",
+        "C. Replicate data tới on-premises",
+        "D. Encrypt data tại rest"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Streams record modifications, trigger event-driven workflows qua Lambda"
+    },
+    {
+      "id": 4,
+      "question": "Lợi thế của DAX so với DynamoDB thông thường là gì?",
+      "options": [
+        "A. Tăng write throughput 10x",
+        "B. Giảm cost 50%",
+        "C. Giảm read latency từ milliseconds tới microseconds qua caching",
+        "D. Cho phép offline access"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "DAX in-memory cache trước DynamoDB, dramatic latency reduction cho reads"
+    },
+    {
+      "id": 5,
+      "question": "Japfa jp:prod gặp throttling vì hot partition, nguyên nhân nào?",
+      "options": [
+        "A. Dùng status (ACTIVE/INACTIVE) làm partition key, quá ít unique values",
+        "B. DynamoDB Streams bị disabled",
+        "C. DAX cluster quá nhỏ",
+        "D. CloudWatch alarms không set"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "Status có độ cardinality thấp, tất cả traffic vào 1-2 partitions → throttling"
+    }
+  ]
+}

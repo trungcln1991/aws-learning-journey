@@ -1,0 +1,212 @@
+{
+  "date": "2026-08-03",
+  "day": 24,
+  "week": 2,
+  "month": 2,
+  "title": "Review — Security & Data Foundations",
+  "subtitle": "KMS · CloudTrail · DynamoDB · ElastiCache · Beanstalk recap",
+  "category": "Review",
+  "color": "#7A7160",
+  "emoji": "🎯",
+  "vocabulary": [
+    {
+      "word": "Execution Role",
+      "ipa": "/ɪɡˈzekjətɪv roʊl/",
+      "ipa_guide": "Đọc: IG-ZE-KYUH-TIV ROHL",
+      "type": "danh từ",
+      "meaning": "IAM role cấp quyền cho Lambda function hoặc ECS task truy cập các dịch vụ AWS như S3, DynamoDB, CloudWatch",
+      "example_en": "The ECS task Execution Role must have permissions to read secrets from AWS Secrets Manager.",
+      "example_vi": "Execution Role của ECS task phải có quyền đọc secrets từ AWS Secrets Manager.",
+      "usage": "Lambda · ECS · IAM",
+      "japfa": "jp:prod ECS tasks sử dụng Execution Role để ghi logs vào CloudWatch"
+    },
+    {
+      "word": "Trigger",
+      "ipa": "/ˈtrɪɡər/",
+      "ipa_guide": "Đọc: TRIG-UR",
+      "type": "danh từ",
+      "meaning": "Sự kiện hoặc điều kiện kích hoạt thực thi một Lambda function, có thể từ S3, DynamoDB, EventBridge, API Gateway",
+      "example_en": "An S3 object upload trigger will invoke the Lambda function to process the image file.",
+      "example_vi": "Trigger từ S3 object upload sẽ kích hoạt Lambda function để xử lý file ảnh.",
+      "usage": "Lambda · EventBridge · CloudWatch",
+      "japfa": "jp:cloudtrail account sử dụng CloudTrail logs làm trigger cho Lambda analysis function"
+    },
+    {
+      "word": "Service",
+      "ipa": "/ˈsɜːrvɪs/",
+      "ipa_guide": "Đọc: SUR-VIS",
+      "type": "danh từ",
+      "meaning": "ECS Service quản lý số lượng task đang chạy, tự động thay thế task lỗi, thực hiện rolling updates, kết nối với load balancer",
+      "example_en": "The ECS Service maintains 3 running tasks and automatically replaces any task that exits unexpectedly.",
+      "example_vi": "ECS Service duy trì 3 task đang chạy và tự động thay thế bất kỳ task nào bị exit.",
+      "usage": "ECS · CloudWatch · ALB",
+      "japfa": "jp:prod ECS Service quản lý 5 poultry-api containers với auto-scaling"
+    },
+    {
+      "word": "Hub-and-Spoke",
+      "ipa": "/ˌhʌb ənd spoʊk/",
+      "ipa_guide": "Đọc: HUB UND SPOHK",
+      "type": "danh từ",
+      "meaning": "Mô hình kiến trúc mạng với một trung tâm (hub) kết nối đến nhiều chi nhánh (spokes), cho phép quản lý tập trung",
+      "example_en": "The Transit Gateway serves as the hub connecting jp:prod, jp:uat, jp:poc VPCs and on-premises FortiGate.",
+      "example_vi": "Transit Gateway hoạt động như hub kết nối jp:prod, jp:uat, jp:poc VPCs và FortiGate on-premises.",
+      "usage": "Transit Gateway · VPC Peering · Site-to-Site VPN",
+      "japfa": "Japfa Vietnam dùng TGW hub-and-spoke để kết nối 7 AWS accounts thay vì VPC Peering từng cặp"
+    },
+    {
+      "word": "Web ACL",
+      "ipa": "/web ˈækəl/",
+      "ipa_guide": "Đọc: WEB AY-SUL",
+      "type": "danh từ",
+      "meaning": "Danh sách kiểm soát truy cập web chứa các quy tắc để phát hiện và chặn các tấn công web như SQL injection, XSS, bot",
+      "example_en": "The WAF Web ACL blocks requests with SQL injection patterns before they reach the ALB.",
+      "example_vi": "WAF Web ACL chặn các request chứa SQL injection pattern trước khi tới ALB.",
+      "usage": "WAF · CloudFront · ALB",
+      "japfa": "jp:prod CloudFront distribution có Web ACL bảo vệ poultry-web API khỏi DDoS"
+    }
+  ],
+  "services": [
+    {
+      "name": "WAF",
+      "full": "AWS Web Application Firewall",
+      "category": "security",
+      "icon": "🛡️",
+      "what": "Firewall tầng ứng dụng bảo vệ ứng dụng web khỏi SQL injection, XSS, bot attacks. Hoạt động trên CloudFront, ALB, API Gateway.",
+      "when": "Khi cần bảo vệ web ứng dụng public-facing khỏi các tấn công common web. Luôn dùng kèm Shield chống DDoS.",
+      "key_points": [
+        "Web ACL chứa rules để match/block requests (IP, geo, headers, payloads)",
+        "Managed rules từ AWS Managed Rules cho SQL injection, XSS, bot detection",
+        "Rate limiting block IPs gửi quá nhiều requests"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod CloudFront + ALB có WAF Web ACL chặn bot crawling poultry-web API",
+      "cli": {
+        "task": "Liệt kê tất cả Web ACLs",
+        "command": "aws wafv2 list-web-acls --scope REGIONAL --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "Shield",
+      "full": "AWS Shield",
+      "category": "security",
+      "icon": "🔰",
+      "what": "Dịch vụ bảo vệ DDoS tự động. Shield Standard (miễn phí) bảo vệ tầng 3-4. Shield Advanced cung cấp bảo vệ tầng 7 nâng cao.",
+      "when": "Shield Standard bao gồm mặc định. Nên upgrade Shield Advanced nếu ứng dụng critical hoặc bị DDoS thường xuyên.",
+      "key_points": [
+        "Tầng 3-4 protection (network/transport layer) là miễn phí với Shield Standard",
+        "Tầng 7 protection (application layer) cần Shield Advanced + WAF",
+        "Tích hợp tự động với CloudFront, Route53, ALB"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod CloudFront có Shield Standard bảo vệ miễn phí, cân nhắc Shield Advanced cho jp:prod",
+      "cli": {
+        "task": "Kiểm tra Shield Advanced subscription",
+        "command": "aws shield describe-subscription --region us-east-1"
+      }
+    },
+    {
+      "name": "EventBridge",
+      "full": "Amazon EventBridge",
+      "category": "serverless",
+      "icon": "🚦",
+      "what": "Dịch vụ định tuyến sự kiện kết nối AWS services, on-premises, SaaS. Tạo rules để match events và gửi tới targets (Lambda, SQS, SNS).",
+      "when": "Khi cần trigger Lambda từ CloudTrail logs, S3 events, hoặc tạo event-driven workflows. Thay thế SNS/SQS khi cần complex routing.",
+      "key_points": [
+        "Rules dùng event patterns (JSON) để match events từ sources như CloudTrail, EC2",
+        "Targets có thể Lambda, SQS, SNS, Kinesis, HTTP endpoints",
+        "Event Buses hỗ trợ custom events từ on-premises systems (FortiGate logs)"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail account có EventBridge rule: CloudTrail logs → Lambda → SNS alert cho security team",
+      "cli": {
+        "task": "Liệt kê tất cả EventBridge rules",
+        "command": "aws events list-rules --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "So sánh: WAF + Shield vs S2S VPN + Transit Gateway cho bảo vệ",
+      "icon": "🔄",
+      "body": "WAF + Shield bảo vệ ứng dụng web khỏi DDoS, injection attacks ở tầng ứng dụng. S2S VPN + TGW bảo vệ network infrastructure, mã hóa traffic between on-premises và AWS, quản lý routing tập trung. Cả hai cần dùng kèm: WAF/Shield cho web frontend, VPN/TGW cho network layer.",
+      "diagram": "Public Internet\n      |\n  [CloudFront + WAF + Shield]\n      |\n      ↓\n  [ALB] ← Internal network\n      |\n      ↓\n  [ECS Services]\n      |\n      ↓\n[Transit Gateway] ← Kết nối 7 AWS accounts\n      |\n      ↓\n[S2S VPN + FortiGate] ← On-premises",
+      "exam_tip": "SAA-C03 thường hỏi: 'Nên dùng WAF ở đâu?' (CloudFront/ALB), 'S2S VPN hay Direct Connect?' (DX cho dedicated, VPN cho rapid setup)",
+      "japfa": "Japfa cần WAF trên jp:prod poultry-web API + S2S VPN kết nối 7 accounts, không phải mỗi account một VPN tunnel"
+    },
+    {
+      "title": "Phân tích trigger flow: CloudTrail → EventBridge → Lambda",
+      "icon": "⚡",
+      "body": "CloudTrail ghi lại tất cả AWS API calls (audit log). EventBridge rule match CloudTrail events và trigger Lambda function. Lambda chạy code xử lý logs (tìm security anomalies, format data cho DynamoDB/ElastiCache).",
+      "diagram": "CloudTrail\n   (Records API calls)\n    |\n    ↓\n[EventBridge Rule]\n   (Match: source=aws.ec2)\n    |\n    ↓\n[Lambda Function]\n   (Process logs → write to DynamoDB)\n    |\n    ↓\n[DynamoDB/ElastiCache]\n   (Store results for analysis)",
+      "exam_tip": "Trigger là event được gửi, không phải action. EventBridge là message router, Lambda là processor. Đừng lẫn Lambda trigger vs Lambda target.",
+      "japfa": "jp:cloudtrail account dùng CloudTrail → EventBridge → Lambda chain để phát hiện unexpected API calls (security alerting)"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa's jp:prod account chạy ECS Service (5 poultry-api tasks) behind ALB. Bạn cần bảo vệ API khỏi DDoS và SQL injection attacks. Nên setup gì?",
+      "options": [
+        "Chỉ cần Shield Standard (miễn phí) trên CloudFront, không cần WAF",
+        "CloudFront + WAF Web ACL (managed SQL injection rule) + Shield Advanced, route traffic qua CloudFront",
+        "ALB + S2S VPN, mã hóa tất cả traffic",
+        "DynamoDB Global Tables, tự động replicate data chống attack"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "WAF Web ACL trên CloudFront + Managed Rules chặn SQL injection. Shield Advanced bảo vệ DDoS. ALB không có WAF layer, cần CloudFront."
+    },
+    {
+      "id": 2,
+      "question": "jp:cloudtrail account lưu CloudTrail logs. Bạn muốn automatically invoke Lambda khi có UnauthorizedOperation API calls. Cách tốt nhất?",
+      "options": [
+        "Setup S3 trigger khi CloudTrail ghi logs vào S3, gọi Lambda",
+        "EventBridge rule match CloudTrail events, target Lambda function",
+        "Định kỳ Lambda scan logs qua CLI (polling), không efficient",
+        "WAF Web ACL block requests, trigger SNS alert (không đúng scope)"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "EventBridge là service chuyên định tuyến CloudTrail events. Rules match event patterns (UnauthorizedOperation) rồi trigger Lambda ngay lập tức."
+    },
+    {
+      "id": 3,
+      "question": "Japfa muốn kết nối jp:prod, jp:uat, jp:poc (3 VPCs) và on-premises FortiGate. Nên dùng TGW + S2S VPN hay VPC Peering + 3 separate VPN tunnels?",
+      "options": [
+        "3 VPC Peering connections + 3 S2S VPN tunnels (mỗi VPC một tunnel)",
+        "Transit Gateway (hub) kết nối 3 VPCs + 1 S2S VPN tunnel từ TGW đến FortiGate",
+        "Chỉ Direct Connect, không cần VPN (chi phí cao)",
+        "EventBridge routes network traffic (không đúng, routing layer)"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "TGW là hub-and-spoke: 1 điểm quản lý 3 VPCs + FortiGate. VPC Peering full mesh (3 connections) + 3 VPN tunnels redundant, phức tạp."
+    },
+    {
+      "id": 4,
+      "question": "ECS Service có Execution Role. Role này cần permissions gì?",
+      "options": [
+        "Quyền tạo/xóa ECS tasks (administrative)",
+        "Quyền pull Docker images từ ECR, ghi logs CloudWatch, read secrets từ Secrets Manager",
+        "Quyền call Lambda functions (task không gọi Lambda)",
+        "Quyền kích hoạt WAF rules (WAF độc lập)"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Execution Role là IAM role cho ECS task runtime: ECR pull image, CloudWatch logs, Secrets Manager read. Không phải management permissions."
+    },
+    {
+      "id": 5,
+      "question": "jp:prod poultry-api (ECS + ALB) được protect bởi CloudFront + WAF. Attacker gửi HTTP request trực tiếp tới ALB IP (bypass CloudFront). ALB sẽ?",
+      "options": [
+        "WAF vẫn block request (WAF hoạt động ở ALB layer)",
+        "Request trực tiếp ALB không qua WAF, ALB forward đến ECS (WAF bypass)",
+        "Shield chặn request (Shield không chặn legitimate requests)",
+        "EventBridge trigger Lambda chặn attacker (không đúng scope)"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "WAF ở CloudFront layer. Request trực tiếp ALB bypass CloudFront, do đó bypass WAF. Nên cấu hình ALB security group hoặc WAF trực tiếp ở ALB."
+    }
+  ]
+}

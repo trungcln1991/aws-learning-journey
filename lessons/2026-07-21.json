@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-21",
+  "day": 15,
+  "week": 4,
+  "month": 1,
+  "title": "Week 4 Review & SAA Practice",
+  "subtitle": "Core services recap · 10 SAA-style questions",
+  "category": "Review",
+  "color": "#7A7160",
+  "emoji": "🎯",
+  "vocabulary": [
+    {
+      "word": "routing policy",
+      "ipa": "/ˈruːtɪŋ ˈpɒlɪsi/",
+      "ipa_guide": "Đọc: RUU-ting PO-li-si",
+      "type": "danh từ",
+      "meaning": "Quy tắc xác định cách Route 53 trả lời DNS queries dựa trên điều kiện như vị trí, độ khỏe, hoặc trọng số",
+      "example_en": "Your Route 53 routing policy should route 70% of traffic to jp:prod and 30% to jp:uat for canary deployments.",
+      "example_vi": "Routing policy Route 53 của bạn nên định tuyến 70% traffic tới jp:prod và 30% tới jp:uat cho canary deployments.",
+      "usage": "Route 53 · DNS · Traffic management",
+      "japfa": "Japfa sử dụng weighted routing policy để điều phối traffic giữa jp:prod và jp:poc cho testing"
+    },
+    {
+      "word": "failover",
+      "ipa": "/ˈfeɪlˌoʊvər/",
+      "ipa_guide": "Đọc: FEY-lơ-vơ",
+      "type": "danh từ",
+      "meaning": "Quá trình tự động chuyển hướng traffic từ primary resource không khỏe sang backup resource sẵn sàng",
+      "example_en": "When the primary ALB in jp:prod fails health check, Route 53 triggers failover to the standby ALB in jp:uat within seconds.",
+      "example_vi": "Khi primary ALB trong jp:prod không vượt health check, Route 53 kích hoạt failover tới standby ALB trong jp:uat trong vài giây.",
+      "usage": "Route 53 · High Availability · Disaster Recovery",
+      "japfa": "Japfa cấu hình failover giữa jp:prod và jp:poc để đảm bảo uptime cho FortiGate VPN"
+    },
+    {
+      "word": "Cache Behavior",
+      "ipa": "/ˈkæʃ bɪˈheɪvjər/",
+      "ipa_guide": "Đọc: KÁCH BE-HEY-viơ",
+      "type": "danh từ",
+      "meaning": "Quy tắc xác định cách CloudFront cache nội dung dựa trên đường dẫn URL, tiêu đề yêu cầu, hoặc query string",
+      "example_en": "Configure a Cache Behavior to serve static images from /assets/* with 1-year TTL, while API responses from /api/* bypass cache entirely.",
+      "example_vi": "Cấu hình Cache Behavior để phục vụ hình ảnh tĩnh từ /assets/* với TTL 1 năm, còn API responses từ /api/* bỏ qua cache.",
+      "usage": "CloudFront · CDN · Performance optimization",
+      "japfa": "Japfa định nghĩa Cache Behavior riêng cho nội dung video poultry marketing trên jp:prod CloudFront"
+    },
+    {
+      "word": "Dead Letter Queue",
+      "ipa": "/ˈdɛd ˈlɛtər kiːw/",
+      "ipa_guide": "Đọc: DED LE-tơ KYU",
+      "type": "danh từ",
+      "meaning": "Queue đặc biệt lưu trữ message thất bại sau nhiều lần thử xử lý để phân tích và debug",
+      "example_en": "If a Lambda function fails to process an SQS message after 3 retries, the message automatically moves to the Dead Letter Queue for investigation.",
+      "example_vi": "Nếu Lambda function không thể xử lý SQS message sau 3 lần thử, message sẽ tự động chuyển tới Dead Letter Queue để điều tra.",
+      "usage": "SQS · Lambda · Error handling",
+      "japfa": "Japfa giám sát Dead Letter Queue trong jp:aggregator SQS để phát hiện lỗi xử lý dữ liệu tổng hợp"
+    },
+    {
+      "word": "Execution Role",
+      "ipa": "/ɪɡˈzɛkjʊtɪv roʊl/",
+      "ipa_guide": "Đọc: IG-ZEK-yu-tiv ROL",
+      "type": "danh từ",
+      "meaning": "IAM role cấp quyền cho Lambda function truy cập các dịch vụ AWS khác như S3, DynamoDB, CloudWatch",
+      "example_en": "Create an Execution Role that allows your Lambda function in jp:prod to write logs to CloudWatch and read objects from S3.",
+      "example_vi": "Tạo Execution Role cho phép Lambda function trong jp:prod ghi logs tới CloudWatch và đọc objects từ S3.",
+      "usage": "Lambda · IAM · Security",
+      "japfa": "Japfa định cấu hình Execution Role cho Lambda processors trong jp:aggregator để đọc SNS topics từ jp:cloudtrail"
+    }
+  ],
+  "services": [
+    {
+      "name": "Route 53",
+      "full": "Amazon Route 53",
+      "category": "network",
+      "icon": "🌐",
+      "what": "Fully managed DNS web service cho phép định tuyến lưu lượng dựa trên routing policies, health checks, và failover tự động.",
+      "when": "Khi cần quản lý DNS cho multiple AWS accounts, triển khai multi-region failover, hoặc định tuyến traffic theo địa lý.",
+      "key_points": [
+        "Hỗ trợ weighted, geolocation, latency, failover routing policies",
+        "Tích hợp health checks để phát hiện unhealthy endpoints tự động",
+        "Kết hợp với CloudFront, ALB, EC2 cho traffic management toàn cầu"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa sử dụng Route 53 để quản lý DNS cho 7 AWS accounts (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice) và định tuyến traffic dựa trên health checks của infrastructure VMware on-premises",
+      "cli": {
+        "task": "Liệt kê tất cả DNS records trong hosted zone jp-vietnampoultry.com",
+        "command": "aws route53 list-resource-record-sets --hosted-zone-id Z1234567890ABC --query 'ResourceRecordSets[*].[Name,Type,ResourceRecords[0].Value]' --output table"
+      }
+    },
+    {
+      "name": "CloudFront",
+      "full": "Amazon CloudFront",
+      "category": "network",
+      "icon": "⚡",
+      "what": "Global CDN service phân phối nội dung tới users qua edge locations toàn cầu, giảm độ trễ và cải thiện performance.",
+      "when": "Khi cần cache và phân phối nội dung (ảnh, video, API responses) với độ trễ thấp tới users ở nhiều vùng địa lý.",
+      "key_points": [
+        "Cache nội dung tại 400+ edge locations gần users",
+        "Hỗ trợ origins: S3, ALB, EC2, custom servers",
+        "Tích hợp WAF để bảo vệ khỏi DDoS, SQL injection attacks"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa cấu hình CloudFront Distribution cho jp:prod để phân phối marketing videos, product images, và corporate website tới toàn bộ Southeast Asia region, kết hợp WAF để bảo vệ khỏi tấn công",
+      "cli": {
+        "task": "Liệt kê tất cả CloudFront distributions và status của chúng",
+        "command": "aws cloudfront list-distributions --query 'DistributionList.Items[*].[Id,DomainName,Status,Enabled]' --output table"
+      }
+    },
+    {
+      "name": "SQS",
+      "full": "AWS Simple Queue Service",
+      "category": "serverless",
+      "icon": "📦",
+      "what": "Fully managed queue service lưu trữ messages theo thứ tự FIFO hoặc tiêu chuẩn, cho phép decoupling giữa producers và consumers.",
+      "when": "Khi cần xử lý async tasks, decoupling microservices, hoặc buffering high-volume data processing (ví dụ: ETL jobs trong jp:aggregator).",
+      "key_points": [
+        "Hỗ trợ Standard queues (at-least-once) và FIFO queues (exactly-once)",
+        "Tích hợp Dead Letter Queue để xử lý failed messages",
+        "Visibility Timeout ngăn concurrent processing của cùng một message"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa sử dụng SQS trong jp:aggregator để buffer và xử lý async các poultry production data từ on-premises VMware sensors, kết hợp với Lambda processors",
+      "cli": {
+        "task": "Kiểm tra số lượng messages chờ xử lý trong queue jp-data-processing",
+        "command": "aws sqs get-queue-attributes --queue-url https://sqs.ap-southeast-1.amazonaws.com/123456789/jp-data-processing --attribute-names ApproximateNumberOfMessages"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "DNS + CDN Integration: Route 53 → CloudFront",
+      "icon": "🔗",
+      "body": "Route 53 quyết định traffic được gửi tới đâu (endpoint nào khỏe mạnh nhất), sau đó CloudFront caches nội dung gần users qua edge locations. Kết hợp cả hai cho high availability + low latency.",
+      "diagram": "User\n  ↓\n[Route 53 Health Check] → Picks healthy ALB/endpoint\n  ↓\n[CloudFront Distribution] → Caches at Edge Locations\n  ↓\n[S3/ALB/EC2 Origin] → Serves content",
+      "exam_tip": "SAA thường hỏi: nếu primary region down, làm sao CloudFront vẫn serve content? Trả lời: Route 53 failover sang region khác, CloudFront cache vẫn có nội dung cũ.",
+      "japfa": "Japfa sử dụng Route 53 failover để chuyển traffic tới jp:poc khi jp:prod down, CloudFront tiếp tục phục vụ marketing videos từ edge locations"
+    },
+    {
+      "title": "Async Processing: SNS + SQS + Lambda",
+      "icon": "⚙️",
+      "body": "SNS publish messages tới multiple SQS queues (fan-out), Lambda consumers đọc từ SQS và xử lý async. Nếu Lambda fails, message đi vào Dead Letter Queue để retry hoặc debug.",
+      "diagram": "Event (S3 upload)\n  ↓\n[SNS Topic] → Fan-out\n  ↙   ↙   ↘\n[Queue1] [Queue2] [Queue3]\n  ↓       ↓       ↓\n[Lambda] [Lambda] [Lambda]\n  ↓ (failure)\n[Dead Letter Queue]",
+      "exam_tip": "SAA test: SNS cho real-time notifications, SQS cho buffering high-volume jobs. Chọn SQS khi cần retry + visibility timeout.",
+      "japfa": "Japfa publish sensor events từ on-premises tới SNS jp:cloudtrail topic, fan-out tới 3 SQS queues (monitoring, aggregation, archival) trong jp:aggregator, Lambda processors xử lý async"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa sử dụng Route 53 để quản lý DNS cho jp:prod và jp:uat. Primary endpoint (jp:prod ALB) bất ngờ unhealthy. Bạn cần Route 53 tự động chuyển hướng 100% traffic sang jp:uat ALB backup trong 10 giây. Cấu hình nào đúng?",
+      "options": [
+        "A) Geolocation routing policy với health check interval 10s",
+        "B) Failover routing policy với 2 records (PRIMARY + SECONDARY) và health check interval 30s hoặc ít hơn",
+        "C) Weighted routing policy với weight 100 cho jp:prod, 0 cho jp:uat",
+        "D) Latency routing policy + CloudFront Distribution"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Failover routing là dành cho active-passive setup. Health check phát hiện primary unhealthy, Route 53 tự động failover sang SECONDARY. Weighted routing không tự động failover."
+    },
+    {
+      "id": 2,
+      "question": "Japfa deploy CloudFront Distribution cho jp:prod website. Marketing team muốn ảnh tĩnh (*.jpg, *.png) cache 1 năm, nhưng API responses (/api/*) không được cache. Bạn cấu hình 2 Cache Behaviors. Cái nào sai?",
+      "options": [
+        "A) Cache Behavior 1: Path pattern /api/*, TTL=0, forward all query strings",
+        "B) Cache Behavior 2: Path pattern *.jpg|*.png, TTL=31536000 (1 năm), compress gzip",
+        "C) Default Cache Behavior forward tất cả query strings, TTL=300",
+        "D) Cả A, B, C đều đúng"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Path pattern *.jpg|*.png sai syntax. Đúng là /images/* hoặc /assets/*. File extension pattern không được hỗ trợ trực tiếp trong path pattern."
+    },
+    {
+      "id": 3,
+      "question": "Japfa sử dụng SQS + Lambda trong jp:aggregator. Sensor data từ on-premises được publish tới SNS, fan-out tới 3 queues (monitoring, aggregation, archive). Lambda function xử lý aggregation queue thất bại 50% thời gian. Bạn cần capture failed messages để debug. Giải pháp?",
+      "options": [
+        "A) Tăng Visibility Timeout để Lambda có thêm thời gian xử lý",
+        "B) Cấu hình Dead Letter Queue với maxReceiveCount=3 cho SQS aggregation queue, Lambda ghi logs lỗi tới CloudWatch",
+        "C) Xoá message thất bại khỏi queue, log message ID tới file",
+        "D) Tạo thêm Lambda function để retry messages từ queue"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "Dead Letter Queue là AWS best practice cho failed message handling. Sau maxReceiveCount retries, message tự động move tới DLQ. Combined với CloudWatch logs, dễ debug lỗi."
+    },
+    {
+      "id": 4,
+      "question": "Japfa xây dựng serverless pipeline: on-premises VPN → SNS (jp:cloudtrail) → SQS (jp:aggregator) → Lambda. Lambda cần quyền đọc SNS + write logs CloudWatch + delete messages SQS. Bạn tạo Execution Role nào?",
+      "options": [
+        "A) IAM role với AdministratorAccess policy (quá rộng nhưng nhanh)",
+        "B) IAM role với 3 inline policies: sqs:DeleteMessage, sns:Receive, logs:CreateLogGroup + logs:PutLogEvents",
+        "C) IAM role attach AmazonSQSFullAccess, AmazonSNSFullAccess, CloudWatchLogsFullAccess (quá rộng)",
+        "D) Không cần Execution Role, Lambda tự động có quyền"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Option B tuân theo least privilege. Lambda delete messages từ SQS, không Receive SNS (SQS pulls messages, SNS không). CloudWatch logs cần CreateLogGroup, PutLogEvents."
+    },
+    {
+      "id": 5,
+      "question": "Japfa's jp:prod CloudFront distribution bị tấn công DDoS. Bạn cần bảo vệ nhanh chóng mà không change distribution settings. Giải pháp đúng?",
+      "options": [
+        "A) Attach WAF tới CloudFront distribution, tạo IP reputation rules để block malicious IPs",
+        "B) Tạo Route 53 health check trỏ tới CloudFront, failover sang S3 website static",
+        "C) Thay đổi TTL trong Cache Behavior từ 3600 thành 60 giây",
+        "D) Xoá tất cả Edge Locations khỏi CloudFront"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "WAF có thể attach tới CloudFront mà không cần redeploy. Rate limiting + IP reputation rules trong WAF là defense layer tối ưu cho DDoS. Các option khác không hiệu quả."
+    }
+  ]
+}

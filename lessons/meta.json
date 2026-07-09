@@ -238,8 +238,86 @@
       "emoji": "🔒",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-07-27",
+      "day": 19,
+      "title": "KMS & Secrets Manager",
+      "subtitle": "CMK · Key Policy · Envelope Encryption · Rotation",
+      "category": "Security",
+      "week": 1,
+      "month": 2,
+      "color": "#6B3E99",
+      "emoji": "🔐",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-28",
+      "day": 20,
+      "title": "CloudTrail & Config",
+      "subtitle": "Event History · Compliance · Config Rules · Remediation",
+      "category": "Security",
+      "week": 2,
+      "month": 2,
+      "color": "#A9700A",
+      "emoji": "📋",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-29",
+      "day": 21,
+      "title": "DynamoDB",
+      "subtitle": "Table · Partition Key · GSI · Streams · DAX",
+      "category": "Database",
+      "week": 2,
+      "month": 2,
+      "color": "#6B3E99",
+      "emoji": "⚡",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-30",
+      "day": 22,
+      "title": "ElastiCache & Caching Strategies",
+      "subtitle": "Redis · Memcached · Cache-aside · Write-through",
+      "category": "Database",
+      "week": 2,
+      "month": 2,
+      "color": "#C32D1A",
+      "emoji": "🚀",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-07-31",
+      "day": 23,
+      "title": "Elastic Beanstalk & App Deployment",
+      "subtitle": "Environment · Platform · Rolling Deploy · Blue/Green",
+      "category": "DevOps",
+      "week": 2,
+      "month": 2,
+      "color": "#1C7A47",
+      "emoji": "🌱",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-08-03",
+      "day": 24,
+      "title": "Review — Security & Data Foundations",
+      "subtitle": "KMS · CloudTrail · DynamoDB · ElastiCache · Beanstalk recap",
+      "category": "Review",
+      "week": 2,
+      "month": 2,
+      "color": "#7A7160",
+      "emoji": "🎯",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-07-09T05:47:37.660Z",
-  "total_lessons": 18
+  "last_generated": "2026-07-09T06:17:33.783Z",
+  "total_lessons": 24
 }

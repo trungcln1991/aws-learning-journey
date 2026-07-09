@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-30",
+  "day": 22,
+  "week": 2,
+  "month": 2,
+  "title": "ElastiCache & Caching Strategies",
+  "subtitle": "Redis · Memcached · Cache-aside · Write-through",
+  "category": "Database",
+  "color": "#C32D1A",
+  "emoji": "🚀",
+  "vocabulary": [
+    {
+      "word": "cache",
+      "ipa": "/kæʃ/",
+      "ipa_guide": "Đọc: KÆ-SH, giống từ \"cash\"",
+      "type": "danh từ",
+      "meaning": "Bộ nhớ tạm thời lưu trữ dữ liệu thường xuyên sử dụng để tăng tốc độ truy cập",
+      "example_en": "Use ElastiCache to cache database queries and reduce latency.",
+      "example_vi": "Sử dụng ElastiCache để lưu trữ tạm thời các truy vấn cơ sở dữ liệu.",
+      "usage": "ElastiCache · Redis · Memcached · CloudFront",
+      "japfa": "jp:prod sử dụng Redis cache cho dữ liệu inventory thương mại"
+    },
+    {
+      "word": "eviction",
+      "ipa": "/ɪˈvɪkʃən/",
+      "ipa_guide": "Đọc: i-VIK-shun",
+      "type": "danh từ",
+      "meaning": "Quá trình loại bỏ dữ liệu cũ nhất khỏi cache khi bộ nhớ đầy",
+      "example_en": "Configure eviction policies like LRU when cache memory is full.",
+      "example_vi": "Cấu hình chính sách loại bỏ như LRU khi bộ nhớ cache đầy.",
+      "usage": "ElastiCache · Redis · Memory Management",
+      "japfa": "jp:prod Redis sử dụng chính sách allkeys-lru để quản lý bộ nhớ"
+    },
+    {
+      "word": "throughput",
+      "ipa": "/ˈθruːpʊt/",
+      "ipa_guide": "Đọc: THROO-put",
+      "type": "danh từ",
+      "meaning": "Lượng dữ liệu được xử lý hoặc truyền trong một đơn vị thời gian",
+      "example_en": "ElastiCache increases application throughput by reducing database load.",
+      "example_vi": "ElastiCache tăng throughput ứng dụng bằng cách giảm tải cơ sở dữ liệu.",
+      "usage": "Performance · Database · ElastiCache · Monitoring",
+      "japfa": "jp:prod đo throughput Redis bằng CloudWatch metrics"
+    },
+    {
+      "word": "consistency",
+      "ipa": "/kənˈsɪstənsi/",
+      "ipa_guide": "Đọc: kun-SIS-tun-si",
+      "type": "danh từ",
+      "meaning": "Tính chất đảm bảo dữ liệu giữa cache và database luôn đồng nhất",
+      "example_en": "Write-through pattern ensures cache and database consistency.",
+      "example_vi": "Mô hình write-through đảm bảo tính nhất quán giữa cache và database.",
+      "usage": "Caching Strategies · Database · Design Patterns",
+      "japfa": "jp:prod sử dụng write-through cho dữ liệu hóa chất phụ gia"
+    },
+    {
+      "word": "latency",
+      "ipa": "/ˈleɪtənsi/",
+      "ipa_guide": "Đọc: LEY-tun-si",
+      "type": "danh từ",
+      "meaning": "Độ trễ thời gian giữa yêu cầu và phản hồi từ hệ thống",
+      "example_en": "Redis reduces latency from milliseconds to microseconds.",
+      "example_vi": "Redis giảm latency từ mili giây xuống vi giây.",
+      "usage": "Performance · ElastiCache · Database · Monitoring",
+      "japfa": "jp:prod giảm latency truy vấn bằng Redis cache"
+    }
+  ],
+  "services": [
+    {
+      "name": "ElastiCache",
+      "full": "AWS ElastiCache for Redis and Memcached",
+      "category": "database",
+      "icon": "⚡",
+      "what": "Dịch vụ caching được quản lý đầy đủ hỗ trợ Redis và Memcached. Giảm latency và tăng throughput cho ứng dụng bằng cách lưu dữ liệu vào bộ nhớ.",
+      "when": "Sử dụng khi cần tăng tốc độ truy vấn database, session management, hoặc real-time leaderboards",
+      "key_points": [
+        "Hỗ trợ Redis (persistent, transactions) và Memcached (simple, lightweight)",
+        "Tự động failover và multi-AZ support cho high availability",
+        "Tích hợp VPC security group, encryption at rest/transit"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng Redis cluster cho inventory management và price caching; jp:aggregator dùng Memcached cho session data",
+      "cli": {
+        "task": "Liệt kê tất cả ElastiCache clusters hiện tại",
+        "command": "aws elasticache describe-cache-clusters --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "RDS",
+      "full": "AWS Relational Database Service",
+      "category": "database",
+      "icon": "🗄️",
+      "what": "Dịch vụ cơ sở dữ liệu quan hệ được quản lý hỗ trợ MySQL, PostgreSQL, Aurora. ElastiCache thường được sử dụng cùng RDS để giảm tải.",
+      "when": "Sử dụng RDS khi cần ACID transactions, complex queries, hoặc dữ liệu có quan hệ",
+      "key_points": [
+        "Automatic backups, multi-AZ failover, read replicas",
+        "Cache-aside pattern: app kiểm tra cache trước khi query RDS",
+        "CloudWatch monitoring cho CPU, connections, latency"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod RDS PostgreSQL lưu trữ dữ liệu thương mại; ElastiCache cache layer giảm query từ 500ms xuống 5ms",
+      "cli": {
+        "task": "Liệt kê tất cả RDS instances",
+        "command": "aws rds describe-db-instances --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "CloudWatch",
+      "full": "AWS CloudWatch Monitoring and Logging",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Dịch vụ giám sát và ghi nhật ký cho AWS resources. Theo dõi ElastiCache metrics như CPU, network, evictions.",
+      "when": "Sử dụng CloudWatch để monitor cache hit rate, eviction rate, và phát hiện performance bottlenecks",
+      "key_points": [
+        "ElastiCache metrics: EngineCPUUtilization, NetworkBytesIn, Evictions",
+        "Tạo CloudWatch alarms khi cache hit rate < 80% hoặc memory usage > 90%",
+        "Dashboard để trực quan hóa cache performance trends"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod dashboard monitors Redis hit rate (mục tiêu >85%) cho inventory cache",
+      "cli": {
+        "task": "Lấy ElastiCache CPU utilization metric cho 1 giờ gần nhất",
+        "command": "aws cloudwatch get-metric-statistics --namespace AWS/ElastiCache --metric-name EngineCPUUtilization --dimensions Name=CacheClusterId,Value=my-redis-cluster --start-time 2026-07-30T10:00:00Z --end-time 2026-07-30T11:00:00Z --period 300 --statistics Average"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Cache-Aside Pattern (Lazy Loading)",
+      "icon": "🔄",
+      "body": "Ứng dụng trước tiên kiểm tra dữ liệu trong cache; nếu miss, lấy từ database, lưu vào cache, rồi trả về cho client. Mô hình này đơn giản nhưng có khả năng cache stampede khi nhiều request hit cache miss cùng lúc.",
+      "diagram": "Client → Check Cache?\n  ├─ HIT → Return Data (fast)\n  └─ MISS → Query DB → Save Cache → Return Data (slow)",
+      "exam_tip": "SAA-C03 thường hỏi về cache-aside vs write-through; cache-aside tốt cho read-heavy, write-through tốt cho consistency",
+      "japfa": "jp:prod product inventory sử dụng cache-aside; khi cache miss, lấy từ RDS PostgreSQL"
+    },
+    {
+      "title": "Write-Through Pattern",
+      "icon": "✍️",
+      "body": "Mỗi khi dữ liệu được write, ứng dụng đồng thời ghi vào cache và database. Đảm bảo consistency nhưng latency cao hơn vì phải chờ cả 2 operation. Phù hợp với dữ liệu critical như pricing, regulations.",
+      "diagram": "Write Request\n  ├─ Write to Cache\n  ├─ Write to Database\n  └─ Return Success (both done)",
+      "exam_tip": "Write-through = high consistency, higher latency; phù hợp cho financial/critical data",
+      "japfa": "jp:prod sử dụng write-through cho feed additive (phụ gia) vì consistency là priority"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa jp:prod cần giảm latency từ 500ms xuống <50ms cho product lookup. Sử dụng service nào?",
+      "options": [
+        "ElastiCache Redis với cache-aside pattern",
+        "CloudFront distribution",
+        "RDS read replica ở AZ khác",
+        "S3 accelerated transfer"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "explanation": "ElastiCache Redis lưu dữ liệu trong memory, giảm latency từ database từ 500ms xuống 5-10ms. Cache-aside phù hợp cho read-heavy operations."
+    },
+    {
+      "id": 2,
+      "question": "Khác biệt chính giữa cache-aside và write-through là gì?",
+      "options": [
+        "Cache-aside: app kiểm tra cache trước; write-through: luôn ghi vào cả cache và DB",
+        "Cache-aside: chỉ dùng cho Memcached; write-through: chỉ cho Redis",
+        "Cache-aside: synchronous; write-through: asynchronous",
+        "Không có khác biệt, chỉ là naming khác nhau"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "Cache-aside là lazy loading (miss đọc DB); write-through ghi vào cả cache+DB ngay lập tức để đảm bảo consistency."
+    },
+    {
+      "id": 3,
+      "question": "Japfa jp:prod Redis cache bắt đầu reject các write request. Điều gì có thể đang xảy ra?",
+      "options": [
+        "Bộ nhớ đầy và eviction policy không tìm được item cần xóa",
+        "Network từ app đến cache bị cắt",
+        "Redis node crashed",
+        "CloudWatch alarm triggered"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "Khi ElastiCache eviction policy (LRU/LFU) không thể giải phóng bộ nhớ, Redis reject writes. Cần tăng node size hoặc memory."
+    },
+    {
+      "id": 4,
+      "question": "Để monitor liệu ElastiCache đang hoạt động tốt, Japfa nên kiểm tra metric nào?",
+      "options": [
+        "Cache Hit Rate, Eviction Rate, NetworkBytesIn",
+        "CPUUtilization của EC2 instances",
+        "RDS query latency",
+        "S3 PUT request count"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "Cache Hit Rate (mục tiêu >80%), Eviction Rate (thấp = tốt), NetworkBytesIn là ElastiCache metrics chính trong CloudWatch."
+    },
+    {
+      "id": 5,
+      "question": "Japfa jp:aggregator dùng Memcached cho session data. Tại sao không dùng Redis?",
+      "options": [
+        "Memcached đơn giản hơn, lightweight, session data không cần persistent",
+        "Redis không hỗ trợ session data",
+        "Memcached rẻ hơn, Redis chỉ cho dữ liệu critical",
+        "Memcached có encryption mặc định"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "explanation": "Session data ephemeral (tạm thời), không cần persistence; Memcached simple & fast. Redis phù hợp hơn cho critical/persistent data."
+    }
+  ]
+}

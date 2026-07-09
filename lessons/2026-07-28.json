@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-28",
+  "day": 20,
+  "week": 2,
+  "month": 2,
+  "title": "CloudTrail & Config",
+  "subtitle": "Event History · Compliance · Config Rules · Remediation",
+  "category": "Security",
+  "color": "#A9700A",
+  "emoji": "📋",
+  "vocabulary": [
+    {
+      "word": "audit trail",
+      "ipa": "/ˈɔːdɪt treɪl/",
+      "ipa_guide": "Đọc: AU-dit TRAIL",
+      "type": "danh từ",
+      "meaning": "Bản ghi lịch sử đầy đủ của tất cả hoạt động trong hệ thống để kiểm toán và tuân thủ",
+      "example_en": "CloudTrail maintains an audit trail of all API calls made in your AWS accounts",
+      "example_vi": "CloudTrail giữ audit trail của tất cả API calls trong tài khoản AWS",
+      "usage": "Security · Compliance · Monitoring",
+      "japfa": "jp:cloudtrail account lưu trữ audit trail cho 6 tài khoản khác"
+    },
+    {
+      "word": "compliance",
+      "ipa": "/kəmˈplaɪəns/",
+      "ipa_guide": "Đọc: kum-PLY-uns",
+      "type": "danh từ",
+      "meaning": "Tuân thủ các quy định, tiêu chuẩn và chính sách bảo mật được áp dụng",
+      "example_en": "AWS Config helps ensure compliance with your security policies and regulatory requirements",
+      "example_vi": "AWS Config giúp đảm bảo compliance với chính sách bảo mật",
+      "usage": "Config · Security Hub · Inspector",
+      "japfa": "Japfa phải tuân thủ tiêu chuẩn ISO và quy định tiêu dùng thực phẩm"
+    },
+    {
+      "word": "remediation",
+      "ipa": "/ˌremɪdiˈeɪʃən/",
+      "ipa_guide": "Đọc: rem-uh-dee-AY-shun",
+      "type": "danh từ",
+      "meaning": "Hành động sửa chữa, khôi phục hoặc điều chỉnh cấu hình không tuân thủ tự động",
+      "example_en": "Config Rules can trigger automatic remediation to stop non-compliant EC2 instances",
+      "example_vi": "Config Rules có thể tự động sửa lỗi cấu hình không tuân thủ",
+      "usage": "Config · Systems Manager · Automation",
+      "japfa": "Remediation các SG không đúng quy định trên jp:prod tự động"
+    },
+    {
+      "word": "event history",
+      "ipa": "/ɪˈvent ˈhɪst(ə)ri/",
+      "ipa_guide": "Đọc: ee-VENT HIS-tree",
+      "type": "danh từ",
+      "meaning": "Lịch sử chi tiết các sự kiện API, thay đổi tài nguyên theo thời gian",
+      "example_en": "CloudTrail event history shows who created or deleted that security group at 3:45 PM",
+      "example_vi": "Event history của CloudTrail cho thấy ai xóa security group lúc 3:45 PM",
+      "usage": "CloudTrail · Forensics · Troubleshooting",
+      "japfa": "Kiểm tra event history trên jp:cloudtrail khi có sự cố production"
+    },
+    {
+      "word": "configuration drift",
+      "ipa": "/ˌkɒnfɪɡəˈreɪʃən drɪft/",
+      "ipa_guide": "Đọc: kon-fig-RAY-shun DRIFT",
+      "type": "danh từ",
+      "meaning": "Tình trạng cấu hình thực tế khác với cấu hình kỳ vọng do thay đổi thủ công",
+      "example_en": "AWS Config detects configuration drift when someone manually opens port 22 on a security group",
+      "example_vi": "Config phát hiện drift khi ai đó mở port 22 thủ công trên SG",
+      "usage": "Config · Infrastructure as Code · Compliance",
+      "japfa": "Phát hiện drift trên jp:poc khi engineer thử nghiệm không qua IaC"
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudTrail",
+      "full": "AWS CloudTrail",
+      "category": "monitoring",
+      "icon": "🛤️",
+      "what": "Ghi lại tất cả API calls và hoạt động trong tài khoản AWS, tạo audit trail để kiểm toán và điều tra sự cố.",
+      "when": "Cần lịch sử đầy đủ API, tuân thủ compliance, điều tra sự cố bảo mật, hoặc kiểm tra thay đổi infrastructure",
+      "key_points": [
+        "Ghi lại Management Events (API calls) và Data Events (S3, Lambda)",
+        "CloudTrail logs lưu vào S3 bucket với optional encryption",
+        "Multi-account setup: jp:cloudtrail tập trung logs từ 6 tài khoản khác"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail account là central logging account cho jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:shareservice",
+      "cli": {
+        "task": "Liệt kê tất cả CloudTrail trails đang bật",
+        "command": "aws cloudtrail describe-trails --includeShadowTrails"
+      }
+    },
+    {
+      "name": "Config",
+      "full": "AWS Config",
+      "category": "security",
+      "icon": "⚙️",
+      "what": "Theo dõi cấu hình tài nguyên AWS theo thời gian, đánh giá compliance với Config Rules, và kích hoạt remediation tự động.",
+      "when": "Cần giám sát compliance, phát hiện configuration drift, tạo inventory tài nguyên, hoặc tuân thủ yêu cầu quản trị",
+      "key_points": [
+        "Config Rules kiểm tra: cổng mở, encryption, IAM policies, tags",
+        "Remediation: tự động sửa non-compliant resources qua SSM Documents",
+        "Config Timeline: xem lịch thay đổi chi tiết của mỗi resource"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng Config Rules để đảm bảo EC2 có security groups đúng quy định, jp:poc dùng cho testing policies",
+      "cli": {
+        "task": "Xem danh sách Config Rules đang hoạt động",
+        "command": "aws configservice describe-config-rules"
+      }
+    },
+    {
+      "name": "Systems Manager",
+      "full": "AWS Systems Manager",
+      "category": "security",
+      "icon": "🔧",
+      "what": "Dịch vụ quản lý hoạt động hệ thống: patch, document, automation, session manager, và remediation cho Config non-compliance.",
+      "when": "Cần patch OS, chạy commands trên EC2/on-premises, tự động khôi phục compliance, hoặc truy cập secure shell không SSH key",
+      "key_points": [
+        "Systems Manager Documents chứa remediation logic cho Config Rules",
+        "Session Manager: SSH/RDP không cần key, audit đầy đủ qua CloudTrail",
+        "Automation Documents: workflow tự động sửa infrastructure"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa sử dụng SSM Patch Manager cho jp:prod EC2 instances, Session Manager thay cho VPN key-based access",
+      "cli": {
+        "task": "Liệt kê tất cả SSM Documents loại Automation",
+        "command": "aws ssm describe-document --filters Key=DocumentType,Value=Automation"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "CloudTrail Event Flow & Central Logging",
+      "icon": "🔄",
+      "body": "Khi bất kỳ hoạt động API xảy ra trên jp:prod, jp:uat, v.v., CloudTrail ghi sự kiện đó vào file JSON và gửi đến S3 bucket của jp:cloudtrail account. Từ đó, có thể truy vết ai đã thay đổi gì, khi nào, từ đâu để kiểm toán bảo mật.",
+      "diagram": "jp:prod EC2 launch\n        |\n        v\n  CloudTrail Agent\n        |\n        v\n  jp:cloudtrail S3\n        |\n        v\n  CloudTrail Logs JSON\n  {user, action, time, IP}",
+      "exam_tip": "SAA-C03 thường hỏi: multi-account CloudTrail setup, CloudTrail logs location, event history retention. Nhớ: CloudTrail account khác với application account.",
+      "japfa": "jp:cloudtrail là account trung tâm, jp:prod/uat/poc gửi logs về đây. Khi điều tra sự cố, check jp:cloudtrail S3 bucket trước"
+    },
+    {
+      "title": "Config Rules & Automatic Remediation Loop",
+      "icon": "🔁",
+      "body": "AWS Config Rules liên tục kiểm tra cấu hình tài nguyên (ví dụ: kiểm tra security group có mở port 22 không). Nếu non-compliant, Config gọi Systems Manager Document tự động sửa (remediation). Cả quá trình được log trong CloudTrail.",
+      "diagram": "Resource Change\n     |\n     v\nConfig Rule Check\n     |\n   (fail?)\n     |\n     v\nSSM Remediation Doc\n     |\n     v\nAuto-fix Resource\n     |\n     v\nCloudTrail Log",
+      "exam_tip": "SAA-C03 hỏi: Config Rules target, remediation trigger, non-compliant resource detection. Nhớ: Config Rules evaluate, SSM Documents execute remediation.",
+      "japfa": "jp:prod Config Rule kiểm tra EC2 security groups mỗi giờ. Nếu ai mở port 22 thủ công (drift), SSM Document tự động đóng lại trong vòng 5 phút"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa muốn ghi lại tất cả API calls trên 7 AWS accounts (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice) vào một S3 bucket tập trung. Cách tốt nhất là gì?",
+      "options": [
+        "Bật CloudTrail trên mỗi account, logs gửi vào S3 bucket của từng account",
+        "Bật CloudTrail trên jp:cloudtrail account với organization trail, logs gửi vào S3 bucket của jp:cloudtrail",
+        "Sử dụng CloudWatch để tập trung logs từ tất cả account",
+        "Không cần CloudTrail, dùng Config là đủ"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "Organization trail trên jp:cloudtrail account tự động nhận logs từ member accounts, gửi vào S3 tập trung. Đây là best practice cho multi-account setup."
+    },
+    {
+      "id": 2,
+      "question": "Một engineer ở Japfa mở port 22 trên security group của jp:prod EC2 instance thủ công qua AWS Console (không qua Terraform). AWS Config sẽ phát hiện lỗi này trong bao lâu?",
+      "options": [
+        "Ngay lập tức (1-2 phút)",
+        "Sau 15 phút (evaluation cycle mặc định)",
+        "Sau 1 giờ",
+        "Không phát hiện, vì thay đổi thủ công"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "explanation": "Config Rules evaluate theo schedule mặc định mỗi 15 phút hoặc trigger bằng ConfigurationItemChangeNotification ngay khi resource change."
+    },
+    {
+      "id": 3,
+      "question": "Config Rule non-compliant được phát hiện lúc 3:00 PM trên jp:prod. Automatic remediation SSM Document đã sửa xong lúc 3:05 PM. Làm cách nào để kiểm tra ai/cái gì đã kích hoạt remediation?",
+      "options": [
+        "Xem Config Timeline để xem remediation history",
+        "Xem CloudTrail logs trên jp:cloudtrail account, filter event source là 'ssm.amazonaws.com'",
+        "Xem Systems Manager Automation history",
+        "Cả B và C đều đúng"
+      ],
+      "answer": 3,
+      "difficulty": "hard",
+      "explanation": "CloudTrail ghi SSM Automation invocation, Systems Manager ghi execution details. Cả hai cần check để có full picture."
+    },
+    {
+      "id": 4,
+      "question": "Japfa sử dụng CloudTrail logs lưu trên S3 bucket của jp:cloudtrail account. Để đảm bảo không ai xóa logs (kể cả admin), nên bật gì?",
+      "options": [
+        "S3 versioning chỉ",
+        "S3 Object Lock với COMPLIANCE mode",
+        "IAM policy deny DeleteObject",
+        "CloudTrail log file validation"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "explanation": "S3 Object Lock COMPLIANCE mode ngăn chặn xóa vĩnh viễn, thậm chí root user cũng không thể xóa được. Best practice cho audit trails."
+    },
+    {
+      "id": 5,
+      "question": "CloudTrail ghi Management Events hay Data Events khi engineer upload file lên S3 bucket?",
+      "options": [
+        "Chỉ Management Events (PutObject API call)",
+        "Chỉ Data Events (S3 object operations)",
+        "Cả Management Events và Data Events",
+        "Không ghi sự kiện nào"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "explanation": "Management Events ghi PutObject API call; Data Events ghi chi tiết S3 object operations. Cần enable cả hai để audit S3 hoạt động đầy đủ."
+    }
+  ]
+}
