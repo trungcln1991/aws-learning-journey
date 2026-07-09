@@ -989,7 +989,7 @@ function renderExamQuestion() {
       <div style="border:2px solid var(--ink);border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 rgba(22,19,13,.1)">
         <div style="background:var(--ink);color:var(--paper);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;font-family:monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">
           <span style="background:var(--red);padding:3px 10px;border-radius:999px">Câu ${current+1}/${total}</span>
-          <span style="opacity:.6">Đã trả lời: ${answeredCount}/${total}</span>
+          <span style="opacity:.6" id="exam-answered-count">Đã trả lời: ${answeredCount}/${total}</span>
         </div>
         <div style="padding:18px 16px;background:var(--paper)">
           <div style="font-size:.98rem;font-weight:700;line-height:1.55;margin-bottom:14px;white-space:pre-line">${q.question}</div>
@@ -1008,7 +1008,7 @@ function renderExamQuestion() {
               : `<button onclick="confirmFinishExam()" style="flex:1;padding:12px;border-radius:8px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:700;cursor:pointer">📝 Nộp bài</button>`
             }
           </div>
-          ${current + 1 === total ? '' : `<button onclick="confirmFinishExam()" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:var(--muted);font-size:.78rem;font-family:monospace;cursor:pointer;text-decoration:underline">Nộp bài sớm (còn ${total - answeredCount} câu chưa trả lời)</button>`}
+          ${current + 1 === total ? '' : `<button onclick="confirmFinishExam()" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:var(--muted);font-size:.78rem;font-family:monospace;cursor:pointer;text-decoration:underline"><span id="exam-remaining-count">Nộp bài sớm (còn ${total - answeredCount} câu chưa trả lời)</span></button>`}
           <div id="exam-confirm-box" style="display:none;margin-top:12px;padding:12px;background:rgba(195,45,26,.06);border-radius:8px;border:2px solid var(--red)">
             <div class="ecb-text" style="font-size:.85rem;font-weight:700;margin-bottom:10px"></div>
             <div style="display:flex;gap:8px">
@@ -1023,8 +1023,18 @@ function renderExamQuestion() {
 }
 
 window.examSelectOpt = function(idx) {
+  const wasUnanswered = quizState.examAnswers[quizState.current] === null;
   quizState.examAnswers[quizState.current] = idx;
   document.querySelectorAll('#exam-opts .quiz-option').forEach((el, i) => el.classList.toggle('selected', i === idx));
+
+  if (wasUnanswered) {
+    const total = quizState.questions.length;
+    const answeredCount = quizState.examAnswers.filter(a => a !== null).length;
+    const countEl = document.getElementById('exam-answered-count');
+    if (countEl) countEl.textContent = `Đã trả lời: ${answeredCount}/${total}`;
+    const remainEl = document.getElementById('exam-remaining-count');
+    if (remainEl) remainEl.textContent = `Nộp bài sớm (còn ${total - answeredCount} câu chưa trả lời)`;
+  }
 };
 
 window.examNav = function(delta) {
