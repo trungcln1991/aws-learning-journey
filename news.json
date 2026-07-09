@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T04:21:13.941Z",
+  "generated_at": "2026-07-09T05:00:08.336Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,58 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Builder Center Now Offers Free Sandbox Environments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-builder-center-sandbox/",
+      "date": "2026-07-08T22:45:00.000Z",
+      "description": "AWS Builder Center now lets builders request free, time-limited sandbox environments directly from eligible workshops, eliminating the need for a personal AWS account, credit card, or concerns about unexpected charges. Previously, workshops could only be completed using a builder's own AWS account. With sandbox environments, builders of all skill levels can safely deploy resources, write code, and",
+      "tags": []
+    },
+    {
+      "title": "AWS Security Hub now offers Network Scanning to identify publicly reachable resources",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-hub-network-scanning/",
+      "date": "2026-07-08T21:00:00.000Z",
+      "description": "Today, AWS Security Hub introduces Network Scanning, a capability that identifies resources in your environment that are reachable from the public internet. Network Scanning probes your resources from the internet to detect actual reachability, not just what could be reachable based on security group rules and route tables. It discovers public IP addresses, virtual machines, and load balancers acr",
+      "tags": [
+        "ALB",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon Redshift RG instances now available on the trailing track",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-graviton-rg-instances-trailing-track",
+      "date": "2026-07-08T18:12:00.000Z",
+      "description": "Amazon Redshift now supports Graviton-based RG instances on the trailing track . Starting July 7, 2026, rg.4xlarge and rg.xlarge instance types are available for customers running workloads on the trailing track (P201). The trailing track is designed for customers who prioritize stability for production workloads, running on a version already validated through the leading track. With RG instances ",
+      "tags": [
+        "EC2",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "Amazon Aurora DSQL change data capture (CDC) Is now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-cdc-ga/",
+      "date": "2026-07-08T18:00:00.000Z",
+      "description": "Amazon Aurora DSQL change data capture (CDC) is now generally available, enabling you to stream real-time database changes to Amazon Kinesis Data Streams for event-driven architectures and data integration workflows. Aurora DSQL CDC automatically captures the results of insert, update, and delete operations as change events and delivers them to Kinesis Data Streams with no infrastructure to manage",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now supports forecasting, planning, and scheduling for Tasks and Emails",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect-customer-agent-scheduling-tasks/",
+      "date": "2026-07-08T17:00:00.000Z",
+      "description": "Amazon Connect Customer now supports forecasting, capacity planning, and scheduling for Tasks and Emails, enabling you to plan and optimize your workforce across all workloads (Voice, Chat, Tasks, Emails). Connect Customer accounts for the unique characteristics of each channel, including concurrent work handling, duration of work from minutes to months, and distinct service level requirements, so",
+      "tags": []
+    },
+    {
+      "title": "Amazon EC2 High Memory U7i instances now available in AWS Europe (Zurich) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-u7i-aws-europe-zurich/",
+      "date": "2026-07-07T23:30:00.000Z",
+      "description": "Amazon EC2 High Memory U7i instances with 12TB of memory (u7i-12tb.224xlarge) are now available in the AWS Europe (Zurich) region. U7i instances are part of AWS 7th generation and are powered by custom fourth generation Intel Xeon Scalable Processors (Sapphire Rapids). U7i-12tb instances offer 12TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing dat",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "Amazon GameLift Streams introduces secure terminal access for stream sessions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-terminal-access/",
@@ -129,6 +181,15 @@
       ]
     },
     {
+      "title": "AWS Systems Manager simplifies Azure VM management and hybrid node pricing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-systems-manager-multicloud-vm/",
+      "date": "2026-07-07T08:00:00.000Z",
+      "description": "You can now connect and manage Azure Virtual Machines in AWS Systems Manager without manual agent installation or per-instance tier fees. Create a Cloud Connector and automatically deploy the SSM Agent to your Azure VMs at scale. Once connected, Azure VMs appear alongside EC2 instances in a unified view, and you can connect to them using Session Manager, run Automation runbooks, Run Command, State",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
       "title": "Amazon SageMaker Unified Studio now supports importing existing MWAA environments",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-import-existing-mwaa-environments/",
       "date": "2026-07-07T02:00:00.000Z",
@@ -189,66 +250,6 @@
       "tags": [
         "EC2",
         "VPC"
-      ]
-    },
-    {
-      "title": "AWS Certificate Manager now supports the ACME protocol for public certificates",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-certificate-manager-acme/",
-      "date": "2026-07-06T15:00:00.000Z",
-      "description": "AWS Certificate Manager (ACM) now allows you to provision a fully managed ACME server endpoint that issues public TLS certificates with a 45 day validity from Amazon Trust Services using any ACMEv2-compatible client, including Certbot, cert-manager for Kubernetes, and acme.sh. With the CA/Browser Forum mandating 47-day certificate lifetimes by 2029, manual management of public certificates becomes",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "CloudWatch Application Signals now automatically captures errors, performance anomalies, and deployment events",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/cloudwatch-service-events/",
-      "date": "2026-07-06T15:00:00.000Z",
-      "description": "Today, AWS announces Service Events for Amazon CloudWatch Application Signals, which automatically captures exception and latency event snapshots, function-level performance data, and deployment events from instrumented services without additional code changes. Customers can now quickly identify whether a deployment has introduced new exceptions by navigating to CloudWatch &gt; Application Signals",
-      "tags": [
-        "Lambda",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS CodePipeline now available in Asia Pacific (New Zealand) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-codepipeline-new-zealand/",
-      "date": "2026-07-06T09:00:00.000Z",
-      "description": "Starting today, AWS CodePipeline is now available in Asia Pacific (New Zealand) Region (ap-southeast-6). AWS CodePipeline is a continuous delivery service that enables you to model, visualize, and automate the steps required to release your software. With CodePipeline, you model the full release process for building your code, deploying to pre-production environments, testing your application and ",
-      "tags": []
-    },
-    {
-      "title": "AWS Secrets Manager adds managed external secrets support for Paddle and GitLab",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/secrets-manager-managed-external-secrets-paddle-gitlab/",
-      "date": "2026-07-06T07:00:00.000Z",
-      "description": "AWS Secrets Manager now extends its managed external secrets capability to include Paddle API Keys and GitLab Access Tokens. Managed external secrets enable customers to automatically rotate third-party credentials directly from AWS Secrets Manager by offering first-class integration with supported third-party services. With this launch, you can manage rotation for Paddle API keys using Paddle's n",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio now supports Terraform for provisioning",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-terraform/",
-      "date": "2026-07-02T21:49:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports Terraform for provisioning. Customers can use the open-source terraform-aws-sagemaker-unified-studio module to deploy a SageMaker Unified Studio domain through version-controlled templates. With this launch, platform teams can bring SageMaker Unified Studio into their existing infrastructure-as-code pipelines, maintaining consistency across development,",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EC2 X8i instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-ec2-x8i-instances-ICN-KUL-NRT-region/",
-      "date": "2026-07-02T20:48:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the Asia Pacific (Seoul), Asia Pacific (Malaysia) and Asia Pacific (Tokyo) regions. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the clou",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 Dedicated Hosts now support AMD SEV-SNP",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-amd-sev-snp-dedicated-hosts",
-      "date": "2026-07-02T17:00:00.000Z",
-      "description": "Amazon EC2 is announcing support for AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) on Dedicated Hosts, enabling customers to run their confidential computing workloads on physical servers fully dedicated to their use. Customers can allocate a Dedicated Host with SEV-SNP enabled and launch SEV-SNP instances on it. This gives customers the benefits of Dedicated Hosts for confide",
-      "tags": [
-        "EC2"
       ]
     }
   ],
