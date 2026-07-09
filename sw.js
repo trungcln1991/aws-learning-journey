@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aws-learn-v8';
+const CACHE_NAME = 'aws-learn-v9';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -12,12 +12,10 @@ const STATIC_ASSETS = [
   './js/lesson.js',
   './js/quiz.js',
   './js/auth.js',
-  './js/srs.js',
   './news.html',
   './manifest.json',
   './icons/icon-192.svg',
   './icons/icon-512.svg',
-  './lessons/meta.json',
 ];
 
 // Install: cache static assets
@@ -56,8 +54,10 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Lesson JSON: network-first (data may update), fall back to cache
-  if (url.pathname.includes('/lessons/') && url.pathname.endsWith('.json') && !url.pathname.includes('meta')) {
+  // Lesson JSON (kể cả meta.json): network-first (data may update), fall back to cache.
+  // meta.json TỪNG bị coi là static (cache-first) → bài mới sinh ra không hiện trên PWA đã
+  // cài cho tới khi CACHE_NAME được bump thủ công. Giờ luôn ưu tiên mạng như các lesson khác.
+  if (url.pathname.includes('/lessons/') && url.pathname.endsWith('.json')) {
     event.respondWith(
       fetch(event.request)
         .then(res => {

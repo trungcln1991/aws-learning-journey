@@ -5,8 +5,17 @@ const SRS_KEY = 'aws_srs_v1';
 
 function getProgress() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } }
 function saveProgress(p) { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
-function getSRS() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } }
-function saveSRS(d) { localStorage.setItem(SRS_KEY, JSON.stringify(d)); }
+function getStore(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; } }
+function saveStore(key, d) { localStorage.setItem(key, JSON.stringify(d)); }
+function getSRS() { return getStore(SRS_KEY); }
+function saveSRS(d) { saveStore(SRS_KEY, d); }
+const QUIZ_SRS_KEY = 'aws_quiz_srs_v1';
+function getQuizSRS() { return getStore(QUIZ_SRS_KEY); }
+function quizCardId(lessonDate, qid) { return `${lessonDate}__q${qid}`; }
+function getQuizSRSDue() {
+  const db = getQuizSRS(); const today = todayStr();
+  return Object.entries(db).filter(([, c]) => c.due <= today).map(([id, c]) => ({ id, ...c }));
+}
 // Local calendar date (khớp với main.js/lesson.js) — KHÔNG dùng toISOString()
 // vì đó là giờ UTC, lệch với giờ VN đặc biệt trong khung 00:00-06:59
 function todayStr() {
@@ -42,10 +51,11 @@ document.addEventListener('click', e => {
   speak(btn.dataset.speak, parseFloat(btn.dataset.rate || '1'), btn);
 });
 function escAttr(s) { return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+function escHtml(s) { return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-// ===== SM-2 SPACED REPETITION =====
-function sm2Update(cardId, quality) {
-  const db = getSRS();
+// ===== SM-2 SPACED REPETITION (dùng chung cho vocab SRS_KEY và câu hỏi AWS QUIZ_SRS_KEY) =====
+function sm2Update(cardId, quality, storeKey = SRS_KEY) {
+  const db = getStore(storeKey);
   const card = db[cardId] || { ef: 2.5, interval: 0, reps: 0, due: todayStr(), totalReviews: 0, correct: 0 };
   card.totalReviews = (card.totalReviews || 0) + 1;
   if (quality >= 3) {
@@ -61,7 +71,7 @@ function sm2Update(cardId, quality) {
   card.due = addDaysStr(todayStr(), card.interval);
   card.lastReviewed = todayStr();
   db[cardId] = card;
-  saveSRS(db);
+  saveStore(storeKey, db);
   return card;
 }
 
@@ -223,7 +233,7 @@ function genWordMeaning(vocab, pool) {
   const options = shuffle([meaning, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Từ vựng',
-    word: vocab.word, example: vocab.example_en,
+    word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
     question: `"${vocab.word}" có nghĩa là gì?`,
     sub: `Phát âm: ${vocab.ipa} · ${vocab.type}`,
     options,
@@ -238,7 +248,7 @@ function genIpaWord(vocab, pool) {
   const options = shuffle([vocab.word, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Phát âm IPA',
-    word: vocab.word, example: vocab.example_en,
+    word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
     question: `Từ có phát âm ${vocab.ipa} là từ nào?`,
     sub: `Gợi ý cách đọc: ${vocab.ipa_guide}`,
     options,
@@ -259,7 +269,7 @@ function genFillBlank(vocab, pool) {
     const options = shuffle([vocab.word, ...distractors]);
     return {
       qtype: 'english', badge: '🇺🇸 Điền từ',
-      word: vocab.word, example: vocab.example_en,
+      word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
       question: `Từ tiếng Anh nào có nghĩa là: "${vocab.meaning}"?`,
       sub: `Loại từ: ${vocab.type} · Dùng trong: ${vocab.usage}`,
       options,
@@ -271,7 +281,7 @@ function genFillBlank(vocab, pool) {
   const options = shuffle([vocab.word, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Điền từ',
-    word: vocab.word, example: vocab.example_en,
+    word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
     question: `Điền vào chỗ trống:\n"${blanked}"`,
     sub: `Gợi ý: ${vocab.type} · Dùng trong: ${vocab.usage}`,
     options,
@@ -288,7 +298,7 @@ function genWordType(vocab, pool) {
   const options = shuffle([correct, ...distractors]);
   return {
     qtype: 'english', badge: '🇺🇸 Phân loại từ',
-    word: vocab.word, example: vocab.example_en,
+    word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
     question: `"${vocab.word}" thuộc loại từ nào trong tiếng Anh?`,
     sub: `${vocab.ipa} · "${vocab.example_en.slice(0,60)}..."`,
     options,
@@ -304,7 +314,7 @@ function genContext(vocab, pool) {
   const ctx = vocab.japfa || vocab.usage;
   return {
     qtype: 'english', badge: '🇺🇸 Ngữ cảnh',
-    word: vocab.word, example: vocab.example_en,
+    word: vocab.word, example: vocab.example_en, vocabWord: vocab.word, lessonDate: vocab.lessonDate,
     question: `Trong ngữ cảnh:\n"${ctx}"\n\nTừ tiếng Anh phù hợp nhất là?`,
     sub: `Gợi ý loại từ: ${vocab.type}`,
     options,
@@ -403,7 +413,7 @@ function generateActiveRecallQuestions(lessons, enCount = 6, cliCount = 4) {
 }
 
 function generateEnglishQuestions(lessons, count = 6) {
-  const allVocab = lessons.flatMap(l => l.vocabulary || []);
+  const allVocab = lessons.flatMap(l => (l.vocabulary || []).map(v => ({ ...v, lessonDate: l.date })));
   if (!allVocab.length) return [];
   const types = [genWordMeaning, genIpaWord, genFillBlank, genWordType, genContext];
   const questions = [];
@@ -419,7 +429,7 @@ function generateEnglishQuestions(lessons, count = 6) {
 
 function generateAwsQuestions(lessons, count = 9) {
   const allQ = lessons.flatMap(l =>
-    (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '☁️ AWS', lessonTitle: l.title }))
+    (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '☁️ AWS', lessonTitle: l.title, lessonDate: l.date }))
   );
   return shuffle(allQ).slice(0, count);
 }
@@ -428,7 +438,7 @@ function generateAwsQuestions(lessons, count = 9) {
 const MOCK_EXAM_TARGETS = { secure: 20, resilient: 17, performant: 16, cost: 12 };
 function generateMockExamQuestions(lessons) {
   const allQ = lessons.flatMap(l =>
-    (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '📝 Mock Exam', lessonTitle: l.title }))
+    (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '📝 Mock Exam', lessonTitle: l.title, lessonDate: l.date }))
   );
   const picked = [];
   for (const [domain, target] of Object.entries(MOCK_EXAM_TARGETS)) {
@@ -442,7 +452,7 @@ function generateMockExamQuestions(lessons) {
 const MODES = {
   srs: {
     id: 'srs', icon: '🧠', label: 'Ôn SRS',
-    desc: 'Từ vựng sắp quên — ôn đúng lịch SM-2', color: '#6B3E99',
+    desc: 'Từ vựng + câu AWS sắp quên — ôn đúng lịch SM-2', color: '#6B3E99',
     enCount: 0, awsCount: 0, time: '~3 phút', srsMode: true,
     rule: 'Quy tắc #4: Spaced Repetition — não nhớ 10× lâu hơn'
   },
@@ -503,9 +513,11 @@ let quizState = {};
 
 function renderModeSelect(hasLessons) {
   const app = document.getElementById('quiz-app');
-  const srsDue = getSRSDue().length;
   const db = getSRS();
-  const srsTotal = Object.keys(db).length;
+  const quizDb = getQuizSRS();
+  const srsDue = getSRSDue().length + getQuizSRSDue().length;
+  const srsTotal = Object.keys(db).length + Object.keys(quizDb).length;
+  const srsMature = Object.values(db).filter(c => c.interval >= 21).length + Object.values(quizDb).filter(c => c.interval >= 21).length;
 
   app.innerHTML = `
     <div style="padding:16px 16px 8px">
@@ -537,8 +549,8 @@ function renderModeSelect(hasLessons) {
     <div style="margin:0 16px 12px;padding:12px 14px;border-radius:10px;border:2px solid ${srsDue>0?'var(--red)':'var(--green)'};background:${srsDue>0?'rgba(195,45,26,.06)':'rgba(28,122,71,.06)'};display:flex;align-items:center;gap:10px">
       <span style="font-size:1.6rem">${srsDue>0?'⏰':'✅'}</span>
       <div style="flex:1">
-        <div style="font-weight:700;font-size:.9rem">${srsDue>0?`${srsDue} từ cần ôn hôm nay!`:'Đã ôn đủ hôm nay 🎉'}</div>
-        <div style="font-size:.75rem;color:var(--muted);font-family:monospace">${srsTotal} từ trong SRS · ${Object.values(db).filter(c=>c.interval>=21).length} từ mature</div>
+        <div style="font-weight:700;font-size:.9rem">${srsDue>0?`${srsDue} mục cần ôn hôm nay!`:'Đã ôn đủ hôm nay 🎉'}</div>
+        <div style="font-size:.75rem;color:var(--muted);font-family:monospace">${srsTotal} mục trong SRS (từ vựng + câu AWS) · ${srsMature} mục mature</div>
       </div>
       ${srsDue>0?`<button onclick="startQuiz('srs')" style="padding:8px 14px;background:var(--red);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;white-space:nowrap">Ôn ngay →</button>`:''}
     </div>` : ''}
@@ -549,7 +561,7 @@ function renderModeSelect(hasLessons) {
           <span class="mc-icon">${m.icon}</span>
           <div class="mc-info">
             <div class="mc-label">${m.label}${m.id==='srs'&&srsDue>0?` <span style="background:var(--red);color:#fff;font-size:.65rem;padding:2px 7px;border-radius:999px;font-family:monospace;font-weight:700;margin-left:4px">${srsDue} DUE</span>`:''}</div>
-            <div class="mc-desc">${m.id==='srs'?(srsDue>0?`${srsDue} từ cần ôn hôm nay theo lịch SM-2`:'Không có từ nào due hôm nay — học bài mới nhé!'):m.desc}</div>
+            <div class="mc-desc">${m.id==='srs'?(srsDue>0?`${srsDue} mục cần ôn hôm nay theo lịch SM-2 (từ vựng + câu AWS)`:'Không có mục nào due hôm nay — học bài mới nhé!'):m.desc}</div>
           </div>
           <span class="mc-time">${m.time}</span>
         </div>
@@ -588,11 +600,12 @@ async function startQuiz(modeId) {
   // SRS mode: generate questions only for due cards
   if (mode.srsMode) {
     const due = getSRSDue();
-    if (!due.length) {
+    const dueQuiz = getQuizSRSDue();
+    if (!due.length && !dueQuiz.length) {
       app.innerHTML = `<div style="padding:32px 16px;text-align:center">
         <div style="font-size:3rem;margin-bottom:12px">✅</div>
         <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Đã ôn đủ hôm nay!</div>
-        <div style="font-size:.9rem;color:var(--muted);margin-bottom:20px">Không có từ nào cần ôn. SRS đang hoạt động tốt.</div>
+        <div style="font-size:.9rem;color:var(--muted);margin-bottom:20px">Không có từ/câu nào cần ôn. SRS đang hoạt động tốt.</div>
         <button onclick="renderModeSelect(true)" style="padding:12px 24px;background:var(--ink);color:var(--paper);border:none;border-radius:8px;font-weight:700;cursor:pointer">← Chọn chế độ khác</button>
       </div>`;
       return;
@@ -604,12 +617,24 @@ async function startQuiz(modeId) {
       return allVocab.find(v => v.word === word && v.lessonDate === date);
     }).filter(Boolean);
 
-    const questions = dueVocab.flatMap(v => {
+    const vocabQuestions = dueVocab.flatMap(v => {
       const pool = allVocab.filter(av => av.word !== v.word);
       const fns = [genWordMeaning, genIpaWord, genFillBlank];
       const fn = fns[Math.floor(Math.random() * fns.length)];
       try { return [fn(v, pool)]; } catch { return [genWordMeaning(v, pool)]; }
     });
+
+    // Find AWS quiz question objects for due cards (id format: "<lessonDate>__q<qid>")
+    const allAwsQ = lessons.flatMap(l =>
+      (l.quiz || []).map(q => ({ ...q, qtype: 'aws', badge: '☁️ AWS · Ôn SRS', lessonTitle: l.title, lessonDate: l.date }))
+    );
+    const dueQuizQuestions = dueQuiz.map(d => {
+      const sep = d.id.indexOf('__q');
+      const date = d.id.slice(0, sep), qid = d.id.slice(sep + 3);
+      return allAwsQ.find(q => q.lessonDate === date && String(q.id) === qid);
+    }).filter(Boolean);
+
+    const questions = shuffle([...vocabQuestions, ...dueQuizQuestions]);
     quizState = { mode, questions, current: 0, selected: null, submitted: false, scores: [], enScores: [], awsScores: [], srsCards: dueVocab.map(v => srsCardId(v.word, v.lessonDate)) };
     renderQuestion();
     return;
@@ -714,6 +739,7 @@ function renderQuestion() {
               </li>
             `).join('')}
           </ul>
+          ${!isEn ? `<textarea id="elab-input" placeholder="✍️ Vì sao bạn chọn đáp án này? (tuỳ chọn — tự giải thích giúp nhớ sâu hơn, Quy tắc #6)" style="width:100%;box-sizing:border-box;margin-top:8px;padding:10px;border-radius:8px;border:2px solid var(--line-strong);font-family:inherit;font-size:.82rem;min-height:46px;resize:vertical"></textarea>` : ''}
           `}
           <div class="quiz-explanation" id="q-exp"></div>
           <div style="display:flex;gap:8px;margin-top:14px">
@@ -772,6 +798,7 @@ window.checkAnswer = function() {
   } else {
     quizState.awsScores.push(correct ? 1 : 0);
     trackDomain(q.domain, correct);
+    if (q.id != null && q.lessonDate) sm2Update(quizCardId(q.lessonDate, q.id), correct ? 4 : 1, QUIZ_SRS_KEY);
   }
   quizState.scores.push(correct ? 1 : 0);
 
@@ -782,9 +809,14 @@ window.checkAnswer = function() {
   });
 
   const exp = document.getElementById('q-exp');
-  exp.textContent = q.explanation;
+  const elabInput = document.getElementById('elab-input');
+  const elabText = elabInput?.value.trim();
+  exp.innerHTML = elabText
+    ? `<div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line)"><div style="font-family:monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Lý do của bạn</div>${escHtml(elabText)}</div><div style="font-family:monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Giải thích đúng</div>${escHtml(q.explanation)}`
+    : escHtml(q.explanation);
   exp.classList.add('show');
   if (!correct) exp.classList.add('wrong-exp');
+  if (elabInput) elabInput.disabled = true;
 
   document.getElementById('btn-check').style.display = 'none';
   document.getElementById('btn-next').style.display = 'block';
@@ -1061,6 +1093,7 @@ function finishExam() {
     const isCorrect = examAnswers[i] === q.answer;
     if (isCorrect) correct++;
     trackDomain(q.domain, isCorrect);
+    if (q.id != null && q.lessonDate) sm2Update(quizCardId(q.lessonDate, q.id), isCorrect ? 4 : 1, QUIZ_SRS_KEY);
     if (domainScore[q.domain]) {
       domainScore[q.domain][1]++;
       if (isCorrect) domainScore[q.domain][0]++;

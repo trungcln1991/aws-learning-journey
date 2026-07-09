@@ -17,12 +17,14 @@ function getTodayStr() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
-// ===== SRS DUE COUNT (đọc chung key 'aws_srs_v1' với quiz.js) =====
+// ===== SRS DUE COUNT (đọc chung key 'aws_srs_v1' + 'aws_quiz_srs_v1' với quiz.js) =====
 function getSRSDueCount() {
   try {
-    const db = JSON.parse(localStorage.getItem('aws_srs_v1')) || {};
     const today = getTodayStr();
-    return Object.values(db).filter(c => c.due <= today).length;
+    const vocabDb = JSON.parse(localStorage.getItem('aws_srs_v1')) || {};
+    const quizDb = JSON.parse(localStorage.getItem('aws_quiz_srs_v1')) || {};
+    return Object.values(vocabDb).filter(c => c.due <= today).length
+         + Object.values(quizDb).filter(c => c.due <= today).length;
   } catch { return 0; }
 }
 
@@ -36,6 +38,33 @@ function trackDomain(domain, correct) {
     if (correct) stats[domain].correct++;
     localStorage.setItem('aws_domain_stats_v1', JSON.stringify(stats));
   } catch {}
+}
+
+// ===== SM-2 cho câu hỏi AWS (đọc chung key 'aws_quiz_srs_v1' với quiz.js) =====
+const QUIZ_SRS_KEY = 'aws_quiz_srs_v1';
+function quizCardId(lessonDate, qid) { return `${lessonDate}__q${qid}`; }
+function sm2UpdateQuiz(cardId, quality) {
+  let db; try { db = JSON.parse(localStorage.getItem(QUIZ_SRS_KEY)) || {}; } catch { db = {}; }
+  const today = getTodayStr();
+  const card = db[cardId] || { ef: 2.5, interval: 0, reps: 0, due: today, totalReviews: 0, correct: 0 };
+  card.totalReviews = (card.totalReviews || 0) + 1;
+  if (quality >= 3) {
+    card.correct = (card.correct || 0) + 1;
+    if (card.reps === 0) card.interval = 1;
+    else if (card.reps === 1) card.interval = 6;
+    else card.interval = Math.round(card.interval * card.ef);
+    card.ef = Math.max(1.3, card.ef + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+    card.reps++;
+  } else {
+    card.reps = 0; card.interval = 1;
+  }
+  const [y, m, d] = today.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + card.interval);
+  card.due = `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, '0')}-${String(dt.getUTCDate()).padStart(2, '0')}`;
+  card.lastReviewed = today;
+  db[cardId] = card;
+  localStorage.setItem(QUIZ_SRS_KEY, JSON.stringify(db));
 }
 
 // ===== WEB SPEECH TTS =====
@@ -182,6 +211,8 @@ function renderCurrentQuestion() {
 
   document.getElementById('quiz-explanation').classList.remove('show', 'wrong-exp');
   document.getElementById('quiz-explanation').textContent = '';
+  const elabInput = document.getElementById('elab-input');
+  if (elabInput) { elabInput.value = ''; elabInput.disabled = false; }
   const btnCheck = document.getElementById('btn-check');
   const btnNext = document.getElementById('btn-next');
   btnCheck.disabled = true;
@@ -199,6 +230,7 @@ function submitAnswer() {
   const correct = quizState.selected === q.answer;
   quizState.scores.push(correct ? 1 : 0);
   trackDomain(q.domain, correct);
+  if (q.id != null && q.lessonDate) sm2UpdateQuiz(quizCardId(q.lessonDate, q.id), correct ? 4 : 1);
 
   const opts = document.querySelectorAll('.quiz-option');
   opts.forEach((el, i) => {
@@ -209,9 +241,15 @@ function submitAnswer() {
   });
 
   const exp = document.getElementById('quiz-explanation');
-  exp.textContent = q.explanation;
+  const elabInput = document.getElementById('elab-input');
+  const elabText = elabInput?.value.trim();
+  const escHtml = s => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  exp.innerHTML = elabText
+    ? `<div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line)"><div style="font-family:monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Lý do của bạn</div>${escHtml(elabText)}</div><div style="font-family:monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Giải thích đúng</div>${escHtml(q.explanation)}`
+    : escHtml(q.explanation);
   exp.classList.add('show');
   if (!correct) exp.classList.add('wrong-exp');
+  if (elabInput) elabInput.disabled = true;
 
   document.getElementById('btn-check').style.display = 'none';
   document.getElementById('btn-next').classList.add('show');
@@ -286,6 +324,7 @@ function startQuiz(questions) {
         <div class="quiz-q-body">
           <div class="quiz-question" id="q-question"></div>
           <ul class="quiz-options" id="q-options"></ul>
+          <textarea id="elab-input" placeholder="✍️ Vì sao bạn chọn đáp án này? (tuỳ chọn — tự giải thích giúp nhớ sâu hơn, Quy tắc #6)" style="width:100%;box-sizing:border-box;margin-top:8px;padding:10px;border-radius:8px;border:2px solid var(--line-strong);font-family:inherit;font-size:.82rem;min-height:46px;resize:vertical"></textarea>
           <div class="quiz-explanation" id="quiz-explanation"></div>
           <div class="quiz-actions">
             <button class="btn-check" id="btn-check" disabled onclick="submitAnswer()">Kiểm tra</button>
@@ -353,7 +392,7 @@ async function init() {
     const srsDue = getSRSDueCount();
     if (srsDue > 0) {
       const banner = document.getElementById('srs-lesson-banner');
-      document.getElementById('srs-lesson-text').textContent = `${srsDue} từ cần ôn hôm nay (SM-2)`;
+      document.getElementById('srs-lesson-text').textContent = `${srsDue} mục cần ôn hôm nay (SM-2)`;
       banner.style.display = 'flex';
     }
 
@@ -379,7 +418,7 @@ async function init() {
         <a href="quiz.html?mode=recall" style="display:block;margin-top:10px;font-size:.82rem;color:var(--red);font-weight:700;text-decoration:none">✍️ Hoặc thử Active Recall — gõ đáp án, không chọn trắc nghiệm →</a>
       </div>
     `;
-    window.__quiz__ = lesson.quiz;
+    window.__quiz__ = lesson.quiz.map(q => ({ ...q, lessonDate: date }));
     window.startQuiz = startQuiz;
 
     initTabs();

@@ -76,6 +76,20 @@
     <span style="color:var(--red);font-weight:700;font-size:.9rem">Ôn →</span>
   </div>
 
+  <!-- PACING WIDGET (countdown tới ngày thi + tốc độ cần thiết) -->
+  <div id="pacing-widget" style="display:none;margin:0 16px 12px;padding:12px 14px;border-radius:10px;border:2px solid var(--ink);background:var(--paper)">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <span style="font-size:1.4rem">⏳</span>
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:.88rem" id="pacing-days">—</div>
+        <div style="font-size:.72rem;color:var(--muted);font-family:monospace" id="pacing-detail">—</div>
+      </div>
+    </div>
+    <div style="height:6px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+      <div id="pacing-fill" style="height:100%;border-radius:999px;background:linear-gradient(to right,var(--blue),#38a4e8);width:0%;transition:width .5s"></div>
+    </div>
+  </div>
+
   <!-- STATS ROW -->
   <p class="section-title">THỐNG KÊ CỦA TÔI</p>
   <div class="stats-row">

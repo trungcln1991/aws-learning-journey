@@ -48,6 +48,49 @@ async function loadMeta() {
   return res.json();
 }
 
+// ===== SRS DUE COUNT (đọc chung key 'aws_srs_v1' + 'aws_quiz_srs_v1' với quiz.js/lesson.js) =====
+function getSRSDueCount() {
+  try {
+    const today = getTodayStr();
+    const vocabDb = JSON.parse(localStorage.getItem('aws_srs_v1')) || {};
+    const quizDb = JSON.parse(localStorage.getItem('aws_quiz_srs_v1')) || {};
+    return Object.values(vocabDb).filter(c => c.due <= today).length
+         + Object.values(quizDb).filter(c => c.due <= today).length;
+  } catch { return 0; }
+}
+
+// ===== PACING: tổng số bài trong TOÀN BỘ curriculum (không chỉ số đã sinh) =====
+async function loadCurriculumTotal() {
+  try {
+    const res = await fetch('./scripts/curriculum.json');
+    if (!res.ok) return null;
+    const d = await res.json();
+    return d.topics?.length || null;
+  } catch { return null; }
+}
+
+function renderPacingWidget(meta, doneCount, todayStr) {
+  if (!meta.target_date) return;
+  loadCurriculumTotal().then(totalTopics => {
+    if (!totalTopics) return;
+    const targetDate = new Date(meta.target_date + 'T00:00:00');
+    const nowDate = new Date(todayStr + 'T00:00:00');
+    const daysLeft = Math.round((targetDate - nowDate) / 86400000);
+    if (daysLeft <= 0) return;
+    const remaining = Math.max(0, totalTopics - doneCount);
+    const weeksLeft = Math.max(1, daysLeft / 7);
+    const perWeek = remaining > 0 ? Math.ceil(remaining / weeksLeft) : 0;
+
+    document.getElementById('pacing-days').textContent =
+      `⏳ Còn ${daysLeft} ngày tới SAA-C03 (${formatDateLabel(meta.target_date)})`;
+    document.getElementById('pacing-detail').textContent = remaining > 0
+      ? `Còn ${remaining}/${totalTopics} bài trong lộ trình — cần ~${perWeek} bài/tuần để kịp`
+      : `🎉 Đã học đủ ${totalTopics} bài trong lộ trình!`;
+    document.getElementById('pacing-fill').style.width = `${Math.round(doneCount / totalTopics * 100)}%`;
+    document.getElementById('pacing-widget').style.display = 'block';
+  });
+}
+
 function formatDateLabel(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
@@ -163,6 +206,16 @@ async function initDashboard() {
   // japfa activity suggestion
   renderJapfaSuggest(meta);
 
+  // SRS due banner (dùng chung key 'aws_srs_v1' với quiz.js/lesson.js)
+  const srsDue = getSRSDueCount();
+  if (srsDue > 0) {
+    document.getElementById('srs-banner-text').textContent = `${srsDue} mục cần ôn SRS hôm nay (từ vựng + câu AWS)`;
+    document.getElementById('srs-banner').style.display = 'flex';
+  }
+
+  // Pacing widget — còn bao nhiêu ngày tới ngày thi + cần bao nhiêu bài/tuần
+  renderPacingWidget(meta, doneCount, today);
+
   // weekly calendar — cửa sổ 7 bài trượt theo ngày hiện tại, không cố định Ngày 1-7
   const weekGrid = document.getElementById('week-grid');
   weekGrid.innerHTML = '';
@@ -263,6 +316,52 @@ function renderDomainBreakdown() {
   }
 }
 
+function renderScoreTrend(scores) {
+  const dates = Object.keys(scores).sort();
+  if (dates.length < 2) return;
+  const recent = dates.slice(-15);
+  const pts = recent.map(d => Math.round(scores[d] / 5 * 100));
+  const w = 300, h = 80, pad = 8;
+  const stepX = recent.length > 1 ? (w - pad * 2) / (recent.length - 1) : 0;
+  const toY = v => h - pad - (v / 100) * (h - pad * 2);
+  const points = pts.map((v, i) => `${pad + i * stepX},${toY(v)}`).join(' ');
+  const avgPct = Math.round(pts.reduce((a, b) => a + b, 0) / pts.length);
+  const trendUp = pts[pts.length - 1] >= pts[0];
+  document.getElementById('score-trend').innerHTML = `
+    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;display:block">
+      <polyline points="${points}" fill="none" stroke="${trendUp ? 'var(--green)' : 'var(--red)'}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      ${pts.map((v, i) => `<circle cx="${pad + i * stepX}" cy="${toY(v)}" r="3" fill="${trendUp ? 'var(--green)' : 'var(--red)'}"/>`).join('')}
+    </svg>
+    <div style="display:flex;justify-content:space-between;font-family:monospace;font-size:.72rem;color:var(--muted);margin-top:4px">
+      <span>Trung bình ${recent.length} bài gần nhất: ${avgPct}%</span>
+      <span>${trendUp ? '📈 Đang tiến bộ' : '📉 Cần chú ý'}</span>
+    </div>
+  `;
+}
+
+const CATEGORY_LABELS = { compute: 'Compute', storage: 'Storage', network: 'Networking', security: 'Security', database: 'Database', serverless: 'Serverless', monitoring: 'Monitoring' };
+async function renderCategoryCoverage(completedDates) {
+  if (!completedDates.length) return;
+  const results = await Promise.all(completedDates.map(d => fetch(`./lessons/${d}.json`).then(r => r.ok ? r.json() : null).catch(() => null)));
+  const counts = {};
+  results.filter(Boolean).forEach(l => (l.services || []).forEach(s => {
+    const cat = s.category || 'other';
+    counts[cat] = (counts[cat] || 0) + 1;
+  }));
+  const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  if (!entries.length) return;
+  const max = Math.max(...entries.map(([, n]) => n));
+  document.getElementById('category-coverage').innerHTML = entries.map(([cat, n]) => `
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="width:90px;font-size:.78rem;font-weight:700;flex-shrink:0">${CATEGORY_LABELS[cat] || cat}</span>
+      <div style="flex:1;height:8px;background:var(--paper-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)">
+        <div style="height:100%;width:${Math.round(n / max * 100)}%;background:var(--blue);border-radius:999px"></div>
+      </div>
+      <span style="font-family:monospace;font-size:.75rem;color:var(--muted);width:24px;text-align:right">${n}</span>
+    </div>
+  `).join('');
+}
+
 async function initStats() {
   const progress = getProgress();
   const meta = await loadMeta();
@@ -276,6 +375,8 @@ async function initStats() {
     completed.length ? Math.round(completed.length / meta.lessons.length * 100) + '%' : '0%';
 
   renderDomainBreakdown();
+  renderScoreTrend(scores);
+  renderCategoryCoverage(completed);
 
   const hist = document.getElementById('score-history');
   hist.innerHTML = '';

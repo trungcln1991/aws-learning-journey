@@ -53,11 +53,43 @@
       <div id="domain-weakest" style="display:none;margin-top:10px;padding:10px 12px;background:rgba(195,45,26,.06);border-radius:8px;border-left:3px solid var(--red);font-size:.82rem"></div>
     </div>
 
+    <!-- Xu hướng điểm theo thời gian -->
+    <div style="border:2px solid var(--ink);border-radius:12px;padding:16px;margin-bottom:16px;background:var(--paper);box-shadow:4px 4px 0 rgba(22,19,13,.08)">
+      <div style="font-family:monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px">XU HƯỚNG ĐIỂM QUIZ (15 BÀI GẦN NHẤT)</div>
+      <div id="score-trend"><div style="font-size:.85rem;color:var(--muted)">Chưa đủ dữ liệu.</div></div>
+    </div>
+
+    <!-- Coverage theo category service -->
+    <div style="border:2px solid var(--ink);border-radius:12px;padding:16px;margin-bottom:16px;background:var(--paper);box-shadow:4px 4px 0 rgba(22,19,13,.08)">
+      <div style="font-family:monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px">SERVICE ĐÃ HỌC THEO NHÓM</div>
+      <div id="category-coverage"><div style="font-size:.85rem;color:var(--muted)">Chưa đủ dữ liệu.</div></div>
+    </div>
+
     <div class="score-history">
       <div class="sh-title">Lịch sử Quiz (10 bài gần nhất)</div>
       <div id="score-history">
         <div class="loader"><div class="spinner"></div></div>
       </div>
+    </div>
+
+    <!-- Backup dữ liệu học tập — toàn bộ progress/SRS chỉ nằm trong localStorage,
+         đổi máy/xoá cache/cài lại PWA là mất sạch nếu không có bản này -->
+    <div style="border:2px solid var(--ink);border-radius:12px;padding:16px;margin-top:16px;background:var(--paper);box-shadow:4px 4px 0 rgba(22,19,13,.08)">
+      <div style="font-family:monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px">BACKUP DỮ LIỆU HỌC TẬP</div>
+      <div style="font-size:.8rem;color:var(--ink-soft);margin-bottom:12px">Toàn bộ tiến độ, SRS, điểm domain chỉ lưu trên máy này (localStorage). Xuất ra file để không mất khi đổi máy/xoá cache.</div>
+      <div style="display:flex;gap:8px">
+        <button id="btn-export" style="flex:1;padding:11px;border-radius:8px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:700;font-size:.85rem;cursor:pointer">📤 Xuất dữ liệu</button>
+        <button id="btn-import" style="flex:1;padding:11px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;font-size:.85rem;cursor:pointer">📥 Nhập dữ liệu</button>
+        <input type="file" id="import-file-input" accept="application/json" style="display:none">
+      </div>
+      <div id="import-confirm-box" style="display:none;margin-top:12px;padding:10px 12px;background:rgba(195,45,26,.06);border-radius:8px;border:2px solid var(--red)">
+        <div style="font-size:.82rem;font-weight:700;margin-bottom:10px">File hợp lệ — nhập sẽ GHI ĐÈ toàn bộ tiến độ hiện tại trên máy này. Chắc chắn?</div>
+        <div style="display:flex;gap:8px">
+          <button id="btn-import-cancel" style="flex:1;padding:9px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;font-size:.8rem;cursor:pointer">Huỷ</button>
+          <button id="btn-import-confirm" style="flex:1;padding:9px;border-radius:8px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:700;font-size:.8rem;cursor:pointer">Ghi đè & tải lại</button>
+        </div>
+      </div>
+      <div id="backup-status" style="display:none;margin-top:10px;font-size:.8rem;font-weight:700"></div>
     </div>
   </div>
 
@@ -100,6 +132,69 @@
         if (bar) bar.style.width = pct + '%';
         if (label) label.textContent = `${pct}% hoàn thành lộ trình`;
       }, 500);
+    });
+
+    // Backup dữ liệu học tập — export/import các key localStorage của app này
+    const BACKUP_KEYS = ['aws_learning_v1', 'aws_srs_v1', 'aws_domain_stats_v1'];
+
+    function showBackupStatus(msg, isError) {
+      const el = document.getElementById('backup-status');
+      el.textContent = msg;
+      el.style.color = isError ? 'var(--red)' : 'var(--green)';
+      el.style.display = 'block';
+    }
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      const data = { _app: 'AWS Learning Journey', _exported_at: new Date().toISOString() };
+      let hasData = false;
+      BACKUP_KEYS.forEach(k => {
+        const v = localStorage.getItem(k);
+        if (v) { try { data[k] = JSON.parse(v); hasData = true; } catch {} }
+      });
+      if (!hasData) { showBackupStatus('⚠️ Chưa có dữ liệu học tập nào để xuất.', true); return; }
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `aws-journey-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showBackupStatus('✅ Đã tải file backup.', false);
+    });
+
+    let pendingImportData = null;
+    document.getElementById('btn-import').addEventListener('click', () => {
+      document.getElementById('import-file-input').click();
+    });
+    document.getElementById('import-file-input').addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (!BACKUP_KEYS.some(k => data[k])) throw new Error('File không chứa dữ liệu học tập hợp lệ');
+          pendingImportData = data;
+          document.getElementById('import-confirm-box').style.display = 'block';
+        } catch (err) {
+          showBackupStatus(`❌ File không hợp lệ: ${err.message}`, true);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    });
+    document.getElementById('btn-import-cancel').addEventListener('click', () => {
+      pendingImportData = null;
+      document.getElementById('import-confirm-box').style.display = 'none';
+    });
+    document.getElementById('btn-import-confirm').addEventListener('click', () => {
+      if (!pendingImportData) return;
+      BACKUP_KEYS.forEach(k => {
+        if (pendingImportData[k]) localStorage.setItem(k, JSON.stringify(pendingImportData[k]));
+      });
+      document.getElementById('import-confirm-box').style.display = 'none';
+      showBackupStatus('✅ Đã nhập dữ liệu — đang tải lại trang...', false);
+      setTimeout(() => location.reload(), 1200);
     });
   </script>
 </body>
