@@ -1,0 +1,212 @@
+{
+  "date": "2026-08-03",
+  "day": 24,
+  "week": 2,
+  "month": 2,
+  "title": "Review — Security & Data Foundations",
+  "subtitle": "KMS · CloudTrail · DynamoDB · ElastiCache · Beanstalk recap",
+  "category": "Review",
+  "color": "#7A7160",
+  "emoji": "🎯",
+  "vocabulary": [
+    {
+      "word": "Envelope Encryption",
+      "ipa": "/ˈɛnvələup ɪnˈkrɪpʃən/",
+      "ipa_guide": "Đọc: EN-vơ-lop in-CRIP-shun",
+      "type": "danh từ",
+      "meaning": "Kỹ thuật mã hóa dữ liệu bằng khóa dữ liệu, rồi mã hóa khóa đó bằng CMK",
+      "example_en": "Your DynamoDB table uses Envelope Encryption with KMS to encrypt customer records at rest.",
+      "example_vi": "Bảng DynamoDB của bạn sử dụng Envelope Encryption với KMS để mã hóa bản ghi khách hàng khi lưu trữ.",
+      "usage": "KMS · DynamoDB · RDS · Secrets Manager",
+      "japfa": "jp:prod sử dụng Envelope Encryption cho dữ liệu khách hàng trong DynamoDB"
+    },
+    {
+      "word": "audit trail",
+      "ipa": "/ˈɔːdɪt treɪl/",
+      "ipa_guide": "Đọc: AU-dit TRAIL",
+      "type": "danh từ",
+      "meaning": "Bản ghi lịch sử đầy đủ của tất cả hoạt động trong hệ thống để kiểm toán và tuân thủ",
+      "example_en": "CloudTrail maintains a complete audit trail of all API calls across your 7 AWS accounts.",
+      "example_vi": "CloudTrail duy trì bản ghi lịch sử đầy đủ của tất cả lệnh gọi API trên 7 tài khoản AWS.",
+      "usage": "CloudTrail · Config · Compliance · Security",
+      "japfa": "jp:cloudtrail account chứa audit trail của tất cả hoạt động từ jp:prod, jp:uat, jp:poc"
+    },
+    {
+      "word": "configuration drift",
+      "ipa": "/ˌkɒnfɪɡəˈreɪʃən drɪft/",
+      "ipa_guide": "Đọc: KON-fig-u-RAY-shun DRIFT",
+      "type": "danh từ",
+      "meaning": "Tình trạng cấu hình thực tế khác với cấu hình kỳ vọng do thay đổi thủ công",
+      "example_en": "AWS Config detected configuration drift when someone manually modified the security group rules.",
+      "example_vi": "AWS Config phát hiện configuration drift khi ai đó thay đổi thủ công các quy tắc nhóm bảo mật.",
+      "usage": "Config · CloudTrail · Systems Manager · Remediation",
+      "japfa": "jp:network account giám sát configuration drift trên FortiGate VPN integration rules"
+    },
+    {
+      "word": "latency",
+      "ipa": "/ˈleɪtənsi/",
+      "ipa_guide": "Đọc: LAY-ten-see",
+      "type": "danh từ",
+      "meaning": "Độ trễ thời gian giữa yêu cầu và phản hồi từ hệ thống",
+      "example_en": "Adding ElastiCache reduces latency for DynamoDB queries from 50ms to 5ms.",
+      "example_vi": "Thêm ElastiCache giảm độ trễ cho truy vấn DynamoDB từ 50ms xuống 5ms.",
+      "usage": "ElastiCache · DynamoDB · RDS · CloudWatch · Beanstalk",
+      "japfa": "jp:prod ứng dụng Beanstalk cần giảm latency đến cơ sở dữ liệu khách hàng"
+    },
+    {
+      "word": "remediation",
+      "ipa": "/ˌremədiˈeɪʃən/",
+      "ipa_guide": "Đọc: RE-me-dee-AY-shun",
+      "type": "danh từ",
+      "meaning": "Hành động sửa chữa, khôi phục hoặc điều chỉnh cấu hình không tuân thủ tự động",
+      "example_en": "Config triggered automatic remediation to restore the S3 bucket encryption that was disabled.",
+      "example_vi": "Config kích hoạt remediation tự động để khôi phục mã hóa S3 bucket đã bị vô hiệu hóa.",
+      "usage": "Config · Systems Manager · CloudTrail · Compliance",
+      "japfa": "jp:prod sử dụng Config remediation để tự động sửa lỗi cấu hình bảo mật"
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudTrail",
+      "full": "AWS CloudTrail",
+      "category": "security",
+      "icon": "🛣️",
+      "what": "Ghi lại tất cả API calls và hoạt động trong tài khoản AWS, tạo audit trail đầy đủ để kiểm toán, tuân thủ và điều tra sự cố.",
+      "when": "Khi bạn cần bản ghi lịch sử đầy đủ của tất cả hành động quản lý trong AWS, tuân thủ regulatory, hoặc điều tra sự cố bảo mật.",
+      "key_points": [
+        "Ghi lại mọi API call (gọi từ AWS Console, CLI, SDK) với timestamp, người dùng, tài nguyên",
+        "Lưu trữ logs trong S3 bucket được quản lý centrally từ một account dedicate (jp:cloudtrail)",
+        "Kết hợp với CloudWatch Logs và CloudWatch Alarms để phát hiện hoạt động bất thường"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail account là organization trail receiver cho jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:shareservice",
+      "cli": {
+        "task": "Liệt kê tất cả CloudTrail events từ 24 giờ trước",
+        "command": "aws cloudtrail lookup-events --max-results 50 --start-time $(date -d '24 hours ago' -u +%Y-%m-%dT%H:%M:%SZ)"
+      }
+    },
+    {
+      "name": "DynamoDB",
+      "full": "Amazon DynamoDB",
+      "category": "database",
+      "icon": "🗄️",
+      "what": "NoSQL database được quản lý đầy đủ với performance dự đoán được, hỗ trợ key-value và document model, với throughput tự động.",
+      "when": "Khi bạn cần database có throughput cao, query pattern đơn giản dựa trên khóa, hoặc cần real-time data synchronization với DynamoDB Streams.",
+      "key_points": [
+        "Partition Key xác định distribution dữ liệu; Sort Key (nếu có) xếp thứ tự items trong partition",
+        "Global Secondary Index cho phép query theo partition key khác với tính phí riêng biệt",
+        "DynamoDB Streams bắt sự kiện INSERT/UPDATE/DELETE để trigger Lambda hoặc sync sang ElastiCache"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator account chứa DynamoDB table lưu trữ dữ liệu tổng hợp từ các trang trại",
+      "cli": {
+        "task": "Mô tả cấu hình của một DynamoDB table",
+        "command": "aws dynamodb describe-table --table-name poultry-farm-metrics --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "ElastiCache",
+      "full": "AWS ElastiCache for Redis and Memcached",
+      "category": "database",
+      "icon": "⚡",
+      "what": "Dịch vụ caching được quản lý đầy đủ hỗ trợ Redis và Memcached, lưu trữ dữ liệu vào bộ nhớ để giảm latency và tăng throughput.",
+      "when": "Khi bạn cần giảm latency truy cập DynamoDB/RDS, cache session data, hoặc tăng throughput cho ứng dụng Beanstalk.",
+      "key_points": [
+        "DAX là ElastiCache tối ưu cho DynamoDB, giảm query latency từ milliseconds xuống microseconds",
+        "Eviction policy (LRU, LFU) loại bỏ dữ liệu cũ khi bộ nhớ đầy; consistency giữa cache và database cần được quản lý",
+        "CloudWatch metrics theo dõi CPU, network, evictions; ALB + Beanstalk + ElastiCache = caching layer hoàn chỉnh"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng ElastiCache Redis để cache session data từ Beanstalk web servers",
+      "cli": {
+        "task": "Liệt kê tất cả ElastiCache clusters trong region",
+        "command": "aws elasticache describe-cache-clusters --region ap-southeast-1 --query 'CacheClusters[*].[CacheClusterId,Engine,CacheNodeType]' --output table"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Mã hóa và Audit Trail: KMS + CloudTrail để tuân thủ bảo mật",
+      "icon": "🔐",
+      "body": "KMS cung cấp Envelope Encryption cho dữ liệu (DynamoDB, RDS, Secrets), trong khi CloudTrail ghi lại tất cả API calls để tạo audit trail. Kết hợp cả hai: bạn vừa bảo vệ dữ liệu bằng CMK, vừa theo dõi ai đã truy cập hoặc thay đổi khóa qua CloudTrail logs lưu trong jp:cloudtrail account.",
+      "diagram": "KMS (Envelope Encryption)     CloudTrail (Audit Trail)\n       ↓                              ↓\n   Dữ liệu mã hóa        +      API call logs (ai, khi nào, gì)\n   bằng CMK                     ↓\n       ↓                      S3 (jp:cloudtrail)\n   DynamoDB / RDS              ↓\n                            Config Rules\n                            (compliance check)",
+      "exam_tip": "SAA-C03 thường hỏi: 'Bạn cần mã hóa dữ liệu và giám sát truy cập — dùng gì?' Trả lời: KMS + CloudTrail, không phải chỉ KMS hoặc chỉ CloudTrail.",
+      "japfa": "jp:prod DynamoDB được mã hóa bằng KMS; jp:cloudtrail theo dõi mọi thay đổi; jp:network thay đổi cấu hình VPN → CloudTrail ghi, Config kiểm tra compliance"
+    },
+    {
+      "title": "Data Consistency & Latency: DynamoDB + ElastiCache + ALB",
+      "icon": "🔄",
+      "body": "DynamoDB có throughput cao nhưng latency vẫn 5-10ms; ElastiCache giảm latency xuống 1ms bằng cách cache dữ liệu. Beanstalk app (triển khai qua ALB) đọc từ ElastiCache trước, miss → DynamoDB, rồi cache lại. Cần quản lý consistency: khi DynamoDB update, cache cũ phải invalidate (DynamoDB Streams → Lambda hoặc manual invalidation).",
+      "diagram": "Client Request\n     ↓\n   ALB (Layer 7 routing)\n     ↓\n Beanstalk EC2 Instance\n     ↓ (check cache trước)\n ElastiCache (Redis/Memcached)\n     ↓ (miss) → DynamoDB\n     ↓ (update) → invalidate cache\nDynamoDB Streams → Lambda invalidation",
+      "exam_tip": "SAA-C03 scenario: 'ứng dụng chậm trên DynamoDB, dùng cache ở đâu?' Trả lời: ElastiCache + Beanstalk, không phải DAX riêng lẻ.",
+      "japfa": "jp:prod Beanstalk app cần response time < 100ms; dùng ElastiCache Redis cache frequent queries; DynamoDB Streams trigger Lambda để invalidate cache khi dữ liệu thay đổi"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa jp:prod Beanstalk ứng dụng lưu trữ dữ liệu khách hàng trong DynamoDB được mã hóa bằng KMS CMK. Bạn cần đảm bảo: (1) dữ liệu mã hóa, (2) giám sát ai truy cập khóa, (3) detect configuration drift nếu ai vô hiệu hóa mã hóa. Dùng kết hợp nào?",
+      "options": [
+        "A. KMS CMK + Secrets Manager + CloudTrail",
+        "B. KMS CMK + CloudTrail + Config (với Config Rule kiểm tra encryption status)",
+        "C. Envelope Encryption + CloudTrail + ALB monitoring",
+        "D. Data Key + DynamoDB Streams + CloudWatch metrics"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "B đúng. KMS CMK mã hóa dữ liệu; CloudTrail ghi lại mọi API gọi KMS (ai, khi nào); Config Rule kiểm tra DynamoDB encryption enabled và kích hoạt remediation nếu bị vô hiệu."
+    },
+    {
+      "id": 2,
+      "question": "ElastiCache Redis cluster trong jp:prod có eviction policy = LRU, maxmemory = 2GB. Ứng dụng Beanstalk ghi cache key mỗi 100ms, cache hit rate = 60%. CloudWatch cảnh báo evictions tăng mạnh. Nguyên nhân và giải pháp gì?",
+      "options": [
+        "A. Tăng DAX throughput setting trong DynamoDB table",
+        "B. ElastiCache cluster bộ nhớ không đủ; tăng node size hoặc thêm replica, hoặc optimize cache key TTL",
+        "C. ALB health check quá tần số; giảm check interval",
+        "D. CloudTrail logging chiếm bộ nhớ ElastiCache; xoá logs cũ"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "explanation": "B đúng. Evictions cao = bộ nhớ đầy, dữ liệu bị loại bỏ. Giải pháp: tăng node size, add replicas, hoặc giảm TTL/optimize key để fit vào 2GB."
+    },
+    {
+      "id": 3,
+      "question": "jp:cloudtrail account nhận CloudTrail logs từ jp:prod, jp:uat, jp:poc mỗi giờ 100MB. Bạn cần detect nếu ai tạo key KMS mới mà không có policy cho jp:network (OIDC integration account). Dùng service nào để automate detection?",
+      "options": [
+        "A. CloudWatch Logs Insights query CloudTrail logs tìm 'CreateKey' event, trigger Lambda nếu không có jp:network principal",
+        "B. Config Rule tính toán KMS Key Policy từ CloudTrail audit trail",
+        "C. DynamoDB table lưu Key Policy history, ElastiCache cache recent changes",
+        "D. Systems Manager Parameter Store lưu KMS Key ARN, CloudTrail monitor Parameter change"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "A đúng. CloudTrail logs chứa 'CreateKey' event; CloudWatch Logs Insights query, Lambda parse policy → check jp:network principal → cảnh báo. B/C/D không phù hợp."
+    },
+    {
+      "id": 4,
+      "question": "DynamoDB table 'farm_inventory' (Partition Key = farm_id, Sort Key = date) trong jp:aggregator được query by farm_id + date (10% traffic), nhưng 90% traffic query by region + date (khác farm_id). Hiện throughput = 1000 WCU. Giải pháp optimize latency và cost?",
+      "options": [
+        "A. Tạo Global Secondary Index (region-date), giảm Primary Index WCU, thêm ElastiCache DAX để cache top regions",
+        "B. Tăng Primary Index WCU thành 10000, add DynamoDB Streams, trigger Lambda cache vào RDS",
+        "C. Dùng Sort Key = region (thay date), Partition Key = date, rebuild table",
+        "D. Xoá DynamoDB, migrate sang RDS + ElastiCache, query bằng ALB connection pooling"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "A đúng. GSI cho phép query by (region, date); giảm Primary WCU vì 90% traffic dùng GSI; DAX cache top regions further reduce latency. B quá tốn kém; C/D thay đổi cấu hình không cần thiết."
+    },
+    {
+      "id": 5,
+      "question": "Japfa jp:prod Beanstalk app deploy 1000 instances qua rolling deployment (batch 100, 15min per batch). Lambda cần read KMS Key Policy từ jp:network account (OIDC role assume). Nếu Key Policy không có jp:network:lambda:* statement, deployment thất bại khi Lambda decrypt DynamoDB Streams event. Cách detect sớm nhất?",
+      "options": [
+        "A. Config Rule kiểm tra KMS Key Policy khi Beanstalk deployment start; nếu fail → trigger SNS alert, stop rolling deployment",
+        "B. CloudTrail ghi lại permission denied event từ Lambda; CloudWatch Alarms trigger sau 5 sự kiện failed",
+        "C. Manual test Lambda role assume + decrypt trước deployment (không automate)",
+        "D. DynamoDB Streams trigger Lambda test trước rolling deployment thực tế"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "explanation": "A đúng (best practice). Config Rule run compliance check on KMS Key Policy BEFORE rolling deployment start → fail early, avoid 15-batch wastage. B phát hiện muộn (sau deployment); C/D manual, không automate."
+    }
+  ]
+}
