@@ -395,6 +395,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-next.show { display: block; }
 .btn-next:hover { background: var(--ink); color: var(--paper); }
 
+.quiz-typed-input {
+  width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 8px;
+  border: 2px solid var(--line-strong); background: var(--paper);
+  font-size: .92rem; font-family: inherit; color: var(--ink);
+  transition: border-color .15s;
+}
+.quiz-typed-input:focus { outline: none; border-color: var(--ink); }
+.quiz-typed-input:disabled { opacity: .8; }
+.quiz-typed-input.cli-input { font-family: monospace; font-size: .85rem; }
+
 /* ===== QUIZ RESULTS ===== */
 .quiz-results {
   text-align: center; padding: 24px 16px;

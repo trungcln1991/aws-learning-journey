@@ -17,6 +17,15 @@ function getTodayStr() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
+// ===== SRS DUE COUNT (đọc chung key 'aws_srs_v1' với quiz.js) =====
+function getSRSDueCount() {
+  try {
+    const db = JSON.parse(localStorage.getItem('aws_srs_v1')) || {};
+    const today = getTodayStr();
+    return Object.values(db).filter(c => c.due <= today).length;
+  } catch { return 0; }
+}
+
 // ===== WEB SPEECH TTS =====
 function speak(text, rate, btn) {
   rate = rate || 1.0;
@@ -327,6 +336,14 @@ async function init() {
       document.getElementById('done-score').textContent = `Quiz: ${progress.scores[date]}/5`;
     }
 
+    // SRS due reminder — nhắc ôn ngay trong lúc đang học bài, không chỉ ở trang chủ
+    const srsDue = getSRSDueCount();
+    if (srsDue > 0) {
+      const banner = document.getElementById('srs-lesson-banner');
+      document.getElementById('srs-lesson-text').textContent = `${srsDue} từ cần ôn hôm nay (SM-2)`;
+      banner.style.display = 'flex';
+    }
+
     // render tabs
     document.getElementById('tab-vocab').innerHTML = renderVocab(lesson.vocabulary);
     document.getElementById('tab-services').innerHTML = renderServices(lesson.services);
@@ -346,6 +363,7 @@ async function init() {
           ${lesson.quiz.length} câu hỏi · Đọc xong Vocab + AWS trước khi làm nhé!
         </p>
         <button class="btn-start" onclick="startQuiz(window.__quiz__)">▶ Bắt đầu Quiz</button>
+        <a href="quiz.html?mode=recall" style="display:block;margin-top:10px;font-size:.82rem;color:var(--red);font-weight:700;text-decoration:none">✍️ Hoặc thử Active Recall — gõ đáp án, không chọn trắc nghiệm →</a>
       </div>
     `;
     window.__quiz__ = lesson.quiz;

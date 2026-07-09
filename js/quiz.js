@@ -67,6 +67,95 @@ function sm2Update(cardId, quality) {
 
 function srsCardId(word, date) { return `${date}__${word}`; }
 
+// ===== ACTIVE RECALL: fuzzy answer matching (typing, không phải trắc nghiệm) =====
+function normText(s) {
+  return (s || '').toString().trim().toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/["'`.,!?;:]/g, '');
+}
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  if (!m) return n; if (!n) return m;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+// Cho phép gõ sai ~20% ký tự (typo, thiếu dấu) vẫn tính đúng — vẫn buộc phải nhớ ra từ, không phải gõ y hệt
+function fuzzyEqual(input, correct) {
+  const a = normText(input), b = normText(correct);
+  if (!a) return false;
+  if (a === b) return true;
+  const tol = Math.max(1, Math.floor(b.length * 0.2));
+  return levenshtein(a, b) <= tol;
+}
+// Chấm lệnh CLI: bỏ qua "aws" ở đầu, yêu cầu đúng service + action (2 token đầu), cho phép sai lệch nhỏ phần còn lại
+function cliMatch(input, correct) {
+  const a = normText(input).replace(/^aws\s+/, '');
+  const b = normText(correct).replace(/^aws\s+/, '');
+  if (a === b) return true;
+  const at = a.split(' '), bt = b.split(' ');
+  if (at[0] && bt[0] && at[0] === bt[0] && at[1] === bt[1]) return true;
+  return fuzzyEqual(a, b);
+}
+
+// ===== ACTIVE RECALL: bảng lệnh AWS CLI phổ biến theo service (dùng khi bài học chưa có field cli) =====
+const CLI_COMMANDS = {
+  'ec2': { task: 'Liệt kê tất cả EC2 instances', command: 'aws ec2 describe-instances' },
+  'ami': { task: 'Liệt kê các AMI do mình tạo', command: 'aws ec2 describe-images --owners self' },
+  'ebs': { task: 'Liệt kê các EBS volume', command: 'aws ec2 describe-volumes' },
+  'auto scaling group': { task: 'Liệt kê các Auto Scaling Group', command: 'aws autoscaling describe-auto-scaling-groups' },
+  's3': { task: 'Liệt kê các S3 bucket', command: 'aws s3 ls' },
+  's3 lifecycle': { task: 'Xem lifecycle policy của 1 S3 bucket', command: 'aws s3api get-bucket-lifecycle-configuration --bucket <name>' },
+  's3 glacier': { task: 'Khởi tạo restore file từ S3 Glacier', command: 'aws s3api restore-object --bucket <name> --key <key> --restore-request Days=7' },
+  'iam': { task: 'Liệt kê các IAM user', command: 'aws iam list-users' },
+  'iam role': { task: 'Liệt kê các IAM role', command: 'aws iam list-roles' },
+  'iam policy types': { task: 'Xem chi tiết 1 IAM policy', command: 'aws iam get-policy --policy-arn <arn>' },
+  'iam identity center': { task: 'Liệt kê các instance IAM Identity Center', command: 'aws sso-admin list-instances' },
+  'sts': { task: 'Xem danh tính IAM đang dùng để gọi CLI', command: 'aws sts get-caller-identity' },
+  'security group': { task: 'Liệt kê các Security Group', command: 'aws ec2 describe-security-groups' },
+  'network acl': { task: 'Liệt kê các Network ACL', command: 'aws ec2 describe-network-acls' },
+  'vpc': { task: 'Liệt kê các VPC', command: 'aws ec2 describe-vpcs' },
+  'vpc endpoints': { task: 'Liệt kê các VPC Endpoint', command: 'aws ec2 describe-vpc-endpoints' },
+  'vpc peering': { task: 'Liệt kê các VPC Peering Connection', command: 'aws ec2 describe-vpc-peering-connections' },
+  'tgw': { task: 'Liệt kê các Transit Gateway', command: 'aws ec2 describe-transit-gateways' },
+  'transit gateway': { task: 'Liệt kê các Transit Gateway', command: 'aws ec2 describe-transit-gateways' },
+  's2s vpn': { task: 'Liệt kê các Site-to-Site VPN Connection', command: 'aws ec2 describe-vpn-connections' },
+  'vpn gateway / site-to-site vpn': { task: 'Liệt kê các VPN Connection', command: 'aws ec2 describe-vpn-connections' },
+  'dx': { task: 'Liệt kê các Direct Connect connection', command: 'aws directconnect describe-connections' },
+  'rds': { task: 'Liệt kê các RDS DB instance', command: 'aws rds describe-db-instances' },
+  'aurora': { task: 'Liệt kê các Aurora DB cluster', command: 'aws rds describe-db-clusters' },
+  'alb': { task: 'Liệt kê các Load Balancer', command: 'aws elbv2 describe-load-balancers' },
+  'application load balancer': { task: 'Liệt kê các Application Load Balancer', command: 'aws elbv2 describe-load-balancers' },
+  'target group health check': { task: 'Xem health status của Target Group', command: 'aws elbv2 describe-target-health --target-group-arn <arn>' },
+  'cloudfront': { task: 'Liệt kê các CloudFront distribution', command: 'aws cloudfront list-distributions' },
+  'route 53': { task: 'Liệt kê các hosted zone Route 53', command: 'aws route53 list-hosted-zones' },
+  'lambda': { task: 'Liệt kê các Lambda function', command: 'aws lambda list-functions' },
+  'ecs': { task: 'Liệt kê các ECS cluster', command: 'aws ecs list-clusters' },
+  'ecr': { task: 'Liệt kê các ECR repository', command: 'aws ecr describe-repositories' },
+  'sns': { task: 'Liệt kê các SNS topic', command: 'aws sns list-topics' },
+  'sqs': { task: 'Liệt kê các SQS queue', command: 'aws sqs list-queues' },
+  'eventbridge': { task: 'Liệt kê các EventBridge rule', command: 'aws events list-rules' },
+  'cloudwatch': { task: 'Liệt kê các CloudWatch alarm', command: 'aws cloudwatch describe-alarms' },
+  'aws waf': { task: 'Liệt kê các Web ACL của WAF', command: 'aws wafv2 list-web-acls --scope REGIONAL' },
+  'waf': { task: 'Liệt kê các Web ACL của WAF', command: 'aws wafv2 list-web-acls --scope REGIONAL' },
+  'shield': { task: 'Xem trạng thái đăng ký Shield Advanced', command: 'aws shield describe-subscription' },
+  'aws backup': { task: 'Liệt kê các Backup plan', command: 'aws backup list-backup-plans' },
+  'aws organizations': { task: 'Liệt kê các account trong Organization', command: 'aws organizations list-accounts' },
+};
+function cliInfoFor(service) {
+  if (service.cli && service.cli.command) return service.cli;
+  const key = normText(service.name);
+  if (CLI_COMMANDS[key]) return CLI_COMMANDS[key];
+  const fullKey = normText(service.full || '');
+  return CLI_COMMANDS[fullKey] || null;
+}
+
 function getSRSDue() {
   const db = getSRS(); const today = todayStr();
   return Object.entries(db).filter(([,c]) => c.due <= today).map(([id,c]) => ({id,...c}));
@@ -205,6 +294,95 @@ function genContext(vocab, pool) {
   };
 }
 
+// ===== ACTIVE RECALL: câu hỏi phải GÕ đáp án (Generation Effect — Quy tắc #9) =====
+// Không có sẵn đáp án để chọn → buộc não tự sinh ra câu trả lời, mã hóa trí nhớ sâu hơn nhiều so với trắc nghiệm.
+
+// TYPE F: điền từ còn thiếu (gõ, không chọn)
+function genTypeFillBlank(vocab) {
+  const sentence = vocab.example_en;
+  const wordLower = vocab.word.toLowerCase();
+  const regex = new RegExp(`\\b${wordLower}[a-z]*\\b`, 'i');
+  const match = sentence.match(regex);
+  const targetWord = match ? match[0] : vocab.word;
+  const blanked = match ? sentence.replace(regex, '_____') : `${sentence} (từ: _____)`;
+  return {
+    qtype: 'english', badge: '✍️ Điền từ', inputType: 'typed', typedKind: 'fillblank',
+    vocabWord: vocab.word, lessonDate: vocab.lessonDate,
+    word: vocab.word, example: vocab.example_en,
+    question: `Gõ từ tiếng Anh còn thiếu:\n"${blanked}"`,
+    sub: `Gợi ý nghĩa: ${vocab.meaning.split('—')[0].trim()} · ${vocab.type}`,
+    placeholder: 'Gõ từ tiếng Anh...',
+    answer: targetWord,
+    explanation: `Đáp án: "${targetWord}"\n${vocab.ipa} · ${vocab.ipa_guide}\n\nCâu đầy đủ: "${sentence}"\n→ ${vocab.example_vi}`
+  };
+}
+
+// TYPE G: nghĩa tiếng Việt → gõ từ tiếng Anh
+function genTypeViToEn(vocab) {
+  const meaning = vocab.meaning.split('—')[0].trim().split('·')[0].trim();
+  return {
+    qtype: 'english', badge: '✍️ Việt → Anh', inputType: 'typed', typedKind: 'vitoen',
+    vocabWord: vocab.word, lessonDate: vocab.lessonDate,
+    word: vocab.word, example: vocab.example_en,
+    question: `Từ tiếng Anh nào có nghĩa là:\n"${meaning}"?`,
+    sub: `Loại từ: ${vocab.type} · Dùng trong: ${vocab.usage}`,
+    placeholder: 'Gõ từ tiếng Anh...',
+    answer: vocab.word,
+    explanation: `Đáp án: "${vocab.word}" (${vocab.ipa} · ${vocab.ipa_guide})\n\nVí dụ: "${vocab.example_en}"\n→ ${vocab.example_vi}`
+  };
+}
+
+// TYPE H: từ tiếng Anh → gõ nghĩa tiếng Việt (tự chấm — nghĩa diễn giải nhiều cách nên không so khớp máy móc)
+function genTypeTranslateToVi(vocab) {
+  return {
+    qtype: 'english', badge: '✍️ Dịch nghĩa', inputType: 'typed', typedKind: 'translate',
+    vocabWord: vocab.word, lessonDate: vocab.lessonDate,
+    word: vocab.word, example: vocab.example_en,
+    question: `Dịch câu sau sang tiếng Việt:\n"${vocab.example_en}"`,
+    sub: `Từ khóa: ${vocab.word} (${vocab.ipa})`,
+    placeholder: 'Gõ bản dịch tiếng Việt...',
+    answer: vocab.example_vi,
+    explanation: `Bản dịch tham khảo: "${vocab.example_vi}"\n\n"${vocab.word}" = ${vocab.meaning}`
+  };
+}
+
+// TYPE I: gõ lệnh AWS CLI theo mô tả tác vụ
+function genTypeCli(service) {
+  const info = cliInfoFor(service);
+  if (!info) return null;
+  return {
+    qtype: 'aws', badge: '⌨️ CLI', inputType: 'typed', typedKind: 'cli',
+    lessonTitle: service.lessonTitle || service.name,
+    question: `Gõ lệnh AWS CLI để: ${info.task}`,
+    sub: `Service: ${service.name}${service.full ? ' — ' + service.full : ''}`,
+    placeholder: 'aws ...',
+    answer: info.command,
+    explanation: `Lệnh đúng: ${info.command}\n\n${service.what || ''}`
+  };
+}
+
+function generateActiveRecallQuestions(lessons, enCount = 6, cliCount = 4) {
+  const allVocab = lessons.flatMap(l => (l.vocabulary || []).map(v => ({ ...v, lessonDate: l.date })));
+  const allServices = lessons.flatMap(l => (l.services || []).map(s => ({ ...s, lessonTitle: l.title })));
+
+  const enTypes = [genTypeFillBlank, genTypeViToEn, genTypeTranslateToVi];
+  const shuffledVocab = shuffle(allVocab);
+  const enQs = [];
+  for (let i = 0; i < Math.min(enCount, shuffledVocab.length); i++) {
+    const fn = enTypes[i % enTypes.length];
+    try { const q = fn(shuffledVocab[i]); if (q) enQs.push(q); } catch {}
+  }
+
+  const cliQs = [];
+  for (const s of shuffle(allServices)) {
+    if (cliQs.length >= cliCount) break;
+    const q = genTypeCli(s);
+    if (q && !cliQs.some(x => x.answer === q.answer)) cliQs.push(q);
+  }
+
+  return shuffle([...enQs, ...cliQs]);
+}
+
 function generateEnglishQuestions(lessons, count = 6) {
   const allVocab = lessons.flatMap(l => l.vocabulary || []);
   if (!allVocab.length) return [];
@@ -258,8 +436,28 @@ const MODES = {
     desc: '8 Tiếng Anh + 12 AWS = 20 câu', color: '#A9700A',
     enCount: 8, awsCount: 12, time: '~15 phút',
     rule: 'Quy tắc #4, #10: Spaced Rep + Deliberate Practice'
+  },
+  recall: {
+    id: 'recall', icon: '✍️', label: 'Active Recall',
+    desc: 'GÕ đáp án — dịch · điền từ · lệnh CLI, không có sẵn để chọn', color: '#16130D',
+    enCount: 6, cliCount: 4, time: '~10 phút', recallMode: true,
+    rule: 'Quy tắc #9: Generation Effect — tự viết ra nhớ sâu hơn chọn trắc nghiệm'
   }
 };
+
+// ===== 10 QUY TẮC HỌC KHOA HỌC (căn cứ để thiết kế các chế độ luyện tập ở trên) =====
+const LEARNING_RULES = [
+  { n: 1, title: 'Hiểu WHY trước HOW', body: 'Đừng học thuộc cấu hình — hiểu tại sao AWS thiết kế service theo cách đó thì mới suy luận được câu hỏi tình huống trong đề thi.' },
+  { n: 2, title: 'Chunking — học theo cụm', body: 'Học từ trong cụm/collocation thật (vd "launch an instance", không học rời "launch") — dễ nhớ và dùng đúng ngữ cảnh hơn học từ đơn lẻ.' },
+  { n: 3, title: 'Multi-sensory Encoding', body: 'Nghe (TTS) + đọc + gõ + phát âm (IPA) cùng lúc — càng nhiều giác quan tham gia, càng nhiều đường liên kết trong não để nhớ lại sau này.' },
+  { n: 4, title: 'Spaced Repetition (SM-2)', body: 'Ôn đúng lúc sắp quên — không ôn lại quá sớm (phí thời gian) hay quá muộn (đã quên). Nhớ lâu hơn gấp nhiều lần so với học nhồi 1 lần.' },
+  { n: 5, title: 'Pattern Recognition', body: 'Nhóm các AWS service theo pattern hay ra đề (High Availability, DR, tối ưu chi phí, bảo mật...) thay vì học rời rạc từng service.' },
+  { n: 6, title: 'Elaboration', body: 'Tự giải thích lại bằng lời của mình + liên hệ hạ tầng Japfa thật (đó là lý do mỗi bài đều có mục "Japfa") — elaboration giúp mã hóa trí nhớ sâu hơn đọc thụ động.' },
+  { n: 7, title: 'Distributed Practice', body: '30 phút/ngày đều đặn hiệu quả hơn nhiều so với dồn 4 tiếng cuối tuần — não cần thời gian nghỉ giữa các lần học để củng cố (consolidation).' },
+  { n: 8, title: 'Testing Effect', body: 'Tự kiểm tra bằng quiz — kể cả khi chưa chắc câu trả lời — củng cố trí nhớ mạnh hơn nhiều so với đọc lại tài liệu thêm 1 lần.' },
+  { n: 9, title: 'Generation Effect', body: 'Tự viết/gõ ra câu trả lời (dịch, điền từ, lệnh CLI) tạo trí nhớ sâu hơn hẳn so với chỉ nhận diện đáp án trong 4 lựa chọn có sẵn → dùng chế độ Active Recall.' },
+  { n: 10, title: 'Deliberate Practice', body: 'Tập trung ôn đúng những câu/từ mình SAI, không lặp lại cái đã giỏi — mỗi câu sai là 1 tín hiệu chỉ đúng chỗ cần luyện.' }
+];
 
 // ===== QUIZ RUNNER STATE =====
 let quizState = {};
@@ -273,7 +471,26 @@ function renderModeSelect(hasLessons) {
   app.innerHTML = `
     <div style="padding:16px 16px 8px">
       <div style="font-family:monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:4px">CHỌN CHẾ ĐỘ LUYỆN TẬP</div>
-      <div style="font-size:.85rem;color:var(--ink-soft)">Phân bổ theo 10 quy tắc học khoa học</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="font-size:.85rem;color:var(--ink-soft)">Phân bổ theo 10 quy tắc học khoa học</div>
+        <button onclick="toggleRules()" id="rules-toggle-btn" style="flex-shrink:0;background:none;border:1.5px solid var(--line-strong);border-radius:999px;padding:4px 10px;font-size:.72rem;font-family:monospace;font-weight:700;color:var(--ink-soft);cursor:pointer">📖 Xem 10 quy tắc</button>
+      </div>
+    </div>
+
+    <!-- 10 LEARNING RULES (collapsed by default) -->
+    <div id="rules-panel" style="display:none;margin:0 16px 12px;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--paper)">
+      <div style="background:var(--ink);color:var(--paper);padding:8px 14px;font-family:monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">10 QUY TẮC HỌC KHOA HỌC — VÌ SAO APP THIẾT KẾ NHƯ VẬY</div>
+      <div style="padding:10px 14px;display:flex;flex-direction:column;gap:10px">
+        ${LEARNING_RULES.map(r => `
+          <div style="display:flex;gap:10px">
+            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--paper-2);border:1.5px solid var(--line-strong);display:flex;align-items:center;justify-content:center;font-family:monospace;font-weight:700;font-size:.7rem">${r.n}</span>
+            <div>
+              <div style="font-weight:700;font-size:.85rem;margin-bottom:1px">${r.title}</div>
+              <div style="font-size:.78rem;color:var(--ink-soft);line-height:1.5">${r.body}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
     </div>
 
     <!-- SRS STATUS BANNER -->
@@ -302,6 +519,11 @@ function renderModeSelect(hasLessons) {
           <div class="mc-split">
             <span class="mc-en">🇺🇸 ${m.enCount} EN</span>
             <span class="mc-aws">☁️ ${m.awsCount} AWS</span>
+          </div>` : ''}
+        ${m.recallMode ? `
+          <div class="mc-split">
+            <span class="mc-en">🇺🇸 ${m.enCount} dịch/điền từ</span>
+            <span class="mc-aws">⌨️ ${m.cliCount} lệnh CLI</span>
           </div>` : ''}
       </div>
     `).join('')}
@@ -350,6 +572,22 @@ async function startQuiz(modeId) {
       try { return [fn(v, pool)]; } catch { return [genWordMeaning(v, pool)]; }
     });
     quizState = { mode, questions, current: 0, selected: null, submitted: false, scores: [], enScores: [], awsScores: [], srsCards: dueVocab.map(v => srsCardId(v.word, v.lessonDate)) };
+    renderQuestion();
+    return;
+  }
+
+  // Active Recall mode: câu hỏi phải GÕ đáp án (dịch, điền từ, lệnh CLI) — không có sẵn để chọn
+  if (mode.recallMode) {
+    const questions = generateActiveRecallQuestions(lessons, mode.enCount, mode.cliCount);
+    if (!questions.length) {
+      app.innerHTML = `<div class="empty-state" style="padding:48px 16px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:12px">😕</div>
+        <div>Không đủ dữ liệu để tạo đề Active Recall.<br>Hãy hoàn thành thêm bài học!</div>
+        <button onclick="renderModeSelect(false)" style="margin-top:16px;padding:10px 20px;background:var(--ink);color:var(--paper);border-radius:8px;font-weight:700;border:none;cursor:pointer">← Quay lại</button>
+      </div>`;
+      return;
+    }
+    quizState = { mode, questions, current: 0, selected: null, submitted: false, scores: [], enScores: [], awsScores: [] };
     renderQuestion();
     return;
   }
@@ -408,6 +646,12 @@ function renderQuestion() {
             ${q.example ? `<button class="speak-btn speak-example" data-speak="${escAttr(q.example)}" data-rate="0.85" title="Nghe câu ví dụ">🎧 Câu ví dụ</button>` : ''}
           </div>` : ''}
           ${q.sub ? `<div style="font-family:monospace;font-size:.75rem;color:${badgeColor};font-weight:700;margin-bottom:14px">${q.sub}</div>` : '<div style="margin-bottom:14px"></div>'}
+          ${q.inputType === 'typed' ? `
+            <input type="text" id="q-typed-input" class="quiz-typed-input${q.typedKind==='cli'?' cli-input':''}"
+              placeholder="${escAttr(q.placeholder || 'Gõ đáp án...')}" autocomplete="off" autocapitalize="off" spellcheck="false"
+              oninput="onTypedInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();var b=document.getElementById('btn-check');if(!b.disabled)b.click();}">
+            <div id="q-typed-reveal"></div>
+          ` : `
           <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="q-opts">
             ${q.options.map((opt, i) => `
               <li class="quiz-option" data-idx="${i}" onclick="selectOpt(${i})">
@@ -416,9 +660,10 @@ function renderQuestion() {
               </li>
             `).join('')}
           </ul>
+          `}
           <div class="quiz-explanation" id="q-exp"></div>
           <div style="display:flex;gap:8px;margin-top:14px">
-            <button class="btn-check" id="btn-check" disabled onclick="checkAnswer()">Kiểm tra</button>
+            <button class="btn-check" id="btn-check" disabled onclick="${q.inputType==='typed' ? 'checkTyped()' : 'checkAnswer()'}">${q.inputType==='typed' && q.typedKind==='translate' ? 'Xem đáp án' : 'Kiểm tra'}</button>
             <button class="btn-next show" id="btn-next" onclick="nextQ()" style="display:none">
               ${current+1 < total ? 'Câu tiếp →' : 'Xem kết quả →'}
             </button>
@@ -488,6 +733,84 @@ window.checkAnswer = function() {
 
   document.getElementById('btn-check').style.display = 'none';
   document.getElementById('btn-next').style.display = 'block';
+};
+
+// ===== ACTIVE RECALL: chấm câu hỏi kiểu GÕ đáp án =====
+window.onTypedInput = function() {
+  const val = document.getElementById('q-typed-input').value.trim();
+  document.getElementById('btn-check').disabled = !val;
+};
+
+window.checkTyped = function() {
+  if (quizState.submitted) return;
+  const q = quizState.questions[quizState.current];
+  const inputEl = document.getElementById('q-typed-input');
+  const val = inputEl.value;
+  quizState.submitted = true;
+  inputEl.disabled = true;
+
+  // Dịch nghĩa (translate) không thể so khớp máy móc — tự chấm bằng cách xem đáp án rồi tự đánh giá
+  if (q.typedKind === 'translate') {
+    document.getElementById('q-typed-reveal').innerHTML = `
+      <div style="margin-top:10px;padding:10px 12px;background:var(--paper-2);border-radius:8px;border-left:3px solid var(--blue)">
+        <div style="font-family:monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Bản dịch tham khảo</div>
+        <div style="font-weight:700;font-size:.9rem">${q.answer}</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button onclick="gradeTyped(true)" style="flex:1;padding:10px;border-radius:8px;border:2px solid var(--green);background:rgba(28,122,71,.08);color:var(--green);font-weight:700;cursor:pointer">✅ Tôi dịch đúng ý</button>
+        <button onclick="gradeTyped(false)" style="flex:1;padding:10px;border-radius:8px;border:2px solid var(--red);background:rgba(195,45,26,.08);color:var(--red);font-weight:700;cursor:pointer">❌ Tôi dịch sai/thiếu</button>
+      </div>
+    `;
+    document.getElementById('btn-check').style.display = 'none';
+    return;
+  }
+
+  const correct = q.typedKind === 'cli' ? cliMatch(val, q.answer) : fuzzyEqual(val, q.answer);
+  finalizeTyped(correct);
+};
+
+window.gradeTyped = function(correct) {
+  finalizeTyped(correct);
+};
+
+function finalizeTyped(correct) {
+  const q = quizState.questions[quizState.current];
+  const inputEl = document.getElementById('q-typed-input');
+  if (inputEl) inputEl.style.borderColor = correct ? 'var(--green)' : 'var(--red)';
+
+  if (q.qtype === 'english') {
+    quizState.enScores.push(correct ? 1 : 0);
+    if (q.vocabWord && q.lessonDate) sm2Update(srsCardId(q.vocabWord, q.lessonDate), correct ? 4 : 1);
+  } else {
+    quizState.awsScores.push(correct ? 1 : 0);
+  }
+  quizState.scores.push(correct ? 1 : 0);
+
+  const reveal = document.getElementById('q-typed-reveal');
+  if (q.typedKind !== 'translate' && reveal) {
+    reveal.innerHTML = correct
+      ? `<div style="margin-top:10px;color:var(--green);font-weight:700;font-size:.88rem">✅ Chính xác!</div>`
+      : `<div style="margin-top:10px;padding:10px 12px;background:rgba(195,45,26,.06);border-radius:8px;border-left:3px solid var(--red)">
+          <div style="font-weight:700;color:var(--red);font-size:.8rem;margin-bottom:2px">Chưa đúng — đáp án:</div>
+          <div style="font-weight:700;font-size:.9rem">${q.answer}</div>
+        </div>`;
+  }
+
+  const exp = document.getElementById('q-exp');
+  exp.textContent = q.explanation;
+  exp.classList.add('show');
+  if (!correct) exp.classList.add('wrong-exp');
+
+  document.getElementById('btn-check').style.display = 'none';
+  document.getElementById('btn-next').style.display = 'block';
+}
+
+window.toggleRules = function() {
+  const panel = document.getElementById('rules-panel');
+  const btn = document.getElementById('rules-toggle-btn');
+  const open = panel.style.display !== 'none';
+  panel.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '📖 Xem 10 quy tắc' : '📖 Ẩn 10 quy tắc';
 };
 
 window.nextQ = function() {
@@ -561,6 +884,8 @@ function getRecommendation(pct, enScores, awsScores) {
 // ===== INIT =====
 async function init() {
   const lessons = await loadAllAvailableLessons();
+  const autoMode = new URLSearchParams(window.location.search).get('mode');
+  if (autoMode && MODES[autoMode] && lessons.length > 0) { startQuiz(autoMode); return; }
   renderModeSelect(lessons.length > 0);
 }
 

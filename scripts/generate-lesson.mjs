@@ -96,7 +96,11 @@ IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT s
       "when": "When to use it",
       "key_points": ["point 1", "point 2", "point 3", "point 4"],
       "japfa": true|false,
-      "japfa_detail": "How Japfa uses this service specifically (if japfa=true)"
+      "japfa_detail": "How Japfa uses this service specifically (if japfa=true)",
+      "cli": {
+        "task": "Vietnamese description of a common CLI task for this service, e.g. 'Liệt kê tất cả EC2 instances'",
+        "command": "The real AWS CLI v2 command, e.g. 'aws ec2 describe-instances'"
+      }
     }
   ],
   "concepts": [
@@ -124,6 +128,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown, no explanation. Use this EXACT s
 STRICT REQUIREMENTS (keep responses concise to fit in tokens):
 - vocabulary: exactly 5 words. Each field max 120 chars. No long paragraphs.
 - services: exactly 3 AWS services. key_points: max 3 points, each max 80 chars.
+- services.cli: a real, correct AWS CLI v2 read-only command (describe/list/get) — used to teach hands-on CLI recall, must actually work
 - concepts: exactly 2 concepts. body: max 2 sentences. diagram: simple ASCII max 10 lines.
 - quiz: exactly 5 questions. explanation: max 80 chars each.
 - All Vietnamese text EXCEPT: word, ipa, example_en, diagram content
