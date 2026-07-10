@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: CVE triage (WAF/CLI) + Security Hub v2 cost analysis + fix RDS backup cron (jp:prod)",
-  "updated_at": "2026-07-09T03:25:22Z"
+  "commit_msg": "session: điều tra VPN autoheal dual-webhook (LA) + 3 PBI weekly/monthly/gap hôm nay",
+  "updated_at": "2026-07-10T02:50:32Z"
 }
