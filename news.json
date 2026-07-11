@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T04:59:52.159Z",
+  "generated_at": "2026-07-11T04:19:05.906Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,102 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon EC2 network/EBS instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r8in-r8ib-r8idn-r8idb",
+      "date": "2026-07-10T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8in, R8ib, R8idn, and R8idb instances are available in the AWS Asia Pacific (Tokyo) and Europe (Frankfurt, Ireland) regions. These instances are powered by custom sixth generation Intel Xeon Scalable processors, available only on AWS and feature the latest sixth generation AWS Nitro cards. These instances deliver up to 43% better compute p",
+      "tags": [
+        "EC2",
+        "RDS"
+      ],
+      "description_vi": "Các instance EC2 R8in, R8ib, R8idn và R8idb hiện khả dụng tại các region bổ sung — Từ hôm nay, Amazon EC2 R8in, R8ib, R8idn và R8idb instances đã có sẵn tại AWS Asia Pacific (Tokyo) và Europe (Frankfurt, Ireland)."
+    },
+    {
+      "title": "Amazon EMR on EKS now supports Apache Spark troubleshooting agent",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-emr-eks-spark-troubleshooting/",
+      "date": "2026-07-10T18:16:00.000Z",
+      "description": "Amazon EMR on EKS now supports the Apache Spark troubleshooting agent. Data engineers can now diagnose EMR on EKS job failures through natural language, receiving automated root cause analysis and PySpark code recommendations without manually navigating distributed logs and Spark History Server data. The agent analyzes Spark History Server data, distributed executor logs, and cluster configuration",
+      "tags": [
+        "EKS"
+      ],
+      "description_vi": "Amazon EMR on EKS hỗ trợ Apache Spark troubleshooting agent — Amazon EMR on EKS giờ hỗ trợ Apache Spark troubleshooting agent, cho phép data engineers chẩn đoán sự cố EMR on EKS job thông qua ngôn ngữ tự nhiên và nhận root cause tự động."
+    },
+    {
+      "title": "Amazon Location Service enhances Places APIs with new address and search options",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-location-service-enhanced-address-search",
+      "date": "2026-07-10T17:26:00.000Z",
+      "description": "Today, Amazon Location Service announced new enhancements to its Places APIs that give developers greater control over address name formatting, multilingual address, travel-optimized POI search, and drive-through data. These capabilities span the Geocode, ReverseGeocode, GetPlace, Suggest, Autocomplete, SearchNearby, and SearchText APIs. Developers can now control how address component names are r",
+      "tags": [],
+      "description_vi": "Amazon Location Service nâng cao Places APIs với các tùy chọn địa chỉ và tìm kiếm mới — Amazon Location Service công bố các cải tiến mới cho Places APIs, cho developers quyền kiểm soát tốt hơn định dạng tên địa chỉ, hỗ trợ đa ngôn ngữ và tối ưu cho du lịch."
+    },
+    {
+      "title": "Amazon SageMaker HyperPod now supports AMI-based node lifecycle configuration for Slurm clusters using continuous provisioning",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2025/06/ami-configuration-continuous-slurm/",
+      "date": "2026-07-10T17:00:00.000Z",
+      "description": "Amazon SageMaker HyperPod now supports AMI-based configuration for Slurm clusters that use continuous provisioning. Continuous provisioning adds nodes to the cluster as capacity becomes available, and this launch extends AMI-based configuration to clusters using this mode. With this support, clusters using continuous provisioning can be created without downloading, configuring, or uploading lifecy",
+      "tags": [
+        "SageMaker"
+      ],
+      "description_vi": "Amazon SageMaker HyperPod hỗ trợ cấu hình vòng đời node dựa trên AMI cho Slurm clusters — Amazon SageMaker HyperPod giờ hỗ trợ cấu hình dựa trên AMI cho Slurm clusters với continuous provisioning, tự động thêm node khi dung lượng cần thiết."
+    },
+    {
+      "title": "Amazon EC2 G7 instances are now available in the AWS US East (N. Virginia) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-g7-available-North-Virginia",
+      "date": "2026-07-10T15:14:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs are now available in US East (N. Virginia) Region. G7 instances deliver up to 4.6x AI inference performance and up to 2.1 graphics performance compared to G6 instances. G7 instances also deliver faster performance for GPU-accelerated data analytics workloads. Customer",
+      "tags": [
+        "EC2"
+      ],
+      "description_vi": "Amazon EC2 G7 instances hiện khả dụng tại AWS US East (N. Virginia) Region — Từ hôm nay, Amazon EC2 G7 instances được hỗ trợ bởi NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs đã có sẵn tại US East (N. Virginia)."
+    },
+    {
+      "title": "AWS DMS Schema Conversion now supports offline SQL Server conversion",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-dms-schema-conversion-offline-source/",
+      "date": "2026-07-10T15:09:00.000Z",
+      "description": "AWS Database Migration Service (DMS) Schema Conversion now supports offline source conversion for Microsoft SQL Server, enabling you to convert SQL Server schemas and code without direct connectivity to your source databases. You extract metadata using standard database commands in your own environment, then upload it to DMS Schema Conversion for processing. This eliminates security reviews, firew",
+      "tags": [],
+      "description_vi": "AWS DMS Schema Conversion hỗ trợ chuyển đổi SQL Server ngoại tuyến — AWS Database Migration Service (DMS) Schema Conversion giờ hỗ trợ chuyển đổi nguồn ngoại tuyến cho Microsoft SQL Server, cho phép chuyển đổi schema và code mà không cần kết nối."
+    },
+    {
+      "title": "Amazon EC2 I7ie instances now available in AWS Asia Pacific (Hyderabad) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-i7ie-instances-aws-hyd-region/",
+      "date": "2026-07-10T14:55:00.000Z",
+      "description": "AWS is announcing starting today, Amazon EC2 I7ie instances are now available in AWS Asia Pacific (Hyderabad) region. Designed for large storage I/O intensive workloads, I7ie instances are powered by 5th Gen Intel Xeon Processors with an all-core turbo frequency of 3.2 GHz, offering up to 40% better compute performance and 20% better price performance over existing I3en instances. I7ie instances o",
+      "tags": [
+        "EC2"
+      ],
+      "description_vi": "Amazon EC2 I7ie instances hiện khả dụng tại AWS Asia Pacific (Hyderabad) region — AWS công bố Amazon EC2 I7ie instances đã có sẵn tại AWS Asia Pacific (Hyderabad), được thiết kế cho các khối lượng công việc I/O lưu trữ lớn."
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) now supports R8g.24xlarge and R8g.48xlarge instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-documentdb-r8g-24xl-48xl/",
+      "date": "2026-07-10T14:00:00.000Z",
+      "description": "Amazon DocumentDB (with MongoDB compatibility) now supports R8g.24xlarge and R8g.48xlarge database instances. R8g instances are powered by AWS Graviton4 processors and feature DDR5 memory, enabling customers to achieve higher throughput and support larger working sets in memory. With R8g.24xlarge (96 vCPUs, 768 GiB memory) and R8g.48xlarge (192 vCPUs, 1,536 GiB memory), customers can run more dema",
+      "tags": [
+        "EC2"
+      ],
+      "description_vi": "Amazon DocumentDB hỗ trợ R8g.24xlarge và R8g.48xlarge instances — Amazon DocumentDB (with MongoDB compatibility) giờ hỗ trợ R8g.24xlarge và R8g.48xlarge database instances, được hỗ trợ bởi AWS Graviton4 processors với DDR5."
+    },
+    {
+      "title": "AWS DMS Schema Conversion now supports AI agent automation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-dms-sc-ai-agent-automation-mcp-server/",
+      "date": "2026-07-10T07:00:00.000Z",
+      "description": "AWS Database Migration Service (DMS) Schema Conversion now supports AI agent automation through the AWS MCP Server. You can connect AI coding agents, including Kiro, Claude Code, and Cursor, to DMS Schema Conversion and run complete migration workflows using natural language directly from your IDE. Agents create projects, browse source metadata, convert schemas, generate assessment reports, and ex",
+      "tags": [],
+      "description_vi": "AWS DMS Schema Conversion hỗ trợ tự động hóa AI agent — AWS Database Migration Service (DMS) Schema Conversion giờ hỗ trợ tự động hóa AI agent thông qua AWS MCP Server, cho phép kết nối các AI coding agents như Kiro, Claude Code."
+    },
+    {
+      "title": "AWS Organizations now applies account departure security controls by default for new organizations created via AWS Organizations console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-organizations-security-controls-new-orgs-console",
+      "date": "2026-07-10T07:00:00.000Z",
+      "description": "AWS Organizations now automatically applies security controls by default when you create a new organization via AWS Organizations console, simplifying initial security configuration by automatically applying core security controls. This approach safeguards multi-account environments by protecting against unintended member account departures from your organization. CloudOps administrators and centr",
+      "tags": [
+        "RDS",
+        "Organizations"
+      ],
+      "description_vi": "AWS Organizations áp dụng security controls mặc định cho các tổ chức mới — AWS Organizations giờ tự động áp dụng security controls khi bạn tạo tổ chức mới qua AWS Organizations console, đơn giản hóa cấu hình bảo mật ban đầu."
+    },
+    {
       "title": "OAuth support for the AWS MCP Server",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/oauth-aws-mcp-server/",
       "date": "2026-07-09T23:03:00.000Z",
@@ -32,7 +128,27 @@
       "tags": [
         "IAM"
       ],
-      "description_vi": "OAuth support cho AWS MCP Server — Bạn có thể kết nối các AI agents trực tiếp với AWS MCP Server bằng AWS Sign-In. Agents kết nối sử dụng OAuth theo tiêu chuẩn ngành mà không cần phần mềm xác thực bổ sung."
+      "description_vi": "OAuth support cho AWS MCP Server — Bạn giờ có thể kết nối AI agents trực tiếp tới AWS MCP Server sử dụng AWS Sign-In, sử dụng OAuth tiêu chuẩn công nghiệp mà không cần phần mềm xác thực bổ sung."
+    },
+    {
+      "title": "Amazon EC2 I8g instances now available in AWS GovCloud (US) regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-i8g-instances-aws-govcloud-us-regions/",
+      "date": "2026-07-09T18:35:00.000Z",
+      "description": "AWS is announcing the general availability of Amazon EC2 Storage Optimized I8g instances in AWS GovCloud (US East, US West) regions. I8g instances offer the best performance in Amazon EC2 for storage-intensive workloads. I8g instances are powered by AWS Graviton4 processors that deliver up to 60% better compute performance compared to previous generation I4g instances. I8g instances use the latest",
+      "tags": [
+        "EC2"
+      ],
+      "description_vi": "Amazon EC2 I8g instances hiện khả dụng tại AWS GovCloud (US) regions — AWS công bố khả dụng chung của Amazon EC2 Storage Optimized I8g instances tại AWS GovCloud (US East, US West), cung cấp hiệu suất tốt nhất."
+    },
+    {
+      "title": "Amazon EC2 now supports using an EBS volume for Replace Root Volume",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-replace-root-volume-ebs-volume/",
+      "date": "2026-07-09T18:06:00.000Z",
+      "description": "Today, AWS announces Replace Root Volume using an existing EBS volume, a new option for replacing the root volume of a running Amazon EC2 instance. Customers can now use an EBS volume as the target for a root volume replacement, in addition to the existing options of replacing from a snapshot or an AMI. This option supports customers running stateful workloads who need to include specific metadata",
+      "tags": [
+        "EC2"
+      ],
+      "description_vi": "Amazon EC2 hỗ trợ sử dụng EBS volume để thay thế Root Volume — AWS công bố tính năng Replace Root Volume sử dụng EBS volume hiện có, cho phép khách hàng thay thế root volume của EC2 instance đang chạy."
     },
     {
       "title": "Amazon Timestream for InfluxDB now publishes database state change events to Amazon EventBridge",
@@ -42,7 +158,7 @@
       "tags": [
         "EC2"
       ],
-      "description_vi": "Amazon Timestream for InfluxDB hiện xuất bản các sự kiện thay đổi trạng thái cơ sở dữ liệu sang Amazon EventBridge — Amazon Timestream for InfluxDB hiện xuất bản các sự kiện sang Amazon EventBridge khi các instance cơ sở dữ liệu hoặc cluster của bạn thay đổi trạng thái."
+      "description_vi": "Amazon Timestream for InfluxDB xuất bản sự kiện thay đổi trạng thái cơ sở dữ liệu tới Amazon EventBridge — Amazon Timestream for InfluxDB giờ xuất bản sự kiện tới Amazon EventBridge khi database instances hoặc clusters trải qua thay đổi trạng thái."
     },
     {
       "title": "AWS Client VPN extends availability to four additional AWS Regions",
@@ -50,7 +166,7 @@
       "date": "2026-07-09T17:08:00.000Z",
       "description": "AWS Client VPN is now available in four new regions: Canada West (Calgary), Mexico (Central) and two in Asia Pacific - New Zealand and Taipei. This fully managed service enables customers to securely connect their remote workforce to resources in AWS or on-premises networks. AWS Client VPN eliminates the need for hardware VPN appliances and complex operational management through its pay-as-you-go ",
       "tags": [],
-      "description_vi": "AWS Client VPN mở rộng khả dụng sang bốn AWS Region bổ sung — AWS Client VPN hiện có sẵn trong bốn region mới: Canada West (Calgary), Mexico (Central) và hai khu vực châu Á Thái Bình Dương - New Zealand và Taipei."
+      "description_vi": "AWS Client VPN mở rộng khả dụng tới bốn AWS Regions bổ sung — AWS Client VPN giờ khả dụng tại bốn region mới: Canada West (Calgary), Mexico (Central) và hai ở Asia Pacific - New Zealand và Taipei."
     },
     {
       "title": "Amazon SageMaker Unified Studio adds custom asset types to the catalog in IAM-based domains",
@@ -62,7 +178,7 @@
         "RDS",
         "IAM"
       ],
-      "description_vi": "Amazon SageMaker Unified Studio thêm các loại asset tùy chỉnh vào danh mục trong các domain dựa trên IAM — Amazon SageMaker Unified Studio hiện hỗ trợ các loại asset tùy chỉnh cho các domain dựa trên IAM."
+      "description_vi": "Amazon SageMaker Unified Studio thêm custom asset types vào catalog cho IAM-based domains — Amazon SageMaker Unified Studio giờ hỗ trợ custom asset types cho IAM-based domains, cho phép domain administrators catalog bất kỳ định dạng asset nào."
     },
     {
       "title": "Amazon SageMaker HyperPod now supports deep health checks for Slurm clusters with continuous provisioning",
@@ -73,7 +189,7 @@
         "EC2",
         "SageMaker"
       ],
-      "description_vi": "Amazon SageMaker HyperPod hiện hỗ trợ deep health checks cho các cluster Slurm với continuous provisioning — Amazon SageMaker HyperPod hiện hỗ trợ deep health checks cho các cluster được điều phối bởi Slurm được tạo với continuous provisioning."
+      "description_vi": "Amazon SageMaker HyperPod hỗ trợ deep health checks cho Slurm clusters — Amazon SageMaker HyperPod giờ hỗ trợ deep health checks cho Slurm-orchestrated clusters, cho phép xác minh proactively GPU accelerators."
     },
     {
       "title": "Amazon SageMaker Feature Store now supports batch feature writes and record listing",
@@ -84,7 +200,7 @@
         "RDS",
         "SageMaker"
       ],
-      "description_vi": "Amazon SageMaker Feature Store hiện hỗ trợ batch feature writes và record listing — Amazon SageMaker Feature Store là một khả năng được quản lý hoàn toàn giúp dễ dàng tính toán, lưu trữ và truy xuất các feature để huấn luyện và triển khai các mô hình AI."
+      "description_vi": "Amazon SageMaker Feature Store hỗ trợ batch feature writes và record listing — Amazon SageMaker Feature Store hiện hỗ trợ batch feature writes và record listing, giúp dễ dàng tính toán, lưu trữ và truy xuất features."
     },
     {
       "title": "Amazon MSK Replicator now supports replication from external Apache Kafka clusters to MSK Standard brokers",
@@ -92,7 +208,7 @@
       "date": "2026-07-09T15:00:00.000Z",
       "description": "Amazon MSK Replicator now supports data replication from external Apache Kafka clusters - including on-premises, self-managed on AWS, or other cloud providers to Amazon MSK Standard brokers. This capability extends replication support to MSK Standard brokers, in addition to the existing support for MSK Express brokers. With this launch, you can migrate workloads to MSK Standard brokers, support di",
       "tags": [],
-      "description_vi": "Amazon MSK Replicator hiện hỗ trợ sao chép từ các cluster Apache Kafka bên ngoài sang MSK Standard brokers — Amazon MSK Replicator hiện hỗ trợ sao chép dữ liệu từ các cluster Apache Kafka bên ngoài sang Amazon MSK Standard."
+      "description_vi": "Amazon MSK Replicator hỗ trợ replication từ external Apache Kafka clusters tới MSK Standard brokers — Amazon MSK Replicator giờ hỗ trợ sao chép dữ liệu từ external Apache Kafka clusters tới Amazon MSK Standard."
     },
     {
       "title": "AWS Config now supports 191 additional managed rules",
@@ -104,7 +220,7 @@
         "RDS",
         "ECS"
       ],
-      "description_vi": "AWS Config hiện hỗ trợ 191 quy tắc được quản lý bổ sung — AWS Config hiện hỗ trợ 191 quy tắc được quản lý bổ sung trên các dịch vụ chính bao gồm Amazon Bedrock, Amazon SageMaker, Amazon ECS, Amazon EKS, Amazon RDS, Amazon Redshift, Amazon S3."
+      "description_vi": "AWS Config hỗ trợ 191 managed rules bổ sung — AWS Config giờ hỗ trợ 191 managed rules bổ sung cho các dịch vụ chính bao gồm Amazon Bedrock, SageMaker, ECS, EKS, RDS, Redshift, S3."
     },
     {
       "title": "AWS Builder Center Now Offers Free Sandbox Environments",
@@ -112,7 +228,7 @@
       "date": "2026-07-08T22:45:00.000Z",
       "description": "AWS Builder Center now lets builders request free, time-limited sandbox environments directly from eligible workshops, eliminating the need for a personal AWS account, credit card, or concerns about unexpected charges. Previously, workshops could only be completed using a builder's own AWS account. With sandbox environments, builders of all skill levels can safely deploy resources, write code, and",
       "tags": [],
-      "description_vi": "AWS Builder Center hiện cung cấp miễn phí Sandbox Environments — AWS Builder Center giờ cho phép các builder yêu cầu các sandbox environments miễn phí, giới hạn thời gian trực tiếp từ các workshop đủ điều kiện."
+      "description_vi": "AWS Builder Center cung cấp môi trường Sandbox miễn phí — AWS Builder Center giờ cho phép builders yêu cầu miễn phí các sandbox environments từ eligible workshops mà không cần AWS account hoặc thẻ tín dụng."
     },
     {
       "title": "Amazon SageMaker Unified Studio Workflows now supports operators for Amazon Bedrock, S3 Tables, S3 Vectors, and Glue Catalog",
@@ -124,7 +240,7 @@
         "Lambda",
         "Bedrock"
       ],
-      "description_vi": "Amazon SageMaker Unified Studio Workflows hiện hỗ trợ các operator cho Amazon Bedrock, S3 Tables, S3 Vectors và Glue Catalog — Amazon SageMaker Unified Studio Workflows hiện hỗ trợ 19 operator mới cho Amazon Bedrock, Amazon S3 Tables, Amazon S3 Vectors, AWS Glue Data Catalog và Amazon MWAA Serverless."
+      "description_vi": "Amazon SageMaker Unified Studio Workflows hỗ trợ operators cho Amazon Bedrock, S3 Tables, S3 Vectors, Glue Catalog — Amazon SageMaker Unified Studio Workflows giờ hỗ trợ 19 operators mới cho Amazon Bedrock, S3 Tables, S3 Vectors, AWS Glue Data Catalog, Amazon MWAA."
     },
     {
       "title": "AWS Security Hub now offers Network Scanning to identify publicly reachable resources",
@@ -135,7 +251,7 @@
         "ALB",
         "Security Hub"
       ],
-      "description_vi": "AWS Security Hub hiện cung cấp Network Scanning để xác định các tài nguyên có thể truy cập công khai — AWS Security Hub giới thiệu Network Scanning, một khả năng xác định các tài nguyên trong môi trường của bạn có thể truy cập được từ internet công khai."
+      "description_vi": "AWS Security Hub cung cấp Network Scanning để xác định publicly reachable resources — AWS Security Hub giới thiệu Network Scanning, khả năng xác định resources trong environment có thể truy cập từ public internet."
     },
     {
       "title": "Amazon Redshift RG instances now available on the trailing track",
@@ -146,7 +262,7 @@
         "EC2",
         "CloudTrail"
       ],
-      "description_vi": "Amazon Redshift RG instances hiện có sẵn trên trailing track — Amazon Redshift hiện hỗ trợ các RG instances dựa trên Graviton trên trailing track."
+      "description_vi": "Amazon Redshift RG instances hiện khả dụng trên trailing track — Amazon Redshift giờ hỗ trợ Graviton-based RG instances trên trailing track, từ 7/7/2026 rg.4xlarge và rg.xlarge khả dụng."
     },
     {
       "title": "Amazon Aurora DSQL change data capture (CDC) Is now generally available",
@@ -156,130 +272,7 @@
       "tags": [
         "RDS"
       ],
-      "description_vi": "Amazon Aurora DSQL change data capture (CDC) hiện đã có sẵn chính thức — Amazon Aurora DSQL change data capture (CDC) hiện đã có sẵn chính thức, cho phép bạn truyền các thay đổi cơ sở dữ liệu theo thời gian thực sang Amazon Kinesis Data Streams."
-    },
-    {
-      "title": "Amazon Connect Customer now supports forecasting, planning, and scheduling for Tasks and Emails",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect-customer-agent-scheduling-tasks/",
-      "date": "2026-07-08T17:00:00.000Z",
-      "description": "Amazon Connect Customer now supports forecasting, capacity planning, and scheduling for Tasks and Emails, enabling you to plan and optimize your workforce across all workloads (Voice, Chat, Tasks, Emails). Connect Customer accounts for the unique characteristics of each channel, including concurrent work handling, duration of work from minutes to months, and distinct service level requirements, so",
-      "tags": [],
-      "description_vi": "Amazon Connect Customer hiện hỗ trợ forecasting, planning và scheduling cho Tasks và Emails — Amazon Connect Customer hiện hỗ trợ forecasting, capacity planning và scheduling cho Tasks và Emails."
-    },
-    {
-      "title": "AWS Neuron 2.31.0 now available with NKI 0.5.0 and UltraServer Operator",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-announce-neuron-2-31-0",
-      "date": "2026-07-08T15:58:00.000Z",
-      "description": "AWS Neuron 2.31.0 is now available, introducing NKI 0.5.0 with new MX FP8 scale dtype support, tensor indirection on compute operations for fewer instructions in indexed access patterns, and new NkiTensor view APIs for zero-cost tensor layout transformations. This release also introduces the Neuron UltraServer Operator for Amazon EKS in public beta, automating UltraServer discovery, workload alloc",
-      "tags": [
-        "EKS",
-        "Cost"
-      ],
-      "description_vi": "AWS Neuron 2.31.0 hiện có sẵn với NKI 0.5.0 và UltraServer Operator — AWS Neuron 2.31.0 hiện có sẵn, giới thiệu NKI 0.5.0 với hỗ trợ dtype MX FP8 scale mới."
-    },
-    {
-      "title": "Amazon EC2 High Memory U7i instances now available in AWS Europe (Zurich) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-u7i-aws-europe-zurich/",
-      "date": "2026-07-07T23:30:00.000Z",
-      "description": "Amazon EC2 High Memory U7i instances with 12TB of memory (u7i-12tb.224xlarge) are now available in the AWS Europe (Zurich) region. U7i instances are part of AWS 7th generation and are powered by custom fourth generation Intel Xeon Scalable Processors (Sapphire Rapids). U7i-12tb instances offer 12TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing dat",
-      "tags": [
-        "EC2"
-      ],
-      "description_vi": "Amazon EC2 High Memory U7i instances hiện có sẵn trong AWS Europe (Zurich) region — Amazon EC2 High Memory U7i instances với 12TB bộ nhớ hiện có sẵn trong AWS Europe (Zurich) region."
-    },
-    {
-      "title": "Amazon GameLift Streams introduces secure terminal access for stream sessions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-terminal-access/",
-      "date": "2026-07-07T21:26:00.000Z",
-      "description": "Amazon GameLift Streams now supports Stream Session Admin Shell, a secure terminal connection to the live runtime environment of a stream session for real-time troubleshooting. You can inspect logs, query running processes, check GPU utilization, and examine application state — all without managing SSH keys, open ports, or infrastructure credentials. Stream Session Admin Shell provides a terminal ",
-      "tags": [],
-      "description_vi": "Amazon GameLift Streams giới thiệu secure terminal access cho stream sessions — Amazon GameLift Streams hiện hỗ trợ Stream Session Admin Shell, một kết nối terminal an toàn đến môi trường runtime trực tiếp của một stream session."
-    },
-    {
-      "title": "Amazon S3 Vectors is now available in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-vectors-available-aws-govcloud-regions/",
-      "date": "2026-07-07T19:00:00.000Z",
-      "description": "Amazon S3 Vectors is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon S3 Vectors is purpose-built vector storage for AI agents, inference, Retrieval Augmented Generation (RAG), and semantic search at billion-vector scale. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3, with a dedicated set of APIs that let you store, acces",
-      "tags": [
-        "S3"
-      ],
-      "description_vi": "Amazon S3 Vectors hiện có sẵn trong AWS GovCloud (US) Regions — Amazon S3 Vectors hiện có sẵn trong AWS GovCloud (US-East) và AWS GovCloud (US-West)."
-    },
-    {
-      "title": "AWS Security Hub extends unified security management to Microsoft Azure",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-hub-supports-monitoring-microsoft-azure/",
-      "date": "2026-07-07T18:21:00.000Z",
-      "description": "Today, AWS announces that AWS Security Hub now monitors Microsoft Azure resources, extending risk analytics, cloud security posture management, vulnerability management, and security response management across both clouds. Many AWS customers running workloads in AWS and Azure have had to operate separate security tools for each environment, making it difficult to prioritize risks holistically or r",
-      "tags": [
-        "Security Hub",
-        "Inspector"
-      ],
-      "description_vi": "AWS Security Hub mở rộng quản lý bảo mật thống nhất sang Microsoft Azure — AWS Security Hub hiện giám sát các tài nguyên Microsoft Azure."
-    },
-    {
-      "title": "Amazon ECS Managed Instances reduces GPU management fees by up to 60%",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-managed-instances-gpu-price/",
-      "date": "2026-07-07T18:00:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) Managed Instances now offers significantly reduced management fees for GPU and accelerated instance types. Beginning July 1, 2026, G-series ECS management fees are reduced by 35%, and P-series and AWS Trainium fees are reduced by 60%. These reductions apply automatically and no action is required from customers already using GPU instances with ECS Mana",
-      "tags": [
-        "EC2",
-        "ECS"
-      ],
-      "description_vi": "Amazon ECS Managed Instances giảm phí quản lý GPU lên tới 60% — Amazon ECS Managed Instances hiện cung cấp phí quản lý giảm đáng kể cho các loại instance GPU và accelerated."
-    },
-    {
-      "title": "Amazon EMR Serverless now supports larger worker sizes to run more compute and memory intensive workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-emr-serverless/",
-      "date": "2026-07-07T17:06:00.000Z",
-      "description": "Amazon EMR Serverless now offers larger worker configurations of 32 vCPUs with up to 244 GB of memory, allowing you to run more compute and memory-intensive workloads. Previously, the largest worker configuration available on EMR Serverless was 16 vCPUs with up to 120 GB of memory. Larger workers can help you improve the runtime performance as well as cost profiles for your workloads. For shuffle-",
-      "tags": [
-        "Lambda",
-        "Cost"
-      ],
-      "description_vi": "Amazon EMR Serverless hiện hỗ trợ các worker sizes lớn hơn để chạy các workload tính toán và bộ nhớ intensive hơn — Amazon EMR Serverless hiện cung cấp các cấu hình worker lớn hơn với 32 vCPU và tới 244 GB bộ nhớ."
-    },
-    {
-      "title": "Amazon EC2 C8ine instances are now available in AWS Europe (Frankfurt) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c8ine-aws-frankfurt/",
-      "date": "2026-07-07T17:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8ine instances are available in the AWS Europe (Frankfurt) region. C8ine instances are powered by custom sixth generation Intel Xeon Scalable processors, available only on AWS. These instances feature the latest sixth generation AWS Nitro cards, delivering up to 43% higher performance compared to previous generation C6in instances. C8ine i",
-      "tags": [
-        "EC2",
-        "RDS"
-      ],
-      "description_vi": "Amazon EC2 C8ine instances hiện có sẵn trong AWS Europe (Frankfurt) region — Amazon EC2 C8ine instances hiện có sẵn trong AWS Europe (Frankfurt) region."
-    },
-    {
-      "title": "Amazon SageMaker now supports data lineage in IAM-based domains",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-data-lineage-iam-domain",
-      "date": "2026-07-07T17:00:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports OpenLineage compatible data lineage in IAM-based domains, capturing lineage events from Apache Spark jobs run on Amazon EMR, AWS Glue, SageMaker Visual ETL, and notebooks. This capability is already available in IAM Identity Center-based domains. The interactive lineage graph provides an aggregate visual representation of how data moves from source to c",
-      "tags": [
-        "IAM",
-        "SageMaker"
-      ],
-      "description_vi": "Amazon SageMaker hiện hỗ trợ data lineage trong các domain dựa trên IAM — Amazon SageMaker Unified Studio hiện hỗ trợ data lineage tương thích OpenLineage trong các domain dựa trên IAM."
-    },
-    {
-      "title": "Amazon Redshift RG instances now available in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-rg-instances-aws-govcloud",
-      "date": "2026-07-07T16:00:00.000Z",
-      "description": "Amazon Redshift RG instances, powered by AWS Graviton processors, are now available in the AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions. RG instances deliver better performance, running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 instances, at 30% lower price per vCPU. RG instances include Redshift's custom-built vectorized data lake query engi",
-      "tags": [
-        "EC2"
-      ],
-      "description_vi": "Amazon Redshift RG instances hiện có sẵn trong AWS GovCloud (US) Regions — Amazon Redshift RG instances được hỗ trợ bởi AWS Graviton processors hiện có sẵn trong AWS GovCloud (US-West) và AWS GovCloud (US-East) Regions."
-    },
-    {
-      "title": "Amazon RDS for Oracle now supports Oracle Database 26ai",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-oracle-database-26ai/",
-      "date": "2026-07-07T15:00:00.000Z",
-      "description": "Amazon RDS for Oracle now supports Oracle Database 26ai, Oracle's latest Long Term Support Release, with Amazon Bedrock integration which provides access to foundation models such as Anthropic Claude, Amazon Nova, and Meta Llama. With Oracle Database 26ai, you can leverage Oracle's Select AI feature to generate and run SQL queries from natural language prompts, increasing productivity for both dev",
-      "tags": [
-        "RDS",
-        "Bedrock"
-      ],
-      "description_vi": "Amazon RDS for Oracle hiện hỗ trợ Oracle Database 26ai — Amazon RDS for Oracle hiện hỗ trợ Oracle Database 26ai, bản phát hành Long Term Support mới nhất của Oracle."
+      "description_vi": "Amazon Aurora DSQL change data capture (CDC) hiện khả dụng chung — Amazon Aurora DSQL change data capture (CDC) hiện khả dụng chung, cho phép stream real-time database changes tới Amazon Kinesis Data Streams."
     }
   ],
   "security": [
@@ -289,7 +282,7 @@
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-030-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/13/2026 10:00 PM PDT This is an ongoing issue. This bulletin will be updated as more information becomes available. Description: AWS is aware of the copy.fail or DirtyFrag class of issues - a set of privilege escalation issues affecting the Linux Kernel. We will update this bulletin as more infor",
       "tags": [],
-      "description_vi": "Cập nhật liên tục về Copy.fail và các biến thể — Bulletin ID: 2026-030-AWS. Đây là một vấn đề đang diễn ra."
+      "description_vi": "Cập nhật liên tục về Copy.fail và các biến thể — Bulletin ID: 2026-030-AWS, Phạm vi: AWS, Loại: Quan trọng, Ngày xuất bản: 05/13/2026 10:00 PM PDT — Đây là vấn đề liên tục."
     },
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
@@ -300,7 +293,7 @@
         "WAF",
         "Inspector"
       ],
-      "description_vi": "CVE-2026-13762 và CVE-2026-13763 - Vấn đề với kiểm tra HTTP/2 multi-frame request body trong AWS WAF — AWS WAF là một web application firewall."
+      "description_vi": "CVE-2026-13762 và CVE-2026-13763 - Vấn đề kiểm tra thân yêu cầu HTTP/2 multi-frame trong AWS WAF — Bulletin ID: 2026-048-AWS, Phạm vi: AWS, Loại: Quan trọng, Ngày xuất bản: 06/29/2026 11:15 PM PDT."
     },
     {
       "title": "Issue with AWS-LC: an open-source, general-purpose cryptographic library (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338)",
@@ -310,7 +303,7 @@
       "tags": [
         "Inspector"
       ],
-      "description_vi": "Vấn đề với AWS-LC: một thư viện mã hóa mục đích chung mã nguồn mở (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338) — AWS-LC là một thư viện mã hóa mục đích chung mã nguồn mở."
+      "description_vi": "Vấn đề với AWS-LC: thư viện mã hóa mục đích chung mã nguồn mở (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338) — Bulletin ID: 2026-005-AWS, Ngày xuất bản: 2026/03/02 14:30 PM PST."
     },
     {
       "title": "Issues with AWS Research and Engineering Studio (RES)",
@@ -318,7 +311,7 @@
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-014-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/06 14:00 PM PDT Description: Research and Engineering Studio (RES) on AWS is an open source, web portal design for administrators to create and manage secure cloud-based research and engineering environments. We have identified the following issues with the AWS Research and Engineering Studi",
       "tags": [],
-      "description_vi": "Vấn đề với AWS Research and Engineering Studio (RES) — Bulletin ID: 2026-014-AWS. Research and Engineering Studio (RES) trên AWS."
+      "description_vi": "Vấn đề với AWS Research and Engineering Studio (RES) — Bulletin ID: 2026-014-AWS, Ngày xuất bản: 2026/04/06 14:00 PM PDT."
     },
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
@@ -328,7 +321,7 @@
       "tags": [
         "Inspector"
       ],
-      "description_vi": "Vấn đề với FreeRTOS-Plus-TCP - MAC Address Validation Bypass và ICMP Echo Reply Integer Underflow — FreeRTOS-Plus-TCP là một thư viện TCP/IP có khả năng mở rộng mã nguồn mở."
+      "description_vi": "Vấn đề với FreeRTOS-Plus-TCP - Bỏ qua xác thực MAC Address và Integer Underflow trong ICMP Echo Reply — Bulletin ID: 2026-021-AWS, Ngày xuất bản: 2026/04/29 12:00 PM PDT."
     },
     {
       "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
@@ -339,7 +332,7 @@
         "IAM",
         "Inspector"
       ],
-      "description_vi": "CVE-2026-13769 – Quyền truy cập file không an toàn trong AWS CLI — AWS Command Line Interface (AWS CLI)."
+      "description_vi": "CVE-2026-13769 – Quyền tệp không an toàn trong AWS CLI — Bulletin ID: 2026-049-AWS, Ngày xuất bản: 07/01/2026 11:45 AM PDT."
     },
     {
       "title": "CVE-2026-12957 and CVE-2026-12958 - Issues in Language Servers for AWS and Amazon Q Developer Plugins",
@@ -349,7 +342,7 @@
       "tags": [
         "Inspector"
       ],
-      "description_vi": "CVE-2026-12957 và CVE-2026-12958 - Vấn đề trong Language Servers cho AWS và Amazon Q Developer Plugins — Language Servers cho AWS cung cấp các thành phần cơ bản."
+      "description_vi": "CVE-2026-12957 và CVE-2026-12958 - Vấn đề trong Language Servers cho AWS và Amazon Q Developer Plugins — Bulletin ID: 2026-047-AWS, Ngày xuất bản: 06/23/2026 09:30 AM PDT."
     },
     {
       "title": "Security Findings in SageMaker Python SDK",
@@ -361,7 +354,7 @@
         "Lambda",
         "SageMaker"
       ],
-      "description_vi": "Các phát hiện bảo mật trong SageMaker Python SDK — CVE-2026-1777 - HMAC được tiếp lộ trong SageMaker."
+      "description_vi": "Security Findings trong SageMaker Python SDK — Bulletin ID: 2026-004-AWS, Ngày xuất bản: 2026/02/02 14:30 PM PST — CVE-2026-1777 - Exposed HMAC."
     },
     {
       "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
@@ -373,7 +366,7 @@
         "SageMaker",
         "Inspector"
       ],
-      "description_vi": "Vấn đề với Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 & CVE-2026-8597) — Amazon SageMaker Python SDK là một SDK mã nguồn mở."
+      "description_vi": "Vấn đề với Amazon SageMaker Python SDK - Các vấn đề kiểm tra tính toàn vẹn artifact mô hình (CVE-2026-8596 & CVE-2026-8597) — Bulletin ID: 2026-031-AWS, Ngày xuất bản: 05/14/2026 13:00 PM PDT."
     },
     {
       "title": "CVE-2026-7424 - Integer Underflow in DHCPv6 Sub-Option Parser in FreeRTOS-Plus-TCP",
@@ -384,7 +377,7 @@
         "Route 53",
         "Inspector"
       ],
-      "description_vi": "CVE-2026-7424 - Integer Underflow trong DHCPv6 Sub-Option Parser trong FreeRTOS-Plus-TCP — FreeRTOS-Plus-TCP là một thư viện mã nguồn mở có khả năng mở rộng."
+      "description_vi": "CVE-2026-7424 - Integer Underflow trong DHCPv6 Sub-Option Parser trong FreeRTOS-Plus-TCP — Bulletin ID: 2026-022-AWS, Ngày xuất bản: 2026/04/29 12:20 PM PDT."
     }
   ],
   "blog": [
@@ -394,7 +387,7 @@
       "date": "2026-07-06T15:46:43.000Z",
       "description": "A couple of editions ago I wrote about what I find so energizing about working with startups. Last week I got a fresh dose of it: I spent a few days with the AWS Startups team, listening to stories of founders talking about the problems they’re actually solving. One story that stayed with me came […]",
       "tags": [],
-      "description_vi": "AWS Weekly Roundup: Claude Sonnet 5 trên AWS, Amazon WorkSpaces cho AI agents, cập nhật khả dụng dịch vụ AWS và nhiều hơn nữa (July 6, 2026) — Vài kỳ trước tôi đã viết về những gì tôi thấy tạo ra động lực khi làm việc với các startup."
+      "description_vi": "AWS Weekly Roundup: Claude Sonnet 5 trên AWS, Amazon WorkSpaces cho AI agents, cập nhật khả dụng dịch vụ AWS (July 6, 2026) — Vài kỳ trước tôi viết về điều làm nên AWS Startups team, sau một vài ngày khác với team này."
     },
     {
       "title": "Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks",
@@ -404,7 +397,7 @@
       "tags": [
         "EKS"
       ],
-      "description_vi": "Nâng cấp các cluster Amazon EKS một cách tự tin bằng cách sử dụng Kubernetes version rollbacks — Tìm hiểu cách Kubernetes version rollbacks cho Amazon EKS cho phép bạn đảo ngược các nâng cấp cluster trong bảy ngày."
+      "description_vi": "Nâng cấp Amazon EKS clusters với tự tin bằng Kubernetes version rollbacks — Tìm hiểu cách Kubernetes version rollbacks cho Amazon EKS cho phép đảo ngược cluster upgrades trong bảy ngày, cung cấp mạng an toàn."
     },
     {
       "title": "Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode",
@@ -414,7 +407,7 @@
       "tags": [
         "Cost"
       ],
-      "description_vi": "Tăng tốc các deployment cơ sở hạ tầng lên 4x với AWS CloudFormation Express mode — AWS CloudFormation tăng tốc độ triển khai cơ sở hạ tầng với Express mode."
+      "description_vi": "Tăng tốc triển khai infrastructure lên 4 lần với AWS CloudFormation Express mode — AWS CloudFormation tăng tốc triển khai với Express mode, cho AI agents và developers nhận xác nhận triển khai trong vài giây."
     },
     {
       "title": "Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available",
@@ -424,7 +417,7 @@
       "tags": [
         "EC2"
       ],
-      "description_vi": "Amazon EC2 C9g và C9gd instances được hỗ trợ bởi AWS Graviton5 processors hiện có sẵn — Amazon EC2 C9g và C9gd instances được hỗ trợ bởi AWS Graviton5 hiện có sẵn chính thức."
+      "description_vi": "Amazon EC2 C9g và C9gd instances được hỗ trợ bởi AWS Graviton5 processors hiện khả dụng — Amazon EC2 C9g và C9gd instances được hỗ trợ bởi AWS Graviton5 hiện khả dụng chung, cung cấp 25% hiệu suất tính toán tốt hơn."
     },
     {
       "title": "Automate public TLS certificate issuance with ACME support in AWS Certificate Manager",
@@ -434,7 +427,7 @@
       "tags": [
         "IAM"
       ],
-      "description_vi": "Tự động hóa phát hành public TLS certificate với ACME support trong AWS Certificate Manager — AWS Certificate Manager hiện hỗ trợ giao thức ACME cho public TLS certificates."
+      "description_vi": "Tự động hóa cấp phát chứng chỉ TLS công khai với ACME support trong AWS Certificate Manager — AWS Certificate Manager giờ hỗ trợ ACME protocol cho public TLS certificates, cho phép cấp phát và gia hạn tự động."
     },
     {
       "title": "AWS Weekly Roundup: Agentic CX designer for Amazon Connect Customer, EC2 AMI Watermarks, Open Governance for MySQL, and more (June 29, 2026)",
@@ -446,7 +439,7 @@
         "RDS",
         "Lambda"
       ],
-      "description_vi": "AWS Weekly Roundup: Agentic CX designer cho Amazon Connect Customer, EC2 AMI Watermarks, Open Governance cho MySQL và nhiều hơn nữa (June 29, 2026) — Nó đã là một giai đoạn bận rộn trên đường AWS Summit."
+      "description_vi": "AWS Weekly Roundup: Agentic CX designer cho Amazon Connect Customer, EC2 AMI Watermarks, Open Governance cho MySQL (June 29, 2026) — AWS Summit circuit đã bận rộn, tại NYC Summit tôi triển khai workshop Building AI architectures with AWS Serverless."
     },
     {
       "title": "Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs",
@@ -456,7 +449,7 @@
       "tags": [
         "Lambda"
       ],
-      "description_vi": "Chạy các sandboxes bị cô lập với full lifecycle control: AWS Lambda giới thiệu MicroVMs — AWS phát hành một serverless compute primitive mới, AWS Lambda MicroVMs."
+      "description_vi": "Chạy isolated sandboxes với full lifecycle control: AWS Lambda giới thiệu MicroVMs — AWS khởi động compute primitive mới, AWS Lambda MicroVMs, VM-level sandboxes với không shared kernel hoặc resources giữa sessions."
     },
     {
       "title": "AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi, Grok 4.3 in Bedrock, price reductions, and more (June 22, 2026)",
@@ -466,7 +459,7 @@
       "tags": [
         "Bedrock"
       ],
-      "description_vi": "AWS Weekly Roundup: NY Summit recap, Local Zone ở Hà Nội, Grok 4.3 trong Bedrock, giảm giá và nhiều hơn nữa (June 22, 2026) — Tuần trước AWS Summit New York City tập hợp hàng ngàn khách hàng, đối tác và builders."
+      "description_vi": "AWS Weekly Roundup: NY Summit recap, Local Zone ở Hanoi, Grok 4.3 trong Bedrock, giảm giá (June 22, 2026) — Tuần trước AWS Summit New York City quy tụ hàng nghìn khách hàng, đối tác và builders."
     },
     {
       "title": "Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs",
@@ -476,7 +469,7 @@
       "tags": [
         "EC2"
       ],
-      "description_vi": "Công bố Amazon EC2 G7 instances được tăng tốc bởi NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs — Công bố khả dụng chính thức của Amazon EC2 G7 instances."
+      "description_vi": "Công bố Amazon EC2 G7 instances được tăng tốc bởi NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs — Công bố khả dụng chung của Amazon EC2 G7 instances, cung cấp GPU acceleration hiệu suất cao cho AI inference, graphics."
     },
     {
       "title": "Amazon ECS introduces new high-resolution metrics for faster service auto scaling",
@@ -487,7 +480,7 @@
         "CloudWatch",
         "ECS"
       ],
-      "description_vi": "Amazon ECS giới thiệu các metrics có độ phân giải cao mới để tự động mở rộng dịch vụ nhanh hơn — Amazon ECS service auto scaling tự động điều chỉnh số lượng task để đáp ứng nhu cầu workload."
+      "description_vi": "Amazon ECS giới thiệu high-resolution metrics mới cho faster service auto scaling — Amazon ECS service auto scaling tự động điều chỉnh task counts để đáp ứng workload demand với comprehensive scaling policies."
     }
   ],
   "status": {
