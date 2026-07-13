@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-07",
+  "day": 28,
+  "week": 3,
+  "month": 2,
+  "title": "Organizations & Control Tower",
+  "subtitle": "SCP · OU · Landing Zone · Guardrails",
+  "category": "Governance",
+  "color": "#7A7160",
+  "emoji": "🏢",
+  "vocabulary": [
+    {
+      "word": "Service Control Policy",
+      "ipa": "/ˈsɜːrvɪs kənˈtroʊl ˈpɑːləsi/",
+      "ipa_guide": "Đọc: SƯR-vis KON-trôl PAH-luh-si",
+      "type": "danh từ",
+      "meaning": "Chính sách kiểm soát dịch vụ — giới hạn quyền IAM tối đa cho tài khoản/OU",
+      "example_en": "An SCP can prevent all users in an OU from using EC2 instances outside approved regions.",
+      "example_vi": "SCP có thể ngăn tất cả người dùng trong OU sử dụng EC2 bên ngoài các vùng được phê duyệt.",
+      "usage": "AWS Organizations · Control Tower · Multi-account strategy",
+      "japfa": "jp:prod áp dụng SCP để chỉ cho phép s3:* và ec2:* trên các region đã phê duyệt"
+    },
+    {
+      "word": "Organizational Unit",
+      "ipa": "/ˌɔːrɡənɪˈzeɪʃənəl ˈjuːnɪt/",
+      "ipa_guide": "Đọc: OR-guh-nai-zay-shun-ul YOO-nit",
+      "type": "danh từ",
+      "meaning": "Đơn vị tổ chức — nhóm tài khoản AWS được quản lý cùng chính sách",
+      "example_en": "You can create an OU called 'Production' and another called 'Development' to apply different SCPs.",
+      "example_vi": "Bạn tạo OU 'Production' và OU 'Development' để áp dụng các SCP khác nhau.",
+      "usage": "AWS Organizations · Hierarchical structure · Policy application",
+      "japfa": "jp:prod và jp:uat nằm trong OU 'Workload', jp:network trong OU 'Infrastructure'"
+    },
+    {
+      "word": "Landing Zone",
+      "ipa": "/ˈlændɪŋ zoʊn/",
+      "ipa_guide": "Đọc: LAN-ding zôn",
+      "type": "danh từ",
+      "meaning": "Vùng hạ cánh — môi trường AWS được cấu hình sẵn với các guardrail và best practices",
+      "example_en": "Control Tower sets up a Landing Zone with networking, logging, and security baselines automatically.",
+      "example_vi": "Control Tower thiết lập Landing Zone với mạng, logging, và baseline bảo mật tự động.",
+      "usage": "AWS Control Tower · Multi-account setup · Governance foundation",
+      "japfa": "Japfa Vietnam sử dụng Landing Zone cho 7 tài khoản với jp:cloudtrail tập trung logs"
+    },
+    {
+      "word": "Guardrail",
+      "ipa": "/ˈɡɑːrdreɪl/",
+      "ipa_guide": "Đọc: GARD-râl",
+      "type": "danh từ",
+      "meaning": "Thanh bảo vệ — kiểm soát tự động ngăn chặn hoạt động không tuân thủ",
+      "example_en": "Control Tower's guardrails automatically prevent disabling CloudTrail logging across all accounts.",
+      "example_vi": "Guardrail Control Tower tự động ngăn tắt CloudTrail logging trên tất cả tài khoản.",
+      "usage": "AWS Control Tower · Preventive · Detective controls",
+      "japfa": "jp:shareservice và jp:aggregator bị bảo vệ bởi guardrail ngăn xóa VPC"
+    },
+    {
+      "word": "Master Account",
+      "ipa": "/ˈmæstər əˈkaʊnt/",
+      "ipa_guide": "Đọc: MAS-tur uh-KAUNT",
+      "type": "danh từ",
+      "meaning": "Tài khoản chủ — tài khoản gốc trong AWS Organizations quản lý tất cả tài khoản khác",
+      "example_en": "The master account is where you manage all member accounts' billing and apply organization SCPs.",
+      "example_vi": "Tài khoản chủ là nơi quản lý billing và áp dụng SCP tổ chức cho tất cả tài khoản thành viên.",
+      "usage": "AWS Organizations · Billing · Central management",
+      "japfa": "Tài khoản chủ Japfa quản lý billing cho jp:prod, jp:uat, jp:poc, jp:network, v.v."
+    }
+  ],
+  "services": [
+    {
+      "name": "AWS Organizations",
+      "full": "AWS Organizations",
+      "category": "security",
+      "icon": "🏛️",
+      "what": "Quản lý tập trung nhiều tài khoản AWS, áp dụng chính sách trên toàn tổ chức, quản lý hóa đơn tập trung.",
+      "when": "Khi bạn có từ 2+ tài khoản AWS cần điều phối chính sách và quản lý chi phí theo OU.",
+      "key_points": [
+        "Quản lý Service Control Policies (SCP) để giới hạn quyền tối đa",
+        "Cấu trúc OU phân cấp cho các nhóm tài khoản khác nhau",
+        "Hóa đơn tập trung từ Master Account"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng Organizations để quản lý 7 tài khoản (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice) với SCP cho phép EC2/S3 chỉ trên region ap-southeast-1.",
+      "cli": {
+        "task": "Liệt kê tất cả tài khoản trong tổ chức",
+        "command": "aws organizations list-accounts"
+      }
+    },
+    {
+      "name": "Control Tower",
+      "full": "AWS Control Tower",
+      "category": "security",
+      "icon": "🛡️",
+      "what": "Cài đặt và quản lý Landing Zone với guardrails tự động, logging tập trung, và best practices governance.",
+      "when": "Khi bạn muốn thiết lập môi trường multi-account với kiểm soát tuân thủ tự động ngay từ đầu.",
+      "key_points": [
+        "Tự động tạo Landing Zone với VPC, logging, và IAM best practices",
+        "Preventive/Detective guardrails ngăn/phát hiện hành động không tuân thủ",
+        "Integrasi với CloudTrail, Config, CloudWatch tập trung"
+      ],
+      "japfa": true,
+      "japfa_detail": "Control Tower của Japfa enforce guardrail ngăn tắt CloudTrail trên jp:cloudtrail, và yêu cầu MFA cho tất cả OU.",
+      "cli": {
+        "task": "Kiểm tra trạng thái guardrail trên OU",
+        "command": "aws controltower list-guardrails-for-target --target-identifier ou-xxxx"
+      }
+    },
+    {
+      "name": "CloudTrail",
+      "full": "AWS CloudTrail",
+      "category": "monitoring",
+      "icon": "📋",
+      "what": "Ghi lại tất cả API calls và events từ tài khoản AWS vào S3, giúp kiểm toán, tuân thủ, và phân tích bảo mật.",
+      "when": "Luôn bật CloudTrail trên tất cả tài khoản để theo dõi ai làm gì, khi nào, và từ đâu.",
+      "key_points": [
+        "Multi-account CloudTrail tập trung logs vào S3 bucket chung",
+        "Hỗ trợ tìm kiếm sự kiện qua CloudTrail Insights và Athena",
+        "Yêu cầu bắt buộc cho PCI-DSS, HIPAA, SOC 2 compliance"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail là tài khoản chuyên dùng để tập trung CloudTrail logs từ jp:prod, jp:uat, jp:poc vào single S3 bucket cho kiểm toán.",
+      "cli": {
+        "task": "Xem CloudTrail events cho một user trong 24 giờ qua",
+        "command": "aws cloudtrail lookup-events --lookup-attributes AttributeKey=Username,AttributeValue=admin --max-results 50"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "SCP vs IAM Policies: Giới hạn tối đa vs Cho phép",
+      "icon": "🔐",
+      "body": "SCP đặt giới hạn tối đa quyền cho OU/tài khoản (như một mũ trần), còn IAM policy cho phép người dùng cụ thể. Cả hai phải cho phép để hành động có thể thực hiện. SCP không có ý định chặn root, nhưng nó chặn tất cả user trong OU đó.",
+      "diagram": "IAM Policy:  ✓ Allow s3:*\n      ↓\n  SCP (OU):  ✓ Allow s3:GetObject\n      ↓\n  RESULT:    ✓ User can GetObject ONLY\n\n  IAM Policy:  ✓ Allow ec2:*\n      ↓\n  SCP (OU):  ✗ Deny ec2:RunInstances\n      ↓\n  RESULT:    ✗ Cannot RunInstances",
+      "exam_tip": "SAA hỏi: 'Nếu tài khoản A có IAM policy cho phép s3:*, nhưng OU của A có SCP deny s3:PutObject, điều gì sẽ xảy ra?' → Trả lời: User không thể PutObject (SCP như mũ trần).",
+      "japfa": "jp:prod có IAM policy cho phép ec2:*, nhưng SCP tổ chức chỉ cho phép ap-southeast-1 → người dùng không thể launch EC2 ở region khác."
+    },
+    {
+      "title": "Landing Zone: Account Factory + Guardrails + Centralized Logging",
+      "icon": "🏗️",
+      "body": "Landing Zone Control Tower tự động tạo tài khoản mới với VPC, subnet, NAT Gateway, CloudTrail, Config, và CloudWatch Logs tập trung. Guardrails (preventive/detective) tự động enforce compliance trên tất cả tài khoản mà không cần tay chân.",
+      "diagram": "Control Tower Landing Zone Setup:\n\n  Management Account (Master)\n       ↓\n  ├─ Log Archive Account (CloudTrail S3)\n  ├─ Audit Account (Config, Athena queries)\n  ├─ OU: Infrastructure\n  │    └─ Network Account (jp:network)\n  ├─ OU: Workload\n  │    ├─ jp:prod\n  │    ├─ jp:uat\n  │    └─ jp:poc\n  └─ Guardrails apply to all OUs",
+      "exam_tip": "SAA hỏi: 'Làm sao tập trung logs từ 7 tài khoản vào 1 S3 bucket?' → Landing Zone + CloudTrail organizational trail + jp:cloudtrail account.",
+      "japfa": "Japfa Landing Zone có Log Archive (jp:cloudtrail) nhận logs từ jp:prod, jp:uat, jp:poc, jp:shareservice, jp:aggregator, jp:network, jp:poc — guardrails ngăn xóa CloudTrail."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Bạn quản lý 7 tài khoản AWS ở Japfa Vietnam. Bạn muốn ngăn tất cả người dùng trong OU 'Production' (jp:prod, jp:uat) sử dụng S3 DeleteBucket, nhưng IAM policies của họ cho phép s3:*. Bạn sẽ dùng gì?",
+      "options": [
+        "IAM role với Deny s3:DeleteBucket để tất cả user assume",
+        "Service Control Policy (SCP) trên OU với Deny s3:DeleteBucket",
+        "S3 Bucket Policy deny DeleteBucket từ tất cả principal",
+        "CloudTrail rule để phát hiện DeleteBucket actions"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "SCP đặt giới hạn tối đa quyền OU-level, chặn DeleteBucket dù IAM cho phép. IAM role chỉ ảnh hưởng người assume, S3 policy chỉ S3 level, CloudTrail chỉ ghi lại."
+    },
+    {
+      "id": 2,
+      "question": "Control Tower Landing Zone tự động tạo những tài khoản nào?",
+      "options": [
+        "Chỉ Management Account",
+        "Management Account + Log Archive + Audit Account",
+        "Tất cả 7 tài khoản Japfa (jp:prod, jp:uat, etc.)",
+        "Management + 10 default member accounts"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "Landing Zone luôn tạo 3 tài khoản cốt lõi: Management (quản lý), Log Archive (CloudTrail S3), Audit (Config, compliance checks). Các tài khoản member khác tạo thủ công qua Account Factory."
+    },
+    {
+      "id": 3,
+      "question": "Japfa muốn tập trung CloudTrail logs từ jp:prod, jp:uat, jp:poc vào 1 S3 bucket ở jp:cloudtrail account. Bạn cần cấu hình gì?",
+      "options": [
+        "CloudTrail trail riêng lẻ ở mỗi tài khoản → S3 bucket ở jp:cloudtrail",
+        "Organizational CloudTrail trail ở Management Account → jp:cloudtrail S3 bucket",
+        "CloudWatch Logs Groups từ tất cả tài khoản → kinesis Stream",
+        "AWS Config Aggregator để gửi logs qua SNS"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "Organizational trail ở Management Account (qua Organizations) tự động ghi tất cả API calls từ member accounts vào single S3 bucket, thay vì trail riêng lẻ."
+    },
+    {
+      "id": 4,
+      "question": "SCP deny ec2:RunInstances trên OU 'Development' (jp:poc). User ở jp:poc có IAM policy cho phép ec2:*. Điều gì sẽ xảy ra khi user thử RunInstances?",
+      "options": [
+        "Thành công, vì IAM policy cho phép",
+        "Thất bại, vì SCP deny (mũ trần)",
+        "Tùy thuộc vào resource tags",
+        "CloudTrail ghi lại và audit team phê duyệt"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "SCP hoạt động như mũ trần — nếu SCP deny, hành động bị chặn dù IAM cho phép. Cả IAM và SCP phải cho phép để thành công."
+    },
+    {
+      "id": 5,
+      "question": "Japfa muốn áp dụng guardrail ngăn tắt MFA trên tất cả 7 tài khoản. Dùng cách nào hiệu quả nhất?",
+      "options": [
+        "Viết SCP deny iam:DeactivateMFADevice trên root OU, áp dụng cho tất cả OU con",
+        "CloudTrail detector + SNS alert khi phát hiện DeactivateMFADevice",
+        "IAM policy trên tất cả user groups deny DeactivateMFADevice",
+        "Control Tower preventive guardrail enforce MFA requirement"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "domain": "secure",
+      "explanation": "SCP ở root OU apply tất cả member accounts → chặn DeactivateMFADevice organization-wide. Guardrail Control Tower nếu có, nhưng SCP là cách tổng quát. IAM policy từng user khó scale, CloudTrail chỉ phát hiện."
+    }
+  ]
+}

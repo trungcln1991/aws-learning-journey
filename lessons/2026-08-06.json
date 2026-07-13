@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-06",
+  "day": 27,
+  "week": 3,
+  "month": 2,
+  "title": "Step Functions & EventBridge",
+  "subtitle": "State Machine · Events · Rules · Targets",
+  "category": "Serverless",
+  "color": "#F97316",
+  "emoji": "🔄",
+  "vocabulary": [
+    {
+      "word": "State Machine",
+      "ipa": "/steɪt məˈʃiːn/",
+      "ipa_guide": "Đọc: STEYT mə-SHIN",
+      "type": "danh từ",
+      "meaning": "Một máy trạng thái định nghĩa các bước xử lý tuần tự với các điều kiện chuyển đổi giữa các trạng thái.",
+      "example_en": "A state machine in Step Functions orchestrates your Lambda functions through defined states.",
+      "example_vi": "Một state machine trong Step Functions điều phối các Lambda function thông qua các trạng thái được xác định.",
+      "usage": "AWS Step Functions · Workflow orchestration · Process automation",
+      "japfa": "jp:prod account sử dụng state machine để xử lý đơn hàng từ hệ thống quản lý gia cầm."
+    },
+    {
+      "word": "EventBridge",
+      "ipa": "/ˈiːvəntbrɪdʒ/",
+      "ipa_guide": "Đọc: I-vənt-BRIJ",
+      "type": "danh từ",
+      "meaning": "Dịch vụ định tuyến sự kiện giúp kết nối các ứng dụng và dịch vụ AWS bằng cách sử dụng quy tắc sự kiện.",
+      "example_en": "EventBridge routes EC2 state change events to Lambda functions automatically.",
+      "example_vi": "EventBridge định tuyến sự kiện thay đổi trạng thái EC2 tới các Lambda function tự động.",
+      "usage": "Event routing · Serverless integrations · Cross-service automation",
+      "japfa": "jp:cloudtrail account tích hợp EventBridge để phát hiện các thay đổi cấu hình."
+    },
+    {
+      "word": "Execution",
+      "ipa": "/ɪɡˈzɛkjəʃən/",
+      "ipa_guide": "Đọc: IG-ZEK-yə-shən",
+      "type": "danh từ",
+      "meaning": "Một lần chạy của state machine hoặc workflow với dữ liệu đầu vào cụ thể.",
+      "example_en": "Each execution of the Step Functions state machine processes one order.",
+      "example_vi": "Mỗi execution của state machine Step Functions xử lý một đơn hàng.",
+      "usage": "Step Functions · Workflow · Process tracking · Monitoring",
+      "japfa": "jp:aggregator account theo dõi executions để đảm bảo dữ liệu được tổng hợp đúng."
+    },
+    {
+      "word": "Rule",
+      "ipa": "/ruːl/",
+      "ipa_guide": "Đọc: RÛL",
+      "type": "danh từ",
+      "meaning": "Một quy tắc EventBridge xác định các sự kiện nào sẽ được khớp và gửi tới các mục tiêu.",
+      "example_en": "Create a rule to send all EC2 termination events to a notification topic.",
+      "example_vi": "Tạo một rule để gửi tất cả sự kiện kết thúc EC2 tới một chủ đề thông báo.",
+      "usage": "EventBridge · Event filtering · Pattern matching · Event routing",
+      "japfa": "jp:network account sử dụng rules để giám sát các sự kiện VPC và FortiGate thay đổi."
+    },
+    {
+      "word": "Target",
+      "ipa": "/ˈtɑːrɡɪt/",
+      "ipa_guide": "Đọc: TAR-git",
+      "type": "danh từ",
+      "meaning": "Dịch vụ AWS nhận sự kiện từ EventBridge rule khi sự kiện khớp với mẫu xác định.",
+      "example_en": "Lambda function is the target that receives the event from EventBridge.",
+      "example_vi": "Lambda function là target nhận sự kiện từ EventBridge.",
+      "usage": "EventBridge · Event handling · SNS · SQS · Lambda · API Gateway",
+      "japfa": "jp:shareservice account định nghĩa targets để phân phối sự kiện chia sẻ tài nguyên."
+    }
+  ],
+  "services": [
+    {
+      "name": "Step Functions",
+      "full": "AWS Step Functions",
+      "category": "serverless",
+      "icon": "🔄",
+      "what": "Dịch vụ quản lý quy trình công việc cho phép bạn điều phối các tác vụ phức tạp bằng cách sử dụng các state machine. Nó tích hợp với Lambda, EC2, ECS và các dịch vụ AWS khác.",
+      "when": "Sử dụng khi cần thực hiện các quy trình nhiều bước có điều kiện, lặp lại hoặc xử lý lỗi.",
+      "key_points": [
+        "Độc lập với các lỗi thành phần riêng lẻ",
+        "Giảm thiểu logic ứng dụng bằng cách tách rời quy trình",
+        "Theo dõi hành động thực thi chi tiết qua console"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng Step Functions để điều phối quy trình nhập liệu gia cầm từ cảm biến IoT qua Lambda và DynamoDB.",
+      "cli": {
+        "task": "Liệt kê tất cả state machine trong tài khoản",
+        "command": "aws stepfunctions list-state-machines"
+      }
+    },
+    {
+      "name": "EventBridge",
+      "full": "Amazon EventBridge",
+      "category": "serverless",
+      "icon": "📨",
+      "what": "Dịch vụ định tuyến sự kiện thực thời tích hợp các nguồn sự kiện AWS, tùy chỉnh và ứng dụng SaaS. Nó sử dụng quy tắc để đưa sự kiện đến các mục tiêu.",
+      "when": "Sử dụng khi cần phản ứng với các sự kiện hệ thống, tạo tác vụ tự động hoặc kết nối các ứng dụng riêng biệt.",
+      "key_points": [
+        "Giảm sự ghép nối giữa các dịch vụ",
+        "Hỗ trợ định tuyến dựa trên mẫu sự kiện phức tạp",
+        "Gửi sự kiện đến nhiều mục tiêu đồng thời"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:cloudtrail sử dụng EventBridge để ghi nhận và phát hiện các thay đổi cấu hình IAM qua toàn bộ 7 tài khoản.",
+      "cli": {
+        "task": "Liệt kê tất cả EventBridge rules trong event bus mặc định",
+        "command": "aws events list-rules"
+      }
+    },
+    {
+      "name": "Lambda",
+      "full": "AWS Lambda",
+      "category": "serverless",
+      "icon": "λ",
+      "what": "Dịch vụ máy tính không máy chủ cho phép chạy mã mà không cần cung cấp hoặc quản lý máy chủ. Nó tích hợp chặt chẽ với Step Functions và EventBridge.",
+      "when": "Sử dụng để xử lý sự kiện, tự động hóa tác vụ hoặc chạy các khối mã ngắn hạn.",
+      "key_points": [
+        "Trả tiền chỉ cho thời gian thực thi (chi phí thấp hơn EC2)",
+        "Mở rộng tự động dựa trên tải công việc",
+        "Tích hợp sẵn với EventBridge, Step Functions và CloudTrail"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:poc account kiểm nghiệm Lambda functions được kích hoạt bởi EventBridge từ cảm biến tình trạng gia cầm.",
+      "cli": {
+        "task": "Liệt kê tất cả Lambda functions trong region",
+        "command": "aws lambda list-functions"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "State Machine và quy trình thực thi",
+      "icon": "🔄",
+      "body": "State Machine trong Step Functions định nghĩa một chuỗi các trạng thái (states) và các chuyển đổi giữa chúng. Mỗi khi bạn gọi Step Functions, nó tạo một execution mới theo dõi tiến trình qua các trạng thái.",
+      "diagram": "         [START]\n            ↓\n      [Process Task]\n            ↓\n       [Condition?]\n         /     \\\n      [YES]  [NO]\n       /         \\\n    [Retry]  [Fail]\n       \\       /\n        [END]",
+      "exam_tip": "SAA-C03 yêu cầu bạn biết khi nào sử dụng Step Functions để giảm sự ghép nối và cải thiện khả năng phục hồi lỗi.",
+      "japfa": "jp:prod sử dụng state machine để xử lý đơn hàng gia cầm: nhập → xác thực → lưu kho → thông báo."
+    },
+    {
+      "title": "EventBridge Rules và Pattern Matching",
+      "icon": "📨",
+      "body": "EventBridge rules định nghĩa các sự kiện nào sẽ được khớp bằng cách sử dụng JSON pattern. Khi sự kiện phù hợp với rule, EventBridge gửi nó đến tất cả các target được chỉ định.",
+      "diagram": "  Event Source\n       ↓\n   EventBridge\n       ↓\n  [Rule Pattern]\n       ↓\n    Match?\n     /   \\\n   YES   NO\n    ↓     ↓\n [Targets] [Discard]",
+      "exam_tip": "SAA-C03 nhấn mạnh EventBridge để giảm sự ghép nối và cho phép tích hợp với các ứng dụng thứ ba.",
+      "japfa": "jp:shareservice định nghĩa rules để gửi sự kiện cập nhật hàng tồn kho đến các hệ thống ngang hàng."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa cần xử lý đơn hàng gia cầm qua nhiều bước: xác thực → kiểm tra hàng tồn kho → thanh toán → thông báo. Dịch vụ AWS nào tốt nhất để điều phối quy trình này với xử lý lỗi tích hợp?",
+      "options": [
+        "Sử dụng Lambda functions gọi lẫn nhau tuần tự",
+        "AWS Step Functions với state machine",
+        "Amazon SQS để xếp hàng các thông báo",
+        "EventBridge định tuyến đến SNS"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "Step Functions cung cấp điều phối quy trình, xử lý lỗi tự động và theo dõi thực thi. Lambda gọi lẫn nhau tạo sự ghép nối."
+    },
+    {
+      "id": 2,
+      "question": "jp:cloudtrail cần phát hiện tất cả các thay đổi IAM và gửi cảnh báo trong 5 giây. Dịch vụ nào cung cấp định tuyến sự kiện thực thời này?",
+      "options": [
+        "S3 event notifications",
+        "Amazon EventBridge",
+        "CloudWatch Logs Insights",
+        "Step Functions execution history"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "EventBridge cung cấp định tuyến sự kiện thực thời từ CloudTrail. S3 thông báo chậm hơn, CloudWatch Logs là phân tích chứ không phải thời gian thực."
+    },
+    {
+      "id": 3,
+      "question": "Japfa jp:poc muốn kiểm nghiệm hàng nghìn executions Lambda được kích hoạt bởi EventBridge hàng ngày. Lợi ích chi phí của việc sử dụng Lambda thay vì chạy các máy chủ EC2 để xử lý là gì?",
+      "options": [
+        "Lambda không có phí dữ liệu truyền ra ngoài",
+        "Bạn chỉ trả tiền cho thời gian thực thi và không cần cung cấp dung lượng để chờ đợi",
+        "Lambda bao gồm chi phí SSD miễn phí",
+        "EventBridge giảm 90% chi phí tính toán"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Lambda có mô hình chi phí theo mili giây - bạn trả tiền khi mã chạy, không cần EC2chạy 24/7 chờ đợi."
+    },
+    {
+      "id": 4,
+      "question": "jp:network đặt một EventBridge rule để gửi tất cả sự kiện VPC thay đổi đến hai target: SNS topic và Lambda function. Nếu SNS topic không khả dụng tạm thời, điều gì xảy ra với Lambda invocation?",
+      "options": [
+        "Lambda invocation bị hủy",
+        "Lambda invocation vẫn được thực thi độc lập, SNS lỗi không ảnh hưởng",
+        "EventBridge chờ SNS thành công rồi gọi Lambda",
+        "Cả hai targets sẽ retry vô hạn"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "domain": "resilient",
+      "explanation": "EventBridge gửi sự kiện tới từng target độc lập. Lỗi ở một target không ảnh hưởng đến các targets khác."
+    },
+    {
+      "id": 5,
+      "question": "Japfa jp:shareservice sử dụng Step Functions state machine với 10 states và 5 possible execution paths. Để bảo vệ logic quy trình khỏi truy cập không được phép, nên áp dụng chính sách IAM nào?",
+      "options": [
+        "Cho phép tất cả IAM users gọi StartExecution",
+        "Cho phép chỉ các role cụ thể gọi StartExecution và DescribeExecution",
+        "Mã hóa state machine định nghĩa bằng KMS",
+        "Đặt state machine phía sau API Gateway với authen"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "Nguyên tắc least privilege yêu cầu IAM policies cho phép chỉ các hành động cần thiết từ principal được chỉ định."
+    }
+  ]
+}

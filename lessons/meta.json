@@ -329,8 +329,47 @@
       "emoji": "📐",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-08-05",
+      "day": 26,
+      "title": "EFS & FSx Storage",
+      "subtitle": "NFS · Multi-AZ · FSx Windows · Lustre",
+      "category": "Storage",
+      "week": 3,
+      "month": 2,
+      "color": "#A9700A",
+      "emoji": "💾",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-08-06",
+      "day": 27,
+      "title": "Step Functions & EventBridge",
+      "subtitle": "State Machine · Events · Rules · Targets",
+      "category": "Serverless",
+      "week": 3,
+      "month": 2,
+      "color": "#F97316",
+      "emoji": "🔄",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-08-07",
+      "day": 28,
+      "title": "Organizations & Control Tower",
+      "subtitle": "SCP · OU · Landing Zone · Guardrails",
+      "category": "Governance",
+      "week": 3,
+      "month": 2,
+      "color": "#7A7160",
+      "emoji": "🏢",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-07-09T06:46:45.556Z",
-  "total_lessons": 25
+  "last_generated": "2026-07-13T02:34:14.664Z",
+  "total_lessons": 28
 }

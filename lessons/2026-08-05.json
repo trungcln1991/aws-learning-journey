@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-05",
+  "day": 26,
+  "week": 3,
+  "month": 2,
+  "title": "EFS & FSx Storage",
+  "subtitle": "NFS · Multi-AZ · FSx Windows · Lustre",
+  "category": "Storage",
+  "color": "#A9700A",
+  "emoji": "💾",
+  "vocabulary": [
+    {
+      "word": "NFS",
+      "ipa": "/en-ef-es/",
+      "ipa_guide": "Đọc từng chữ: N-F-S",
+      "type": "danh từ",
+      "meaning": "Network File System — giao thức chia sẻ tệp qua mạng cho Linux/Unix",
+      "example_en": "EFS uses NFS protocol to mount shared storage across EC2 instances",
+      "example_vi": "EFS sử dụng giao thức NFS để gắn bộ lưu trữ chia sẻ trên EC2",
+      "usage": "EFS · Linux · On-premises VMware",
+      "japfa": "jp:prod sử dụng NFS để các EC2 instances chia sẻ dữ liệu sản xuất"
+    },
+    {
+      "word": "Multi-AZ",
+      "ipa": "/ˈmʌlti eɪ zed/",
+      "ipa_guide": "Đọc: MUL-ti-ây-ZED",
+      "type": "tính từ",
+      "meaning": "Triển khai trên nhiều Availability Zones để tăng tính sẵn sàng",
+      "example_en": "EFS automatically replicates data across multiple AZs for high availability",
+      "example_vi": "EFS tự động sao chép dữ liệu trên nhiều AZ để đảm bảo khả dụng cao",
+      "usage": "EFS · RDS · Design · Resilience",
+      "japfa": "jp:prod architecture yêu cầu Multi-AZ cho dữ liệu sản xuất gia cầm"
+    },
+    {
+      "word": "FSx",
+      "ipa": "/ef-es-eks/",
+      "ipa_guide": "Đọc: F-S-X",
+      "type": "danh từ",
+      "meaning": "Fully managed file storage service — hỗ trợ Windows, Lustre, NetApp",
+      "example_en": "FSx for Windows File Server integrates with Active Directory",
+      "example_vi": "FSx cho Windows kết hợp với Active Directory để quản lý tệp",
+      "usage": "FSx Windows · FSx Lustre · Windows servers",
+      "japfa": "jp:shareservice có thể sử dụng FSx Windows để chia sẻ tệp enterprise"
+    },
+    {
+      "word": "throughput",
+      "ipa": "/ˈθruːpʊt/",
+      "ipa_guide": "Đọc: THRU-put",
+      "type": "danh từ",
+      "meaning": "Lượng dữ liệu được truyền trên một đơn vị thời gian (MB/s, IOPS)",
+      "example_en": "EFS provisioned throughput mode guarantees consistent performance",
+      "example_vi": "Chế độ throughput được cấp phát của EFS đảm bảo hiệu suất ổn định",
+      "usage": "EFS · Performance · Monitoring",
+      "japfa": "jp:aggregator cần throughput cao để xử lý dữ liệu từ nhiều trang trại"
+    },
+    {
+      "word": "bursting",
+      "ipa": "/ˈbɜːrstɪŋ/",
+      "ipa_guide": "Đọc: BERS-ting",
+      "type": "danh từ",
+      "meaning": "Khả năng tăng tốc tạm thời vượt quá mức cơ sở để xử lý spike traffic",
+      "example_en": "EFS bursting mode allows throughput to spike during peak workloads",
+      "example_vi": "Chế độ bursting cho phép tăng throughput khi lưu lượng cao",
+      "usage": "EFS · Cost optimization · Variable workloads",
+      "japfa": "jp:poc dùng bursting mode để tiết kiệm chi phí khi traffic không ổn định"
+    }
+  ],
+  "services": [
+    {
+      "name": "EFS",
+      "full": "Elastic File System",
+      "category": "storage",
+      "icon": "📁",
+      "what": "Managed NFS storage that auto-scales, supports Multi-AZ replication, integrates with Linux EC2 and on-premises via VPN.",
+      "when": "Need shared file storage across multiple EC2 instances, on-premises VMware, or require POSIX compliance.",
+      "key_points": [
+        "Auto-scales capacity, no pre-provisioning needed",
+        "Multi-AZ redundancy with NFS protocol",
+        "Bursting or Provisioned throughput modes"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod uses EFS for shared application logs and data across production EC2 instances in ap-southeast-1",
+      "cli": {
+        "task": "Liệt kê tất cả EFS file systems",
+        "command": "aws efs describe-file-systems --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "FSx",
+      "full": "FSx for Windows File Server / FSx for Lustre",
+      "category": "storage",
+      "icon": "🗂️",
+      "what": "Fully managed file storage with native Windows (SMB) or high-performance Lustre support, integrates with Active Directory.",
+      "when": "Need Windows file sharing with AD integration, or HPC/big data workloads requiring Lustre performance.",
+      "key_points": [
+        "FSx Windows: SMB protocol, AD integration, shadow copies",
+        "FSx Lustre: HPC, ML, big data with POSIX interface",
+        "Multi-AZ option for both variants"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:shareservice could adopt FSx Windows for centralized document sharing and AD authentication across offices",
+      "cli": {
+        "task": "Liệt kê tất cả FSx file systems",
+        "command": "aws fsx describe-file-systems --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "DataSync",
+      "full": "AWS DataSync",
+      "category": "storage",
+      "icon": "🔄",
+      "what": "Automated data transfer service between on-premises (NFS, SMB) and AWS storage (EFS, FSx, S3) with built-in validation.",
+      "when": "Migrating data from FortiGate/VMware on-premises to AWS, or syncing large datasets with integrity checks.",
+      "key_points": [
+        "Connects on-premises NFS/SMB to EFS, FSx, S3",
+        "Automatic checksum validation and scheduling",
+        "Japfa can sync VMware VMFS to AWS storage"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:network can use DataSync to migrate on-premises FortiGate backups and VMware snapshots to jp:cloudtrail and jp:aggregator accounts",
+      "cli": {
+        "task": "Liệt kê tất cả DataSync tasks",
+        "command": "aws datasync list-tasks --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "EFS vs FSx: Khi nào dùng cái nào?",
+      "icon": "⚖️",
+      "body": "EFS là lựa chọn cho Linux/POSIX, tự động scaling, chi phí theo dung lượng. FSx là fully managed, hỗ trợ Windows (SMB + AD), Lustre (HPC), và backup tự động. Chọn EFS nếu cần đơn giản và linh hoạt; chọn FSx nếu cần tính năng enterprise hay hiệu suất HPC.",
+      "diagram": "┌─────────────────────────┐\n│   Storage Comparison    │\n├──────────────┬──────────┤\n│ EFS (Linux)  │ FSx (Win)│\n│ Auto-scaling │ AD Integ │\n│ NFS/POSIX    │ SMB/CIFS │\n│ Bursting     │ Lustre   │\n└──────────────┴──────────┘",
+      "exam_tip": "SAA-C03 thường hỏi: 'Dùng EFS hay FSx cho Windows AD?' → FSx. 'Dùng gì cho Linux burst traffic?' → EFS bursting.",
+      "japfa": "jp:prod (Linux) dùng EFS; jp:shareservice (Windows domain) nên xem xét FSx Windows"
+    },
+    {
+      "title": "Multi-AZ & Disaster Recovery cho Storage",
+      "icon": "🔒",
+      "body": "EFS tự động replicate trên 3 AZ trong region. FSx cũng hỗ trợ Multi-AZ. Để DR cross-region, dùng DataSync hoặc S3 replication. Kết hợp với EBS snapshots hoặc FSx backups để tạo strategy phục hồi toàn diện.",
+      "diagram": "Region A (ap-southeast-1)\n  AZ-1a (EFS) ─┐\n  AZ-1b (EFS) ─┼─ Automatic replication\n  AZ-1c (EFS) ─┘\n       │\n  DataSync sync (hourly)\n       │\n  Region B (ap-southeast-2) backup",
+      "exam_tip": "Multi-AZ không = cross-region. EFS Multi-AZ = same region AZ replication. Cross-region cần DataSync/S3.",
+      "japfa": "jp:prod RTO = 1 hour: use EFS Multi-AZ + hourly DataSync to jp:uat (cross-account)"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa Vietnam muốn chia sẻ log từ 15 EC2 instances trong jp:prod trên 3 AZ khác nhau. Storage nào phù hợp nhất?",
+      "options": [
+        "EBS volumes gắn từng instance riêng lẻ",
+        "EFS với Multi-AZ replication tự động",
+        "FSx for Windows File Server",
+        "S3 Standard với lifecycle policy"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "EFS tự động Multi-AZ, supports NFS, auto-scales. EBS là block storage riêng. S3 là object storage không mount được như file system."
+    },
+    {
+      "id": 2,
+      "question": "jp:shareservice cần document repository với Windows Active Directory integration. Nên chọn gì?",
+      "options": [
+        "EFS trên Windows servers",
+        "FSx for Windows File Server với AD",
+        "S3 + AD connector",
+        "EBS + SMB share"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "FSx Windows duy nhất native SMB + AD. EFS là Linux NFS, không AD. S3 object storage không AD-native."
+    },
+    {
+      "id": 3,
+      "question": "Japfa cần giảm chi phí storage khi traffic không ổn định trong jp:poc. Cách nào tốt nhất?",
+      "options": [
+        "Mua Reserved Capacity EFS hàng năm",
+        "Dùng EFS Bursting mode, trả tiền khi peak",
+        "Nâng cấp lên FSx Lustre",
+        "Dùng S3 Intelligent-Tiering"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Bursting mode phù hợp variable workload: chi phí thấp bình thường, chỉ phí thêm khi vượt baseline. Reserved capacity cố định, không linh hoạt."
+    },
+    {
+      "id": 4,
+      "question": "Japfa muốn DR strategy cho EFS data từ ap-southeast-1 (jp:prod) sang ap-southeast-2. Dùng gì?",
+      "options": [
+        "EFS Multi-AZ tự động backup sang region khác",
+        "DataSync scheduled task từ source EFS sang FSx target",
+        "S3 cross-region replication",
+        "EBS snapshots + copy snapshot"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "domain": "resilient",
+      "explanation": "EFS Multi-AZ chỉ same region. DataSync là tool dùng để xync EFS cross-region. S3 replication cho S3 object, không EFS."
+    },
+    {
+      "id": 5,
+      "question": "jp:aggregator xử lý HPC tính toán dữ liệu sản xuất. Storage nào có throughput cao nhất?",
+      "options": [
+        "EFS Provisioned Throughput",
+        "FSx for Lustre với high throughput mode",
+        "EBS io2 volumes",
+        "S3 Transfer Acceleration"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "domain": "performant",
+      "explanation": "FSx Lustre tối ưu HPC workload, higher IOPS/throughput. EFS provisioned throughput không bằng. EBS io2 cho single instance. S3 TA là CDN."
+    }
+  ]
+}
