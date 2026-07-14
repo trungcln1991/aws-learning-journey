@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "session: điều tra VPN autoheal dual-webhook (LA) + 3 PBI weekly/monthly/gap hôm nay",
-  "updated_at": "2026-07-10T02:50:32Z"
+  "commit_msg": "session 14/07: fix bastion SG egress + auto-patch AccessDenied lần 2 + audit IAM/SSO 7 account + backup policy",
+  "updated_at": "2026-07-14T09:57:12Z"
 }
