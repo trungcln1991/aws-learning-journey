@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T04:36:06.327Z",
+  "generated_at": "2026-07-14T04:09:06.703Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,88 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "OpenAI GPT-5.6 Sol, Terra, and Luna now generally available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/openai-gpt-sol-terra/",
+      "date": "2026-07-13T22:03:00.000Z",
+      "description": "GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock, bringing the smartest family of models from OpenAI yet to Bedrock's next-generation inference engine built for high-performance, security and reliability. GPT-5.6 sets a new standard for intelligence and efficiency, allowing you to solve harder problems in less time and with more intelligence per token. The three models sp",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Managed Service for Prometheus is now available in Asia Pacific (New Zealand) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-prometheus-new-zealand/",
+      "date": "2026-07-13T21:17:00.000Z",
+      "description": "Amazon Managed Service for Prometheus is now available in Asia Pacific (New Zealand) Region. Amazon Managed Service for Prometheus is a fully managed, Prometheus-compatible monitoring service that makes it easy to monitor and alert on operational metrics at scale. Amazon Managed Service for Prometheus is available in multiple AWS Regions . Customers can send up to 1 billion active metric series to",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) now available as a skill in the Agent Toolkit for AWS",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-documentdb-agent-skill",
+      "date": "2026-07-13T18:00:00.000Z",
+      "description": "Amazon DocumentDB (with MongoDB compatibility) is now available as a specialized database skill in the Agent Toolkit for AWS . With this skill, AI coding agents can set up, manage, migrate, optimize, and troubleshoot Amazon DocumentDB clusters using step-by-step best-practice workflows, reducing errors and helping developers move faster without needing to look up DocumentDB operations guidance man",
+      "tags": []
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) adds support for 46 new MongoDB operators in version 8.0.1",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-documentdb-mongodb-8-0-1-mongo-api",
+      "date": "2026-07-13T17:00:00.000Z",
+      "description": "Amazon DocumentDB (with MongoDB compatibility) now supports 46 additional MongoDB aggregation operators and cursor methods starting from minor version 8.0.1. This release significantly expands query API compatibility, making it easier to migrate MongoDB workloads to Amazon DocumentDB without application code changes. New capabilities span seven categories: Accumulators (13): $top, $topN, $bottom, ",
+      "tags": []
+    },
+    {
+      "title": "Gemma-4-E2B-it for is now available in Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/gemma-4-e2b-on-sagemaker-jumpstart/",
+      "date": "2026-07-13T15:30:00.000Z",
+      "description": "Today, AWS announced the availability of gemma-4-E2B-it in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from Google DeepMind is a multimodal, instruction-tuned model optimized for efficient local execution, enabling customers to build capable AI applications on AWS infrastructure. Gemma-4-E2B-it processes text, image, and audio inp",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "OpenAI privacy-filter for PII detection and masking is now available in Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/privacy-filter-on-sagemaker-jumpstart/",
+      "date": "2026-07-13T15:30:00.000Z",
+      "description": "Today, AWS announced the availability of privacy-filter in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from OpenAI is a bidirectional token-classification model for personally identifiable information (PII) detection and masking in text, enabling customers to build data sanitization workflows on AWS infrastructure. Privacy-filter ",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Qwen3 embedding and reranking models for retrieval are now available in Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/qwen3-search-retrieval-on-sagemaker-jumpstart/",
+      "date": "2026-07-13T15:30:00.000Z",
+      "description": "Today, AWS announced the availability of Qwen3-VL-Embedding-2B and Qwen3-Reranker-4B in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These models from Qwen are designed for information retrieval and cross-modal understanding, enabling customers to build comprehensive search pipelines on AWS infrastructure. The two models are typically used in",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Voxtral-Mini-4B-Realtime for real-time speech transcription is now available in Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/voxtral-mini-realtime-on-sagemaker-jumpstart/",
+      "date": "2026-07-13T15:30:00.000Z",
+      "description": "Today, AWS announced the availability of Voxtral-Mini-4B-Realtime-2602 in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from Mistral AI is a multilingual, real-time speech-transcription model, enabling customers to build low-latency speech applications on AWS infrastructure. Voxtral-Mini-4B-Realtime excels at high-quality transcript",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker HyperPod now supports custom AMIs (Amazon Machine Images) for Slurm clusters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/hyperpod-custom-ami-slurm/",
+      "date": "2026-07-13T14:31:00.000Z",
+      "description": "Amazon SageMaker HyperPod now supports custom AMIs for Slurm-orchestrated clusters, enabling customers to deploy clusters with pre-configured, security-hardened environments that meet their specific organizational requirements. Customers deploying AI/ML workloads on HyperPod Slurm clusters need customized environments that meet strict security, compliance, and operational requirements while mainta",
+      "tags": [
+        "SageMaker",
+        "Security Hub"
+      ]
+    },
     {
       "title": "Amazon EC2 network/EBS instances now available in additional regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r8in-r8ib-r8idn-r8idb",
@@ -57,6 +139,16 @@
       "description": "Amazon SageMaker HyperPod now supports AMI-based configuration for Slurm clusters that use continuous provisioning. Continuous provisioning adds nodes to the cluster as capacity becomes available, and this launch extends AMI-based configuration to clusters using this mode. With this support, clusters using continuous provisioning can be created without downloading, configuring, or uploading lifecy",
       "tags": [
         "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon EKS Auto Mode now supports Application Recovery Controller zonal shift",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/eks-auto-mode-arc-zonal-shift",
+      "date": "2026-07-10T16:00:00.000Z",
+      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports Amazon Application Recovery Controller (ARC) zonal shift and autoshift for clusters using EKS Auto Mode . ARC helps you manage and coordinate recovery across AWS Regions and Availability Zones (AZs). With this launch, EKS Auto Mode automatically protects your compute during a zonal shift at no additional cost or configuration, helping you",
+      "tags": [
+        "EKS",
+        "Cost"
       ]
     },
     {
@@ -111,6 +203,13 @@
       ]
     },
     {
+      "title": "AWS Partner Central subsidiary connections now support qualification sharing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/subsidiary-qualification-sharing/",
+      "date": "2026-07-10T04:00:00.000Z",
+      "description": "AWS Partner Central subsidiary connections now enable partners to share qualifications across their connected partner and seller accounts. Partners connecting newly acquired partner's accounts or regional subsidiary accounts they own can now consolidate their AWS partnership standing across those accounts beyond revenue attribution. Partners with active subsidiary connections can now select Associ",
+      "tags": []
+    },
+    {
       "title": "OAuth support for the AWS MCP Server",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/oauth-aws-mcp-server/",
       "date": "2026-07-09T23:03:00.000Z",
@@ -144,109 +243,6 @@
       "description": "Amazon Timestream for InfluxDB now publishes events to Amazon EventBridge when your database instances or clusters undergo state changes. Events are emitted for lifecycle operations including creation, deletion, compute and storage scaling, parameter group updates, maintenance windows, and reboot — covering both successful completions and failures. With this capability, customers can use Amazon Ev",
       "tags": [
         "EC2"
-      ]
-    },
-    {
-      "title": "AWS Client VPN extends availability to four additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-client-vpn-four-additional-regions/",
-      "date": "2026-07-09T17:08:00.000Z",
-      "description": "AWS Client VPN is now available in four new regions: Canada West (Calgary), Mexico (Central) and two in Asia Pacific - New Zealand and Taipei. This fully managed service enables customers to securely connect their remote workforce to resources in AWS or on-premises networks. AWS Client VPN eliminates the need for hardware VPN appliances and complex operational management through its pay-as-you-go ",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio adds custom asset types to the catalog in IAM-based domains",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/smus-custom-asset-types-iam/",
-      "date": "2026-07-09T16:04:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports custom asset types for IAM-based domains. With custom asset types, domain administrators can catalog any format of asset within the SageMaker Unified Studio, such as medical imaging files in Amazon S3, revenue dashboards built in PowerBI, or PDF research reports generated by a third-party platform. Custom asset types bring all assets, regardless of thei",
-      "tags": [
-        "S3",
-        "RDS",
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker HyperPod now supports deep health checks for Slurm clusters with continuous provisioning",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/deep-health-check-continuous-slurm/",
-      "date": "2026-07-09T16:00:00.000Z",
-      "description": "Amazon SageMaker HyperPod now supports deep health checks for Slurm-orchestrated clusters created with continuous provisioning, enabling you to proactively verify GPU accelerator health on running instances at any time. Continuous provisioning lets you start training quickly and scale instance groups asynchronously without all-or-nothing failures, and you can now pair that flexibility with compreh",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Feature Store now supports batch feature writes and record listing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amzn-sgm-feature-store-batch-write-list/",
-      "date": "2026-07-09T15:35:00.000Z",
-      "description": "Amazon SageMaker Feature Store is a fully managed capability that makes it easy to compute, store, and retrieve features for training and deploying AI models. SageMaker Feature Store now supports new capabilities for high-throughput feature ingestion, record discovery, and offline store cataloging. Data scientists can now write multiple records across multiple feature groups in a single request wi",
-      "tags": [
-        "RDS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon MSK Replicator now supports replication from external Apache Kafka clusters to MSK Standard brokers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-msk-replicator-external-kafka-standard-broker-support",
-      "date": "2026-07-09T15:00:00.000Z",
-      "description": "Amazon MSK Replicator now supports data replication from external Apache Kafka clusters - including on-premises, self-managed on AWS, or other cloud providers to Amazon MSK Standard brokers. This capability extends replication support to MSK Standard brokers, in addition to the existing support for MSK Express brokers. With this launch, you can migrate workloads to MSK Standard brokers, support di",
-      "tags": []
-    },
-    {
-      "title": "AWS Config now supports 191 additional managed rules",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-config-additional-managed-rules",
-      "date": "2026-07-09T12:00:00.000Z",
-      "description": "AWS Config now supports 191 additional managed rules across key services including Amazon Bedrock, Amazon SageMaker, Amazon ECS, Amazon EKS, Amazon RDS, Amazon Redshift, Amazon S3, and Amazon CloudTrail. This expansion increases built-in governance coverage across AI workloads and core cloud infrastructure. Examples of the new managed rules include evaluating resource configurations for encryption",
-      "tags": [
-        "S3",
-        "RDS",
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS Builder Center Now Offers Free Sandbox Environments",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-builder-center-sandbox/",
-      "date": "2026-07-08T22:45:00.000Z",
-      "description": "AWS Builder Center now lets builders request free, time-limited sandbox environments directly from eligible workshops, eliminating the need for a personal AWS account, credit card, or concerns about unexpected charges. Previously, workshops could only be completed using a builder's own AWS account. With sandbox environments, builders of all skill levels can safely deploy resources, write code, and",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio Workflows now supports operators for Amazon Bedrock, S3 Tables, S3 Vectors, and Glue Catalog",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/apache-airflow-operators-amazon-sagemaker-unified-studio-workflows/",
-      "date": "2026-07-08T22:00:00.000Z",
-      "description": "Amazon SageMaker Unified Studio Workflows now supports 19 new operators for Amazon Bedrock, Amazon S3 Tables, Amazon S3 Vectors, AWS Glue Data Catalog, and Amazon MWAA Serverless. With these operators, customers can add new tasks using the visual workflow creator to orchestrate these services without writing custom integration code. With this launch, data workers and builders can create workflows ",
-      "tags": [
-        "S3",
-        "Lambda",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS Security Hub now offers Network Scanning to identify publicly reachable resources",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-hub-network-scanning/",
-      "date": "2026-07-08T21:00:00.000Z",
-      "description": "Today, AWS Security Hub introduces Network Scanning, a capability that identifies resources in your environment that are reachable from the public internet. Network Scanning probes your resources from the internet to detect actual reachability, not just what could be reachable based on security group rules and route tables. It discovers public IP addresses, virtual machines, and load balancers acr",
-      "tags": [
-        "ALB",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon Redshift RG instances now available on the trailing track",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-graviton-rg-instances-trailing-track",
-      "date": "2026-07-08T18:12:00.000Z",
-      "description": "Amazon Redshift now supports Graviton-based RG instances on the trailing track . Starting July 7, 2026, rg.4xlarge and rg.xlarge instance types are available for customers running workloads on the trailing track (P201). The trailing track is designed for customers who prioritize stability for production workloads, running on a version already validated through the leading track. With RG instances ",
-      "tags": [
-        "EC2",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Amazon Aurora DSQL change data capture (CDC) Is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-cdc-ga/",
-      "date": "2026-07-08T18:00:00.000Z",
-      "description": "Amazon Aurora DSQL change data capture (CDC) is now generally available, enabling you to stream real-time database changes to Amazon Kinesis Data Streams for event-driven architectures and data integration workflows. Aurora DSQL CDC automatically captures the results of insert, update, and delete operations as change events and delivers them to Kinesis Data Streams with no infrastructure to manage",
-      "tags": [
-        "RDS"
       ]
     }
   ],
@@ -347,6 +343,26 @@
   ],
   "blog": [
     {
+      "title": "Amazon SQS turns 20: Two decades of reliable messaging at scale",
+      "link": "https://aws.amazon.com/blogs/aws/amazon-sqs-turns-20-two-decades-of-reliable-messaging-at-scale/",
+      "date": "2026-07-13T18:13:57.000Z",
+      "description": "On July 13, 2006, we launched Amazon Simple Queue Service (Amazon SQS) as one of the first three services available to customers, alongside Amazon EC2 and Amazon S3. We had learned firsthand that distributed systems need a reliable way to pass messages between components without creating tight dependencies. If one service called another directly and […]",
+      "tags": [
+        "EC2",
+        "S3",
+        "SQS"
+      ]
+    },
+    {
+      "title": "AWS Weekly Roundup: AWS Builder Center at 1 year, Network Scanning in Security Hub, Loom for AWS, and more (July 13, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-at-one-year-network-scanning-in-security-hub-loom-for-aws-and-more-july-13-2026/",
+      "date": "2026-07-13T16:18:20.000Z",
+      "description": "AWS Builder Center turned one year old last week. Launched on July 9, 2025, the platform has grown from a community hub with Wishlist voting, community profiles, and a toolbox into a full ecosystem with sandbox environments, workshops, Spaces, and a Builders’ Library. To mark the anniversary, Rick Suttles published a full feature timeline covering […]",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
       "title": "AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI agents, AWS service availability updates, and more (July 6, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/",
       "date": "2026-07-06T15:46:43.000Z",
@@ -416,25 +432,6 @@
       "description": "Last week AWS Summit New York City brought together thousands of customers, partners, and builders for a free, one-day event showcasing the latest in cloud and AI innovation. Dr. Swami Sivasubramanian, VP of Agentic AI at AWS unveiled a stack of AI launches in his keynote, all built around one thesis: agents that compound value […]",
       "tags": [
         "Bedrock"
-      ]
-    },
-    {
-      "title": "Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs",
-      "link": "https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/",
-      "date": "2026-06-18T21:22:10.000Z",
-      "description": "Announcing the general availability of Amazon Elastic Compute Cloud (Amazon EC2) G7 instances, delivering high performance GPU acceleration for AI inference, graphics, and data analytics workloads.",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon ECS introduces new high-resolution metrics for faster service auto scaling",
-      "link": "https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/",
-      "date": "2026-06-18T21:06:38.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) service auto scaling automatically adjusts task counts to meet workload demand with comprehensive scaling policies, including predictive scaling for recurring traffic patterns, scheduled scaling for planned events, and target tracking to scale dynamically on real-time metrics. You can choose proactive scaling by using predictive scaling (automatic) and",
-      "tags": [
-        "CloudWatch",
-        "ECS"
       ]
     }
   ],
