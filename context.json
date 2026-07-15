@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "docs(session 15/07): root cause IAM auto-patch + fix webapp/dev + 3 đề xuất AWS mới",
-  "updated_at": "2026-07-15T03:05:00Z"
+  "commit_msg": "session 15/07 (chiều): dọn hạ tầng $223.6/tháng + fix 2 sự cố 500 CRM/FeedProduction (VPN blip) + CVE remediation dev aps12",
+  "updated_at": "2026-07-15T08:41:05Z"
 }
