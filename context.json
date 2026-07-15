@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 14/07: fix bastion SG egress + auto-patch AccessDenied lần 2 + audit IAM/SSO 7 account + backup policy",
-  "updated_at": "2026-07-14T09:57:12Z"
+  "commit_msg": "docs(session 15/07): root cause IAM auto-patch + fix webapp/dev + 3 đề xuất AWS mới",
+  "updated_at": "2026-07-15T03:05:00Z"
 }
