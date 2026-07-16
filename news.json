@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T04:11:02.034Z",
+  "generated_at": "2026-07-16T04:14:54.907Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,12 +25,153 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon CloudWatch Logs announces intelligent tiering for storage",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-intelligent-tiering/",
+      "date": "2026-07-15T20:00:00.000Z",
+      "description": "Amazon CloudWatch Logs now supports intelligent storage tiering, which automatically classifies your log data across three storage tiers - Standard (existing), Infrequent Access, and Archive Instant Access based on access patterns. This allows you to store logs in Amazon CloudWatch for extended periods at lower-cost tiers without any operational overhead. With today's launch, customers can now ret",
+      "tags": [
+        "CloudWatch",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon MQ now supports configurable storage for RabbitMQ brokers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-mq-rabbitmq-configurable-storage/",
+      "date": "2026-07-15T18:18:00.000Z",
+      "description": "Amazon MQ now allows you to configure the EBS Disk storage size for RabbitMQ brokers independently of instance type. When creating or updating a broker, you can define a custom storage size, allowing you to right-size storage independently of your instance size to match your specific messaging workload requirements. Configurable storage is available for RabbitMQ M7g brokers on version 4.2 or later",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 G7e instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-g7e-additional-regions/",
+      "date": "2026-07-15T18:04:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) G7e instances accelerated by NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs are now available in the AWS Europe (Frankfurt, Stockholm) and Asia Pacific (Mumbai) Regions. G7e instances offer up to 2.3x inference performance compared to G6e. Customers can use G7e instances to deploy large language models (LLMs), agentic AI models, multimod",
+      "tags": [
+        "EC2",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon RDS and Aurora now support R8g and M8g database instances in additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-rds-aurora-r8g-m8g-regions/",
+      "date": "2026-07-15T17:00:00.000Z",
+      "description": "AWS Graviton4-based R8g database instances are now generally available for Amazon Aurora (MySQL and PostgreSQL compatibility) and Amazon RDS for PostgreSQL, MySQL, and MariaDB in Asia Pacific (Hyderabad, Melbourne, Malaysia), Europe (London, Paris, Zurich), AWS GovCloud (US-East), South America (Sao Paulo), and Mexico (Central) regions. Additionally, M8g instances are now supported for Amazon RDS ",
+      "tags": [
+        "EC2",
+        "RDS",
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon RDS and Aurora expand R8gd and M8gd to additional Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-aurora-r8gd-m8gd-regions/",
+      "date": "2026-07-15T17:00:00.000Z",
+      "description": "Amazon Relational Database Service (RDS) now supports R8gd database instances in 12 additional regions and and M8gd database instances in 6 additional Regions with Optimized Reads for Amazon Aurora PostgreSQL, RDS for PostgreSQL, RDS for MySQL, and RDS for MariaDB. R8gd and M8gd instances deliver up to 165% better throughput and up to 120% better price-performance over R6g instances for Aurora Pos",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Cognito now supports importing users with password hashes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cognito-password-hash-import/",
+      "date": "2026-07-15T17:00:00.000Z",
+      "description": "Amazon Cognito now supports importing users with password hashes in CSV user imports. Previously, users imported from a CSV file had to reset their passwords on first sign-in. Now, you can include password hashes in your CSV file so that imported users can sign in immediately with their existing credentials. When creating a CSV import, you specify the password hashing algorithm used by your source",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon MSK Express Brokers adds support for Apache Kafka version 4.2",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-express-version-42/",
+      "date": "2026-07-15T17:00:00.000Z",
+      "description": "Amazon Managed Streaming for Apache Kafka (Amazon MSK) Express Brokers now supports Apache Kafka version 4.2. This release includes Eligible Leader Replicas (ELR) enhancements that strengthen availability with improved leader election correctness. It also introduces a new consumer rebalance protocol that helps ensure smoother and faster group rebalances, and a new Streams Rebalance Protocol that e",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS now supports up to four storage modifications in 24 hours",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-upto-four-storage-modifications-24-hours",
+      "date": "2026-07-15T16:15:00.000Z",
+      "description": "Amazon RDS now allows up to four storage modifications per database instance within a rolling 24-hour window. These modifications let you increase the size, change the type, and adjust the performance of your RDS storage volumes. You can start a new modification right after storage optimization for the previous modification is complete without having to wait for the six-hour cool-off period to com",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud",
+      "date": "2026-07-15T15:51:00.000Z",
+      "description": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom d",
+      "tags": [
+        "S3",
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service now supports the Agent Toolkit for AWS with a curated skill",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service-agent/",
+      "date": "2026-07-15T14:44:00.000Z",
+      "description": "Amazon OpenSearch Service now integrates with the Agent Toolkit for AWS , enabling you to build, manage, and query OpenSearch Service domains and OpenSearch Serverless collections directly from AI coding agents such as Claude Code, Kiro, and Cursor. The integration is powered by the AWS MCP (Model Context Protocol) server, which executes AWS API calls on your behalf, paired with the curated amazon",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon RDS for Db2 is now available in additional AWS Commercial regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-db2-available-additional-aws-commercial-regions",
+      "date": "2026-07-15T07:39:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Db2 is now available in the Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Taipei), Mexico (Central), and Canada West (Calgary) Regions. Amazon RDS for Db2 makes it easy to set up, operate, and scale Db2 databases in the cloud. Customers can deploy a Db2 database in minutes with automatically configured parameters for optimal per",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Lambda announces self-managed code storage",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambda-self-managed-code-storage/",
+      "date": "2026-07-15T07:00:00.000Z",
+      "description": "AWS Lambda now supports self-managed Amazon S3 buckets for code storage, enabling you to reference source code directly from your own S3 buckets without Lambda creating intermediate copies. This eliminates code storage limits and reduces function activation time after function creates and updates by removing the copy step. AWS Lambda is a serverless compute service that runs your code without requ",
+      "tags": [
+        "S3",
+        "Lambda"
+      ]
+    },
+    {
+      "title": "AWS Elastic Disaster Recovery reduces recovery time for AWS-to-AWS workloads",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-recovery/",
+      "date": "2026-07-14T22:05:00.000Z",
+      "description": "AWS Elastic Disaster Recovery (AWS DRS) now recovers your AWS-based workloads faster. For source servers running on Amazon EC2, DRS can now skip preparation steps that these workloads no longer need, reducing recovery time by up to 65% for Windows and up to 40% for Linux. During a disaster or a drill, every minute matters. Because workloads already running on AWS come with AWS-compatible drivers a",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
       "title": "AWS Elastic Disaster Recovery now supports Amazon EBS volume initialization rate",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-hydration/",
       "date": "2026-07-14T22:00:56.000Z",
       "description": "AWS Elastic Disaster Recovery (AWS DRS) now supports the Amazon EBS volume initialization rate, helping recovered volumes reach full performance faster during drills and recoveries. When DRS restores EBS volumes from snapshots, the data loads from Amazon S3 in the background, and I/O to blocks that haven't loaded yet can be slower until initialization finishes. With this launch, you can set a volu",
       "tags": [
         "S3"
+      ]
+    },
+    {
+      "title": "Amazon CloudWatch announces lookup processor for log enrichment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-lookup-processor/",
+      "date": "2026-07-14T22:00:00.000Z",
+      "description": "Amazon CloudWatch now supports lookup processor, enabling you to enrich log events with additional context by matching fields in your logs against a lookup table directly within your CloudWatch Pipeline. With the lookup processor, you can upload CSV files containing reference data and configure your pipeline to match incoming log fields against this data to add enriched metadata. For example, you ",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M8in, M8idn, M8ib, M8idb instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/m8in-m8idn-m8ib-m8idb-new-regions",
+      "date": "2026-07-14T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M8in, M8idn network optimized, and M8ib, M8idb EBS optimized instances are available in the AWS US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo) regions. The new instances are powered by custom sixth generation Intel Xeon Scalable processors available only on AWS and deliver up to 43% higher performance compared to previous genera",
+      "tags": [
+        "EC2"
       ]
     },
     {
@@ -119,143 +260,6 @@
         "CloudWatch",
         "CloudFront"
       ]
-    },
-    {
-      "title": "OpenAI GPT-5.6 Sol, Terra, and Luna now generally available on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/openai-gpt-sol-terra/",
-      "date": "2026-07-13T22:03:00.000Z",
-      "description": "GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock, bringing the smartest family of models from OpenAI yet to Bedrock's next-generation inference engine built for high-performance, security and reliability. GPT-5.6 sets a new standard for intelligence and efficiency, allowing you to solve harder problems in less time and with more intelligence per token. The three models sp",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Managed Service for Prometheus is now available in Asia Pacific (New Zealand) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-prometheus-new-zealand/",
-      "date": "2026-07-13T21:17:00.000Z",
-      "description": "Amazon Managed Service for Prometheus is now available in Asia Pacific (New Zealand) Region. Amazon Managed Service for Prometheus is a fully managed, Prometheus-compatible monitoring service that makes it easy to monitor and alert on operational metrics at scale. Amazon Managed Service for Prometheus is available in multiple AWS Regions . Customers can send up to 1 billion active metric series to",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon DocumentDB (with MongoDB compatibility) now available as a skill in the Agent Toolkit for AWS",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-documentdb-agent-skill",
-      "date": "2026-07-13T18:00:00.000Z",
-      "description": "Amazon DocumentDB (with MongoDB compatibility) is now available as a specialized database skill in the Agent Toolkit for AWS . With this skill, AI coding agents can set up, manage, migrate, optimize, and troubleshoot Amazon DocumentDB clusters using step-by-step best-practice workflows, reducing errors and helping developers move faster without needing to look up DocumentDB operations guidance man",
-      "tags": []
-    },
-    {
-      "title": "Amazon DocumentDB (with MongoDB compatibility) adds support for 46 new MongoDB operators in version 8.0.1",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-documentdb-mongodb-8-0-1-mongo-api",
-      "date": "2026-07-13T17:00:00.000Z",
-      "description": "Amazon DocumentDB (with MongoDB compatibility) now supports 46 additional MongoDB aggregation operators and cursor methods starting from minor version 8.0.1. This release significantly expands query API compatibility, making it easier to migrate MongoDB workloads to Amazon DocumentDB without application code changes. New capabilities span seven categories: Accumulators (13): $top, $topN, $bottom, ",
-      "tags": []
-    },
-    {
-      "title": "Gemma-4-E2B-it for is now available in Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/gemma-4-e2b-on-sagemaker-jumpstart/",
-      "date": "2026-07-13T15:30:00.000Z",
-      "description": "Today, AWS announced the availability of gemma-4-E2B-it in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from Google DeepMind is a multimodal, instruction-tuned model optimized for efficient local execution, enabling customers to build capable AI applications on AWS infrastructure. Gemma-4-E2B-it processes text, image, and audio inp",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "OpenAI privacy-filter for PII detection and masking is now available in Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/privacy-filter-on-sagemaker-jumpstart/",
-      "date": "2026-07-13T15:30:00.000Z",
-      "description": "Today, AWS announced the availability of privacy-filter in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from OpenAI is a bidirectional token-classification model for personally identifiable information (PII) detection and masking in text, enabling customers to build data sanitization workflows on AWS infrastructure. Privacy-filter ",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Voxtral-Mini-4B-Realtime for real-time speech transcription is now available in Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/voxtral-mini-realtime-on-sagemaker-jumpstart/",
-      "date": "2026-07-13T15:30:00.000Z",
-      "description": "Today, AWS announced the availability of Voxtral-Mini-4B-Realtime-2602 in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This model from Mistral AI is a multilingual, real-time speech-transcription model, enabling customers to build low-latency speech applications on AWS infrastructure. Voxtral-Mini-4B-Realtime excels at high-quality transcript",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Qwen3 embedding and reranking models for retrieval are now available in Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/qwen3-search-retrieval-on-sagemaker-jumpstart/",
-      "date": "2026-07-13T15:30:00.000Z",
-      "description": "Today, AWS announced the availability of Qwen3-VL-Embedding-2B and Qwen3-Reranker-4B in Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These models from Qwen are designed for information retrieval and cross-modal understanding, enabling customers to build comprehensive search pipelines on AWS infrastructure. The two models are typically used in",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Redshift Serverless now preserves zero-ETL and Amazon S3 event integrations during snapshot restores",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/redshift-serverless-zetl-autocopy-restore/",
-      "date": "2026-07-13T15:00:00.000Z",
-      "description": "Amazon Redshift Serverless now automatically preserves zero-ETL and Amazon S3 event integrations when restoring a namespace from a snapshot or recovery point to the same serverless namespace. Previously, restoring a snapshot marked associated integrations as failed, requiring you to manually recreate them after the restore completed. This meant additional time reconfiguring data pipelines and pote",
-      "tags": [
-        "S3",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker HyperPod now supports custom AMIs (Amazon Machine Images) for Slurm clusters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/hyperpod-custom-ami-slurm/",
-      "date": "2026-07-13T14:31:00.000Z",
-      "description": "Amazon SageMaker HyperPod now supports custom AMIs for Slurm-orchestrated clusters, enabling customers to deploy clusters with pre-configured, security-hardened environments that meet their specific organizational requirements. Customers deploying AI/ML workloads on HyperPod Slurm clusters need customized environments that meet strict security, compliance, and operational requirements while mainta",
-      "tags": [
-        "SageMaker",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon EC2 network/EBS instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r8in-r8ib-r8idn-r8idb",
-      "date": "2026-07-10T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8in, R8ib, R8idn, and R8idb instances are available in the AWS Asia Pacific (Tokyo) and Europe (Frankfurt, Ireland) regions. These instances are powered by custom sixth generation Intel Xeon Scalable processors, available only on AWS and feature the latest sixth generation AWS Nitro cards. These instances deliver up to 43% better compute p",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon EMR on EKS now supports Apache Spark troubleshooting agent",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-emr-eks-spark-troubleshooting/",
-      "date": "2026-07-10T18:16:00.000Z",
-      "description": "Amazon EMR on EKS now supports the Apache Spark troubleshooting agent. Data engineers can now diagnose EMR on EKS job failures through natural language, receiving automated root cause analysis and PySpark code recommendations without manually navigating distributed logs and Spark History Server data. The agent analyzes Spark History Server data, distributed executor logs, and cluster configuration",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon Location Service enhances Places APIs with new address and search options",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-location-service-enhanced-address-search",
-      "date": "2026-07-10T17:26:00.000Z",
-      "description": "Today, Amazon Location Service announced new enhancements to its Places APIs that give developers greater control over address name formatting, multilingual address, travel-optimized POI search, and drive-through data. These capabilities span the Geocode, ReverseGeocode, GetPlace, Suggest, Autocomplete, SearchNearby, and SearchText APIs. Developers can now control how address component names are r",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker HyperPod now supports AMI-based node lifecycle configuration for Slurm clusters using continuous provisioning",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2025/06/ami-configuration-continuous-slurm/",
-      "date": "2026-07-10T17:00:00.000Z",
-      "description": "Amazon SageMaker HyperPod now supports AMI-based configuration for Slurm clusters that use continuous provisioning. Continuous provisioning adds nodes to the cluster as capacity becomes available, and this launch extends AMI-based configuration to clusters using this mode. With this support, clusters using continuous provisioning can be created without downloading, configuring, or uploading lifecy",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EKS Auto Mode now supports Application Recovery Controller zonal shift",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/eks-auto-mode-arc-zonal-shift",
-      "date": "2026-07-10T16:00:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports Amazon Application Recovery Controller (ARC) zonal shift and autoshift for clusters using EKS Auto Mode . ARC helps you manage and coordinate recovery across AWS Regions and Availability Zones (AZs). With this launch, EKS Auto Mode automatically protects your compute during a zonal shift at no additional cost or configuration, helping you",
-      "tags": [
-        "EKS",
-        "Cost"
-      ]
     }
   ],
   "security": [
@@ -343,12 +347,11 @@
       ]
     },
     {
-      "title": "CVE-2026-7424 - Integer Underflow in DHCPv6 Sub-Option Parser in FreeRTOS-Plus-TCP",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-022-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
-      "description": "Bulletin ID: 2026-022-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:20 PM PDT Description: FreeRTOS-Plus-TCP is an open-source, scalable TCP/IP stack for FreeRTOS. We identified CVE-2026-7424, where an integer underflow issue in the DHCPv6 sub-option parser could allow an adjacent network user to corrupt the device's IPv6 address assignment, DNS config",
+      "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
+      "date": "2026-07-15T18:49:07.000Z",
+      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
       "tags": [
-        "Route 53",
         "Inspector"
       ]
     }
@@ -448,8 +451,31 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
+      {
+        "title": "Service is operating normally: [RESOLVED] Elevated connectivity issues with a single Avalability zone",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-16T01:24:35.000Z",
+        "description": "Between 2:56 PM and 6:07 PM PDT, we experienced connectivity issues to a subset of EC2 instances in a single Availability Zone (euc1-az2) in the EU-CENTRAL-1 Region. During this time, customers may also have experienced increased error rates and latencies for new instance launches in the affected zone, along with some AWS APIs that use the affected EC2 instances. Some AWS Services also experienced",
+        "tags": [
+          "EC2"
+        ]
+      },
+      {
+        "title": "Service impact: Elevated connectivity issues with a single Avalability zone",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-15T23:36:01.000Z",
+        "description": "We are seeing early signs of recovery and continue to work toward full resolution. We will continue to provide updates.",
+        "tags": []
+      },
+      {
+        "title": "Service impact: Elevated connectivity issues with a single Avalability zone",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-15T23:11:07.000Z",
+        "description": "We are investigating elevated connectivity issues with a single Avalability zone (euc1-az2) in the EU-CENTRAL-1 Region.",
+        "tags": []
+      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -467,29 +493,6 @@
         "tags": [
           "Cost"
         ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:14:45.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
-        "tags": [
-          "S3"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T14:02:57.000Z",
-        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
-        "tags": []
       }
     ]
   }
