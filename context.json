@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Xác nhận lại quyết định không migrate Security Hub v2 (giá GA + blocker Org policy)",
-  "updated_at": "2026-07-17T04:31:25Z"
+  "commit_msg": "Tạo backup plan riêng cho dev aps12, sửa tag Backup vô tác dụng",
+  "updated_at": "2026-07-17T04:58:13Z"
 }
