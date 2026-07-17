@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Cài CWAgent cho dev aps12 (Memory/Disk qua CloudWatch)",
-  "updated_at": "2026-07-17T08:25:28Z"
+  "commit_msg": "Tao 3 CloudWatch alarm Memory/Disk cho dev aps12 + verify sau khi cai CWAgent",
+  "updated_at": "2026-07-17T08:34:00Z"
 }
