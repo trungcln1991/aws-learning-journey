@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Tạo backup plan riêng cho dev aps12, sửa tag Backup vô tác dụng",
-  "updated_at": "2026-07-17T04:58:13Z"
+  "commit_msg": "Cài CWAgent cho dev aps12 (Memory/Disk qua CloudWatch)",
+  "updated_at": "2026-07-17T08:25:28Z"
 }
