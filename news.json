@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T04:14:54.907Z",
+  "generated_at": "2026-07-17T04:14:11.120Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,138 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Managed Grafana achieves FedRAMP High authorization in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-grafana-fedramp-high/",
+      "date": "2026-07-16T19:31:00.000Z",
+      "description": "Amazon Managed Grafana is now a FedRAMP High authorized service in the AWS GovCloud (US-East) and AWS GovCloud (US-West) regions. Federal agencies, public sector organizations, and other enterprises with FedRAMP High compliance requirements can now use Amazon Managed Grafana to visualize, query, and alert on operational metrics across their AWS and hybrid environments while meeting their strict se",
+      "tags": [
+        "CloudWatch",
+        "Organizations",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards",
+      "date": "2026-07-16T18:56:00.000Z",
+      "description": "Today, AWS Billing and Cost Management (BCM) announces support for Cost Efficiency widget in BCM Dashboards. You can now view cost efficiency trends alongside Cost Explorer, Budgets, and reports for Savings Plans and Reserved Instance coverage and utilization reports. This provides a unified view of your spending, commitments, and optimization performance in a single, tailored dashboard. The Cost ",
+      "tags": [
+        "EC2",
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon EC2 now surfaces the public SSM parameters associated with public AMIs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters",
+      "date": "2026-07-16T18:20:00.000Z",
+      "description": "Amazon EC2 now surfaces the AWS Systems Manager (SSM) Parameter Store parameters associated with public AMIs directly in the AMI metadata. When you describe a public AMI, the response includes the associated public SSM parameter, making it easy to discover and reference in your configurations. Previously, finding the SSM parameter associated with a public AMI required searching through SSM paramet",
+      "tags": [
+        "EC2",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon S3 Event Notifications now include system-generated tags",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/",
+      "date": "2026-07-16T18:00:00.000Z",
+      "description": "Amazon S3 Event Notifications now include system-generated tags in events delivered to all destinations including Amazon EventBridge, Amazon SQS, Amazon SNS, and AWS Lambda. System-generated tags are metadata labels attached to your bucket by AWS services. You can use these tags to filter events from thousands of buckets with a single EventBridge rule, instead of listing each bucket name individua",
+      "tags": [
+        "S3",
+        "Lambda",
+        "SQS"
+      ]
+    },
+    {
+      "title": "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/",
+      "date": "2026-07-16T18:00:00.000Z",
+      "description": "Amazon RDS for PostgreSQL 19 Beta 2 is now available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. You can deploy PostgreSQL 19 Beta 2 in the Amazon RDS Database Preview Environment that has the benefits of a fully managed database. PostgreSQL 19 introduces parallel autovacuum with configurable worker limits",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Sustainability service now includes water withdrawals data",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-sustainability-water-withdrawals/",
+      "date": "2026-07-16T16:43:00.000Z",
+      "description": "Customers can now view annual water withdrawals data associated with their AWS workloads in AWS Sustainability, alongside existing carbon emissions data. This enhancement helps organizations gain comprehensive visibility into their environmental impact across carbon and water. Water withdrawals data is available by AWS Region, service, and AWS account on an annual basis through the AWS Sustainabil",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/",
+      "date": "2026-07-16T16:00:00.000Z",
+      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environmen",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-adds-rg-large-12xlarge-instance-sizes",
+      "date": "2026-07-16T16:00:00.000Z",
+      "description": "Amazon Redshift announces the general availability of two new RG instance sizes - rg.large and rg.12xlarge. These new sizes deliver the same Graviton-powered performance benefits as existing RG instances, including up to 2.4x faster query performance than previous-generation RA3 instances at 30% lower price per vCPU, giving you more flexibility to right-size your provisioned clusters for any workl",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia",
+      "date": "2026-07-16T15:00:00.000Z",
+      "description": "You can now transition objects to S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) as soon as the day they are created, without the previous 30-day minimum retention in S3 Standard. These storage classes offer up to 40% lower storage costs than S3 Standard while still providing millisecond access when needed, making them ideal for backups, log analy",
+      "tags": [
+        "S3",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Backup extends logically air-gapped vault support to six additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-backup-logically-air-gapped-vault-regions/",
+      "date": "2026-07-16T10:00:00.000Z",
+      "description": "AWS Backup logically air-gapped vaults are now available in six additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), and Canada West (Calgary). With logically air-gapped vaults now available in these Regions, you can store immutable, isolated backups that are locked by default and encrypted using AWS owned ke",
+      "tags": []
+    },
+    {
+      "title": "AWS Backup extends restore testing support to six additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-backup-restore-testing-regions/",
+      "date": "2026-07-16T10:00:00.000Z",
+      "description": "AWS Backup restore testing is now available in six additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), and Canada West (Calgary). Restore testing helps you automate and periodically run restore tests of supported AWS resources across storage, compute, and database services. You can create restore testing pla",
+      "tags": []
+    },
+    {
+      "title": "AWS Control Tower Account Factory for Terraform now re-applies customizations when accounts move between OUs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-control-tower-account/",
+      "date": "2026-07-16T04:07:00.000Z",
+      "description": "AWS Control Tower Account Factory for Terraform (AFT) can now automatically re-apply an account's customizations when that account moves to a different Organizational Unit (OU). Previously, moving an enrolled account between OUs required manually triggering customization re-application, creating operational overhead and risk of configuration drift. With this capability, you can opt in to automatic",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Aurora DSQL is now in scope for FedRAMP Moderate",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-now-in-scope-for-fedramp-moderate/",
+      "date": "2026-07-16T00:00:00.000Z",
+      "description": "Amazon Aurora DSQL is now in scope for FedRAMP Moderate in the US East (Ohio), US East (N. Virginia), and US West (Oregon) Regions. You can now use Aurora DSQL to build applications and run workloads that are subject to FedRAMP Moderate compliance requirements. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the s",
+      "tags": [
+        "RDS",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon CloudWatch Logs Insights adds 25 new query commands and functions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-cloudwatch-logs-insights-ql/",
+      "date": "2026-07-15T21:56:00.000Z",
+      "description": "Amazon CloudWatch Logs Insights query language now supports 25 new commands and functions that expand your ability to query, transform, correlate, and analyze logs. Customers analyzing logs in CloudWatch Logs Insights often need to perform statistical aggregation, handle null values in time-series data, compare logs across time windows, detect outliers, and enrich events with lookup data. With thi",
+      "tags": [
+        "Lambda",
+        "CloudWatch"
+      ]
+    },
     {
       "title": "Amazon CloudWatch Logs announces intelligent tiering for storage",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-intelligent-tiering/",
@@ -127,139 +259,6 @@
       "tags": [
         "RDS"
       ]
-    },
-    {
-      "title": "AWS Lambda announces self-managed code storage",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambda-self-managed-code-storage/",
-      "date": "2026-07-15T07:00:00.000Z",
-      "description": "AWS Lambda now supports self-managed Amazon S3 buckets for code storage, enabling you to reference source code directly from your own S3 buckets without Lambda creating intermediate copies. This eliminates code storage limits and reduces function activation time after function creates and updates by removing the copy step. AWS Lambda is a serverless compute service that runs your code without requ",
-      "tags": [
-        "S3",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Elastic Disaster Recovery reduces recovery time for AWS-to-AWS workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-recovery/",
-      "date": "2026-07-14T22:05:00.000Z",
-      "description": "AWS Elastic Disaster Recovery (AWS DRS) now recovers your AWS-based workloads faster. For source servers running on Amazon EC2, DRS can now skip preparation steps that these workloads no longer need, reducing recovery time by up to 65% for Windows and up to 40% for Linux. During a disaster or a drill, every minute matters. Because workloads already running on AWS come with AWS-compatible drivers a",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Elastic Disaster Recovery now supports Amazon EBS volume initialization rate",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-hydration/",
-      "date": "2026-07-14T22:00:56.000Z",
-      "description": "AWS Elastic Disaster Recovery (AWS DRS) now supports the Amazon EBS volume initialization rate, helping recovered volumes reach full performance faster during drills and recoveries. When DRS restores EBS volumes from snapshots, the data loads from Amazon S3 in the background, and I/O to blocks that haven't loaded yet can be slower until initialization finishes. With this launch, you can set a volu",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch announces lookup processor for log enrichment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-lookup-processor/",
-      "date": "2026-07-14T22:00:00.000Z",
-      "description": "Amazon CloudWatch now supports lookup processor, enabling you to enrich log events with additional context by matching fields in your logs against a lookup table directly within your CloudWatch Pipeline. With the lookup processor, you can upload CSV files containing reference data and configure your pipeline to match incoming log fields against this data to add enriched metadata. For example, you ",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon EC2 M8in, M8idn, M8ib, M8idb instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/m8in-m8idn-m8ib-m8idb-new-regions",
-      "date": "2026-07-14T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M8in, M8idn network optimized, and M8ib, M8idb EBS optimized instances are available in the AWS US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo) regions. The new instances are powered by custom sixth generation Intel Xeon Scalable processors available only on AWS and deliver up to 43% higher performance compared to previous genera",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Lambda console provides a one-click setup prompt for coding agents",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-prompt-coding-agents/",
-      "date": "2026-07-14T20:00:00.000Z",
-      "description": "AWS Lambda console now provides a one-click setup prompt for coding agents that configures your agent with AWS Serverless skills and the Serverless Model Context Protocol (MCP) server, embedding serverless best practices from the start. This setup is available on the Lambda console wherever the developers start their Lambda journey: whether they are getting started with Lambda, exploring its capab",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS IAM Identity Center achieves FedRAMP Class C Certification",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-identity-center-fedramp/",
-      "date": "2026-07-14T19:10:00.000Z",
-      "description": "AWS IAM Identity Center is now in scope for FedRAMP Class C in the US East (Ohio), US East (N. Virginia), US West (N. California), and US West (Oregon) Regions. You can now use IAM Identity Center to enable workforce access to AWS accounts and applications that are subject to FedRAMP Class C compliance. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program",
-      "tags": [
-        "IAM",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Introducing Amazon GuardDuty AI Protection for AWS AI workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-guardduty-ai-protection-aws/",
-      "date": "2026-07-14T19:00:00.000Z",
-      "description": "Amazon GuardDuty now offers AI Protection, expanding threat detection to AWS AI services including Amazon Bedrock and Amazon SageMaker. As organizations rapidly adopt AI, security teams may lack visibility into threats specifically targeting AI workloads, such as anomalous model invocations, cost harvesting attacks, and prompt injection attempts. GuardDuty AI Protection continuously monitors these",
-      "tags": [
-        "Organizations",
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Managed Service for Apache Flink now offers AI Agent Skills to simplify building and operating Flink applications",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-flink-agent-skills/",
-      "date": "2026-07-14T18:20:00.000Z",
-      "description": "Amazon Managed Service for Apache Flink now offers AI Agent Skills that give AI coding assistants expert, up-to-date guidance for building and operating Flink applications. The skills provide expert guidance for common tasks such as creating applications, troubleshooting, scaling, monitoring, networking configuration, and cost optimization. Customers can leverage these skills to keep Flink applica",
-      "tags": [
-        "CloudWatch",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Security Hub now provides AI inventory for organization-wide visibility of AI assets",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-hub-ai/",
-      "date": "2026-07-14T17:00:00.000Z",
-      "description": "Today, AWS announces that AWS Security Hub now provides an AI inventory, giving central security teams a continuously updated, organization-wide view of AI assets and their security posture. As organizations rapidly deploy AI agents, models, and pipelines, security teams may lack visibility into what AI assets exist across their organization. Without centralized visibility connecting AI assets to ",
-      "tags": [
-        "Organizations",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon WorkSpaces Personal simplifies bulk PCoIP to DCV protocol migration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-workspaces-personal-pcoip/",
-      "date": "2026-07-14T17:00:00.000Z",
-      "description": "Amazon WorkSpaces Personal now provides automated rollback and support for PCoIP to DCV protocol migration of stopped WorkSpaces, building on the recently launched console-based migration workflow and checkpoint snapshot support. These new capabilities enable administrators to migrate WorkSpaces at scale with minimal manual intervention. Amazon DCV is a high-performance streaming protocol built by",
-      "tags": []
-    },
-    {
-      "title": "Amazon Aurora DSQL is now available in Europe (Spain)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-available-in-spain/",
-      "date": "2026-07-14T17:00:00.000Z",
-      "description": "Starting today, Amazon Aurora DSQL is available for single-Region clusters in the Europe (Spain) Region. Aurora DSQL is the fastest serverless, distributed SQL database, with active-active high availability and multi-Region strong consistency. It enables you to build always-available applications with virtually unlimited scalability, the highest availability, and zero infrastructure management, ma",
-      "tags": [
-        "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Storage Gateway adds console support for copying file shares across gateways",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-storage-gateway-console-copy-file-shares/",
-      "date": "2026-07-14T10:00:00.000Z",
-      "description": "AWS Storage Gateway now allows you to copy file shares across gateways directly from the Storage Gateway console. When you initiate a copy, the console reads the configuration of your source share and creates a new file share on the destination gateway with compatible settings preserved. Previously, you had to manually recreate each file share on the destination gateway and re-enter configuration ",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon CloudFront Functions now supports logging to CloudFront access logs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/cloudfront-functions-access-logs/",
-      "date": "2026-07-14T08:00:00.000Z",
-      "description": "You can now write custom data directly into CloudFront access logs using a new helper method available from within CloudFront Functions. CloudFront Functions run lightweight JavaScript at the edge for tasks like URL rewrites, header manipulation, and request routing. Previously, you could only emit log data to Amazon CloudWatch Logs as a separate log file from your CloudFront access logs. With thi",
-      "tags": [
-        "Lambda",
-        "CloudWatch",
-        "CloudFront"
-      ]
     }
   ],
   "security": [
@@ -295,6 +294,16 @@
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-014-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/06 14:00 PM PDT Description: Research and Engineering Studio (RES) on AWS is an open source, web portal design for administrators to create and manage secure cloud-based research and engineering environments. We have identified the following issues with the AWS Research and Engineering Studi",
       "tags": []
+    },
+    {
+      "title": "CVE-2026-15895: OS command injection in jsii-diff in AWS jsii",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-057-aws/",
+      "date": "2026-07-16T17:35:31.000Z",
+      "description": "Bulletin ID: 2026-057-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 12:00 PM PDT Description: jsii-diff is a command line tool to compare the API differences between two jsii assemblies, and report errors if there are backwards-incompatible changes to the API. We identified CVE-2026-15895, an issue where specially formatted command line arguments can be u",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
     },
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
@@ -343,15 +352,6 @@
       "tags": [
         "ALB",
         "SageMaker",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
-      "date": "2026-07-15T18:49:07.000Z",
-      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
-      "tags": [
         "Inspector"
       ]
     }
@@ -454,44 +454,47 @@
     "overall": "issues",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Elevated connectivity issues with a single Avalability zone",
+        "title": "Service is operating normally: [RESOLVED] Increased 5xx Errors",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T01:24:35.000Z",
-        "description": "Between 2:56 PM and 6:07 PM PDT, we experienced connectivity issues to a subset of EC2 instances in a single Availability Zone (euc1-az2) in the EU-CENTRAL-1 Region. During this time, customers may also have experienced increased error rates and latencies for new instance launches in the affected zone, along with some AWS APIs that use the affected EC2 instances. Some AWS Services also experienced",
+        "date": "2026-07-16T12:21:59.000Z",
+        "description": "Between 12:45 AM and 4:18 AM PDT, we experienced increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Our engineers were automatically engaged and immediately began investigating the root cause. By 2:57 AM PDT, we identified the root cause of the issue as an internal constraint on the fleet that manages connections to private VPC origins. When this constraint was reach",
         "tags": [
-          "EC2"
+          "VPC",
+          "CloudFront"
         ]
       },
       {
-        "title": "Service impact: Elevated connectivity issues with a single Avalability zone",
+        "title": "Service impact: Increased 5xx Errors",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-15T23:36:01.000Z",
-        "description": "We are seeing early signs of recovery and continue to work toward full resolution. We will continue to provide updates.",
+        "date": "2026-07-16T11:57:25.000Z",
+        "description": "We continue to see significant signs of recovery as a result of our mitigation efforts, with full recovery expected within the next 45 minutes.",
         "tags": []
       },
       {
-        "title": "Service impact: Elevated connectivity issues with a single Avalability zone",
+        "title": "Service degradation: Increased 5xx Errors",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-15T23:11:07.000Z",
-        "description": "We are investigating elevated connectivity issues with a single Avalability zone (euc1-az2) in the EU-CENTRAL-1 Region.",
+        "date": "2026-07-16T11:27:23.000Z",
+        "description": "We are seeing initial signs of recovery and continue to work toward full recovery.",
         "tags": []
       },
       {
-        "title": "Service disruption: Increased Error Rates",
+        "title": "Service degradation: Increased 5xx Errors",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "date": "2026-07-16T11:16:05.000Z",
+        "description": "We continue working to resolve the increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Customers utilizing other origin types remain unaffected by this issue. We have further scoped the issue down to routing table capacity within the packet processing subsystem responsible for routing requests from CloudFront's edge locations to resources within customer VPCs. We have",
         "tags": [
-          "Lambda"
+          "VPC",
+          "CloudFront"
         ]
       },
       {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "title": "Service degradation: Increased 5xx Errors",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "date": "2026-07-16T10:18:33.000Z",
+        "description": "We continue working to resolve the increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Customers utilizing other origin types remain unaffected by this issue. Based on our investigation, we believe the root cause is related to a packet processing subsystem responsible for routing requests from CloudFront's edge locations to resources within customer VPCs. We continue ",
         "tags": [
-          "Cost"
+          "VPC",
+          "CloudFront"
         ]
       }
     ]
