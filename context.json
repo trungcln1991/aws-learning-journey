@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session 16/07 (chiều): Security Hub jp:aggregator + Terraform drift check + 4 đề xuất AWS news",
-  "updated_at": "2026-07-16T01:57:30Z"
+  "commit_msg": "Ghi lại cách review weekly VPN auto-heal action log + kết quả 17/07",
+  "updated_at": "2026-07-17T04:15:31Z"
 }
