@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "Ghi lại cách review weekly VPN auto-heal action log + kết quả 17/07",
-  "updated_at": "2026-07-17T04:15:31Z"
+  "commit_msg": "Xác nhận lại quyết định không migrate Security Hub v2 (giá GA + blocker Org policy)",
+  "updated_at": "2026-07-17T04:31:25Z"
 }
