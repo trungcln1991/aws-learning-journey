@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T04:14:11.120Z",
+  "generated_at": "2026-07-18T04:06:42.836Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,37 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon GameLift Streams now supports IAM role credentials for stream sessions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/",
+      "date": "2026-07-17T17:29:00.000Z",
+      "description": "Amazon GameLift Streams now supports assigning an IAM role to a stream session, enabling your application to securely access resources in your AWS account, such as Amazon S3 buckets and DynamoDB tables. With this launch, you can pass a RoleArn parameter when starting a stream session, and your application automatically receives short-lived, auto-refreshing AWS credentials through the standard AWS ",
+      "tags": [
+        "S3",
+        "IAM",
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch UI now supports one-click dashboard migration",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration",
+      "date": "2026-07-17T17:23:00.000Z",
+      "description": "Amazon OpenSearch Service now supports one-click migration from legacy OpenSearch Dashboards to OpenSearch UI, for both OpenSearch domains and serverless collections. OpenSearch UI is the new, zero-downtime, serverless interface for search and unified observability across multiple data sources. With this launch, the multiple tenants and thousands of saved objects you created in legacy OpenSearch D",
+      "tags": [
+        "RDS",
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker HyperPod now supports partition-level topology for Slurm orchestrated clusters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/hyperpod-partition-topology-slurm/",
+      "date": "2026-07-17T15:16:00.000Z",
+      "description": "Amazon SageMaker HyperPod now supports network topology configuration at the partition level for Slurm orchestrated clusters. A single cluster can now run tree topology in one partition and block topology in another, with each partition using the topology best suited to its instance types. This improves distributed training performance by keeping job placement aligned with the interconnect charact",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
     {
       "title": "Amazon Managed Grafana achieves FedRAMP High authorization in AWS GovCloud (US)",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-grafana-fedramp-high/",
@@ -86,19 +117,19 @@
       ]
     },
     {
-      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/",
+      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-adds-rg-large-12xlarge-instance-sizes",
       "date": "2026-07-16T16:00:00.000Z",
-      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environmen",
+      "description": "Amazon Redshift announces the general availability of two new RG instance sizes - rg.large and rg.12xlarge. These new sizes deliver the same Graviton-powered performance benefits as existing RG instances, including up to 2.4x faster query performance than previous-generation RA3 instances at 30% lower price per vCPU, giving you more flexibility to right-size your provisioned clusters for any workl",
       "tags": [
         "EC2"
       ]
     },
     {
-      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-adds-rg-large-12xlarge-instance-sizes",
+      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/",
       "date": "2026-07-16T16:00:00.000Z",
-      "description": "Amazon Redshift announces the general availability of two new RG instance sizes - rg.large and rg.12xlarge. These new sizes deliver the same Graviton-powered performance benefits as existing RG instances, including up to 2.4x faster query performance than previous-generation RA3 instances at 30% lower price per vCPU, giving you more flexibility to right-size your provisioned clusters for any workl",
+      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environmen",
       "tags": [
         "EC2"
       ]
@@ -121,10 +152,10 @@
       "tags": []
     },
     {
-      "title": "AWS Backup extends restore testing support to six additional AWS Regions",
+      "title": "AWS Backup extends restore testing support to seven additional AWS Regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-backup-restore-testing-regions/",
       "date": "2026-07-16T10:00:00.000Z",
-      "description": "AWS Backup restore testing is now available in six additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), and Canada West (Calgary). Restore testing helps you automate and periodically run restore tests of supported AWS resources across storage, compute, and database services. You can create restore testing pla",
+      "description": "AWS Backup restore testing is now available in seven additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Israel (Tel Aviv), Mexico (Central), and Canada West (Calgary). Restore testing helps you automate and periodically run restore tests of supported AWS resources across storage, compute, and database services. You can creat",
       "tags": []
     },
     {
@@ -229,34 +260,6 @@
       "description": "Amazon RDS now allows up to four storage modifications per database instance within a rolling 24-hour window. These modifications let you increase the size, change the type, and adjust the performance of your RDS storage volumes. You can start a new modification right after storage optimization for the previous modification is complete without having to wait for the six-hour cool-off period to com",
       "tags": [
         "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud",
-      "date": "2026-07-15T15:51:00.000Z",
-      "description": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom d",
-      "tags": [
-        "S3",
-        "DynamoDB"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Service now supports the Agent Toolkit for AWS with a curated skill",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service-agent/",
-      "date": "2026-07-15T14:44:00.000Z",
-      "description": "Amazon OpenSearch Service now integrates with the Agent Toolkit for AWS , enabling you to build, manage, and query OpenSearch Service domains and OpenSearch Serverless collections directly from AI coding agents such as Claude Code, Kiro, and Cursor. The integration is powered by the AWS MCP (Model Context Protocol) server, which executes AWS API calls on your behalf, paired with the curated amazon",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon RDS for Db2 is now available in additional AWS Commercial regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-db2-available-additional-aws-commercial-regions",
-      "date": "2026-07-15T07:39:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for Db2 is now available in the Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Taipei), Mexico (Central), and Canada West (Calgary) Regions. Amazon RDS for Db2 makes it easy to set up, operate, and scale Db2 databases in the cloud. Customers can deploy a Db2 database in minutes with automatically configured parameters for optimal per",
-      "tags": [
         "RDS"
       ]
     }
@@ -454,47 +457,49 @@
     "overall": "issues",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Increased 5xx Errors",
+        "title": "Service impact: Inaccurate Estimated Billing Data",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T12:21:59.000Z",
-        "description": "Between 12:45 AM and 4:18 AM PDT, we experienced increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Our engineers were automatically engaged and immediately began investigating the root cause. By 2:57 AM PDT, we identified the root cause of the issue as an internal constraint on the fleet that manages connections to private VPC origins. When this constraint was reach",
+        "date": "2026-07-18T01:38:01.000Z",
+        "description": "We continue to make steady progress toward resolving the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console. Our efforts to backfill corrected data remain underway, and we expect all affected accounts to be fully recovered by July 19, 12:00 AM PDT. Until the backfill is complete, some customers may still observe incorrect cost and usage data in the B",
         "tags": [
-          "VPC",
-          "CloudFront"
+          "Cost"
         ]
       },
       {
-        "title": "Service impact: Increased 5xx Errors",
+        "title": "Service impact: Inaccurate Estimated Billing Data",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T11:57:25.000Z",
-        "description": "We continue to see significant signs of recovery as a result of our mitigation efforts, with full recovery expected within the next 45 minutes.",
-        "tags": []
-      },
-      {
-        "title": "Service degradation: Increased 5xx Errors",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T11:27:23.000Z",
-        "description": "We are seeing initial signs of recovery and continue to work toward full recovery.",
-        "tags": []
-      },
-      {
-        "title": "Service degradation: Increased 5xx Errors",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T11:16:05.000Z",
-        "description": "We continue working to resolve the increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Customers utilizing other origin types remain unaffected by this issue. We have further scoped the issue down to routing table capacity within the packet processing subsystem responsible for routing requests from CloudFront's edge locations to resources within customer VPCs. We have",
+        "date": "2026-07-17T19:56:18.000Z",
+        "description": "Our efforts to backfill corrected estimated cost and usage data are still underway. We are progressing slower than anticipated. While we are seeing some accounts recover with correct cost and usage data, we expect all affected accounts to be recovered by July 19 12:00 AM PDT. Until the backfill is complete, some customers may still see incorrect cost and usage data. The displayed billing estimates",
         "tags": [
-          "VPC",
-          "CloudFront"
+          "Cost"
         ]
       },
       {
-        "title": "Service degradation: Increased 5xx Errors",
+        "title": "Service impact: Inaccurate Estimated Billing Data",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-16T10:18:33.000Z",
-        "description": "We continue working to resolve the increased 5xx errors for CloudFront customers utilizing VPC Origins connectivity. Customers utilizing other origin types remain unaffected by this issue. Based on our investigation, we believe the root cause is related to a packet processing subsystem responsible for routing requests from CloudFront's edge locations to resources within customer VPCs. We continue ",
+        "date": "2026-07-17T16:59:36.000Z",
+        "description": "We have identified the root cause and mitigated the underlying issue causing incorrect estimated cost and usage data to be displayed in the Billing and Cost Management Console, and Cost and Usage Reports. We have begun backfilling data to correct cost data for all customers. We expect some customers to begin seeing recovery within the next three hours, and full recovery for all customers by July 1",
         "tags": [
-          "VPC",
-          "CloudFront"
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-17T14:53:08.000Z",
+        "description": "We continue to work to resolve the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console, including the Cost and Usage Report. The rollback of a recent change did not resolve the issue and we are continuing to investigate multiple mitigation paths. Estimated bill updates remain paused. We are in the process of reverting to the last accurate estimated bi",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-17T12:54:46.000Z",
+        "description": "We continue to work on multiple mitigation paths in parallel to resolve the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console, including the Cost and Usage Report. We are evaluating resuming estimated billing computations, as our internal monitoring indicates the billing computation subsystem is now producing accurate estimates. We are conducting ad",
+        "tags": [
+          "CloudWatch",
+          "Cost"
         ]
       }
     ]
