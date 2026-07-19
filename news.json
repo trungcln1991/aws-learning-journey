@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T04:06:42.836Z",
+  "generated_at": "2026-07-19T04:26:28.459Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -457,6 +457,25 @@
     "overall": "issues",
     "incidents": [
       {
+        "title": "Service is operating normally: [RESOLVED] Inaccurate Estimated Billing Data",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-18T13:57:41.000Z",
+        "description": "Between July 16 at 7:38 PM PDT and July 18 at 6:00 AM PDT, we began displaying incorrect estimated billing data in the Billing and Cost Management Console, including the Cost and Usage Report. Customers may have received erroneous budget and cost anomaly detection alerts, and observed inflated estimated cost and usage data. On July 16 at 7:46 PM PDT, our alarms detected cost anomalies but failed t",
+        "tags": [
+          "CloudWatch",
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-07-18T08:05:35.000Z",
+        "description": "We continue to make substantial progress toward resolving the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console. Our mitigation efforts are working as expected and we are seeing an increasing number of accounts reflecting correct cost and usage data. We expect all affected accounts to be fully recovered by July 19, 12:00 AM PDT. Until the backfill i",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
         "title": "Service impact: Inaccurate Estimated Billing Data",
         "link": "https://status.aws.amazon.com/",
         "date": "2026-07-18T01:38:01.000Z",
@@ -480,25 +499,6 @@
         "date": "2026-07-17T16:59:36.000Z",
         "description": "We have identified the root cause and mitigated the underlying issue causing incorrect estimated cost and usage data to be displayed in the Billing and Cost Management Console, and Cost and Usage Reports. We have begun backfilling data to correct cost data for all customers. We expect some customers to begin seeing recovery within the next three hours, and full recovery for all customers by July 1",
         "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-17T14:53:08.000Z",
-        "description": "We continue to work to resolve the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console, including the Cost and Usage Report. The rollback of a recent change did not resolve the issue and we are continuing to investigate multiple mitigation paths. Estimated bill updates remain paused. We are in the process of reverting to the last accurate estimated bi",
-        "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-17T12:54:46.000Z",
-        "description": "We continue to work on multiple mitigation paths in parallel to resolve the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console, including the Cost and Usage Report. We are evaluating resuming estimated billing computations, as our internal monitoring indicates the billing computation subsystem is now producing accurate estimates. We are conducting ad",
-        "tags": [
-          "CloudWatch",
           "Cost"
         ]
       }
