@@ -368,8 +368,47 @@
       "emoji": "🏢",
       "vocab_count": 5,
       "service_count": 3
+    },
+    {
+      "date": "2026-08-10",
+      "day": 29,
+      "title": "Cost Management & Billing",
+      "subtitle": "Cost Explorer · Budgets · Reserved · Savings Plans",
+      "category": "Cost",
+      "week": 3,
+      "month": 2,
+      "color": "#1C7A47",
+      "emoji": "💰",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-08-11",
+      "day": 30,
+      "title": "Month 2 Review & Mock Exam",
+      "subtitle": "CloudFormation · EFS · Step Functions · Organizations · Cost recap",
+      "category": "Review",
+      "week": 3,
+      "month": 2,
+      "color": "#7A7160",
+      "emoji": "🎯",
+      "vocab_count": 5,
+      "service_count": 3
+    },
+    {
+      "date": "2026-08-12",
+      "day": 31,
+      "title": "Well-Architected Framework",
+      "subtitle": "5 Pillars · Design Principles · Trade-offs",
+      "category": "Architecture",
+      "week": 4,
+      "month": 2,
+      "color": "#1F5F86",
+      "emoji": "🏛️",
+      "vocab_count": 5,
+      "service_count": 3
     }
   ],
-  "last_generated": "2026-07-13T02:34:14.664Z",
-  "total_lessons": 28
+  "last_generated": "2026-07-20T02:45:17.388Z",
+  "total_lessons": 31
 }

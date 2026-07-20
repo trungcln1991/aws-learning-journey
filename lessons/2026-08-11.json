@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-11",
+  "day": 30,
+  "week": 3,
+  "month": 2,
+  "title": "Month 2 Review & Mock Exam",
+  "subtitle": "CloudFormation · EFS · Step Functions · Organizations · Cost recap",
+  "category": "Review",
+  "color": "#7A7160",
+  "emoji": "🎯",
+  "vocabulary": [
+    {
+      "word": "Stack",
+      "ipa": "/stæk/",
+      "ipa_guide": "Đọc: STẮC",
+      "type": "danh từ",
+      "meaning": "Một tập hợp các tài nguyên AWS được quản lý như một đơn vị duy nhất thông qua CloudFormation template",
+      "example_en": "When you delete the Stack, all EC2 instances and security groups defined in it are automatically removed.",
+      "example_vi": "Khi bạn xóa Stack, tất cả các EC2 instances và security groups được định nghĩa trong nó sẽ bị xóa tự động.",
+      "usage": "CloudFormation · Infrastructure as Code · Deployment",
+      "japfa": "jp:prod sử dụng Stacks để quản lý một nhóm các tài nguyên như Load Balancer, EC2, và RDS trong cùng một Stack template."
+    },
+    {
+      "word": "Change Set",
+      "ipa": "/tʃeɪndʒ sɛt/",
+      "ipa_guide": "Đọc: CHÉINJ SÉT",
+      "type": "danh từ",
+      "meaning": "Tập hợp các thay đổi sẽ được áp dụng cho stack hiện có trước khi thực thi",
+      "example_en": "Review the Change Set before updating production infrastructure to ensure no unintended modifications.",
+      "example_vi": "Kiểm tra Change Set trước khi cập nhật cơ sở hạ tầng production để đảm bảo không có sửa đổi không mong muốn.",
+      "usage": "CloudFormation · Stack Updates · Risk Management",
+      "japfa": "jp:prod team sử dụng Change Set để xem trước các thay đổi trước khi áp dụng lên production stack."
+    },
+    {
+      "word": "Drift Detection",
+      "ipa": "/drɪft dɪˈtɛkʃən/",
+      "ipa_guide": "Đọc: DRIFT DI-TÉK-SHƏN",
+      "type": "danh từ",
+      "meaning": "Quá trình phát hiện các thay đổi thủ công trên tài nguyên stack so với template gốc",
+      "example_en": "Drift Detection revealed that someone manually modified the security group rules outside of CloudFormation.",
+      "example_vi": "Drift Detection phát hiện rằng ai đó đã sửa đổi các quy tắc security group một cách thủ công ngoài CloudFormation.",
+      "usage": "CloudFormation · Compliance · Governance",
+      "japfa": "jp:cloudtrail account sử dụng Drift Detection để phát hiện các thay đổi thủ công trên các stack quản lý."
+    },
+    {
+      "word": "throughput",
+      "ipa": "/ˈθruːpʊt/",
+      "ipa_guide": "Đọc: THROO-PÚT",
+      "type": "danh từ",
+      "meaning": "Lượng dữ liệu được truyền trên một đơn vị thời gian (MB/s, IOPS)",
+      "example_en": "Increasing EFS throughput from 50 MB/s to 200 MB/s allows your data processing jobs to complete faster.",
+      "example_vi": "Tăng throughput của EFS từ 50 MB/s lên 200 MB/s cho phép các công việc xử lý dữ liệu hoàn thành nhanh hơn.",
+      "usage": "EFS · FSx · Performance Tuning · Storage",
+      "japfa": "jp:aggregator sử dụng EFS với throughput cao để xử lý lượng dữ liệu lớn từ các trang trại."
+    },
+    {
+      "word": "Savings Plan",
+      "ipa": "/ˈseɪvɪŋz plæn/",
+      "ipa_guide": "Đọc: SÉI-VINGS PLĂN",
+      "type": "danh từ",
+      "meaning": "Cam kết chi tiêu hàng giờ để được giảm giá linh hoạt hơn Reserved Instances, áp dụng nhiều loại tài nguyên",
+      "example_en": "Japfa purchased a 3-year Savings Plan to reduce compute costs across EC2, RDS, and Lambda in jp:prod.",
+      "example_vi": "Japfa đã mua Savings Plan 3 năm để giảm chi phí tính toán trên EC2, RDS, và Lambda trong jp:prod.",
+      "usage": "Cost Management · Billing · AWS Budgets · Compute",
+      "japfa": "jp:prod sử dụng Savings Plan để tiết kiệm 30-40% chi phí cho các tài nguyên compute hàng giờ."
+    }
+  ],
+  "services": [
+    {
+      "name": "CloudFormation",
+      "full": "AWS CloudFormation",
+      "category": "infrastructure",
+      "icon": "🏗️",
+      "what": "Infrastructure as Code service cho phép định nghĩa và triển khai tài nguyên AWS thông qua template JSON/YAML. Quản lý toàn bộ vòng đời của stack từ tạo tới xóa.",
+      "when": "Khi bạn cần triển khai, cập nhật hoặc xóa nhiều tài nguyên AWS một cách nhất quán và có thể lặp lại. Giải pháp ideal cho multi-account setup.",
+      "key_points": [
+        "Sử dụng template để định nghĩa stack và resource relationships",
+        "Change Set cho phép xem trước thay đổi trước khi execute, giảm risk",
+        "Drift Detection phát hiện các thay đổi thủ công ngoài CloudFormation"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:network account sử dụng CloudFormation templates để quản lý VPC, subnets, và route tables cho toàn bộ tổ chức Japfa Vietnam.",
+      "cli": {
+        "task": "Liệt kê tất cả stacks hiện tại trong tài khoản",
+        "command": "aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE"
+      }
+    },
+    {
+      "name": "Step Functions",
+      "full": "AWS Step Functions",
+      "category": "serverless",
+      "icon": "⚙️",
+      "what": "Dịch vụ quản lý quy trình công việc cho phép điều phối các tác vụ phức tạp bằng State Machine. Tích hợp với Lambda, EC2, ECS, và dịch vụ AWS khác.",
+      "when": "Khi bạn cần điều phối một quy trình công việc đa bước với logic điều kiện, vòng lặp, và xử lý lỗi. Thay thế cho việc viết orchestration logic trong ứng dụng.",
+      "key_points": [
+        "State Machine định nghĩa các bước xử lý tuần tự với điều kiện chuyển đổi",
+        "Execution là một lần chạy riêng biệt với dữ liệu đầu vào cụ thể",
+        "Tích hợp native với EventBridge để trigger workflows dựa trên sự kiện"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod sử dụng Step Functions để điều phối data pipeline từ on-premises VMware qua FortiGate VPN tới S3, rồi xử lý bằng Lambda.",
+      "cli": {
+        "task": "Mô tả chi tiết State Machine hiện tại",
+        "command": "aws stepfunctions describe-state-machine --state-machine-arn arn:aws:states:ap-southeast-1:123456789012:stateMachine:MyStateMachine"
+      }
+    },
+    {
+      "name": "Cost Explorer",
+      "full": "AWS Cost Explorer",
+      "category": "monitoring",
+      "icon": "💰",
+      "what": "Công cụ phân tích chi phí và sử dụng AWS theo nhiều chiều (dịch vụ, tài khoản, tag, thời gian). Cung cấp dự báo chi phí tương lai và recommendation.",
+      "when": "Khi bạn cần hiểu chi phí AWS qua thời gian, so sánh giữa các tài khoản, hoặc dự báo ngân sách hàng tháng/năm.",
+      "key_points": [
+        "Phân tích chi phí theo dịch vụ, tài khoản, tag, region, và thời gian",
+        "Dự báo chi phí tương lai dựa trên mô hình machine learning",
+        "Tích hợp với AWS Budgets để đặt cảnh báo khi chi phí vượt ngưỡng"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:aggregator account sử dụng Cost Explorer để theo dõi chi phí EFS storage theo từng trang trại, đảm bảo chargeback chính xác.",
+      "cli": {
+        "task": "Lấy dự báo chi phí cho 30 ngày tiếp theo",
+        "command": "aws ce get-cost-forecast --time-period Start=2026-08-11,End=2026-09-10 --granularity MONTHLY --metric UNBLENDED_COST"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "So sánh EFS vs FSx: Khi nào dùng loại nào?",
+      "icon": "🔄",
+      "body": "EFS là managed NFS tự động scale, tối ưu cho Linux/POSIX workloads, hỗ trợ Multi-AZ và on-premises via NFS protocol. FSx là fully managed file storage với hai loại: Windows File Server (SMB, Active Directory integration) hoặc Lustre (high-performance computing). Chọn EFS nếu cần linh hoạt, auto-scaling, Linux; chọn FSx nếu cần Windows compatibility, HPC performance, hoặc native Active Directory.",
+      "diagram": "EFS:\n  └─ NFS Protocol\n  └─ Auto-scales\n  └─ Multi-AZ\n  └─ Linux/On-prem\n\nFSx:\n  ├─ Windows (SMB + AD)\n  └─ Lustre (HPC)",
+      "exam_tip": "SAA-C03 thường hỏi: 'Nếu bạn có Windows servers trên-premises cần shared storage, nên dùng gì?' → FSx for Windows. Nếu hỏi 'Linux auto-scaling?' → EFS.",
+      "japfa": "jp:aggregator dùng EFS cho Linux EC2 xử lý data từ trang trại. jp:shareservice có thể dùng FSx for Windows nếu cần share files với on-premises Active Directory."
+    },
+    {
+      "title": "CloudFormation + Organizations: Governance at Scale",
+      "icon": "🏛️",
+      "body": "CloudFormation Stack templates được triển khai qua AWS Organizations để enforce consistent infrastructure trên nhiều accounts (jp:prod, jp:uat, jp:poc, v.v.). Control Tower áp dụng guardrails tự động trên tất cả accounts, đảm bảo Drift Detection và compliance. Kết hợp CloudFormation templates với Service Control Policies từ Organizations để vừa triển khai infrastructure vừa enforce security policies.",
+      "diagram": "Master Account (Organizations)\n  ├─ StackSet (CloudFormation)\n  │   ├─ jp:prod\n  │   ├─ jp:uat\n  │   └─ jp:poc\n  └─ Control Tower\n      └─ Guardrails (SCP)",
+      "exam_tip": "SAA-C03: 'Làm sao triển khai infrastructure nhất quán trên 7 accounts?' → CloudFormation StackSet + Organizations. Drift Detection phát hiện drift trên mỗi account.",
+      "japfa": "Japfa sử dụng StackSet để triển khai VPC template tới tất cả 7 accounts, rồi Control Tower guardrails đảm bảo không ai manually modify."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa's jp:prod account uses CloudFormation to deploy a stack with EFS, Lambda, and EventBridge. A developer manually modified the EFS mount point settings outside CloudFormation. How can you detect and prevent this drift?",
+      "options": [
+        "A. Run aws cloudformation detect-stack-drift to identify the drift, then use Change Set to reapply the template",
+        "B. Enable CloudTrail logging and use Cost Explorer to track unauthorized modifications",
+        "C. Use FSx instead of EFS to prevent manual modifications",
+        "D. Disable direct AWS console access and force all changes through CloudFormation only"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "domain": "secure",
+      "explanation": "Drift Detection phát hiện thay đổi thủ công. Change Set cho phép xem trước và reapply template. B sai vì CloudTrail/Cost Explorer không phát hiện drift. C/D là overkill."
+    },
+    {
+      "id": 2,
+      "question": "Japfa's jp:aggregator account processes 500 GB of poultry sensor data daily. You're debating between EFS with 100 MB/s throughput vs FSx for Lustre. The data must be shared with on-premises VMware via FortiGate VPN. Which storage is best suited for this scenario?",
+      "options": [
+        "A. EFS with Multi-AZ and DataSync to transfer data from on-premises",
+        "B. FSx for Lustre because it supports high-performance computing and on-premises NFS",
+        "C. S3 with CloudFront for lower latency on-premises access",
+        "D. FSx for Windows because it integrates with Active Directory on-premises"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "domain": "performant",
+      "explanation": "EFS + DataSync là ideal: EFS auto-scales, Multi-AZ, DataSync xử lý transfer từ on-prem. Lustre tối ưu HPC, không best choice. S3+CloudFront không phải file storage. FSx Windows cần SMB, không phù hợp."
+    },
+    {
+      "id": 3,
+      "question": "Japfa orchestrates a daily data pipeline using Step Functions State Machine with 10 sequential Lambda executions. Each execution costs $0.000001 per 100ms. Monthly volume is 30 runs. You're deciding between On-Demand pricing vs a 1-year Savings Plan. What's the recommendation?",
+      "options": [
+        "A. Use On-Demand pricing because Lambda already has sub-second billing and low monthly cost",
+        "B. Purchase a 1-year Savings Plan to lock in 30-40% discount despite low current spend",
+        "C. Use Reserved Instances for Lambda executions to guarantee availability",
+        "D. Migrate to EC2 with always-on compute to reduce per-execution costs"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Lambda cost quá thấp (~$0.30/tháng), On-Demand là rational. Savings Plan có minimum commitment không worth. Reserved Instances không áp dụng Lambda. EC2 always-on sẽ đắt hơn."
+    },
+    {
+      "id": 4,
+      "question": "Japfa's jp:cloudtrail account receives CloudTrail logs for all 7 AWS accounts. The logs are stored in a CloudFormation-managed S3 bucket. A compliance audit requires you to ensure Stack template matches actual bucket configuration. Which mechanism detects unauthorized manual changes to the bucket?",
+      "options": [
+        "A. AWS Budgets alerts when S3 costs exceed threshold",
+        "B. CloudFormation Drift Detection on the Stack containing the S3 bucket",
+        "C. EventBridge rules that trigger Lambda on S3 API calls",
+        "D. AWS Compute Optimizer recommendations for S3 storage classes"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "Drift Detection phát hiện khác biệt giữa template và thực tế. B chính xác. A là cost tracking, C là event routing, D là optimization."
+    },
+    {
+      "id": 5,
+      "question": "Japfa plans to migrate its on-premises data center to AWS using a multi-account strategy (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice). You need to deploy identical network infrastructure (VPC, subnets, route tables) across all 7 accounts with guardrails to prevent drift. What is the best approach using CloudFormation and Organizations?",
+      "options": [
+        "A. Deploy individual CloudFormation stacks in each account manually and monitor with CloudTrail",
+        "B. Use CloudFormation StackSet in master account combined with Control Tower guardrails to enforce template compliance",
+        "C. Use EventBridge to trigger Lambda that creates resources in each account when new accounts are created",
+        "D. Use AWS Compute Optimizer to recommend resource sizing for each account separately"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "domain": "resilient",
+      "explanation": "StackSet + Control Tower = consistent deployment + guardrail enforcement trên multi-account. A manual work, C không phải architecture best practice, D là optimization tool."
+    }
+  ]
+}

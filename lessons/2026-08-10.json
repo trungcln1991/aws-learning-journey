@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-10",
+  "day": 29,
+  "week": 3,
+  "month": 2,
+  "title": "Cost Management & Billing",
+  "subtitle": "Cost Explorer · Budgets · Reserved · Savings Plans",
+  "category": "Cost",
+  "color": "#1C7A47",
+  "emoji": "💰",
+  "vocabulary": [
+    {
+      "word": "Cost Explorer",
+      "ipa": "/kɔst ɪkˈsplɔrər/",
+      "ipa_guide": "Đọc: COST ik-SPLOR-uh",
+      "type": "danh từ",
+      "meaning": "Công cụ AWS để phân tích chi phí và sử dụng tài nguyên theo thời gian, chiều và dự báo",
+      "example_en": "Use Cost Explorer to visualize your spending across jp:prod and jp:uat accounts.",
+      "example_vi": "Sử dụng Cost Explorer để trực quan hóa chi phí trên các tài khoản jp:prod và jp:uat.",
+      "usage": "AWS Console · Billing · Analytics",
+      "japfa": "Japfa sử dụng Cost Explorer để theo dõi chi phí EC2 và RDS trên 7 tài khoản"
+    },
+    {
+      "word": "Reserved Instance",
+      "ipa": "/rɪˈzɜrvd ˈɪnstəns/",
+      "ipa_guide": "Đọc: ri-ZURVD IN-stuhns",
+      "type": "danh từ",
+      "meaning": "Cam kết sử dụng EC2/RDS trong 1-3 năm để được giảm giá 30-70% so với On-Demand",
+      "example_en": "Purchase Reserved Instances for jp:prod database servers to save 40% annually.",
+      "example_vi": "Mua Reserved Instances cho máy chủ cơ sở dữ liệu jp:prod để tiết kiệm 40% hàng năm.",
+      "usage": "EC2 · RDS · ElastiCache",
+      "japfa": "jp:prod dùng Reserved Instances cho 15 máy chủ ứng dụng chạy liên tục"
+    },
+    {
+      "word": "Savings Plan",
+      "ipa": "/ˈseɪvɪŋz plæn/",
+      "ipa_guide": "Đọc: SAY-vingz PLAN",
+      "type": "danh từ",
+      "meaning": "Cam kết chi tiêu hàng giờ để được giảm giá linh hoạt hơn Reserved Instances, áp dụng nhiều loại tài nguyên",
+      "example_en": "Savings Plans offer flexibility across EC2, Fargate, and Lambda for jp:poc experiments.",
+      "example_vi": "Savings Plans cung cấp tính linh hoạt trên EC2, Fargate và Lambda cho các thử nghiệm jp:poc.",
+      "usage": "EC2 · Lambda · Fargate · RDS",
+      "japfa": "jp:cloudtrail tài khoản dùng Savings Plans cho chi phí CloudWatch Logs và CloudTrail lưu trữ"
+    },
+    {
+      "word": "Budget",
+      "ipa": "/ˈbʌdʒət/",
+      "ipa_guide": "Đọc: BUD-jit",
+      "type": "danh từ",
+      "meaning": "Ngân sách chi phí được đặt sẵn với thông báo cảnh báo khi vượt quá hay cắt tắc tự động",
+      "example_en": "Set a monthly budget of $5,000 for jp:network account with SNS alerts.",
+      "example_vi": "Đặt ngân sách hàng tháng $5,000 cho tài khoản jp:network với cảnh báo SNS.",
+      "usage": "AWS Billing · Cost Management",
+      "japfa": "Japfa quản lý 7 ngân sách riêng biệt, mỗi tài khoản một ngân sách chi phí"
+    },
+    {
+      "word": "On-Demand pricing",
+      "ipa": "/ɔn dɪˈmænd ˈpraɪsɪŋ/",
+      "ipa_guide": "Đọc: ON di-MAND PRAI-sing",
+      "type": "danh từ",
+      "meaning": "Mô hình giá trả theo giờ hoặc giây mà không cần cam kết, linh hoạt nhất nhưng đắt nhất",
+      "example_en": "Use On-Demand pricing for jp:poc development servers that start and stop frequently.",
+      "example_vi": "Sử dụng giá On-Demand cho máy chủ phát triển jp:poc khởi động và dừng thường xuyên.",
+      "usage": "EC2 · RDS · All AWS Services",
+      "japfa": "jp:poc tài khoản dùng On-Demand vì thường xuyên thay đổi nhu cầu tài nguyên"
+    }
+  ],
+  "services": [
+    {
+      "name": "Cost Explorer",
+      "full": "AWS Cost Explorer",
+      "category": "monitoring",
+      "icon": "📊",
+      "what": "Công cụ phân tích chi phí và sử dụng AWS theo nhiều chiều (dịch vụ, tài khoản, tag, thời gian). Cung cấp dự báo chi phí tương lai.",
+      "when": "Để xem lại chi phí quá khứ, tìm cơ hội tiết kiệm, và dự báo ngân sách tháng/năm tới.",
+      "key_points": [
+        "Hiển thị chi phí theo giờ, ngày, tháng với bộ lọc theo service, tag, tài khoản",
+        "Dự báo chi phí dựa trên xu hướng (ML); hỗ trợ quyết định Reserved/Savings Plans",
+        "Miễn phí sử dụng; dữ liệu cập nhật mỗi ngày; lưu trữ 13 tháng"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa quản lý 7 tài khoản, dùng Cost Explorer để so sánh chi phí EC2 giữa jp:prod vs jp:poc và tìm các tag không được gắn nhãn chính xác",
+      "cli": {
+        "task": "Lấy chi phí theo dịch vụ của tháng hiện tại",
+        "command": "aws ce get-cost-and-usage --time-period Start=2026-08-01,End=2026-08-31 --granularity MONTHLY --metrics BlendedCost --group-by Type=DIMENSION,Key=SERVICE"
+      }
+    },
+    {
+      "name": "AWS Budgets",
+      "full": "AWS Budgets",
+      "category": "monitoring",
+      "icon": "💼",
+      "what": "Dịch vụ đặt ngân sách chi phí và sử dụng với thông báo qua email/SMS/SNS khi cảnh báo được kích hoạt.",
+      "when": "Để kiểm soát chi phí, ngăn chặn vượt quá ngân sách, và nhận thông báo sớm khi chi phí gần ngưỡng.",
+      "key_points": [
+        "Hỗ trợ Budgets dựa trên chi phí, sử dụng, Savings Plans, Reserved Instances",
+        "Có thể kích hoạt tự động Lambda/SNS action khi vượt quá ngưỡng cảnh báo",
+        "Free: 2 budgets không tính tiền; thêm budgets tính $0.10/tháng"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa thiết lập 7 budgets riêng cho 7 tài khoản (jp:prod, jp:uat, jp:poc, jp:network, jp:aggregator, jp:cloudtrail, jp:shareservice), mỗi ngân sách $8,000/tháng",
+      "cli": {
+        "task": "Liệt kê tất cả budgets và trạng thái cảnh báo",
+        "command": "aws budgets describe-budgets --account-id 123456789012"
+      }
+    },
+    {
+      "name": "AWS Compute Optimizer",
+      "full": "AWS Compute Optimizer",
+      "category": "monitoring",
+      "icon": "⚙️",
+      "what": "Phân tích lịch sử sử dụng EC2, RDS, EBS, Lambda, ASG để giới thiệu kích thước tối ưu và loại tài nguyên tiết kiệm.",
+      "when": "Để tìm các tài nguyên over-provisioned, right-size chúng, và giảm chi phí mà không ảnh hưởng hiệu suất.",
+      "key_points": [
+        "Dùng CloudWatch metrics (ít nhất 14 ngày dữ liệu) để phân tích mô hình sử dụng",
+        "Khuyến nghị thay đổi instance type, mua Reserved Instances, Savings Plans",
+        "Miễn phí; tích hợp với Cost Explorer để hiển thị tiết kiệm dự kiến"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa chạy Compute Optimizer trên jp:prod để xác định 5 EC2 instances chạy over-sized; tiết kiệm dự kiến $12,000/năm",
+      "cli": {
+        "task": "Lấy danh sách EC2 instances có khuyến nghị tối ưu hóa",
+        "command": "aws compute-optimizer describe-recommendation-summaries --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "Reserved Instances vs Savings Plans vs On-Demand",
+      "icon": "📈",
+      "body": "Reserved Instances (RI) yêu cầu cam kết 1-3 năm với giảm giá 30-70%, nhưng chỉ áp dụng cho một loại instance. Savings Plans cung cấp giảm giá 10-66% với tính linh hoạt hơn, áp dụng trên nhiều loại EC2/Lambda/Fargate. On-Demand không có cam kết, linh hoạt nhất nhưng đắt nhất (baseline 100%). Chọn RI cho beeline workload (jp:prod), Savings Plans cho workload đa dạng (jp:poc), On-Demand cho thử nghiệm ngắn hạn.",
+      "diagram": "On-Demand: 100% chi phí/giờ (mềm dẻo)\n      ↓\nSavings Plan: 20-66% giảm giá (trung bình)\n      ↓\nReserved Instance: 30-70% giảm giá (cam kết dài hạn)\n\nChọn RI nếu: sử dụng >30% thời gian\nChọn SP nếu: các loại tài nguyên đa dạng\nChọn OD nếu: không dự đoán được mô hình",
+      "exam_tip": "SAA-C03 thường hỏi 'Cách nào tiết kiệm chi phí nhất cho beeline production workload 3 năm?' → RI. Hoặc 'Công ty chạy EC2 và Lambda; cần linh hoạt' → Savings Plan.",
+      "japfa": "jp:prod chạy 10 c5.2xlarge instances 24/7 → mua 3-năm RI tiết kiệm 60%. jp:poc chạy EC2 + Lambda + Fargate theo mùa → dùng Savings Plan. jp:network dùng On-Demand vì thay đổi nhu cầu thường xuyên."
+    },
+    {
+      "title": "Cost Allocation Tags & Chargebacks",
+      "icon": "🏷️",
+      "body": "Gắn tags (key-value cặp) vào tài nguyên (EC2, RDS, S3) để phân loại chi phí theo dự án, bộ phận, khách hàng. Cost Explorer hiển thị chi phí theo tag; cho phép tính toán chargebacks (hoàn trả chi phí) chính xác. Ví dụ: tag 'Project=Poultry', 'Environment=prod', 'CostCenter=IT' giúp tìm chi phí từng dự án dễ dàng.",
+      "diagram": "EC2 Instance (jp:prod)\n  ├─ Project: Poultry\n  ├─ Env: prod\n  ├─ Owner: Japfa-Ops\n  └─ CostCenter: 5001\n      ↓\n  Cost Explorer: \"Show cost by Project\"\n      ↓\n  Report: Poultry=$2,500/tháng\n      ↓\n  Chargeback to Poultry team",
+      "exam_tip": "SAA-C03: 'Công ty cần tính chi phí từng khách hàng' → dùng Cost Allocation Tags + Cost Explorer grouping. 'Kiểm soát chi phí từng bộ phận' → Tag + IAM policies + Budgets.",
+      "japfa": "Japfa gắn tag Environment (prod/uat/poc) + CostCenter trên tất cả tài nguyên 7 tài khoản. Cost Explorer báo cáo chi phí từng bộ phận; jp:prod=$15,000/tháng, jp:poc=$2,000/tháng, giúp quản lý ngân sách chính xác."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa Vietnam chạy một ứng dụng production 24/7 trên 12 EC2 instances (c5.2xlarge). Bạn cần giảm chi phí tối đa. Nên chọn cách nào?",
+      "options": [
+        "Mua 12 Reserved Instances 3-năm; tiết kiệm 60-70% chi phí On-Demand",
+        "Sử dụng Spot Instances; tiết kiệm 90% nhưng không đảm bảo sẵn sàng 24/7",
+        "Dùng Savings Plans linh hoạt; tiết kiệm 30% nhưng có thể thay đổi instance type",
+        "Giữ On-Demand; đơn giản, không lo về cam kết dài hạn"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Workload 24/7 production yêu cầu ổn định; RI tiết kiệm nhất (60-70%). Spot không phù hợp; Savings Plan linh hoạt hơn nhưng tiết kiệm ít hơn RI."
+    },
+    {
+      "id": 2,
+      "question": "Bạn muốn theo dõi chi phí của 7 tài khoản AWS Japfa và nhận thông báo khi chi phí vượt 70% ngân sách tháng. Dùng dịch vụ nào?",
+      "options": [
+        "Cost Explorer để xem lịch sử chi phí; không hỗ trợ thông báo tự động",
+        "AWS Budgets với SNS alert khi vượt 70% ngân sách; hỗ trợ nhiều tài khoản",
+        "CloudWatch Alarms trên Cost metrics; chỉ hỗ trợ 1 tài khoản",
+        "AWS Config để ghi lại chi phí; không phải công cụ quản lý chi phí"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "cost",
+      "explanation": "AWS Budgets được thiết kế để đặt ngân sách và gửi thông báo SNS/email. Cost Explorer chỉ xem lịch sử, không thông báo."
+    },
+    {
+      "id": 3,
+      "question": "Japfa jp:poc tài khoản chạy mix workload: EC2 (8h/ngày), Lambda (event-driven), Fargate (batch). Dùng loại pricing nào để tiết kiệm và linh hoạt?",
+      "options": [
+        "Reserved Instances cho EC2, On-Demand cho Lambda/Fargate; phức tạp",
+        "Spot Instances cho tất cả; rủi ro không đủ tài nguyên",
+        "Savings Plans Compute (1 năm); áp dụng EC2+Lambda+Fargate, tiết kiệm 20-35%",
+        "On-Demand cho tất cả; đơn giản nhưng đắt"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Savings Plans Compute bao gồm EC2, Lambda, Fargate, linh hoạt thay đổi instance type. RI chỉ áp dụng 1 loại; Spot không ổn định cho batch."
+    },
+    {
+      "id": 4,
+      "question": "Bạn gắn tag 'Project=Poultry' và 'Env=prod' trên 50 EC2 instances ở jp:prod. Mục đích là gì?",
+      "options": [
+        "Tổ chức tài nguyên để dễ quản lý; hỗ trợ IAM policy fine-grain",
+        "Phân loại chi phí theo dự án, bộ phận; hỗ trợ Cost Explorer grouping và chargebacks",
+        "Mã hóa dữ liệu trên instances; bảo mật cao hơn",
+        "Tự động scale instances dựa trên tag; tối ưu hiệu suất"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "cost",
+      "explanation": "Cost Allocation Tags cho phép Cost Explorer hiển thị chi phí theo tag, hỗ trợ chargebacks chính xác. Tổ chức là lợi ích phụ."
+    },
+    {
+      "id": 5,
+      "question": "Japfa muốn biết instance nào ở jp:prod đang over-provisioned và có thể downsize để tiết kiệm. Dùng công cụ nào?",
+      "options": [
+        "Cost Explorer; chỉ hiển thị chi phí quá khứ, không phân tích hiệu suất",
+        "AWS Compute Optimizer; phân tích CloudWatch metrics 14+ ngày, khuyến nghị instance size tối ưu",
+        "CloudWatch Dashboards; giám sát metrics nhưng không khuyến nghị downsizing",
+        "AWS Systems Manager; quản lý cấu hình, không liên quan đến sizing"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "Compute Optimizer phân tích lịch sử sử dụng (CPU, RAM từ CloudWatch) để khuyến nghị downsize và tiết kiệm. Cost Explorer chỉ hiển thị chi phí."
+    }
+  ]
+}

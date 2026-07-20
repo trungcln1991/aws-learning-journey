@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-12",
+  "day": 31,
+  "week": 4,
+  "month": 2,
+  "title": "Well-Architected Framework",
+  "subtitle": "5 Pillars · Design Principles · Trade-offs",
+  "category": "Architecture",
+  "color": "#1F5F86",
+  "emoji": "🏛️",
+  "vocabulary": [
+    {
+      "word": "pillar",
+      "ipa": "/ˈpɪlər/",
+      "ipa_guide": "Đọc: PIL-ơ",
+      "type": "danh từ",
+      "meaning": "Cột trụ; một trong 5 lĩnh vực chính của WAF: Operational Excellence, Security, Reliability, Performance, Cost Optimization",
+      "example_en": "The five pillars of AWS Well-Architected Framework guide architecture decisions.",
+      "example_vi": "Năm cột trụ của AWS Well-Architected Framework hướng dẫn các quyết định kiến trúc.",
+      "usage": "WAF · Architecture Design · AWS Training",
+      "japfa": "Japfa sử dụng 5 cột trụ để thiết kế hệ thống across jp:prod, jp:uat, jp:poc accounts"
+    },
+    {
+      "word": "trade-off",
+      "ipa": "/ˈtreɪdɔːf/",
+      "ipa_guide": "Đọc: TREID-ốp",
+      "type": "danh từ",
+      "meaning": "Sự cân bằng giữa hai hoặc nhiều yếu tố đối lập; hy sinh một yếu tố để đạt yếu tố khác",
+      "example_en": "There is a trade-off between cost and performance when choosing instance types.",
+      "example_vi": "Có sự cân bằng giữa chi phí và hiệu năng khi chọn loại instance.",
+      "usage": "Architecture · Cost Optimization · Design Decisions",
+      "japfa": "jp:prod dùng Reserved Instances (chi phí thấp) vs On-Demand (linh hoạt cao)"
+    },
+    {
+      "word": "resilience",
+      "ipa": "/rɪˈzɪliəns/",
+      "ipa_guide": "Đọc: ri-ZIL-ience",
+      "type": "danh từ",
+      "meaning": "Khả năng hệ thống phục hồi từ lỗi; thiết kế Multi-AZ, backup, failover tự động",
+      "example_en": "Resilience is achieved through Multi-AZ deployment and auto-scaling groups.",
+      "example_vi": "Khả năng phục hồi đạt được thông qua triển khai Multi-AZ và nhóm auto-scaling.",
+      "usage": "Reliability Pillar · DR · Backup Strategy",
+      "japfa": "jp:prod hệ thống nhân vật phải có RTO/RPO < 1 giờ"
+    },
+    {
+      "word": "well-architected",
+      "ipa": "/ˌwɛl ˈɑːrkɪtɛktʃərd/",
+      "ipa_guide": "Đọc: uell ARCH-i-tek-chơrd",
+      "type": "tính từ",
+      "meaning": "Kiến trúc tuân theo 5 cột trụ WAF; thiết kế tốt trên AWS theo best practices",
+      "example_en": "A well-architected solution reduces operational overhead and improves reliability.",
+      "example_vi": "Một giải pháp kiến trúc tốt giảm chi phí vận hành và cải thiện độ tin cậy.",
+      "usage": "Architecture Review · Assessment Tool · Design Principles",
+      "japfa": "Japfa dùng AWS Well-Architected Tool để review jp:network account"
+    },
+    {
+      "word": "decoupling",
+      "ipa": "/diːˈkʌplɪŋ/",
+      "ipa_guide": "Đọc: di-COP-ling",
+      "type": "danh từ",
+      "meaning": "Tách rời các thành phần hệ thống; dùng SQS/SNS để giảm phụ thuộc trực tiếp",
+      "example_en": "Decoupling with SQS enables asynchronous processing and fault tolerance.",
+      "example_vi": "Tách rời với SQS cho phép xử lý không đồng bộ và chịu lỗi.",
+      "usage": "Resilience · Microservices · Message Queues",
+      "japfa": "jp:aggregator dùng SQS để tách rời order processing từ billing system"
+    }
+  ],
+  "services": [
+    {
+      "name": "WAF",
+      "full": "AWS Well-Architected Framework Review Tool",
+      "category": "monitoring",
+      "icon": "🏛️",
+      "what": "Công cụ đánh giá kiến trúc AWS theo 5 cột trụ. Cung cấp câu hỏi hướng dẫn để xác định rủi ro và lĩnh vực cần cải thiện.",
+      "when": "Khi thiết kế hệ thống mới, audit kiến trúc hiện có, chuẩn bị cho production deployment",
+      "key_points": [
+        "5 pillars: Operational Excellence, Security, Reliability, Performance, Cost",
+        "Dạng câu hỏi hướng dẫn giúp xác định best practices chưa áp dụng",
+        "Cấp độ rủi ro: High, Medium, Low; ưu tiên cải thiện"
+      ],
+      "japfa": true,
+      "japfa_detail": "Japfa dùng WAF định kỳ 6 tháng/lần để review jp:prod, jp:uat, jp:cloudtrail accounts",
+      "cli": {
+        "task": "Liệt kê tất cả Well-Architected reviews đã tạo",
+        "command": "aws wellarchitected list-workloads --region ap-southeast-1"
+      }
+    },
+    {
+      "name": "CloudFormation",
+      "full": "AWS CloudFormation",
+      "category": "compute",
+      "icon": "📋",
+      "what": "Công cụ Infrastructure as Code; định nghĩa toàn bộ kiến trúc AWS trong template JSON/YAML, triển khai đồng bộ.",
+      "when": "Tạo môi trường phức tạp với nhiều tài nguyên, tái sử dụng kiến trúc, version control, disaster recovery",
+      "key_points": [
+        "Template định nghĩa resources, outputs, parameters; đảm bảo consistency",
+        "Stack management: tạo, cập nhật, xóa tài nguyên theo atomic operation",
+        "Change Sets cho phép review thay đổi trước khi apply"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod dùng CloudFormation để deploy VPC, NAT Gateway, EC2 auto-scaling groups",
+      "cli": {
+        "task": "Mô tả tất cả stacks hiện có trong tài khoản",
+        "command": "aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE"
+      }
+    },
+    {
+      "name": "Systems Manager",
+      "full": "AWS Systems Manager",
+      "category": "monitoring",
+      "icon": "⚙️",
+      "what": "Công cụ quản lý hệ thống; cung cấp patch management, session manager, parameter store, compliance tracking.",
+      "when": "Quản lý EC2 patch, tự động hóa operational tasks, lưu trữ cấu hình bí mật, compliance monitoring",
+      "key_points": [
+        "Patch Manager: quản lý patch cho EC2 tự động theo lịch định kỳ",
+        "Session Manager: SSH không cần key pair, audit tất cả session qua CloudTrail",
+        "Parameter Store: lưu password, API keys, config values; hỗ trợ encryption"
+      ],
+      "japfa": true,
+      "japfa_detail": "jp:prod dùng Systems Manager Patch Manager để patch OS hàng tháng; Parameter Store lưu database password",
+      "cli": {
+        "task": "Liệt kê tất cả parameters trong Parameter Store",
+        "command": "aws ssm describe-parameters --region ap-southeast-1"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "title": "5 Pillars của Well-Architected Framework",
+      "icon": "🏛️",
+      "body": "5 cột trụ là: (1) Operational Excellence—quản lý hệ thống hiệu quả; (2) Security—bảo vệ dữ liệu, tuân thủ IAM; (3) Reliability—uptime cao, fault tolerance; (4) Performance Efficiency—tối ưu tài nguyên, caching; (5) Cost Optimization—minimize chi phí, dùng Reserved Instances. Mỗi cột trụ có design principles riêng.",
+      "diagram": "┌─────────────────────┐\n│  Operational Ex.    │\n├─────────────────────┤\n│     Security        │\n├─────────────────────┤\n│   Reliability       │\n├─────────────────────┤\n│ Performance Eff.    │\n├─────────────────────┤\n│  Cost Optimization  │\n└─────────────────────┘",
+      "exam_tip": "SAA-C03 thường hỏi: Pillar nào phù hợp cho scenario cụ thể? Ví dụ: 'Công ty cần giảm chi phí 40%' → Cost Optimization; 'Hệ thống down thường xuyên' → Reliability",
+      "japfa": "Japfa áp dụng 5 pillars: jp:prod dùng Auto Scaling (Performance), jp:cloudtrail lưu logs 7 năm (Compliance/Operational), jp:shareservice dùng Spot Instances (Cost)"
+    },
+    {
+      "title": "Design Principles & Trade-offs",
+      "icon": "⚖️",
+      "body": "Design Principles: (1) Stop guessing capacity—dùng auto-scaling; (2) Test at production scale—load test; (3) Automate—dùng CloudFormation, Lambda; (4) Implement observability—CloudWatch, X-Ray. Trade-offs: chi phí vs hiệu năng (On-Demand vs Reserved), availability vs latency (Single-AZ vs Multi-AZ), security strictness vs user convenience (MFA vs SSO).",
+      "diagram": "┌──────────────────┐    ┌──────────────────┐\n│  Cost (lower)    │ vs │  Performance     │\n│  On-Demand       │    │  (reserved)      │\n└──────────────────┘    └──────────────────┘\n\n┌──────────────────┐    ┌──────────────────┐\n│  Security        │ vs │  Convenience     │\n│  (strict IAM)    │    │  (open access)   │\n└──────────────────┘    └──────────────────┘",
+      "exam_tip": "SAA-C03 hỏi: 'Trade-off nào tốt nhất cho scenario này?' Ví dụ: 'Startup cần nhanh chóng scale' → On-Demand (linh hoạt) chứ không phải Reserved (commit lâu dài)",
+      "japfa": "jp:prod chọn Multi-AZ (trade-off: cost cao hơn) để đảm bảo RTO < 1h; jp:poc dùng Single-AZ (cost thấp) vì chỉ test"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Japfa Vietnam muốn redesign jp:prod để đảm bảo ngừng hoạt động < 1 giờ khi có AZ outage. Pillar nào là ưu tiên chính?",
+      "options": [
+        "A. Operational Excellence—quản lý automation tốt hơn",
+        "B. Reliability—thiết kế Multi-AZ, RTO/RPO, failover tự động",
+        "C. Performance Efficiency—tăng instance size để chịu tải cao hơn",
+        "D. Cost Optimization—dùng Spot Instances giảm chi phí"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "Yêu cầu RTO < 1 giờ là về Reliability (Pillar 3). Cần Multi-AZ, Auto Scaling, backup strategy để fault tolerance."
+    },
+    {
+      "id": 2,
+      "question": "Japfa đang review jp:network account. AWS WAF phát hiện hệ thống không dùng encryption for data in transit. Đây là vấn đề của Pillar nào?",
+      "options": [
+        "A. Operational Excellence—cần improve monitoring tools",
+        "B. Security—data transmission phải encrypted (TLS/SSL)",
+        "C. Performance Efficiency—encryption làm chậm kết nối",
+        "D. Cost Optimization—SSL certs tốn tiền"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "domain": "secure",
+      "explanation": "Encryption in transit là requirement của Security Pillar. TLS/SSL là best practice, không phải cost issue."
+    },
+    {
+      "id": 3,
+      "question": "Japfa planning dùng Reserved Instances 1 năm cho jp:prod (giảm 40% cost) nhưng On-Demand cho jp:poc (flexibility). Đây là trade-off giữa gì?",
+      "options": [
+        "A. Cost vs Flexibility—RI fixed, On-Demand scalable",
+        "B. Security vs Performance—không liên quan",
+        "C. Availability vs Latency—không phải trade-off này",
+        "D. Operational Excellence vs Cost—lựa chọn không liên quan"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "domain": "cost",
+      "explanation": "RI commit lâu dài, giá rẻ nhưng rigid. On-Demand linh hoạt nhưng đắt hơn. Perfect cost vs flexibility trade-off example."
+    },
+    {
+      "id": 4,
+      "question": "Japfa sử dụng CloudFormation để deploy toàn bộ jp:prod infrastructure từ template. Điều này tuân theo Design Principle nào của WAF?",
+      "options": [
+        "A. Stop guessing capacity—infrastructure as code không liên quan",
+        "B. Test at production scale—CloudFormation không dùng test",
+        "C. Automate to make architectural experimentation easier—IaC là tự động hóa",
+        "D. Implement observability—CloudFormation không liên quan monitoring"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "CloudFormation (IaC) tự động hóa deployment, cho phép test architecture dễ dàng, consistency, disaster recovery. Đây là automation principle."
+    },
+    {
+      "id": 5,
+      "question": "Japfa jp:aggregator dùng SQS để tách rời order processing từ billing system. Pillar nào được cải thiện trực tiếp?",
+      "options": [
+        "A. Cost Optimization—SQS rẻ hơn direct API calls",
+        "B. Reliability—decoupling giảm dependency, tăng fault tolerance, nếu billing down order vẫn process",
+        "C. Performance Efficiency—SQS thường chậm hơn synchronous",
+        "D. Operational Excellence—quản lý dễ hơn nhưng không phải focus"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "domain": "resilient",
+      "explanation": "SQS decoupling tăng hệ thống resilience. Nếu billing system down, messages queue up, không block order processing. Fault tolerance cải thiện."
+    }
+  ]
+}
