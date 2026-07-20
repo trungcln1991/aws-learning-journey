@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "Tao 3 CloudWatch alarm Memory/Disk cho dev aps12 + verify sau khi cai CWAgent",
-  "updated_at": "2026-07-17T08:34:00Z"
+  "commit_msg": "Weekly Security Review 20/07: dọn Security Hub 702→0 finding, CIS v5.0.0, Access Analyzer mới",
+  "updated_at": "2026-07-20T05:58:26Z"
 }
