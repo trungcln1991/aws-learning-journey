@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T04:26:28.459Z",
+  "generated_at": "2026-07-20T04:41:53.488Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -454,53 +454,48 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Inaccurate Estimated Billing Data",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-18T13:57:41.000Z",
-        "description": "Between July 16 at 7:38 PM PDT and July 18 at 6:00 AM PDT, we began displaying incorrect estimated billing data in the Billing and Cost Management Console, including the Cost and Usage Report. Customers may have received erroneous budget and cost anomaly detection alerts, and observed inflated estimated cost and usage data. On July 16 at 7:46 PM PDT, our alarms detected cost anomalies but failed t",
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
         "tags": [
-          "CloudWatch",
-          "Cost"
+          "Lambda"
         ]
       },
       {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-18T08:05:35.000Z",
-        "description": "We continue to make substantial progress toward resolving the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console. Our mitigation efforts are working as expected and we are seeing an increasing number of accounts reflecting correct cost and usage data. We expect all affected accounts to be fully recovered by July 19, 12:00 AM PDT. Until the backfill i",
-        "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-18T01:38:01.000Z",
-        "description": "We continue to make steady progress toward resolving the issue affecting estimated cost and usage data displayed in the Billing and Cost Management Console. Our efforts to backfill corrected data remain underway, and we expect all affected accounts to be fully recovered by July 19, 12:00 AM PDT. Until the backfill is complete, some customers may still observe incorrect cost and usage data in the B",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
         "tags": [
           "Cost"
         ]
       },
       {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-17T19:56:18.000Z",
-        "description": "Our efforts to backfill corrected estimated cost and usage data are still underway. We are progressing slower than anticipated. While we are seeing some accounts recover with correct cost and usage data, we expect all affected accounts to be recovered by July 19 12:00 AM PDT. Until the backfill is complete, some customers may still see incorrect cost and usage data. The displayed billing estimates",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
         "tags": [
-          "Cost"
+          "S3"
         ]
       },
       {
-        "title": "Service impact: Inaccurate Estimated Billing Data",
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-17T16:59:36.000Z",
-        "description": "We have identified the root cause and mitigated the underlying issue causing incorrect estimated cost and usage data to be displayed in the Billing and Cost Management Console, and Cost and Usage Reports. We have begun backfilling data to correct cost data for all customers. We expect some customers to begin seeing recovery within the next three hours, and full recovery for all customers by July 1",
-        "tags": [
-          "Cost"
-        ]
+        "date": "2026-03-03T14:02:57.000Z",
+        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
+        "tags": []
       }
     ]
   }
