@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "Weekly Security Review 20/07: dọn Security Hub 702→0 finding, CIS v5.0.0, Access Analyzer mới",
-  "updated_at": "2026-07-20T05:58:26Z"
+  "commit_msg": "session: 21/07 - fix Terraform CI fail (checkov CKV2_AWS_77 + path filter gap)",
+  "updated_at": "2026-07-21T09:25:46Z"
 }
