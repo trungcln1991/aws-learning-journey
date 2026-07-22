@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T04:20:46.143Z",
+  "generated_at": "2026-07-22T04:22:56.369Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,94 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon EC2 R6in and R6idn instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r6in-r6idn/",
+      "date": "2026-07-21T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R6in and R6idn instances are available in AWS Europe (Paris) and Canada (Central) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, 2x more network bandwidth, and up to 2x higher packet-processing ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C6in instances are now available in Asia Pacific (Taipei) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c6in/",
+      "date": "2026-07-21T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C6in instances are available in AWS Asia Pacific (Taipei). These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable fifth-generation instances. Customers can use C6in ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M6in and M6idn instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/",
+      "date": "2026-07-21T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M6in and M6idn instances are available in AWS Asia Pacific (Hyderabad) and South America (Sao Paulo) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon ECS advanced deployment strategies now available in AWS European Sovereign Cloud",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-adv-deployments-eu-sovereign-cloud/",
+      "date": "2026-07-21T17:00:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now supports built-in blue/green, linear, and canary deployment strategies in the AWS European Sovereign Cloud, making software updates for containerized applications safer and allowing you to release new application versions faster with greater confidence. Built directly into Amazon ECS, these capabilities eliminate the need for custom deployment tool",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon SES introduces pricing plans",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ses-pricing-plans/",
+      "date": "2026-07-21T16:35:00.000Z",
+      "description": "Today, Amazon Simple Email Service (SES) introduced pricing plans, making it easy to purchase and access SES capabilities without evaluating them individually. Amazon SES pricing plans include three hierarchical options: Essentials, Pro, and Enterprise. Each plan builds on the one before it, offering progressively more capability at a discount compared to à-la-carte pricing. Businesses depend on e",
+      "tags": []
+    },
+    {
+      "title": "Amazon ECS now provides Action Logs for deployment and orchestration visibility",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-action-logs/",
+      "date": "2026-07-21T15:30:00.000Z",
+      "description": "Today, Amazon Elastic Container Service (Amazon ECS) introduces Action Logs, a new observability feature that delivers detailed, timestamped records of the actions Amazon ECS performs on behalf of customers during service deployments and ECS Managed Daemon updates. By surfacing service-side operations that were previously invisible, Action Logs help you monitor and troubleshoot your workloads dire",
+      "tags": [
+        "RDS",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon Managed Service for Prometheus supports 1.5B active metrics and 200K rules per workspace",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-prometheus-1500m-metrics-workspace/",
+      "date": "2026-07-21T14:00:00.000Z",
+      "description": "Amazon Managed Service for Prometheus now supports up to 1.5 billion active metric time series and up to 200,000 total recording and alerting rules per workspace. Customers can also create many workspaces per account, enabling the storage and analysis of billions of Prometheus metrics across their organization. Amazon Managed Service for Prometheus is a fully managed, Prometheus-compatible monitor",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon RDS now supports the latest CU and GDR updates for Microsoft SQL Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-supports-latest-cu-gdr-microsoft-sql-server",
+      "date": "2026-07-21T07:45:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2016 SP3+GDR KB5089271 (RDS version 13.00.6490.1.v1), SQL Server 2017 CU31+GDR KB5090354 (RDS version 14.00.3530.2.v1), SQL Server 2019 CU32+GDR KB5090407 (RDS v",
+      "tags": [
+        "RDS",
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "Amazon RDS for SQL Server now supports Microsoft SQL Server 2025",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-supports-sqlserver-2025",
+      "date": "2026-07-21T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Microsoft SQL Server 2025 for Enterprise, Standard, and Developer editions. SQL Server 2025 brings AI integration directly into the database engine, enabling customers to invoke external REST endpoints from T-SQL without additional middleware. Customers running RDS for SQL Server can use this capability to integrate existi",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Partner Central agents expand funding guidance to all programs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-partner-central/",
+      "date": "2026-07-20T20:08:00.000Z",
+      "description": "AWS Partner Central agents now support all AWS Partner funding programs. AWS Partners can get guidance on eligibility requirements, application processes, and program details for any funding program and receive documentation-backed answers in seconds. The agents already automate the full funding lifecycle for four funding programs, supported since the March 2026 launch. This expansion adds Strateg",
+      "tags": []
+    },
     {
       "title": "AWS Data Exports now provides standardized Amazon Bedrock product metadata",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-data-exports-amazon-bedrock-product-metadata/",
@@ -72,12 +160,13 @@
       ]
     },
     {
-      "title": "Amazon WorkSpaces Applications now supports Microsoft OneDrive and Google Drive on Multi-Session fleets",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/storage-multi-session-fleets/",
-      "date": "2026-07-20T15:00:00.000Z",
-      "description": "Amazon WorkSpaces Applications now supports Microsoft OneDrive for Business and Google Drive as persistent storage options on multi-session fleets. Users streaming on multi-session fleets can now connect their OneDrive or Google Drive accounts and access, save, and sync their cloud-based files directly within their streaming sessions, in addition to the existing home folder backed by Amazon S3. Mu",
+      "title": "Amazon Connect Customer launches metrics for agent queues on analytics dashboards",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect/",
+      "date": "2026-07-20T15:28:00.000Z",
+      "description": "Amazon Connect Customer dashboards now display real-time and historical metrics for agent queues. Agent queues are used to directly route contacts to a specific agent. Now, supervisors can track how these agents perform in their own queues. For example, a supervisor notices a spike in contacts queued to a specific agent queue following a series of scheduled callbacks, and reassigns them to avoid l",
       "tags": [
-        "S3"
+        "RDS",
+        "CloudWatch"
       ]
     },
     {
@@ -87,6 +176,15 @@
       "description": "Amazon Managed Service for Apache Flink now supports Apache Flink version 2.3. This release includes adaptive partition selection for improved backpressure handling, so applications run more smoothly under uneven load. It also introduces better handling of out-of-order updates in change data capture (CDC) pipelines that improves data correctness, and new SQL functions make it easier to convert bet",
       "tags": [
         "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces Applications now supports Microsoft OneDrive and Google Drive on Multi-Session fleets",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/storage-multi-session-fleets/",
+      "date": "2026-07-20T15:00:00.000Z",
+      "description": "Amazon WorkSpaces Applications now supports Microsoft OneDrive for Business and Google Drive as persistent storage options on multi-session fleets. Users streaming on multi-session fleets can now connect their OneDrive or Google Drive accounts and access, save, and sync their cloud-based files directly within their streaming sessions, in addition to the existing home folder backed by Amazon S3. Mu",
+      "tags": [
+        "S3"
       ]
     },
     {
@@ -114,6 +212,15 @@
       "date": "2026-07-20T08:00:00.000Z",
       "description": "Today, AWS announces the availability of KNFSD File Cache, an open-source, Apache-2.0 licensed solution for deploying a scalable, high-speed Network File System (NFS) cache on AWS. KNFSD File Cache mounts exports from one or more source NFS servers, whether on-premises, in another AWS Availability Zone or Region, or in another cloud over AWS Interconnect - multicloud, and re-exports them to NFS cl",
       "tags": []
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio adds custom visual transforms",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio",
+      "date": "2026-07-17T21:40:00.000Z",
+      "description": "With Amazon SageMaker Unified Studio, you can now create, share, and reuse custom visual transforms in visual ETL flows. This capability enables data engineers to build reusable, business-specific transformation logic and make it available to their teams without requiring coding expertise. With custom visual transforms, you can build your own transforms and publish them to a shared library that ot",
+      "tags": [
+        "SageMaker"
+      ]
     },
     {
       "title": "Amazon GameLift Streams now supports IAM role credentials for stream sessions",
@@ -145,119 +252,6 @@
         "EC2",
         "SageMaker"
       ]
-    },
-    {
-      "title": "Amazon CloudWatch Synthetics now supports customer managed encryption keys",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/synthetics-customer-managed-keys/",
-      "date": "2026-07-16T20:34:00.000Z",
-      "description": "Amazon CloudWatch Synthetics now supports customer managed AWS Key Management Service (KMS) keys for encrypting canary environment variables, giving you full control over the encryption of sensitive configuration data such as API keys, credentials, and tokens. Previously, environment variables were encrypted at rest using only an AWS owned key. Now, in addition to the default AWS owned key, you ca",
-      "tags": [
-        "CloudWatch",
-        "KMS"
-      ]
-    },
-    {
-      "title": "Amazon Managed Grafana achieves FedRAMP High authorization in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-grafana-fedramp-high/",
-      "date": "2026-07-16T19:31:00.000Z",
-      "description": "Amazon Managed Grafana is now a FedRAMP High authorized service in the AWS GovCloud (US-East) and AWS GovCloud (US-West) regions. Federal agencies, public sector organizations, and other enterprises with FedRAMP High compliance requirements can now use Amazon Managed Grafana to visualize, query, and alert on operational metrics across their AWS and hybrid environments while meeting their strict se",
-      "tags": [
-        "CloudWatch",
-        "Organizations",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards",
-      "date": "2026-07-16T18:56:00.000Z",
-      "description": "Today, AWS Billing and Cost Management (BCM) announces support for Cost Efficiency widget in BCM Dashboards. You can now view cost efficiency trends alongside Cost Explorer, Budgets, and reports for Savings Plans and Reserved Instance coverage and utilization reports. This provides a unified view of your spending, commitments, and optimization performance in a single, tailored dashboard. The Cost ",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EC2 now surfaces the public SSM parameters associated with public AMIs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters",
-      "date": "2026-07-16T18:20:00.000Z",
-      "description": "Amazon EC2 now surfaces the AWS Systems Manager (SSM) Parameter Store parameters associated with public AMIs directly in the AMI metadata. When you describe a public AMI, the response includes the associated public SSM parameter, making it easy to discover and reference in your configurations. Previously, finding the SSM parameter associated with a public AMI required searching through SSM paramet",
-      "tags": [
-        "EC2",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon S3 Event Notifications now include system-generated tags",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/",
-      "date": "2026-07-16T18:00:00.000Z",
-      "description": "Amazon S3 Event Notifications now include system-generated tags in events delivered to all destinations including Amazon EventBridge, Amazon SQS, Amazon SNS, and AWS Lambda. System-generated tags are metadata labels attached to your bucket by AWS services. You can use these tags to filter events from thousands of buckets with a single EventBridge rule, instead of listing each bucket name individua",
-      "tags": [
-        "S3",
-        "Lambda",
-        "SQS"
-      ]
-    },
-    {
-      "title": "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/",
-      "date": "2026-07-16T18:00:00.000Z",
-      "description": "Amazon RDS for PostgreSQL 19 Beta 2 is now available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. You can deploy PostgreSQL 19 Beta 2 in the Amazon RDS Database Preview Environment that has the benefits of a fully managed database. PostgreSQL 19 introduces parallel autovacuum with configurable worker limits",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Sustainability service now includes water withdrawals data",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-sustainability-water-withdrawals/",
-      "date": "2026-07-16T16:43:00.000Z",
-      "description": "Customers can now view annual water withdrawals data associated with their AWS workloads in AWS Sustainability, alongside existing carbon emissions data. This enhancement helps organizations gain comprehensive visibility into their environmental impact across carbon and water. Water withdrawals data is available by AWS Region, service, and AWS account on an annual basis through the AWS Sustainabil",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-adds-rg-large-12xlarge-instance-sizes",
-      "date": "2026-07-16T16:00:00.000Z",
-      "description": "Amazon Redshift announces the general availability of two new RG instance sizes - rg.large and rg.12xlarge. These new sizes deliver the same Graviton-powered performance benefits as existing RG instances, including up to 2.4x faster query performance than previous-generation RA3 instances at 30% lower price per vCPU, giving you more flexibility to right-size your provisioned clusters for any workl",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/",
-      "date": "2026-07-16T16:00:00.000Z",
-      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environmen",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia",
-      "date": "2026-07-16T15:00:00.000Z",
-      "description": "You can now transition objects to S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) as soon as the day they are created, without the previous 30-day minimum retention in S3 Standard. These storage classes offer up to 40% lower storage costs than S3 Standard while still providing millisecond access when needed, making them ideal for backups, log analy",
-      "tags": [
-        "S3",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Backup extends logically air-gapped vault support to six additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-backup-logically-air-gapped-vault-regions/",
-      "date": "2026-07-16T10:00:00.000Z",
-      "description": "AWS Backup logically air-gapped vaults are now available in six additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), and Canada West (Calgary). With logically air-gapped vaults now available in these Regions, you can store immutable, isolated backups that are locked by default and encrypted using AWS owned ke",
-      "tags": []
-    },
-    {
-      "title": "AWS Backup extends restore testing support to seven additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-backup-restore-testing-regions/",
-      "date": "2026-07-16T10:00:00.000Z",
-      "description": "AWS Backup restore testing is now available in seven additional AWS Regions: Asia Pacific (Taipei), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), Israel (Tel Aviv), Mexico (Central), and Canada West (Calgary). Restore testing helps you automate and periodically run restore tests of supported AWS resources across storage, compute, and database services. You can creat",
-      "tags": []
     }
   ],
   "security": [
