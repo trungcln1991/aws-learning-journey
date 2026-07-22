@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "session: 21/07 - fix Terraform CI fail (checkov CKV2_AWS_77 + path filter gap)",
-  "updated_at": "2026-07-21T09:25:46Z"
+  "commit_msg": "session: 22/07 - đóng 3 gap (CWAgent/IAM-SSO/Snowflake) + disk cleanup mở rộng + cải tiến KPI workflow",
+  "updated_at": "2026-07-22T04:47:46Z"
 }
