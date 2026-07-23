@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: 22/07 - đóng 3 gap (CWAgent/IAM-SSO/Snowflake) + disk cleanup mở rộng + cải tiến KPI workflow",
-  "updated_at": "2026-07-22T04:47:46Z"
+  "commit_msg": "fix: Teams Login Alert spam + card sai schema Teams Workflows",
+  "updated_at": "2026-07-23T04:31:37Z"
 }
