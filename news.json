@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T04:22:56.369Z",
+  "generated_at": "2026-07-23T04:21:34.261Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,10 +25,128 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon EC2 C7a instances are now available in the US West (N. California) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7a-instances-us-west-ncalifornia-region/",
+      "date": "2026-07-22T21:42:00.000Z",
+      "description": "Starting today, the compute optimized Amazon EC2 C7a instances are now available in AWS US West (N. California) Region. C7a instances, powered by 4th Gen AMD EPYC processors (code-named Genoa) with a maximum frequency of 3.7 GHz, deliver up to 50% higher performance compared to C6a instances. C7a instances offer new processor capabilities such as AVX-512, VNNI, and bfloat16. They feature Double Da",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M8a instances now available in the Asia Pacific (Hyderabad) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8a-instances-asia-pacific-hyderabad-region/",
+      "date": "2026-07-22T20:55:00.000Z",
+      "description": "Starting today, the general-purpose Amazon EC2 M8a instances are available in AWS Asia Pacific (Hyderabad) region. M8a instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to M7a instances. M8a instances deliver 45% more memory bandwidth compared to",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "AWS Network Load Balancer now supports Listener Rules for custom traffic routing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-network-load-balancer-supports-listener-rules/",
+      "date": "2026-07-22T19:13:00.000Z",
+      "description": "Network Load Balancer (NLB) now supports listener rules allowing you to route connections to different target groups based on the source IP address type. With listener rules, a single dual-stack NLB sends IPv6 client traffic to IPv6 targets and IPv4 client traffic to IPv4 targets, preserving the original client IP address end to end for both address families. Previously, serving both IPv4 and IPv6",
+      "tags": [
+        "ALB"
+      ]
+    },
+    {
+      "title": "AWS Entity Resolution now supports advanced real-time matching",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-entity-resolution/",
+      "date": "2026-07-22T19:00:00.000Z",
+      "description": "AWS Entity Resolution now supports real-time matching with advanced matching workflows, enabling customers to match records in milliseconds using complex rulesets through the GenerateMatchId API. Previously, real-time matching was limited to simple rule-based workflows, while advanced rulesets—which support operators like Exact and ExactManyToMany combined with AND/OR logic—could only be used for ",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Lambda durable functions now supports customer managed key encryption",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/durablefunctions-cmk/",
+      "date": "2026-07-22T18:30:00.000Z",
+      "description": "AWS Lambda durable functions now supports encryption of durable execution data with an AWS Key Management Service (AWS KMS) customer managed key. Lambda durable functions lets you build long-running, reliable workflows directly in your Lambda function code with automatic state management. Lambda encrypts execution state at rest by default with an AWS owned key. Now with support for AWS KMS, you ca",
+      "tags": [
+        "Lambda",
+        "KMS"
+      ]
+    },
+    {
+      "title": "Amazon Corretto July 2026 Quarterly Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-corretto-july-2026-quarterly-updates",
+      "date": "2026-07-22T18:00:00.000Z",
+      "description": "On July 22, 2026, Amazon announced quarterly security and critical updates for Amazon Corretto Long-Term Support (LTS) and Feature Release (FR) versions of OpenJDK. Corretto 26.0.2, 25.0.4, 21.0.12, 17.0.20, 11.0.32, and 8u502 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Starting with this release, the default Amazon Corre",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Organizations increases RCP quota to 2,000 per organization",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-organizations-resource-control-policy-limit-increase-2000",
+      "date": "2026-07-22T17:00:00.000Z",
+      "description": "AWS Organizations now supports up to 2,000 resource control policies (RCPs) per organization, doubling the previous limit of 1,000. RCPs enable centralized management of the maximum permissions available to resources across member accounts in your organization. This quota increase helps customers managing large, complex, multi-account environments define more granular resource access controls with",
+      "tags": [
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon EKS now supports EFA and placement groups on Amazon EKS Auto Mode and Karpenter",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-efa-placement-groups/",
+      "date": "2026-07-22T14:30:00.000Z",
+      "description": "Amazon Elastic Kubernetes Service (EKS) now supports Amazon EC2 placement groups and Elastic Fabric Adapter (EFA) network device configuration for node pools on EKS Auto Mode and the open-source Karpenter project, enabling you to optimize EKS workloads for performance and availability. These capabilities allow you to control EFA network interface configuration and how EC2 instances are physically ",
+      "tags": [
+        "EC2",
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon RDS now supports the latest CU and GDR updates for Microsoft SQL Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-supports-latest-cu-gdr-microsoft-sql-server",
+      "date": "2026-07-22T07:45:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2016 SP3+GDR KB5089271 (RDS version 13.00.6490.1.v1), SQL Server 2017 CU31+GDR KB5090354 (RDS version 14.00.3530.2.v1), SQL Server 2019 CU32+GDR KB5090407 (RDS v",
+      "tags": [
+        "RDS",
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "AWS Secrets Manager now publishes secret update notifications to Amazon EventBridge",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/secrets-manager-update-notifications",
+      "date": "2026-07-22T07:00:00.000Z",
+      "description": "AWS Secrets Manager now automatically publishes events to Amazon EventBridge whenever your secret values change, enabling you to build event-driven workflows that respond in real time to secret updates. Until now, you had to rely on AWS CloudTrail events parsed into EventBridge to know when a secret value changed — requiring you to match multiple API events such as rotation success, PutSecretValue",
+      "tags": [
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "AWS Direct Connect announces 100G expansion in Lima, Peru",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-direct-connect-100g-lima/",
+      "date": "2026-07-22T04:00:00.000Z",
+      "description": "Today, AWS announced the expansion of 100 Gbps dedicated connections at the existing AWS Direct Connect location within the Cirion data center in Lima, Peru. You can now establish private, direct network access to all public AWS Regions (except those in China), AWS GovCloud Regions, and AWS Local Zones from this location. This is the first AWS Direct Connect location in Peru to provide 100 Gbps co",
+      "tags": []
+    },
+    {
+      "title": "AWS Elastic Disaster Recovery is now available in six additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-additional-regions/",
+      "date": "2026-07-21T22:00:00.000Z",
+      "description": "AWS Elastic Disaster Recovery (AWS DRS) is now available in six additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taipei), Canada West (Calgary), and Mexico (Central). Elastic Disaster Recovery is the recommended service for disaster recovery to AWS. It helps minimize downtime and data loss with fast, reliable recovery of on-premises",
+      "tags": []
+    },
+    {
       "title": "Amazon EC2 R6in and R6idn instances are now available in additional regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r6in-r6idn/",
       "date": "2026-07-21T20:00:00.000Z",
       "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R6in and R6idn instances are available in AWS Europe (Paris) and Canada (Central) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, 2x more network bandwidth, and up to 2x higher packet-processing ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M6in and M6idn instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/",
+      "date": "2026-07-21T20:00:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M6in and M6idn instances are available in AWS Asia Pacific (Hyderabad) and South America (Sao Paulo) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable ",
       "tags": [
         "EC2"
       ]
@@ -43,12 +161,14 @@
       ]
     },
     {
-      "title": "Amazon EC2 M6in and M6idn instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/",
-      "date": "2026-07-21T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M6in and M6idn instances are available in AWS Asia Pacific (Hyderabad) and South America (Sao Paulo) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable ",
+      "title": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified/",
+      "date": "2026-07-21T17:36:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch as a data source, enabling you to query and analyze your search and log analytics data directly alongside your other data assets. With this new connection, you can combine operational search data in OpenSearch with data from sources like Amazon Redshift, Amazon S3, and relational databases - all within a single, governed environment. T",
       "tags": [
-        "EC2"
+        "S3",
+        "RDS",
+        "SageMaker"
       ]
     },
     {
@@ -87,13 +207,12 @@
       ]
     },
     {
-      "title": "Amazon RDS now supports the latest CU and GDR updates for Microsoft SQL Server",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-supports-latest-cu-gdr-microsoft-sql-server",
-      "date": "2026-07-21T07:45:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2016 SP3+GDR KB5089271 (RDS version 13.00.6490.1.v1), SQL Server 2017 CU31+GDR KB5090354 (RDS version 14.00.3530.2.v1), SQL Server 2019 CU32+GDR KB5090407 (RDS v",
+      "title": "AWS Marketplace now supports self-service seller signature management for India-based sellers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-marketplace-india/",
+      "date": "2026-07-21T07:18:00.000Z",
+      "description": "AWS Marketplace now enables India-based sellers to upload and manage their seller signatures directly through AWS Partner Central, eliminating the previous manual, email-based submission process. Sellers located in India are required to provide a valid seller signature for tax invoicing and regulatory compliance. This launch consolidates Goods and Services Tax Identification Number (GSTIN) registr",
       "tags": [
-        "RDS",
-        "CloudFront"
+        "Security Hub"
       ]
     },
     {
@@ -130,127 +249,6 @@
       "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the Europe (Stockholm, Zurich) regions. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-",
       "tags": [
         "EC2"
-      ]
-    },
-    {
-      "title": "Selectively log network activity events by identity in AWS CloudTrail",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-cloudtrail-filter-useridentity-advance-selectors/",
-      "date": "2026-07-20T17:34:00.000Z",
-      "description": "Today, AWS launches enhanced event filtering for network activity events for VPC end points, a CloudTrail event type that captures actions transmitted through a Virtual Private Cloud Endpoint . Customers can now control which network activity events are logged based on the IAM user identity making the API call. For example, you can configure selectors to log only access denied events when the call",
-      "tags": [
-        "VPC",
-        "IAM",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Amazon Connect delivers more natural agentic voice experiences with expanded language support and speech controls",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect-agentic-voice/",
-      "date": "2026-07-20T16:16:00.000Z",
-      "description": "Amazon Connect customers can now deliver more natural, human-sounding agentic voice experiences with expanded support across 50+ languages including Spanish, French, Italian, Japanese, Korean, Portuguese, and Thai, over 100 new voice options, and conversational improvements that make AI interactions sound more fluid and responsive. Amazon Connect's agentic self-service capabilities enable AI agent",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 I8ge instances are now available in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-i8ge-instances-aws-govcloud-us-regions/",
-      "date": "2026-07-20T16:00:00.000Z",
-      "description": "Amazon Web Services (AWS) announces the availability of Amazon EC2 I8ge instances in AWS GovCloud (US-East, US-West) regions. I8ge instances are powered by AWS Graviton4 processors and deliver up to 60% better compute performance compared to previous generation Graviton2-based storage optimized Amazon EC2 instances. I8ge instances use the third generation AWS Nitro SSDs, local NVMe storage, and de",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer launches metrics for agent queues on analytics dashboards",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect/",
-      "date": "2026-07-20T15:28:00.000Z",
-      "description": "Amazon Connect Customer dashboards now display real-time and historical metrics for agent queues. Agent queues are used to directly route contacts to a specific agent. Now, supervisors can track how these agents perform in their own queues. For example, a supervisor notices a spike in contacts queued to a specific agent queue following a series of scheduled callbacks, and reassigns them to avoid l",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon Managed Service for Apache Flink now supports Apache Flink 2.3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-flink-2-3/",
-      "date": "2026-07-20T15:00:00.000Z",
-      "description": "Amazon Managed Service for Apache Flink now supports Apache Flink version 2.3. This release includes adaptive partition selection for improved backpressure handling, so applications run more smoothly under uneven load. It also introduces better handling of out-of-order updates in change data capture (CDC) pipelines that improves data correctness, and new SQL functions make it easier to convert bet",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon WorkSpaces Applications now supports Microsoft OneDrive and Google Drive on Multi-Session fleets",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/storage-multi-session-fleets/",
-      "date": "2026-07-20T15:00:00.000Z",
-      "description": "Amazon WorkSpaces Applications now supports Microsoft OneDrive for Business and Google Drive as persistent storage options on multi-session fleets. Users streaming on multi-session fleets can now connect their OneDrive or Google Drive accounts and access, save, and sync their cloud-based files directly within their streaming sessions, in addition to the existing home folder backed by Amazon S3. Mu",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Announcing the general availability of a new AWS Local Zone in Athens, Greece",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-local-zone-athens-greece/",
-      "date": "2026-07-20T14:00:00.000Z",
-      "description": "Today, AWS announces the general availability of a new Local Zone in Athens, Greece. The Athens Local Zone is the second Local Zone in EMEA with support for Amazon Simple Storage Service (Amazon S3) and Amazon Elastic Block Store (Amazon EBS) Local Snapshots, enabling customers to store and process data within Greece to help meet local data residency requirements. The Athens Local Zone supports Am",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch announces coding agent insights",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/cloudwatch-coding-agent-insights/",
-      "date": "2026-07-20T09:51:00.000Z",
-      "description": "Amazon CloudWatch announces the launch of coding agent insights, giving engineering leaders visibility into how AI coding tools are driving value across their organization. Coding Agent Insights integrates with Claude apps gateway for AWS to collect telemetry from Claude Code without additional instrumentation. Other supported coding agents include Codex and GitHub Copilot. As organizations scale ",
-      "tags": [
-        "CloudWatch",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Introducing KNFSD File Cache - Now in Preview",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/knfsd-file-cache/",
-      "date": "2026-07-20T08:00:00.000Z",
-      "description": "Today, AWS announces the availability of KNFSD File Cache, an open-source, Apache-2.0 licensed solution for deploying a scalable, high-speed Network File System (NFS) cache on AWS. KNFSD File Cache mounts exports from one or more source NFS servers, whether on-premises, in another AWS Availability Zone or Region, or in another cloud over AWS Interconnect - multicloud, and re-exports them to NFS cl",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio adds custom visual transforms",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio",
-      "date": "2026-07-17T21:40:00.000Z",
-      "description": "With Amazon SageMaker Unified Studio, you can now create, share, and reuse custom visual transforms in visual ETL flows. This capability enables data engineers to build reusable, business-specific transformation logic and make it available to their teams without requiring coding expertise. With custom visual transforms, you can build your own transforms and publish them to a shared library that ot",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Streams now supports IAM role credentials for stream sessions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/",
-      "date": "2026-07-17T17:29:00.000Z",
-      "description": "Amazon GameLift Streams now supports assigning an IAM role to a stream session, enabling your application to securely access resources in your AWS account, such as Amazon S3 buckets and DynamoDB tables. With this launch, you can pass a RoleArn parameter when starting a stream session, and your application automatically receives short-lived, auto-refreshing AWS credentials through the standard AWS ",
-      "tags": [
-        "S3",
-        "IAM",
-        "DynamoDB"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch UI now supports one-click dashboard migration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration",
-      "date": "2026-07-17T17:23:00.000Z",
-      "description": "Amazon OpenSearch Service now supports one-click migration from legacy OpenSearch Dashboards to OpenSearch UI, for both OpenSearch domains and serverless collections. OpenSearch UI is the new, zero-downtime, serverless interface for search and unified observability across multiple data sources. With this launch, the multiple tenants and thousands of saved objects you created in legacy OpenSearch D",
-      "tags": [
-        "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker HyperPod now supports partition-level topology for Slurm orchestrated clusters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/hyperpod-partition-topology-slurm/",
-      "date": "2026-07-17T15:16:00.000Z",
-      "description": "Amazon SageMaker HyperPod now supports network topology configuration at the partition level for Slurm orchestrated clusters. A single cluster can now run tree topology in one partition and block topology in another, with each partition using the topology best suited to its instance types. This improves distributed training performance by keeping job placement aligned with the interconnect charact",
-      "tags": [
-        "EC2",
-        "SageMaker"
       ]
     }
   ],
