@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T04:21:34.261Z",
+  "generated_at": "2026-07-24T04:21:04.749Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,112 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon ECS Service Connect now supports Zone-Aware routing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-service-connect-zone-aware/",
+      "date": "2026-07-23T23:46:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) introduces zone-aware routing for ECS Service Connect, enabling customers to reduce cross Availability Zone (AZ) data transfer costs and latency by automatically prioritizing service-to-service traffic within the same AZ. With this launch, ECS Service Connect preferentially routes requests to endpoints in the same AZ as the originating task while dynam",
+      "tags": [
+        "ECS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS now supports automatic credit memo application preferences",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/credit-memo-applications/",
+      "date": "2026-07-23T18:16:00.000Z",
+      "description": "AWS now enables customers who pay through electronic funds transfer to configure preferences for how credit memos are automatically applied to outstanding invoices. Customers can choose from different application preferences directly on the Billing and Cost Management console to match their internal payment processes. These options include combinations of applying credit memos to the original invo",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon RDS for MySQL supports MySQL 9.7 in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-mysql-long-term-9-7-rds-database-preview/",
+      "date": "2026-07-23T18:05:00.000Z",
+      "description": "Amazon RDS for MySQL now supports version community MySQL 9.7 in the Amazon RDS Database Preview Environment , allowing you to evaluate the latest Release on Amazon RDS for MySQL. This preview environment provides a sandbox where you can test applications and explore new MySQL 9.7 capabilities before they become generally available. MySQL 9.7 is the latest Long-Term Support release for community M",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock AgentCore now delivers unified observability with traces and logs in a single log group",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-unified-observability-single-log-group/",
+      "date": "2026-07-23T17:00:00.000Z",
+      "description": "Amazon Bedrock AgentCore now delivers agent traces and prompts to the same log group as your agent's logs, giving you unified observability for AI agents in a single Amazon CloudWatch log group. Previously, AgentCore split agent telemetry across multiple destinations trace spans went to the shared `aws/spans` log group while event logs containing prompts, inputs, and outputs went to a separate res",
+      "tags": [
+        "CloudWatch",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon CloudWatch Logs now supports Application Load Balancer logs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-logs/",
+      "date": "2026-07-23T17:00:00.000Z",
+      "description": "Amazon CloudWatch Logs now supports Application Load Balancer (ALB) logs as vended logs, improving observability and simplifying debugging for network traffic patterns. You can now analyze ALB access, connection and health check logs directly in CloudWatch to gain insights into client connections, traffic distribution, connection status and target health, helping you identify and troubleshoot netw",
+      "tags": [
+        "CloudWatch",
+        "CloudFront",
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon EVS is now available in additional Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-evs-available-in-additional-regions/",
+      "date": "2026-07-23T16:24:00.000Z",
+      "description": "Today, we're announcing that Amazon Elastic VMware Service (Amazon EVS) is now available in the Asia Pacific (Seoul), Europe (Zurich), and Europe (Stockholm) Regions. This expansion provides more options to leverage the scale and flexibility of AWS for running your VMware workloads in the cloud. Amazon EVS lets you run VMware Cloud Foundation (VCF) directly within your Amazon Virtual Private Cloud",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "Claude Sonnet 5 is now available on Amazon Bedrock in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/claude-sonnet-5-govcloud/",
+      "date": "2026-07-23T16:02:00.000Z",
+      "description": "AWS GovCloud (US) now offers Claude Sonnet 5 on Amazon Bedrock. Claude Sonnet 5 delivers strong performance across coding, professional work, and agentic tasks while maintaining the balance of capability, cost, and speed. For coding, it navigates large codebases, lands multi-file changes, and carries debugging and refactoring tasks through to completion with fewer rounds of correction. For agents,",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Announcing region expansion of G7e instances on SageMaker AI inference",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/g7e-sagemaker-ai/",
+      "date": "2026-07-23T15:04:00.000Z",
+      "description": "We are pleased to announce the availability of Amazon EC2 G7e instances in Asia Pacific (Seoul), Europe (London), and Asia Pacific (Tokyo) on Amazon SageMaker AI inference. G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 96 GB of memory per GPU, 5th Generation Intel Xeon processors, and up to 1,600 Gbps of Elastic Fabric Adapter networking bandwidth, delivering",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Announcing region expansion of G6 instances on SageMaker AI Inference",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/g6-sagemaker-ai-inference/",
+      "date": "2026-07-23T14:51:00.000Z",
+      "description": "We are pleased to announce the availability of Amazon EC2 G6 instances in the AWS GovCloud (US-East) region on Amazon SageMaker AI inference. G6 instances are powered by up to 8 NVIDIA L4 Tensor Core GPUs, each with 24 GB of memory, and third-generation AMD EPYC processors, delivering up to 2x the deep learning inference performance compared to G4dn instances. With this region expansion, governmen",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Wickr announces Data Retention Service feature",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-wickr-data/",
+      "date": "2026-07-23T04:00:00.000Z",
+      "description": "AWS Wickr now offers a managed Data Retention Service feature for Premium users, enabling organizations to retain conversations across their network for data archiving purposes. AWS Wickr is an enterprise-grade, secure collaboration product that provides end-to-end encrypted messaging, file management, screen sharing, and voice/video conferencing capabilities. The Data Retention Service feature pr",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon EC2 High Memory U7i instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-u7i/",
+      "date": "2026-07-23T00:00:00.000Z",
+      "description": "Amazon EC2 High Memory U7in-16TB instances (u7in-16tb.224xlarge) are now available in AWS South America (São Paulo) region, and U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Ireland) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-16TB instances offer 16 TiB of D",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
       "title": "Amazon EC2 C7a instances are now available in the US West (N. California) Region",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7a-instances-us-west-ncalifornia-region/",
       "date": "2026-07-22T21:42:00.000Z",
@@ -38,6 +144,15 @@
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8a-instances-asia-pacific-hyderabad-region/",
       "date": "2026-07-22T20:55:00.000Z",
       "description": "Starting today, the general-purpose Amazon EC2 M8a instances are available in AWS Asia Pacific (Hyderabad) region. M8a instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to M7a instances. M8a instances deliver 45% more memory bandwidth compared to",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M8id instances are now available in Europe (Ireland) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8id-europe-ireland/",
+      "date": "2026-07-22T19:55:00.000Z",
+      "description": "Amazon EC2 M8id instances are now available in (Ireland). These instances are powered by custom Intel Xeon 6 processors and deliver up to 43% higher performance and 3.3x more memory bandwidth compared to previous generation M6id instances. M8id instances offer up to 384 vCPUs, 1.5TiB of memory, and 22.8TB of NVMe SSD storage, 3x more than previous generation instances. These instances deliver up t",
       "tags": [
         "EC2"
       ]
@@ -91,6 +206,17 @@
       ]
     },
     {
+      "title": "Amazon SageMaker AI inference now supports G7 instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-ai-g7/",
+      "date": "2026-07-22T15:23:00.000Z",
+      "description": "Amazon SageMaker AI inference now supports G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs, enabling you to deploy machine learning models with up to 4.6x AI inference performance compared to previous-generation G6 instances. Customers deploying generative AI models for production inference need high GPU throughput and memory capacity to serve medium-to-large models cost-",
+      "tags": [
+        "EC2",
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
       "title": "Amazon EKS now supports EFA and placement groups on Amazon EKS Auto Mode and Karpenter",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-efa-placement-groups/",
       "date": "2026-07-22T14:30:00.000Z",
@@ -132,124 +258,6 @@
       "date": "2026-07-21T22:00:00.000Z",
       "description": "AWS Elastic Disaster Recovery (AWS DRS) is now available in six additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taipei), Canada West (Calgary), and Mexico (Central). Elastic Disaster Recovery is the recommended service for disaster recovery to AWS. It helps minimize downtime and data loss with fast, reliable recovery of on-premises",
       "tags": []
-    },
-    {
-      "title": "Amazon EC2 R6in and R6idn instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r6in-r6idn/",
-      "date": "2026-07-21T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R6in and R6idn instances are available in AWS Europe (Paris) and Canada (Central) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, 2x more network bandwidth, and up to 2x higher packet-processing ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 M6in and M6idn instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/",
-      "date": "2026-07-21T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M6in and M6idn instances are available in AWS Asia Pacific (Hyderabad) and South America (Sao Paulo) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C6in instances are now available in Asia Pacific (Taipei) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c6in/",
-      "date": "2026-07-21T20:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C6in instances are available in AWS Asia Pacific (Taipei). These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System , deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable fifth-generation instances. Customers can use C6in ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified/",
-      "date": "2026-07-21T17:36:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch as a data source, enabling you to query and analyze your search and log analytics data directly alongside your other data assets. With this new connection, you can combine operational search data in OpenSearch with data from sources like Amazon Redshift, Amazon S3, and relational databases - all within a single, governed environment. T",
-      "tags": [
-        "S3",
-        "RDS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon ECS advanced deployment strategies now available in AWS European Sovereign Cloud",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-adv-deployments-eu-sovereign-cloud/",
-      "date": "2026-07-21T17:00:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now supports built-in blue/green, linear, and canary deployment strategies in the AWS European Sovereign Cloud, making software updates for containerized applications safer and allowing you to release new application versions faster with greater confidence. Built directly into Amazon ECS, these capabilities eliminate the need for custom deployment tool",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon SES introduces pricing plans",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ses-pricing-plans/",
-      "date": "2026-07-21T16:35:00.000Z",
-      "description": "Today, Amazon Simple Email Service (SES) introduced pricing plans, making it easy to purchase and access SES capabilities without evaluating them individually. Amazon SES pricing plans include three hierarchical options: Essentials, Pro, and Enterprise. Each plan builds on the one before it, offering progressively more capability at a discount compared to à-la-carte pricing. Businesses depend on e",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS now provides Action Logs for deployment and orchestration visibility",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-action-logs/",
-      "date": "2026-07-21T15:30:00.000Z",
-      "description": "Today, Amazon Elastic Container Service (Amazon ECS) introduces Action Logs, a new observability feature that delivers detailed, timestamped records of the actions Amazon ECS performs on behalf of customers during service deployments and ECS Managed Daemon updates. By surfacing service-side operations that were previously invisible, Action Logs help you monitor and troubleshoot your workloads dire",
-      "tags": [
-        "RDS",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon Managed Service for Prometheus supports 1.5B active metrics and 200K rules per workspace",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-prometheus-1500m-metrics-workspace/",
-      "date": "2026-07-21T14:00:00.000Z",
-      "description": "Amazon Managed Service for Prometheus now supports up to 1.5 billion active metric time series and up to 200,000 total recording and alerting rules per workspace. Customers can also create many workspaces per account, enabling the storage and analysis of billions of Prometheus metrics across their organization. Amazon Managed Service for Prometheus is a fully managed, Prometheus-compatible monitor",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Marketplace now supports self-service seller signature management for India-based sellers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-marketplace-india/",
-      "date": "2026-07-21T07:18:00.000Z",
-      "description": "AWS Marketplace now enables India-based sellers to upload and manage their seller signatures directly through AWS Partner Central, eliminating the previous manual, email-based submission process. Sellers located in India are required to provide a valid seller signature for tax invoicing and regulatory compliance. This launch consolidates Goods and Services Tax Identification Number (GSTIN) registr",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon RDS for SQL Server now supports Microsoft SQL Server 2025",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-supports-sqlserver-2025",
-      "date": "2026-07-21T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Microsoft SQL Server 2025 for Enterprise, Standard, and Developer editions. SQL Server 2025 brings AI integration directly into the database engine, enabling customers to invoke external REST endpoints from T-SQL without additional middleware. Customers running RDS for SQL Server can use this capability to integrate existi",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Partner Central agents expand funding guidance to all programs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-partner-central/",
-      "date": "2026-07-20T20:08:00.000Z",
-      "description": "AWS Partner Central agents now support all AWS Partner funding programs. AWS Partners can get guidance on eligibility requirements, application processes, and program details for any funding program and receive documentation-backed answers in seconds. The agents already automate the full funding lifecycle for four funding programs, supported since the March 2026 launch. This expansion adds Strateg",
-      "tags": []
-    },
-    {
-      "title": "AWS Data Exports now provides standardized Amazon Bedrock product metadata",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-data-exports-amazon-bedrock-product-metadata/",
-      "date": "2026-07-20T18:29:00.000Z",
-      "description": "Today, AWS announces standardized product metadata for Amazon Bedrock in AWS Data Exports (Cost and Usage Report), giving FinOps teams and cloud administrators consistent, structured attributes to understand Bedrock costs. AWS Data Exports lets you create customized exports of your AWS cost and usage data and deliver them to Amazon S3 for querying with Amazon Athena or loading into your data wareh",
-      "tags": [
-        "S3",
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EC2 R8i and R8i-flex instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r8i-r8i-flex-instances-in-stockholm-zurich-regions/",
-      "date": "2026-07-20T17:37:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the Europe (Stockholm, Zurich) regions. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "security": [
@@ -316,6 +324,15 @@
       ]
     },
     {
+      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
+      "date": "2026-07-23T18:39:11.000Z",
+      "description": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT Description: Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources w",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
       "title": "CVE-2026-12957 and CVE-2026-12958 - Issues in Language Servers for AWS and Amazon Q Developer Plugins",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-047-aws/",
       "date": "2026-06-23T16:11:40.000Z",
@@ -333,17 +350,6 @@
         "S3",
         "Lambda",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
-      "description": "Bulletin ID: 2026-031-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/14/2026 13:00 PM PDT Description: Amazon SageMaker Python SDK is an open-source library for training and deploying machine learning models on Amazon SageMaker. The ModelBuilder component simplifies model deployment by automating model artifact preparation and SageMaker model creation. We identifi",
-      "tags": [
-        "ALB",
-        "SageMaker",
-        "Inspector"
       ]
     }
   ],
