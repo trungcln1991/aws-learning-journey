@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T04:17:24.590Z",
+  "generated_at": "2026-07-26T04:33:00.759Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -439,36 +439,8 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
-      {
-        "title": "Service is operating normally: [RESOLVED] Connectivity Issues",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-24T13:01:21.000Z",
-        "description": "Between 3:55 AM and 4:15 AM PDT, we experienced connectivity issues that impacted connectivity to the US-WEST-2 Region. This impacted multiple AWS services in the Region. Some customers may have also experienced issues accessing the AWS Management Console, with connection timeouts and unresponsive pages. Connectivity within the Region was not affected. Our engineers were automatically engaged at 4",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Connectivity Issues",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-24T12:30:20.000Z",
-        "description": "We continue to see significant signs of recovery as a result of our mitigation efforts for the connectivity issues impacting multiple AWS services in the US-WEST-2 Region. We have identified the root cause as an issue with a networking device responsible for network routing from the Region to the Seattle Metro. Engineers have finished all mitigation work. As routes continue to be restored, custome",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Connectivity Issues",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-24T11:56:21.000Z",
-        "description": "We are seeing initial signs of recovery and continue to work toward full recovery.",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Connectivity Issues",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-24T11:40:00.000Z",
-        "description": "We are investigating connecivity issues impacting multiple AWS services in the US-WEST-2 Region.",
-        "tags": []
-      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -477,6 +449,38 @@
         "tags": [
           "Lambda"
         ]
+      },
+      {
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "tags": [
+          "S3"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T14:02:57.000Z",
+        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
+        "tags": []
       }
     ]
   }
