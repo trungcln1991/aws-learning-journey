@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T04:43:07.990Z",
+  "generated_at": "2026-07-28T04:15:55.939Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,66 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Neptune now supports tag-based access control for IAM",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-neptune-tbac/",
+      "date": "2026-07-27T22:00:00.000Z",
+      "description": "Amazon Neptune Database now supports tag-based access control (TBAC) for IAM, enabling customers to use AWS resource tags and IAM principal tags as conditions in IAM policies and Service Control Policies (SCPs) to control access to Neptune data-plane operations. Neptune already provides robust security through VPC isolation, TLS encryption, and IAM authentication, but customers managing multiple c",
+      "tags": [
+        "VPC",
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Quality now supports anomaly detection and writing results to the AWS Glue Data Catalog",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-data-quality-catalog-anomaly-detection-write-results",
+      "date": "2026-07-27T20:45:00.000Z",
+      "description": "AWS Glue Data Quality now supports anomaly detection for Catalog-based data quality evaluations and the ability to write evaluation results to AWS Glue Data Catalog (GDC) tables. These capabilities work across both ETL jobs and Catalog evaluations, giving you a consistent data quality experience regardless of workflow type. With anomaly detection support for GDC, you can identify unexpected change",
+      "tags": []
+    },
+    {
+      "title": "AWS Glue Data Quality now supports distribution statistics for data profiling",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-data-quality-distribution-profiling",
+      "date": "2026-07-27T20:23:00.000Z",
+      "description": "AWS Glue Data Quality now supports a new Distribution Analyzer that generates frequency distribution profiles for your data. Using this new Distribution Analyzer in the Data Quality Definition Language (DQDL), you can generate histograms for numeric columns and value distributions for categorical, date, and boolean columns. With support for custom bin counts, you can explore the shape and patterns",
+      "tags": [
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Streams now supports Custom Aspect Ratio and Dynamic Resolution",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams/",
+      "date": "2026-07-27T18:58:00.000Z",
+      "description": "Amazon GameLift Streams now supports Custom Aspect Ratio and Dynamic Resolution, giving you greater control over the streaming experience across diverse player devices and network conditions. With Custom Aspect Ratio, you can configure a specific resolution per stream session to match your player's device — including portrait, landscape, ultra-wide, and square aspect ratios. This eliminates letter",
+      "tags": []
+    },
+    {
+      "title": "AWS Security Hub MCP App brings exposure findings into your AI-assisted workflow (Preview)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-hub-mcp-app/",
+      "date": "2026-07-27T17:00:00.000Z",
+      "description": "AWS announces the preview of the AWS Security Hub MCP App, a local Model Context Protocol (MCP) server that brings your Security Hub exposure findings directly into Claude Desktop. This capability can help accelerates your security investigations by reducing context switching and manual triage, letting you explore and act on your exposures without leaving your AI-assisted workflow. With the Securi",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Elemental MediaTailor adds configurable ad timeout and concurrency controls for improved ad fill and faster startup",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/mediatail-configurable-ad-timeout-and-concurrency",
+      "date": "2026-07-27T16:09:00.000Z",
+      "description": "AWS Elemental MediaTailor now gives you direct control over ad decision server (ADS) timeout. Previously, changing these settings required contacting AWS Support. You can now configure individual HTTP ad request timeouts, total ad personalization time budgets for live, VOD, and live ad prefetch, and enable parallel ADS requests. These settings allow you to optimize ad delivery performance for your",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS for SQL Server now supports restoring TDE databases on Mult-AZ instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-tde-for-maz/",
+      "date": "2026-07-27T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports restoring Transparent Data Encryption (TDE)-enabled SQL Server databases on Multi-AZ instances and instances configured with a read replica in the same region, using native backup and restore. Previously, TDE-enabled database restore was available only for Single-AZ instances, requiring you to disable TDE or migrate to a S",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
     {
       "title": "Amazon Connect now supports audio optimization for Azure Virtual Desktop and Windows 365 Cloud PC",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-connect/",
@@ -99,6 +159,15 @@
       "tags": []
     },
     {
+      "title": "AWS Clean Rooms supports larger worker types up to 32 vCPUs for SQL",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-clean-rooms-32-vcpu-worker-types-sql",
+      "date": "2026-07-24T12:00:00.000Z",
+      "description": "AWS Clean Rooms now supports larger worker types of 32 vCPUs with 244 GB of memory for SQL analyses, allowing you to run more compute and memory-intensive workloads. Previously, the largest worker type available was 16 vCPUs with 120 GB of memory. Larger workers can help improve performance for complex queries on large datasets, optimizing costs for customers. For example, an advertiser collaborat",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
       "title": "Amazon ECS Service Connect now supports Zone-Aware routing",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-service-connect-zone-aware/",
       "date": "2026-07-23T23:46:00.000Z",
@@ -172,81 +241,6 @@
       "description": "Today, we're announcing that Amazon Elastic VMware Service (Amazon EVS) is now available in the Asia Pacific (Seoul), Europe (Zurich), and Europe (Stockholm) Regions. This expansion provides more options to leverage the scale and flexibility of AWS for running your VMware workloads in the cloud. Amazon EVS lets you run VMware Cloud Foundation (VCF) directly within your Amazon Virtual Private Cloud",
       "tags": [
         "VPC"
-      ]
-    },
-    {
-      "title": "Claude Sonnet 5 is now available on Amazon Bedrock in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/claude-sonnet-5-govcloud/",
-      "date": "2026-07-23T16:02:00.000Z",
-      "description": "AWS GovCloud (US) now offers Claude Sonnet 5 on Amazon Bedrock. Claude Sonnet 5 delivers strong performance across coding, professional work, and agentic tasks while maintaining the balance of capability, cost, and speed. For coding, it navigates large codebases, lands multi-file changes, and carries debugging and refactoring tasks through to completion with fewer rounds of correction. For agents,",
-      "tags": [
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Announcing region expansion of G7e instances on SageMaker AI inference",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/g7e-sagemaker-ai/",
-      "date": "2026-07-23T15:04:00.000Z",
-      "description": "We are pleased to announce the availability of Amazon EC2 G7e instances in Asia Pacific (Seoul), Europe (London), and Asia Pacific (Tokyo) on Amazon SageMaker AI inference. G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 96 GB of memory per GPU, 5th Generation Intel Xeon processors, and up to 1,600 Gbps of Elastic Fabric Adapter networking bandwidth, delivering",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Announcing region expansion of G6 instances on SageMaker AI Inference",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/g6-sagemaker-ai-inference/",
-      "date": "2026-07-23T14:51:00.000Z",
-      "description": "We are pleased to announce the availability of Amazon EC2 G6 instances in the AWS GovCloud (US-East) region on Amazon SageMaker AI inference. G6 instances are powered by up to 8 NVIDIA L4 Tensor Core GPUs, each with 24 GB of memory, and third-generation AMD EPYC processors, delivering up to 2x the deep learning inference performance compared to G4dn instances. With this region expansion, governmen",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Wickr announces Data Retention Service feature",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-wickr-data/",
-      "date": "2026-07-23T04:00:00.000Z",
-      "description": "AWS Wickr now offers a managed Data Retention Service feature for Premium users, enabling organizations to retain conversations across their network for data archiving purposes. AWS Wickr is an enterprise-grade, secure collaboration product that provides end-to-end encrypted messaging, file management, screen sharing, and voice/video conferencing capabilities. The Data Retention Service feature pr",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon EC2 High Memory U7i instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-u7i/",
-      "date": "2026-07-23T00:00:00.000Z",
-      "description": "Amazon EC2 High Memory U7in-16TB instances (u7in-16tb.224xlarge) are now available in AWS South America (São Paulo) region, and U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Ireland) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-16TB instances offer 16 TiB of D",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C7a instances are now available in the US West (N. California) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7a-instances-us-west-ncalifornia-region/",
-      "date": "2026-07-22T21:42:00.000Z",
-      "description": "Starting today, the compute optimized Amazon EC2 C7a instances are now available in AWS US West (N. California) Region. C7a instances, powered by 4th Gen AMD EPYC processors (code-named Genoa) with a maximum frequency of 3.7 GHz, deliver up to 50% higher performance compared to C6a instances. C7a instances offer new processor capabilities such as AVX-512, VNNI, and bfloat16. They feature Double Da",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 M8a instances now available in the Asia Pacific (Hyderabad) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8a-instances-asia-pacific-hyderabad-region/",
-      "date": "2026-07-22T20:55:00.000Z",
-      "description": "Starting today, the general-purpose Amazon EC2 M8a instances are available in AWS Asia Pacific (Hyderabad) region. M8a instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to M7a instances. M8a instances deliver 45% more memory bandwidth compared to",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 M8id instances are now available in Europe (Ireland) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8id-europe-ireland/",
-      "date": "2026-07-22T19:55:00.000Z",
-      "description": "Amazon EC2 M8id instances are now available in (Ireland). These instances are powered by custom Intel Xeon 6 processors and deliver up to 43% higher performance and 3.3x more memory bandwidth compared to previous generation M6id instances. M8id instances offer up to 384 vCPUs, 1.5TiB of memory, and 22.8TB of NVMe SSD storage, 3x more than previous generation instances. These instances deliver up t",
-      "tags": [
-        "EC2"
       ]
     }
   ],
@@ -345,6 +339,15 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: Local Zone in Athens, Claude Opus 5 on AWS, Lambda durable execution for .NET, and more (July 27, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-july-27-2026/",
+      "date": "2026-07-27T14:54:41.000Z",
+      "description": "Last week I had the privilege of spending three days in São Paulo with technical builders from across Latin America, brought together for a regional tech event full of deep-dive sessions, hands-on workshops, and conversations with customers and partners. What struck me most wasn’t any single session, it was the energy of a technical community […]",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
       "title": "AWS Weekly Roundup: One-click Lambda setup prompt, OpenAI GPT-5.6 models on Bedrock, and more (July 20, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/",
       "date": "2026-07-20T16:37:34.000Z",
@@ -425,15 +428,6 @@
       "tags": [
         "EC2",
         "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs",
-      "link": "https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/",
-      "date": "2026-06-22T22:40:07.000Z",
-      "description": "AWS launches a new serverless compute primitive, AWS Lambda MicroVMs. VM-level, isolated sandboxes with no shared kernel or resources between sessions. Rapid launch and resume, full lifecycle control, state preservation up to 8 hours, no infrastructure to manage.",
-      "tags": [
         "Lambda"
       ]
     }
