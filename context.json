@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "fix: Teams Login Alert spam + card sai schema Teams Workflows",
-  "updated_at": "2026-07-23T04:31:37Z"
+  "commit_msg": "docs: audit CK ECS rollout jp:prod 28/07 — xác nhận không đụng hệ thống cũ",
+  "updated_at": "2026-07-28T07:25:15Z"
 }
