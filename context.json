@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "docs: ghi lại session 29/07 — Security Hub 391→10 finding + MCDA hardening",
-  "updated_at": "2026-07-29T02:42:05Z"
+  "commit_msg": "fix: sửa dải CIDR Indo sai (10.1/10.5/10.9→10.190/10.253) + rule cứng no-3T mọi tài liệu",
+  "updated_at": "2026-07-29T03:13:04Z"
 }
