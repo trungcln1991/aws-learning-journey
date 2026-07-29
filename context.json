@@ -1,7 +1,7 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "docs: audit CK ECS rollout jp:prod 28/07 — xác nhận không đụng hệ thống cũ",
-  "updated_at": "2026-07-28T07:25:15Z"
+  "commit_msg": "docs: ghi lại session 29/07 — Security Hub 391→10 finding + MCDA hardening",
+  "updated_at": "2026-07-29T02:42:05Z"
 }
