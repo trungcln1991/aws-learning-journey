@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T04:17:38.851Z",
+  "generated_at": "2026-07-30T04:11:17.859Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,72 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon EC2 Auto Scaling now supports Instance Refresh in CloudFormation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-auto-scaling-instance-refresh-cloudformation",
+      "date": "2026-07-29T21:00:00.000Z",
+      "description": "Amazon EC2 Auto Scaling now supports Instance Refresh as a new AWS CloudFormation update policy. When you configure the new AutoScalingInstanceRefresh update policy and update properties that require instance replacement, CloudFormation automatically triggers an Instance Refresh. With this integration, you can now access Instance Refresh capabilities including replace root volume for in-place upda",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Redshift Data API announces long polling, session management, and flexible batch execution",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-data-api-longpolling-listsession-flexiblebatchexecute/",
+      "date": "2026-07-29T20:45:00.000Z",
+      "description": "Amazon Redshift Data API introduces new capabilities that reduce the number of API calls to retrieve SQL statement metadata or results, provide visibility into sessions, and allow batch statements to execute on separate transactions. Long polling: Long polling enables you to retrieve SQL statement metadata or results without polling repeatedly until the SQL statement reaches a terminal state, by d",
+      "tags": []
+    },
+    {
+      "title": "AWS Glue announces VPC support, filter pushdown, and partition support for the REST API connector",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-rest-connector-filtering-partitioning-vpc",
+      "date": "2026-07-29T20:18:00.000Z",
+      "description": "AWS Glue now supports VPC connections, filter pushdown, and partition support for the REST API connector. The REST API connector enables you to ingest data from any source that exposes a REST-based API, including proprietary systems and emerging platforms without native AWS Glue connectors. With this launch, you can operate your ETL pipelines from data sources with REST API endpoints by securely c",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "AWS WAF adds pre-parse text transformations and new text transformations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-waf/",
+      "date": "2026-07-29T15:00:00.000Z",
+      "description": "Today, AWS WAF adds pre-parse text transformations for query arguments and ten new text transformations for use in any rule statement. Both help you normalize request content so that AWS WAF inspects requests the same way your application interprets them. Pre-parse text transformations normalize a raw query string before AWS WAF parses it into key-value pairs, closing HTTP parameter pollution and ",
+      "tags": [
+        "WAF"
+      ]
+    },
+    {
+      "title": "AWS announces AWS Interconnect - multicloud connectivity with Oracle Cloud Infrastructure in GA",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-announces-AWS-interconnect-multicloud-OCI-GA/",
+      "date": "2026-07-29T15:00:00.000Z",
+      "description": "AWS announces the general availability (GA) of AWS Interconnect — multicloud with Oracle Cloud Infrastructure (OCI). Customers have been adopting multicloud strategies while migrating more applications to the cloud. They do so for many reasons including interoperability requirements, the freedom to choose technology that best suits their needs, and the ability to build and deploy applications on a",
+      "tags": []
+    },
+    {
+      "title": "Amazon Connect Customer now automatically finds example agent evaluations for tailored coaching",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect-customer-example-evaluations-for-agent-coaching/",
+      "date": "2026-07-29T14:00:00.000Z",
+      "description": "Amazon Connect Customer now automatically surfaces relevant examples of an agent's evaluations when managers are preparing coaching feedback, so they can deliver actionable, evidence-backed coaching to agents. When a manager prepares agent coaching feedback in Amazon Connect Customer, they automatically receive examples of recent evaluations where the agent scored high or low on the chosen coachin",
+      "tags": []
+    },
+    {
+      "title": "Amazon EFS now supports cross-account Replication in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-efs-cross-account-replication-aws-gov-cloud-us",
+      "date": "2026-07-29T12:00:00.000Z",
+      "description": "Amazon EFS now supports cross-account Replication in AWS GovCloud (US), allowing customers to replicate file systems between AWS accounts. EFS Replication enables you to easily maintain an up-to-date replica of your file system in the AWS GovCloud (US) Region of your choice. With this launch, EFS Replication customers can meet business continuity, multi-account disaster recovery, and compliance re",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS IAM Identity Center extends multi-Region support to Identity Center directory",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-iam-identity-center-extends-multi-region-support-to-identity-center-directory",
+      "date": "2026-07-29T07:00:00.000Z",
+      "description": "IAM Identity Center helps you configure the single sign-on experience of your workforce to AWS accounts and applications. You can now replicate IAM Identity Center from the primary AWS Region where you first enabled it to additional Regions of your choice when using Identity Center directory as your identity source. This extends the multi-Region support capability, previously available for Identit",
+      "tags": [
+        "IAM"
+      ]
+    },
     {
       "title": "Amazon EKS Provisioned Control Plane now delivers faster pod autoscaling",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-provisioned-control/",
@@ -171,75 +237,6 @@
       "tags": [
         "EC2",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Kinesis Data Streams now supports scaling down ingest capacity with warm throughput",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/kinesis/on-demand-scale-down",
-      "date": "2026-07-24T18:55:00.000Z",
-      "description": "Amazon Kinesis Data Streams is a serverless streaming data service that makes it easy to capture, process, and store data streams at any scale. On-demand streams automatically increase ingest capacity in response to rising data ingest usage. With On-demand Advantage mode, you can proactively manage stream capacity using warm throughput to prepare streams for sudden changes in data traffic. We are ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Lambda now publishes logs for Lambda Managed Instances capacity providers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-managed-instances-logs/",
-      "date": "2026-07-24T16:00:00.000Z",
-      "description": "AWS Lambda now publishes logs for Lambda Managed Instances (LMI) capacity providers to Amazon CloudWatch Logs, giving you visibility into scaling activity and instance lifecycle operations. LMI enables you to run Lambda functions on Amazon EC2 instances while maintaining serverless operational simplicity. Capacity providers are resources that let you define compute resources that Lambda provisions",
-      "tags": [
-        "EC2",
-        "Lambda",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon SES simplifies sending emails over SMTP using Mail Manager",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ses-simplified-smtp-mail-manager",
-      "date": "2026-07-24T15:03:00.000Z",
-      "description": "Amazon Simple Email Service (SES) now offers a simplified console experience for sending emails over SMTP using Mail Manager. Mail Manager is a capability within SES for managing email flow, but configuring its resources individually to set up SMTP sending requires multiple steps. The new guided setup creates and configures these resources automatically, so developers can get started in just a few",
-      "tags": []
-    },
-    {
-      "title": "Claude Opus 5 is now available on AWS",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/claude-opus-5-aws/",
-      "date": "2026-07-24T15:00:00.000Z",
-      "description": "AWS now offers Claude Opus 5 — the most advanced Opus model yet, and compatible with zero data retention (ZDR) — bringing a step-change in coding, long-running agents, and complex professional work to teams building at the highest level. Claude Opus 5 delivers advances in coding, understanding and navigating codebases like an experienced engineer and writing production-quality code while adapting ",
-      "tags": []
-    },
-    {
-      "title": "Amazon Redshift Serverless now offers All Upfront pricing for 3-year Serverless Reservations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/redshift-serverless-three-year-auri/",
-      "date": "2026-07-24T15:00:00.000Z",
-      "description": "Amazon Redshift announces the availability of All Upfront payment option for 3-year Serverless Reservations, providing up to 50% savings over on-demand rates. With All Upfront pricing, you pay for the full reservation term at the start and receive the maximum discount on your Amazon Redshift Serverless compute costs. This new payment option joins the existing 1-year No Upfront, 1-year All Upfront,",
-      "tags": [
-        "Lambda",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Opus 4.8, Sonnet 5, and User Activity Monitoring now available on Kiro in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/kiro-opus-sonnet-monitoring-launch-aws-govcloud-us/",
-      "date": "2026-07-24T14:00:00.000Z",
-      "description": "Two new models are now available in the Kiro IDE and CLI for the AWS GovCloud (US) Regions. Claude Opus 4.8 is the most intelligent Opus model, delivering stronger self-verification, more efficient tool calling, and better follow-through on long-horizon projects. It plans before it edits, catches its own mistakes, and finds creative paths around obstacles instead of stalling, making it well suited",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS announces aws-bench, an open-source benchmark for AI agents on AWS",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-bench/",
-      "date": "2026-07-24T13:00:00.000Z",
-      "description": "Today, AWS announces a research preview of aws-bench, an open-source benchmark that measures how accurately and efficiently AI agents complete real-world AWS tasks. Model providers and AI researchers building agents that operate on AWS infrastructure need an objective, reproducible way to measure performance and diagnose failures. aws-bench provides a public suite of test cases derived from analys",
-      "tags": []
-    },
-    {
-      "title": "AWS Clean Rooms supports larger worker types up to 32 vCPUs for SQL",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-clean-rooms-32-vcpu-worker-types-sql",
-      "date": "2026-07-24T12:00:00.000Z",
-      "description": "AWS Clean Rooms now supports larger worker types of 32 vCPUs with 244 GB of memory for SQL analyses, allowing you to run more compute and memory-intensive workloads. Previously, the largest worker type available was 16 vCPUs with 120 GB of memory. Larger workers can help improve performance for complex queries on large datasets, optimizing costs for customers. For example, an advertiser collaborat",
-      "tags": [
-        "Cost"
       ]
     }
   ],
