@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T04:11:17.859Z",
+  "generated_at": "2026-07-31T04:29:02.753Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,114 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon SageMaker Unified Studio brings richer Git version control to all project tools",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-git/",
+      "date": "2026-07-30T22:37:00.000Z",
+      "description": "Amazon SageMaker Unified Studio gives project members full Git version control directly within the tools you already use - Query Editor, Visual ETL, Workflows, and Notebooks. The enhanced Repositories experience replaces the previous automatic sync approach with flexible, file-level version control. This brings a consistent source control experience across all project tools, including Notebooks, w",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Direct Connect now supports BGP route visibility on Virtual Interfaces",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-direct-connect-bgp-visibility/",
+      "date": "2026-07-30T20:21:00.000Z",
+      "description": "AWS Direct Connect now provides Border Gateway Protocol (BGP) route visibility, allowing you to view the routes exchanged between AWS and your on-premises routers across your private, transit, and public virtual interfaces (VIFs). You can now see which routes AWS accepted from your router and which routes AWS is advertising to your router, along with their AS path and BGP community values. This vi",
+      "tags": []
+    },
+    {
+      "title": "Amazon Redshift RG large and 12xlarge instances now available on the trailing track",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-rg-large-12xlarge-trailing-track",
+      "date": "2026-07-30T20:02:00.000Z",
+      "description": "Amazon Redshift now supports Graviton-based RG instances on the trailing track . Starting today, rg.large and rg.12xlarge instance types are available for customers running workloads on the trailing track on patch P202 and onwards. The trailing track is designed for customers who prioritize stability for production workloads, running on a version already validated through the leading track. With R",
+      "tags": [
+        "EC2",
+        "RDS",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "IAM Policy Simulator moves to the IAM console and adds additional capabilities",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/iam-policy-simulator-iam-console/",
+      "date": "2026-07-30T17:43:00.000Z",
+      "description": "AWS Identity and Access Management (IAM) announces a major update to IAM Policy Simulator , the tool you use to test and validate the permissions your IAM policies grant before you deploy them. This update changes the simulator in three ways: it now lives in the IAM console, it can test service control policies (SCPs), and it adds flexibility to model more of the scenarios that security and platfo",
+      "tags": [
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock announces up to 80% lower prices for OpenAI GPT‑5.6 models",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/openai-gpt-terra-luna-pricing-bedrock/",
+      "date": "2026-07-30T16:18:00.000Z",
+      "description": "Today, OpenAI announced lower prices for GPT‑5.6 Luna and GPT‑5.6 Terra. Effective July 30, 2026, on-demand inference prices on Amazon Bedrock for GPT‑5.6 Luna are reduced by 80%, while prices for GPT‑5.6 Terra are reduced by 20%. These reductions are in-line with OpenAI's first-party pricing changes for these models. GPT‑5.6 Luna is optimized for fast, high-volume workloads and can use tools to c",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS announces general availability of Policy-Based Routing on AWS Transit Gateway",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-transit-gateway-policy-based-routing/",
+      "date": "2026-07-30T15:39:00.000Z",
+      "description": "AWS Transit Gateway now supports Policy-Based Routing (PBR), giving network administrators granular control over how traffic is forwarded across their AWS network. With PBR, forwarding decisions can be based on a combination of packet attributes including source and destination IP addresses, ports, and protocol rather than destination IP address alone. Previously, customers needing traffic steerin",
+      "tags": [
+        "TGW"
+      ]
+    },
+    {
+      "title": "Amazon MSK Express brokers now delivers Apache Kafka data to Amazon S3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-express-brokers-delivers-to-amazon-s3",
+      "date": "2026-07-30T14:07:00.000Z",
+      "description": "Amazon MSK Express brokers now delivers data to Amazon S3 general purpose buckets, providing a fully managed capability to deliver Apache Kafka data in Amazon S3 for downstream processing in the easiest and most reliable way. This capability automatically scales to deliver high-throughput Kafka data to S3 with end-to-end reliability for mission-critical workloads, while reducing ingestion and deli",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-streaming-tables-for-apache-iceberg",
+      "date": "2026-07-30T14:07:00.000Z",
+      "description": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg, a new capability that continuously materializes Apache Kafka topics as Apache Iceberg tables on Amazon S3 Tables. Amazon MSK data delivery to streaming tables can reduce the cost of ingesting and delivering Apache Kafka data into Amazon S3 Tables by up to 60% versus self-managed deployments and reduces downstream q",
+      "tags": [
+        "S3",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Grok 4.3 from xAI is now available on Amazon Bedrock in AWS GovCloud (US-West)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/grok-4-3-bedrock-govcloud/",
+      "date": "2026-07-30T13:00:00.000Z",
+      "description": "xAI's Grok 4.3 model is now available on Amazon Bedrock in AWS GovCloud (US-West). With this launch, xAI joins Amazon Bedrock as a model provider in AWS GovCloud (US-West), giving you even more choice as you build generative AI applications across reasoning, agentic, and enterprise workflows. Grok 4.3 is a reasoning-first model that offers configurable reasoning effort (none, low, medium, high). I",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Gemma 4 models are now available on Amazon Bedrock in AWS GovCloud (US-West)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/gemma-4-bedrock-govcloud/",
+      "date": "2026-07-30T13:00:00.000Z",
+      "description": "The Gemma 4 family of open-weight models from Google DeepMind on Amazon Bedrock in AWS GovCloud (US-West). With Gemma 4, you can build generative AI applications across reasoning, multimodal understanding, agentic, and software engineering workflows. The Gemma 4 family on Amazon Bedrock includes three variants - Gemma 4 31B, Gemma 4 26B-A4B, and Gemma 4 E2B - spanning dense and mixture-of-experts ",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Managed Microsoft AD now supports Standard to Enterprise Edition upgrade",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-microsoft-ad-edition-upgrade/",
+      "date": "2026-07-30T07:00:00.000Z",
+      "description": "AWS Directory Service now allows you to upgrade your AWS Managed Microsoft AD directory from Standard Edition to Enterprise Edition directly through the AWS Management Console, AWS CLI, and API without migrating to a new directory or re-joining your existing workloads. Standard Edition is designed for organizations with up to 5,000 users and objects, while Enterprise Edition supports up to 500,000",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service now supports OpenSearch version 3.7",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service/",
+      "date": "2026-07-30T02:30:15.000Z",
+      "description": "You can now run OpenSearch version 3.7 on Amazon OpenSearch Service. OpenSearch 3.7 introduces improvements in vector search performance, search relevance, and Query Insights. With this launch, 1-bit scalar quantization on the Faiss and Lucene engines compresses vectors, reducing the storage and memory required by vector workloads while maintaining search accuracy. You can now retrieve vectors fas",
+      "tags": []
+    },
     {
       "title": "Amazon EC2 Auto Scaling now supports Instance Refresh in CloudFormation",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-auto-scaling-instance-refresh-cloudformation",
@@ -100,21 +208,21 @@
       ]
     },
     {
-      "title": "Second-generation AWS Outposts racks now supported in the AWS Asia Pacific (Mumbai) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-outposts-asia-pacific-mumbai/",
-      "date": "2026-07-28T16:00:00.000Z",
-      "description": "Second-generation AWS Outposts racks are now supported in the Asia Pacific (Mumbai) Region. Outposts racks extend AWS infrastructure, AWS services, APIs, and tools to virtually any on-premises data center or colocation space for a truly consistent hybrid experience. Organizations from startups to enterprises and the public sector in and outside of India can now order their Outposts racks connected",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
       "title": "AWS Console Home now supports the Cost and Usage widget in the AWS European Sovereign Cloud (Germany) Region",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-console-home-cost-and-usage-eu-sovereign-cloud",
       "date": "2026-07-28T16:00:00.000Z",
       "description": "AWS Console Home now supports the Cost and Usage widget in the AWS European Sovereign Cloud (Germany) Region, allowing customers to surface insights from Cost Explorer and Cost Optimization Hub on their Console Home dashboard. With the Cost and Usage widget, customers can track month-to-date and forecasted costs, identify savings opportunities, and see how their spend breaks down by service over t",
       "tags": [
         "Cost"
+      ]
+    },
+    {
+      "title": "Second-generation AWS Outposts racks now supported in the AWS Asia Pacific (Mumbai) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-outposts-asia-pacific-mumbai/",
+      "date": "2026-07-28T16:00:00.000Z",
+      "description": "Second-generation AWS Outposts racks are now supported in the Asia Pacific (Mumbai) Region. Outposts racks extend AWS infrastructure, AWS services, APIs, and tools to virtually any on-premises data center or colocation space for a truly consistent hybrid experience. Organizations from startups to enterprises and the public sector in and outside of India can now order their Outposts racks connected",
+      "tags": [
+        "Organizations"
       ]
     },
     {
@@ -133,110 +241,6 @@
       "description": "AWS DataSync Enhanced mode now supports agent-based data transfers with Hadoop Distributed File Systems (HDFS), Microsoft Azure Blob Storage, and self-managed object storage. Additionally, Enhanced mode agents can now be deployed on Microsoft Hyper-V. Using a DataSync agent, customers can transfer data to and from these locations with the parallelism, unlimited file counts, and detailed metrics th",
       "tags": [
         "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon S3 Tables now support the Variant data type for Apache Iceberg V3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-tables-variant-iceberg-v3/",
-      "date": "2026-07-28T07:00:00.000Z",
-      "description": "Amazon S3 Tables now support the Variant data type as defined in the Apache Iceberg Version 3 (V3) specification. You can now write semi-structured data like JSON directly to S3 Tables without defining a fixed schema in advance, allowing you to land data faster while still getting efficient analytical query performance. With the Variant data type, Apache Iceberg V3-compatible engines shred your se",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon Neptune now supports tag-based access control for IAM",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-neptune-tbac/",
-      "date": "2026-07-27T22:00:00.000Z",
-      "description": "Amazon Neptune Database now supports tag-based access control (TBAC) for IAM, enabling customers to use AWS resource tags and IAM principal tags as conditions in IAM policies and Service Control Policies (SCPs) to control access to Neptune data-plane operations. Neptune already provides robust security through VPC isolation, TLS encryption, and IAM authentication, but customers managing multiple c",
-      "tags": [
-        "VPC",
-        "IAM",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "AWS Glue Data Quality now supports anomaly detection and writing results to the AWS Glue Data Catalog",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-data-quality-catalog-anomaly-detection-write-results",
-      "date": "2026-07-27T20:45:00.000Z",
-      "description": "AWS Glue Data Quality now supports anomaly detection for Catalog-based data quality evaluations and the ability to write evaluation results to AWS Glue Data Catalog (GDC) tables. These capabilities work across both ETL jobs and Catalog evaluations, giving you a consistent data quality experience regardless of workflow type. With anomaly detection support for GDC, you can identify unexpected change",
-      "tags": []
-    },
-    {
-      "title": "AWS Glue Data Quality now supports distribution statistics for data profiling",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-data-quality-distribution-profiling",
-      "date": "2026-07-27T20:23:00.000Z",
-      "description": "AWS Glue Data Quality now supports a new Distribution Analyzer that generates frequency distribution profiles for your data. Using this new Distribution Analyzer in the Data Quality Definition Language (DQDL), you can generate histograms for numeric columns and value distributions for categorical, date, and boolean columns. With support for custom bin counts, you can explore the shape and patterns",
-      "tags": [
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Streams now supports Custom Aspect Ratio and Dynamic Resolution",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams/",
-      "date": "2026-07-27T18:58:00.000Z",
-      "description": "Amazon GameLift Streams now supports Custom Aspect Ratio and Dynamic Resolution, giving you greater control over the streaming experience across diverse player devices and network conditions. With Custom Aspect Ratio, you can configure a specific resolution per stream session to match your player's device — including portrait, landscape, ultra-wide, and square aspect ratios. This eliminates letter",
-      "tags": []
-    },
-    {
-      "title": "Amazon EKS now supports AWS PrivateLink for the cluster OIDC endpoint",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-oidc-endpoint-privatelink",
-      "date": "2026-07-27T18:00:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports AWS PrivateLink for the cluster OIDC discovery and JWKS endpoint . You can now reach the endpoint used by IAM roles for service accounts (IRSA) privately from your VPC without requiring internet egress. Each EKS cluster publishes public signing keys at its OIDC endpoint for IRSA. With AWS PrivateLink for the cluster OIDC endpoint, tools r",
-      "tags": [
-        "VPC",
-        "IAM",
-        "EKS"
-      ]
-    },
-    {
-      "title": "AWS Security Hub MCP App brings exposure findings into your AI-assisted workflow (Preview)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-security-hub-mcp-app/",
-      "date": "2026-07-27T17:00:00.000Z",
-      "description": "AWS announces the preview of the AWS Security Hub MCP App, a local Model Context Protocol (MCP) server that brings your Security Hub exposure findings directly into Claude Desktop. This capability can help accelerates your security investigations by reducing context switching and manual triage, letting you explore and act on your exposures without leaving your AI-assisted workflow. With the Securi",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS Elemental MediaTailor adds configurable ad timeout and concurrency controls for improved ad fill and faster startup",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/mediatail-configurable-ad-timeout-and-concurrency",
-      "date": "2026-07-27T16:09:00.000Z",
-      "description": "AWS Elemental MediaTailor now gives you direct control over ad decision server (ADS) timeout. Previously, changing these settings required contacting AWS Support. You can now configure individual HTTP ad request timeouts, total ad personalization time budgets for live, VOD, and live ad prefetch, and enable parallel ADS requests. These settings allow you to optimize ad delivery performance for your",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS for SQL Server now supports restoring TDE databases on Mult-AZ instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-tde-for-maz/",
-      "date": "2026-07-27T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports restoring Transparent Data Encryption (TDE)-enabled SQL Server databases on Multi-AZ instances and instances configured with a read replica in the same region, using native backup and restore. Previously, TDE-enabled database restore was available only for Single-AZ instances, requiring you to disable TDE or migrate to a S",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Connect now supports audio optimization for Azure Virtual Desktop and Windows 365 Cloud PC",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-connect/",
-      "date": "2026-07-24T23:11:00.000Z",
-      "description": "Agents using Microsoft Azure Virtual Desktop (AVD) or Windows 365 Cloud PC can now take calls directly from their virtual desktop session with audio optimization enabled. To get started, IT administrators need to complete a one-time setup for their virtual desktop environment. Once configured, media is redirected from the virtual desktop to the agent's local device, improving audio quality. Agents",
-      "tags": []
-    },
-    {
-      "title": "Amazon MWAA now supports Apache Airflow version 2.11.2",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-mwaa-now-supports-apache-airflow-version-2-11-2",
-      "date": "2026-07-24T21:57:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (MWAA) now supports Apache Airflow version 2.11.2. Amazon MWAA is a managed service that runs Apache Airflow at scale without the operational overhead of managing the underlying infrastructure. Apache Airflow 2.11.2 is a maintenance release that includes security improvements, bug fixes, and dependency upgrades. This release upgrades core dependencies wi",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 Dedicated Hosts now support host resource groups without self-managed licenses",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-dedicated-hosts-hrg/",
-      "date": "2026-07-24T21:00:00.000Z",
-      "description": "Starting today, customers can create Host Resource Groups (HRGs) for EC2 Dedicated Hosts without the previously required step of creating Self-Managed Licenses (SMLs) and associating AMIs through AWS License Manager. This flexibility is particularly valuable for EC2 Mac Instance customers and for customers who need Dedicated Hosts for hardware-level isolation rather than Bring Your Own License (BY",
-      "tags": [
-        "EC2",
-        "SageMaker"
       ]
     }
   ],
