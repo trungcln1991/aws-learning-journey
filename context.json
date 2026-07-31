@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "fix: sửa dải CIDR Indo sai (10.1/10.5/10.9→10.190/10.253) + rule cứng no-3T mọi tài liệu",
-  "updated_at": "2026-07-29T03:13:04Z"
+  "commit_msg": "session: phiên 64 (31/07) — Inspector2 CK disable incident + audit anh.pham + untagged cost root-cause + SOC bucket giả mạo",
+  "updated_at": "2026-07-31T05:21:49Z"
 }
