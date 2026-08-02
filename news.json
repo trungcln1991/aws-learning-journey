@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T04:25:26.803Z",
+  "generated_at": "2026-08-02T04:28:47.485Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -44,6 +44,13 @@
         "RDS",
         "Cost"
       ]
+    },
+    {
+      "title": "Amazon Location Service adds Search Nearby support for GrabMaps in Southeast Asia",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-location-service-search-nearby-grabmaps",
+      "date": "2026-07-31T14:00:00.000Z",
+      "description": "Amazon Location Service now supports proximity-based point of interest discovery with GrabMaps data in the Asia Pacific (Singapore) and Asia Pacific (Malaysia) AWS Regions. Builders creating local discovery, delivery, and mobility applications in Southeast Asia can surface relevant nearby places using hyperlocal data validated by millions of daily Grab journeys. SearchNearby returns places within ",
+      "tags": []
     },
     {
       "title": "AWS Lambda now supports Java 8, 11, and 17 on Amazon Linux 2023",
@@ -243,13 +250,6 @@
       "date": "2026-07-29T15:00:00.000Z",
       "description": "AWS announces the general availability (GA) of AWS Interconnect — multicloud with Oracle Cloud Infrastructure (OCI). Customers have been adopting multicloud strategies while migrating more applications to the cloud. They do so for many reasons including interoperability requirements, the freedom to choose technology that best suits their needs, and the ability to build and deploy applications on a",
       "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer now automatically finds example agent evaluations for tailored coaching",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect-customer-example-evaluations-for-agent-coaching/",
-      "date": "2026-07-29T14:00:00.000Z",
-      "description": "Amazon Connect Customer now automatically surfaces relevant examples of an agent's evaluations when managers are preparing coaching feedback, so they can deliver actionable, evidence-backed coaching to agents. When a manager prepares agent coaching feedback in Amazon Connect Customer, they automatically receive examples of recent evaluations where the agent scored high or low on the chosen coachin",
-      "tags": []
     }
   ],
   "security": [
@@ -439,29 +439,8 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
-      {
-        "title": "Service is operating normally: [RESOLVED] Elevated Packet Loss",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-31T18:54:35.000Z",
-        "description": "Between 9:42 AM and 11:44 AM PDT, we experienced elevated network packet loss impacting AWS Direct Connect connectivity in the AP-SOUTH-1 Region. Our engineering team was automatically engaged at 9:46 AM to begin investigating. By 10:51 AM, we understood the root cause to be a configuration change made to a system responsible for assigning routes to devices. As we gained confidence in our mitigati",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Elevated Packet Loss",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-31T18:27:24.000Z",
-        "description": "We have identified the root cause to be related to a change made to a configuration system responsible for assigning routes to the devices. We have begun the work to reduce the packet loss that is impacting AWS Direct Connect in the AP-SOUTH-1 Region, and we expect recovery to take place gradually over the next 30 minutes. As we gain confidence in these efforts, we will seek to parallelize our eff",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Elevated Packet Loss",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-07-31T17:33:18.000Z",
-        "description": "We can confirm elevated network packet loss, impacting AWS Direct Connect connectivity in AP-SOUTH-1 Region. Our engineering team was automatically engaged at 9:54 AM to begin investigating the issue. There are no workarounds available at this time. We will provide another update by 11:30 AM PDT.",
-        "tags": []
-      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -479,6 +458,29 @@
         "tags": [
           "Cost"
         ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "tags": [
+          "S3"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T14:02:57.000Z",
+        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
+        "tags": []
       }
     ]
   }
