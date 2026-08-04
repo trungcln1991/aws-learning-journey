@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T04:35:53.072Z",
+  "generated_at": "2026-08-04T04:18:26.030Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,129 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Transform continuous modernization is now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-continuous-general-available",
+      "date": "2026-08-03T21:15:00.000Z",
+      "description": "AWS Transform continuous modernization is now generally available in all AWS Regions where AWS Transform is supported . This capability helps engineering teams analyze and remediate technical debt across source code repositories at scale. Teams can connect GitHub organizations, GitLab groups, and Bitbucket workspaces, run analyses on demand or on a recurring schedule, and prioritize findings acros",
+      "tags": [
+        "S3",
+        "Organizations",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "OpenAI GPT-5.6 Sol, Terra, and Luna now support 1 million token context windows on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/gpt-sol-terra-luna-long-context-bedrock",
+      "date": "2026-08-03T21:03:00.000Z",
+      "description": "GPT-5.6 Sol, Terra, and Luna now support 1 million token context windows on Amazon Bedrock, enabling you to process full codebases, lengthy documents, and multi-turn agent histories in a single request. Models reason over broader context and return more accurate, coherent responses without chunking or information loss. With a context window size of 1 million tokens, you can analyze entire reposito",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Streams now supports sharing streams with stream URLs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-gamelift-streams/",
+      "date": "2026-08-03T20:24:00.000Z",
+      "description": "Amazon GameLift Streams now offers stream URLs, which give end users temporary, unauthenticated access to a playable stream session in a supported web browser. Recipients need no AWS account, no credentials, and no software install. To share a playable stream, create a stream URL for a stream group and one of its applications, set how long the stream URL stays valid and how many sessions it can st",
+      "tags": []
+    },
+    {
+      "title": "AWS Resilience Hub now provides recommended resilience tests",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-resilience-hub/",
+      "date": "2026-08-03T19:02:58.000Z",
+      "description": "AWS Resilience Hub now offers recommended resilience tests that help platform engineering and site reliability teams validate how their services respond to and recover from known failure scenarios. Resilience Hub provides pre-configured tests based on your service's architecture, configuration, and resilience policy. It uses AWS Fault Injection Service (FIS) to inject controlled faults and then ev",
+      "tags": []
+    },
+    {
+      "title": "AWS Organizations now provides maximum account quota visibility in Service Quotas",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-organizations/",
+      "date": "2026-08-03T18:54:00.000Z",
+      "description": "AWS Organizations customers can now view their maximum number of accounts quota and its utilization directly through AWS Service Quotas instead of relying on AWS Support or AWS account teams to determine their current account limit. Customers can now proactively plan account growth with ease by monitoring their current account quota utilization and requesting increases before reaching their limit.",
+      "tags": [
+        "CloudWatch",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Lambda Provisioned Mode for Amazon SQS event source mappings now supports up to 10,000 event pollers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-Lambda-provisioned-sqs-esm-max-pollers/",
+      "date": "2026-08-03T18:00:00.000Z",
+      "description": "AWS Lambda now supports a maximum of 10,000 event pollers for Provisioned Mode for Amazon SQS event source mappings (ESMs), a 5x increase from the previous limit of 2,000. This enables you to reach up to 100,000 concurrent invocations, so you can build highly responsive and scalable event-driven applications with stringent performance requirements. Customers use Amazon SQS as an event source for L",
+      "tags": [
+        "Lambda",
+        "SQS"
+      ]
+    },
+    {
+      "title": "Amazon EC2 I7i instances now available in Asia Pacific (Thailand) and Israel (Tel Aviv) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-i7i-instances-in-additional-regions/",
+      "date": "2026-08-03T17:28:00.000Z",
+      "description": "Amazon Web Services (AWS) announces the availability of high performance Storage Optimized Amazon EC2 I7i instances in the Asia Pacific (Thailand) and Israel (Tel Aviv) Regions. Powered by 5th Gen Intel Xeon Processors with an all-core turbo frequency of 3.2 GHz, these new instances deliver up to 23% better compute performance and more than 10% better price performance over previous generation I4i",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker AI serverless model customization now supports full fine-tuning",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-sagemaker-fft",
+      "date": "2026-08-03T17:00:00.000Z",
+      "description": "Amazon SageMaker AI serverless model customization now supports full fine-tuning for over 25 open-source models. These include popular models from gpt-oss, Gemma, Llama, Nemotron, and Qwen model families. In addition to parameter-efficient methods such as LoRA, which update a small subset of model weights, you can now update all parameters in the model for deeper adaptation when your use case requ",
+      "tags": [
+        "Lambda",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Transform for full-stack Windows modernization now supports offline schema transformation to Aurora PostgreSQL",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-windows-sql-schema-aurora",
+      "date": "2026-08-03T15:00:00.000Z",
+      "description": "Today, AWS Transform for full-stack Windows modernization announced general availability of offline source transformation, enabling customers to modernize Microsoft SQL Server databases to Amazon Aurora PostgreSQL without requiring a live database connection. AWS Transform now converts SQL Server storage objects, powered by AWS DMS, and code objects (stored procedures) using an agentic, interactiv",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS WAF now supports Miggo Security managed rule groups for emerging threats and AI/ML application protection",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-waf-miggo-managed-rule-groups",
+      "date": "2026-08-03T15:00:00.000Z",
+      "description": "AWS WAF now supports two new partner managed rule groups from Miggo Security, available through AWS Marketplace: Miggo Rules for AWS WAF – High Emerging Application Threats , and Miggo Rules for AWS WAF – AI/ML Application Protection . These rule groups give AWS WAF customers continuously updated protection against vulnerabilities that are being actively exploited, have public proof-of-concept cod",
+      "tags": [
+        "WAF",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon ECR now supports image layers up to 200 GB",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecr-image-layers/",
+      "date": "2026-08-03T15:00:00.000Z",
+      "description": "Amazon Elastic Container Registry (Amazon ECR) has increased the maximum image layer size limit to 200 GB, for images pushed via Docker push. Previously, packaging assets required splitting data across multiple layers or offloading to external storage systems. With this update, customers can store up to 200 GB in a single image layer, eliminating extra complexity for use cases like embedding large",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "AWS Config now supports 15 new resource types",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-config-new-resource-types",
+      "date": "2026-08-03T15:00:00.000Z",
+      "description": "AWS Config now supports 15 additional AWS resource types across key services including Amazon Bedrock, Amazon OpenSearch Serverless, and Amazon SageMaker. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources. With this launch, if you have enabled recording for all resource type",
+      "tags": [
+        "Lambda",
+        "CloudTrail",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio now supports Teradata Vantage",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-teradata",
+      "date": "2026-07-31T20:19:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports Teradata Vantage as a data source, enabling you to query and analyze your enterprise data warehouse data directly alongside your other data assets. With this new connection, you can combine business-critical data stored in Teradata with data from sources like Amazon Redshift, Amazon S3, and relational databases — all within a single, governed environmen",
+      "tags": [
+        "S3",
+        "RDS",
+        "SageMaker"
+      ]
+    },
     {
       "title": "Amazon Aurora DSQL adds multi-Region cluster support in four more Regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-adds-multi-region-clusters-four-more-regions/",
@@ -85,6 +208,16 @@
       ]
     },
     {
+      "title": "Amazon Web Services now introduces Context Ontology Accelerator",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-context--ontology-accelarator-generally-available",
+      "date": "2026-07-31T10:00:00.000Z",
+      "description": "Today, AWS announces Context Ontology Accelerator, an open source accelerator that helps organizations build an ontology of their business — a machine-readable model of their products, customers, policies, and the rules that define how they operate so AI agents make accurate, consistent, explainable, and auditable decisions. Context Ontology Accelerator connects to your structured and/or unstructu",
+      "tags": [
+        "CloudTrail",
+        "Organizations"
+      ]
+    },
+    {
       "title": "Amazon EC2 C7i-flex instances now available in Europe (Milan) region",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7i-flex-instances-MXP-region/",
       "date": "2026-07-31T00:21:00.000Z",
@@ -128,128 +261,6 @@
         "RDS",
         "CloudTrail"
       ]
-    },
-    {
-      "title": "IAM Policy Simulator moves to the IAM console and adds additional capabilities",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/iam-policy-simulator-iam-console/",
-      "date": "2026-07-30T17:43:00.000Z",
-      "description": "AWS Identity and Access Management (IAM) announces a major update to IAM Policy Simulator , the tool you use to test and validate the permissions your IAM policies grant before you deploy them. This update changes the simulator in three ways: it now lives in the IAM console, it can test service control policies (SCPs), and it adds flexibility to model more of the scenarios that security and platfo",
-      "tags": [
-        "IAM",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock announces up to 80% lower prices for OpenAI GPT‑5.6 models",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/openai-gpt-terra-luna-pricing-bedrock/",
-      "date": "2026-07-30T16:18:00.000Z",
-      "description": "Today, OpenAI announced lower prices for GPT‑5.6 Luna and GPT‑5.6 Terra. Effective July 30, 2026, on-demand inference prices on Amazon Bedrock for GPT‑5.6 Luna are reduced by 80%, while prices for GPT‑5.6 Terra are reduced by 20%. These reductions are in-line with OpenAI's first-party pricing changes for these models. GPT‑5.6 Luna is optimized for fast, high-volume workloads and can use tools to c",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS announces general availability of Policy-Based Routing on AWS Transit Gateway",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-transit-gateway-policy-based-routing/",
-      "date": "2026-07-30T15:39:00.000Z",
-      "description": "AWS Transit Gateway now supports Policy-Based Routing (PBR), giving network administrators granular control over how traffic is forwarded across their AWS network. With PBR, forwarding decisions can be based on a combination of packet attributes including source and destination IP addresses, ports, and protocol rather than destination IP address alone. Previously, customers needing traffic steerin",
-      "tags": [
-        "TGW"
-      ]
-    },
-    {
-      "title": "Amazon MSK Express brokers now delivers Apache Kafka data to Amazon S3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-express-brokers-delivers-to-amazon-s3",
-      "date": "2026-07-30T14:07:00.000Z",
-      "description": "Amazon MSK Express brokers now delivers data to Amazon S3 general purpose buckets, providing a fully managed capability to deliver Apache Kafka data in Amazon S3 for downstream processing in the easiest and most reliable way. This capability automatically scales to deliver high-throughput Kafka data to S3 with end-to-end reliability for mission-critical workloads, while reducing ingestion and deli",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-streaming-tables-for-apache-iceberg",
-      "date": "2026-07-30T14:07:00.000Z",
-      "description": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg, a new capability that continuously materializes Apache Kafka topics as Apache Iceberg tables on Amazon S3 Tables. Amazon MSK data delivery to streaming tables can reduce the cost of ingesting and delivering Apache Kafka data into Amazon S3 Tables by up to 60% versus self-managed deployments and reduces downstream q",
-      "tags": [
-        "S3",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Grok 4.3 from xAI is now available on Amazon Bedrock in AWS GovCloud (US-West)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/grok-4-3-bedrock-govcloud/",
-      "date": "2026-07-30T13:00:00.000Z",
-      "description": "xAI's Grok 4.3 model is now available on Amazon Bedrock in AWS GovCloud (US-West). With this launch, xAI joins Amazon Bedrock as a model provider in AWS GovCloud (US-West), giving you even more choice as you build generative AI applications across reasoning, agentic, and enterprise workflows. Grok 4.3 is a reasoning-first model that offers configurable reasoning effort (none, low, medium, high). I",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Gemma 4 models are now available on Amazon Bedrock in AWS GovCloud (US-West)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/gemma-4-bedrock-govcloud/",
-      "date": "2026-07-30T13:00:00.000Z",
-      "description": "The Gemma 4 family of open-weight models from Google DeepMind on Amazon Bedrock in AWS GovCloud (US-West). With Gemma 4, you can build generative AI applications across reasoning, multimodal understanding, agentic, and software engineering workflows. The Gemma 4 family on Amazon Bedrock includes three variants - Gemma 4 31B, Gemma 4 26B-A4B, and Gemma 4 E2B - spanning dense and mixture-of-experts ",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS Managed Microsoft AD now supports Standard to Enterprise Edition upgrade",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-microsoft-ad-edition-upgrade/",
-      "date": "2026-07-30T07:00:00.000Z",
-      "description": "AWS Directory Service now allows you to upgrade your AWS Managed Microsoft AD directory from Standard Edition to Enterprise Edition directly through the AWS Management Console, AWS CLI, and API without migrating to a new directory or re-joining your existing workloads. Standard Edition is designed for organizations with up to 5,000 users and objects, while Enterprise Edition supports up to 500,000",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Service now supports OpenSearch version 3.7",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service/",
-      "date": "2026-07-30T02:30:15.000Z",
-      "description": "You can now run OpenSearch version 3.7 on Amazon OpenSearch Service. OpenSearch 3.7 introduces improvements in vector search performance, search relevance, and Query Insights. With this launch, 1-bit scalar quantization on the Faiss and Lucene engines compresses vectors, reducing the storage and memory required by vector workloads while maintaining search accuracy. You can now retrieve vectors fas",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 Auto Scaling now supports Instance Refresh in CloudFormation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-auto-scaling-instance-refresh-cloudformation",
-      "date": "2026-07-29T21:00:00.000Z",
-      "description": "Amazon EC2 Auto Scaling now supports Instance Refresh as a new AWS CloudFormation update policy. When you configure the new AutoScalingInstanceRefresh update policy and update properties that require instance replacement, CloudFormation automatically triggers an Instance Refresh. With this integration, you can now access Instance Refresh capabilities including replace root volume for in-place upda",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Redshift Data API announces long polling, session management, and flexible batch execution",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-data-api-longpolling-listsession-flexiblebatchexecute/",
-      "date": "2026-07-29T20:45:00.000Z",
-      "description": "Amazon Redshift Data API introduces new capabilities that reduce the number of API calls to retrieve SQL statement metadata or results, provide visibility into sessions, and allow batch statements to execute on separate transactions. Long polling: Long polling enables you to retrieve SQL statement metadata or results without polling repeatedly until the SQL statement reaches a terminal state, by d",
-      "tags": []
-    },
-    {
-      "title": "AWS Glue announces VPC support, filter pushdown, and partition support for the REST API connector",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-rest-connector-filtering-partitioning-vpc",
-      "date": "2026-07-29T20:18:00.000Z",
-      "description": "AWS Glue now supports VPC connections, filter pushdown, and partition support for the REST API connector. The REST API connector enables you to ingest data from any source that exposes a REST-based API, including proprietary systems and emerging platforms without native AWS Glue connectors. With this launch, you can operate your ETL pipelines from data sources with REST API endpoints by securely c",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "AWS WAF adds pre-parse text transformations and new text transformations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-waf/",
-      "date": "2026-07-29T15:00:00.000Z",
-      "description": "Today, AWS WAF adds pre-parse text transformations for query arguments and ten new text transformations for use in any rule statement. Both help you normalize request content so that AWS WAF inspects requests the same way your application interprets them. Pre-parse text transformations normalize a raw query string before AWS WAF parses it into key-value pairs, closing HTTP parameter pollution and ",
-      "tags": [
-        "WAF"
-      ]
-    },
-    {
-      "title": "AWS announces AWS Interconnect - multicloud connectivity with Oracle Cloud Infrastructure in GA",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-announces-AWS-interconnect-multicloud-OCI-GA/",
-      "date": "2026-07-29T15:00:00.000Z",
-      "description": "AWS announces the general availability (GA) of AWS Interconnect — multicloud with Oracle Cloud Infrastructure (OCI). Customers have been adopting multicloud strategies while migrating more applications to the cloud. They do so for many reasons including interoperability requirements, the freedom to choose technology that best suits their needs, and the ability to build and deploy applications on a",
-      "tags": []
     }
   ],
   "security": [
@@ -345,6 +356,17 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: Price reduction of GPT models in Bedrock, CloudWatch managed collectors for Prometheus metrics, and more (August 3, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-price-reduction-of-gpt-models-in-bedrock-cloudwatch-managed-collectors-for-prometheus-metrics-and-more-august-3-2026/",
+      "date": "2026-08-03T16:12:30.000Z",
+      "description": "Last week I had the joy of participating in Amazon’s “Bring Your Kids to Work Day” with my 7 year old son. We commuted together into the New York City office, his first real rush hour train ride, and spent the day exploring how Amazon uses AI, machine learning, and robotics to deliver packages to […]",
+      "tags": [
+        "CloudWatch",
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
       "title": "AWS Weekly Roundup: Local Zone in Athens, Claude Opus 5 on AWS, Lambda durable execution for .NET, and more (July 27, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-july-27-2026/",
       "date": "2026-07-27T14:54:41.000Z",
@@ -424,17 +446,6 @@
       "description": "AWS Certificate Manager now supports the ACME protocol for public TLS certificates, enabling automated issuance and renewal through any ACMEv2-compatible client on any workload. Administrators get centralized governance, IAM-based access controls, and domain scoping, reducing operational risk as certificate lifetimes continue to reduce.",
       "tags": [
         "IAM"
-      ]
-    },
-    {
-      "title": "AWS Weekly Roundup: Agentic CX designer for Amazon Connect Customer, EC2 AMI Watermarks, Open Governance for MySQL, and more (June 29, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentic-cx-designer-for-amazon-connect-customer-ec2-ami-watermarks-open-governance-for-mysql-and-more-june-29-2026/",
-      "date": "2026-06-29T16:30:30.000Z",
-      "description": "It has been a busy stretch on the AWS Summit circuit. At the New York City Summit, I delivered a workshop called Building AI architectures with AWS Serverless, and it was a lot of fun watching builders wire up agents and serverless services to solve real problems in a single afternoon. This week I am […]",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Lambda"
       ]
     }
   ],
