@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T04:18:26.030Z",
+  "generated_at": "2026-08-05T04:16:23.973Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,127 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "[Preview Announcement] Re-introducing Forward Proxy as AWS Network Firewall Functionality",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-network-firewall-forward-proxy-preview/",
+      "date": "2026-08-04T22:24:00.000Z",
+      "description": "You can now use your Network Firewall with all its existing filtering capabilities and features as an explicit forward proxy. On Nov 25, 2025, AWS introduced Network Firewall proxy in public preview to help customers exert centralized security controls against data exfiltration and malware injection. At the time, the Network Firewall proxy was introduced as a standalone product, separate from Netw",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now lets you export cases to CSV from the agent workspace",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-export-cases/",
+      "date": "2026-08-04T21:00:00.000Z",
+      "description": "Amazon Connect Customer now supports exporting cases to a CSV file directly from the agent workspace, making it easier to share case data with internal teams and external stakeholders such as vendors, legal teams, or business partners. Agents can filter and select cases and choose which case fields to include in the export. Admins can control access using a security profile permission. Cases is av",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock launches Web Search for OpenAI GPT models",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-web/",
+      "date": "2026-08-04T20:37:00.000Z",
+      "description": "Today, we are announcing the general availability of Web Search on Amazon Bedrock, a built-in server side tool that performs web search entirely within AWS, enabling OpenAI models (GPT-5.4, GPT-5.5, and GPT-5.6 Sol/Terra/Luna) to ground responses with current web knowledge while maintaining data residency within your secured AWS environment with zero data egress. Previously, adding web grounding r",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Run interactive workloads on Amazon EMR on EC2 with Spark Connect",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-emr-ec2-spark-connect/",
+      "date": "2026-08-04T20:29:00.000Z",
+      "description": "Amazon EMR on EC2 now supports interactive Apache Spark sessions with Spark Connect. Data engineers and data scientists can develop and debug Apache Spark applications interactively from managed notebooks in Amazon SageMaker Unified Studio and their own IDEs, such as Jupyter and Visual Studio Code, with each session running on dedicated EMR on EC2 clusters. You can also monitor and debug active an",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Security Hub Extended adds supply chain security as its 10th category",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-security-hub-extended-adds-supply-chain-security",
+      "date": "2026-08-04T19:14:00.000Z",
+      "description": "The AWS Security Hub Extended plan now includes Supply Chain Security as its 10th security category, with Chainguard and Socket as the curated partners. As developers adopt open-source libraries at scale, security teams need confidence that the packages entering their environments are trustworthy and free from malicious code. With this addition, you can detect and block malicious dependencies befo",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C8g instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8g-instances-additional-regions/",
+      "date": "2026-08-04T18:57:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8g instances are available in AWS Europe (Paris), AWS Africa (Cape Town), AWS Israel (Tel Aviv), and AWS Canada West (Calgary) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 C8g instances are built for compute-intensive workload",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "AWS Application and Network Load Balancers now support RFC 9151 compliant security policies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-application-network/",
+      "date": "2026-08-04T18:28:00.000Z",
+      "description": "AWS Application Load Balancer (ALB) and Network Load Balancer (NLB) now support new TLS-based security policies that comply with RFC 9151 TLS server requirements for Commercial National Security Algorithm (CNSA) 1.0 suite requirements. These policies implement the cryptographic requirements defined by the US National Security Agency (NSA) for secure communications using TLS 1.2 and TLS 1.3 protoco",
+      "tags": [
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon S3 Vectors is now available in the AWS European Sovereign Cloud (Germany) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-s3-vectors-european-sovereign-cloud-germany/",
+      "date": "2026-08-04T18:15:00.000Z",
+      "description": "Amazon S3 Vectors is now available in the AWS European Sovereign Cloud (Germany) Region. Amazon S3 Vectors is purpose-built vector storage for AI agents, inference, Retrieval Augmented Generation (RAG), and semantic search at billion-vector scale. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3, with a dedicated set of APIs that let you store, acces",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now supports capacity planning in 15 or 30 minute intervals",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-interval-capacity-plan",
+      "date": "2026-08-04T17:00:00.000Z",
+      "description": "Amazon Connect Customer now lets you generate capacity plans at the interval level (15-minute or 30-minute intervals), giving workforce planners visibility into more granular staffing requirements across Voice, Chat, Task, and Email channels. Interval-level plans capture how demand shifts throughout the day — such as a lunchtime surge in chat contacts or an end-of-day change in call volume — so yo",
+      "tags": []
+    },
+    {
+      "title": "Amazon EC2 I8g instances now available in AWS Europe (Paris), Asia Pacific (Jakarta) regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-i8g-instances-aws-paris-jakarta-regions/",
+      "date": "2026-08-04T16:00:00.000Z",
+      "description": "AWS announces the general availability of Amazon EC2 Storage Optimized I8g instances in AWS Europe (Paris) and Asia Pacific (Jakarta) regions. I8g instances are powered by AWS Graviton4 processors and offer the best compute performance in Amazon EC2 for storage-intensive workloads. I8g instances use the third generation AWS Nitro SSDs, local NVMe storage that deliver up to 65% better real-time sto",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon RDS for SQL Server now support BYOM in additional commercial regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-byom-in-additional-aws-regions/",
+      "date": "2026-08-04T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Bring Your Own Media (BYOM) in 10 additional AWS Regions: Asia Pacific (Taipei, Hyderabad, Jakarta, Malaysia, Melbourne, New Zealand, Thailand), Europe (Milan, Spain), and Mexico (Central). With BYOM, you can adopt Amazon RDS as a managed database service and reuse your existing Microsoft SQL Server licenses with active So",
+      "tags": [
+        "RDS",
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon RDS for SQL Server supports Developer Edition in additional AWS regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-developer-edition-in-additional-aws-regions/",
+      "date": "2026-08-04T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server Developer Edition is now available in 13 additional AWS Regions: Asia Pacific (Hong Kong, Taipei, Hyderabad, Jakarta, Malaysia, Melbourne, New Zealand, Thailand), Canada West (Calgary), Europe (Milan, Spain), Israel (Tel Aviv), and Mexico (Central). SQL Server Developer Edition includes all the functionality of Enterprise Edition and i",
+      "tags": [
+        "RDS",
+        "Lambda",
+        "ALB"
+      ]
+    },
+    {
+      "title": "RDS SQL Server now supports publishing SQL Server Audit logs to CloudWatch",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-publish-sql-audit-to-cw/",
+      "date": "2026-08-04T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports publishing SQL Server Audit logs to CloudWatch. SQL Server Audit is a native SQL Server feature that allows tracking and logging events that occur on the Database Engine. On Amazon RDS, you can create audits and audit specifications in the same way that you create them for on-premises SQL Server database servers. Now you c",
+      "tags": [
+        "RDS",
+        "CloudWatch",
+        "CloudTrail"
+      ]
+    },
     {
       "title": "AWS Transform continuous modernization is now generally available",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-continuous-general-available",
@@ -135,132 +256,6 @@
         "CloudTrail",
         "Bedrock"
       ]
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio now supports Teradata Vantage",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-teradata",
-      "date": "2026-07-31T20:19:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports Teradata Vantage as a data source, enabling you to query and analyze your enterprise data warehouse data directly alongside your other data assets. With this new connection, you can combine business-critical data stored in Teradata with data from sources like Amazon Redshift, Amazon S3, and relational databases — all within a single, governed environmen",
-      "tags": [
-        "S3",
-        "RDS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Aurora DSQL adds multi-Region cluster support in four more Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-adds-multi-region-clusters-four-more-regions/",
-      "date": "2026-07-31T18:00:00.000Z",
-      "description": "Starting today, Amazon Aurora DSQL supports multi-Region clusters in four additional AWS Regions: Europe (Stockholm), Europe (Spain), Asia Pacific (Mumbai), and Asia Pacific (Singapore). Aurora DSQL is the fastest serverless, distributed SQL database, with active-active high availability and multi-Region strong consistency. Each multi-Region cluster provides a writable endpoint in both peered Regi",
-      "tags": [
-        "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon RDS for Oracle now offers Reserved Instances for R8i and M8i instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-oracle-r8i-m8i/",
-      "date": "2026-07-31T15:00:00.000Z",
-      "description": "Amazon RDS for Oracle now offers 1-year and 3-year Reserved Instances for R8i and M8i instances with up to 53% cost savings compared to On-Demand prices. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. R8i and M8i instances offer up to 15% better pri",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Location Service adds Search Nearby support for GrabMaps in Southeast Asia",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-location-service-search-nearby-grabmaps",
-      "date": "2026-07-31T14:00:00.000Z",
-      "description": "Amazon Location Service now supports proximity-based point of interest discovery with GrabMaps data in the Asia Pacific (Singapore) and Asia Pacific (Malaysia) AWS Regions. Builders creating local discovery, delivery, and mobility applications in Southeast Asia can surface relevant nearby places using hyperlocal data validated by millions of daily Grab journeys. SearchNearby returns places within ",
-      "tags": []
-    },
-    {
-      "title": "AWS Lambda now supports Java 8, 11, and 17 on Amazon Linux 2023",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-java-amazon-linux/",
-      "date": "2026-07-31T14:00:00.000Z",
-      "description": "AWS Lambda now supports Java 8, Java 11, and Java 17 runtimes on Amazon Linux 2023 (AL2023), available as both managed runtimes and container base images. These new runtimes enable customers running Lambda functions on Java 8, 11, or 17 to migrate from Amazon Linux 2 (AL2) to AL2023 without requiring a simultaneous Java version upgrade. The existing Lambda runtimes for Java 8, 11 and 17 run on AL2",
-      "tags": [
-        "Lambda",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch announces managed Prometheus collectors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/cloudwatch-managed-collectors/",
-      "date": "2026-07-31T13:06:00.000Z",
-      "description": "Amazon CloudWatch now supports collecting Prometheus metrics from your AWS infrastructure using fully managed collectors — enabling you to monitor Amazon EKS, Amazon EC2, Amazon ECS, Amazon MSK, and Amazon OpenSearch Service workloads without deploying or managing any agents. Previously, getting Prometheus metrics into CloudWatch required deploying, scaling, and maintaining a self-managed OpenTele",
-      "tags": [
-        "EC2",
-        "CloudWatch",
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS CodeDeploy now available in five additional AWS regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-codedeploy-five-additional-regions",
-      "date": "2026-07-31T10:54:00.000Z",
-      "description": "AWS CodeDeploy is now available in five additional AWS Regions: Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (Malaysia), and Mexico (Central). AWS CodeDeploy is a fully managed deployment service that automates application deployments to Amazon EC2 instances, on-premises servers, AWS Lambda functions, and Amazon ECS services. Customers in these newly add",
-      "tags": [
-        "EC2",
-        "Lambda",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon Web Services now introduces Context Ontology Accelerator",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-context--ontology-accelarator-generally-available",
-      "date": "2026-07-31T10:00:00.000Z",
-      "description": "Today, AWS announces Context Ontology Accelerator, an open source accelerator that helps organizations build an ontology of their business — a machine-readable model of their products, customers, policies, and the rules that define how they operate so AI agents make accurate, consistent, explainable, and auditable decisions. Context Ontology Accelerator connects to your structured and/or unstructu",
-      "tags": [
-        "CloudTrail",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C7i-flex instances now available in Europe (Milan) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7i-flex-instances-MXP-region/",
-      "date": "2026-07-31T00:21:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C7i-flex instances powered by custom 4th Gen Intel Xeon Scalable processors (code-named Sapphire Rapids) are available in Europe (Milan) region. These custom processors, available only on AWS, offer up to 15% better performance over comparable x86-based Intel processors utilized by other cloud providers. C7i-flex instances are the easiest w",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C7i instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7i-instances-mxp-yyc-region/",
-      "date": "2026-07-31T00:17:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C7i instances powered by custom 4th Gen Intel Xeon Scalable processors (code-named Sapphire Rapids) are available in Europe (Milan) and Canada West (Calgary) regions. These custom processors, available only on AWS, offer up to 15% better performance over comparable x86-based Intel processors utilized by other cloud providers. C7i instances ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio brings richer Git version control to all project tools",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified-studio-git/",
-      "date": "2026-07-30T22:37:00.000Z",
-      "description": "Amazon SageMaker Unified Studio gives project members full Git version control directly within the tools you already use - Query Editor, Visual ETL, Workflows, and Notebooks. The enhanced Repositories experience replaces the previous automatic sync approach with flexible, file-level version control. This brings a consistent source control experience across all project tools, including Notebooks, w",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Direct Connect now supports BGP route visibility on Virtual Interfaces",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-direct-connect-bgp-visibility/",
-      "date": "2026-07-30T20:21:00.000Z",
-      "description": "AWS Direct Connect now provides Border Gateway Protocol (BGP) route visibility, allowing you to view the routes exchanged between AWS and your on-premises routers across your private, transit, and public virtual interfaces (VIFs). You can now see which routes AWS accepted from your router and which routes AWS is advertising to your router, along with their AS path and BGP community values. This vi",
-      "tags": []
-    },
-    {
-      "title": "Amazon Redshift RG large and 12xlarge instances now available on the trailing track",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-rg-large-12xlarge-trailing-track",
-      "date": "2026-07-30T20:02:00.000Z",
-      "description": "Amazon Redshift now supports Graviton-based RG instances on the trailing track . Starting today, rg.large and rg.12xlarge instance types are available for customers running workloads on the trailing track on patch P202 and onwards. The trailing track is designed for customers who prioritize stability for production workloads, running on a version already validated through the leading track. With R",
-      "tags": [
-        "EC2",
-        "RDS",
-        "CloudTrail"
-      ]
     }
   ],
   "security": [
@@ -278,6 +273,16 @@
       "description": "Bulletin ID: 2026-048-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/29/2026 11:15 PM PDT Description: AWS WAF is a web application firewall that monitors the HTTP(S) requests that are forwarded to your protected web application resources. We identified CVE-2026-13762 and CVE-2026-13763, which are issues affecting HTTP/2 multi-frame request body inspection by AWS ",
       "tags": [
         "WAF",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
+      "date": "2026-08-04T17:45:00.000Z",
+      "description": "Bulletin ID: 2026-073-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/04/2026 10:00 AM PDT Description: We have identified CVE-2026-18830 in the Amazon Bedrock AgentCore harness InvokeHarness API. This issue could allow an authenticated user to execute configured tools while bypassing model invocation and associated security controls. When the most recent message i",
+      "tags": [
+        "Bedrock",
         "Inspector"
       ]
     },
@@ -340,15 +345,6 @@
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
       "date": "2026-07-31T17:20:33.000Z",
       "description": "Please refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-12957 and CVE-2026-12958 - Issues in Language Servers for AWS and Amazon Q Developer Plugins",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-047-aws/",
-      "date": "2026-06-23T16:11:40.000Z",
-      "description": "Bulletin ID: 2026-047-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/23/2026 09:30 AM PDT Description: Language Servers for AWS provide the underlying language-server runtime that powers Amazon Q Developer's AI coding assistance across its IDE plugins (Visual Studio Code, JetBrains, Eclipse, and Visual Studio). We identified CVE-2026-12957, an improper trust bound",
       "tags": [
         "Inspector"
       ]
