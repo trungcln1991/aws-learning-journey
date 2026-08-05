@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "session: phiên 65 (04/08) — sự cố domain trust devaws (MTU) + WAF chặn nhầm hàng loạt + SCADA DR checklist",
-  "updated_at": "2026-08-04T08:48:30Z"
+  "commit_msg": "session: phiên 66 (05/08) — đóng 4 gap quá hạn + reboot tự động bastion + test NAT return-path lệch site + weekly/monthly checks",
+  "updated_at": "2026-08-05T04:05:24Z"
 }
