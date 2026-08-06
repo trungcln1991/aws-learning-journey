@@ -1,9 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "IAM Deep Dive"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session: phiên 66 (05/08) — đóng 4 gap quá hạn + reboot tự động bastion + test NAT return-path lệch site + weekly/monthly checks",
-  "updated_at": "2026-08-05T04:05:24Z"
+  "commit_msg": "session: phiên 68 (06/08) — bật Security Hub V2 (prod/network/aggregator), fix EC2.18 + gap GuardDuty network, SCADA NAT proposal, runbook cleanup",
+  "updated_at": "2026-08-06T09:08:34Z"
 }
