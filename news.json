@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T04:19:30.029Z",
+  "generated_at": "2026-08-07T03:54:41.982Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,176 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon ECS now supports fractional GPU scheduling with Amazon EC2 G6f instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecs-fractional-gpu/",
+      "date": "2026-08-06T22:00:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now supports fractional GPU scheduling with Amazon EC2 G6f instances, enabling you to run your workloads on GPU partitions as small as one-eighth of an NVIDIA L4 Tensor Core GPU with 3 GB of GPU memory. Fractional GPUs give you the flexibility to right-size your containers for small-model AI inference, model experimentation, graphics rendering, and oth",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "AWS Lambda console extends console-to-IDE integration to Kiro and Cursor",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-ide-kiro-cursor/",
+      "date": "2026-08-06T21:53:00.000Z",
+      "description": "AWS Lambda console now extends its console-to-IDE integration to support Kiro and Cursor IDEs. This expansion builds on the existing console-to-IDE transition for Visual Studio Code (VS Code), providing a seamless transition between cloud and local development environments for serverless developers using these popular IDEs. With the expanded console-to-IDE integration, developers can start from th",
+      "tags": [
+        "Lambda",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon EC2 G7 instances are now available in the AWS Europe (Spain) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-g7-available-spain",
+      "date": "2026-08-06T20:51:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs are now available in Europe (Spain) Region. G7 instances deliver up to 4.6x AI inference performance and up to 2.1 graphics performance compared to G6 instances. G7 instances also deliver faster performance for GPU-accelerated data analytics workloads. Customers can use G7 instances ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "AgentCore runtime instances are now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-bedrock-agentcore-runtime-instances-generally-available/",
+      "date": "2026-08-06T20:00:00.000Z",
+      "description": "Today, AWS announces runtime instances, a new feature in Amazon Bedrock AgentCore that lets you run agents on your own Amazon EC2 instances without managing infrastructure. AgentCore runtime provides purpose-built infrastructure to deploy and operate AI agents securely at scale. Runtime instances complement the existing microVM-based option in AgentCore runtime and give teams running sustained, re",
+      "tags": [
+        "EC2",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon ElastiCache now supports Graviton4-based M8g, R8g, and C8gn nodes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-elasticache-graviton4-m8g-r8g-c8gn/",
+      "date": "2026-08-06T19:00:00.000Z",
+      "description": "Amazon ElastiCache now supports Graviton4-based M8g, R8g, and C8gn node families for Valkey and Memcached. Graviton4-based nodes provide up to 47% higher throughput, up to 43% lower P99 latency, and up to 31% better price-performance for on-demand pricing over Graviton3-based nodes of equivalent sizes on Amazon ElastiCache for Valkey, depending on node family, size, and workload configuration. Gra",
+      "tags": []
+    },
+    {
+      "title": "AWS Glue Schema Registry is now available in ten more AWS regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-gsr-10-more-regions",
+      "date": "2026-08-06T18:56:00.000Z",
+      "description": "You can now use the AWS Glue Schema Registry , a serverless and free feature of AWS Glue , in the Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Hyderabad), Asia Pacific (Osaka), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary) regions to validate and control the evolution of streaming data usin",
+      "tags": [
+        "Lambda",
+        "ALB"
+      ]
+    },
+    {
+      "title": "AWS Transform for migrations automates post-launch actions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-transform-for-migrations-automates-post-launch-actions",
+      "date": "2026-08-06T17:00:00.000Z",
+      "description": "AWS Transform now automates the configuration and execution of post-launch actions through the migration workflow. Define actions at the account level and apply them automatically to each source server across your target accounts, including multi-account migrations. Automating these actions removes the slow, error-prone work of configuring them server by server, so your team moves more servers wit",
+      "tags": []
+    },
+    {
+      "title": "AWS Security Agent now supports email-based MFA for penetration testing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-security-agent-mfa/",
+      "date": "2026-08-06T16:54:00.000Z",
+      "description": "AWS Security Agent (now part of AWS Continuum ) now enables penetration testing of applications that use email-based multi-factor authentication (MFA) as part of their login flow. Previously, applications requiring one-time codes or verification links sent by email were out of scope for automated pentesting because the agent had no mechanism to intercept those messages. This launch expands coverag",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS now provides visibility into storage volume initialization status",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-storage-volume-initialization-visibility",
+      "date": "2026-08-06T16:00:00.000Z",
+      "description": "Amazon RDS now provides visibility into the initialization status of database storage volumes created from snapshots. You can use this status to determine when your storage is fully initialized after a restore and is ready to support latency-sensitive database workloads at fully provisioned performance. When you restore a database instance to a point-in-time, or create a read replica creation, or ",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces now publishes enhanced observability metrics",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-observability-metrics",
+      "date": "2026-08-06T15:00:00.000Z",
+      "description": "Amazon WorkSpaces now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their virtual desktop workloads. These new metrics span network performance, compute and storage resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proactively ",
+      "tags": [
+        "CloudWatch",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces Applications now publishes enhanced observability metrics",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-observability-metrics",
+      "date": "2026-08-06T15:00:00.000Z",
+      "description": "Amazon WorkSpaces Applications now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their application streaming workloads. These new metrics span network performance, compute resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proac",
+      "tags": [
+        "CloudWatch",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Marketplace now lets sellers configure net payment terms on private offers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-net-payment-terms-for-private-offers",
+      "date": "2026-08-06T14:49:00.000Z",
+      "description": "AWS Marketplace now supports configurable net payment terms on private offers, with options including Net 30, Net 45, Net 60, or Net 90. Prior to this launch, net payment terms were uniform across all AWS Marketplace purchases, based on the buyer's payment terms with AWS. This new feature allows sellers to configure when payment is due, so invoice due dates match what buyers and sellers negotiate.",
+      "tags": []
+    },
+    {
+      "title": "Amazon MSK now delivers Kafka Authorizer Logs to customers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-msk-kafka-authorizer-logs/",
+      "date": "2026-08-06T14:00:00.000Z",
+      "description": "Amazon Managed Streaming for Apache Kafka (MSK) now supports Authorizer Log Delivery for Provisioned clusters, including both Standard and Express brokers, at no additional cost. With authorizer logs, you get detailed visibility into user and application access, identify and address client authorization issues , and meet your organization's security requirements. Each denied authorization request ",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Backup for Amazon S3 now supports direct access to backup data",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-backup-amazon-s3-direct-access/",
+      "date": "2026-08-06T10:00:00.000Z",
+      "description": "AWS Backup for Amazon S3 now supports creating S3 Access Points, providing immediate read-only access to backup data using standard S3 APIs without initiating a restore. This enables targeted file recovery, data validation, compliance auditing, and forensic investigation while your backup data remains protected in your backup vault. You can create an access point for an S3 recovery point and read ",
+      "tags": [
+        "S3",
+        "CloudTrail",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon SES now helps identify automated open and click events in event notifications",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-automated-email-interactions/",
+      "date": "2026-08-06T07:00:00.000Z",
+      "description": "Amazon Simple Email Service (SES) now helps you identify automated email interactions. Open and Click event notifications now include an isBotEvent field that indicates whether the event was likely triggered by an automated system or a human recipient. Customers who publish Open or Click events through a configuration set event destination will now see an isBotEvent field with a value of Likely or",
+      "tags": []
+    },
+    {
+      "title": "AWS Backup extends logically air-gapped vault support for Amazon Neptune to three additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-backup-logically-air-gapped-vault-neptune-regions/",
+      "date": "2026-08-06T07:00:00.000Z",
+      "description": "AWS Backup logically air-gapped vault support for Amazon Neptune is now available in three additional AWS Regions: Asia Pacific (Melbourne), Europe (Spain), and Europe (Zurich). With this expansion, you can store Neptune backups in logically air-gapped vaults in these Regions. Logically air-gapped vaults are immutable, locked by default, and encrypted using AWS owned keys or customer-managed keys.",
+      "tags": [
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon Quick supports multi-dataset analytical capabiity",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick/",
+      "date": "2026-08-06T06:54:00.000Z",
+      "description": "Today, Amazon Quick announces supporting multi-dataset topics, enabling users to model relationships across multiple datasets in a single topic and use that model to build dashboards and answer questions in natural language. Previously, answering a question in a Quick Sight visual that spanned datasets required pre-joining the data into a single dataset—adding manual JOIN logic in the data prepara",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Announcing temporal policies and rate limiting in Amazon Bedrock AgentCore",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/temporal-policies-agentcore/",
+      "date": "2026-08-06T04:00:00.000Z",
+      "description": "Amazon Bedrock AgentCore announces two new controls: temporal policies for stateful agent authorization and rate limiting for AI traffic. Temporal policies let you define stateful authorization rules that evaluate each request in the context of an agent's prior actions within a session, because a single tool call can be safe in isolation yet harmful given what preceded it. With temporal policies y",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M8g instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-m8g-instances-additional-regions/",
+      "date": "2026-08-06T00:27:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M8g instances are available in AWS Asia Pacific (Taipei), and AWS Mexico (Central) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 M8g instances are built for general-purpose workloads, such as application servers, microservices, ",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "AWS Lambda announces scalable network bandwidth up to 3,000 Mbps for functions outside a VPC",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-network-bandwidth/",
@@ -67,186 +237,13 @@
       ]
     },
     {
-      "title": "AWS IAM Identity Center makes management of AWS account access optional for new organization instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-identity-center-accounts-optional/",
-      "date": "2026-08-05T15:12:00.000Z",
-      "description": "AWS IAM Identity Center now lets you decide whether to enable management of AWS account access when you create a new organization instance. This allows you to use IAM Identity Center to manage access to AWS applications only, without the need to manage access to AWS accounts. This feature is available at the time of initial configuration of an IAM Identity Center instance and does not affect exist",
-      "tags": [
-        "EC2",
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon Aurora serverless now scales faster to support agentic AI and other bursty workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aurora-serverless-instant-12-acu-scaling",
-      "date": "2026-08-05T15:00:00.000Z",
-      "description": "Amazon Aurora serverless now delivers higher initial capacity during scale-up events, reaching up to 12 ACUs within a second and continuing to scale up to 256 ACUs as your workload grows. When the workload finishes, Aurora serverless automatically scales down to zero. This makes it especially well-suited for agentic AI applications, which typically have bursts of activity, long idle windows, and u",
-      "tags": [
-        "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "[Preview Announcement] Re-introducing Forward Proxy as AWS Network Firewall Functionality",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-network-firewall-forward-proxy-preview/",
-      "date": "2026-08-04T22:24:00.000Z",
-      "description": "You can now use your Network Firewall with all its existing filtering capabilities and features as an explicit forward proxy. On Nov 25, 2025, AWS introduced Network Firewall proxy in public preview to help customers exert centralized security controls against data exfiltration and malware injection. At the time, the Network Firewall proxy was introduced as a standalone product, separate from Netw",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets you export cases to CSV from the agent workspace",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-export-cases/",
-      "date": "2026-08-04T21:00:00.000Z",
-      "description": "Amazon Connect Customer now supports exporting cases to a CSV file directly from the agent workspace, making it easier to share case data with internal teams and external stakeholders such as vendors, legal teams, or business partners. Agents can filter and select cases and choose which case fields to include in the export. Admins can control access using a security profile permission. Cases is av",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock launches Web Search for OpenAI GPT models",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-web/",
-      "date": "2026-08-04T20:37:00.000Z",
-      "description": "Today, we are announcing the general availability of Web Search on Amazon Bedrock, a built-in server side tool that performs web search entirely within AWS, enabling OpenAI models (GPT-5.4, GPT-5.5, and GPT-5.6 Sol/Terra/Luna) to ground responses with current web knowledge while maintaining data residency within your secured AWS environment with zero data egress. Previously, adding web grounding r",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Run interactive workloads on Amazon EMR on EC2 with Spark Connect",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-emr-ec2-spark-connect/",
-      "date": "2026-08-04T20:29:00.000Z",
-      "description": "Amazon EMR on EC2 now supports interactive Apache Spark sessions with Spark Connect. Data engineers and data scientists can develop and debug Apache Spark applications interactively from managed notebooks in Amazon SageMaker Unified Studio and their own IDEs, such as Jupyter and Visual Studio Code, with each session running on dedicated EMR on EC2 clusters. You can also monitor and debug active an",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Security Hub Extended adds supply chain security as its 10th category",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-security-hub-extended-adds-supply-chain-security",
-      "date": "2026-08-04T19:14:00.000Z",
-      "description": "The AWS Security Hub Extended plan now includes Supply Chain Security as its 10th security category, with Chainguard and Socket as the curated partners. As developers adopt open-source libraries at scale, security teams need confidence that the packages entering their environments are trustworthy and free from malicious code. With this addition, you can detect and block malicious dependencies befo",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C8g instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8g-instances-additional-regions/",
-      "date": "2026-08-04T18:57:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8g instances are available in AWS Europe (Paris), AWS Africa (Cape Town), AWS Israel (Tel Aviv), and AWS Canada West (Calgary) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 C8g instances are built for compute-intensive workload",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Application and Network Load Balancers now support RFC 9151 compliant security policies",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-application-network/",
-      "date": "2026-08-04T18:28:00.000Z",
-      "description": "AWS Application Load Balancer (ALB) and Network Load Balancer (NLB) now support new TLS-based security policies that comply with RFC 9151 TLS server requirements for Commercial National Security Algorithm (CNSA) 1.0 suite requirements. These policies implement the cryptographic requirements defined by the US National Security Agency (NSA) for secure communications using TLS 1.2 and TLS 1.3 protoco",
-      "tags": [
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon S3 Vectors is now available in the AWS European Sovereign Cloud (Germany) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-s3-vectors-european-sovereign-cloud-germany/",
-      "date": "2026-08-04T18:15:00.000Z",
-      "description": "Amazon S3 Vectors is now available in the AWS European Sovereign Cloud (Germany) Region. Amazon S3 Vectors is purpose-built vector storage for AI agents, inference, Retrieval Augmented Generation (RAG), and semantic search at billion-vector scale. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3, with a dedicated set of APIs that let you store, acces",
+      "title": "AWS Glue Data Catalog now supports metadata exports to S3 Tables (Preview)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-data-catalog-s3-tables/",
+      "date": "2026-08-05T15:42:00.000Z",
+      "description": "AWS Glue Data Catalog is a centralized metadata repository that helps you discover and understand data, with semantic search and support for adding business context to datasets currently in preview. Today, we are adding two new capabilities to this preview: exporting catalog metadata exports to S3 Tables for metadata querying, and expanding the semantic search preview to catalogs encrypted with AW",
       "tags": [
         "S3"
       ]
-    },
-    {
-      "title": "Amazon Connect Customer now supports capacity planning in 15 or 30 minute intervals",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-interval-capacity-plan",
-      "date": "2026-08-04T17:00:00.000Z",
-      "description": "Amazon Connect Customer now lets you generate capacity plans at the interval level (15-minute or 30-minute intervals), giving workforce planners visibility into more granular staffing requirements across Voice, Chat, Task, and Email channels. Interval-level plans capture how demand shifts throughout the day — such as a lunchtime surge in chat contacts or an end-of-day change in call volume — so yo",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 I8g instances now available in AWS Europe (Paris), Asia Pacific (Jakarta) regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-i8g-instances-aws-paris-jakarta-regions/",
-      "date": "2026-08-04T16:00:00.000Z",
-      "description": "AWS announces the general availability of Amazon EC2 Storage Optimized I8g instances in AWS Europe (Paris) and Asia Pacific (Jakarta) regions. I8g instances are powered by AWS Graviton4 processors and offer the best compute performance in Amazon EC2 for storage-intensive workloads. I8g instances use the third generation AWS Nitro SSDs, local NVMe storage that deliver up to 65% better real-time sto",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon RDS for SQL Server now support BYOM in additional commercial regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-byom-in-additional-aws-regions/",
-      "date": "2026-08-04T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Bring Your Own Media (BYOM) in 10 additional AWS Regions: Asia Pacific (Taipei, Hyderabad, Jakarta, Malaysia, Melbourne, New Zealand, Thailand), Europe (Milan, Spain), and Mexico (Central). With BYOM, you can adopt Amazon RDS as a managed database service and reuse your existing Microsoft SQL Server licenses with active So",
-      "tags": [
-        "RDS",
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon RDS for SQL Server supports Developer Edition in additional AWS regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-developer-edition-in-additional-aws-regions/",
-      "date": "2026-08-04T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server Developer Edition is now available in 13 additional AWS Regions: Asia Pacific (Hong Kong, Taipei, Hyderabad, Jakarta, Malaysia, Melbourne, New Zealand, Thailand), Canada West (Calgary), Europe (Milan, Spain), Israel (Tel Aviv), and Mexico (Central). SQL Server Developer Edition includes all the functionality of Enterprise Edition and i",
-      "tags": [
-        "RDS",
-        "Lambda",
-        "ALB"
-      ]
-    },
-    {
-      "title": "RDS SQL Server now supports publishing SQL Server Audit logs to CloudWatch",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-publish-sql-audit-to-cw/",
-      "date": "2026-08-04T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports publishing SQL Server Audit logs to CloudWatch. SQL Server Audit is a native SQL Server feature that allows tracking and logging events that occur on the Database Engine. On Amazon RDS, you can create audits and audit specifications in the same way that you create them for on-premises SQL Server database servers. Now you c",
-      "tags": [
-        "RDS",
-        "CloudWatch",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "AWS Transform continuous modernization is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-continuous-general-available",
-      "date": "2026-08-03T21:15:00.000Z",
-      "description": "AWS Transform continuous modernization is now generally available in all AWS Regions where AWS Transform is supported . This capability helps engineering teams analyze and remediate technical debt across source code repositories at scale. Teams can connect GitHub organizations, GitLab groups, and Bitbucket workspaces, run analyses on demand or on a recurring schedule, and prioritize findings acros",
-      "tags": [
-        "S3",
-        "Organizations",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "OpenAI GPT-5.6 Sol, Terra, and Luna now support 1 million token context windows on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/gpt-sol-terra-luna-long-context-bedrock",
-      "date": "2026-08-03T21:03:00.000Z",
-      "description": "GPT-5.6 Sol, Terra, and Luna now support 1 million token context windows on Amazon Bedrock, enabling you to process full codebases, lengthy documents, and multi-turn agent histories in a single request. Models reason over broader context and return more accurate, coherent responses without chunking or information loss. With a context window size of 1 million tokens, you can analyze entire reposito",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Streams now supports sharing streams with stream URLs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-gamelift-streams/",
-      "date": "2026-08-03T20:24:00.000Z",
-      "description": "Amazon GameLift Streams now offers stream URLs, which give end users temporary, unauthenticated access to a playable stream session in a supported web browser. Recipients need no AWS account, no credentials, and no software install. To share a playable stream, create a stream URL for a stream group and one of its applications, set how long the stream URL stays valid and how many sessions it can st",
-      "tags": []
-    },
-    {
-      "title": "AWS HealthOmics now supports task-level timeout for WDL workflows",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-healthomics-wdl-task-level-timeout/",
-      "date": "2026-08-03T20:00:00.000Z",
-      "description": "AWS HealthOmics now supports task-level timeout for Workflow Description Language (WDL) workflows, enabling you to set maximum execution duration for individual tasks. AWS HealthOmics is a HIPAA-eligible service that helps healthcare and life sciences customers accelerate scientific breakthroughs at scale with fully managed bioinformatics workflows. With task-level timeout, you can define time bou",
-      "tags": []
-    },
-    {
-      "title": "AWS Resilience Hub now provides recommended resilience tests",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-resilience-hub/",
-      "date": "2026-08-03T19:02:58.000Z",
-      "description": "AWS Resilience Hub now offers recommended resilience tests that help platform engineering and site reliability teams validate how their services respond to and recover from known failure scenarios. Resilience Hub provides pre-configured tests based on your service's architecture, configuration, and resilience policy. It uses AWS Fault Injection Service (FIS) to inject controlled faults and then ev",
-      "tags": []
     }
   ],
   "security": [
@@ -343,6 +340,16 @@
   ],
   "blog": [
     {
+      "title": "Runtime instances: persistent compute for production AI agents on Amazon Bedrock AgentCore",
+      "link": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
+      "date": "2026-08-06T22:58:00.000Z",
+      "description": "Announcing runtime instances in Amazon Bedrock AgentCore—persistent, managed EC2 infrastructure for production AI agents with multi-agent collaboration, GPU support, and sessions lasting up to 14 days.",
+      "tags": [
+        "EC2",
+        "Bedrock"
+      ]
+    },
+    {
       "title": "Amazon DynamoDB now supports real-time vector search at any scale",
       "link": "https://aws.amazon.com/blogs/aws/amazon-dynamodb-now-supports-real-time-vector-search-at-any-scale/",
       "date": "2026-08-05T14:45:10.000Z",
@@ -424,15 +431,6 @@
       "description": "AWS CloudFormation speeds up infrastructure deployment with Express mode, enabling AI agents and developers to receive deployment confirmation in seconds and iterate faster. Available in all commercial Regions at no additional cost.",
       "tags": [
         "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available",
-      "link": "https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/",
-      "date": "2026-06-30T20:56:44.000Z",
-      "description": "Amazon EC2 C9g and C9gd instances, powered by AWS Graviton5, are now generally available. They deliver up to 25% better compute performance than Graviton4-based instances, 5x larger cache, fastest memory of any processor instances in the cloud, and local NVMe storage options (C9gd).",
-      "tags": [
-        "EC2"
       ]
     }
   ],
