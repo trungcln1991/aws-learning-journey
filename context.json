@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: phiên 68 (06/08) — bật Security Hub V2 (prod/network/aggregator), fix EC2.18 + gap GuardDuty network, SCADA NAT proposal, runbook cleanup",
-  "updated_at": "2026-08-06T09:08:34Z"
+  "commit_msg": "session: phiên 69 (07/08) — điều tra chi phí Bedrock jp:prod, phát hiện Budget filter sai + 3 bẫy region/service",
+  "updated_at": "2026-08-07T04:06:22Z"
 }
