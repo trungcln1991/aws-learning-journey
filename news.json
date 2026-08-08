@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T03:54:41.982Z",
+  "generated_at": "2026-08-08T02:57:04.483Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,83 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon EC2 R8i and R8i-Flex instances are now available in Europe (Milan) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-r8i-flex/",
+      "date": "2026-08-07T21:11:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the Europe (Milan) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-performance, ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Timestream for InfluxDB now supports backup and restore",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/timestream-influxdb-backup-restore/",
+      "date": "2026-08-07T19:21:00.000Z",
+      "description": "Amazon Timestream for InfluxDB now lets you create and manage your own backups and restore your data on demand. You can trigger one-time, on-demand backups, schedule automated recurring backups at the frequency and retention you choose, and restore a backup to a new resource or in place of an existing one. This capability is available for both the InfluxDB 2 and InfluxDB 3 engines through the AWS ",
+      "tags": []
+    },
+    {
+      "title": "Amazon Cognito now available as a skill in the Agent Toolkit for AWS",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-auth-agent-skill/",
+      "date": "2026-08-07T18:00:48.000Z",
+      "description": "Amazon Cognito is now available as a core skill (aws-auth) in the Agent Toolkit for AWS . AI coding agents using the toolkit can now set up, configure, secure, and troubleshoot Amazon Cognito using best-practice workflows, helping developers implement secure sign-in flows for users, AI agents, and microservices faster. The Amazon Cognito (aws-auth) skill covers user pool and app client configurati",
+      "tags": []
+    },
+    {
+      "title": "AWS IAM Identity Center supports one-click multi-Region option for new organization instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-identity-center-supports-one-click-multi-region-option-new-organization-instances",
+      "date": "2026-08-07T16:00:00.000Z",
+      "description": "AWS IAM Identity Center now makes it easier to enable multi-Region support when creating a new organization instance. Previously, enabling multi-Region support required multiple steps including creating a customer managed KMS key, configuring key policies, and manually adding Regions. Now, customers creating a new IAM Identity Center instance in supported Regions can enable multi-Region in one cli",
+      "tags": [
+        "EC2",
+        "IAM",
+        "KMS"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock AgentCore adds memory, policy, and harness in AWS GovCloud (US-West)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/agentcore-memory-policy-harness-govcloud/",
+      "date": "2026-08-07T15:52:00.000Z",
+      "description": "Today, Amazon Bedrock AgentCore introduces new capabilities in AWS GovCloud (US-West). AgentCore is the platform to build, connect, and optimize agents. With these capabilities, teams operating in regulated environments can build context-aware agents and take them from prototype to production faster, with the controls needed to scale across their organization. AgentCore memory gives agents short-t",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Servers now supports 21 new EC2 instance types",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/gamelift-ec2-instance-expansion/",
+      "date": "2026-08-07T08:00:00.000Z",
+      "description": "Amazon GameLift Servers now supports 21 additional Amazon EC2 instance types for managed EC2 fleets and managed container fleets. Amazon GameLift Servers is a fully managed service that enables game developers and studios to deploy, operate, and scale dedicated game servers in the cloud. This expansion gives customer access to the latest compute-optimized and general-purpose instance families. The",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service announces additional upgrade runway for existing domains and support dates for additional versions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-opensearch-service-additional-upgrade-runway-support-dates",
+      "date": "2026-08-07T07:00:00.000Z",
+      "description": "In November 2024, Amazon OpenSearch Service announced Extended Support for legacy Elasticsearch and OpenSearch engine versions (see also the detailed blog post ). Since that announcement, many customers have upgraded to newer versions. However, some customers need more time to plan and complete their migrations. To provide this flexibility, we are continuing security and operating system patch cov",
+      "tags": []
+    },
+    {
+      "title": "Amazon SES now helps identify automated open and click events in event notifications",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-automated-email-interactions/",
+      "date": "2026-08-07T07:00:00.000Z",
+      "description": "Amazon Simple Email Service (SES) now helps you identify automated email interactions. Open and Click event notifications now include an isBotEvent field that indicates whether the event was likely triggered by an automated system or a human recipient. Customers who publish Open or Click events through a configuration set event destination will now see an isBotEvent field with a value of Likely or",
+      "tags": []
+    },
+    {
+      "title": "AWS Parallel Computing Service is now in scope for FedRAMP, SOC, ISO, CSA STAR, and PCI",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-pcs-august/",
+      "date": "2026-08-07T04:58:00.000Z",
+      "description": "AWS Parallel Computing Service (PCS), a managed service that simplifies running and scaling high performance computing (HPC) workloads on AWS using Slurm, has expanded its security and compliance coverage. Federal agencies, public sector organizations, and enterprises in regulated industries can now use PCS to run sensitive and mission-critical HPC workloads while meeting their governance, securit",
+      "tags": [
+        "Organizations",
+        "Security Hub"
+      ]
+    },
+    {
       "title": "Amazon ECS now supports fractional GPU scheduling with Amazon EC2 G6f instances",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecs-fractional-gpu/",
       "date": "2026-08-06T22:00:00.000Z",
@@ -42,6 +119,15 @@
       "tags": [
         "Lambda",
         "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS WAF now supports a Salt Security managed rule group for API and MCP threat detection",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-waf-salt-security-managed-rules/",
+      "date": "2026-08-06T21:10:00.000Z",
+      "description": "AWS WAF now supports the Salt Security managed rule group, available through AWS Marketplace: Salt Managed Rules for AWS WAF - AI Agent &amp; API Security . This rule group gives AWS WAF customers detection and mitigation for API-focused attacks and for traffic from AI agents and Model Context Protocol (MCP) endpoints, without writing or maintaining custom rules. The rule group detects common and ",
+      "tags": [
+        "WAF"
       ]
     },
     {
@@ -81,11 +167,31 @@
       ]
     },
     {
+      "title": "Amazon OpenSearch UI now supports Network Access Control",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/opensearch-ui-network-access-control",
+      "date": "2026-08-06T18:16:00.000Z",
+      "description": "Amazon OpenSearch Service now supports network access controls for OpenSearch UI applications. OpenSearch UI is the fully managed web service for search, analytics, and unified observability across multiple AWS data sources. With network access controls, you can restrict access to your OpenSearch UI applications to approved networks using the same IAM condition keys (aws:SourceVpce, aws:SourceVpc,",
+      "tags": [
+        "VPC",
+        "IAM"
+      ]
+    },
+    {
       "title": "AWS Transform for migrations automates post-launch actions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-transform-for-migrations-automates-post-launch-actions",
       "date": "2026-08-06T17:00:00.000Z",
       "description": "AWS Transform now automates the configuration and execution of post-launch actions through the migration workflow. Define actions at the account level and apply them automatically to each source server across your target accounts, including multi-account migrations. Automating these actions removes the slow, error-prone work of configuring them server by server, so your team moves more servers wit",
       "tags": []
+    },
+    {
+      "title": "Amazon Connect Customer adds one-click drill-down on real-time metrics dashboards",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-drill-down-metrics/",
+      "date": "2026-08-06T17:00:00.000Z",
+      "description": "Amazon Connect Customer dashboards now support drilling down into real-time queue and routing profile performance. With a single click, supervisors can drill from a summary view into pre-filtered routing profile, queue, agent, or routing step widgets. For example, a supervisor who sees a spike in queue wait times can immediately drill down to agent activity for a specific queue and reassign agents",
+      "tags": [
+        "RDS",
+        "CloudWatch"
+      ]
     },
     {
       "title": "AWS Security Agent now supports email-based MFA for penetration testing",
@@ -105,20 +211,20 @@
       ]
     },
     {
-      "title": "Amazon WorkSpaces now publishes enhanced observability metrics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-observability-metrics",
+      "title": "Amazon WorkSpaces Applications now publishes enhanced observability metrics",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-observability-metrics",
       "date": "2026-08-06T15:00:00.000Z",
-      "description": "Amazon WorkSpaces now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their virtual desktop workloads. These new metrics span network performance, compute and storage resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proactively ",
+      "description": "Amazon WorkSpaces Applications now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their application streaming workloads. These new metrics span network performance, compute resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proac",
       "tags": [
         "CloudWatch",
         "Cost"
       ]
     },
     {
-      "title": "Amazon WorkSpaces Applications now publishes enhanced observability metrics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-observability-metrics",
+      "title": "Amazon WorkSpaces now publishes enhanced observability metrics",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-observability-metrics",
       "date": "2026-08-06T15:00:00.000Z",
-      "description": "Amazon WorkSpaces Applications now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their application streaming workloads. These new metrics span network performance, compute resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proac",
+      "description": "Amazon WorkSpaces now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their virtual desktop workloads. These new metrics span network performance, compute and storage resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proactively ",
       "tags": [
         "CloudWatch",
         "Cost"
@@ -135,114 +241,9 @@
       "title": "Amazon MSK now delivers Kafka Authorizer Logs to customers",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-msk-kafka-authorizer-logs/",
       "date": "2026-08-06T14:00:00.000Z",
-      "description": "Amazon Managed Streaming for Apache Kafka (MSK) now supports Authorizer Log Delivery for Provisioned clusters, including both Standard and Express brokers, at no additional cost. With authorizer logs, you get detailed visibility into user and application access, identify and address client authorization issues , and meet your organization's security requirements. Each denied authorization request ",
+      "description": "Amazon Managed Streaming for Apache Kafka (MSK) now supports Authorizer Log Delivery for Provisioned clusters, including both Standard and Express brokers, at no additional cost. With authorizer logs, you get detailed visibility into user and application access, identify and address client authorization issues, and meet your organization's security requirements. Each denied authorization request i",
       "tags": [
         "Cost"
-      ]
-    },
-    {
-      "title": "AWS Backup for Amazon S3 now supports direct access to backup data",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-backup-amazon-s3-direct-access/",
-      "date": "2026-08-06T10:00:00.000Z",
-      "description": "AWS Backup for Amazon S3 now supports creating S3 Access Points, providing immediate read-only access to backup data using standard S3 APIs without initiating a restore. This enables targeted file recovery, data validation, compliance auditing, and forensic investigation while your backup data remains protected in your backup vault. You can create an access point for an S3 recovery point and read ",
-      "tags": [
-        "S3",
-        "CloudTrail",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon SES now helps identify automated open and click events in event notifications",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-automated-email-interactions/",
-      "date": "2026-08-06T07:00:00.000Z",
-      "description": "Amazon Simple Email Service (SES) now helps you identify automated email interactions. Open and Click event notifications now include an isBotEvent field that indicates whether the event was likely triggered by an automated system or a human recipient. Customers who publish Open or Click events through a configuration set event destination will now see an isBotEvent field with a value of Likely or",
-      "tags": []
-    },
-    {
-      "title": "AWS Backup extends logically air-gapped vault support for Amazon Neptune to three additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-backup-logically-air-gapped-vault-neptune-regions/",
-      "date": "2026-08-06T07:00:00.000Z",
-      "description": "AWS Backup logically air-gapped vault support for Amazon Neptune is now available in three additional AWS Regions: Asia Pacific (Melbourne), Europe (Spain), and Europe (Zurich). With this expansion, you can store Neptune backups in logically air-gapped vaults in these Regions. Logically air-gapped vaults are immutable, locked by default, and encrypted using AWS owned keys or customer-managed keys.",
-      "tags": [
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon Quick supports multi-dataset analytical capabiity",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick/",
-      "date": "2026-08-06T06:54:00.000Z",
-      "description": "Today, Amazon Quick announces supporting multi-dataset topics, enabling users to model relationships across multiple datasets in a single topic and use that model to build dashboards and answer questions in natural language. Previously, answering a question in a Quick Sight visual that spanned datasets required pre-joining the data into a single dataset—adding manual JOIN logic in the data prepara",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Announcing temporal policies and rate limiting in Amazon Bedrock AgentCore",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/temporal-policies-agentcore/",
-      "date": "2026-08-06T04:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore announces two new controls: temporal policies for stateful agent authorization and rate limiting for AI traffic. Temporal policies let you define stateful authorization rules that evaluate each request in the context of an agent's prior actions within a session, because a single tool call can be safe in isolation yet harmful given what preceded it. With temporal policies y",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon EC2 M8g instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-m8g-instances-additional-regions/",
-      "date": "2026-08-06T00:27:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M8g instances are available in AWS Asia Pacific (Taipei), and AWS Mexico (Central) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 M8g instances are built for general-purpose workloads, such as application servers, microservices, ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Lambda announces scalable network bandwidth up to 3,000 Mbps for functions outside a VPC",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-network-bandwidth/",
-      "date": "2026-08-05T21:35:00.000Z",
-      "description": "AWS Lambda now supports scalable network bandwidth for Lambda functions, enabling faster data transfer to and from your execution environment for latency-sensitive workloads. This feature enables functions outside a VPC configured with 2 GB of memory or more to access network bandwidth that scales proportionally, from 625 Mbps at 2 GB up to 3,000 Mbps at 10 GB. Customers use Lambda to build latenc",
-      "tags": [
-        "Lambda",
-        "VPC"
-      ]
-    },
-    {
-      "title": "Amazon Keyspaces (for Apache Cassandra) is now available in the Canada West (Calgary) Region (ca-west-1)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-keyspaces-apache-cassandra-canada-west/",
-      "date": "2026-08-05T20:06:00.000Z",
-      "description": "Amazon Keyspaces (for Apache Cassandra) is now available in the Canada West (Calgary) Region (ca-west-1), allowing customers in the Canada West Region to build Cassandra-compatible applications with lower latency while keeping their data within the Region to meet data residency requirements. Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compa",
-      "tags": []
-    },
-    {
-      "title": "AWS Glue Data Quality makes ETL anomaly detection free and improves anomaly predictions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-data-quality-anomaly-detection-free",
-      "date": "2026-08-05T18:25:00.000Z",
-      "description": "AWS Glue Data Quality now offers improved anomaly detection with a new observation mode that reduces detection of false anomalies and removes pricing for anomaly detection in ETL jobs. Customers using notebook-based or exploratory workflows now benefit from smarter anomaly detection that gracefully handles irregular data arrival intervals. This new capability avoids over-extrapolating trends by us",
-      "tags": []
-    },
-    {
-      "title": "AWS Marketplace adds AI Insights so buyers can understand pricing before they buy",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-ai-insights/",
-      "date": "2026-08-05T17:00:00.000Z",
-      "description": "You can now understand how a product's pricing works before you buy it. Available in the pricing section of the listing in AWS Marketplace, AI Insights explains each product's pricing in plain language: what a pricing unit maps to, how your bill changes as usage scales, how multiple pricing dimensions combine into one cost, and what is and isn't included. Answering these questions used to mean hav",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon DynamoDB now supports real-time vector search",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-dynamodb-vector-search",
-      "date": "2026-08-05T16:59:00.000Z",
-      "description": "Today, AWS announces the general availability of vector search for Amazon DynamoDB, a new feature to index and search vectors in real time. As vector datasets grow into the billions or trillions, vector search at scale traditionally trades off search speed, scale, and accuracy: latency climbs with vector count unless you accept lower recall or throughput. DynamoDB now supports native vector search",
-      "tags": [
-        "DynamoDB"
-      ]
-    },
-    {
-      "title": "AWS Glue Data Catalog now supports metadata exports to S3 Tables (Preview)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-data-catalog-s3-tables/",
-      "date": "2026-08-05T15:42:00.000Z",
-      "description": "AWS Glue Data Catalog is a centralized metadata repository that helps you discover and understand data, with semantic search and support for adding business context to datasets currently in preview. Today, we are adding two new capabilities to this preview: exporting catalog metadata exports to S3 Tables for metadata querying, and expanding the semantic search preview to catalogs encrypted with AW",
-      "tags": [
-        "S3"
       ]
     }
   ],
