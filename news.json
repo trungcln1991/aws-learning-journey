@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T02:57:04.483Z",
+  "generated_at": "2026-08-09T03:04:16.823Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -56,6 +56,16 @@
         "EC2",
         "IAM",
         "KMS"
+      ]
+    },
+    {
+      "title": "Amazon VPC IPAM now supports BGP route protection monitoring and delegated RPKI for BYOIP prefixes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-vpc-ipam-bgp-rpki-byoip/",
+      "date": "2026-08-07T16:00:00.000Z",
+      "description": "Amazon Virtual Private Cloud (VPC) IP Address Manager (IPAM) now supports BGP route protection monitoring and delegated Resource Public Key Infrastructure (RPKI) management for Bring Your Own IP (BYOIP) prefixes. Network administrators can centrally monitor BGP route protection and automate Route Origin Authorization (ROA) management across their organization. Using BGP route monitoring, you can v",
+      "tags": [
+        "VPC",
+        "CloudWatch"
       ]
     },
     {
@@ -236,15 +246,6 @@
       "date": "2026-08-06T14:49:00.000Z",
       "description": "AWS Marketplace now supports configurable net payment terms on private offers, with options including Net 30, Net 45, Net 60, or Net 90. Prior to this launch, net payment terms were uniform across all AWS Marketplace purchases, based on the buyer's payment terms with AWS. This new feature allows sellers to configure when payment is due, so invoice due dates match what buyers and sellers negotiate.",
       "tags": []
-    },
-    {
-      "title": "Amazon MSK now delivers Kafka Authorizer Logs to customers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-msk-kafka-authorizer-logs/",
-      "date": "2026-08-06T14:00:00.000Z",
-      "description": "Amazon Managed Streaming for Apache Kafka (MSK) now supports Authorizer Log Delivery for Provisioned clusters, including both Standard and Express brokers, at no additional cost. With authorizer logs, you get detailed visibility into user and application access, identify and address client authorization issues, and meet your organization's security requirements. Each denied authorization request i",
-      "tags": [
-        "Cost"
-      ]
     }
   ],
   "security": [
