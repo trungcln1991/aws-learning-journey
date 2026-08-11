@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T03:14:22.767Z",
+  "generated_at": "2026-08-11T03:06:23.990Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,83 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "FLUX.2-small-decoder and gemma-4-12B-it models now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/flux.2-small-decoder-gemma-4-12B-it-on-sagemaker-jumpstart/",
+      "date": "2026-08-10T23:08:00.000Z",
+      "description": "Black Forest Labs' FLUX.2-small-decoder and Google's gemma-4-12B-it models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models bring specialized capabilities spanning efficient image generation decoding and unified multimodal understanding, enabling customers to deploy high-performance, scalable AI solutions on ",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "langcache-embed-v3-small, Mellum2-12B-A2.5B-Thinking, and LightOnOCR-2-1B models now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/langcache-embed-v3-small-mellum2-12B-A2.5B-thinking-lightOnOCR-2-1B-on-sagemaker-jumpstart/",
+      "date": "2026-08-10T23:05:00.000Z",
+      "description": "Redis's langcache-embed-v3-small, JetBrains' Mellum2-12B-A2.5B-Thinking, and LightOn's LightOnOCR-2-1B models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning semantic caching optimization, code-focused reasoning, and end-to-end document OCR, enabling customers to dep",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon EC2 High Memory U7i instances now available in AWS South America (São Paulo) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-high-memory-u7i-south-america",
+      "date": "2026-08-10T23:02:00.000Z",
+      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS South America (São Paulo) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "GLM-5.2 FP8, NVIDIA-Nemotron-Nano-12B-v2 and GLM-OCR models now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/glm-5.2-fp8-nemotron-nano-12b-v2-glm-ocr-on-sagemaker-jumpstart/",
+      "date": "2026-08-10T23:02:00.000Z",
+      "description": "Z.ai's GLM-5.2 FP8, NVIDIA's Nemotron-Nano-12B-v2, and Z.ai's GLM-OCR models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning long-horizon agentic engineering, efficient hybrid reasoning, and advanced document understanding, enabling customers to deploy high-performan",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Streams Now Offers Service-managed Shader Caching",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/Amazon-GameLift-Streams-Shader-Caching/",
+      "date": "2026-08-10T21:15:00.000Z",
+      "description": "Amazon GameLift Streams now manages shader cache capture and distribution for your applications. You capture a shader cache from a stream session, and the service automatically makes it available for future sessions across your streaming locations. No application changes are required. Capturing shader caches can help reduce loading times and visual stuttering, during the session. With service-mana",
+      "tags": [
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "Amazon EC2 introduces application status checks",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-application-status-checks",
+      "date": "2026-08-10T17:47:00.000Z",
+      "description": "Amazon EC2 introduces application status checks, a new status check that helps customers detect and respond to application-level issues on their EC2 instances. With application status checks, EC2 monitors applications to detect issues such as a web server that has stopped accepting requests, a Docker daemon that is not running, an incorrect networking configuration, or a network interface that is ",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Serverless now supports up to 10,000 collections per collection group",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-opensearch-serverless-supports-10000-collections-per-collection-group/",
+      "date": "2026-08-10T15:51:00.000Z",
+      "description": "The next generation of Amazon OpenSearch Serverless now supports up to 10,000 collections within a single collection group, increased from the previous limit of 1,500. Collection groups organize multiple collections and enable them to share OpenSearch Compute Units (OCUs), even when the collections are encrypted with different AWS KMS keys. With this higher limit, you can consolidate significantly",
+      "tags": [
+        "Lambda",
+        "KMS"
+      ]
+    },
+    {
+      "title": "AWS Elastic Disaster Recovery now preserves UEFI boot mode for Linux servers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-drs-linux-uefi",
+      "date": "2026-08-10T13:00:00.000Z",
+      "description": "AWS Elastic Disaster Recovery (AWS DRS) now preserves UEFI boot mode when recovering Linux source servers that boot with UEFI firmware. Previously, DRS launched these Linux servers in legacy BIOS mode, which could require extra configuration after recovery. Now your recovered Linux instances launch with the same UEFI boot mode as your source servers. This means your recovery instances more closely",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "Amazon EC2 R8i and R8i-Flex instances are now available in Europe (Milan) region",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-r8i-flex/",
@@ -175,77 +252,6 @@
         "Lambda",
         "ALB"
       ]
-    },
-    {
-      "title": "Amazon OpenSearch UI now supports Network Access Control",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/opensearch-ui-network-access-control",
-      "date": "2026-08-06T18:16:00.000Z",
-      "description": "Amazon OpenSearch Service now supports network access controls for OpenSearch UI applications. OpenSearch UI is the fully managed web service for search, analytics, and unified observability across multiple AWS data sources. With network access controls, you can restrict access to your OpenSearch UI applications to approved networks using the same IAM condition keys (aws:SourceVpce, aws:SourceVpc,",
-      "tags": [
-        "VPC",
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS Transform for migrations automates post-launch actions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-transform-for-migrations-automates-post-launch-actions",
-      "date": "2026-08-06T17:00:00.000Z",
-      "description": "AWS Transform now automates the configuration and execution of post-launch actions through the migration workflow. Define actions at the account level and apply them automatically to each source server across your target accounts, including multi-account migrations. Automating these actions removes the slow, error-prone work of configuring them server by server, so your team moves more servers wit",
-      "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer adds one-click drill-down on real-time metrics dashboards",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-drill-down-metrics/",
-      "date": "2026-08-06T17:00:00.000Z",
-      "description": "Amazon Connect Customer dashboards now support drilling down into real-time queue and routing profile performance. With a single click, supervisors can drill from a summary view into pre-filtered routing profile, queue, agent, or routing step widgets. For example, a supervisor who sees a spike in queue wait times can immediately drill down to agent activity for a specific queue and reassign agents",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Security Agent now supports email-based MFA for penetration testing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-security-agent-mfa/",
-      "date": "2026-08-06T16:54:00.000Z",
-      "description": "AWS Security Agent (now part of AWS Continuum ) now enables penetration testing of applications that use email-based multi-factor authentication (MFA) as part of their login flow. Previously, applications requiring one-time codes or verification links sent by email were out of scope for automated pentesting because the agent had no mechanism to intercept those messages. This launch expands coverag",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS now provides visibility into storage volume initialization status",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-storage-volume-initialization-visibility",
-      "date": "2026-08-06T16:00:00.000Z",
-      "description": "Amazon RDS now provides visibility into the initialization status of database storage volumes created from snapshots. You can use this status to determine when your storage is fully initialized after a restore and is ready to support latency-sensitive database workloads at fully provisioned performance. When you restore a database instance to a point-in-time, or create a read replica creation, or ",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon WorkSpaces Applications now publishes enhanced observability metrics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-observability-metrics",
-      "date": "2026-08-06T15:00:00.000Z",
-      "description": "Amazon WorkSpaces Applications now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their application streaming workloads. These new metrics span network performance, compute resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proac",
-      "tags": [
-        "CloudWatch",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon WorkSpaces now publishes enhanced observability metrics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-observability-metrics",
-      "date": "2026-08-06T15:00:00.000Z",
-      "description": "Amazon WorkSpaces now publishes additional performance and session health metrics to Amazon CloudWatch, enabling IT administrators to gain deeper visibility into their virtual desktop workloads. These new metrics span network performance, compute and storage resource utilization, and session lifecycle events — all available at no additional cost. With these metrics, administrators can proactively ",
-      "tags": [
-        "CloudWatch",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Marketplace now lets sellers configure net payment terms on private offers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-net-payment-terms-for-private-offers",
-      "date": "2026-08-06T14:49:00.000Z",
-      "description": "AWS Marketplace now supports configurable net payment terms on private offers, with options including Net 30, Net 45, Net 60, or Net 90. Prior to this launch, net payment terms were uniform across all AWS Marketplace purchases, based on the buyer's payment terms with AWS. This new feature allows sellers to configure when payment is due, so invoice due dates match what buyers and sellers negotiate.",
-      "tags": []
     }
   ],
   "security": [
@@ -342,6 +348,17 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: AWS Heroes Summit, Web Search on Amazon Bedrock, Dogwood, Kiro Crew, and more (August 10, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-heroes-summit-web-search-on-amazon-bedrock-dogwood-kiro-crew-and-more-august-10-2026/",
+      "date": "2026-08-10T15:45:03.000Z",
+      "description": "Last week, we brought together AWS Heroes from around the world to connect, collaborate, and celebrate the builders who go above and beyond for the AWS community. The AWS Heroes Summit, an invite-only annual gathering, brings global experts specializing in fields like AI, serverless, and containers together for direct collaboration, technical deep-dives, and feedback sessions […]",
+      "tags": [
+        "Lambda",
+        "ECS",
+        "Bedrock"
+      ]
+    },
+    {
       "title": "Runtime instances: persistent compute for production AI agents on Amazon Bedrock AgentCore",
       "link": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
       "date": "2026-08-06T22:58:00.000Z",
@@ -424,15 +441,6 @@
       "description": "Learn how Kubernetes version rollbacks for Amazon EKS let you reverse cluster upgrades within seven days. This new feature provides a safety net for upgrade failures—no cluster rebuilds required—turning Kubernetes version upgrades into a reversible, low-risk operation.",
       "tags": [
         "EKS"
-      ]
-    },
-    {
-      "title": "Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode",
-      "link": "https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/",
-      "date": "2026-06-30T21:30:33.000Z",
-      "description": "AWS CloudFormation speeds up infrastructure deployment with Express mode, enabling AI agents and developers to receive deployment confirmation in seconds and iterate faster. Available in all commercial Regions at no additional cost.",
-      "tags": [
-        "Cost"
       ]
     }
   ],
