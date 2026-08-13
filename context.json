@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "IAM Deep Dive",
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: phiên 71 (11/08) — weekly performance check phát hiện disk-c dev flap, verify CVE-2026-18830 không áp dụng, đóng 2 gap cũ",
-  "updated_at": "2026-08-11T01:27:14Z"
+  "commit_msg": "session: phiên 73 (13/08) — IAM/SSO audit + Terraform sync network + DR Failover Drill runbook + go-live Phase 2 NAT-Indo (phát hiện AS-path prepend chưa từng cấu hình thật, fix trên production)",
+  "updated_at": "2026-08-13T04:49:13Z"
 }
