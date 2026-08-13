@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: phiên 73 (13/08) — IAM/SSO audit + Terraform sync network + DR Failover Drill runbook + go-live Phase 2 NAT-Indo (phát hiện AS-path prepend chưa từng cấu hình thật, fix trên production)",
-  "updated_at": "2026-08-13T04:49:13Z"
+  "commit_msg": "session: phiên 74 (13/08) — audit CloudWatch Logs Insights DataScanned, đóng gap ($0 rủi ro)",
+  "updated_at": "2026-08-13T08:14:32Z"
 }
