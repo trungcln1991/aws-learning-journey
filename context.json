@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: phiên 74 (13/08) — audit CloudWatch Logs Insights DataScanned, đóng gap ($0 rủi ro)",
-  "updated_at": "2026-08-13T08:14:32Z"
+  "commit_msg": "session: phiên 75 (14/08) — VPN auto-heal weekly review (chập chờn Long An 04/08 + ssm_poll_timeout blip) + audit containerd CRI CVE trên ECS (4/5 service Fargate an toàn, 1 EC2-backed ngoài scope Japfa)",
+  "updated_at": "2026-08-14T04:06:41Z"
 }
