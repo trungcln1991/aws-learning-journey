@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T03:29:25.772Z",
+  "generated_at": "2026-08-14T03:26:28.641Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,104 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Billing and Cost Management introduces Managed Dashboards",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-billing-and-cost-management-managed-dashboards/",
+      "date": "2026-08-14T02:00:00.000Z",
+      "description": "AWS Billing and Cost Management (BCM) Dashboards now include Managed Dashboards. These are a collection of preconfigured and read-only dashboards located in your dashboard list. They deliver actionable cost insights with your account data pre-populated without setup. There are five curated dashboards. Cost Overview &amp; Trends tracks your spending patterns across services, accounts, and regions o",
+      "tags": [
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Client VPN now supports CLI, administration controls, and faster connections",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-client-vpn-cli/",
+      "date": "2026-08-13T20:49:00.000Z",
+      "description": "AWS Client VPN introduces a rebuilt AWS VPN Client v6.0.x which offers new features like command-line interface (CLI) support, enterprise administrative controls, and faster connection establishment time, making it easier you to automate VPN connectivity and centralize device management across your organization. The AWS VPN Client CLI provides full feature parity with the GUI. You can now script V",
+      "tags": []
+    },
+    {
+      "title": "Claude Opus 5 is now available in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/claude-opus-5-aws-govcloud/",
+      "date": "2026-08-13T18:23:00.000Z",
+      "description": "AWS GovCloud (US) now offers Claude Opus 5 — the most advanced Opus model yet, and compatible with zero data retention (ZDR) — bringing a step-change in coding, long-running agents, and complex professional work to teams building at the highest level. Claude Opus 5 is available via the bedrock-runtime endpoint in both AWS GovCloud (US) regions, and available via the bedrock-mantle endpoint in AWS ",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Quick Microsoft 365 extensions are now generally available",
+      "link": "https://aws.amazon.com/amazon-quick-microsoft-365-extensions-generally-available",
+      "date": "2026-08-13T18:00:00.000Z",
+      "description": "Today, Amazon Quick announces the general availability of Microsoft 365 extensions for Excel, PowerPoint, Word, and Outlook. These extensions enable Quick to perform tasks directly within users' M365 environments, using AI to handle complex local tasks such as redlining documents, building financial models, creating presentation-ready decks, and managing Outlook inboxes. The Excel extension helps ",
+      "tags": []
+    },
+    {
+      "title": "Spot Placement Score now includes Local Zones",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/spot-placement-score-local-zones/",
+      "date": "2026-08-13T17:13:00.000Z",
+      "description": "Today, AWS announces support for AWS Local Zones in Spot placement score, helping you identify locations where your Spot capacity request is most likely to succeed. Spot placement score evaluates your target capacity and compute requirements and returns scores for AWS Regions or Availability Zones. Previously, Spot placement scores excluded local zone capacity information when reporting zonal and ",
+      "tags": []
+    },
+    {
+      "title": "Daybreak Red and Daybreak Blue from OpenAI are now available to eligible customers on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/openai-daybreak-red-and-blue-on-amazon-bedrock/",
+      "date": "2026-08-13T16:12:00.000Z",
+      "description": "Security teams can now access Daybreak Red and Daybreak Blue from OpenAI on Amazon Bedrock. Both are part of Daybreak, the cyber defense initiative from OpenAI that gives defenders governed access to frontier AI for cybersecurity work. Daybreak Blue is the starting point for most security teams across defensive workflows including vulnerability discovery, detection engineering, and incident respon",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "AWS Certificate Manager supports switching from e-mail to DNS validation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/AWS-Certificate-Manager-Email-DNS-Switch",
+      "date": "2026-08-13T15:00:00.000Z",
+      "description": "AWS Certificate Manager (ACM) now enables you to change the domain validation method on your existing ACM issued public TLS certificates from e-mail to DNS, without reissuing the certificate or changing its existing Amazon Resource Name (ARN). Due to the Certification Authority/Browser (CA/B) Forum's mandated deprecation of email-based domain validation for publicly trusted certificates, effective",
+      "tags": [
+        "Route 53"
+      ]
+    },
+    {
+      "title": "Amazon S3 adds additional policy details to access denied error messages",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/s3-additional-policy-details-access-denied-error-messages/",
+      "date": "2026-08-13T13:00:00.000Z",
+      "description": "Amazon S3 now includes the specific AWS Identity and Access Management (IAM) and AWS Organizations policy Amazon Resource Name (ARN) in HTTP 403 Access Denied error messages for same-account and same-organization requests. This helps you quickly identify the exact policy responsible for a denied request and remediate the issue directly. Previously, S3 access denied error messages included the poli",
+      "tags": [
+        "S3",
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Clean Rooms supports minimum aggregation thresholds in custom analysis rules",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-clean-rooms-minimum-aggregation-custom-analysis-rules",
+      "date": "2026-08-13T12:00:00.000Z",
+      "description": "AWS Clean Rooms now supports minimum aggregation thresholds for the Custom analysis rule type . Minimum aggregation helps protect the privacy of individual data subjects by preventing queries from returning results about individuals or small groups. With this launch, organizations can enforce minimum aggregation on custom SQL queries, ensuring that every row a query outputs represents at least the",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports approval policies for sharing",
+      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-approval-policies-sharing/",
+      "date": "2026-08-12T22:22:00.000Z",
+      "description": "Amazon Quick now offers approval policies, giving administrators governance controls over how assets are shared within their organization. With approval policies, administrators can require designated approvers to review and approve share requests before access is granted, helping organizations ensure that sharing of sensitive assets is deliberate, compliant, and auditable. Administrators can crea",
+      "tags": [
+        "CloudTrail",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports per-user resource limits",
+      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-per-user-resource-limits/",
+      "date": "2026-08-12T22:17:00.000Z",
+      "description": "Amazon Quick now enables administrators to set per-user limits on index storage and agent hours, giving them direct control over subscription costs. With limits management, administrators can create limit profiles that cap per-user consumption, helping prevent unexpected overage charges and ensuring subscription entitlements are used efficiently across their organization. For example, an organizat",
+      "tags": [
+        "Cost"
+      ]
+    },
     {
       "title": "AWS Global View now offers an interactive map view for AWS Regions and AWS Local Zones",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-global-view-map-view/",
@@ -73,6 +171,13 @@
       "tags": [
         "Organizations"
       ]
+    },
+    {
+      "title": "Amazon Nova Multimodal Embeddings is now available in AWS GovCloud (US-West)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-nova-mme-govcloud/",
+      "date": "2026-08-12T14:34:00.000Z",
+      "description": "We are excited to announce the general availability of Amazon Nova Multimodal Embeddings, a state-of-the-art embedding model for agentic RAG and semantic search, in AWS GovCloud (US-West). It is the first unified embedding model that supports text, documents, images, video, and audio through a single model, to enable cross-modal retrieval with leading accuracy. Managing and searching across differ",
+      "tags": []
     },
     {
       "title": "Amazon Quick agentic AI capabilities are now available in AWS GovCloud (US-West)",
@@ -135,121 +240,6 @@
       "date": "2026-08-11T14:57:00.000Z",
       "description": "AWS Secrets Manager now extends its managed external secrets capability to include Jenkins API Tokens and SonarQube Tokens, enabling you to automatically rotate these third-party credentials directly from the AWS console without writing any custom rotation code. For Jenkins, Secrets Manager mints a new token and revokes the old one only after the replacement is verified active, so your continuous ",
       "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer launches performance dashboard for Cases",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-cases-dashboard/",
-      "date": "2026-08-11T13:30:00.000Z",
-      "description": "Amazon Connect Customer now provides a performance dashboard for cases that helps managers monitor case volume, resolution trends, and performance against service level agreement (SLA) targets. Managers can compare current and prior-period performance across metrics such as cases created, average resolution time, first-contact resolution percentage, and SLA achievement rate. They can also analyze ",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Clean Rooms supports exporting privacy-enhanced analysis logs for SQL",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-clean-rooms-export-analysis-log-sql",
-      "date": "2026-08-11T12:00:00.000Z",
-      "description": "AWS Clean Rooms now supports exporting privacy-enhanced analysis logs for SQL analyses , offering customers greater optimization and troubleshooting capabilities. With this launch, you can export privacy-enhanced analysis logs to an S3 bucket for SQL queries that ran in an AWS Clean Rooms collaboration, providing insight into Spark execution details that can help you optimize and troubleshoot your",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon RDS for MariaDB now supports MariaDB 12.3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-mariadb-1232-available/",
-      "date": "2026-08-11T08:54:00.000Z",
-      "description": "Starting today, Amazon RDS for MariaDB supports MariaDB major version 12.3, the latest Long-Term Support release from the MariaDB community. This release supports MariaDB 12.3.2 minor version. MariaDB 12.3 includes Oracle TO_DATE() function compatibility, reducing the code changes needed when migrating applications from Oracle to MariaDB. It adds an IS JSON predicate, so you can validate JSON docu",
-      "tags": [
-        "RDS",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "FLUX.2-small-decoder and gemma-4-12B-it models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/flux.2-small-decoder-gemma-4-12B-it-on-sagemaker-jumpstart/",
-      "date": "2026-08-10T23:08:00.000Z",
-      "description": "Black Forest Labs' FLUX.2-small-decoder and Google's gemma-4-12B-it models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models bring specialized capabilities spanning efficient image generation decoding and unified multimodal understanding, enabling customers to deploy high-performance, scalable AI solutions on ",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "langcache-embed-v3-small, Mellum2-12B-A2.5B-Thinking, and LightOnOCR-2-1B models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/langcache-embed-v3-small-mellum2-12B-A2.5B-thinking-lightOnOCR-2-1B-on-sagemaker-jumpstart/",
-      "date": "2026-08-10T23:05:00.000Z",
-      "description": "Redis's langcache-embed-v3-small, JetBrains' Mellum2-12B-A2.5B-Thinking, and LightOn's LightOnOCR-2-1B models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning semantic caching optimization, code-focused reasoning, and end-to-end document OCR, enabling customers to dep",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EC2 High Memory U7i instances now available in AWS South America (São Paulo) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-high-memory-u7i-south-america",
-      "date": "2026-08-10T23:02:00.000Z",
-      "description": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS South America (São Paulo) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "GLM-5.2 FP8, NVIDIA-Nemotron-Nano-12B-v2 and GLM-OCR models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/glm-5.2-fp8-nemotron-nano-12b-v2-glm-ocr-on-sagemaker-jumpstart/",
-      "date": "2026-08-10T23:02:00.000Z",
-      "description": "Z.ai's GLM-5.2 FP8, NVIDIA's Nemotron-Nano-12B-v2, and Z.ai's GLM-OCR models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning long-horizon agentic engineering, efficient hybrid reasoning, and advanced document understanding, enabling customers to deploy high-performan",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Streams Now Offers Service-managed Shader Caching",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/Amazon-GameLift-Streams-Shader-Caching/",
-      "date": "2026-08-10T21:15:00.000Z",
-      "description": "Amazon GameLift Streams now manages shader cache capture and distribution for your applications. You capture a shader cache from a stream session, and the service automatically makes it available for future sessions across your streaming locations. No application changes are required. Capturing shader caches can help reduce loading times and visual stuttering, during the session. With service-mana",
-      "tags": [
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "AWS Marketplace now supports category-based notification subscriptions and multi-channel delivery for buyers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-managed-buyer-notifications/",
-      "date": "2026-08-10T21:00:12.000Z",
-      "description": "AWS Marketplace buyers can now configure category-based notifications and multi-channel delivery through AWS User Notifications. Previously, buyer email notifications were limited to the AWS account root email with no way to choose which categories you received or route them to different teams. This meant teams responsible for procurement, renewals, or cost management either missed critical notifi",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Identity and Access Management streamlines assignment of IAM roles to workforce users with account access manager",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-aam/",
-      "date": "2026-08-10T20:07:00.000Z",
-      "description": "AWS Identity and Access Management (IAM) launched account access manager, a feature that streamlines assignment of IAM roles to workforce users. Administrators use account access manager to assign the IAM roles in their AWS accounts to the workforce users and groups in AWS IAM Identity Center. The feature brings together permissions management flexibility, user awareness, and a single point of fed",
-      "tags": [
-        "IAM",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EC2 introduces application status checks",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-application-status-checks",
-      "date": "2026-08-10T17:47:00.000Z",
-      "description": "Amazon EC2 introduces application status checks, a new status check that helps customers detect and respond to application-level issues on their EC2 instances. With application status checks, EC2 monitors applications to detect issues such as a web server that has stopped accepting requests, a Docker daemon that is not running, an incorrect networking configuration, or a network interface that is ",
-      "tags": [
-        "EC2",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Serverless now supports up to 10,000 collections per collection group",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-opensearch-serverless-supports-10000-collections-per-collection-group/",
-      "date": "2026-08-10T15:51:00.000Z",
-      "description": "The next generation of Amazon OpenSearch Serverless now supports up to 10,000 collections within a single collection group, increased from the previous limit of 1,500. Collection groups organize multiple collections and enable them to share OpenSearch Compute Units (OCUs), even when the collections are encrypted with different AWS KMS keys. With this higher limit, you can consolidate significantly",
-      "tags": [
-        "Lambda",
-        "KMS"
-      ]
     }
   ],
   "security": [
