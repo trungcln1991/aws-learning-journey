@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T03:26:28.641Z",
+  "generated_at": "2026-08-15T02:15:44.109Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,24 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon RDS for Oracle now supports Oracle Application Express (APEX) version 26.1",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-oracle-apex-26-1/",
+      "date": "2026-08-14T15:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports Oracle Application Express (APEX) version 26.1. Amazon RDS for Oracle is a managed database service that makes it simple to set up, operate, and scale Oracle Database deployments in the cloud. Oracle APEX is a low-code development platform that enables developers to build scalable, secure enterprise applications with modern us",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon SES click tracking now supports custom URL paths for mobile app deep linking",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-supports-customurl-deeplinking",
+      "date": "2026-08-14T07:00:00.000Z",
+      "description": "Amazon Simple Email Service (SES) now makes it easier to support mobile deep linking with the new ses:custom-path HTML attribute. When you add this attribute to an &lt;a&gt; tag, SES carries your path segment through to the tracking URL, so mobile operating systems can match it to your app's Universal Links (iOS) or App Links (Android) configuration. This enables you to use mobile deep linking wit",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
       "title": "AWS Billing and Cost Management introduces Managed Dashboards",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-billing-and-cost-management-managed-dashboards/",
       "date": "2026-08-14T02:00:00.000Z",
@@ -40,6 +58,15 @@
       "date": "2026-08-13T20:49:00.000Z",
       "description": "AWS Client VPN introduces a rebuilt AWS VPN Client v6.0.x which offers new features like command-line interface (CLI) support, enterprise administrative controls, and faster connection establishment time, making it easier you to automate VPN connectivity and centralize device management across your organization. The AWS VPN Client CLI provides full feature parity with the GUI. You can now script V",
       "tags": []
+    },
+    {
+      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-redshift-adds-rg-large-12xlarge-aws-govcloud-regions/",
+      "date": "2026-08-13T19:34:00.000Z",
+      "description": "Amazon Redshift now offers rg.large and rg.12xlarge instance sizes for RG instances in the AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions. RG instances deliver better performance, running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 instances, at 30% lower price per vCPU. RG instances include Redshift's custom-built vectorized data lake query engi",
+      "tags": [
+        "EC2"
+      ]
     },
     {
       "title": "Claude Opus 5 is now available in AWS GovCloud (US)",
@@ -215,31 +242,6 @@
         "Bedrock",
         "SageMaker"
       ]
-    },
-    {
-      "title": "NVIDIA Nemotron 3.5 Lightning model is now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/nvidia-nemotron-3.5-lightning-on-sagemaker-jumpstart/",
-      "date": "2026-08-11T15:21:00.000Z",
-      "description": "NVIDIA's Nemotron 3.5 Lightning is now available on Amazon SageMaker JumpStart, giving AWS customers access to the fastest open model in its class for persistent agent workloads and rapid task execution. Nemotron 3.5 Lightning is engineered for persistent agents and high-throughput enterprise automation across domains including personal assistants, financial document processing, cybersecurity tria",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Glue adds one-click access to SageMaker Unified Studio from the AWS console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/smus-glue-access",
-      "date": "2026-08-11T14:57:00.000Z",
-      "description": "AWS Glue now provides direct access to Amazon SageMaker Unified Studio, helping data engineers and analysts move from viewing the catalog in the Glue console to querying their data, running data quality checks, and building data pipelines in SageMaker Unified Studio with a single click. This new integration helps customers who already work in the Glue console access data and AI capabilities in Sag",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Secrets Manager adds managed external secrets support for Jenkins and SonarQube",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/secrets-manager-integration-jenkins-sonarqube/",
-      "date": "2026-08-11T14:57:00.000Z",
-      "description": "AWS Secrets Manager now extends its managed external secrets capability to include Jenkins API Tokens and SonarQube Tokens, enabling you to automatically rotate these third-party credentials directly from the AWS console without writing any custom rotation code. For Jenkins, Secrets Manager mints a new token and revokes the old one only after the replacement is verified active, so your continuous ",
-      "tags": []
     }
   ],
   "security": [
