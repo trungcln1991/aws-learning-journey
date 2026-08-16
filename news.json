@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T02:15:44.109Z",
+  "generated_at": "2026-08-16T02:23:21.731Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -438,48 +438,46 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
       {
-        "title": "Service disruption: Increased Error Rates",
+        "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
-        "tags": [
-          "Lambda"
-        ]
-      },
-      {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
-        "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "date": "2026-08-15T22:26:42.000Z",
+        "description": "Our co-location partner is continuing work to restore safe access to the affected area at the Equinix FR5 location in Frankfurt, DEU. Once safe access has been secured, our engineers will be able to assess the affected network devices. We continue to closely track progress and will share an update by 9:30 PM PDT, or sooner as new information becomes available.",
         "tags": []
       },
       {
-        "title": "Service disruption: Increased Error Rates",
+        "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:14:45.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "date": "2026-08-15T16:27:41.000Z",
+        "description": "Our co-location partner continues to work to resolve the underlying facility infrastructure issue at the Equinix FR5 location in Frankfurt, DEU. Access to the affected area is currently restricted due to safety concerns, which is impacting our ability to assess the physical condition of the network equipment and provide a more accurate recovery timeline. Based on current information, full recovery",
+        "tags": []
+      },
+      {
+        "title": "Service impact: Increased Packet loss",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-08-15T13:17:50.000Z",
+        "description": "Engineers continue work to restore connectivity at Equinix FR5 location in Frankfurt, DEU. Our co-location partner is working to resolve the underlying facility infrastructure issue and while the improvements are not yet customer visible, we are making positive progress towards resolution. For customers who require immediate recovery, we recommend failing over to VPN, as outlined in our previous u",
         "tags": [
-          "S3"
+          "RDS"
         ]
       },
       {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T14:02:57.000Z",
-        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
+        "date": "2026-08-15T11:10:29.000Z",
+        "description": "AWS Direct Connect connectivity remains impaired for customers with connections at the Equinix FR5 location in Frankfurt, DEU. Customers with multi-site or redundant configurations across other locations continue to be unaffected. Engineers are actively working to restore connectivity, with efforts ongoing across multiple workstreams to resolve the underlying facility issue and bring the impacted ",
         "tags": []
+      },
+      {
+        "title": "Service impact: Increased Packet loss",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-08-15T09:08:14.000Z",
+        "description": "We continue to work towards recovery of connectivity for AWS Direct Connect connections at Equinix FR5, Frankfurt, DEU. The root cause is related to a facility infrastructure issue at the location that is impacting network infrastructure. Customers with connections solely at this location will continue to experience packet loss or connectivity degradation. Customers with multi-site or redundant co",
+        "tags": [
+          "RDS"
+        ]
       }
     ]
   }
