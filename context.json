@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session: phiên 76 (14/08) — ticket VPN S2S Vietnam-Indonesia (FTTH_S2SHO down) + ticket kết nối SAP PE2 dev aps12 + thiết kế kiến trúc Presigned URL Broker cho S3 team RnD",
-  "updated_at": "2026-08-14T08:01:36Z"
+  "commit_msg": "session: phiên 77 (18/08) — kế hoạch máy dev thứ 2 (tách 22 user + so sánh chi phí + Terraform draft) + dọn dẹp lớn dev aps12 (11 profile + 3 phần mềm) + đóng saga IAM webapp-patch + xóa 2 AMI cũ + mass triage Security Hub 203→0 finding (4 account)",
+  "updated_at": "2026-08-18T05:01:11Z"
 }
