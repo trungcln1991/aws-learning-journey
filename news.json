@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T02:21:47.475Z",
+  "generated_at": "2026-08-18T02:18:03.327Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,10 +25,133 @@
   ],
   "whats_new": [
     {
-      "title": "Amazon RDS for Oracle now supports Oracle Application Express (APEX) version 26.1",
+      "title": "Amazon Bedrock expands API support and introduces Cross Region Inferencing for OpenAI models",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-cross-region-openai-v2/",
+      "date": "2026-08-17T20:29:00.000Z",
+      "description": "Amazon Bedrock now supports the OpenAI GPT-5.6 models (Sol, Terra, and Luna) on the bedrock-runtime endpoint, with support for the Responses, Converse, and Chat Completions APIs. It also adds support for cross-Region inference, allowing customers to use Global and Geo cross-Region inference to access higher throughput and lower inference costs. Cross-Region inference automatically routes inference",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon ECR now supports 25 replication rules per registry",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecr-increased-replication-rules-limit",
+      "date": "2026-08-17T19:01:00.000Z",
+      "description": "Amazon Elastic Container Registry (Amazon ECR) has increased the maximum number of replication rules per registry from 10 to 25. Previously, customers with complex multi-region or multi-account architectures were constrained to 10 replication rules per registry, requiring them to consolidate replication configurations to work within that constraint. With this update, customers can define up to 25 ",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon EC2 Auto Scaling now supports batch instance termination",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-auto-scaling-batch-termination",
+      "date": "2026-08-17T18:11:00.000Z",
+      "description": "Amazon EC2 Auto Scaling now supports batch instance termination in a single API call. You can now pass up to 100 instance IDs to the TerminateInstanceInAutoScalingGroup API to terminate them as a batch, reducing the number of API calls needed to scale down your Auto Scaling groups. Batch termination is designed for workloads that need to rapidly scale down, such as AI/ML training jobs, container o",
+      "tags": [
+        "EC2",
+        "ECS",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon MSK now supports configuring custom domain names for MSK Provisioned clusters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/17/amazon-msk-custom-domain-names/",
+      "date": "2026-08-17T18:01:00.000Z",
+      "description": "You can now easily configure custom domain names on Amazon MSK Provisioned clusters, on either ZooKeeper or KRaft mode for metadata management. This capability helps client applications maintain the same connection endpoints, simplifying cluster migrations, disaster recovery failovers, and scaling operations without reconfiguration. Previously, customers configured custom domain names manually on ",
+      "tags": []
+    },
+    {
+      "title": "Amazon EC2 R8i and R8i-Flex instances are now available in Canada West (Calgary) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-r8i-flex-calgary/",
+      "date": "2026-08-17T17:28:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the Canada West (Calgary) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-perfor",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer dashboards now support reporting on routing steps and agent proficiencies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-routing-steps/",
+      "date": "2026-08-17T17:23:00.000Z",
+      "description": "Amazon Connect Customer dashboards now support reporting on routing steps and agent proficiencies enabling supervisors to monitor and optimize how contacts are matched to agents based on agent proficiencies. Managers can filter agents by their assigned proficiencies, group metrics by routing steps, and track new metrics including number of contacts queued in a routing step. For example, a supervis",
+      "tags": [
+        "RDS",
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "AWS Network Firewall Now Supports Stateful Rule Hit Counts",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-network-firewall-stateful-rule-hit-counts/",
+      "date": "2026-08-17T16:30:00.000Z",
+      "description": "AWS Network Firewall now provides rule hit counts for stateful rules, giving network administrators and security engineers visibility into how often each stateful rule in the firewall policy matches network traffic. AWS Network Firewall is a managed network firewall service that provides inspection and visibility into your VPC traffic. With rule hit counts, you can turn firewall rule activity into",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "Amazon Quick Microsoft 365 extensions are now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-microsoft-365-extensions-generally-available",
+      "date": "2026-08-17T15:41:00.000Z",
+      "description": "Amazon Quick announces the general availability of Microsoft 365 extensions for Excel, PowerPoint, Word, and Outlook. These extensions enable Quick to perform tasks directly within users' M365 environments, using AI to handle complex local tasks such as redlining documents, building financial models, creating presentation-ready decks, and managing Outlook inboxes. The Excel extension helps with co",
+      "tags": []
+    },
+    {
+      "title": "Amazon OpenSearch Service now supports automatic semantic enrichment for VPC domains",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-opensearch-service-vpc/",
+      "date": "2026-08-17T15:39:00.000Z",
+      "description": "Amazon OpenSearch Service now extends automatic semantic enrichment to VPC-enabled domains, allowing customers with private network configurations to leverage AI-powered semantic search without exposing their domains to the public internet. Automatic semantic enrichment transforms traditional keyword-only search into context-aware retrieval by understanding the meaning behind queries. For example,",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "AWS CloudShell now includes a built-in visual file editor",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-cloudshell-visual-file-editor/",
+      "date": "2026-08-17T13:00:00.000Z",
+      "description": "AWS CloudShell now includes a built-in visual file editor that you can launch directly from your shell session using a single 'edit' command, no setup required. CloudShell provides a browser-based shell environment that uses your existing AWS Management Console credentials, making it a popular choice for developers, DevOps engineers, and cloud administrators managing scripts, infrastructure-as-cod",
+      "tags": []
+    },
+    {
+      "title": "Amazon Quick now supports per-user resource limits",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-per-user-resource-limits/",
+      "date": "2026-08-14T21:07:00.000Z",
+      "description": "Amazon Quick now enables administrators to set per-user limits on index storage and agent hours, giving them direct control over subscription costs. With limits management, administrators can create limit profiles that cap per-user consumption, helping prevent unexpected overage charges and ensuring subscription entitlements are used efficiently across their organization. For example, an organizat",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports data loss prevention with Microsoft Purview",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-dlp-purview/",
+      "date": "2026-08-14T21:04:00.000Z",
+      "description": "Amazon Quick now integrates with Microsoft Purview to enforce data loss prevention (DLP) policies across your Quick environment. Organizations need to ensure that sensitive files aren't shared outside approved channels. With this integration, IT administrators and security teams can apply their existing Purview sensitivity labels to automatically control how files are handled in Quick capabilities",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports approval policies for sharing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-approval-policies-sharing/",
+      "date": "2026-08-14T21:00:00.000Z",
+      "description": "Amazon Quick now offers approval policies, giving administrators governance controls over how assets are shared within their organization. With approval policies, administrators can require designated approvers to review and approve share requests before access is granted, helping organizations ensure that sharing of sensitive assets is deliberate, compliant, and auditable. Administrators can crea",
+      "tags": [
+        "CloudTrail",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports customizable no data messages for visuals",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-quick-custom-no-data-message/",
+      "date": "2026-08-14T15:00:00.000Z",
+      "description": "Amazon Quick announces support for no data message customization, enabling authors to replace the default \"No data to display\" message with a tailored message when a visual returns no data. Authors can configure a custom title, subtitle, and hyperlink that give readers immediate context about why no data is shown and what steps to take next. All text fields support parameters, so the message can d",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS for Oracle now supports Oracle APEX version 26.1",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-oracle-apex-26-1/",
       "date": "2026-08-14T15:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports Oracle Application Express (APEX) version 26.1. Amazon RDS for Oracle is a managed database service that makes it simple to set up, operate, and scale Oracle Database deployments in the cloud. Oracle APEX is a low-code development platform that enables developers to build scalable, secure enterprise applications with modern us",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports Oracle APEX version 26.1. Amazon RDS for Oracle is a managed database service that makes it simple to set up, operate, and scale Oracle Database deployments in the cloud. Oracle APEX is a low-code development platform that enables developers to build scalable, secure enterprise applications with modern user interfaces. To lear",
       "tags": [
         "RDS"
       ]
@@ -78,13 +201,6 @@
       ]
     },
     {
-      "title": "Amazon Quick Microsoft 365 extensions are now generally available",
-      "link": "https://aws.amazon.com/amazon-quick-microsoft-365-extensions-generally-available",
-      "date": "2026-08-13T18:00:00.000Z",
-      "description": "Today, Amazon Quick announces the general availability of Microsoft 365 extensions for Excel, PowerPoint, Word, and Outlook. These extensions enable Quick to perform tasks directly within users' M365 environments, using AI to handle complex local tasks such as redlining documents, building financial models, creating presentation-ready decks, and managing Outlook inboxes. The Excel extension helps ",
-      "tags": []
-    },
-    {
       "title": "Spot Placement Score now includes Local Zones",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/spot-placement-score-local-zones/",
       "date": "2026-08-13T17:13:00.000Z",
@@ -128,119 +244,6 @@
       "description": "AWS Clean Rooms now supports minimum aggregation thresholds for the Custom analysis rule type . Minimum aggregation helps protect the privacy of individual data subjects by preventing queries from returning results about individuals or small groups. With this launch, organizations can enforce minimum aggregation on custom SQL queries, ensuring that every row a query outputs represents at least the",
       "tags": [
         "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Quick now supports approval policies for sharing",
-      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-approval-policies-sharing/",
-      "date": "2026-08-12T22:22:00.000Z",
-      "description": "Amazon Quick now offers approval policies, giving administrators governance controls over how assets are shared within their organization. With approval policies, administrators can require designated approvers to review and approve share requests before access is granted, helping organizations ensure that sharing of sensitive assets is deliberate, compliant, and auditable. Administrators can crea",
-      "tags": [
-        "CloudTrail",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Quick now supports per-user resource limits",
-      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-per-user-resource-limits/",
-      "date": "2026-08-12T22:17:00.000Z",
-      "description": "Amazon Quick now enables administrators to set per-user limits on index storage and agent hours, giving them direct control over subscription costs. With limits management, administrators can create limit profiles that cap per-user consumption, helping prevent unexpected overage charges and ensuring subscription entitlements are used efficiently across their organization. For example, an organizat",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Global View now offers an interactive map view for AWS Regions and AWS Local Zones",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-global-view-map-view/",
-      "date": "2026-08-12T22:00:00.000Z",
-      "description": "Today, AWS announces the addition of an interactive map view to AWS Global View in the AWS Management Console, providing a visual way to explore AWS Global Infrastructure. Previously, customers had to scan through a list of AWS locations in AWS Global View. With this new capability, customers can toggle between the interactive map view and the existing list view, making it easier to visualize thei",
-      "tags": []
-    },
-    {
-      "title": "AWS IAM now provides role manager to set up IAM roles automatically",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-role-manager",
-      "date": "2026-08-12T18:00:00.000Z",
-      "description": "Today, AWS announces the general availability of role manager, a capability in AWS Identity and Access Management (IAM) that automatically sets up the IAM roles your AWS services need. When you set up a supported service in the console, role manager creates a default role on your behalf, or reuses one that already exists in your account if it already matches the required permissions. You can enabl",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon EKS now supports advanced Kubernetes control plane configuration parameters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-control-plane-configuration-parameters",
-      "date": "2026-08-12T18:00:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports configuring parameters for Kubernetes control plane components including the scheduler, controller manager, and API server. You can tune pod placement strategies to improve resource utilization, adjust how quickly horizontal pod autoscaling responds to changes in demand, set resource lifecycle parameters such as event retention duration, ",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon Quick adds deny by default for custom permissions",
-      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-deny-by-default-permissions/",
-      "date": "2026-08-12T17:15:00.000Z",
-      "description": "Amazon Quick custom permissions now include deny by default, a governance setting that automatically restricts new AI capabilities before they reach users. Previously, new AI capabilities were available to all users on release, requiring administrators to react after the fact. With deny by default, administrators restrict the AI capability category in a custom permissions profile and assign it to ",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer supports manual assignment of queued agent-first callbacks",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-agent-callbacks/",
-      "date": "2026-08-12T17:15:00.000Z",
-      "description": "Amazon Connect Customer now lets agents view and self-assign queued agent-first callbacks alongside emails, tasks, and chats. This gives agents the option to prioritize work that needs immediate follow-up or for which they already have relevant context. For example, an agent familiar with a customer’s issue can assign the callback to themselves, avoiding another handoff and helping resolve the iss",
-      "tags": []
-    },
-    {
-      "title": "Amazon Quick now supports data loss prevention with Microsoft Purview",
-      "link": "https://aws.amazon.com/whats-new/2026/08/amazon-quick-dlp-purview/",
-      "date": "2026-08-12T17:09:00.000Z",
-      "description": "Amazon Quick now integrates with Microsoft Purview to enforce data loss prevention (DLP) policies across your Quick environment. Organizations need to ensure that sensitive files aren't shared outside approved channels. With this integration, IT administrators and security teams can apply their existing Purview sensitivity labels to automatically control how files are handled in Quick capabilities",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Nova Multimodal Embeddings is now available in AWS GovCloud (US-West)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-nova-mme-govcloud/",
-      "date": "2026-08-12T14:34:00.000Z",
-      "description": "We are excited to announce the general availability of Amazon Nova Multimodal Embeddings, a state-of-the-art embedding model for agentic RAG and semantic search, in AWS GovCloud (US-West). It is the first unified embedding model that supports text, documents, images, video, and audio through a single model, to enable cross-modal retrieval with leading accuracy. Managing and searching across differ",
-      "tags": []
-    },
-    {
-      "title": "Amazon Quick agentic AI capabilities are now available in AWS GovCloud (US-West)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-aws-govcloud-us-west/",
-      "date": "2026-08-11T23:00:00.000Z",
-      "description": "Today, AWS announces that Amazon Quick's agentic AI capabilities are now available in AWS GovCloud (US-West), bringing an agentic AI teammate to government and regulated-industry teams within an isolated, FedRAMP Class D (formerly High) authorized environment. Building on the analytics and business intelligence capabilities already available to customers in AWS GovCloud (US), Quick now turns quest",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 R8a instances are now available in Canada (Central) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8a-instances-canada-central/",
-      "date": "2026-08-11T22:03:00.000Z",
-      "description": "Starting today, Amazon EC2 R8a instances are now available in Canada (Central) Region. These instances, feature 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to R7a instances. R8a instances deliver 45% more memory bandwidth compared to R7a instances, making these ins",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock expands IAM principal cost allocation to the bedrock-mantle endpoint",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-expands-iam-principal-cost-allocation-bedrock-mantle/",
-      "date": "2026-08-11T20:25:00.000Z",
-      "description": "Amazon Bedrock is a fully managed service that provides secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling you to build and scale generative AI applications. Amazon Bedrock now supports cost allocation by AWS Identity and Access Management (IAM) principal, including IAM users and roles, for model inference requests made through the bedrock-mant",
-      "tags": [
-        "IAM",
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "LocateAnything-3B, Qwen-AgentWorld-35B-A3B, and Qwen3.5-122B-A10B models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/locateAnything-3B-qwen-agentworld-35B-A3B-qwen3.5-122B-A10B-on-sagemaker-jumpstart/",
-      "date": "2026-08-11T15:22:00.000Z",
-      "description": "NVIDIA's LocateAnything-3B, Qwen's Qwen-AgentWorld-35B-A3B, and Qwen's Qwen3.5-122B-A10B models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning visual grounding, agent environment simulation, and large-scale multimodal reasoning, enabling customers to deploy high-per",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
       ]
     }
   ],
@@ -341,6 +344,17 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more (August 17, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/",
+      "date": "2026-08-17T16:02:36.000Z",
+      "description": "Last week, AWS contributors joined the OpenSearch and Valkey communities at Open Source Summit Korea 2026 and MCP DevSummit Seoul 2026 to meet open source developers and contributors. At the four-day event, community leaders and users of these Linux Foundation open source projects gathered to share knowledge, collaborate on solutions, and push the projects forward. […]",
+      "tags": [
+        "EC2",
+        "IAM",
+        "Bedrock"
+      ]
+    },
+    {
       "title": "AWS Weekly Roundup: AWS Heroes Summit, Web Search on Amazon Bedrock, Dogwood, Kiro Crew, and more (August 10, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-heroes-summit-web-search-on-amazon-bedrock-dogwood-kiro-crew-and-more-august-10-2026/",
       "date": "2026-08-10T15:45:03.000Z",
@@ -426,15 +440,6 @@
       "date": "2026-07-06T15:46:43.000Z",
       "description": "A couple of editions ago I wrote about what I find so energizing about working with startups. Last week I got a fresh dose of it: I spent a few days with the AWS Startups team, listening to stories of founders talking about the problems they’re actually solving. One story that stayed with me came […]",
       "tags": []
-    },
-    {
-      "title": "Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks",
-      "link": "https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/",
-      "date": "2026-07-01T17:20:30.000Z",
-      "description": "Learn how Kubernetes version rollbacks for Amazon EKS let you reverse cluster upgrades within seven days. This new feature provides a safety net for upgrade failures—no cluster rebuilds required—turning Kubernetes version upgrades into a reversible, low-risk operation.",
-      "tags": [
-        "EKS"
-      ]
     }
   ],
   "status": {
@@ -443,36 +448,36 @@
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-16T22:51:07.000Z",
-        "description": "We have completed our assessment of the impacted network equipment at the Equinix FR5 location in Frankfurt, DEU and now have a clear understanding of the scope of impact. We are making progress toward restoring connectivity and will be taking a phased approach to remediation. Customers with connections exclusively at this location will continue to experience packet loss until remediation is compl",
+        "date": "2026-08-18T01:50:12.000Z",
+        "description": "We are seeing significant recovery for most of the customer connections at this stage. While we are not yet fully recovered, restoration efforts are progressing as expected at the Equinix FR5 location in Frankfurt, DEU. Remediation of remaining infrastructure involves completion of hardware replacements and traffic validation, both of which are actively underway. We anticipate further customer-vis",
         "tags": []
       },
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-16T16:30:39.000Z",
-        "description": "The electrical isolation at Equinix FR5 in Frankfurt, DEU is now complete and our engineers have begun physically inspecting the impacted network equipment. We do not yet have a timeline for full resolution while we continue to assess the extent of impact to equipment. Direct Connect connections at this location remain impaired. Customers with connections exclusively at this location will continue",
+        "date": "2026-08-17T21:00:11.000Z",
+        "description": "We continue to work on bringing affected hardware back online. Since our last update we have made progress that will not be visible to customers, but is required for recovery. We are working in parallel to bring all devices online as safely as possible. This work is expected to take several hours to complete and validate. For customers that require workarounds, we recommend that you consider faili",
         "tags": []
       },
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-16T10:25:32.000Z",
-        "description": "We continue to work with our co-location partner to restore connectivity at the Equinix FR5 location in Frankfurt, DEU. Since our last update, we have made significant progress toward restoring safe access to the affected area. The electrical isolation procedure is now underway, with our teams on site in the electrical room executing the de-energization of the affected infrastructure. Once isolati",
+        "date": "2026-08-17T17:59:20.000Z",
+        "description": "We are seeing broad signs of recovery at the Equinix FR5 location in Frankfurt, DEU. We have restored connectivity for the majority of affected hardware and most of the connections are fully recovered and stable. There are a small number of customers that will remain affected until the remaining devices are fully restored. We will provide another update by 2:00 PM PDT, or sooner as remediation pro",
         "tags": []
       },
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-16T04:37:47.000Z",
-        "description": "We are actively engaged with our co-location partner to restore connectivity at Equinix FR5 location in Frankfurt, DEU. Since our last update, we have made incremental progress to restore safe access to the affected area at the Equinix FR5 location in Frankfurt, DEU. In parallel, we have prioritized the order in which critical and high-priority racks will be restored, as part of the mitigation eff",
+        "date": "2026-08-17T16:25:22.000Z",
+        "description": "We continue to work on phased remediation incrementally at the Equinix FR5 location in Frankfurt, DEU. We are seeing early signs of recovery while we continue to fully remediate the issue. We are actively working to bring the remaining affected hardware back online and we will provide another update by 12:30 PM PDT, or sooner as remediation progresses.",
         "tags": []
       },
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-15T22:26:42.000Z",
-        "description": "Our co-location partner is continuing work to restore safe access to the affected area at the Equinix FR5 location in Frankfurt, DEU. Once safe access has been secured, our engineers will be able to assess the affected network devices. We continue to closely track progress and will share an update by 9:30 PM PDT, or sooner as new information becomes available.",
+        "date": "2026-08-17T11:22:30.000Z",
+        "description": "We continue to make progress in our phased remediation at the Equinix FR5 location in Frankfurt, DEU. Network infrastructure and dependent systems continue to improve as we bring affected hardware back online. Some replacement hardware has been delivered and installation is proceeding as components arrive on-site. In parallel, we are shifting network traffic to allow restored devices to begin serv",
         "tags": []
       }
     ]
