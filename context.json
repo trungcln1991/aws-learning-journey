@@ -1,7 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "CloudWatch & Monitoring",
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session: phiên 77 (18/08) — kế hoạch máy dev thứ 2 (tách 22 user + so sánh chi phí + Terraform draft) + dọn dẹp lớn dev aps12 (11 profile + 3 phần mềm) + đóng saga IAM webapp-patch + xóa 2 AMI cũ + mass triage Security Hub 203→0 finding (4 account)",
-  "updated_at": "2026-08-18T05:01:11Z"
+  "commit_msg": "session: phiên 80 (19/08) — verify GuardDuty/SecurityHub V2 billing + Network Reachability đính chính + đóng 2 gap NAT/FortiGate + điều tra disk D dev aps12 + re-sweep 9 gap governance (banksystem-ECS discovery, WAF domain đóng, CloudWatch Dashboard giải mã)",
+  "updated_at": "2026-08-19T07:37:07Z"
 }
