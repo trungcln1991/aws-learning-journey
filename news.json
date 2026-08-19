@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T02:18:03.327Z",
+  "generated_at": "2026-08-19T02:20:14.213Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,107 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Bedrock now supports OpenAI models in India",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-openai-india-v1/",
+      "date": "2026-08-18T23:30:00.000Z",
+      "description": "Amazon Bedrock now supports the OpenAI GPT-5.6 models (Terra and Luna) in India, with India Geo cross-Region inference. Customers with regulatory requirements of in-country inferencing can now use OpenAI models at scale ensuring that inferencing is processed within India. Cross-Region inference automatically routes inference requests across multiple AWS Regions to give you higher throughput, witho",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS IAM identity federation to external services is now available in AWS European Sovereign Cloud Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-european-sovereign-cloud/",
+      "date": "2026-08-18T22:30:00.000Z",
+      "description": "AWS Identity and Access Management (IAM) now enables AWS workloads in the AWS European Sovereign Cloud (Germany) Region to securely authenticate with external services using short-lived JSON Web Tokens (JWTs). The AWS European Sovereign Cloud is an independent cloud for Europe entirely located within the European Union (EU), designed to help customers meet their evolving sovereignty requirements. ",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon Corretto August 2026 Critical Security Patch Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-corretto-august-2026-security-updates",
+      "date": "2026-08-18T21:48:00.000Z",
+      "description": "On Aug 18, 2026, Amazon announced critical security patch update (CSPU) for Amazon Corretto Long-Term Support (LTS) and Feature Release (FR) versions of OpenJDK. Corretto 26.0.2.11.1, 25.0.4.8.1, 21.0.12.9.1, 17.0.20.10.1, 11.0.32.10.1, and 8u504 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Visit Corretto home page to down",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AgentCore payments is now generally available in Amazon Bedrock AgentCore",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/bedrock-agentcore-payments-ga/",
+      "date": "2026-08-18T19:15:00.000Z",
+      "description": "Today, AWS announces the general availability of AgentCore payments, a capability within Amazon Bedrock AgentCore that enables AI agents to autonomously discover, access, and pay for paid APIs, MCPs, and content with just a few lines of code. AgentCore payments provides the security, guardrails, and observability enterprises need to deploy transacting agents in production at scale. AgentCore payme",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/smus-data-profiling",
+      "date": "2026-08-18T18:49:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection, powered by AWS Glue Data Quality. Data stewards, engineers and analysts can generate statistical profiles of their data to understand its shape and completeness, and track how these statistics change over time. Anomaly detection helps identify when data points drift from historical patterns without requiring predefi",
+      "tags": [
+        "RDS",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon MWAA Serverless now supports PythonOperator and BashOperator",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/mwaa-serverless-pythonoperator-bashoperator/",
+      "date": "2026-08-18T18:00:00.000Z",
+      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) Serverless now supports running custom Python functions and shell scripts directly in the serverless runtime using PythonOperator and BashOperator. With this launch, data engineering teams can execute the code patterns they rely on daily, including data transformations, format conversions, and data quality checks, without provisioning addit",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon EC2 R8i instances are now available in Israel (Tel Aviv) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-israel-tel-aviv/",
+      "date": "2026-08-18T17:24:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i instances are available in the Israel (Tel Aviv) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i instances offer up to 15% better price-performance, and 2.5x more memory ba",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "IAM Policy Autopilot now supports Terraform plan files",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/iam-policy-autopilot-now-supports-terraform-plan-files",
+      "date": "2026-08-18T17:19:00.000Z",
+      "description": "IAM Policy Autopilot can now generate baseline IAM policies directly from a Terraform plan file. IAM Policy Autopilot is an open source tool, launched at re:Invent 2025, that analyzes your code to deterministically create scoped-down IAM policies you can refine as your application evolves, reducing the time you spend writing IAM policies and troubleshooting access issues. Until now the tool analyz",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "PostgreSQL 19 Beta 3 is now available in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/postgresql-19-beta-3-amazon-rds-database-preview-environment/",
+      "date": "2026-08-18T16:00:00.000Z",
+      "description": "Starting today, Amazon RDS for PostgreSQL 19 Beta 3 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. PostgreSQL 19 Beta 3 adds new capabilities for query performance and autovacuum management. The new pg_stat_autovacuum_scores view helps you monitor and tune autovacuum prioritization. Parallel auto",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces now supports Nested Virtualization",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/nested-virtualization-workspaces/",
+      "date": "2026-08-18T08:00:00.000Z",
+      "description": "Amazon WorkSpaces now supports nested virtualization for Amazon WorkSpaces Personal and Amazon WorkSpaces Core Managed Bundles. With nested virtualization enabled, developers can run Docker Desktop, Windows Subsystem for Linux (WSL2), and other hypervisor-dependent tools directly on their Windows WorkSpaces, and KVM-based workloads, Android emulators, and nested containers on their Linux WorkSpace",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon S3 Metadata and annotations are now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-s3-metadata-annotations-govcloud-regions",
+      "date": "2026-08-18T04:00:00.000Z",
+      "description": "Amazon S3 Metadata and annotations are now available in AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions, giving you the easiest and fastest way to discover, understand, and enrich your S3 data. S3 Metadata automatically captures system-defined details like object size and source, and stores them in Amazon S3 Tables, optimized for near real-time tabular queries that simplify business anal",
+      "tags": [
+        "S3"
+      ]
+    },
     {
       "title": "Amazon Bedrock expands API support and introduces Cross Region Inferencing for OpenAI models",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-cross-region-openai-v2/",
@@ -106,6 +207,13 @@
       ]
     },
     {
+      "title": "AWS Console-to-Code adds 26 services and cross-region recording​",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/console-to-code-adds-26-services",
+      "date": "2026-08-17T15:00:00.000Z",
+      "description": "AWS Console-to-Code now supports 26 additional AWS services and introduces cross-region and cross-browser-tab action recording. This expansion grows total service coverage from 6 to 32 supported services, helping developers, DevOps engineers, and cloud architects more easily convert manual console workflows into repeatable, production-ready infrastructure as code (IaC). ​Console-to-Code also intro",
+      "tags": []
+    },
+    {
       "title": "AWS CloudShell now includes a built-in visual file editor",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-cloudshell-visual-file-editor/",
       "date": "2026-08-17T13:00:00.000Z",
@@ -137,112 +245,6 @@
       "description": "Amazon Quick now offers approval policies, giving administrators governance controls over how assets are shared within their organization. With approval policies, administrators can require designated approvers to review and approve share requests before access is granted, helping organizations ensure that sharing of sensitive assets is deliberate, compliant, and auditable. Administrators can crea",
       "tags": [
         "CloudTrail",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Quick now supports customizable no data messages for visuals",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-quick-custom-no-data-message/",
-      "date": "2026-08-14T15:00:00.000Z",
-      "description": "Amazon Quick announces support for no data message customization, enabling authors to replace the default \"No data to display\" message with a tailored message when a visual returns no data. Authors can configure a custom title, subtitle, and hyperlink that give readers immediate context about why no data is shown and what steps to take next. All text fields support parameters, so the message can d",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS for Oracle now supports Oracle APEX version 26.1",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-oracle-apex-26-1/",
-      "date": "2026-08-14T15:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports Oracle APEX version 26.1. Amazon RDS for Oracle is a managed database service that makes it simple to set up, operate, and scale Oracle Database deployments in the cloud. Oracle APEX is a low-code development platform that enables developers to build scalable, secure enterprise applications with modern user interfaces. To lear",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon SES click tracking now supports custom URL paths for mobile app deep linking",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-supports-customurl-deeplinking",
-      "date": "2026-08-14T07:00:00.000Z",
-      "description": "Amazon Simple Email Service (SES) now makes it easier to support mobile deep linking with the new ses:custom-path HTML attribute. When you add this attribute to an &lt;a&gt; tag, SES carries your path segment through to the tracking URL, so mobile operating systems can match it to your app's Universal Links (iOS) or App Links (Android) configuration. This enables you to use mobile deep linking wit",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Billing and Cost Management introduces Managed Dashboards",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-billing-and-cost-management-managed-dashboards/",
-      "date": "2026-08-14T02:00:00.000Z",
-      "description": "AWS Billing and Cost Management (BCM) Dashboards now include Managed Dashboards. These are a collection of preconfigured and read-only dashboards located in your dashboard list. They deliver actionable cost insights with your account data pre-populated without setup. There are five curated dashboards. Cost Overview &amp; Trends tracks your spending patterns across services, accounts, and regions o",
-      "tags": [
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Client VPN now supports CLI, administration controls, and faster connections",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-client-vpn-cli/",
-      "date": "2026-08-13T20:49:00.000Z",
-      "description": "AWS Client VPN introduces a rebuilt AWS VPN Client v6.0.x which offers new features like command-line interface (CLI) support, enterprise administrative controls, and faster connection establishment time, making it easier you to automate VPN connectivity and centralize device management across your organization. The AWS VPN Client CLI provides full feature parity with the GUI. You can now script V",
-      "tags": []
-    },
-    {
-      "title": "Amazon Redshift adds rg.large and rg.12xlarge instance sizes in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-redshift-adds-rg-large-12xlarge-aws-govcloud-regions/",
-      "date": "2026-08-13T19:34:00.000Z",
-      "description": "Amazon Redshift now offers rg.large and rg.12xlarge instance sizes for RG instances in the AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions. RG instances deliver better performance, running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 instances, at 30% lower price per vCPU. RG instances include Redshift's custom-built vectorized data lake query engi",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Claude Opus 5 is now available in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/claude-opus-5-aws-govcloud/",
-      "date": "2026-08-13T18:23:00.000Z",
-      "description": "AWS GovCloud (US) now offers Claude Opus 5 — the most advanced Opus model yet, and compatible with zero data retention (ZDR) — bringing a step-change in coding, long-running agents, and complex professional work to teams building at the highest level. Claude Opus 5 is available via the bedrock-runtime endpoint in both AWS GovCloud (US) regions, and available via the bedrock-mantle endpoint in AWS ",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Spot Placement Score now includes Local Zones",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/spot-placement-score-local-zones/",
-      "date": "2026-08-13T17:13:00.000Z",
-      "description": "Today, AWS announces support for AWS Local Zones in Spot placement score, helping you identify locations where your Spot capacity request is most likely to succeed. Spot placement score evaluates your target capacity and compute requirements and returns scores for AWS Regions or Availability Zones. Previously, Spot placement scores excluded local zone capacity information when reporting zonal and ",
-      "tags": []
-    },
-    {
-      "title": "Daybreak Red and Daybreak Blue from OpenAI are now available to eligible customers on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/openai-daybreak-red-and-blue-on-amazon-bedrock/",
-      "date": "2026-08-13T16:12:00.000Z",
-      "description": "Security teams can now access Daybreak Red and Daybreak Blue from OpenAI on Amazon Bedrock. Both are part of Daybreak, the cyber defense initiative from OpenAI that gives defenders governed access to frontier AI for cybersecurity work. Daybreak Blue is the starting point for most security teams across defensive workflows including vulnerability discovery, detection engineering, and incident respon",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "AWS Certificate Manager supports switching from e-mail to DNS validation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/AWS-Certificate-Manager-Email-DNS-Switch",
-      "date": "2026-08-13T15:00:00.000Z",
-      "description": "AWS Certificate Manager (ACM) now enables you to change the domain validation method on your existing ACM issued public TLS certificates from e-mail to DNS, without reissuing the certificate or changing its existing Amazon Resource Name (ARN). Due to the Certification Authority/Browser (CA/B) Forum's mandated deprecation of email-based domain validation for publicly trusted certificates, effective",
-      "tags": [
-        "Route 53"
-      ]
-    },
-    {
-      "title": "Amazon S3 adds additional policy details to access denied error messages",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/s3-additional-policy-details-access-denied-error-messages/",
-      "date": "2026-08-13T13:00:00.000Z",
-      "description": "Amazon S3 now includes the specific AWS Identity and Access Management (IAM) and AWS Organizations policy Amazon Resource Name (ARN) in HTTP 403 Access Denied error messages for same-account and same-organization requests. This helps you quickly identify the exact policy responsible for a denied request and remediate the issue directly. Previously, S3 access denied error messages included the poli",
-      "tags": [
-        "S3",
-        "IAM",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "AWS Clean Rooms supports minimum aggregation thresholds in custom analysis rules",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-clean-rooms-minimum-aggregation-custom-analysis-rules",
-      "date": "2026-08-13T12:00:00.000Z",
-      "description": "AWS Clean Rooms now supports minimum aggregation thresholds for the Custom analysis rule type . Minimum aggregation helps protect the privacy of individual data subjects by preventing queries from returning results about individuals or small groups. With this launch, organizations can enforce minimum aggregation on custom SQL queries, ensuring that every row a query outputs represents at least the",
-      "tags": [
         "Organizations"
       ]
     }
@@ -306,6 +308,16 @@
       ]
     },
     {
+      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
+      "date": "2026-08-18T18:26:06.000Z",
+      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
       "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
       "date": "2026-07-15T18:49:07.000Z",
@@ -329,20 +341,16 @@
       "date": "2026-06-05T19:19:25.000Z",
       "description": "Bulletin ID: 2026-013-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/03 13:00 PM PDT Description: The Amazon Athena ODBC driver implements standard ODBC application program interfaces (APIs). The ODBC driver provides access to Amazon Athena from any C/C++ application. The Amazon Athena ODBC driver provides 64-bit ODBC drivers for Windows, Linux and MAC operat",
       "tags": []
-    },
-    {
-      "title": "Issue with containerd CRI Plugin - CVE-2026-50195, CVE-2026-53488, CVE-2026-53492, CVE-2026-53489, CVE-2026-47262",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-046-aws/",
-      "date": "2026-06-19T00:29:27.000Z",
-      "description": "Bulletin ID: 2026-046-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/18/2026 17:30 PM PDT Description: containerd is an open-source container runtime used by Kubernetes via the Container Runtime Interface (CRI) plugin. It underpins AWS managed container services including Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Container Service (Amazon ECS)",
-      "tags": [
-        "ECS",
-        "EKS",
-        "Inspector"
-      ]
     }
   ],
   "blog": [
+    {
+      "title": "In the works: AWS Builder Lofts in Berlin, Hyderabad, and São Paulo",
+      "link": "https://aws.amazon.com/blogs/aws/in-the-works-aws-builder-lofts-in-berlin-hyderabad-and-sao-paulo/",
+      "date": "2026-08-18T13:58:41.000Z",
+      "description": "Each location will be a permanent community space to offer free workshops, networking events, pitch nights, content creation spaces, collaboration/co-working areas, and event hosting for developers, students, or tech professionals who want to walk through the doors.",
+      "tags": []
+    },
     {
       "title": "AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more (August 17, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/",
@@ -433,18 +441,18 @@
       "tags": [
         "Security Hub"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI agents, AWS service availability updates, and more (July 6, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/",
-      "date": "2026-07-06T15:46:43.000Z",
-      "description": "A couple of editions ago I wrote about what I find so energizing about working with startups. Last week I got a fresh dose of it: I spent a few days with the AWS Startups team, listening to stories of founders talking about the problems they’re actually solving. One story that stayed with me came […]",
-      "tags": []
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
+      {
+        "title": "Service is operating normally: [RESOLVED] Increased Packet loss",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-08-18T04:01:19.000Z",
+        "description": "Starting August 14 7:33 PM PDT, we experienced increased packet loss impacting AWS Direct Connect connectivity for customers with connections at the Equinix FR5 location in Frankfurt, DEU. Engineers were automatically engaged at 7:45 PM on August 14 and immediately began investigating mitigations. By 8:30 PM, we identified that network equipment at the FR5 location was impaired due to water ingres",
+        "tags": []
+      },
       {
         "title": "Service impact: Increased Packet loss",
         "link": "https://status.aws.amazon.com/",
@@ -471,13 +479,6 @@
         "link": "https://status.aws.amazon.com/",
         "date": "2026-08-17T16:25:22.000Z",
         "description": "We continue to work on phased remediation incrementally at the Equinix FR5 location in Frankfurt, DEU. We are seeing early signs of recovery while we continue to fully remediate the issue. We are actively working to bring the remaining affected hardware back online and we will provide another update by 12:30 PM PDT, or sooner as remediation progresses.",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Increased Packet loss",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-17T11:22:30.000Z",
-        "description": "We continue to make progress in our phased remediation at the Equinix FR5 location in Frankfurt, DEU. Network infrastructure and dependent systems continue to improve as we bring affected hardware back online. Some replacement hardware has been delivered and installation is proceeding as components arrive on-site. In parallel, we are shifting network traffic to allow restored devices to begin serv",
         "tags": []
       }
     ]
