@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T02:20:14.213Z",
+  "generated_at": "2026-08-20T02:19:19.647Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,149 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Launching External Web Access for Web Search on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-web-access-web-search/",
+      "date": "2026-08-19T23:00:00.000Z",
+      "description": "Earlier this month, we announced Web Search on Amazon Bedrock , a built-in server-side tool that allows you to ground model responses with current web knowledge, while maintaining data within your secured AWS environment with zero data egress. Today, we are expanding Web Search to enable the external_web_access parameter allowing Web Search to retrieve content directly from the public web so model",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Web Search in Amazon Bedrock AgentCore adds domain and published date filtering, expands to Europe and Asia Pacific",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/web-search-amazon-bedrock/",
+      "date": "2026-08-19T22:55:00.000Z",
+      "description": "Web Search in Amazon Bedrock AgentCore now supports domain filtering and published-date filtering, giving agents per-request control over which web sources and time windows they search. Amazon Bedrock AgentCore provides the infrastructure to build, connect, and optimize AI agents, and Web Search enables those agents to ground responses in current web data. With runtime domain filtering, agents can",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon CloudWatch log Centralization now supports log group tag propagation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cloudwatch-centralization-tag-propogation/",
+      "date": "2026-08-19T21:06:00.000Z",
+      "description": "Amazon CloudWatch Centralization now copies log group tags from source accounts to the destination log groups created by centralization rules. CloudWatch Centralization aggregates log data from multiple accounts and Regions into one destination account. With tag propagation, the cost, ownership, and compliance tags you maintain at the source now apply to the copied log groups. With today's launch,",
+      "tags": [
+        "CloudWatch",
+        "Security Hub",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker notebooks now support trusted identity propagation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-sagemaker/",
+      "date": "2026-08-19T20:25:00.000Z",
+      "description": "Amazon SageMaker Notebooks now support Trusted Identity Propagation (TIP) with Amazon Athena, Amazon Redshift, and Amazon EMR Serverless, enabling per-user access control for data analytics. When connected to a TIP-enabled compute in a TIP-enabled Project, each notebook user's IAM Identity Center identity flows through to AWS Lake Formation, ensuring they see only the tables, columns, and rows the",
+      "tags": [
+        "Lambda",
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Cost Anomaly Detection supports third-party models on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-cost-anomaly-detection-bedrock-3P/",
+      "date": "2026-08-19T17:57:00.000Z",
+      "description": "AWS Cost Anomaly Detection now monitors spend on third-party foundation models running on Amazon Bedrock, such as Anthropic Claude and other provider-hosted models. Cost Anomaly Detection uses machine learning to detect and alert on unusual spend, and this launch extends that coverage to third-party model usage on Amazon Bedrock. Teams running production generative AI workloads now get automatic a",
+      "tags": [
+        "Bedrock",
+        "SageMaker",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Ingestion is now available in GovCloud Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/opensearch-ingestion-available-govcloud-regions",
+      "date": "2026-08-19T17:54:00.000Z",
+      "description": "Starting today, customers can use Amazon OpenSearch Ingestion in AWS GovCloud (US-East) and AWS GovCloud (US-West), for ingesting data into their Amazon OpenSearch Service managed clusters or serverless collections. Amazon OpenSearch Ingestion is a fully managed data ingestion tier that allows you to ingest and process data before indexing it in Amazon OpenSearch managed clusters or serverless col",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "AWS Marketplace launches support for Amazon Lightsail",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-launch-ami-amazon-lightsail",
+      "date": "2026-08-19T17:04:00.000Z",
+      "description": "Today, AWS Marketplace announces support for launching select Amazon Machine Images (AMIs) on Amazon Lightsail. Customers who want simple, predictable pricing and a streamlined instance-creation experience can now easily deploy eligible AWS Marketplace AMIs on Amazon Lightsail in just a few clicks. Lightsail instance bundles include compute, storage, and a generous data transfer allowance at a fix",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS announces a new Availability Zone in the Europe (London) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-new-availability-zone-europe/",
+      "date": "2026-08-19T17:00:00.000Z",
+      "description": "AWS has added a fourth Availability Zone to the Europe (London) Region (eu-west-2), expanding infrastructure capacity to meet growing demand for cloud compute in the Region. The new Availability Zone delivers next-generation AI and ML capacity, including Amazon EC2, Trn3, and P6 accelerated instances, alongside general-purpose compute. The new Availability Zone gives AWS customers in eu-west-2 gre",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Lambda MicroVMs is now available in 5 additional AWS regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/lambda-microvms-5-additional-regions",
+      "date": "2026-08-19T16:14:00.000Z",
+      "description": "AWS Lambda MicroVMs is now available in 5 additional AWS Regions: Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Europe (Frankfurt), and Europe (Stockholm). With this launch, you can use Lambda MicroVMs in a total of 10 AWS Regions. Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservat",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Quick adds deny by default for custom permissions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-deny-by-default/",
+      "date": "2026-08-19T15:36:00.000Z",
+      "description": "Amazon Quick custom permissions now include deny by default, a governance setting that automatically restricts new AI capabilities before they reach users. Previously, new AI capabilities were available to all users on release, requiring administrators to react after the fact. With deny by default, administrators restrict the AI capability category in a custom permissions profile and assign it to ",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces Applications now offers in-console monitoring capabilities",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-console-monitoring",
+      "date": "2026-08-19T15:00:00.000Z",
+      "description": "Amazon WorkSpaces Applications now offers a native monitoring experience embedded directly in the service console. Administrators can now access real-time session-level metrics, instance-level resource data, and network performance metrics without requiring third-party monitoring tools or Amazon CloudWatch expertise. Previously, enterprise customers managing large WorkSpaces Applications deploymen",
+      "tags": [
+        "EC2",
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "AWS IAM now supports 20 managed policies per role by default",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-quota-increase/",
+      "date": "2026-08-19T15:00:00.000Z",
+      "description": "AWS Identity and Access Management (IAM) has increased the default quota for managed policies per role from 10 to 20. This higher default quota reduces the need to make Service Quota requests when following IAM best practices like separating permissions into purpose-specific policies or when onboarding to AWS Partner products that require attaching additional managed policies. If you need more tha",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "AWS Storage Gateway now supports FIPS-compliant private connectivity for Tape and Volume Gateway",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/storage-gateway-fips-privatelink/",
+      "date": "2026-08-19T10:00:00.000Z",
+      "description": "AWS Storage Gateway now supports FIPS 140-3 validated endpoints over AWS PrivateLink for Tape Gateway and Volume Gateway. Previously, FIPS endpoints were available only over the public internet. Now you can keep FIPS-compliant traffic on the private AWS network, making it easier to use Storage Gateway for regulated workloads. With this launch, your Tape Gateway and Volume Gateway can reach the Sto",
+      "tags": []
+    },
+    {
+      "title": "Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8a-asia-pacific-taipei/",
+      "date": "2026-08-19T07:51:00.000Z",
+      "description": "Starting today, Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) Region. These instances, feature 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to R7a instances. R8a instances deliver 45% more memory bandwidth compared to R7a instances, making thes",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock now supports SpaceXAI Grok 4.6 with Cross Region Inferencing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-grok-4-6/",
+      "date": "2026-08-19T05:18:00.000Z",
+      "description": "Amazon Bedrock now supports SpaceXAI Grok 4.6, a frontier model built for coding, agentic tasks, and knowledge work, with US Geo and Global cross-Region inference. Customers can now access Grok 4.6 at scale with cross-Region inference routing requests across multiple AWS Regions for higher throughput and lower inference costs. Cross-Region inference automatically routes inference requests across m",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
     {
       "title": "Amazon Bedrock now supports OpenAI models in India",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-openai-india-v1/",
@@ -108,144 +251,12 @@
       ]
     },
     {
-      "title": "Amazon WorkSpaces now supports Nested Virtualization",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/nested-virtualization-workspaces/",
-      "date": "2026-08-18T08:00:00.000Z",
-      "description": "Amazon WorkSpaces now supports nested virtualization for Amazon WorkSpaces Personal and Amazon WorkSpaces Core Managed Bundles. With nested virtualization enabled, developers can run Docker Desktop, Windows Subsystem for Linux (WSL2), and other hypervisor-dependent tools directly on their Windows WorkSpaces, and KVM-based workloads, Android emulators, and nested containers on their Linux WorkSpace",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon S3 Metadata and annotations are now available in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-s3-metadata-annotations-govcloud-regions",
-      "date": "2026-08-18T04:00:00.000Z",
-      "description": "Amazon S3 Metadata and annotations are now available in AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions, giving you the easiest and fastest way to discover, understand, and enrich your S3 data. S3 Metadata automatically captures system-defined details like object size and source, and stores them in Amazon S3 Tables, optimized for near real-time tabular queries that simplify business anal",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock expands API support and introduces Cross Region Inferencing for OpenAI models",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-cross-region-openai-v2/",
-      "date": "2026-08-17T20:29:00.000Z",
-      "description": "Amazon Bedrock now supports the OpenAI GPT-5.6 models (Sol, Terra, and Luna) on the bedrock-runtime endpoint, with support for the Responses, Converse, and Chat Completions APIs. It also adds support for cross-Region inference, allowing customers to use Global and Geo cross-Region inference to access higher throughput and lower inference costs. Cross-Region inference automatically routes inference",
-      "tags": [
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon ECR now supports 25 replication rules per registry",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecr-increased-replication-rules-limit",
-      "date": "2026-08-17T19:01:00.000Z",
-      "description": "Amazon Elastic Container Registry (Amazon ECR) has increased the maximum number of replication rules per registry from 10 to 25. Previously, customers with complex multi-region or multi-account architectures were constrained to 10 replication rules per registry, requiring them to consolidate replication configurations to work within that constraint. With this update, customers can define up to 25 ",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon EC2 Auto Scaling now supports batch instance termination",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-auto-scaling-batch-termination",
-      "date": "2026-08-17T18:11:00.000Z",
-      "description": "Amazon EC2 Auto Scaling now supports batch instance termination in a single API call. You can now pass up to 100 instance IDs to the TerminateInstanceInAutoScalingGroup API to terminate them as a batch, reducing the number of API calls needed to scale down your Auto Scaling groups. Batch termination is designed for workloads that need to rapidly scale down, such as AI/ML training jobs, container o",
-      "tags": [
-        "EC2",
-        "ECS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon MSK now supports configuring custom domain names for MSK Provisioned clusters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/17/amazon-msk-custom-domain-names/",
-      "date": "2026-08-17T18:01:00.000Z",
-      "description": "You can now easily configure custom domain names on Amazon MSK Provisioned clusters, on either ZooKeeper or KRaft mode for metadata management. This capability helps client applications maintain the same connection endpoints, simplifying cluster migrations, disaster recovery failovers, and scaling operations without reconfiguration. Previously, customers configured custom domain names manually on ",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 R8i and R8i-Flex instances are now available in Canada West (Calgary) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-r8i-flex-calgary/",
-      "date": "2026-08-17T17:28:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the Canada West (Calgary) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-perfor",
+      "title": "Amazon EC2 High Memory U7i instances now available in AWS Europe (Zurich) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-high-memory-u7i-aws-europe/",
+      "date": "2026-08-18T15:00:00.000Z",
+      "description": "Amazon EC2 High Memory U7i-6TB instances (u7i-6tb.112xlarge) are now available in AWS Europe (Zurich) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7i-6TB instances offer 6 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environment. U7i",
       "tags": [
         "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer dashboards now support reporting on routing steps and agent proficiencies",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-routing-steps/",
-      "date": "2026-08-17T17:23:00.000Z",
-      "description": "Amazon Connect Customer dashboards now support reporting on routing steps and agent proficiencies enabling supervisors to monitor and optimize how contacts are matched to agents based on agent proficiencies. Managers can filter agents by their assigned proficiencies, group metrics by routing steps, and track new metrics including number of contacts queued in a routing step. For example, a supervis",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Network Firewall Now Supports Stateful Rule Hit Counts",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-network-firewall-stateful-rule-hit-counts/",
-      "date": "2026-08-17T16:30:00.000Z",
-      "description": "AWS Network Firewall now provides rule hit counts for stateful rules, giving network administrators and security engineers visibility into how often each stateful rule in the firewall policy matches network traffic. AWS Network Firewall is a managed network firewall service that provides inspection and visibility into your VPC traffic. With rule hit counts, you can turn firewall rule activity into",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "Amazon Quick Microsoft 365 extensions are now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-microsoft-365-extensions-generally-available",
-      "date": "2026-08-17T15:41:00.000Z",
-      "description": "Amazon Quick announces the general availability of Microsoft 365 extensions for Excel, PowerPoint, Word, and Outlook. These extensions enable Quick to perform tasks directly within users' M365 environments, using AI to handle complex local tasks such as redlining documents, building financial models, creating presentation-ready decks, and managing Outlook inboxes. The Excel extension helps with co",
-      "tags": []
-    },
-    {
-      "title": "Amazon OpenSearch Service now supports automatic semantic enrichment for VPC domains",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-opensearch-service-vpc/",
-      "date": "2026-08-17T15:39:00.000Z",
-      "description": "Amazon OpenSearch Service now extends automatic semantic enrichment to VPC-enabled domains, allowing customers with private network configurations to leverage AI-powered semantic search without exposing their domains to the public internet. Automatic semantic enrichment transforms traditional keyword-only search into context-aware retrieval by understanding the meaning behind queries. For example,",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "AWS Console-to-Code adds 26 services and cross-region recording​",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/console-to-code-adds-26-services",
-      "date": "2026-08-17T15:00:00.000Z",
-      "description": "AWS Console-to-Code now supports 26 additional AWS services and introduces cross-region and cross-browser-tab action recording. This expansion grows total service coverage from 6 to 32 supported services, helping developers, DevOps engineers, and cloud architects more easily convert manual console workflows into repeatable, production-ready infrastructure as code (IaC). ​Console-to-Code also intro",
-      "tags": []
-    },
-    {
-      "title": "AWS CloudShell now includes a built-in visual file editor",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-cloudshell-visual-file-editor/",
-      "date": "2026-08-17T13:00:00.000Z",
-      "description": "AWS CloudShell now includes a built-in visual file editor that you can launch directly from your shell session using a single 'edit' command, no setup required. CloudShell provides a browser-based shell environment that uses your existing AWS Management Console credentials, making it a popular choice for developers, DevOps engineers, and cloud administrators managing scripts, infrastructure-as-cod",
-      "tags": []
-    },
-    {
-      "title": "Amazon Quick now supports per-user resource limits",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-per-user-resource-limits/",
-      "date": "2026-08-14T21:07:00.000Z",
-      "description": "Amazon Quick now enables administrators to set per-user limits on index storage and agent hours, giving them direct control over subscription costs. With limits management, administrators can create limit profiles that cap per-user consumption, helping prevent unexpected overage charges and ensuring subscription entitlements are used efficiently across their organization. For example, an organizat",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Quick now supports data loss prevention with Microsoft Purview",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-dlp-purview/",
-      "date": "2026-08-14T21:04:00.000Z",
-      "description": "Amazon Quick now integrates with Microsoft Purview to enforce data loss prevention (DLP) policies across your Quick environment. Organizations need to ensure that sensitive files aren't shared outside approved channels. With this integration, IT administrators and security teams can apply their existing Purview sensitivity labels to automatically control how files are handled in Quick capabilities",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Quick now supports approval policies for sharing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-approval-policies-sharing/",
-      "date": "2026-08-14T21:00:00.000Z",
-      "description": "Amazon Quick now offers approval policies, giving administrators governance controls over how assets are shared within their organization. With approval policies, administrators can require designated approvers to review and approve share requests before access is granted, helping organizations ensure that sharing of sensitive assets is deliberate, compliant, and auditable. Administrators can crea",
-      "tags": [
-        "CloudTrail",
-        "Organizations"
       ]
     }
   ],
@@ -444,42 +455,54 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Increased Packet loss",
+        "title": "Service is operating normally: [RESOLVED] Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-18T04:01:19.000Z",
-        "description": "Starting August 14 7:33 PM PDT, we experienced increased packet loss impacting AWS Direct Connect connectivity for customers with connections at the Equinix FR5 location in Frankfurt, DEU. Engineers were automatically engaged at 7:45 PM on August 14 and immediately began investigating mitigations. By 8:30 PM, we identified that network equipment at the FR5 location was impaired due to water ingres",
-        "tags": []
+        "date": "2026-08-19T18:47:20.000Z",
+        "description": "Between August 18 5:00 PM and August 19 11:00 AM PDT, we experienced elevated errors launching EC2 instances in a newly launched Availability Zone (euw2-az4) in the EU-WEST-2 Region. After the new Availability Zone launch, we began experiencing errors when using a default VPC. We discovered the root cause of the issue on August 19 at 9:00 AM and began deploying a change to resolve the issue at 9:3",
+        "tags": [
+          "EC2",
+          "VPC"
+        ]
       },
       {
-        "title": "Service impact: Increased Packet loss",
+        "title": "Service impact: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-18T01:50:12.000Z",
-        "description": "We are seeing significant recovery for most of the customer connections at this stage. While we are not yet fully recovered, restoration efforts are progressing as expected at the Equinix FR5 location in Frankfurt, DEU. Remediation of remaining infrastructure involves completion of hardware replacements and traffic validation, both of which are actively underway. We anticipate further customer-vis",
-        "tags": []
+        "date": "2026-08-19T17:03:59.000Z",
+        "description": "On August 18 we launched a new Availability Zone (euw2-az4) in the EU-WEST-2 Region. After the launch, we began experiencing errors launching EC2 instances in the new Availability Zone when a default subnet is not present. We can confirm that existing running instances and resources are not affected. Workflows that automatically get a list of Availability Zones in the Region via the DescribeAvaila",
+        "tags": [
+          "EC2",
+          "VPC"
+        ]
       },
       {
-        "title": "Service impact: Increased Packet loss",
+        "title": "Service impact: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-17T21:00:11.000Z",
-        "description": "We continue to work on bringing affected hardware back online. Since our last update we have made progress that will not be visible to customers, but is required for recovery. We are working in parallel to bring all devices online as safely as possible. This work is expected to take several hours to complete and validate. For customers that require workarounds, we recommend that you consider faili",
-        "tags": []
+        "date": "2026-08-19T15:15:14.000Z",
+        "description": "We are investigating an issue that is impacting launching new EC2 instances and resources in a newly launched Availability Zone (euw2-az4) in the EU-WEST-2 Region. During this time, affected customers may experience issues when creating or modifying resources in the Region. Other AWS services may also be impacted. For immediate recovery, we recommend that customers use alternative Availability Zon",
+        "tags": [
+          "EC2"
+        ]
       },
       {
-        "title": "Service impact: Increased Packet loss",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-17T17:59:20.000Z",
-        "description": "We are seeing broad signs of recovery at the Equinix FR5 location in Frankfurt, DEU. We have restored connectivity for the majority of affected hardware and most of the connections are fully recovered and stable. There are a small number of customers that will remain affected until the remaining devices are fully restored. We will provide another update by 2:00 PM PDT, or sooner as remediation pro",
-        "tags": []
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "tags": [
+          "Lambda"
+        ]
       },
       {
-        "title": "Service impact: Increased Packet loss",
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-17T16:25:22.000Z",
-        "description": "We continue to work on phased remediation incrementally at the Equinix FR5 location in Frankfurt, DEU. We are seeing early signs of recovery while we continue to fully remediate the issue. We are actively working to bring the remaining affected hardware back online and we will provide another update by 12:30 PM PDT, or sooner as remediation progresses.",
-        "tags": []
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
       }
     ]
   }
