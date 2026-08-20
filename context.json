@@ -1,9 +1,7 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session: phiên 80 (19/08) — verify GuardDuty/SecurityHub V2 billing + Network Reachability đính chính + đóng 2 gap NAT/FortiGate + điều tra disk D dev aps12 + re-sweep 9 gap governance (banksystem-ECS discovery, WAF domain đóng, CloudWatch Dashboard giải mã)",
-  "updated_at": "2026-08-19T07:37:07Z"
+  "commit_msg": "session: phiên 81 (20/08) — CVE bastion + Security Hub Classic↔V2 desync fix (4.758 finding) + phát hiện webapp 100+ IIS site + chuẩn bị reboot an toàn webapp/dev aps12",
+  "updated_at": "2026-08-20T07:39:29Z"
 }
