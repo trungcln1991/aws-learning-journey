@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T02:19:19.647Z",
+  "generated_at": "2026-08-21T02:25:06.558Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,109 @@
   ],
   "whats_new": [
     {
+      "title": "AWS announces the general availability of a new AWS Local Zone in Las Vegas, Nevada",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-local-zones-las-vegas-nevada/",
+      "date": "2026-08-20T21:45:00.000Z",
+      "description": "AWS Local Zone in Las Vegas, Nevada is now generally available. The new AWS Local Zone supports Amazon Elastic Compute Cloud (Amazon EC2) C7i, M7i, R7i, and C8gn instances, Amazon Elastic Block Store (Amazon EBS) volume types gp3, gp2, io1, sc1, and st1, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), Application Load Balancer, and AWS Direct Connect.",
+      "tags": [
+        "EC2",
+        "ECS",
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon Timestream for InfluxDB now supports customer managed keys",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-timestream-influxdb-cmk/",
+      "date": "2026-08-20T20:00:00.000Z",
+      "description": "Amazon Timestream for InfluxDB now supports AWS Key Management Service (AWS KMS) customer managed keys for encrypting data at rest in InfluxDB 2 database instances, InfluxDB 2 Read Replicas, and InfluxDB 3 clusters. Customers select a symmetric AWS KMS key when creating a database resource. Timestream for InfluxDB uses the selected key to encrypt the underlying database storage for InfluxDB 2 and ",
+      "tags": [
+        "EC2",
+        "KMS"
+      ]
+    },
+    {
+      "title": "Amazon EC2 P6-B300 instances are now available in the Asia Pacific (Seoul) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-p6-b300/",
+      "date": "2026-08-20T18:31:00.000Z",
+      "description": "Starting today, Amazon Elastic Cloud Compute (Amazon EC2) P6-B300 instances are available in the Asia Pacific (Seoul) Region. P6-B300 instances provide 8xNVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory. P6-B300 instances deliver 2x networking bandwidth, 1.5x GPU memory size, and 1.5x GPU TFLOPS",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EKS now supports certificate authority (CA) rotation with automated lifecycle management",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-certificate-authority-ca-rotation-automated-lifecycle-management",
+      "date": "2026-08-20T18:30:00.000Z",
+      "description": "Today, Amazon Elastic Kubernetes Service (Amazon EKS) announced certificate authority (CA) rotation, enabling customers to rotate their cluster's CA through a managed lifecycle with automated safeguards. Each Amazon EKS cluster has its own CA that allows encrypted connections to the cluster's Kubernetes API, and now you can rotate the CA before it expires to ensure your cluster remains operational",
+      "tags": [
+        "RDS",
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon CloudFront now supports Origin Access Control (OAC) for Amazon S3 Multi-Region Access Points",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cloudfront-oac-s3-mrap",
+      "date": "2026-08-20T18:30:00.000Z",
+      "description": "Starting today, customers can protect their origins using Amazon S3 Multi-Region Access Points (MRAP) by using CloudFront Origin Access Control (OAC) to only allow access from designated CloudFront distributions. Customers use Amazon S3 MRAP with CloudFront to serve content from a single global endpoint that automatically routes to the closest available replicated bucket across regions during a ca",
+      "tags": [
+        "S3",
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "AWS Partner Central agents MCP Server now supports OAuth with AWS Sign-In",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/8/aws-partner-central-mcp/",
+      "date": "2026-08-20T18:02:00.000Z",
+      "description": "AWS partners can now access AWS Partner Central agents from tools they already use, such as Amazon Quick and Kiro, using OAuth through AWS Sign-In. Partners can authorize agent access with their existing AWS identities, sign-in methods, IAM permissions, and governance controls without installing or maintaining additional authentication software. Previously, AWS Partners needed to set up an MCP pro",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "ARC Region switch adds Amazon RDS Switchover Read Replica execution block",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/region-switch-rds-switchover-execution-block/",
+      "date": "2026-08-20T17:45:00.000Z",
+      "description": "Today, we are launching the Amazon RDS Switchover Read Replica execution block in ARC Region switch , which automates recovery orchestration for Amazon RDS databases running Oracle Data Guard in multi-Region workloads. Amazon Application Recovery Controller (ARC) Region switch helps customers orchestrate the failover of their multi-Region applications to achieve a bounded recovery time in the even",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Generative AI Inference Recommendation for Amazon SageMaker now available in the SageMaker AI Studio",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/generative-ai-inference-recommendation-for-amazon-sagemaker-now-available-in-the-sagemaker-ai-studio",
+      "date": "2026-08-20T17:25:00.000Z",
+      "description": "Amazon SageMaker AI now offers Generative AI Inference Recommendations in SageMaker AI Studio, giving customers a guided, low-code, no-code path to find the best inference configuration for their workload. This builds on the API-based launch in April 2026, extending the same benchmarking infrastructure to teams that prefer a visual workflow over programmatic access. Deploying generative AI models ",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Direct Connect introduces inbound prefix controls and higher prefix scale",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-direct-connect-new-prefix-controls",
+      "date": "2026-08-20T15:00:00.000Z",
+      "description": "Today, AWS Direct Connect announced inbound prefix controls, a new capability that lets you allocate and manage inbound route-prefix allocations for your private and transit virtual interfaces (VIFs) based on your workload's needs. You can now allocate up to 1,000 prefixes each for IPv4 and IPv6 on your VIFs on dedicated and hosted connections. Previously, Direct Connect VIFs accepted a maximum of",
+      "tags": []
+    },
+    {
+      "title": "Amazon Redshift introduces long-term system table retention with Amazon S3 Tables integration",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/redshift-long-term-system-table-retention/",
+      "date": "2026-08-20T15:00:00.000Z",
+      "description": "Amazon Redshift now supports long-term retention for system table data through native integration with Amazon S3 Tables. With this feature, you can configure your Redshift system table data retention beyond the current 7-day limit to meet your compliance, auditing, and observability requirements. Once enabled, AWS automatically writes system table data to S3 Tables in Apache Iceberg format and man",
+      "tags": [
+        "S3",
+        "CloudTrail",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Marketplace now supports category-based notifications and multi-channel delivery for partners",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace/",
+      "date": "2026-08-20T00:06:00.000Z",
+      "description": "AWS partners can now configure category-based notifications and multi-channel delivery for AWS Marketplace notifications through AWS User Notifications. Previously, partners received their AWS Marketplace notifications through their AWS account’s root email address or custom email aliases, with no way to select notification categories or route each category to the teams responsible for managing it",
+      "tags": []
+    },
+    {
       "title": "Launching External Web Access for Web Search on Amazon Bedrock",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-web-access-web-search/",
       "date": "2026-08-19T23:00:00.000Z",
@@ -43,6 +146,15 @@
       ]
     },
     {
+      "title": "Amazon EC2 enables AMI creation with local snapshots from instances on Outposts",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/ec2-create-image-local-snapshot-outpost",
+      "date": "2026-08-19T21:30:00.000Z",
+      "description": "Amazon EC2 now supports creating Amazon Machine Images (AMIs) with local snapshots from instances running on AWS Outposts. This capability makes it easier for customers to create AMIs while storing snapshots directly on the Outpost to meet data residency requirements. Customers can now create AMIs with snapshots stored either on the Outpost itself or in the parent AWS Region. When keeping data loc",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
       "title": "Amazon CloudWatch log Centralization now supports log group tag propagation",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cloudwatch-centralization-tag-propogation/",
       "date": "2026-08-19T21:06:00.000Z",
@@ -51,6 +163,16 @@
         "CloudWatch",
         "Security Hub",
         "Cost"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB Streams now supports attribute-based access control",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-dynamodb-streams-abac/",
+      "date": "2026-08-19T21:03:00.000Z",
+      "description": "Amazon DynamoDB Streams now supports attribute-based access control (ABAC), enabling you to use tag-based conditions in your Identity and Access Management (IAM) policies to control access to your data streams. ABAC is an authorization strategy that simplifies access management by allowing you to enforce different access levels for multiple teams and applications using fewer IAM policies. This cap",
+      "tags": [
+        "IAM",
+        "DynamoDB"
       ]
     },
     {
@@ -63,6 +185,24 @@
         "IAM",
         "SageMaker"
       ]
+    },
+    {
+      "title": "Amazon CloudWatch pipelines adds GeoIP, RDS, and XML processors",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/cloudwatch-geoip-rds-xml/",
+      "date": "2026-08-19T20:13:00.000Z",
+      "description": "Amazon CloudWatch pipelines now includes three new processors that parse and enrich log data as it's ingested: an Amazon RDS log parser, an XML parser and a GeoIP enrichment processor. CloudWatch pipelines is a fully managed service that ingests, transforms, and routes telemetry to CloudWatch without managing infrastructure. Log sources often produce data that isn't immediately queryable without r",
+      "tags": [
+        "RDS",
+        "CloudWatch",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Elemental MediaConnect Router now supports configurable recovery latency modes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/mediaconnect-router-latency-modes/",
+      "date": "2026-08-19T18:00:00.000Z",
+      "description": "AWS Elemental MediaConnect Router now enables customers to configure latency settings, providing control over the internal connection latency between inputs and outputs within the router. Previously, the protocol latency inside the router was set automatically by the service and could not be adjusted. MediaConnect Router now offers two latency configuration options on router outputs: balanced mode",
+      "tags": []
     },
     {
       "title": "AWS Cost Anomaly Detection supports third-party models on Amazon Bedrock",
@@ -121,150 +261,20 @@
       "tags": [
         "IAM"
       ]
-    },
-    {
-      "title": "Amazon WorkSpaces Applications now offers in-console monitoring capabilities",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-console-monitoring",
-      "date": "2026-08-19T15:00:00.000Z",
-      "description": "Amazon WorkSpaces Applications now offers a native monitoring experience embedded directly in the service console. Administrators can now access real-time session-level metrics, instance-level resource data, and network performance metrics without requiring third-party monitoring tools or Amazon CloudWatch expertise. Previously, enterprise customers managing large WorkSpaces Applications deploymen",
-      "tags": [
-        "EC2",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS IAM now supports 20 managed policies per role by default",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-quota-increase/",
-      "date": "2026-08-19T15:00:00.000Z",
-      "description": "AWS Identity and Access Management (IAM) has increased the default quota for managed policies per role from 10 to 20. This higher default quota reduces the need to make Service Quota requests when following IAM best practices like separating permissions into purpose-specific policies or when onboarding to AWS Partner products that require attaching additional managed policies. If you need more tha",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS Storage Gateway now supports FIPS-compliant private connectivity for Tape and Volume Gateway",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/storage-gateway-fips-privatelink/",
-      "date": "2026-08-19T10:00:00.000Z",
-      "description": "AWS Storage Gateway now supports FIPS 140-3 validated endpoints over AWS PrivateLink for Tape Gateway and Volume Gateway. Previously, FIPS endpoints were available only over the public internet. Now you can keep FIPS-compliant traffic on the private AWS network, making it easier to use Storage Gateway for regulated workloads. With this launch, your Tape Gateway and Volume Gateway can reach the Sto",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8a-asia-pacific-taipei/",
-      "date": "2026-08-19T07:51:00.000Z",
-      "description": "Starting today, Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) Region. These instances, feature 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to R7a instances. R8a instances deliver 45% more memory bandwidth compared to R7a instances, making thes",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock now supports SpaceXAI Grok 4.6 with Cross Region Inferencing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-grok-4-6/",
-      "date": "2026-08-19T05:18:00.000Z",
-      "description": "Amazon Bedrock now supports SpaceXAI Grok 4.6, a frontier model built for coding, agentic tasks, and knowledge work, with US Geo and Global cross-Region inference. Customers can now access Grok 4.6 at scale with cross-Region inference routing requests across multiple AWS Regions for higher throughput and lower inference costs. Cross-Region inference automatically routes inference requests across m",
-      "tags": [
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock now supports OpenAI models in India",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-openai-india-v1/",
-      "date": "2026-08-18T23:30:00.000Z",
-      "description": "Amazon Bedrock now supports the OpenAI GPT-5.6 models (Terra and Luna) in India, with India Geo cross-Region inference. Customers with regulatory requirements of in-country inferencing can now use OpenAI models at scale ensuring that inferencing is processed within India. Cross-Region inference automatically routes inference requests across multiple AWS Regions to give you higher throughput, witho",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS IAM identity federation to external services is now available in AWS European Sovereign Cloud Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iam-european-sovereign-cloud/",
-      "date": "2026-08-18T22:30:00.000Z",
-      "description": "AWS Identity and Access Management (IAM) now enables AWS workloads in the AWS European Sovereign Cloud (Germany) Region to securely authenticate with external services using short-lived JSON Web Tokens (JWTs). The AWS European Sovereign Cloud is an independent cloud for Europe entirely located within the European Union (EU), designed to help customers meet their evolving sovereignty requirements. ",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon Corretto August 2026 Critical Security Patch Updates",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-corretto-august-2026-security-updates",
-      "date": "2026-08-18T21:48:00.000Z",
-      "description": "On Aug 18, 2026, Amazon announced critical security patch update (CSPU) for Amazon Corretto Long-Term Support (LTS) and Feature Release (FR) versions of OpenJDK. Corretto 26.0.2.11.1, 25.0.4.8.1, 21.0.12.9.1, 17.0.20.10.1, 11.0.32.10.1, and 8u504 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Visit Corretto home page to down",
-      "tags": [
-        "CloudFront",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AgentCore payments is now generally available in Amazon Bedrock AgentCore",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/bedrock-agentcore-payments-ga/",
-      "date": "2026-08-18T19:15:00.000Z",
-      "description": "Today, AWS announces the general availability of AgentCore payments, a capability within Amazon Bedrock AgentCore that enables AI agents to autonomously discover, access, and pay for paid APIs, MCPs, and content with just a few lines of code. AgentCore payments provides the security, guardrails, and observability enterprises need to deploy transacting agents in production at scale. AgentCore payme",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/smus-data-profiling",
-      "date": "2026-08-18T18:49:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection, powered by AWS Glue Data Quality. Data stewards, engineers and analysts can generate statistical profiles of their data to understand its shape and completeness, and track how these statistics change over time. Anomaly detection helps identify when data points drift from historical patterns without requiring predefi",
-      "tags": [
-        "RDS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon MWAA Serverless now supports PythonOperator and BashOperator",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/mwaa-serverless-pythonoperator-bashoperator/",
-      "date": "2026-08-18T18:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) Serverless now supports running custom Python functions and shell scripts directly in the serverless runtime using PythonOperator and BashOperator. With this launch, data engineering teams can execute the code patterns they rely on daily, including data transformations, format conversions, and data quality checks, without provisioning addit",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon EC2 R8i instances are now available in Israel (Tel Aviv) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8i-israel-tel-aviv/",
-      "date": "2026-08-18T17:24:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i instances are available in the Israel (Tel Aviv) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i instances offer up to 15% better price-performance, and 2.5x more memory ba",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "IAM Policy Autopilot now supports Terraform plan files",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/iam-policy-autopilot-now-supports-terraform-plan-files",
-      "date": "2026-08-18T17:19:00.000Z",
-      "description": "IAM Policy Autopilot can now generate baseline IAM policies directly from a Terraform plan file. IAM Policy Autopilot is an open source tool, launched at re:Invent 2025, that analyzes your code to deterministically create scoped-down IAM policies you can refine as your application evolves, reducing the time you spend writing IAM policies and troubleshooting access issues. Until now the tool analyz",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "PostgreSQL 19 Beta 3 is now available in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/postgresql-19-beta-3-amazon-rds-database-preview-environment/",
-      "date": "2026-08-18T16:00:00.000Z",
-      "description": "Starting today, Amazon RDS for PostgreSQL 19 Beta 3 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. PostgreSQL 19 Beta 3 adds new capabilities for query performance and autovacuum management. The new pg_stat_autovacuum_scores view helps you monitor and tune autovacuum prioritization. Parallel auto",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon EC2 High Memory U7i instances now available in AWS Europe (Zurich) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-high-memory-u7i-aws-europe/",
-      "date": "2026-08-18T15:00:00.000Z",
-      "description": "Amazon EC2 High Memory U7i-6TB instances (u7i-6tb.112xlarge) are now available in AWS Europe (Zurich) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7i-6TB instances offer 6 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environment. U7i",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "security": [
     {
+      "title": "Ongoing updates on Copy.fail and variants",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-030-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-030-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/13/2026 10:00 PM PDT This is an ongoing issue. This bulletin will be updated as more information becomes available. Description: AWS is aware of the copy.fail or DirtyFrag class of issues - a set of privilege escalation issues affecting the Linux Kernel. We will update this bulletin as more infor",
+      "tags": []
+    },
+    {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-06-29T20:07:32.000Z",
+      "date": "2026-08-20T21:35:57.000Z",
       "description": "Bulletin ID: 2026-048-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/29/2026 11:15 PM PDT Description: AWS WAF is a web application firewall that monitors the HTTP(S) requests that are forwarded to your protected web application resources. We identified CVE-2026-13762 and CVE-2026-13763, which are issues affecting HTTP/2 multi-frame request body inspection by AWS ",
       "tags": [
         "WAF",
@@ -272,10 +282,46 @@
       ]
     },
     {
+      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-073-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/04/2026 10:00 AM PDT Description: We have identified CVE-2026-18830 in the Amazon Bedrock AgentCore harness InvokeHarness API. This issue could allow an authenticated user to execute configured tools while bypassing model invocation and associated security controls. When the most recent message i",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
       "title": "Issue with AWS-LC: an open-source, general-purpose cryptographic library (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338)",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-005-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
+      "date": "2026-08-20T21:35:57.000Z",
       "description": "Bulletin ID: 2026-005-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/03/02 14:30 PM PST Description: AWS-LC is an open-source, general-purpose cryptographic library. We identified three distinct issues: - CVE-2026-3336: PKCS7_verify Certificate Chain Validation Bypass in AWS-LC Improper certificate validation in PKCS7_verify() in AWS-LC allows an unauthenticated",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Issues with AWS Research and Engineering Studio (RES)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-014-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-014-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/06 14:00 PM PDT Description: Research and Engineering Studio (RES) on AWS is an open source, web portal design for administrators to create and manage secure cloud-based research and engineering environments. We have identified the following issues with the AWS Research and Engineering Studi",
+      "tags": []
+    },
+    {
+      "title": "CVE-2026-15895: OS command injection in jsii-diff in AWS jsii",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-057-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-057-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 12:00 PM PDT Description: jsii-diff is a command line tool to compare the API differences between two jsii assemblies, and report errors if there are backwards-incompatible changes to the API. We identified CVE-2026-15895, an issue where specially formatted command line arguments can be u",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
       "tags": [
         "Inspector"
       ]
@@ -283,75 +329,30 @@
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
+      "date": "2026-08-20T21:35:57.000Z",
       "description": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT Description: FreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size ",
       "tags": [
         "Inspector"
       ]
     },
     {
+      "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-049-aws/",
+      "date": "2026-08-20T21:35:57.000Z",
+      "description": "Bulletin ID: 2026-049-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/01/2026 11:45 AM PDT Description: The AWS Command Line Interface (AWS CLI) is a unified tool for managing AWS services from the command line. We identified CVE-2026-13769 in AWS CLI on Unix-like systems where the umask has not been configured to restrict file permissions (the default on most syst",
+      "tags": [
+        "IAM",
+        "Inspector"
+      ]
+    },
+    {
       "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-07-23T18:39:11.000Z",
+      "date": "2026-08-20T21:35:57.000Z",
       "description": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT Description: Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources w",
       "tags": [
         "Inspector"
       ]
-    },
-    {
-      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-07-31T17:20:33.000Z",
-      "description": "Please refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
-      "description": "Bulletin ID: 2026-031-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/14/2026 13:00 PM PDT Description: Amazon SageMaker Python SDK is an open-source library for training and deploying machine learning models on Amazon SageMaker. The ModelBuilder component simplifies model deployment by automating model artifact preparation and SageMaker model creation. We identifi",
-      "tags": [
-        "ALB",
-        "SageMaker",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
-      "date": "2026-08-18T18:26:06.000Z",
-      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
-      "date": "2026-07-15T18:49:07.000Z",
-      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18656 & CVE-2026-18657 - Issue with Kiro IDE and CLI - Executable Resolution from Untrusted Project Directory on Windows",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-074-aws/",
-      "date": "2026-08-04T19:43:11.000Z",
-      "description": "Bulletin ID: 2026-074-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/04/2026 12:30 PM PDT Description: Kiro is an agentic IDE and command-line interface users install on their desktop. We identified CVE-2026-18656 and CVE-2026-18657, an issue where an uncontrolled search path element on Windows might allow an actor to execute arbitrary code via a maliciously craft",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Issues with Amazon Athena ODBC Driver",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-013-aws/",
-      "date": "2026-06-05T19:19:25.000Z",
-      "description": "Bulletin ID: 2026-013-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/03 13:00 PM PDT Description: The Amazon Athena ODBC driver implements standard ODBC application program interfaces (APIs). The ODBC driver provides access to Amazon Athena from any C/C++ application. The Amazon Athena ODBC driver provides 64-bit ODBC drivers for Windows, Linux and MAC operat",
-      "tags": []
     }
   ],
   "blog": [
@@ -458,32 +459,12 @@
     "overall": "issues",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-19T18:47:20.000Z",
-        "description": "Between August 18 5:00 PM and August 19 11:00 AM PDT, we experienced elevated errors launching EC2 instances in a newly launched Availability Zone (euw2-az4) in the EU-WEST-2 Region. After the new Availability Zone launch, we began experiencing errors when using a default VPC. We discovered the root cause of the issue on August 19 at 9:00 AM and began deploying a change to resolve the issue at 9:3",
-        "tags": [
-          "EC2",
-          "VPC"
-        ]
-      },
-      {
         "title": "Service impact: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-19T17:03:59.000Z",
-        "description": "On August 18 we launched a new Availability Zone (euw2-az4) in the EU-WEST-2 Region. After the launch, we began experiencing errors launching EC2 instances in the new Availability Zone when a default subnet is not present. We can confirm that existing running instances and resources are not affected. Workflows that automatically get a list of Availability Zones in the Region via the DescribeAvaila",
+        "date": "2026-08-21T02:02:22.000Z",
+        "description": "We are experiencing increased error rates affecting real-time metrics in the AP-NORTHEAST-1 Region. Customers may experience missing or delayed real-time metric data.",
         "tags": [
-          "EC2",
-          "VPC"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-19T15:15:14.000Z",
-        "description": "We are investigating an issue that is impacting launching new EC2 instances and resources in a newly launched Availability Zone (euw2-az4) in the EU-WEST-2 Region. During this time, affected customers may experience issues when creating or modifying resources in the Region. Other AWS services may also be impacted. For immediate recovery, we recommend that customers use alternative Availability Zon",
-        "tags": [
-          "EC2"
+          "CloudWatch"
         ]
       },
       {
@@ -502,6 +483,22 @@
         "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
         "tags": [
           "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "tags": [
+          "S3"
         ]
       }
     ]
