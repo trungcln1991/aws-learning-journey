@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T02:25:06.558Z",
+  "generated_at": "2026-08-22T02:17:18.954Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,55 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon Bedrock announces reduced pricing for OpenAI GPT-5.6 Sol",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/bedrock-openai-gpt-56-sol-reduced-pricing/",
+      "date": "2026-08-21T20:11:00.000Z",
+      "description": "Today, OpenAI announced that they are lowering API prices for GPT-5.6 Sol. Following the recent Terra and Luna price reductions, Sol now costs $4 per million input tokens and $20 per million output tokens—20% lower input pricing and 33.3% lower output pricing. This promotional pricing is available at least through November 21, 2026. Whether you're building autonomous coding agents, running complex",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now lets managers chat with their data",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-ai-data-analytics",
+      "date": "2026-08-21T20:00:00.000Z",
+      "description": "Amazon Connect Customer now lets managers chat with their data in plain language and get back the answer, the evidence behind it, and the fix, in seconds. Managers have always had the data. What they haven’t had is the time to dig through dashboards, find what’s driving performance, and decide what to do next. Now Amazon Connect Customer does that work for them. It searches across more than 150 me",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Deadline Cloud now tracks automatic download status in the Deadline Cloud Monitor",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-deadline-cloud-auto-download-status-tracking/",
+      "date": "2026-08-21T18:00:00.000Z",
+      "description": "The AWS Deadline Cloud monitor now shows the progress, status, and health of your automatic file downlaods from jobs running in the cloud. Deadline Cloud is a fully managed service that helps teams run compute-intensive workloads in the cloud for visual effects, animation, product design, simulation, and gaming. The Deadline Cloud Monitor (DCM) desktop app provides customers with visibility into t",
+      "tags": []
+    },
+    {
+      "title": "Amazon EKS Capability for Argo CD now supports custom configuration",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-argo-cd-configuration",
+      "date": "2026-08-21T17:00:00.000Z",
+      "description": "The Amazon Elastic Kubernetes Service (Amazon EKS) Capability for Argo CD now supports custom configuration through a standard argocd-cm ConfigMap in your cluster. This capability gives you a fully managed GitOps continuous delivery experience, and you can now tune it to fit how your teams work. You can define custom health checks for your Custom Resources, customize the Argo CD UI banner content,",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Glue 6.0 delivers 30% price reduction and Iceberg v3 support",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3",
+      "date": "2026-08-21T16:42:00.000Z",
+      "description": "AWS Glue 6.0 is now generally available, delivering a 30% price reduction and introducing full support for Apache Iceberg v3, newer versions of Apache Hudi and Delta Lake, and new capabilities to improve developer productivity. AWS Glue 6.0 also upgrades runtime to Apache Spark 4.1, Python 3.13, and Scala 2.13. With Apache Iceberg v3, AWS Glue 6.0 adds the VARIANT data type with automatic shreddin",
+      "tags": []
+    },
+    {
+      "title": "Amazon SES now supports open and click tracking override parameters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-adds-open-click-tracking-override/",
+      "date": "2026-08-21T07:00:00.000Z",
+      "description": "Amazon Simple Email Service (SES) now supports open and click tracking override parameters in the SendEmail and SendBulkEmail APIs. Senders can enable or disable open tracking and click tracking on an individual API call, rather than managing tracking preferences through separate configuration sets. Previously, controlling tracking behavior required maintaining a distinct configuration set for eac",
+      "tags": []
+    },
+    {
       "title": "AWS announces the general availability of a new AWS Local Zone in Las Vegas, Nevada",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-local-zones-las-vegas-nevada/",
       "date": "2026-08-20T21:45:00.000Z",
@@ -43,6 +92,16 @@
       "tags": [
         "EC2",
         "KMS"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C8gd, M8gd and R8gd instances are now available in additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8gd-m8gd/",
+      "date": "2026-08-20T20:00:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) C8gd, M8gd, and R8gd instances with up to 11.4 TB of local NVMe-based SSD block-level storage are now available in additional regions. C8gd instances are now available in Asia Pacific (Singapore), M8gd instances are available in Mexico (Central) and Asia Pacific (Melbourne), and R8gd instances are available in Europe (Zurich). These instances are powered b",
+      "tags": [
+        "EC2",
+        "ALB"
       ]
     },
     {
@@ -100,6 +159,16 @@
       "tags": [
         "Bedrock",
         "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Aurora DSQL now supports Amazon CloudWatch Database Insights",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aurora-dsql-cloudwatch-database-insights/",
+      "date": "2026-08-20T16:00:00.000Z",
+      "description": "Amazon Aurora DSQL now features a new Amazon CloudWatch Database Insights metric that delivers per-statement, cluster-level performance monitoring details. Aurora DSQL database insights captures sampled wait states and normalized SQL statements for all active cluster sessions. You can use it to diagnose performance issues with your clusters, and identify the queries consuming the most resources. A",
+      "tags": [
+        "RDS",
+        "CloudWatch"
       ]
     },
     {
@@ -184,82 +253,6 @@
         "Lambda",
         "IAM",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch pipelines adds GeoIP, RDS, and XML processors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/cloudwatch-geoip-rds-xml/",
-      "date": "2026-08-19T20:13:00.000Z",
-      "description": "Amazon CloudWatch pipelines now includes three new processors that parse and enrich log data as it's ingested: an Amazon RDS log parser, an XML parser and a GeoIP enrichment processor. CloudWatch pipelines is a fully managed service that ingests, transforms, and routes telemetry to CloudWatch without managing infrastructure. Log sources often produce data that isn't immediately queryable without r",
-      "tags": [
-        "RDS",
-        "CloudWatch",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Elemental MediaConnect Router now supports configurable recovery latency modes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/mediaconnect-router-latency-modes/",
-      "date": "2026-08-19T18:00:00.000Z",
-      "description": "AWS Elemental MediaConnect Router now enables customers to configure latency settings, providing control over the internal connection latency between inputs and outputs within the router. Previously, the protocol latency inside the router was set automatically by the service and could not be adjusted. MediaConnect Router now offers two latency configuration options on router outputs: balanced mode",
-      "tags": []
-    },
-    {
-      "title": "AWS Cost Anomaly Detection supports third-party models on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-cost-anomaly-detection-bedrock-3P/",
-      "date": "2026-08-19T17:57:00.000Z",
-      "description": "AWS Cost Anomaly Detection now monitors spend on third-party foundation models running on Amazon Bedrock, such as Anthropic Claude and other provider-hosted models. Cost Anomaly Detection uses machine learning to detect and alert on unusual spend, and this launch extends that coverage to third-party model usage on Amazon Bedrock. Teams running production generative AI workloads now get automatic a",
-      "tags": [
-        "Bedrock",
-        "SageMaker",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Ingestion is now available in GovCloud Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/opensearch-ingestion-available-govcloud-regions",
-      "date": "2026-08-19T17:54:00.000Z",
-      "description": "Starting today, customers can use Amazon OpenSearch Ingestion in AWS GovCloud (US-East) and AWS GovCloud (US-West), for ingesting data into their Amazon OpenSearch Service managed clusters or serverless collections. Amazon OpenSearch Ingestion is a fully managed data ingestion tier that allows you to ingest and process data before indexing it in Amazon OpenSearch managed clusters or serverless col",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Marketplace launches support for Amazon Lightsail",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-marketplace-launch-ami-amazon-lightsail",
-      "date": "2026-08-19T17:04:00.000Z",
-      "description": "Today, AWS Marketplace announces support for launching select Amazon Machine Images (AMIs) on Amazon Lightsail. Customers who want simple, predictable pricing and a streamlined instance-creation experience can now easily deploy eligible AWS Marketplace AMIs on Amazon Lightsail in just a few clicks. Lightsail instance bundles include compute, storage, and a generous data transfer allowance at a fix",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS announces a new Availability Zone in the Europe (London) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-new-availability-zone-europe/",
-      "date": "2026-08-19T17:00:00.000Z",
-      "description": "AWS has added a fourth Availability Zone to the Europe (London) Region (eu-west-2), expanding infrastructure capacity to meet growing demand for cloud compute in the Region. The new Availability Zone delivers next-generation AI and ML capacity, including Amazon EC2, Trn3, and P6 accelerated instances, alongside general-purpose compute. The new Availability Zone gives AWS customers in eu-west-2 gre",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Lambda MicroVMs is now available in 5 additional AWS regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/lambda-microvms-5-additional-regions",
-      "date": "2026-08-19T16:14:00.000Z",
-      "description": "AWS Lambda MicroVMs is now available in 5 additional AWS Regions: Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Europe (Frankfurt), and Europe (Stockholm). With this launch, you can use Lambda MicroVMs in a total of 10 AWS Regions. Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservat",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Quick adds deny by default for custom permissions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick-deny-by-default/",
-      "date": "2026-08-19T15:36:00.000Z",
-      "description": "Amazon Quick custom permissions now include deny by default, a governance setting that automatically restricts new AI capabilities before they reach users. Previously, new AI capabilities were available to all users on release, requiring administrators to react after the fact. With deny by default, administrators restrict the AI capability category in a custom permissions profile and assign it to ",
-      "tags": [
-        "IAM"
       ]
     }
   ],
@@ -357,6 +350,13 @@
   ],
   "blog": [
     {
+      "title": "AWS Glue 6.0 now available with 30% lower price and full Apache Iceberg v3 support",
+      "link": "https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/",
+      "date": "2026-08-21T18:53:26.000Z",
+      "description": "AWS Glue 6.0 is built on a fully modernized runtime, Apache Spark 4.1, Python 3.12, and Scala 2.13, delivering 30% lower pricing than previous AWS Glue versions.",
+      "tags": []
+    },
+    {
       "title": "In the works: AWS Builder Lofts in Berlin, Hyderabad, and São Paulo",
       "link": "https://aws.amazon.com/blogs/aws/in-the-works-aws-builder-lofts-in-berlin-hyderabad-and-sao-paulo/",
       "date": "2026-08-18T13:58:41.000Z",
@@ -444,25 +444,23 @@
         "S3",
         "SQS"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: AWS Builder Center at 1 year, Network Scanning in Security Hub, Loom for AWS, and more (July 13, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-at-one-year-network-scanning-in-security-hub-loom-for-aws-and-more-july-13-2026/",
-      "date": "2026-07-13T16:18:20.000Z",
-      "description": "AWS Builder Center turned one year old last week. Launched on July 9, 2025, the platform has grown from a community hub with Wishlist voting, community profiles, and a toolbox into a full ecosystem with sandbox environments, workshops, Spaces, and a Builders’ Library. To mark the anniversary, Rick Suttles published a full feature timeline covering […]",
-      "tags": [
-        "Security Hub"
-      ]
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
+      {
+        "title": "Service is operating normally: [RESOLVED] Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-08-21T02:40:02.000Z",
+        "description": "日本時間 8:58 AM から 10:34 AM の間、AP-NORTHEAST-1 リージョンにおける Amazon Connect のリアルタイムメトリクスに影響する遅延が増加し、データが欠落する、またはデータが最新の状態に更新されない事象が発生しました。この間、お客様は分析レポート内で一部のデータが反映されない状況を経験した可能性があり、また、コンタクトフロー内でリアルタイムメトリクス (例: 人員の確認ブロック) にアクセスする際に問題が発生した可能性があります。根本原因は、メトリクスイベント配信を担うサブシステムの問題であると特定しました。日本時間 10:13 AM に緩和策の適用を開始し、 10:34 AM までに影響を解消しました。本事象は解決済みであり、サービスは正常に稼働しています。| Between 4:58 PM and 6:34 PM PDT, we experie",
+        "tags": []
+      },
       {
         "title": "Service impact: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
         "date": "2026-08-21T02:02:22.000Z",
-        "description": "We are experiencing increased error rates affecting real-time metrics in the AP-NORTHEAST-1 Region. Customers may experience missing or delayed real-time metric data.",
+        "description": "AP-NORTHEAST-1リージョンにおいて、エラー率が上昇しており、リアルタイムメトリクスに影響が出ています。お客様はリアルタイムメトリクスデータの欠落または遅延を経験する可能性があります。| We are experiencing increased error rates affecting real-time metrics in the AP-NORTHEAST-1 Region. Customers may experience missing or delayed real-time metric data.",
         "tags": [
           "CloudWatch"
         ]
@@ -491,15 +489,6 @@
         "date": "2026-03-03T16:40:00.000Z",
         "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:14:45.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
-        "tags": [
-          "S3"
-        ]
       }
     ]
   }
