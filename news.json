@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:17:18.954Z",
+  "generated_at": "2026-08-23T02:25:29.276Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -353,7 +353,7 @@
       "title": "AWS Glue 6.0 now available with 30% lower price and full Apache Iceberg v3 support",
       "link": "https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/",
       "date": "2026-08-21T18:53:26.000Z",
-      "description": "AWS Glue 6.0 is built on a fully modernized runtime, Apache Spark 4.1, Python 3.12, and Scala 2.13, delivering 30% lower pricing than previous AWS Glue versions.",
+      "description": "AWS Glue 6.0 is built on a fully modernized runtime, Apache Spark 4.1, Python 3.13, and Scala 2.13, delivering 30% lower pricing than previous AWS Glue versions.",
       "tags": []
     },
     {
@@ -450,22 +450,6 @@
     "overall": "operational",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-21T02:40:02.000Z",
-        "description": "日本時間 8:58 AM から 10:34 AM の間、AP-NORTHEAST-1 リージョンにおける Amazon Connect のリアルタイムメトリクスに影響する遅延が増加し、データが欠落する、またはデータが最新の状態に更新されない事象が発生しました。この間、お客様は分析レポート内で一部のデータが反映されない状況を経験した可能性があり、また、コンタクトフロー内でリアルタイムメトリクス (例: 人員の確認ブロック) にアクセスする際に問題が発生した可能性があります。根本原因は、メトリクスイベント配信を担うサブシステムの問題であると特定しました。日本時間 10:13 AM に緩和策の適用を開始し、 10:34 AM までに影響を解消しました。本事象は解決済みであり、サービスは正常に稼働しています。| Between 4:58 PM and 6:34 PM PDT, we experie",
-        "tags": []
-      },
-      {
-        "title": "Service impact: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-08-21T02:02:22.000Z",
-        "description": "AP-NORTHEAST-1リージョンにおいて、エラー率が上昇しており、リアルタイムメトリクスに影響が出ています。お客様はリアルタイムメトリクスデータの欠落または遅延を経験する可能性があります。| We are experiencing increased error rates affecting real-time metrics in the AP-NORTHEAST-1 Region. Customers may experience missing or delayed real-time metric data.",
-        "tags": [
-          "CloudWatch"
-        ]
-      },
-      {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
         "date": "2026-04-30T07:25:54.000Z",
@@ -488,6 +472,22 @@
         "link": "https://status.aws.amazon.com/",
         "date": "2026-03-03T16:40:00.000Z",
         "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:14:45.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
+        "tags": [
+          "S3"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T14:02:57.000Z",
+        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
         "tags": []
       }
     ]
