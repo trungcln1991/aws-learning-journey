@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
+    "Route 53 & DNS",
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: phiên 84 (22/08) — verify connectivity VPC UAT ↔ Long An (10.94.3.21:62077) + đính chính jp-uat-vpc-aps1-uat không còn bỏ trống",
-  "updated_at": "2026-08-22T04:49:53Z"
+  "commit_msg": "session: phiên 86 (24/08) — Security Hub RecordState/WorkflowStatus + Terraform sweep + 7 preventive rule",
+  "updated_at": "2026-08-24T08:18:52Z"
 }
