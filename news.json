@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T02:20:24.799Z",
+  "generated_at": "2026-08-26T02:26:52.278Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,115 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS IoT Core now supports native InfluxDB routing for time-series data",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iot-core-influxdb/",
+      "date": "2026-08-25T19:42:00.000Z",
+      "description": "AWS IoT Core now supports InfluxDB rule action that routes time-series data from your Internet of Things (IoT) devices directly to InfluxDB databases, without writing custom device-side code or using intermediate cloud services. AWS IoT Core is a fully managed service that securely connects billions of IoT devices to the AWS cloud, and routes IoT device data to AWS and third-party services. The ne",
+      "tags": []
+    },
+    {
+      "title": "AWS Batch now supports Amazon ECS Managed Instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-batch-on-ecs-managed-instances/",
+      "date": "2026-08-25T19:36:00.000Z",
+      "description": "AWS Batch now supports Amazon ECS Managed Instances (ECS MI) as a new compute option, enabling you to run GPU-accelerated and compute-intensive batch workloads on AWS-managed infrastructure. With AWS Batch on ECS MI you can now access GPU-accelerated instances while AWS handles AMI updates, security patching, and instance lifecycle automatically, eliminating the operational overhead of customer-ma",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/capacity-reservation-resource-groups-ec2",
+      "date": "2026-08-25T18:00:00.000Z",
+      "description": "Starting today, you can add Amazon EC2 Capacity Blocks for ML and interruptible Capacity Reservations to Capacity Reservation Resource Groups. Amazon EC2 offers different reservation offerings such as On-Demand Capacity Reservations (ODCRs), interruptible Capacity Reservations, and Capacity Blocks for ML. Previously, a Capacity Reservation Resource Group could only include ODCRs. Now you can add a",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Lambda MicroVMs now supports AWS PrivateLink",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/lambda-microvms-supports-privatelink",
+      "date": "2026-08-25T16:34:00.000Z",
+      "description": "AWS Lambda MicroVMs now supports AWS PrivateLink, enabling private connectivity to Lambda MicroVMs directly from Amazon Virtual Private Cloud (VPC) resources without exposing traffic to the public internet. This launch helps regulated workloads in financial services, healthcare, and government meet strict network isolation requirements when building with Lambda MicroVMs. PrivateLink VPC Endpoints ",
+      "tags": [
+        "Lambda",
+        "VPC"
+      ]
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL supports minor versions 18.6, 17.11, 16.15, 15.19, and 14.24",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-postgresql-18-6-17-11-16-15-15-19-14-24/",
+      "date": "2026-08-25T16:00:00.000Z",
+      "description": "Amazon Relational Database Service (RDS) for PostgreSQL now supports the latest minor versions 18.6, 17.11, 16.15, 15.19, and 14.24. We recommend that you upgrade to the latest minor versions to address Common Vulnerabilities and Exposures (CVEs) in prior versions of PostgreSQL, and to benefit from the bug fixes and improvements added by the PostgreSQL community. You can upgrade your databases dur",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now lets you update the customer profile on a case or add a profile after a case is opened",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-cases-flexible-profiles/",
+      "date": "2026-08-25T16:00:00.000Z",
+      "description": "Amazon Connect Customer now lets agents change the profile on a case or choose a profile after the case is opened. If a case is linked to the wrong customer, agents can update the profile to keep case histories accurate. Agents can also add a profile later when the customer is not identified at case creation, such as for calls from a shared phone number or issues that require identity verification",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "IAM Roles Anywhere now provides a Java plugin for the AWS SDK",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/iam-roles-anywhere-java/",
+      "date": "2026-08-25T13:18:00.000Z",
+      "description": "AWS Identity and Access Management (IAM) Roles Anywhere now provides a plugin for the AWS SDK for Java v2 that enables workloads running outside of AWS to obtain temporary AWS credentials directly within the Java application process. The plugin runs in the same Java Virtual Machine (JVM) as your application, removing the need to run the IAM Roles Anywhere credential helper as a separate process or",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "AWS Lambda introduces managed runtimes in public preview for Node.js 26 and Python 3.15",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-node-js-python-public-preview/",
+      "date": "2026-08-25T13:00:00.000Z",
+      "description": "Today, AWS Lambda introduces managed runtimes in public preview, starting with Node.js 26 and Python 3.15. This gives customers, partners and upstream language communities the opportunity to try upcoming managed runtimes before their general availability (GA) release and to share their feedback with the Lambda team. Previously, Lambda managed runtimes were launched directly as GA releases. Since t",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon RDS now supports the latest CU for Microsoft SQL Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-supports-latest-cu-microsoft-sql-server/",
+      "date": "2026-08-25T07:30:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2025 CU6 KB5093421 (RDS version 17.00.4055.5.v1). For additional information on the improvements and fixes included in these updates, see Microsoft documentation for KB5093421. We recommend that you upgrade y",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon RDS for Oracle now supports July 2026 Release Update",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-oracle-july-2026-release-update",
+      "date": "2026-08-25T07:24:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports the Oracle July 2026 Release Update (RU) for Oracle Database versions 19c, 21c and 26ai. We recommend upgrading to the July 2026 RU as it includes security updates for Oracle database products. Starting with July 2026 releases, the naming format for an RU in Oracle Database 19c changes to &lt;version&gt;.ru-&lt;YYYY-MM&gt;.mrp",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Secrets Manager adds managed external secrets support for Cisco Security Platform and Netskope",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/secrets-manager-cisco-netskope/",
+      "date": "2026-08-25T07:00:00.000Z",
+      "description": "AWS Secrets Manager now extends its managed external secrets capability to include Cisco Security Platform API keys and Netskope API tokens, enabling you to automatically rotate these third-party credentials directly from the AWS console without writing any custom rotation code. For Cisco Security Platform (Security Cloud Control), Secrets Manager rotates the API key's refresh token on your schedu",
+      "tags": []
+    },
+    {
+      "title": "AWS Lambda functions now support full IAM resource-based policies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-full-iam-resource-based-policies/",
+      "date": "2026-08-25T02:00:00.000Z",
+      "description": "AWS Lambda functions now support full Identity and Access Management (IAM) resource-based policies , enabling platform admins and security teams to define granular access permissions using the full capabilities of AWS IAM. With full IAM resource-based policies, you can define permissions for multiple principals and actions in a single policy document and leverage the full range of IAM condition ke",
+      "tags": [
+        "Lambda",
+        "IAM"
+      ]
+    },
     {
       "title": "Amazon ECS now automatically detects and repairs container instances with impaired agent connectivity",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecs-agent-connectivity-health",
@@ -65,6 +174,13 @@
         "RDS",
         "Inspector"
       ]
+    },
+    {
+      "title": "MSK Replicator now supports OAuth 2.0 (SASL/OAUTHBEARER) authentication for replication from external Apache Kafka clusters to Amazon MSK",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-msk-replicator-OAuth-support",
+      "date": "2026-08-24T15:00:00.000Z",
+      "description": "Amazon MSK Replicator now supports OAuth 2.0 (SASL/OAUTHBEARER) authentication for data replication from external Apache Kafka clusters - including on-premises, self-managed on AWS, or other cloud providers - to Amazon MSK Provisioned clusters . With this capability, external Apache Kafka clusters configured with OAuth/OIDC authentication can now use MSK Replicator to migrate workloads to Amazon M",
+      "tags": []
     },
     {
       "title": "Amazon SageMaker HyperPod enhances support for Ray",
@@ -134,121 +250,6 @@
       "description": "Amazon Connect Customer now lets managers chat with their data in plain language and get back the answer, the evidence behind it, and the fix, in seconds. Managers have always had the data. What they haven’t had is the time to dig through dashboards, find what’s driving performance, and decide what to do next. Now Amazon Connect Customer does that work for them. It searches across more than 150 me",
       "tags": [
         "RDS"
-      ]
-    },
-    {
-      "title": "AWS Deadline Cloud now tracks automatic download status in the Deadline Cloud Monitor",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-deadline-cloud-auto-download-status-tracking/",
-      "date": "2026-08-21T18:00:00.000Z",
-      "description": "The AWS Deadline Cloud monitor now shows the progress, status, and health of your automatic file downloads from jobs running in the cloud. Deadline Cloud is a fully managed service that helps teams run compute-intensive workloads in the cloud for visual effects, animation, product design, simulation, and gaming. The Deadline Cloud Monitor (DCM) desktop app provides customers with visibility into t",
-      "tags": []
-    },
-    {
-      "title": "Amazon EKS Capability for Argo CD now supports custom configuration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-argo-cd-configuration",
-      "date": "2026-08-21T17:00:00.000Z",
-      "description": "The Amazon Elastic Kubernetes Service (Amazon EKS) Capability for Argo CD now supports custom configuration through a standard argocd-cm ConfigMap in your cluster. This capability gives you a fully managed GitOps continuous delivery experience, and you can now tune it to fit how your teams work. You can define custom health checks for your Custom Resources, customize the Argo CD UI banner content,",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "AWS Glue 6.0 delivers 30% price reduction and Iceberg v3 support",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3",
-      "date": "2026-08-21T16:42:00.000Z",
-      "description": "AWS Glue 6.0 is now generally available, delivering a 30% price reduction and introducing full support for Apache Iceberg v3, newer versions of Apache Hudi and Delta Lake, and new capabilities to improve developer productivity. AWS Glue 6.0 also upgrades runtime to Apache Spark 4.1, Python 3.13, and Scala 2.13. With Apache Iceberg v3, AWS Glue 6.0 adds the VARIANT data type with automatic shreddin",
-      "tags": []
-    },
-    {
-      "title": "Amazon SES now supports open and click tracking override parameters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ses-adds-open-click-tracking-override/",
-      "date": "2026-08-21T07:00:00.000Z",
-      "description": "Amazon Simple Email Service (SES) now supports open and click tracking override parameters in the SendEmail and SendBulkEmail APIs. Senders can enable or disable open tracking and click tracking on an individual API call, rather than managing tracking preferences through separate configuration sets. Previously, controlling tracking behavior required maintaining a distinct configuration set for eac",
-      "tags": []
-    },
-    {
-      "title": "AWS announces the general availability of a new AWS Local Zone in Las Vegas, Nevada",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-local-zones-las-vegas-nevada/",
-      "date": "2026-08-20T21:45:00.000Z",
-      "description": "AWS Local Zone in Las Vegas, Nevada is now generally available. The new AWS Local Zone supports Amazon Elastic Compute Cloud (Amazon EC2) C7i, M7i, R7i, and C8gn instances, Amazon Elastic Block Store (Amazon EBS) volume types gp3, gp2, io1, sc1, and st1, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), Application Load Balancer, and AWS Direct Connect.",
-      "tags": [
-        "EC2",
-        "ECS",
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon Timestream for InfluxDB now supports customer managed keys",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-timestream-influxdb-cmk/",
-      "date": "2026-08-20T20:00:00.000Z",
-      "description": "Amazon Timestream for InfluxDB now supports AWS Key Management Service (AWS KMS) customer managed keys for encrypting data at rest in InfluxDB 2 database instances, InfluxDB 2 Read Replicas, and InfluxDB 3 clusters. Customers select a symmetric AWS KMS key when creating a database resource. Timestream for InfluxDB uses the selected key to encrypt the underlying database storage for InfluxDB 2 and ",
-      "tags": [
-        "EC2",
-        "KMS"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C8gd, M8gd and R8gd instances are now available in additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8gd-m8gd/",
-      "date": "2026-08-20T20:00:00.000Z",
-      "description": "Amazon Elastic Compute Cloud (Amazon EC2) C8gd, M8gd, and R8gd instances with up to 11.4 TB of local NVMe-based SSD block-level storage are now available in additional regions. C8gd instances are now available in Asia Pacific (Singapore), M8gd instances are available in Mexico (Central) and Asia Pacific (Melbourne), and R8gd instances are available in Europe (Zurich). These instances are powered b",
-      "tags": [
-        "EC2",
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon Redshift now supports concurrency scaling of streaming ingestion workloads from Amazon Kinesis data streams",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/redshift-concurrencyscaling-for-kds-streams/",
-      "date": "2026-08-20T20:00:00.000Z",
-      "description": "Amazon Redshift , starting with patch P203 , supports concurrency scaling for refreshes of Amazon Kinesis Data Streams (KDS)-connected streaming materialized views (MVs). Amazon Web Services (AWS) Redshift Streaming Ingestion enables low-latency, high-speed data ingestion from Amazon KDS to Amazon Redshift data warehouses. The data lands in a Redshift streaming materialized view, providing fast ac",
-      "tags": []
-    },
-    {
-      "title": "Amazon Bedrock AgentCore Memory now supports extracting memories from non-conversational JSON payloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/agentcore-memory-json-payloads",
-      "date": "2026-08-20T20:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore memory now accepts a JSON payload type on the CreateEvent API, so agents can extract and consolidate long-term memories from structured data as well as from multi-turn conversations. Developers can pass behavioral events, activity logs, system events, and other JSON data (up to 100 KB per payload) straight into the extraction pipeline. There is no need to reshape it into s",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon EC2 P6-B300 instances are now available in the Asia Pacific (Seoul) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-p6-b300/",
-      "date": "2026-08-20T18:31:00.000Z",
-      "description": "Starting today, Amazon Elastic Cloud Compute (Amazon EC2) P6-B300 instances are available in the Asia Pacific (Seoul) Region. P6-B300 instances provide 8xNVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory. P6-B300 instances deliver 2x networking bandwidth, 1.5x GPU memory size, and 1.5x GPU TFLOPS",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EKS now supports certificate authority (CA) rotation with automated lifecycle management",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-certificate-authority-ca-rotation-automated-lifecycle-management",
-      "date": "2026-08-20T18:30:00.000Z",
-      "description": "Today, Amazon Elastic Kubernetes Service (Amazon EKS) announced certificate authority (CA) rotation, enabling customers to rotate their cluster's CA through a managed lifecycle with automated safeguards. Each Amazon EKS cluster has its own CA that allows encrypted connections to the cluster's Kubernetes API, and now you can rotate the CA before it expires to ensure your cluster remains operational",
-      "tags": [
-        "RDS",
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon CloudFront now supports Origin Access Control (OAC) for Amazon S3 Multi-Region Access Points",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cloudfront-oac-s3-mrap",
-      "date": "2026-08-20T18:30:00.000Z",
-      "description": "Starting today, customers can protect their origins using Amazon S3 Multi-Region Access Points (MRAP) by using CloudFront Origin Access Control (OAC) to only allow access from designated CloudFront distributions. Customers use Amazon S3 MRAP with CloudFront to serve content from a single global endpoint that automatically routes to the closest available replicated bucket across regions during a ca",
-      "tags": [
-        "S3",
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "AWS Partner Central agents MCP Server now supports OAuth with AWS Sign-In",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/8/aws-partner-central-mcp/",
-      "date": "2026-08-20T18:02:00.000Z",
-      "description": "AWS partners can now access AWS Partner Central agents from tools they already use, such as Amazon Quick and Kiro, using OAuth through AWS Sign-In. Partners can authorize agent access with their existing AWS identities, sign-in methods, IAM permissions, and governance controls without installing or maintaining additional authentication software. Previously, AWS Partners needed to set up an MCP pro",
-      "tags": [
-        "IAM"
       ]
     }
   ],
@@ -346,6 +347,15 @@
   ],
   "blog": [
     {
+      "title": "Happy 20th Birthday, Amazon EC2",
+      "link": "https://aws.amazon.com/blogs/aws/happy-20th-birthday-amazon-ec2/",
+      "date": "2026-08-25T16:11:02.000Z",
+      "description": "On the 20th Anniversary, we recognize how AWS has continued to push the boundaries of what cloud computing can deliver, building custom silicon for general-purpose and AI workloads and expanding EC2 into new form factors and deployment models that our customers in 2006 could not have imagined.",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
       "title": "AWS Weekly Roundup: Student Rewards on AWS Builder Center, Local Zone in Las Vegas, and more (August 24, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-student-rewards-on-aws-builder-center-local-zone-in-las-vegas-and-more-august-24-2026/",
       "date": "2026-08-24T16:20:15.000Z",
@@ -427,16 +437,6 @@
       "description": "Last week I had the privilege of spending three days in São Paulo with technical builders from across Latin America, brought together for a regional tech event full of deep-dive sessions, hands-on workshops, and conversations with customers and partners. What struck me most wasn’t any single session, it was the energy of a technical community […]",
       "tags": [
         "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Weekly Roundup: One-click Lambda setup prompt, OpenAI GPT-5.6 models on Bedrock, and more (July 20, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/",
-      "date": "2026-07-20T16:37:34.000Z",
-      "description": "Last week, my team visited Seoul to meet AWS Korea User Group (AWSKRUG) leaders. AWSKRUG is the largest cloud developer community in Korea, with 20 meetup groups organized by topic and area that collectively host over 100 events each year, primarily in Seoul. My team regularly visits countries across the Asia-Pacific region, listens to feedback […]",
-      "tags": [
-        "Lambda",
-        "Bedrock"
       ]
     }
   ],
