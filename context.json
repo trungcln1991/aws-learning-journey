@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session: phiên 88 (26/08) — RDS Top SQL by Load monitoring + tái cấu trúc dashboard",
-  "updated_at": "2026-08-26T06:04:03Z"
+  "commit_msg": "fix: dinh chinh retention log group rds-top-sql trong skill (14->365 ngay)",
+  "updated_at": "2026-08-26T06:06:37Z"
 }
