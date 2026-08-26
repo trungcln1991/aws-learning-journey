@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "Route 53 & DNS",
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session: phiên 86 (24/08) — Security Hub RecordState/WorkflowStatus + Terraform sweep + 7 preventive rule",
-  "updated_at": "2026-08-24T08:18:52Z"
+  "commit_msg": "session: phiên 88 (26/08) — RDS Top SQL by Load monitoring + tái cấu trúc dashboard",
+  "updated_at": "2026-08-26T06:04:03Z"
 }
