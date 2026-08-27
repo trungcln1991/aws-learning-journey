@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T02:26:52.278Z",
+  "generated_at": "2026-08-27T11:06:12.602Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,75 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Cognito adds admin API operation to reset user TOTP configurations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cognito-totp-reset/",
+      "date": "2026-08-26T22:00:00.000Z",
+      "description": "Amazon Cognito now provides a new admin API operation to reset a user's time-based one-time Password (TOTP) multi-factor authentication (MFA) configuration. When users lose access to their TOTP device, administrators can remove the device association, allowing the user to enroll a new device on their next sign-in. This removes the need to recreate accounts to recover locked-out users if they lose ",
+      "tags": []
+    },
+    {
+      "title": "Amazon Connect Customer now supports unplanned shrinkage in agent schedules",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-unplanned-shrinkage/",
+      "date": "2026-08-26T20:16:00.000Z",
+      "description": "Amazon Connect Customer now enables managers to input unplanned shrinkage in agent schedules, providing a more accurate picture of staffing due to unscheduled agent absences such as late logins or unplanned sick leave. Managers can upload unplanned shrinkage assumptions directly into agent schedules and immediately see updated scheduling metrics such as scheduled headcount, net staffing, and proje",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Mountpoint for Amazon S3 adds memory usage controls",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/mountpoint-for-S3-adds-memory-usage-controls",
+      "date": "2026-08-26T18:00:00.000Z",
+      "description": "Mountpoint for Amazon S3 can now limit memory usage, either automatically based on the environment it runs in or with a limit that you define. This lets you run Mountpoint alongside memory-intensive applications, for example, in machine learning training or analytics workloads where applications share a memory budget. Previously, Mountpoint’s memory usage could expand over time based on usage patt",
+      "tags": [
+        "S3",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now supports points-based scoring in performance evaluations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-points-based-scoring-evaluations/",
+      "date": "2026-08-26T17:00:00.000Z",
+      "description": "Amazon Connect Customer now supports points-based scoring to evaluate human and AI agent performance, giving managers more flexibility in configuring evaluation scores. With points-based scoring, managers assign points to each criterion based on its importance to the business, and the score is the sum of the points earned. In contrast, with the existing percentage-based scoring, each question is a",
+      "tags": []
+    },
+    {
+      "title": "AWS Glue 5.1 is now available in AWS European Sovereign Cloud Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-5-1-european-sovereign-cloud",
+      "date": "2026-08-26T16:26:00.000Z",
+      "description": "AWS Glue 5.1 is now available in the AWS European Sovereign Cloud Region. AWS Glue is a serverless, scalable data integration service that simplifies discovering, preparing, moving, and integrating data from multiple sources. AWS Glue 5.1 upgrades core engines to Apache Spark 3.5.6, Python 3.11, and Scala 2.12.18, bringing performance and security enhancements. This release also updates support fo",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "AWS Backup adds cross-Region backup copy and logically air-gapped vault support for Amazon DocumentDB in nine additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-backup-cross-region-air-gapped-docdb/",
+      "date": "2026-08-26T10:00:00.000Z",
+      "description": "AWS Backup now supports copying Amazon DocumentDB backups across AWS Regions and storing them in logically air-gapped vaults in nine additional AWS Regions: Asia Pacific (Hong Kong, Jakarta, Melbourne, Osaka), Europe (Spain, Stockholm, Zurich), Africa (Cape Town), and Israel (Tel Aviv). With cross-Region copy now available in these Regions, you can copy DocumentDB backups into and out of them usin",
+      "tags": [
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon EC2 R8id instances are now available in additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8id/",
+      "date": "2026-08-25T20:00:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) R8id instances are now available in additional regions. R8id instances are now available in Asia Pacific (Mumbai, Malaysia, Sydney), Canada (Central), and Europe (Ireland, Stockholm). R8id instances feature up to 22.8TB of NVMe SSD local instance storage, 3x more than R6id, and provide up to 3.3x higher memory bandwidth, delivering up to 43% higher perform",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C8id and M8id instances are now available in additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8id-m8id-aws-regions/",
+      "date": "2026-08-25T20:00:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) C8id and M8id instances with up to 22.8 TB of local NVMe-based SSD block-level storage are now available in additional regions. C8id instances are now available in Asia Pacific (Sydney) and Canada (Central) and M8id instances are available in Asia Pacific (Mumbai) and Canada (Central). Amazon EC2 C8id and M8id instances offer 3 times more vCPUs, memory and",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "AWS IoT Core now supports native InfluxDB routing for time-series data",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-iot-core-influxdb/",
@@ -62,6 +131,15 @@
       ]
     },
     {
+      "title": "Amazon Connect Customer now lets you update the customer profile on a case or add a profile after a case is opened",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-cases-flexible-profiles/",
+      "date": "2026-08-25T16:00:00.000Z",
+      "description": "Amazon Connect Customer now lets agents change the profile on a case or choose a profile after the case is opened. If a case is linked to the wrong customer, agents can update the profile to keep case histories accurate. Agents can also add a profile later when the customer is not identified at case creation, such as for calls from a shared phone number or issues that require identity verification",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
       "title": "Amazon RDS for PostgreSQL supports minor versions 18.6, 17.11, 16.15, 15.19, and 14.24",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-postgresql-18-6-17-11-16-15-15-19-14-24/",
       "date": "2026-08-25T16:00:00.000Z",
@@ -69,15 +147,6 @@
       "tags": [
         "RDS",
         "Inspector"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets you update the customer profile on a case or add a profile after a case is opened",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-cases-flexible-profiles/",
-      "date": "2026-08-25T16:00:00.000Z",
-      "description": "Amazon Connect Customer now lets agents change the profile on a case or choose a profile after the case is opened. If a case is linked to the wrong customer, agents can update the profile to keep case histories accurate. Agents can also add a profile later when the customer is not identified at case creation, such as for calls from a shared phone number or issues that require identity verification",
-      "tags": [
-        "IAM"
       ]
     },
     {
@@ -96,6 +165,15 @@
       "description": "Today, AWS Lambda introduces managed runtimes in public preview, starting with Node.js 26 and Python 3.15. This gives customers, partners and upstream language communities the opportunity to try upcoming managed runtimes before their general availability (GA) release and to share their feedback with the Lambda team. Previously, Lambda managed runtimes were launched directly as GA releases. Since t",
       "tags": [
         "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon EC2 M8i and M8i-flex instances are now available in Canada West (Calgary) region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/ec2-m8i-m8i-flex-canada-west/",
+      "date": "2026-08-25T13:00:00.000Z",
+      "description": "Starting today, Amazon EC2 M8i and M8i-flex instances are now available in Canada West (Calgary) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The M8i and M8i-flex instances offer up to 15% better price-performance, and 2.5x more memory ban",
+      "tags": [
+        "EC2"
       ]
     },
     {
@@ -134,6 +212,13 @@
       ]
     },
     {
+      "title": "Amazon GameLift Servers enhanced DDoS Protection now available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-gamelift-servers-enhanced-ddos-protection",
+      "date": "2026-08-25T00:00:00.000Z",
+      "description": "Amazon GameLift Servers now offers Enhanced DDoS Protection, a new layer of protection that defends game servers from common network and transport layer DDoS attacks with no configuration required. Enhanced DDoS Protection is active from the moment you start running game servers on Amazon GameLift Servers , with nothing to enable or opt in to. Enhanced DDoS Protection provides proactive, gaming-op",
+      "tags": []
+    },
+    {
       "title": "Amazon ECS now automatically detects and repairs container instances with impaired agent connectivity",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecs-agent-connectivity-health",
       "date": "2026-08-24T22:42:00.000Z",
@@ -141,6 +226,15 @@
       "tags": [
         "EC2",
         "ECS"
+      ]
+    },
+    {
+      "title": "AWS Glue now supports catalog federation for remote Apache Iceberg catalogs in AWS GovCloud (US) regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-catalog-federation-iceberg-govcloud/",
+      "date": "2026-08-24T20:50:00.000Z",
+      "description": "AWS Glue now supports catalog federation for remote Iceberg REST catalogs in AWS GovCloud (US) Regions. This capability provides direct and secure access to Iceberg tables, stored in Amazon S3 and cataloged in remote catalogs, using AWS analytics engines. With catalog federation, you can federate to Iceberg tables in remote catalogs using your preferred AWS analytics engines, without moving or cop",
+      "tags": [
+        "S3"
       ]
     },
     {
@@ -152,104 +246,6 @@
         "KMS",
         "CloudTrail",
         "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon EKS now supports multiple external OIDC identity providers per cluster",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-multiple-oidc-providers",
-      "date": "2026-08-24T18:29:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports multiple external OpenID Connect (OIDC) identity providers per cluster. You can associate up to 10 OIDC identity providers with a single cluster, giving you more flexibility in how you authenticate users and workloads to your Kubernetes clusters. Many organizations use different identity providers for different user populations, such as e",
-      "tags": [
-        "IAM",
-        "Organizations",
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon Aurora now supports PostgreSQL 18.4, 17.10, 16.14, 15.18, and 14.23",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-aurora-postgresql-18-4-17-10-16-14-15-18-14-23/",
-      "date": "2026-08-24T16:00:00.000Z",
-      "description": "Amazon Aurora PostgreSQL-Compatible Edition now supports PostgreSQL versions 18.4, 17.10, 16.14, 15.18, and 14.23 which include bug fixes from the PostgreSQL community and Aurora-specific enhancements. We recommend upgrading to the latest minor versions to address known Common Vulnerabilities and Exposures (CVEs) and benefit from these improvements, as detailed in the release notes . You can upgra",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "MSK Replicator now supports OAuth 2.0 (SASL/OAUTHBEARER) authentication for replication from external Apache Kafka clusters to Amazon MSK",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-msk-replicator-OAuth-support",
-      "date": "2026-08-24T15:00:00.000Z",
-      "description": "Amazon MSK Replicator now supports OAuth 2.0 (SASL/OAUTHBEARER) authentication for data replication from external Apache Kafka clusters - including on-premises, self-managed on AWS, or other cloud providers - to Amazon MSK Provisioned clusters . With this capability, external Apache Kafka clusters configured with OAuth/OIDC authentication can now use MSK Replicator to migrate workloads to Amazon M",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker HyperPod enhances support for Ray",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-sagemaker-hyperpod-ray",
-      "date": "2026-08-24T15:00:00.000Z",
-      "description": "Amazon SageMaker HyperPod now enhances support for Ray with built-in observability, resilient training, accelerated inference and managed development environments. Ray is a popular open-source framework for scaling AI workloads on a unified compute layer, from data processing and distributed training to reinforcement learning and model serving. Running Ray on Kubernetes at production scale can be ",
-      "tags": [
-        "EKS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now supports information extraction for agent voice and chat conversations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-information/",
-      "date": "2026-08-24T14:46:00.000Z",
-      "description": "Amazon Connect Customer now supports information extraction, which automatically captures key data from voice and chat interactions, reducing manual data capture and improving agent and supervisor productivity. Information extraction captures verbatim values like account numbers, reservation IDs, and product names, as well as derived insights inferred from the conversation such as reason for conta",
-      "tags": []
-    },
-    {
-      "title": "AWS ParallelCluster 3.16 adds an on-node diagnostics tool",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-parallelcluster/",
-      "date": "2026-08-24T14:00:00.000Z",
-      "description": "AWS ParallelCluster 3.16 is now generally available with a new on-node diagnostics tool, cluster stability improvements, and an updated HPC and AI/ML software stack. pcluster-diag is a diagnostics tool built into the ParallelCluster AMIs that lets you run diagnostic checks on any cluster node with a single command, and get a structured report that makes it easier to identify issues. This release a",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "OpenAI GPT-5.6 Terra and Luna now available on Amazon Bedrock in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/openai-gpt-terra-luna-govcloud/",
-      "date": "2026-08-24T13:00:00.000Z",
-      "description": "GPT-5.6 Terra and Luna are now generally available on Amazon Bedrock in AWS GovCloud (US-West) and AWS GovCloud (US-East), bringing the smartest family of models from OpenAI yet to Bedrock's next-generation inference engine built for high-performance, security and reliability. GPT-5.6 sets a new standard for intelligence and efficiency, allowing you to solve harder problems in less time and with m",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon RDS for MySQL now supports new minor version 8.4.11",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-mysql-8411-available/",
-      "date": "2026-08-24T08:41:00.000Z",
-      "description": "Starting today, Amazon Relational Database Service (Amazon RDS) for MySQL supports MySQL minor version 8.4.11, the latest minor released by community MySQL. In addition to operational improvements, MySQL 8.4.11 introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in-transit. We recommend upgrading to the newer ",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Neuron 2.32 introduces expanded NKI programming, MXFP8 training kernels, and variable-size collectives for Trn2 and Trn",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-announce-neuron-2-32-0",
-      "date": "2026-08-21T21:11:00.000Z",
-      "description": "AWS Neuron 2.32.0 is now available, introducing NKI 0.6.0 with an on-device top-K instruction, a variable-length `all-gather `for kernels whose ranks hold differently sized tensors, and new loop constructs for data-dependent iteration. This release also introduces 13 new NKI Library kernels for Mixture of Experts (MoE) training and sparse attention, and a new Neuron Agentic Development skill that ",
-      "tags": []
-    },
-    {
-      "title": "Amazon Bedrock announces reduced pricing for OpenAI GPT-5.6 Sol",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/bedrock-openai-gpt-56-sol-reduced-pricing/",
-      "date": "2026-08-21T20:11:00.000Z",
-      "description": "Today, OpenAI announced that they are lowering API prices for GPT-5.6 Sol. Following the recent Terra and Luna price reductions, Sol now costs $4 per million input tokens and $20 per million output tokens—20% lower input pricing and 33.3% lower output pricing. This promotional pricing is available at least through November 21, 2026. Whether you're building autonomous coding agents, running complex",
-      "tags": [
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets managers chat with their data",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-ai-data-analytics",
-      "date": "2026-08-21T20:00:00.000Z",
-      "description": "Amazon Connect Customer now lets managers chat with their data in plain language and get back the answer, the evidence behind it, and the fix, in seconds. Managers have always had the data. What they haven’t had is the time to dig through dashboards, find what’s driving performance, and decide what to do next. Now Amazon Connect Customer does that work for them. It searches across more than 150 me",
-      "tags": [
-        "RDS"
       ]
     }
   ],
