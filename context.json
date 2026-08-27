@@ -1,7 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "S3 & Storage Classes"
   ],
-  "commit_msg": "docs: ghi quy tắc quy hoạch IP — số liền kề + chung subnet cho resource cùng vai trò",
-  "updated_at": "2026-08-27T02:47:18Z"
+  "commit_msg": "fix: mo rong S3 SharePoint presigned URL folder access + doc",
+  "updated_at": "2026-08-27T10:05:23Z"
 }
