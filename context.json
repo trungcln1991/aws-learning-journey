@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "VPC Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "phiên 96 (07/09): digigo go-live + Chrome auto-update + weekly security review + trang task hub + điều tra VietinBank",
-  "updated_at": "2026-09-07T11:04:33Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-09-07 18:29",
+  "updated_at": "2026-09-07T11:30:05Z"
 }
