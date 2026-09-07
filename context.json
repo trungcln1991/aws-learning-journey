@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-09-03 15:46",
-  "updated_at": "2026-09-03T08:46:32Z"
+  "commit_msg": "trang quản lý task (task-hub) + Chrome auto-update + weekly security review 07/09",
+  "updated_at": "2026-09-07T03:47:11Z"
 }
