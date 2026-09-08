@@ -3,6 +3,6 @@
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "phiên 97 (07/09 tối): VietinBank — gỡ routing loop, đường AWS→FortiGate→Internet đã thông",
-  "updated_at": "2026-09-07T14:05:38Z"
+  "commit_msg": "phiên 98 (08/09): sự cố routing loop VietinBank + mở đường đọc hạ tầng qua API + inventory FMLA",
+  "updated_at": "2026-09-08T09:47:39Z"
 }
