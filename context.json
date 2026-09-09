@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "phiên 98 (08/09): sự cố routing loop VietinBank + mở đường đọc hạ tầng qua API + inventory FMLA",
-  "updated_at": "2026-09-08T09:47:39Z"
+  "commit_msg": "phiên 99 (09/09): go-live 5 app webapp qua API GW (pricesetting/discount/escale + legal/asset .NET Core) + điều tra alert FortiGate GD standalone + resize D webapp",
+  "updated_at": "2026-09-09T09:46:26Z"
 }
