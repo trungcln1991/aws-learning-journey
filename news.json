@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T05:51:24.682Z",
+  "generated_at": "2026-09-10T05:46:18.687Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,107 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Connect Customer now lets you set specific capacity limits for different types of Tasks and Emails",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-capacity-limits/",
+      "date": "2026-09-09T21:00:00.000Z",
+      "description": "Amazon Connect Customer now gives contact center managers the ability to set specific capacity limits for different kinds of work. Previously, concurrency settings were applied at the channel level so all contacts within a channel were treated the same regardless of complexity or effort required. With this launch, managers can classify Task and Email contacts into workload types based on complexit",
+      "tags": []
+    },
+    {
+      "title": "AWS Transform for .NET modernization is now generally available via CLI",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-transform-dotnet-cli",
+      "date": "2026-09-09T20:00:00.000Z",
+      "description": "Today, AWS announced the general availability of an AWS-managed transformation for .NET modernization in AWS Transform custom that you can trigger with a single one-line CLI command. You can run this transformation interactively, or script it into any existing pipeline or workflow to run autonomously. The CLI experience complements the existing AWS Transform for .NET experiences: the web applicati",
+      "tags": []
+    },
+    {
+      "title": "AWS Lambda now supports 90-minute function timeout on Lambda Managed Instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-lambda-90-minute-function/",
+      "date": "2026-09-09T18:00:00.000Z",
+      "description": "AWS Lambda now supports a 90-minute function timeout for asynchronous and event source mapping (ESM) invocations on Lambda Managed Instances (LMI) , a 6x increase from the previous 15-minute limit. You can now run data processing, media transcoding, financial calculations, AI inference, and batch workloads on Lambda for jobs that require longer continuous execution, without re-architecting your ap",
+      "tags": [
+        "EC2",
+        "Lambda"
+      ]
+    },
+    {
+      "title": "AWS Lambda now supports Graviton5-powered EC2 instances on Lambda Managed Instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-lambda-graviton5-ec2/",
+      "date": "2026-09-09T18:00:00.000Z",
+      "description": "AWS Lambda now supports AWS Graviton5-powered C9g, C9gd, M9g, and M9gd instances on Lambda Managed Instances . You can now run your Lambda functions on the latest generation of Graviton processors, delivering up to 25% better compute performance compared to Graviton4-powered instances. AWS Lambda Managed Instances lets you run Lambda functions on your AWS EC2 instances while maintaining Lambda's o",
+      "tags": [
+        "EC2",
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock Managed Knowledge Base adds APIs and console support for debugging document-level access control",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-knowledge-base-debugging-document-access-control/",
+      "date": "2026-09-09T16:03:00.000Z",
+      "description": "AWS announces the CheckIngestedDocumentAcl and GetIngestedDocumentAcl APIs for Amazon Bedrock Managed Knowledge Base, giving customers a self-service way to debug document access issues and audit document-level permissions. When a user doesn't see an expected document in retrieval results for ACL-enabled data sources, it can be difficult to determine whether the cause is an access control misconfi",
+      "tags": [
+        "IAM",
+        "CloudTrail",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock Managed Knowledge Base now supports Confluence Data Center as a native data source connector",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-confluence-data-center-native-data-source-connector/",
+      "date": "2026-09-09T14:19:00.000Z",
+      "description": "AWS announces the Confluence Data Center data source connector for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service. Customers running self-hosted Confluence Data Center instances can now crawl blogs and pages from their Confluence spaces directly into their managed knowledge base. Previously, bringing Confluence Data Center content into Bedrock K",
+      "tags": [
+        "EC2",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon EBS Volume Clones now supports copying volumes across accounts",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ebs-volume-clones-cross-account-copy/",
+      "date": "2026-09-09T10:00:00.000Z",
+      "description": "Amazon Elastic Block Store (Amazon EBS) Volume Clones now supports copying EBS volumes across AWS accounts with re-encryption. You can copy EBS volumes to any AWS account, re-encrypting with an AWS Key Management Service (AWS KMS) key in the target account. This enables organizations that separate production and development workloads into different accounts to copy data across those account bounda",
+      "tags": [
+        "KMS",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Private CA EKS add-on and Connector for AD now available in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/private-ca-eks-addon-ad-govcloud/",
+      "date": "2026-09-09T08:00:00.000Z",
+      "description": "AWS Private Certificate Authority (AWS Private CA) announces the availability of the AWS Private CA Connector for Kubernetes as a managed Amazon EKS add-on and the AWS Private CA Connector for Active Directory in AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. These launches expand certificate automation capabilities available to AWS GovCloud (US) customers managing government workloads",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Systems Manager now diagnoses more issues that cause EC2 instances to be unmanaged",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/systems-manager-diagnoses-ec2-unmanaged/",
+      "date": "2026-09-09T08:00:00.000Z",
+      "description": "Today, AWS Systems Manager extends its diagnosis capability to identify six additional categories of issues that can prevent Amazon EC2 instances and hybrid-activated nodes from becoming managed by Systems Manager. An instance must be managed by Systems Manager before you can patch it, run commands, connect with Session Manager, or collect inventory, and when an instance is unmanaged the cause can",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "AWS Entity Resolution adds record-level confidence scores for ML matching",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/entity-resolution-record-confidence/",
+      "date": "2026-09-09T08:00:00.000Z",
+      "description": "AWS Entity Resolution now provides record-level confidence scores for Machine Learning (ML) based matching workflows, giving you a per-record signal of how confident the model is in each individual identity match. Previously, all records within a match group carried the same group-level confidence score regardless of actual match quality — making it impossible to distinguish a near-certain match f",
+      "tags": [
+        "RDS",
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer Profiles now sends events when customers enter or exit segments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/connect-customer-profiles-segment-events/",
+      "date": "2026-09-09T08:00:00.000Z",
+      "description": "Amazon Connect Customer Profiles now sends segment membership events, providing the ability to receive real-time and scheduled notifications when customer profiles enter or exit a segment, such as high-value customers or low-satisfaction customers. Previously, detecting when customer profiles joined or left a segment required exporting entire segments at regular intervals and running custom script",
+      "tags": []
+    },
     {
       "title": "OpenAI GPT-6 Astra is now generally available on Amazon Bedrock",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/",
@@ -95,9 +196,9 @@
     },
     {
       "title": "Dynamic Image Transformation for Amazon CloudFront adds four new features",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/dynamic-image-transfromation-adds-new-features/",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/dynamic-image-transformation-adds-new-features/",
       "date": "2026-09-08T14:32:00.000Z",
-      "description": "Today, AWS announced four new features for Dynamic Image Transformation for Amazon CloudFront (DIT). Customers can now use enhanced smart cropping with custom label detection and advanced composition controls that preserve products, text, logos, and custom objects within cropped images. In addition, customers benefit from enhanced automatic image optimization that delivers appropriately sized imag",
+      "description": "Today, AWS announced four new features for Dynamic Image Transformation for Amazon CloudFront (DIT), an AWS supported solution that helps customers transform images in response to their needs. Customers can now use enhanced smart cropping with custom label detection and advanced composition controls that preserve products, text, logos, and custom objects within cropped images. In addition, custome",
       "tags": [
         "CloudFront"
       ]
@@ -108,6 +209,15 @@
       "date": "2026-09-08T08:00:00.000Z",
       "description": "AWS Builder ID, your personal profile for accessing AWS applications including AWS Builder Center, AWS Training and Certification, Amazon Quick and Kiro, now offers new ways to protect and recover your profile. You can add a recovery email and use new self-service options to regain access if you're locked out. You can also register multi-factor authentication (MFA) devices for any sign-in method, ",
       "tags": []
+    },
+    {
+      "title": "Amazon EMR extends support at no additional cost for customers migrating off older releases",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/emr-extended-support-migration/",
+      "date": "2026-09-08T08:00:00.000Z",
+      "description": "Amazon EMR now gives you more time, at no additional cost, to migrate off older releases before they reach end of support. If you are actively migrating, your workloads on eligible releases keep receiving support while you move to a current release, with no opt-in and at no charge. To give you more time to plan and migrate, Amazon EMR provides critical security fixes for releases 5.36 and 6.6 thro",
+      "tags": [
+        "Cost"
+      ]
     },
     {
       "title": "AWS announces Nx Plugin for AWS for scaffolding full-stack applications",
@@ -135,134 +245,42 @@
         "S3",
         "CloudTrail"
       ]
-    },
-    {
-      "title": "Amazon MWAA Serverless is now available in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-mwaa-serverless-aws-govcloud/",
-      "date": "2026-09-04T22:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (MWAA) Serverless is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon MWAA Serverless eliminates the operational overhead of managing Apache Airflow infrastructure by automatically provisioning and scaling compute resources on demand, with a pay-per-use model that charges only for actual workflow run time. For a full list of sup",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock Managed Knowledge Base introduces user-managed setup for SharePoint, OneDrive, and Confluence data sources",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-user-managed-setup-sharepoint-onedrive-confluence/",
-      "date": "2026-09-04T21:29:00.000Z",
-      "description": "AWS announces user-managed setup (3LO) for SharePoint, OneDrive, and Confluence data sources in Amazon Bedrock Managed Knowledge Base. Previously, configuring these data sources required generating 2LO credentials on the third-party side, which could be time-consuming and inaccessible for users who lack admin-level access to those systems. With user-managed setup, you simply sign in with your exis",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock Managed Knowledge Base now supports ServiceNow as a native data source connector",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-servicenow-native-data-source-connector/",
-      "date": "2026-09-04T21:14:00.000Z",
-      "description": "AWS announces the ServiceNow data source connector for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service. Customers can now connect their ServiceNow instance to crawl knowledge articles and service catalog items directly into their managed knowledge base. Previously, bringing ServiceNow content into Bedrock Knowledge Bases required building and mai",
-      "tags": [
-        "EC2",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock Managed Knowledge Base now supports automatic sync scheduling for data source connectors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-automatic-sync-scheduling-data-source-connectors/",
-      "date": "2026-09-04T21:01:00.000Z",
-      "description": "AWS announces automatic sync scheduling for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service that handles data ingestion, storage optimization, and advanced retrieval without requiring you to manage vector databases or data pipelines. Previously, keeping your knowledge base current required manually triggering a sync each time your source data cha",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon EC2 now supports specifying compatible instance types on AMIs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-images-supported-instances",
-      "date": "2026-09-04T19:26:00.000Z",
-      "description": "Amazon EC2 now enables AMI owners to define which instance types are compatible with their AMIs. Owners can specify supported instance types, unsupported instance types, or both — and any launch attempt on a non-permitted instance type is automatically blocked. AMI owners now have a built-in way to prevent launches on instances that are not compatible with their AMIs. This reduces the risk of fail",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon GuardDuty adds optional threat detection rules",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/guardduty-optional-detection-rules/",
-      "date": "2026-09-04T17:01:00.000Z",
-      "description": "Amazon GuardDuty now offers Custom Detection Rules, a library of 35 prebuilt, opt-in rules for CloudTrail management events that let you extend threat detection coverage to match your environment. Custom Detection Rules produces 26 unique finding types mapped to 10 MITRE ATT&amp;CK® tactics, without the heavy lifting of log ingestion, normalization, or storage. Some threat techniques, such as shar",
-      "tags": [
-        "CloudTrail",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon ECS introduces Early Success Criteria for service deployments",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-deployments-early-success/",
-      "date": "2026-09-04T17:00:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now supports Early Success Criteria for rolling service deployments, giving you the flexibility to define when a deployment is considered successful based on your confidence level and the operational needs of your workload. This can help you complete deployments sooner and unblock subsequent deployments, CI/CD pipelines, and other dependent operations.",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS MCP Server adds a serverless capability for AWS Lambda functions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-mcp-server-serverless/",
-      "date": "2026-09-04T16:31:00.000Z",
-      "description": "Today, AWS Model Context Protocol Server (AWS MCP Server) added a serverless capability so that coding agents such as Claude Code and Kiro can efficiently diagnose issues with your Lambda functions. The serverless capability helps you troubleshoot your running Lambda functions and their connected resources. The AWS MCP Server, available through the Agent Toolkit for AWS or as a standalone installa",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C8g instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-c8g-instances-additional-regions/",
-      "date": "2026-09-04T14:06:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8g instances are available in AWS Asia Pacific (Taipei, New Zealand), and AWS GovCloud (US-East) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 C8g instances are built for compute-intensive workloads, such as high performance co",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Transfer Family SFTP Connectors now support continuing file transfers during credential rotation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/transfer-family-sftp-credential-rotation/",
-      "date": "2026-09-04T08:00:00.000Z",
-      "description": "AWS Transfer Family SFTP Connectors now continue running file transfers while you rotate the credentials used to authenticate with remote SFTP servers. You no longer need to update the connector to point to a new secret version each time a credential rotates, removing a manual step and helping avoid failed transfers during the rotation window. Connectors can now retrieve credentials from an ordere",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker AI Batch Transform now supports G6e instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-batch-transform-g6e-instances/",
-      "date": "2026-09-04T08:00:00.000Z",
-      "description": "Amazon SageMaker AI now supports Amazon EC2 G6e instances for batch transform. Batch Transform enables you to run predictions on datasets stored in Amazon S3 and is suited for large datasets that do not require a persistent inference endpoint. Amazon EC2 G6e instances are powered by up to eight NVIDIA L40S Tensor Core GPUs with 48 GB of memory per GPU and third-generation AMD EPYC processors. G6e ",
-      "tags": [
-        "EC2",
-        "S3",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EC2 C9g and C9gd instances are now available in Asia Pacific (Tokyo) region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-c9g-c9gd-asia-pacific-tokyo/",
-      "date": "2026-09-03T23:00:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C9g and C9gd instances, powered by AWS Graviton5 processors, are available in the Asia Pacific (Tokyo) region. AWS Graviton5 processors are the fifth generation of custom-designed CPUs, delivering the best price performance for compute-intensive workloads running on Amazon EC2. C9g and C9gd instances deliver up to 25% better compute perform",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "security": [
     {
-      "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-048-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/29/2026 11:15 PM PDT Description: AWS WAF is a web application firewall that monitors the HTTP(S) requests that are forwarded to your protected web application resources. We identified CVE-2026-13762 and CVE-2026-13763, which are issues affecting HTTP/2 multi-frame request body inspection by AWS ",
+      "title": "CVE-2026-19311- Missing Authorization in OpenSearch Alerting Plugin",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-078-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-078-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/12/2026 11:30 AM PDT Description: OpenSearch is a community-driven, open-source search and analytics suite. We identified CVE-2026-19311, a missing authorization issue in the Execute Monitor API of the OpenSearch Alerting plugin. This issue may allow an authenticated user with the alerting_full_a",
       "tags": [
-        "WAF",
         "Inspector"
       ]
     },
     {
-      "title": "Issue with AWS-LC: an open-source, general-purpose cryptographic library (CVE-2026-3336, CVE-2026-3337, CVE-2026-3338)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-005-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-005-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/03/02 14:30 PM PST Description: AWS-LC is an open-source, general-purpose cryptographic library. We identified three distinct issues: - CVE-2026-3336: PKCS7_verify Certificate Chain Validation Bypass in AWS-LC Improper certificate validation in PKCS7_verify() in AWS-LC allows an unauthenticated",
+      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-073-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/04/2026 10:00 AM PDT Description: We have identified CVE-2026-18830 in the Amazon Bedrock AgentCore harness InvokeHarness API. This issue could allow an authenticated user to execute configured tools while bypassing model invocation and associated security controls. When the most recent message i",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-85012 - OS command injection in the Amazon CodeCatalyst blueprints SDK",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-095-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-095-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/03/2026 10:00 AM PDT Description: Amazon CodeCatalyst blueprints are reusable project templates that generate a software project. The @amazon-codecatalyst/blueprints.blueprint npm package is the open source framework that blueprint authors build on, published from github.com/aws/codecatalyst-blue",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Issue with FreeRTOS-Kernel - CVE-2026-77234, CVE-2026-77235, CVE-2026-77236, CVE-2026-77237",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-086-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-086-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/21/2026 10:30 AM PDT Description: FreeRTOS-Kernel is a real-time operating system kernel for microcontrollers and small microprocessors. AWS identified four issues with FreeRTOS-Kernel, affecting multiple versions. - CVE-2026-77234: This issue affects configurations that use the FreeRTOS MPU toge",
       "tags": [
         "Inspector"
       ]
@@ -270,7 +288,7 @@
     {
       "title": "CVE-2026-85781 - Unverified access point ownership in Amazon EFS CSI Driver",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-099-aws/",
-      "date": "2026-09-04T19:03:02.000Z",
+      "date": "2026-09-09T21:30:11.000Z",
       "description": "Bulletin ID: 2026-099-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/04/2026 11:45 AM PDT Description: The Amazon EFS CSI Driver is an open-source Kubernetes Container Storage Interface (CSI) driver that lets Kubernetes workloads use Amazon EFS file systems. We identified CVE-2026-85781, an issue in the driver's volume-deletion logic. When the controller is config",
       "tags": [
         "ECS",
@@ -279,68 +297,47 @@
       ]
     },
     {
-      "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT Description: FreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size ",
+      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT Description: Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources w",
+      "title": "CVE-2026-84851- Uncontrolled recursion in the Ion reader in Amazon Ion-C before 1.1.6",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-094-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-094-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/02/2026 13:30 AM PDT Description: Amazon Ion-C (ion-c) is the C implementation of the Amazon Ion data serialization format. It is distributed as an open-source library (amazon-ion/ion-c) that applications embed to read and write Ion text and binary data. We identified CVE-2026-84851, an uncontrol",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-81838 - Zip Slip path traversal in awsdac (diagram-as-code)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-090-aws/",
-      "date": "2026-08-28T16:50:52.000Z",
-      "description": "Bulletin ID: 2026-090-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/27/2026 13:00 PM PDT Description: awsdac (diagram-as-code) is a CLI tool that generates AWS architecture diagrams from YAML definitions, enabling version-controlled, code-driven diagramming. We identified CVE-2026-81838, a Zip Slip (path traversal) issue. When awsdac extracts a zip archive refere",
-      "tags": [
-        "SageMaker",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Please refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+      "title": "CVE-2026-19111 - Insecure direct object reference in Strands Agents Tools memory tools",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-077-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-077-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/06/2026 11:00 AM PDT Description: Strands Agents is an open-source SDK for building AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the mongodb_memory, elasticsearch_memory, and mem0_memory tools for storing and retrieving agent memories. We id",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-031-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/14/2026 13:00 PM PDT Description: Amazon SageMaker Python SDK is an open-source library for training and deploying machine learning models on Amazon SageMaker. The ModelBuilder component simplifies model deployment by automating model artifact preparation and SageMaker model creation. We identifi",
-      "tags": [
-        "ALB",
-        "SageMaker",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
+      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-103-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/09/2026 09:30 AM PDT Description: We identified an issue in awslabs.mysql-mcp-server (an open-source, self-hosted Model Context Protocol server distributed via github.com/awslabs/mcp and PyPI). In affected versions, under certain conditions the read-only enforcement could be circumvented via SQL ",
       "tags": [
         "RDS",
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
-      "date": "2026-08-20T21:35:57.000Z",
-      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
+      "title": "CVE-2026-18952 - Missing Input Validation in OpenSearch Security Analytics Plugin",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-079-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-079-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/12/2026 11:45 AM PDT Description: OpenSearch is a community-driven, open-source search and analytics suite. We identified CVE-2026-18952, a missing input validation issue in the threat intelligence feed parser of the OpenSearch Security Analytics plugin. This issue may allow an authenticated user",
       "tags": [
         "Inspector"
       ]
