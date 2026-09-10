@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "IAM Deep Dive",
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "phiên 99 (09/09): go-live 5 app webapp qua API GW (pricesetting/discount/escale + legal/asset .NET Core) + điều tra alert FortiGate GD standalone + resize D webapp",
-  "updated_at": "2026-09-09T09:46:26Z"
+  "commit_msg": "phiên 101 (10/09): /doctor + Weekly Health Check (5 PBI 32820-32824) + webapp deploy",
+  "updated_at": "2026-09-10T05:56:09Z"
 }
