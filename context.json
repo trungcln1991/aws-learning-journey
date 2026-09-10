@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "CloudWatch & Monitoring",
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "phiên 101 (10/09): /doctor + Weekly Health Check (5 PBI 32820-32824) + webapp deploy",
-  "updated_at": "2026-09-10T05:56:09Z"
+  "commit_msg": "phiên 102 (10/09): sự cố upload file Asset — vá API GW binaryMediaTypes + WAF Allow rule (PBI 32844) + tắt cảnh báo RAM dev spam (PBI 32848) + báo cáo tuần + skill working-methods",
+  "updated_at": "2026-09-10T08:52:09Z"
 }
