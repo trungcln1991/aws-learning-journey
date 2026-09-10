@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "phiên 102 (10/09): sự cố upload file Asset — vá API GW binaryMediaTypes + WAF Allow rule (PBI 32844) + tắt cảnh báo RAM dev spam (PBI 32848) + báo cáo tuần + skill working-methods",
-  "updated_at": "2026-09-10T08:52:09Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-09-10 17:01",
+  "updated_at": "2026-09-10T10:01:40Z"
 }
