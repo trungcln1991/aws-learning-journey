@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "phiên 104 (11/09): vá SSM Agent CVE + siết SG webapp + audit SG toàn bộ + 2 fix WAF + dọn rác + tắt LAMBDA_CODE scan",
-  "updated_at": "2026-09-11T05:03:44Z"
+  "commit_msg": "phiên 106 (11/09 tối): CMDB website nâng cấp toàn diện",
+  "updated_at": "2026-09-11T09:29:53Z"
 }
