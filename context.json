@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "skill: sự cố 504 timeout pricesetting/discount/AR mobile - app pool AccountReceivable.Api dùng chung quá tải (13/09)",
-  "updated_at": "2026-09-13T06:13:11Z"
+  "commit_msg": "phiên 108 tiếp (13/09 chiều): dựng route bypass Public ALB cho pricesetting/discount",
+  "updated_at": "2026-09-13T09:43:18Z"
 }
