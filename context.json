@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Them tinh nang Xuat Excel that o tab Tra cuu (khong qua chat)",
-  "updated_at": "2026-09-15T04:49:09Z"
+  "commit_msg": "Fix bao mat Kiro fail-open ghi file that ra dia + wrap-up phien 109",
+  "updated_at": "2026-09-15T05:27:37Z"
 }
