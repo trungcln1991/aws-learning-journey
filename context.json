@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Gan them Claude Code CLI lam engine thu 2 (giong Kiro) cho Tro ly Culi",
-  "updated_at": "2026-09-15T03:48:04Z"
+  "commit_msg": "Fix bug Enter nhay chu (IME composing) + doi Claude lam engine mac dinh",
+  "updated_at": "2026-09-15T03:56:29Z"
 }
