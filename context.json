@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Chi hien nut Xuat bao cao khi cau hoi co y muon tao file",
-  "updated_at": "2026-09-15T04:29:22Z"
+  "commit_msg": "FIX BAO MAT: chan ro ri danh tinh nguoi dung o ca 2 engine Tro ly Culi",
+  "updated_at": "2026-09-15T04:38:42Z"
 }
