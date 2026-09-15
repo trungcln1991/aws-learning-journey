@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Them tinh nang Xuat bao cao tu chat -> S3 presigned URL (7 ngay)",
-  "updated_at": "2026-09-15T04:18:35Z"
+  "commit_msg": "Fix Culi nhanh tra loi lac de + dinh chinh claim sai 've xu ly cuc bo'",
+  "updated_at": "2026-09-15T04:24:31Z"
 }
