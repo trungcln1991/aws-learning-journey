@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Fix bug Enter nhay chu (IME composing) + doi Claude lam engine mac dinh",
-  "updated_at": "2026-09-15T03:56:29Z"
+  "commit_msg": "Them tinh nang Xuat bao cao tu chat -> S3 presigned URL (7 ngay)",
+  "updated_at": "2026-09-15T04:18:35Z"
 }
