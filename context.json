@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "phiên 109 (15/09): RDP cutover dev67->dev68 (12 user) + fix ORA-12170 + weekly performance check + don route cu pricesetting/discount",
-  "updated_at": "2026-09-15T02:20:16Z"
+  "commit_msg": "Ghi kien thuc: huy de xuat CloudFront + fix drift path.module 3 Lambda + PBI diacritics",
+  "updated_at": "2026-09-15T02:38:37Z"
 }
