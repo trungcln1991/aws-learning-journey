@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Them tab Runbook & Guide (full-text search) vao CMDB website",
-  "updated_at": "2026-09-15T03:16:39Z"
+  "commit_msg": "Redesign tab Runbook & Guide theo pattern doc-search chuyen nghiep",
+  "updated_at": "2026-09-15T03:24:12Z"
 }
