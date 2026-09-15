@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "Ghi kien thuc: huy de xuat CloudFront + fix drift path.module 3 Lambda + PBI diacritics",
-  "updated_at": "2026-09-15T02:38:37Z"
+  "commit_msg": "Monthly review suppressed Security Hub findings (aps12/UAT/ShareService)",
+  "updated_at": "2026-09-15T02:56:46Z"
 }
