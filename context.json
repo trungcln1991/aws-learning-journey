@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "Fix bao mat Kiro fail-open ghi file that ra dia + wrap-up phien 109",
-  "updated_at": "2026-09-15T05:27:37Z"
+  "commit_msg": "Phien 110: su co SAP/Indo + don o C dev67 + bao ve 3 IP NAT ngan hang",
+  "updated_at": "2026-09-16T05:01:19Z"
 }
