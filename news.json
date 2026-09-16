@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T06:00:49.863Z",
+  "generated_at": "2026-09-16T05:51:45.342Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,77 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Monitor cost anomalies directly in Billing and Cost Management Dashboards with the new Detected Anomalies widget",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/monitor-detected-anomalies-using-dashboards",
+      "date": "2026-09-15T22:00:00.000Z",
+      "description": "Today, AWS Billing and Cost Management (BCM) announces support for the Detected Anomalies widget in BCM Dashboards. You can now review cost anomalies alongside cost and usage, budgets, cost efficiency, and reports for Savings Plans and Reserved Instance coverage and utilization. This provides a unified view of your spending, commitments, and cost anomalies in a single, tailored dashboard. The Dete",
+      "tags": [
+        "EC2",
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Direct Connect announces flat-rate pricing for dedicated connections",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-direct-connect-announces-flat-rate-pricing/",
+      "date": "2026-09-15T19:00:00.000Z",
+      "description": "AWS Direct Connect announces flat-rate pricing for 10G and 100G dedicated connections AWS Direct Connect provides dedicated network connectivity from on-premises environments to AWS. Customers value the flexibility of AWS Direct Connect's pay-as-you-go pricing, paying only for the port hours and data transfer out (DTO) they use, with no upfront commitment or long-term contracts. For workloads with",
+      "tags": []
+    },
+    {
+      "title": "AWS Billing Conductor now supports custom rates and usage tier pricing configurations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/AWS-Billing-Conductor-custom-rates-usage-tier",
+      "date": "2026-09-15T18:58:00.000Z",
+      "description": "AWS Billing Conductor now lets you define custom rate pricing for AWS services, including defining custom usage tiers to configure rates by the desired usage volume. Customers and Partners using AWS Billing Conductor to model commercial agreements with subsidiaries, affiliates, or end customers can now more easily reflect their negotiated pricing on pro forma billing data. Using SKU-scoped pricing",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker AI now supports instance preference lists for training and processing jobs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-sagemaker-training-processing-instance-pref-lists/",
+      "date": "2026-09-15T18:30:00.000Z",
+      "description": "Today, Amazon SageMaker AI announces instance preference lists for training and processing jobs, making it easier and faster to find compute capacity for your workloads. Many AI training, fine-tuning, and data processing workloads run comparably well on any of several instance types or sizes. However, before now, you had to name only one instance type at the time of job submission and wait for Sag",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Analyze your CloudTrail events using natural language in Amazon Q Console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/cloudtrail-amazon-q-console/",
+      "date": "2026-09-15T16:54:00.000Z",
+      "description": "AWS CloudTrail, a service that records API activity across your AWS account for security auditing, compliance, and operational troubleshooting, now integrates with Amazon Q Console to help you investigate your AWS account activity using natural language. You can ask Amazon Q Console questions about your CloudTrail configuration, query your logged events for security investigations, and troubleshoo",
+      "tags": [
+        "RDS",
+        "CloudTrail",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now enables agents to bid on preferred shifts",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-customer-shift-bidding/",
+      "date": "2026-09-15T16:00:00.000Z",
+      "description": "Amazon Connect Customer now enables agents to bid on preferred shifts, giving them more control over their work schedules. Schedulers first establish agent ranking either by uploading a CSV file or generating a randomized ranking. Connect Customer then uses forecasted demand and shift profiles to generate available shifts and presents them to agents to rank. For example, in a Monday–Friday 6AM–10P",
+      "tags": []
+    },
+    {
+      "title": "AWS Glue zero-ETL now captures archived Salesforce records",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-zero-etl-archived-salesforce/",
+      "date": "2026-09-15T08:00:00.000Z",
+      "description": "AWS Glue zero-ETL integrations for Salesforce now capture archived records in your target tables, giving you a complete replica of your Salesforce data for analytics and reporting. Archived records are identified and reflected accurately through the isArchived field, so your analytical data stays fully in sync with your Salesforce source. This is especially valuable for high-volume entities that S",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS improves regional resiliency for root user sign-in",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/root-user-regional-resiliency/",
+      "date": "2026-09-14T19:30:00.000Z",
+      "description": "AWS root user sign-in is now served across US East (N. Virginia), US East (Ohio), and US West (Oregon), with sign-in traffic distributed across all three Regions. This change reduces reliance on US East (N. Virginia) and improves resiliency during service disruptions. AWS automatically routes your root user sign-in to a supported Region without requiring you to select a Region or change how you si",
+      "tags": []
+    },
     {
       "title": "Qwen3.6-35B-A3B-NVFP4 and Wan2.1-T2V-1.3B-Diffusers models now available on Amazon SageMaker JumpStart",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/qwen3.6-35b-a3b-nvfp4-wan2.1-t2v-1.3B-diffusers-jumpstart/",
@@ -151,6 +222,15 @@
       "tags": []
     },
     {
+      "title": "Amazon SageMaker Unified Studio now supports ODBC connections for Microsoft Power BI and other analytics tools",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-unified-studio-odbc-power-bi/",
+      "date": "2026-09-11T08:00:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports ODBC connections, so data users can connect Microsoft Power BI and other ODBC-compatible tools directly to governed data in SageMaker Unified Studio projects using the Amazon Athena ODBC driver. This adds a native connection path for analysts who have standardized on Power BI to work with governed data using their existing tools and workflows. Amazon Sa",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
       "title": "Amazon RDS for Oracle now supports Supplemental Patch Bundle for July 2026 Release Update",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-oracle-supports-spatial-patch-bundle-jul-2026-ru/",
       "date": "2026-09-11T07:12:00.000Z",
@@ -168,84 +248,6 @@
         "S3",
         "Lambda",
         "SQS"
-      ]
-    },
-    {
-      "title": "AWS Transform for .NET now generates unit tests for modernized code",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-transform-net-unit-tests",
-      "date": "2026-09-10T20:00:00.000Z",
-      "description": "Today, AWS announced that AWS Transform for .NET can automatically generate unit tests for the code it modernizes. When enabled, AWS Transform generates unit tests that target the testable classes in your transformed .NET application, such as business logic and controllers, giving you an automated test safety net on the modernized code as part of the same job that performs the migration. Modernizi",
-      "tags": []
-    },
-    {
-      "title": "Amazon API Gateway now supports 1 MB execution logs with configurable delivery destinations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-api-gateway-1-mb-execution-logs/",
-      "date": "2026-09-10T20:00:00.000Z",
-      "description": "Amazon API Gateway now supports configurable delivery destinations and larger log events for REST API execution logs. Previously, execution logs were delivered to a single API Gateway-managed CloudWatch Logs log group with log events truncated at 1 KB, limiting visibility into request and response data. You can now route execution logs up to 1 MB to your own Amazon CloudWatch Logs log groups, Amaz",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Lambda durable functions integrates with Pydantic AI",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-lambda-durable-pydantic-ai/",
-      "date": "2026-09-10T18:45:00.000Z",
-      "description": "Today, AWS Lambda durable functions announces an integration with Pydantic AI , an open source framework for building AI agents in Python. AWS Lambda durable functions saves your Pydantic AI agent's progress as it runs, so after an interruption like a timeout, your agent resumes from the last completed step instead of starting over. Your agent gains fault tolerance without you having to write the ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon MQ now supports RabbitMQ 4.3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-mq-rabbitmq-43/",
-      "date": "2026-09-10T18:08:00.000Z",
-      "description": "Amazon MQ now supports RabbitMQ version 4.3 which adds quorum queue feature enhancements such as compaction, increased priority levels, native delayed retries, and graceful consumer timeouts. RabbitMQ 4.3 also includes various bug fixes and performance improvements for memory management. Quorum queues on RabbitMQ 4.3 performs compaction to reduce disk usage for queues and native support for 32 str",
-      "tags": []
-    },
-    {
-      "title": "Announcing second-generation single-rack AWS Outposts",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/single-rack-aws-outposts/",
-      "date": "2026-09-10T17:58:00.000Z",
-      "description": "Today, AWS announces the general availability of second-generation single-rack AWS Outposts, a self-contained 42U rack that integrates compute, storage and networking into a single compact unit purpose-built for workloads requiring low latency, local data processing, and data residency in space and power constrained locations. A single-rack Outposts delivers up to 2,688 vCPU and 100 TB of Amazon E",
-      "tags": []
-    },
-    {
-      "title": "Amazon OpenSearch Serverless is now available on v0 by Vercel",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-opensearch-serverless-available-V0-vercel/",
-      "date": "2026-09-10T17:00:00.000Z",
-      "description": "You can now build full-stack search and AI applications in minutes using Amazon OpenSearch Serverless on v0 by Vercel, an AI-powered platform that transforms your ideas into production-ready web applications. OpenSearch Serverless eliminates infrastructure management and automatically scales capacity up and down based on demand, so you can focus on building and not managing clusters. With this lau",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon ECS expands IAM condition key support for RunTask and StartTask APIs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-expands-condition-key-support/",
-      "date": "2026-09-10T16:52:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now supports the IAM condition keys for CPU and memory resources on the RunTask and StartTask APIs. Administrators can use these keys to enforce consistent CPU and memory limits across all methods of launching ECS tasks. This helps organizations prevent unexpected cost overruns and keep workloads aligned with their resource policies. Previously, the ec",
-      "tags": [
-        "IAM",
-        "ECS",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Redshift RG instances now available in Europe (Zurich) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-redshift-rg-available-zurich",
-      "date": "2026-09-10T16:00:00.000Z",
-      "description": "Amazon Redshift RG instances, powered by AWS Graviton processors, are now available in the AWS Europe (Zurich) Region. RG instances deliver better performance, running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 instances, at 30% lower price per vCPU. RG instances include Redshift's custom-built vectorized data lake query engine that processes Apache Iceber",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch now supports network health indicator for TGW inter-Region peering using synthetic monitors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/cloudwatch-network-monitoring-tgw-support/",
-      "date": "2026-09-10T11:00:00.000Z",
-      "description": "With synthetic monitors in Amazon CloudWatch Network Monitoring, you can now determine whether a network performance issue on a path that crosses an AWS Transit Gateway inter-Region peering connection is caused by the AWS network. This helps network operators and application developers cut the time spent isolating the source of degradation on these paths. Previously, for synthetic monitors, the ne",
-      "tags": [
-        "CloudWatch",
-        "TGW"
       ]
     }
   ],
@@ -433,8 +435,22 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-15T10:27:10.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-15T10:22:28.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
+        "tags": []
+      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -458,22 +474,6 @@
         "link": "https://status.aws.amazon.com/",
         "date": "2026-03-03T16:40:00.000Z",
         "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:14:45.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (UAE) Region (ME-CENTRAL-1). We continue to make progress on recovery efforts across multiple workstreams. For Amazon S3, we are seeing continued improvement in PUT and LIST availability. Newly written objects are now able to be successfully retrieved, and we continue to work on reducing GET error rates for",
-        "tags": [
-          "S3"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T14:02:57.000Z",
-        "description": "Recovery efforts in the affected Availability Zone (mes1-az2) in the ME-SOUTH-1 Region are ongoing, with the situation remaining consistent with our last update. We have no change to expected timelines for fully restoring power and connectivity. While progress is being made, significant work remains before full restoration is complete. We continue to recommend customers launch replacement resource",
         "tags": []
       }
     ]
