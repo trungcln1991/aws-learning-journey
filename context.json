@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "VPC Fundamentals",
-    "Security Groups & NACL"
+    "Security Groups & NACL",
+    "Route 53 & DNS"
   ],
-  "commit_msg": "Phien 110: su co SAP/Indo + don o C dev67 + bao ve 3 IP NAT ngan hang",
-  "updated_at": "2026-09-16T05:01:19Z"
+  "commit_msg": "Phien 111: va loi hong file upload legal + CMDB v6 + don Zabbix + fix DNS",
+  "updated_at": "2026-09-16T09:55:51Z"
 }
