@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL",
-    "Route 53 & DNS"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "Phien 111: va loi hong file upload legal + CMDB v6 + don Zabbix + fix DNS",
-  "updated_at": "2026-09-16T09:55:51Z"
+  "commit_msg": "Phien 112: danh gia dlc-web R&D + khao sat CI/CD ECS + drift/IAM audit T5 (PBI 33153-33155)",
+  "updated_at": "2026-09-17T03:07:40Z"
 }
