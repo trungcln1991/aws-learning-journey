@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "Va EHS upload anh 403/413: WAF AllowEhsMultipartUpload + stage Ehs qtzhf7",
-  "updated_at": "2026-09-17T03:29:16Z"
+  "commit_msg": "Ra WAF upload + NoUserAgent sau va EHS",
+  "updated_at": "2026-09-17T03:48:33Z"
 }
