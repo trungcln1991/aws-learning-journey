@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "PBI 33161 (va EHS upload) + 33162 (ra WAF): gan next step vao task-schedule",
-  "updated_at": "2026-09-17T03:58:12Z"
+  "commit_msg": "session 112 (chieu): lab ECS CI/CD jp:poc xong Bai 0-8 + xoa sach, skill ecs-bluegreen-cicd, memory lab",
+  "updated_at": "2026-09-17T10:05:46Z"
 }
