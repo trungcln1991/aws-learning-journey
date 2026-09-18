@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "AWS Global Infrastructure",
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "CloudWatch & Monitoring",
+    "S3 & Storage Classes"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-09-18 17:01",
-  "updated_at": "2026-09-18T10:01:53Z"
+  "commit_msg": "session 113: Sổ tay Hạ tầng lên prod (aws-infra.japfa.com.vn), chỉ công bố AWS+FortiGate, key Bedrock hdbk, dọn PBI theo SnC, copy ESXi",
+  "updated_at": "2026-09-18T10:10:49Z"
 }
