@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T05:58:50.032Z",
+  "generated_at": "2026-09-18T05:45:03.421Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,78 @@
   ],
   "whats_new": [
     {
+      "title": "AWS Transfer Family now supports source IP preservation for SFTP servers behind a Network Load Balancer (NLB)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/transfer-family-sftp-source-ip-nlb/",
+      "date": "2026-09-17T19:00:00.000Z",
+      "description": "AWS Transfer Family now preserves the client's source IP address using Proxy Protocol v2 (PPv2) when you place a Network Load Balancer (NLB) in front of your SFTP server that uses a VPC-hosted endpoint. You can now retain visibility of the client's source IP for IP-based auditing, access controls, and compliance when you use your own NLB. Previously, an NLB replaced the client's source IP with its",
+      "tags": [
+        "VPC",
+        "ALB",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "AWS HealthOmics now supports IAM session policies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/omics-iam-session-policy/",
+      "date": "2026-09-17T18:32:00.000Z",
+      "description": "AWS HealthOmics now supports IAM session policies, enabling you to restrict permissions for individual runs without creating and managing multiple IAM roles. Until now, there was no way to dynamically scope down permissions for a single run, requiring you to create a separate IAM role for each tenant or run. AWS HealthOmics is a HIPAA-eligible service that helps healthcare and life sciences custom",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "AWS Batch now supports bulk job cancellation and termination",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-batch-bulk-cancellation/",
+      "date": "2026-09-17T17:23:00.000Z",
+      "description": "AWS Batch now supports bulk job cancellation and termination, enabling you to cancel or terminate up to 50 jobs with a single API call. The new CancelJobs, TerminateJobs, and TerminateServiceJobs APIs reduce the operational complexity of managing large-scale batch workloads, letting you act on groups of jobs at once and receive per-job results in a single response. Additionally, ListJobs now retur",
+      "tags": []
+    },
+    {
+      "title": "Introducing Amazon EC2 T8i instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-t8i-instances-ga/",
+      "date": "2026-09-17T15:00:00.000Z",
+      "description": "AWS is announcing the general availability of new low-cost burstable Amazon EC2 T8i instances. These instances are powered by custom sixth generation Intel Xeon 6 processors, available exclusively on AWS, and built on the latest sixth generation AWS Nitro cards. T8i instances deliver up to 30% better price performance compared to previous generation T3 instances, and offer four sizes: nano, micro,",
+      "tags": [
+        "EC2",
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Elastic Beanstalk introduces Cluster Mode to run multiple applications on shared infrastructure",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/elastic-beanstalk-cluster-mode/",
+      "date": "2026-09-17T08:00:00.000Z",
+      "description": "AWS Elastic Beanstalk introduces Cluster Mode, a new deployment mode that lets you run and manage multiple applications on shared infrastructure in your account. Provide your source code, a Dockerfile, or a container image in Amazon ECR, and Elastic Beanstalk handles containerization, provisioning, and ongoing operations through the console, CLI, and APIs you already use. A new Elastic Beanstalk G",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon S3 Express One Zone is now available in 7 additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/s3-express-one-zone-7-regions/",
+      "date": "2026-09-17T08:00:00.000Z",
+      "description": "The Amazon S3 Express One Zone storage class is now available in 7 additional AWS Regions: Asia Pacific (Singapore), South America (Sao Paulo), US West (N. California), Canada (Central), Europe (Paris), Asia Pacific (Sydney), and Asia Pacific (Seoul). Amazon S3 Express One Zone is a high-performance, single-Availability Zone storage class purpose-built to deliver consistent single-digit millisecon",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "AWS Builder Center now available as mobile app on iOS and Android",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-builder-center-now-available-as-mobile-app/",
+      "date": "2026-09-17T07:09:00.000Z",
+      "description": "AWS Builder Center is a platform that brings together the global builder community, offering articles, workshops, sandbox environments, events, and learning resources in one place. Previously limited to desktop and web access, the experience is now available as a mobile app on iOS and Android. Builders worldwide can stay connected and engaged with the community from anywhere, using their AWS Build",
+      "tags": []
+    },
+    {
+      "title": "Amazon Quick now generates individual sheets and builds analyses from an image",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/generate-sheet-and-generate-analysis-from-an-image/",
+      "date": "2026-09-17T02:37:00.000Z",
+      "description": "Amazon Quick now expands Generate Analysis with two new ways to create dashboards faster. You can generate a single sheet inside an existing analysis by describing it in natural language, and you can generate a new analysis from an image of an existing dashboard. With Generate Sheet, you describe the sheet you want and Amazon Quick adds it to your current analysis with visuals selected for your da",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
       "title": "Amazon Corretto 27 is now generally available",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-corretto-27-generally-available/",
       "date": "2026-09-17T00:00:31.000Z",
@@ -42,6 +114,15 @@
       "tags": [
         "Lambda",
         "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon ECS deployment observability for Amazon ECS Managed Daemons in AWS Management Console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-daemon-deployment-console/",
+      "date": "2026-09-16T22:01:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now provides a consolidated deployment view for Amazon ECS Managed Daemons, giving you a single place to see how far a deployment has progressed, what is failing, and what could stop it. This helps you monitor Managed Daemon deployments at a glance and resolve issues faster, whether a rollout is in progress or you are reviewing what happened after it c",
+      "tags": [
+        "ECS"
       ]
     },
     {
@@ -68,6 +149,13 @@
       ]
     },
     {
+      "title": "Amazon Connect Customer can now import evaluation form PDFs using AI",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-customer-import-evaluation-form-PDF/",
+      "date": "2026-09-16T17:00:00.000Z",
+      "description": "Amazon Connect Customer now lets managers import a PDF of an evaluation form from a third-party quality management application, and automatically recreates it in Connect using AI, making it easier to migrate an existing quality program into Connect. Instead of rebuilding an existing form question by question, you upload the PDF and choose the preferred scoring method, either percentage or points-b",
+      "tags": []
+    },
+    {
       "title": "Amazon Connect Customer custom metrics now supports tag-based access control",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/connect-customer-custom-metrics-tag/",
       "date": "2026-09-16T17:00:00.000Z",
@@ -75,13 +163,6 @@
       "tags": [
         "CloudWatch"
       ]
-    },
-    {
-      "title": "Amazon Connect Customer can now import evaluation form PDFs using AI",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-customer-import-evaluation-form-PDF/",
-      "date": "2026-09-16T17:00:00.000Z",
-      "description": "Amazon Connect Customer now lets managers import a PDF of an evaluation form from a third-party quality management application, and automatically recreates it in Connect using AI, making it easier to migrate an existing quality program into Connect. Instead of rebuilding an existing form question by question, you upload the PDF and choose the preferred scoring method, either percentage or points-b",
-      "tags": []
     },
     {
       "title": "AWS Elemental MediaTailor Monetization Functions adds ad response hooks",
@@ -112,6 +193,20 @@
         "EC2",
         "CloudWatch"
       ]
+    },
+    {
+      "title": "Amazon Keyspaces (for Apache Cassandra) is now generally available in 11 additional Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-keyspaces/",
+      "date": "2026-09-16T16:00:00.000Z",
+      "description": "Amazon Keyspaces (for Apache Cassandra) is now generally available in 11 additional Regions, allowing customers in those Regions to build Cassandra-compatible applications with lower latency while keeping their data within the Region to meet data residency requirements.. Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compatible database servic",
+      "tags": []
+    },
+    {
+      "title": "Amazon Connect Talent is now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-talent/",
+      "date": "2026-09-16T12:22:00.000Z",
+      "description": "Amazon Connect Talent is now generally available, giving talent acquisition leaders an AI-powered hiring solution that accelerates candidate selection at scale. Informed by decades of Amazon's hiring science, Amazon Connect Talent uses AI agents to conduct structured voice interviews, administer evidence based assessments, and score candidates consistently, freeing recruiters to focus on strategic",
+      "tags": []
     },
     {
       "title": "AWS STS simplifies session token size limits and adds session token size monitoring",
@@ -147,110 +242,6 @@
       "description": "AWS Billing Conductor now lets you define custom rate pricing for AWS services, including defining custom usage tiers to configure rates by the desired usage volume. Customers and Partners using AWS Billing Conductor to model commercial agreements with subsidiaries, affiliates, or end customers can now more easily reflect their negotiated pricing on pro forma billing data. Using SKU-scoped pricing",
       "tags": [
         "Cost"
-      ]
-    },
-    {
-      "title": "AWS Step Functions adds new AWS service integrations automatically, starting with AWS Lambda MicroVMs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-step-functions-integrations/",
-      "date": "2026-09-15T18:54:00.000Z",
-      "description": "AWS Step Functions now automatically adds AWS SDK integrations for new AWS services and capabilities within weeks of their release, starting with AWS Lambda MicroVMs, AWS Lambda Core and others. Now, you can orchestrate the latest AWS services from your workflows without waiting for updates. AWS Step Functions is a visual workflow service capable of orchestrating over 220 AWS services to help cust",
-      "tags": [
-        "Lambda",
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker AI now supports instance preference lists for training and processing jobs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-sagemaker-training-processing-instance-pref-lists/",
-      "date": "2026-09-15T18:30:00.000Z",
-      "description": "Today, Amazon SageMaker AI announces instance preference lists for training and processing jobs, making it easier and faster to find compute capacity for your workloads. Many AI training, fine-tuning, and data processing workloads run comparably well on any of several instance types or sizes. However, before now, you had to name only one instance type at the time of job submission and wait for Sag",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Analyze your CloudTrail events using natural language in Amazon Q Console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/cloudtrail-amazon-q-console/",
-      "date": "2026-09-15T16:54:00.000Z",
-      "description": "AWS CloudTrail, a service that records API activity across your AWS account for security auditing, compliance, and operational troubleshooting, now integrates with Amazon Q Console to help you investigate your AWS account activity using natural language. You can ask Amazon Q Console questions about your CloudTrail configuration, query your logged events for security investigations, and troubleshoo",
-      "tags": [
-        "RDS",
-        "CloudTrail",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now enables agents to bid on preferred shifts",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-customer-shift-bidding/",
-      "date": "2026-09-15T16:00:00.000Z",
-      "description": "Amazon Connect Customer now enables agents to bid on preferred shifts, giving them more control over their work schedules. Schedulers first establish agent ranking either by uploading a CSV file or generating a randomized ranking. Connect Customer then uses forecasted demand and shift profiles to generate available shifts and presents them to agents to rank. For example, in a Monday–Friday 6AM–10P",
-      "tags": []
-    },
-    {
-      "title": "AWS Glue zero-ETL now captures archived Salesforce records",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-zero-etl-archived-salesforce/",
-      "date": "2026-09-15T08:00:00.000Z",
-      "description": "AWS Glue zero-ETL integrations for Salesforce now capture archived records in your target tables, giving you a complete replica of your Salesforce data for analytics and reporting. Archived records are identified and reflected accurately through the isArchived field, so your analytical data stays fully in sync with your Salesforce source. This is especially valuable for high-volume entities that S",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS improves regional resiliency for root user sign-in",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/root-user-regional-resiliency/",
-      "date": "2026-09-14T19:30:00.000Z",
-      "description": "AWS root user sign-in is now served across US East (N. Virginia), US East (Ohio), and US West (Oregon), with sign-in traffic distributed across all three Regions. This change reduces reliance on US East (N. Virginia) and improves resiliency during service disruptions. AWS automatically routes your root user sign-in to a supported Region without requiring you to select a Region or change how you si",
-      "tags": []
-    },
-    {
-      "title": "Qwen3.6-35B-A3B-NVFP4 and Wan2.1-T2V-1.3B-Diffusers models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/qwen3.6-35b-a3b-nvfp4-wan2.1-t2v-1.3B-diffusers-jumpstart/",
-      "date": "2026-09-14T17:39:00.000Z",
-      "description": "NVIDIA's Qwen3.6-35B-A3B-NVFP4 and Alibaba's Wan2.1-T2V-1.3B-Diffusers models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models bring specialized capabilities spanning agentic coding with long-context reasoning and lightweight text-to-video generation, enabling customers to deploy high-performance, scalable AI",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Ministral-3-3B-Instruct-2512 and Ministral-3-8B-Instruct-2512 models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/ministral-3-3b-instruct-2512-ministral-3-8B-Instruct-2512-jumpstart/",
-      "date": "2026-09-14T17:35:00.000Z",
-      "description": "Mistral AI's Ministral-3-3B-Instruct-2512 and Ministral-3-8B-Instruct-2512 models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models from the Ministral 3 family bring compact, vision-capable language models purpose-built for edge deployment and resource-constrained environments, enabling customers to deploy hig",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Gemma-4-31B-it-assistant and Gemma-4-31B-IT-NVFP4 models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/gemma-4-31b-it-assistant-gemma-4-31b-it-nvfp4-jumpstart/",
-      "date": "2026-09-14T17:32:00.000Z",
-      "description": "Google DeepMind's Gemma-4-31B-it-assistant and NVIDIA's Gemma-4-31B-IT-NVFP4 models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models bring the flagship Gemma 4 31B dense architecture to enterprise workloads in both full-precision and optimized quantized variants, enabling customers to deploy high-performance,",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "granite-speech-4.1-2b, kanana-2-30b-a3b-instruct, and OpenFold3 models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/granite-speech-4.1-2b-edge-kanana-2-30b-a3b-instruct-openfold3-jumpstart/",
-      "date": "2026-09-14T17:30:00.000Z",
-      "description": "BM's granite-speech-4.1-2b, Kakao's kanana-2-30b-a3b-instruct, and the OpenFold Consortium's OpenFold3 models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models bring specialized capabilities spanning multilingual speech recognition, bilingual agentic AI, and biomolecular structure prediction, enabling custom",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Glue zero-ETL adds target table property ownership and conflict detection",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-zero-etl-ownership-conflicts/",
-      "date": "2026-09-14T08:00:00.000Z",
-      "description": "AWS Glue zero-ETL integrations now detect table property conflicts and track integration ownership. When you configure a source table and target catalog, Glue associates the resulting table properties with the owning integration, so two integrations can no longer be pointed at the same target table without your knowledge. This works across Amazon S3 Tables and SageMaker Lakehouse catalogs. Data te",
-      "tags": [
-        "S3",
-        "SageMaker"
       ]
     }
   ],
@@ -353,6 +344,25 @@
   ],
   "blog": [
     {
+      "title": "New low-cost burstable Amazon EC2 T8i instances are generally available",
+      "link": "https://aws.amazon.com/blogs/aws/new-low-cost-burstable-amazon-ec2-t8i-instances-are-generally-available/",
+      "date": "2026-09-17T21:11:48.000Z",
+      "description": "AWS introduces new low-cost burstable Amazon EC2 T8i instances powered by custom sixth generation Intel Xeon Scalable Processors (Granite Rapids), available only on AWS. T8i instances are among the lowest-cost EC2 instances and deliver up to 30% better price performance over previous generation T3 instances.",
+      "tags": [
+        "EC2",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Elastic Beanstalk introduces Cluster Mode",
+      "link": "https://aws.amazon.com/blogs/aws/aws-elastic-beanstalk-introduces-cluster-mode/",
+      "date": "2026-09-17T19:20:21.000Z",
+      "description": "Run an application on AWS Elastic Beanstalk Cluster Mode without provisioning or operating the compute underneath it. You provide a container image or source code; Elastic Beanstalk with service-operated compute creates and operates the environment that runs it.",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
       "title": "AWS reimagines the getting started experience",
       "link": "https://aws.amazon.com/blogs/aws/aws-reimagines-the-getting-started-experience/",
       "date": "2026-09-16T17:50:14.000Z",
@@ -419,20 +429,6 @@
       "tags": [
         "RDS"
       ]
-    },
-    {
-      "title": "AWS Glue 6.0 now available with 30% lower price and full Apache Iceberg v3 support",
-      "link": "https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/",
-      "date": "2026-08-21T18:53:26.000Z",
-      "description": "AWS Glue 6.0 is built on a fully modernized runtime, Apache Spark 4.1, Python 3.13, and Scala 2.13, delivering 30% lower pricing than previous AWS Glue versions.",
-      "tags": []
-    },
-    {
-      "title": "In the works: AWS Builder Lofts in Berlin, Hyderabad, and São Paulo",
-      "link": "https://aws.amazon.com/blogs/aws/in-the-works-aws-builder-lofts-in-berlin-hyderabad-and-sao-paulo/",
-      "date": "2026-08-18T13:58:41.000Z",
-      "description": "Each location will be a permanent community space to offer free workshops, networking events, pitch nights, content creation spaces, collaboration/co-working areas, and event hosting for developers, students, or tech professionals who want to walk through the doors.",
-      "tags": []
     }
   ],
   "status": {
