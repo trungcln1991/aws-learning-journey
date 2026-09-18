@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "AWS Global Infrastructure",
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-09-17 17:05",
-  "updated_at": "2026-09-17T10:06:23Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-09-18 17:01",
+  "updated_at": "2026-09-18T10:01:53Z"
 }
