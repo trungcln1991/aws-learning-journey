@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "AWS Global Infrastructure"
   ],
-  "commit_msg": "session 114 (T7 19/09): sửa autopatch dev fail 5 tuần (maxAgeHours 4→36, dev67 backup Thu), suppress 2 finding anyio dev67, rà Security Hub + kernel bastion, task-schedule +7 gap/nhắc T2",
-  "updated_at": "2026-09-19T06:53:29Z"
+  "commit_msg": "session 115 (T7 19/09): Sổ tay aws-infra — Chương 9, trang owner Vận hành/Công việc (ADO), Chi phí AWS + job tuần, Lập kế hoạch app lên AWS, Live Config, UI v3 ECharts + tab Yêu cầu cho Dev; gói 2320 chờ deploy; task-schedule +4 gap",
+  "updated_at": "2026-09-19T16:23:51Z"
 }
