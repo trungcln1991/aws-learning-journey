@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T05:45:03.421Z",
+  "generated_at": "2026-09-19T05:39:54.448Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,78 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Continuum now supports credential testing and accessible domain suggestions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-security-agent/",
+      "date": "2026-09-18T18:34:00.000Z",
+      "description": "AWS Continuum for penetration testing is a frontier agent that proactively secures applications throughout the development lifecycle by offering on-demand, customized penetration testing with real exploitability testing. Developers and security teams can now test login credentials and receive suggested domains before a penetration test runs. This makes it easier to configure an accurate network sc",
+      "tags": []
+    },
+    {
+      "title": "Amazon ECS Express Mode now supports AWS Graviton (ARM64) workloads",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-express-mode-arm-architecture/",
+      "date": "2026-09-18T17:27:00.000Z",
+      "description": "Amazon Elastic Container Service Express Mode now supports specifying ARM64 as the CPU architecture for your service, making it easy to deploy ARM-based container images on AWS Graviton-powered compute and benefit from up to 40% better price-performance compared to x86-based instances. Amazon ECS Express Mode makes it easy to rapidly launch containerized applications, including web applications an",
+      "tags": [
+        "EC2",
+        "ECS"
+      ]
+    },
+    {
+      "title": "AWS Resilience Hub adds three new capabilities",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/resilience-hub-eks-dependency-policy/",
+      "date": "2026-09-18T16:49:00.000Z",
+      "description": "The next generation of AWS Resilience Hub is a central location in the AWS that helps platform engineering and site reliability teams assess and strengthen the resilience of their workloads running on AWS. It provides automated dependency discovery, generative AI-powered failure mode analysis, modular resilience policies, resilience testing, and organization-wide resilience posture reporting. Toda",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS RTB Fabric now supports configurable Availability Zone affinity",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-rtb-fabric-configurable-availability-zone-affinity/",
+      "date": "2026-09-18T15:30:00.000Z",
+      "description": "AWS RTB Fabric now supports configurable Availability Zone (AZ) affinity for responder gateways. With this capability, you can configure how your partners connect to your responder gateway: either in their own Availability Zone or to any Availability Zone that the gateway spans. This launch helps advertising technology (AdTech) companies use their infrastructure more efficiently—with no extra char",
+      "tags": []
+    },
+    {
+      "title": "Kimi K3 by Moonshot AI is now generally available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/moonshot-ai-kimi-k3-on-amazon-bedrock/",
+      "date": "2026-09-18T15:15:00.000Z",
+      "description": "Amazon Bedrock continues to expand its open weight model portfolio with the same security and governance that customers rely on. Today, Kimi K3 from Moonshot AI is generally available on Amazon Bedrock, giving you a powerful new option for coding and knowledge work. According to Moonshot AI, Kimi K3 is its most capable model and the first open model to reach 2.8 trillion parameters. It combines na",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon SNS now supports message payloads up to 1 MiB",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-sns-1mib-support",
+      "date": "2026-09-18T15:00:00.000Z",
+      "description": "Amazon Simple Notification Service (Amazon SNS) now supports message payloads up to 1 MiB, a 4x increase from the previous 256 KiB limit, so you can publish larger messages to your SNS topics. Amazon SNS is a fully managed pub/sub messaging service that enables you to decouple and scale microservices, distributed systems, and serverless applications. As workloads such as application integration, I",
+      "tags": [
+        "Lambda",
+        "SNS"
+      ]
+    },
+    {
+      "title": "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available",
+      "date": "2026-09-18T13:25:00.000Z",
+      "description": "Today, AWS announces the availability of the next generation of AgentCore Runtime , the serverless microVM compute within Amazon Bedrock AgentCore. The new Runtime delivers elastic memory management that reclaims unused memory throughout the session so you pay for actual usage rather than the peak, and consistent cold start times regardless of container image size or concurrency. You get the serve",
+      "tags": [
+        "Lambda",
+        "ECS",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS PrivateLink announces Tunnel Endpoints to access network segments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/9/privatelink-tunnel-endpoint/",
+      "date": "2026-09-18T07:00:00.000Z",
+      "description": "AWS PrivateLink customers can now use VPC endpoint to privately and securely access network segments in another VPC/account. They can use a ‘tunnel’ endpoint, a new type of VPC endpoint, to tunnel into the network segment and access resources located within it. AWS PrivateLink is a highly available and scalable technology that enables private access across VPC and account boundaries to load balanc",
+      "tags": [
+        "VPC"
+      ]
+    },
     {
       "title": "AWS Transfer Family now supports source IP preservation for SFTP servers behind a Network Load Balancer (NLB)",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/transfer-family-sftp-source-ip-nlb/",
@@ -86,6 +158,16 @@
       "date": "2026-09-17T07:09:00.000Z",
       "description": "AWS Builder Center is a platform that brings together the global builder community, offering articles, workshops, sandbox environments, events, and learning resources in one place. Previously limited to desktop and web access, the experience is now available as a mobile app on iOS and Android. Builders worldwide can stay connected and engaged with the community from anywhere, using their AWS Build",
       "tags": []
+    },
+    {
+      "title": "Amazon SES now supports tenant-level deliverability insights",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ses-vdm-tenants/",
+      "date": "2026-09-17T07:00:00.000Z",
+      "description": "Amazon Simple Email Service (SES) now supports tenant-level deliverability insights in Virtual Deliverability Manager (VDM). Tenant management allows email senders to isolate email sending across customers, business units, or applications. Previously, VDM provided deliverability metrics at the account, ISP, sending identity, and configuration set levels. Now, customers who use tenants and have ena",
+      "tags": [
+        "IAM",
+        "CloudWatch"
+      ]
     },
     {
       "title": "Amazon Quick now generates individual sheets and builds analyses from an image",
@@ -162,86 +244,6 @@
       "description": "Amazon Connect Customer now supports tag-based access control for custom metrics, so you can govern which users and roles can view, create, or modify each custom metric. As more teams across your organization adopt custom metrics, they end up editing the same shared library. Without controls, one person can change a metric that other teams count on. The usual fix is to give only a handful of peopl",
       "tags": [
         "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Elemental MediaTailor Monetization Functions adds ad response hooks",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-elemental-mediatailor-functions-ad-response-hooks",
-      "date": "2026-09-16T16:30:00.000Z",
-      "description": "AWS Elemental MediaTailor now supports two additional lifecycle hooks for monetization functions: post ad decision server (ADS) response, and pre manifest insertion. MediaTailor is a video service that personalizes and inserts ads into live and on-demand streams. Monetization functions run customer-defined logic at defined points in an ad-personalized playback session, removing the need for a midd",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon ECS extends Amazon S3 Files support to the Amazon EC2 compute type",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-s3-files-ec2/",
-      "date": "2026-09-16T16:25:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now supports Amazon S3 Files for tasks running on the Amazon EC2 launch type, enabling customers to connect their containerized applications directly to data in Amazon S3 as a shared file system. With this launch, customers running ECS workloads on EC2 instances can work with their S3 data using standard file system semantics, so file-based application",
-      "tags": [
-        "EC2",
-        "S3",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets you create, manage, and search custom metrics through APIs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/connect-customer-custom-metrics-apis/",
-      "date": "2026-09-16T16:00:00.000Z",
-      "description": "Amazon Connect Customer provides a library of standard metrics. Custom metrics let you go further; defining the measurements unique to your business. But managing them across various instances manually means definitions slowly drift until the numbers no longer align. A metric you can't trust is worse than no metric at all, because people still make decisions on it. Now you define a metric once and",
-      "tags": [
-        "EC2",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon Keyspaces (for Apache Cassandra) is now generally available in 11 additional Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-keyspaces/",
-      "date": "2026-09-16T16:00:00.000Z",
-      "description": "Amazon Keyspaces (for Apache Cassandra) is now generally available in 11 additional Regions, allowing customers in those Regions to build Cassandra-compatible applications with lower latency while keeping their data within the Region to meet data residency requirements.. Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compatible database servic",
-      "tags": []
-    },
-    {
-      "title": "Amazon Connect Talent is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-talent/",
-      "date": "2026-09-16T12:22:00.000Z",
-      "description": "Amazon Connect Talent is now generally available, giving talent acquisition leaders an AI-powered hiring solution that accelerates candidate selection at scale. Informed by decades of Amazon's hiring science, Amazon Connect Talent uses AI agents to conduct structured voice interviews, administer evidence based assessments, and score candidates consistently, freeing recruiters to focus on strategic",
-      "tags": []
-    },
-    {
-      "title": "AWS STS simplifies session token size limits and adds session token size monitoring",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-sts/",
-      "date": "2026-09-15T22:42:00.000Z",
-      "description": "AWS Security Token Service (STS) now enforces a single 4,096-byte size limit on session tokens. Previously, STS enforced separate limits on session token size and passed-in parameters (i.e., inline policies, managed policies, and session tags). STS has removed that separation, providing more flexibility for larger combinations of session policies and session tags. Additionally, STS now returns res",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Monitor cost anomalies directly in Billing and Cost Management Dashboards with the new Detected Anomalies widget",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/monitor-detected-anomalies-using-dashboards",
-      "date": "2026-09-15T22:00:00.000Z",
-      "description": "Today, AWS Billing and Cost Management (BCM) announces support for the Detected Anomalies widget in BCM Dashboards. You can now review cost anomalies alongside cost and usage, budgets, cost efficiency, and reports for Savings Plans and Reserved Instance coverage and utilization. This provides a unified view of your spending, commitments, and cost anomalies in a single, tailored dashboard. The Dete",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Direct Connect announces flat-rate pricing for dedicated connections",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-direct-connect-announces-flat-rate-pricing/",
-      "date": "2026-09-15T19:00:00.000Z",
-      "description": "AWS Direct Connect announces flat-rate pricing for 10G and 100G dedicated connections AWS Direct Connect provides dedicated network connectivity from on-premises environments to AWS. Customers value the flexibility of AWS Direct Connect's pay-as-you-go pricing, paying only for the port hours and data transfer out (DTO) they use, with no upfront commitment or long-term contracts. For workloads with",
-      "tags": []
-    },
-    {
-      "title": "AWS Billing Conductor now supports custom rates and usage tier pricing configurations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/AWS-Billing-Conductor-custom-rates-usage-tier",
-      "date": "2026-09-15T18:58:00.000Z",
-      "description": "AWS Billing Conductor now lets you define custom rate pricing for AWS services, including defining custom usage tiers to configure rates by the desired usage volume. Customers and Partners using AWS Billing Conductor to model commercial agreements with subsidiaries, affiliates, or end customers can now more easily reflect their negotiated pricing on pro forma billing data. Using SKU-scoped pricing",
-      "tags": [
-        "Cost"
       ]
     }
   ],
