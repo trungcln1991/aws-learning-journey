@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "S3 & Storage Classes"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 113: Sổ tay Hạ tầng lên prod (aws-infra.japfa.com.vn), chỉ công bố AWS+FortiGate, key Bedrock hdbk, dọn PBI theo SnC, copy ESXi",
-  "updated_at": "2026-09-18T10:10:49Z"
+  "commit_msg": "session 114 (T7 19/09): sửa autopatch dev fail 5 tuần (maxAgeHours 4→36, dev67 backup Thu), suppress 2 finding anyio dev67, rà Security Hub + kernel bastion, task-schedule +7 gap/nhắc T2",
+  "updated_at": "2026-09-19T06:53:29Z"
 }
