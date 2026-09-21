@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T05:59:02.692Z",
+  "generated_at": "2026-09-21T06:05:29.597Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,15 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon EC2 X8i instances are now available in the South America (São Paulo) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-x8i-south-america-sao-paulo/",
+      "date": "2026-09-18T22:16:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the South America (São Paulo) region. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. They deliver up to 43% higher performance, ",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "AWS Continuum now supports credential testing and accessible domain suggestions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-security-agent/",
@@ -236,15 +245,6 @@
       "date": "2026-09-16T17:00:00.000Z",
       "description": "Amazon Connect Customer now lets managers import a PDF of an evaluation form from a third-party quality management application, and automatically recreates it in Connect using AI, making it easier to migrate an existing quality program into Connect. Instead of rebuilding an existing form question by question, you upload the PDF and choose the preferred scoring method, either percentage or points-b",
       "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer custom metrics now supports tag-based access control",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/connect-customer-custom-metrics-tag/",
-      "date": "2026-09-16T17:00:00.000Z",
-      "description": "Amazon Connect Customer now supports tag-based access control for custom metrics, so you can govern which users and roles can view, create, or modify each custom metric. As more teams across your organization adopt custom metrics, they end up editing the same shared library. Without controls, one person can change a metric that other teams count on. The usual fix is to give only a handful of peopl",
-      "tags": [
-        "CloudWatch"
-      ]
     }
   ],
   "security": [
