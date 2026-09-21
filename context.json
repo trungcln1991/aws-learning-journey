@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "ALB & Auto Scaling",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 21/09 (phiên 116): weekly security review, suppress 14 finding, phân tích chi phí NAT/cross-AZ, ELB.17, 5 PBI, nén MEMORY.md, đặc tả Sổ tay v4",
-  "updated_at": "2026-09-21T05:37:37Z"
+  "commit_msg": "session 21/09 (phiên 117): JCOP — Sổ tay v4 (Kế hoạch/Chi phí lọc chéo/Hỏi Culi nổi), mời+quên mật khẩu qua email + phân quyền trang, sao lưu data lên S3 (DataMirror), giao diện cam Japfa + Live Ops Center, chân sidebar người thiết kế",
+  "updated_at": "2026-09-21T09:57:26Z"
 }
