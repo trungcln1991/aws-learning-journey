@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "AWS Global Infrastructure"
+    "ALB & Auto Scaling",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 115 (T7 19/09): Sổ tay aws-infra — Chương 9, trang owner Vận hành/Công việc (ADO), Chi phí AWS + job tuần, Lập kế hoạch app lên AWS, Live Config, UI v3 ECharts + tab Yêu cầu cho Dev; gói 2320 chờ deploy; task-schedule +4 gap",
-  "updated_at": "2026-09-19T16:23:51Z"
+  "commit_msg": "session 21/09 (phiên 116): weekly security review, suppress 14 finding, phân tích chi phí NAT/cross-AZ, ELB.17, 5 PBI, nén MEMORY.md, đặc tả Sổ tay v4",
+  "updated_at": "2026-09-21T05:37:37Z"
 }
