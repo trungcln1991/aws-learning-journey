@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T06:05:29.597Z",
+  "generated_at": "2026-09-22T05:59:15.206Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,25 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-console-deployment-observability/",
+      "date": "2026-09-21T20:05:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now provides real-time service deployment observability in the Amazon ECS Console for native Linear, Canary, and Blue/Green deployment strategies. With this launch, deployment monitoring and troubleshooting come together in one place in the console, so you can track deployment progress, monitor health, and diagnose failures without switching between to",
+      "tags": [
+        "CloudWatch",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon EVS now in scope for FedRAMP Class C",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-evs-fedramp-class-c/",
+      "date": "2026-09-21T19:08:00.000Z",
+      "description": "The Amazon Elastic VMware Service (EVS) service is now in scope for FedRAMP Class C (formerly Moderate baseline) in all United States Regions. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring for cloud products and services. Amazon EVS lets you run t",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
     {
       "title": "Amazon EC2 X8i instances are now available in the South America (São Paulo) Region",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-x8i-south-america-sao-paulo/",
@@ -57,6 +76,15 @@
       "description": "The next generation of AWS Resilience Hub is a central location in the AWS that helps platform engineering and site reliability teams assess and strengthen the resilience of their workloads running on AWS. It provides automated dependency discovery, generative AI-powered failure mode analysis, modular resilience policies, resilience testing, and organization-wide resilience posture reporting. Toda",
       "tags": [
         "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon EC2 I7ie instances now available in AWS Israel region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-i7ie-instances-israel-telaviv-region/",
+      "date": "2026-09-18T16:00:00.000Z",
+      "description": "AWS is announcing starting today, Amazon EC2 I7ie instances are now available in AWS Israel (Tel Aviv) region. Designed for large storage I/O intensive workloads, I7ie instances are powered by 5th Gen Intel Xeon Processors with an all-core turbo frequency of 3.2 GHz, offering up to 40% better compute performance and 20% better price performance over existing I3en instances. I7ie instances offer up",
+      "tags": [
+        "EC2"
       ]
     },
     {
@@ -165,7 +193,7 @@
       "title": "AWS Builder Center now available as mobile app on iOS and Android",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-builder-center-now-available-as-mobile-app/",
       "date": "2026-09-17T07:09:00.000Z",
-      "description": "AWS Builder Center is a platform that brings together the global builder community, offering articles, workshops, sandbox environments, events, and learning resources in one place. Previously limited to desktop and web access, the experience is now available as a mobile app on iOS and Android. Builders worldwide can stay connected and engaged with the community from anywhere, using their AWS Build",
+      "description": "AWS Builder Center is now available as a mobile app on iOS and Android. Builder Center brings together the global builder community with articles on trending topics, hands-on workshops with free sandbox environments, community spaces, events at Builder Lofts, access to 600+ AWS Skill Builder courses, and a Wishlist where builders can give feedback directly to AWS product teams. The AWS Builder app",
       "tags": []
     },
     {
@@ -179,7 +207,7 @@
       ]
     },
     {
-      "title": "Amazon Quick now generates individual sheets and builds analyses from an image",
+      "title": "Amazon Quick adds Generate Sheet and image-based analysis creation",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/generate-sheet-and-generate-analysis-from-an-image/",
       "date": "2026-09-17T02:37:00.000Z",
       "description": "Amazon Quick now expands Generate Analysis with two new ways to create dashboards faster. You can generate a single sheet inside an existing analysis by describing it in natural language, and you can generate a new analysis from an image of an existing dashboard. With Generate Sheet, you describe the sheet you want and Amazon Quick adds it to your current analysis with visuals selected for your da",
@@ -221,29 +249,6 @@
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-client-vpn-macos-golden-gate/",
       "date": "2026-09-16T17:56:00.000Z",
       "description": "AWS Client VPN now supports MacOS 27 Golden Gate client with versions 6.0+ You can now run the AWS supplied VPN client on the latest MacOS versions. AWS Client VPN desktop clients are available free of charge, and can be downloaded here . AWS Client VPN is a managed service that securely connects your remote workforce to AWS or on-premises networks. It supports desktop clients for MacOS, Windows x",
-      "tags": []
-    },
-    {
-      "title": "New AWS experience helps builders get started and ship faster",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/New-AWS-Builder-Experience",
-      "date": "2026-09-16T17:45:00.000Z",
-      "description": "Builders can now sign up for a new simplified experience that makes it faster to turn ideas into running code on AWS. AWS services provide an array of configuration options so that the largest enterprises can customize settings for their distinct needs. Until now, builders with a new project idea had to decide among these options and configure their AWS environment before beginning to build. The n",
-      "tags": []
-    },
-    {
-      "title": "Amazon WorkSpaces adds support for NVIDIA Blackwell GPU instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-workspaces-nvidia-blackwell-gpu-instances/",
-      "date": "2026-09-16T17:00:00.000Z",
-      "description": "Amazon WorkSpaces Personal and Amazon WorkSpaces Core now support Graphics G7 bundles, built on NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs and Intel Xeon 6 processors. Graphics G7 delivers up to 2.1x better performance for graphics-intensive workloads compared to previous generation Graphics G6 bundles. Four bundle sizes are available, ranging from 8 vCPUs, 32 GB of memory, and one GPU up t",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer can now import evaluation form PDFs using AI",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-customer-import-evaluation-form-PDF/",
-      "date": "2026-09-16T17:00:00.000Z",
-      "description": "Amazon Connect Customer now lets managers import a PDF of an evaluation form from a third-party quality management application, and automatically recreates it in Connect using AI, making it easier to migrate an existing quality program into Connect. Instead of rebuilding an existing form question by question, you upload the PDF and choose the preferred scoring method, either percentage or points-b",
       "tags": []
     }
   ],
@@ -346,6 +351,13 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more (September 21, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/",
+      "date": "2026-09-21T16:11:24.000Z",
+      "description": "Living in the Netherlands, I spend a fair amount of time on trains, and that is usually where I catch up on what the builder community is writing. Until now, that meant opening a laptop or squinting at a browser tab on my phone. This week I found myself scrolling through trending articles and checking […]",
+      "tags": []
+    },
+    {
       "title": "New low-cost burstable Amazon EC2 T8i instances are generally available",
       "link": "https://aws.amazon.com/blogs/aws/new-low-cost-burstable-amazon-ec2-t8i-instances-are-generally-available/",
       "date": "2026-09-17T21:11:48.000Z",
@@ -422,20 +434,38 @@
       "tags": [
         "EC2"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: Student Rewards on AWS Builder Center, Local Zone in Las Vegas, and more (August 24, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-student-rewards-on-aws-builder-center-local-zone-in-las-vegas-and-more-august-24-2026/",
-      "date": "2026-08-24T16:20:15.000Z",
-      "description": "During my time at AWS, I have always looked for opportunities to work with students. I have delivered over 50 talks at universities across the region, and watching the potential in the room is always a strong motivator. It reminds me of why I do this work, and that the students I meet today may […]",
-      "tags": [
-        "RDS"
-      ]
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
+      {
+        "title": "Service impact: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-22T00:24:18.000Z",
+        "description": "Between 3:49 PM and 5:06 PM PDT, we experienced increased error rates affecting new instance launches in the US-EAST-1 Region. During this time, customers may have experienced elevated error rates when attempting to launch new EC2 instances through RunInstances, CreateFleet, and related EC2 launch workflows. AWS services that launch EC2 instances on behalf of customers, including Amazon ECS, AWS F",
+        "tags": [
+          "EC2",
+          "ECS"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-21T23:44:15.000Z",
+        "description": "We can confirm increased error rates affecting new instance launches, including elevated API error rates for RunInstances, CreateFleet, and related EC2 launch workflows in the US-EAST-1 Region. Customers attempting to launch new EC2 instances may experience launch failures or elevated API response latency. Our engineers are actively engaged and working towards recovering the issue. We are seeing i",
+        "tags": [
+          "EC2",
+          "RDS"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-21T23:26:48.000Z",
+        "description": "We are investigating increased API error rates in the US-EAST-1 Region.",
+        "tags": []
+      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -448,31 +478,6 @@
         "link": "https://status.aws.amazon.com/",
         "date": "2026-09-15T10:22:28.000Z",
         "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
-        "tags": [
-          "Lambda"
-        ]
-      },
-      {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
-        "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
       }
     ]
