@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals",
-    "EC2 Basics"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-09-22 15:27",
-  "updated_at": "2026-09-22T08:27:36Z"
+  "commit_msg": "session 22/09 (phiên 118): tag ManagedBy trung thực + default_tags; JCOP chấm điểm chỉ Prod+Network, cách chấm + drawer + bảng đặt tên; 7 Lambda thông báo vào Terraform tên chuẩn (sửa báo cáo VPN timeout, bỏ webhook ghi cứng, xoá 23 bản cũ); import 18 tài nguyên tạo tay (điểm 65%→75%, 154/154 đạt chuẩn); hotfix WAF ECS SQLi_Body cho form mật khẩu dlc-web",
+  "updated_at": "2026-09-22T09:35:31Z"
 }
