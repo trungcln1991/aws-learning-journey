@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T05:59:15.206Z",
+  "generated_at": "2026-09-23T05:46:29.464Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,102 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon CloudWatch Omni: AI-first observability for agents and applications",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-cloudwatch-omni-ai/",
+      "date": "2026-09-23T00:06:00.000Z",
+      "description": "AWS announces the general availability of Amazon CloudWatch Omni, an evolution of Amazon CloudWatch. Omni is an AI-powered observability experience organized around your teams and the applications they run, so that you can observe and troubleshoot your applications and agents in one place. It combines the interoperability of OpenTelemetry with the scale and reliability of CloudWatch. And it meets ",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Billing Transfer now supports automatic billing group creation for two-level transfers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-billing-transfer-supports-automatic-billing-group-creation/",
+      "date": "2026-09-22T20:08:00.000Z",
+      "description": "AWS Billing Transfer users can now enable the Auto-Billing Transfer Billing Group Creation, a new AWS Billing Conductor preference that eliminates the manual billing group configuration in two-level billing transfer arrangements. Designed for AWS Distributors managing billing for downstream seller Partners and their end customers, this feature automatically creates billing groups when an end custo",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/",
+      "date": "2026-09-22T18:09:00.000Z",
+      "description": "Today, AWS announces the general availability of GPT-6 Sol and GPT-6 Luna from OpenAI on Amazon Bedrock. Expanding the GPT-6 family alongside Astra, these two models give teams more ways to balance intelligence, speed, and cost across every workload. Sol is the daily model for recurring complex tasks and software development. On an internal OpenAI factuality evaluation, it makes roughly half as ma",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Claude Opus 5.5 is now available on AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws-govcloud/",
+      "date": "2026-09-22T15:00:00.000Z",
+      "description": "AWS GovCloud (US) now offers Claude Opus 5.5, Anthropic’s most capable Opus model yet and, the first of the Claude 5.5 model family, a better collaborator that handles long-running coding and knowledge work, reporting back clearly on what it did, what it found, and what it needs next. According to Anthropic, Claude Opus 5.5 completes tasks using fewer tokens than Claude Opus 5, at a lower price pe",
+      "tags": []
+    },
+    {
+      "title": "Claude Opus 5.5 is now available on AWS",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws/",
+      "date": "2026-09-22T15:00:00.000Z",
+      "description": "AWS now offers Claude Opus 5.5, Anthropic’s most capable Opus model yet and, the first of the Claude 5.5 model family, a better collaborator that handles long-running coding and knowledge work, reporting back clearly on what it did, what it found, and what it needs next. According to Anthropic, Claude Opus 5.5 completes tasks using fewer tokens than Claude Opus 5, at a lower price per token, with ",
+      "tags": []
+    },
+    {
+      "title": "Amazon EMR introduces Long Term Support with Apache Spark 4.1",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-long-term-support-spark-4-1/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "Amazon EMR introduces Long Term Support (LTS) releases, starting with emr-spark-8.1.0 and Apache Spark 4.1. With LTS, designated versions of the AWS runtime for Apache Spark receive 36 months of support. Amazon EMR provides LTS releases with fixes for critical and high severity security, bug, and data-corruption issues, subject to availability. LTS helps you run production Spark workloads on one r",
+      "tags": []
+    },
+    {
+      "title": "Amazon Route 53 Resolver is now generally available on second-generation AWS Outposts racks",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/route-53-resolver-gen2-outposts/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "Amazon Route 53 Resolver is now generally available on second-generation AWS Outposts, providing local, managed recursive DNS resolution directly on your Outpost. DNS queries from workloads running on your Outpost are resolved locally, reducing latency and eliminating the need to traverse the Service Link to reach the parent AWS Region. Route 53 Resolver maintains cached DNS records during Service",
+      "tags": [
+        "RDS",
+        "Route 53"
+      ]
+    },
+    {
+      "title": "AWS Security Hub AI Inventory adds Azure self-hosted instance support",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/security-hub-ai-inventory-azure-support/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "AWS Security Hub AI Inventory now supports discovering and cataloging AI assets running on self-hosted instances in Microsoft Azure. This expansion extends Security Hub's existing self-hosted discovery capabilities beyond AWS, enabling central security teams to gain a continuously updated, organization-wide view of AI assets and their security posture across multi-cloud environments. Security Hub ",
+      "tags": [
+        "EC2",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon EMR 7.14 is now available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-7-14-available/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "Amazon EMR 7.14 is now available with new features across Amazon EMR on EC2, Amazon EMR on EKS, and Amazon EMR Serverless, along with version upgrades for additional applications. This release also upgrades Apache Spark to 3.5.8 and Apache Iceberg to 1.10.1. Apache Iceberg materialized views now refresh faster on tables with updates and deletes, using change data capture to read only the data file",
+      "tags": [
+        "EC2",
+        "Lambda",
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Quality delivers context-specific rule recommendations in seconds",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-data-quality-rule-recommendations/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "AWS Glue Data Quality now generates data quality rules in seconds, reducing the time to establish data quality checks for your tables in the AWS Glue Data Catalog. You get a ready-to-use set of rules with full coverage across every column, with no manual setup—so you can move from raw data to trusted data faster while authoring pipelines. This is delivered through a new Advanced mode for rule reco",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS Custom now supports the latest CU for Microsoft SQL Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-custom-supports-latest-cu-gdr-microsoft-sql-server/",
+      "date": "2026-09-22T07:30:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) Custom for SQL Server now supports the latest Cumulative Updates (CU) for Microsoft SQL Server. This release includes support for SQL Server 2022 CU26 KB5093420 (RDS version 16.00.4265.3.v1). For additional information on the improvements and fixes included in these updates, see Microsoft documentation for KB5093420. You can upgrade your Amazon RDS C",
+      "tags": [
+        "RDS"
+      ]
+    },
     {
       "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-console-deployment-observability/",
@@ -152,161 +248,16 @@
       "tags": [
         "IAM"
       ]
-    },
-    {
-      "title": "AWS Batch now supports bulk job cancellation and termination",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-batch-bulk-cancellation/",
-      "date": "2026-09-17T17:23:00.000Z",
-      "description": "AWS Batch now supports bulk job cancellation and termination, enabling you to cancel or terminate up to 50 jobs with a single API call. The new CancelJobs, TerminateJobs, and TerminateServiceJobs APIs reduce the operational complexity of managing large-scale batch workloads, letting you act on groups of jobs at once and receive per-job results in a single response. Additionally, ListJobs now retur",
-      "tags": []
-    },
-    {
-      "title": "Introducing Amazon EC2 T8i instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-t8i-instances-ga/",
-      "date": "2026-09-17T15:00:00.000Z",
-      "description": "AWS is announcing the general availability of new low-cost burstable Amazon EC2 T8i instances. These instances are powered by custom sixth generation Intel Xeon 6 processors, available exclusively on AWS, and built on the latest sixth generation AWS Nitro cards. T8i instances deliver up to 30% better price performance compared to previous generation T3 instances, and offer four sizes: nano, micro,",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Elastic Beanstalk introduces Cluster Mode to run multiple applications on shared infrastructure",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/elastic-beanstalk-cluster-mode/",
-      "date": "2026-09-17T08:00:00.000Z",
-      "description": "AWS Elastic Beanstalk introduces Cluster Mode, a new deployment mode that lets you run and manage multiple applications on shared infrastructure in your account. Provide your source code, a Dockerfile, or a container image in Amazon ECR, and Elastic Beanstalk handles containerization, provisioning, and ongoing operations through the console, CLI, and APIs you already use. A new Elastic Beanstalk G",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon S3 Express One Zone is now available in 7 additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/s3-express-one-zone-7-regions/",
-      "date": "2026-09-17T08:00:00.000Z",
-      "description": "The Amazon S3 Express One Zone storage class is now available in 7 additional AWS Regions: Asia Pacific (Singapore), South America (Sao Paulo), US West (N. California), Canada (Central), Europe (Paris), Asia Pacific (Sydney), and Asia Pacific (Seoul). Amazon S3 Express One Zone is a high-performance, single-Availability Zone storage class purpose-built to deliver consistent single-digit millisecon",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "AWS Builder Center now available as mobile app on iOS and Android",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-builder-center-now-available-as-mobile-app/",
-      "date": "2026-09-17T07:09:00.000Z",
-      "description": "AWS Builder Center is now available as a mobile app on iOS and Android. Builder Center brings together the global builder community with articles on trending topics, hands-on workshops with free sandbox environments, community spaces, events at Builder Lofts, access to 600+ AWS Skill Builder courses, and a Wishlist where builders can give feedback directly to AWS product teams. The AWS Builder app",
-      "tags": []
-    },
-    {
-      "title": "Amazon SES now supports tenant-level deliverability insights",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ses-vdm-tenants/",
-      "date": "2026-09-17T07:00:00.000Z",
-      "description": "Amazon Simple Email Service (SES) now supports tenant-level deliverability insights in Virtual Deliverability Manager (VDM). Tenant management allows email senders to isolate email sending across customers, business units, or applications. Previously, VDM provided deliverability metrics at the account, ISP, sending identity, and configuration set levels. Now, customers who use tenants and have ena",
-      "tags": [
-        "IAM",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon Quick adds Generate Sheet and image-based analysis creation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/generate-sheet-and-generate-analysis-from-an-image/",
-      "date": "2026-09-17T02:37:00.000Z",
-      "description": "Amazon Quick now expands Generate Analysis with two new ways to create dashboards faster. You can generate a single sheet inside an existing analysis by describing it in natural language, and you can generate a new analysis from an image of an existing dashboard. With Generate Sheet, you describe the sheet you want and Amazon Quick adds it to your current analysis with visuals selected for your da",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Corretto 27 is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-corretto-27-generally-available/",
-      "date": "2026-09-17T00:00:31.000Z",
-      "description": "Amazon Corretto 27, a Feature Release (FR) version, is now available for download. Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK . You can download Corretto 27 for Linux, Windows, and macOS from our downloads page . Corretto 27 will be supported through April 2027. Noticeable features: G1 as the Default Garbage Collector in All Environments - Makes G1 the d",
-      "tags": [
-        "CloudFront",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker AI now supports serverless model customization for NVIDIA Nemotron 3.5 Lightning",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-sagemaker-ft-nemotron-3-5-lightning/",
-      "date": "2026-09-16T22:29:00.000Z",
-      "description": "Amazon SageMaker AI now supports serverless model customization for the NVIDIA Nemotron 3.5 Lightning model using supervised fine-tuning (SFT), Direct Preference Optimization (DPO), and reinforcement fine-tuning (RFT). This is one of the latest open-weight models from NVIDIA and employs a hybrid Mixture-of-Experts architecture with 3B active parameters and 30B parameters in total. In addition to d",
-      "tags": [
-        "Lambda",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon ECS deployment observability for Amazon ECS Managed Daemons in AWS Management Console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-daemon-deployment-console/",
-      "date": "2026-09-16T22:01:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now provides a consolidated deployment view for Amazon ECS Managed Daemons, giving you a single place to see how far a deployment has progressed, what is failing, and what could stop it. This helps you monitor Managed Daemon deployments at a glance and resolve issues faster, whether a rollout is in progress or you are reviewing what happened after it c",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS Client VPN is now supporting MacOS 27 Golden Gate",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-client-vpn-macos-golden-gate/",
-      "date": "2026-09-16T17:56:00.000Z",
-      "description": "AWS Client VPN now supports MacOS 27 Golden Gate client with versions 6.0+ You can now run the AWS supplied VPN client on the latest MacOS versions. AWS Client VPN desktop clients are available free of charge, and can be downloaded here . AWS Client VPN is a managed service that securely connects your remote workforce to AWS or on-premises networks. It supports desktop clients for MacOS, Windows x",
-      "tags": []
     }
   ],
   "security": [
     {
-      "title": "CVE-2026-19311- Missing Authorization in OpenSearch Alerting Plugin",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-078-aws/",
+      "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
       "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-078-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/12/2026 11:30 AM PDT Description: OpenSearch is a community-driven, open-source search and analytics suite. We identified CVE-2026-19311, a missing authorization issue in the Execute Monitor API of the OpenSearch Alerting plugin. This issue may allow an authenticated user with the alerting_full_a",
+      "description": "Bulletin ID: 2026-048-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/29/2026 11:15 PM PDT Description: AWS WAF is a web application firewall that monitors the HTTP(S) requests that are forwarded to your protected web application resources. We identified CVE-2026-13762 and CVE-2026-13763, which are issues affecting HTTP/2 multi-frame request body inspection by AWS ",
       "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-89049 - Server-side request forgery in the Session Manager port forwarding functionality in AWS Systems Manager Agent",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-107-aws/",
-      "date": "2026-09-10T18:44:24.000Z",
-      "description": "Bulletin ID: 2026-107-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/10/2026 11:30 AM PDT Description: AWS Systems Manager Agent (SSM Agent) is software that runs on managed nodes (EC2 instances, on-premises servers, and other supported machines) and processes requests from the AWS Systems Manager service, enabling capabilities including Session Manager port forwa",
-      "tags": [
-        "EC2",
-        "Lambda",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-073-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/04/2026 10:00 AM PDT Description: We have identified CVE-2026-18830 in the Amazon Bedrock AgentCore harness InvokeHarness API. This issue could allow an authenticated user to execute configured tools while bypassing model invocation and associated security controls. When the most recent message i",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-85012 - OS command injection in the Amazon CodeCatalyst blueprints SDK",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-095-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-095-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/03/2026 10:00 AM PDT Description: Amazon CodeCatalyst blueprints are reusable project templates that generate a software project. The @amazon-codecatalyst/blueprints.blueprint npm package is the open source framework that blueprint authors build on, published from github.com/aws/codecatalyst-blue",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Issue with FreeRTOS-Kernel - CVE-2026-77234, CVE-2026-77235, CVE-2026-77236, CVE-2026-77237",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-086-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-086-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/21/2026 10:30 AM PDT Description: FreeRTOS-Kernel is a real-time operating system kernel for microcontrollers and small microprocessors. AWS identified four issues with FreeRTOS-Kernel, affecting multiple versions. - CVE-2026-77234: This issue affects configurations that use the FreeRTOS MPU toge",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
-      "date": "2026-09-11T19:08:25.000Z",
-      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
-      "tags": [
+        "WAF",
         "Inspector"
       ]
     },
@@ -331,25 +282,94 @@
       ]
     },
     {
-      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
+      "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
       "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
+      "description": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT Description: FreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size ",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-84851- Uncontrolled recursion in the Ion reader in Amazon Ion-C before 1.1.6",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-094-aws/",
+      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
       "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-094-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/02/2026 13:30 AM PDT Description: Amazon Ion-C (ion-c) is the C implementation of the Amazon Ion data serialization format. It is distributed as an open-source library (amazon-ion/ion-c) that applications embed to read and write Ion text and binary data. We identified CVE-2026-84851, an uncontrol",
+      "description": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT Description: Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources w",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-81838 - Zip Slip path traversal in awsdac (diagram-as-code)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-090-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-090-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/27/2026 13:00 PM PDT Description: awsdac (diagram-as-code) is a CLI tool that generates AWS architecture diagrams from YAML definitions, enabling version-controlled, code-driven diagramming. We identified CVE-2026-81838, a Zip Slip (path traversal) issue. When awsdac extracts a zip archive refere",
+      "tags": [
+        "SageMaker",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Please refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-031-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/14/2026 13:00 PM PDT Description: Amazon SageMaker Python SDK is an open-source library for training and deploying machine learning models on Amazon SageMaker. The ModelBuilder component simplifies model deployment by automating model artifact preparation and SageMaker model creation. We identifi",
+      "tags": [
+        "ALB",
+        "SageMaker",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
       "tags": [
         "Inspector"
       ]
     }
   ],
   "blog": [
+    {
+      "title": "Introducing Amazon CloudWatch Omni: collaborative AI-powered observability for your applications",
+      "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-collaborative-ai-powered-observability-for-your-applications/",
+      "date": "2026-09-22T22:23:14.000Z",
+      "description": "Amazon CloudWatch Omni is the next evolution of CloudWatch — unified observability that brings your applications and AI agents into one reimagined experience, with auto-discovered topology, natural language queries, and AI-guided investigation powered by AWS DevOps Agent.",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Introducing Amazon CloudWatch Omni: AI-powered observability for generative AI and agentic workloads",
+      "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-ai-powered-observability-for-generative-ai-and-agentic-workloads/",
+      "date": "2026-09-22T22:21:13.000Z",
+      "description": "Learn how Amazon CloudWatch Omni delivers AI-powered observability purpose-built for generative AI and agentic workloads. Trace, evaluate, and experiment with AI agents across any framework—directly from your IDE or a standalone web experience—using open standards and built-in evaluators for quality, correctness, and coherence.",
+      "tags": [
+        "RDS",
+        "CloudWatch",
+        "Bedrock"
+      ]
+    },
     {
       "title": "AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more (September 21, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/",
@@ -418,54 +438,11 @@
       "tags": [
         "EC2"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: Welcome DuckLabs to the team, Agentic Resource Discovery (ARD), and more (August 31, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-welcome-ducklabs-to-the-team-agentic-resource-discovery-ard-and-more-august-31-2026/",
-      "date": "2026-08-31T14:45:25.000Z",
-      "description": "The news that interested me the most last week was the DuckLabs acquisition. AWS has signed a definitive agreement to acquire DuckLabs, the Amsterdam-based company behind DuckDB, the popular open source analytical database that runs in-process and executes SQL directly against files like Parquet, CSV, and JSON. DuckDB stays open source under its independent foundation […]",
-      "tags": []
-    },
-    {
-      "title": "Happy 20th Birthday, Amazon EC2",
-      "link": "https://aws.amazon.com/blogs/aws/happy-20th-birthday-amazon-ec2/",
-      "date": "2026-08-25T16:11:02.000Z",
-      "description": "On the 20th Anniversary, we recognize how AWS has continued to push the boundaries of what cloud computing can deliver, building custom silicon for general-purpose and AI workloads and expanding EC2 into new form factors and deployment models that our customers in 2006 could not have imagined.",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
-      {
-        "title": "Service impact: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-22T00:24:18.000Z",
-        "description": "Between 3:49 PM and 5:06 PM PDT, we experienced increased error rates affecting new instance launches in the US-EAST-1 Region. During this time, customers may have experienced elevated error rates when attempting to launch new EC2 instances through RunInstances, CreateFleet, and related EC2 launch workflows. AWS services that launch EC2 instances on behalf of customers, including Amazon ECS, AWS F",
-        "tags": [
-          "EC2",
-          "ECS"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-21T23:44:15.000Z",
-        "description": "We can confirm increased error rates affecting new instance launches, including elevated API error rates for RunInstances, CreateFleet, and related EC2 launch workflows in the US-EAST-1 Region. Customers attempting to launch new EC2 instances may experience launch failures or elevated API response latency. Our engineers are actively engaged and working towards recovering the issue. We are seeing i",
-        "tags": [
-          "EC2",
-          "RDS"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-21T23:26:48.000Z",
-        "description": "We are investigating increased API error rates in the US-EAST-1 Region.",
-        "tags": []
-      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
@@ -478,6 +455,31 @@
         "link": "https://status.aws.amazon.com/",
         "date": "2026-09-15T10:22:28.000Z",
         "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "tags": [
+          "Lambda"
+        ]
+      },
+      {
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
       }
     ]
