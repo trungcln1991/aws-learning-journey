@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T05:46:29.464Z",
+  "generated_at": "2026-09-24T06:00:37.407Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,49 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Kinesis Data Streams announces Service-Managed Partition Keys for simplified data ingestion",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/kinesis/service-managed-partition-keys",
+      "date": "2026-09-23T22:51:00.000Z",
+      "description": "Amazon Kinesis Data Streams now supports service-managed partition keys for On-Demand Standard and On-Demand Advantage streams, automatically distributing records across shards without requiring customers to specify partition keys to publish data. This capability simplifies data ingestion for workloads where record ordering is not required, eliminating hot partition keys and reducing time to produ",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock Managed Knowledge Base now supports Salesforce and Zendesk as native data source connectors",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-salesforce-zendesk-native-data-source-connectors/",
+      "date": "2026-09-23T17:41:00.000Z",
+      "description": "AWS announces Salesforce and Zendesk data source connectors for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service. Customers can now sync Salesforce knowledge articles and Zendesk articles and community posts directly into their managed knowledge base. Previously, bringing content from these platforms into Bedrock Knowledge Bases required building ",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now provides routing step data in the analytics data lake",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-routing-step-data/",
+      "date": "2026-09-23T16:00:00.000Z",
+      "description": "Amazon Connect Customer now provides routing step data in the analytics data lake, making it easier for customers to generate insights from routing decisions. Using the data lake, customers can leverage Amazon Athena and Amazon Quick to analyze trends, such as contacts queued and contacts joined at each routing step, without complex data pipelines. For example, an analyst can now report on how con",
+      "tags": []
+    },
+    {
+      "title": "Amazon EMR on EKS now supports IPv6 Amazon EKS clusters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-eks-ipv6-support",
+      "date": "2026-09-23T15:00:00.000Z",
+      "description": "Today, AWS announces that Amazon EMR on EKS now supports running workloads on IPv6 Amazon Elastic Kubernetes Service (Amazon EKS) clusters. Amazon EMR on EKS enables data platform and analytics teams to run open-source big data frameworks such as Apache Spark and Apache Flink on Amazon EKS. With IPv6 support, teams operating at scale can now run these workloads on IPv6 Amazon EKS clusters, giving ",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB global tables with multi-Region strong consistency now supports additional AWS Regions and cross-continent configurations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/dynamodb-mrsc-additional-regions/",
+      "date": "2026-09-23T08:00:00.000Z",
+      "description": "Starting today, Amazon DynamoDB global tables with multi-Region strong consistency (MRSC) is available in five additional AWS Regions: Canada (Central), Europe (Stockholm), Europe (Spain), Asia Pacific (Mumbai), and Asia Pacific (Singapore), bringing the total number of supported Regions to 15. You can now create an MRSC global table in any three-Region configuration across the 15 supported AWS Re",
+      "tags": [
+        "DynamoDB"
+      ]
+    },
     {
       "title": "Amazon CloudWatch Omni: AI-first observability for agents and applications",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-cloudwatch-omni-ai/",
@@ -94,6 +137,13 @@
       ]
     },
     {
+      "title": "AWS Glue Data Quality delivers context-specific rule recommendations in seconds",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-data-quality-rule-recommendations/",
+      "date": "2026-09-22T08:00:00.000Z",
+      "description": "AWS Glue Data Quality now generates data quality rules in seconds, reducing the time to establish data quality checks for your tables in the AWS Glue Data Catalog. You get a ready-to-use set of rules with full coverage across every column, with no manual setup—so you can move from raw data to trusted data faster while authoring pipelines. This is delivered through a new Advanced mode for rule reco",
+      "tags": []
+    },
+    {
       "title": "Amazon EMR 7.14 is now available",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-7-14-available/",
       "date": "2026-09-22T08:00:00.000Z",
@@ -105,13 +155,6 @@
       ]
     },
     {
-      "title": "AWS Glue Data Quality delivers context-specific rule recommendations in seconds",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-data-quality-rule-recommendations/",
-      "date": "2026-09-22T08:00:00.000Z",
-      "description": "AWS Glue Data Quality now generates data quality rules in seconds, reducing the time to establish data quality checks for your tables in the AWS Glue Data Catalog. You get a ready-to-use set of rules with full coverage across every column, with no manual setup—so you can move from raw data to trusted data faster while authoring pipelines. This is delivered through a new Advanced mode for rule reco",
-      "tags": []
-    },
-    {
       "title": "Amazon RDS Custom now supports the latest CU for Microsoft SQL Server",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-custom-supports-latest-cu-gdr-microsoft-sql-server/",
       "date": "2026-09-22T07:30:00.000Z",
@@ -119,6 +162,13 @@
       "tags": [
         "RDS"
       ]
+    },
+    {
+      "title": "Amazon Connect Customer launches agent-to-agent collaboration",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/Amazon-Connect-Customer-A2A",
+      "date": "2026-09-22T04:00:00.000Z",
+      "description": "Amazon Connect Customer now supports agent-to-agent collaboration, giving customers the choice to bring in specialized AI agents during a live interaction to resolve a customer request. With this launch, Connect Customer AI agents can collaborate with each other, and with AI agents outside Connect Customer, over the open agent-to-agent (A2A) protocol through text or bidirectional voice. For exampl",
+      "tags": []
     },
     {
       "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
@@ -189,65 +239,6 @@
       "date": "2026-09-18T15:30:00.000Z",
       "description": "AWS RTB Fabric now supports configurable Availability Zone (AZ) affinity for responder gateways. With this capability, you can configure how your partners connect to your responder gateway: either in their own Availability Zone or to any Availability Zone that the gateway spans. This launch helps advertising technology (AdTech) companies use their infrastructure more efficiently—with no extra char",
       "tags": []
-    },
-    {
-      "title": "Kimi K3 by Moonshot AI is now generally available on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/moonshot-ai-kimi-k3-on-amazon-bedrock/",
-      "date": "2026-09-18T15:15:00.000Z",
-      "description": "Amazon Bedrock continues to expand its open weight model portfolio with the same security and governance that customers rely on. Today, Kimi K3 from Moonshot AI is generally available on Amazon Bedrock, giving you a powerful new option for coding and knowledge work. According to Moonshot AI, Kimi K3 is its most capable model and the first open model to reach 2.8 trillion parameters. It combines na",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon SNS now supports message payloads up to 1 MiB",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-sns-1mib-support",
-      "date": "2026-09-18T15:00:00.000Z",
-      "description": "Amazon Simple Notification Service (Amazon SNS) now supports message payloads up to 1 MiB, a 4x increase from the previous 256 KiB limit, so you can publish larger messages to your SNS topics. Amazon SNS is a fully managed pub/sub messaging service that enables you to decouple and scale microservices, distributed systems, and serverless applications. As workloads such as application integration, I",
-      "tags": [
-        "Lambda",
-        "SNS"
-      ]
-    },
-    {
-      "title": "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available",
-      "date": "2026-09-18T13:25:00.000Z",
-      "description": "Today, AWS announces the availability of the next generation of AgentCore Runtime , the serverless microVM compute within Amazon Bedrock AgentCore. The new Runtime delivers elastic memory management that reclaims unused memory throughout the session so you pay for actual usage rather than the peak, and consistent cold start times regardless of container image size or concurrency. You get the serve",
-      "tags": [
-        "Lambda",
-        "ECS",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS PrivateLink announces Tunnel Endpoints to access network segments",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/9/privatelink-tunnel-endpoint/",
-      "date": "2026-09-18T07:00:00.000Z",
-      "description": "AWS PrivateLink customers can now use VPC endpoint to privately and securely access network segments in another VPC/account. They can use a ‘tunnel’ endpoint, a new type of VPC endpoint, to tunnel into the network segment and access resources located within it. AWS PrivateLink is a highly available and scalable technology that enables private access across VPC and account boundaries to load balanc",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "AWS Transfer Family now supports source IP preservation for SFTP servers behind a Network Load Balancer (NLB)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/transfer-family-sftp-source-ip-nlb/",
-      "date": "2026-09-17T19:00:00.000Z",
-      "description": "AWS Transfer Family now preserves the client's source IP address using Proxy Protocol v2 (PPv2) when you place a Network Load Balancer (NLB) in front of your SFTP server that uses a VPC-hosted endpoint. You can now retain visibility of the client's source IP for IP-based auditing, access controls, and compliance when you use your own NLB. Previously, an NLB replaced the client's source IP with its",
-      "tags": [
-        "VPC",
-        "ALB",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "AWS HealthOmics now supports IAM session policies",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/omics-iam-session-policy/",
-      "date": "2026-09-17T18:32:00.000Z",
-      "description": "AWS HealthOmics now supports IAM session policies, enabling you to restrict permissions for individual runs without creating and managing multiple IAM roles. Until now, there was no way to dynamically scope down permissions for a single run, requiring you to create a separate IAM role for each tenant or run. AWS HealthOmics is a HIPAA-eligible service that helps healthcare and life sciences custom",
-      "tags": [
-        "IAM"
-      ]
     }
   ],
   "security": [
