@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "Route 53 & DNS",
+    "IAM Deep Dive",
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "session 23/09 (phiên 119): JCOP — bản đồ Live chỉ site nối AWS + luồng 2 lớp FortiGate/Security Group; tab Landing Zone (org chart, người dùng có quyền từng account); quyền theo trang đủ 12 trang (chỉ Quản lý công việc riêng owner); Culi nổi chuyển trang khi ngoài phạm vi; đếm ứng dụng đang phục vụ; Vận hành AWS — kết nối AWS → JCI/Long An (hiện trạng từ ticket, sapapp = 10.190.1.152, nút sinh ticket máy mới); dev68 xem camera SHBP/CNBD3; 13 gap mới",
-  "updated_at": "2026-09-23T09:50:37Z"
+  "commit_msg": "session 24/09 (phiên 120): sự cố HC→LA/AWS do tắt policy FortiGate HC; UAT bank-integ còn tài nguyên sót; gỡ Python 3.8 dev67 (anyio CRITICAL); IAM audit tuần; Kiro 14/14 an toàn; sửa cảnh báo 401/400; 4 app pool IIS OnDemand; kiểm kê IIS; TF drift sạch; WAF CVE HTTP/2; 11 PBI",
+  "updated_at": "2026-09-24T05:26:51Z"
 }
