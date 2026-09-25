@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session 24/09 (phiên 121): Security Hub từng mục — RDS UAT bỏ subnet public, EFS dlc-web bật backup, JCOP TLS1.3 enhanced (TF ignore_changes), bastion gỡ inetutils; dev67/68 autopatch fail 7/7 (AMI<4h) + KB5123099 0x800F0841 do power-scheduler; JCOP 1240→1618 (hiệu năng EC2, chuẩn đối chiếu, KPI LDZ, chatbot Hỏi trợ lý, fix countUp, TB 3 kỳ theo grain, prompt tài liệu khung chuẩn); khung làm việc sếp chốt; slide JCOP",
-  "updated_at": "2026-09-24T09:59:19Z"
+  "commit_msg": "session 25/09 (phiên 122): JCOP trình sếp — Sức khoẻ hệ thống (Metrics.cs 15/30 phút), số liệu lấy từ dữ liệu, bộ kiểm thử 298 phép (inventory/tests); trang Kết nối mạng (Indonesia/On-prem/AWS, checklist ✅/chờ mở); thư viện Loại × Chủ đề + tài liệu tải lên hiện chung; Soạn tài liệu cho mọi người có quyền AI; dữ liệu ECS cho Trợ lý; bộ tag chuẩn Lập kế hoạch; email mời + hướng dẫn sử dụng; ticket DigiCare #395490; UAT bank-integ dọn tài nguyên mồ côi; Lambda cảnh báo chống gửi lặp",
+  "updated_at": "2026-09-25T10:01:45Z"
 }
