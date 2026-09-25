@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T06:00:37.407Z",
+  "generated_at": "2026-09-25T06:02:01.611Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,115 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Billing and Cost Management now provides billing context for your account through a new API",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-billing-and-cost-management-billing-context-api/",
+      "date": "2026-09-25T00:58:00.000Z",
+      "description": "AWS Billing and Cost Management now offers the ListBillingViewSegments API, which returns the billing context of your account over a time period you specify. You can use the API to retrieve information about how your accounts are positioned in the billing hierarchy, such as management accounts, member accounts, or billing group primary accounts. You can also identify which accounts managed your bi",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon EventBridge relaunches event buses for enterprise scale",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/eventbridge-relaunches-custom-event-buses/",
+      "date": "2026-09-24T21:00:00.000Z",
+      "description": "Amazon EventBridge relaunches event buses with a new enhanced Custom event bus that lets you build event-driven applications that decouple teams and can scale with your organization. Create a custom event bus, share it across accounts, and now teams can publish and consume events with strict ordering, open event formats, built-in retention, and support for advanced event transformations. The Event",
+      "tags": []
+    },
+    {
+      "title": "AWS Lambda durable functions are now available in AWS European Sovereign Cloud region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/durablefunctions-european-sovereign-cloud/",
+      "date": "2026-09-24T18:29:00.000Z",
+      "description": "AWS Lambda durable functions are now available in the AWS European Sovereign Cloud. Lambda durable functions enable developers to build reliable multi-step applications and AI workflows within the Lambda developer experience. Lambda durable functions extend the Lambda programming model with new primitives in your event handler, such as \"step\" and \"wait\", allowing you to checkpoint progress, automa",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon RDS for MySQL announces Extended Support minor versions 5.7.44-rds.20260902 and 8.0.46-rds.20260908",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-mysql-extended-support-minor-5744-8046-rds/",
+      "date": "2026-09-24T16:00:00.000Z",
+      "description": "Amazon Relational Database Service (RDS) for MySQL announces Amazon RDS Extended Support minor versions 5.7.44-rds.20260902 and 8.0.46-rds.20260908. Amazon RDS Extended Support provides up to three additional years of fixes for critical Common Vulnerabilities and Exposures (CVE) and bugs beyond a major version's end of standard support date, giving you more time to upgrade to a new major version. ",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL now supports PostgreSQL 19 Beta 4 in the Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/postgresql-19-beta-4-amazon-rds-database-preview-environment/",
+      "date": "2026-09-24T16:00:00.000Z",
+      "description": "Starting today, Amazon RDS for PostgreSQL 19 Beta 4 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. PostgreSQL 19 Beta 4 refines the query performance and autovacuum management capabilities introduced in earlier releases and includes bug fixes and stability improvements since Beta 3. Fixes include",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL now supports post-quantum TLS key exchange",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/postgresql-post-quantum-tls-key-exchange/",
+      "date": "2026-09-24T16:00:00.000Z",
+      "description": "Starting today, Amazon RDS for PostgreSQL introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in-transit. RDS for PostgreSQL versions 18 and higher support modification of the ssl_groups parameter. You can select cryptographic groups from the RDS for PostgreSQL allow list to align with your organization's secu",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Network Security Manager is now generally available in US East (N. Virginia) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/network-security-manager-us-east-va/",
+      "date": "2026-09-24T15:00:00.000Z",
+      "description": "Today, AWS announces the general availability of AWS Network Security Manager, a comprehensive network security management solution designed to simplify security policy deployment and enforcement at scale. Network Security Manager supports AWS WAF and AWS Shield Advanced, with support for AWS Network Firewall soon to follow. AWS Network Security Manager enables security teams to consistently enfor",
+      "tags": [
+        "WAF"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker HyperPod Inference Gateway for scalable LLM inference",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-hyperpod-inference-gateway/",
+      "date": "2026-09-24T08:00:00.000Z",
+      "description": "Amazon SageMaker HyperPod Inference Gateway is a Kubernetes-native, GPU-aware routing system that deploys as a single EKS managed add-on on existing SageMaker HyperPod infrastructure with zero application changes. By replacing unintelligent round-robin load balancing with real-time inference-signal-driven routing, it reduces first-token latency by up to 82% and p99 TTFT reductions of 97–98% in mix",
+      "tags": [
+        "EKS",
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Run interactive workloads on Amazon EMR on EKS with Spark Connect",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/emr-eks-spark-connect-interactive/",
+      "date": "2026-09-24T08:00:00.000Z",
+      "description": "Amazon EMR on EKS now supports interactive Apache Spark sessions with Spark Connect. Data engineers and data scientists can develop and debug Apache Spark applications interactively from managed notebooks in Amazon SageMaker Unified Studio and their own IDEs, such as Jupyter and Visual Studio Code, with Spark running on the Amazon EKS clusters they already operate. An interactive session provides ",
+      "tags": [
+        "EKS",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Servers now available in 5 new regions and 8 Local Zones",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-gamelift-servers-region-expansion-2026",
+      "date": "2026-09-24T08:00:00.000Z",
+      "description": "Amazon GameLift Servers is a fully managed service for deploying, operating, and scaling dedicated game servers for multiplayer games. High latency caused by geographic distance between players and servers remains one of the most common challenges in multiplayer game development. This expansion helps game developers and studios address that challenge by bringing Amazon GameLift Servers to 5 new AW",
+      "tags": []
+    },
+    {
+      "title": "Amazon ElastiCache Global Datastore now supports tagging and tag-based access control",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-elasticache-global-datastore-tagging/",
+      "date": "2026-09-24T07:00:00.000Z",
+      "description": "Amazon ElastiCache now supports resource tagging and tag-based access control (TBAC) for Global Datastore. Previously, ElastiCache supported tagging on all resources except Global Datastore, which prevented customers from applying a single, consistent permission and cost-allocation model across their ElastiCache fleet. With this launch, you can use AddTagsToResource, RemoveTagsFromResource, and Li",
+      "tags": [
+        "IAM",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon RDS supports Multi-AZ for SQL Server Developer Edition",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-sql-server-multi-az-developer-edition/",
+      "date": "2026-09-24T07:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Multi-AZ deployments using Always On Availability Groups for SQL Server Developer Edition. Multi-AZ deployments maintain a synchronous standby replica in a different Availability Zone and provide automatic failover during infrastructure failure. You can use this capability to build and test high availability configurations",
+      "tags": [
+        "RDS"
+      ]
+    },
     {
       "title": "Amazon Kinesis Data Streams announces Service-Managed Partition Keys for simplified data ingestion",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/kinesis/service-managed-partition-keys",
@@ -135,118 +244,14 @@
         "EC2",
         "Security Hub"
       ]
-    },
-    {
-      "title": "AWS Glue Data Quality delivers context-specific rule recommendations in seconds",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/glue-data-quality-rule-recommendations/",
-      "date": "2026-09-22T08:00:00.000Z",
-      "description": "AWS Glue Data Quality now generates data quality rules in seconds, reducing the time to establish data quality checks for your tables in the AWS Glue Data Catalog. You get a ready-to-use set of rules with full coverage across every column, with no manual setup—so you can move from raw data to trusted data faster while authoring pipelines. This is delivered through a new Advanced mode for rule reco",
-      "tags": []
-    },
-    {
-      "title": "Amazon EMR 7.14 is now available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-7-14-available/",
-      "date": "2026-09-22T08:00:00.000Z",
-      "description": "Amazon EMR 7.14 is now available with new features across Amazon EMR on EC2, Amazon EMR on EKS, and Amazon EMR Serverless, along with version upgrades for additional applications. This release also upgrades Apache Spark to 3.5.8 and Apache Iceberg to 1.10.1. Apache Iceberg materialized views now refresh faster on tables with updates and deletes, using change data capture to read only the data file",
-      "tags": [
-        "EC2",
-        "Lambda",
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon RDS Custom now supports the latest CU for Microsoft SQL Server",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-custom-supports-latest-cu-gdr-microsoft-sql-server/",
-      "date": "2026-09-22T07:30:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) Custom for SQL Server now supports the latest Cumulative Updates (CU) for Microsoft SQL Server. This release includes support for SQL Server 2022 CU26 KB5093420 (RDS version 16.00.4265.3.v1). For additional information on the improvements and fixes included in these updates, see Microsoft documentation for KB5093420. You can upgrade your Amazon RDS C",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer launches agent-to-agent collaboration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/Amazon-Connect-Customer-A2A",
-      "date": "2026-09-22T04:00:00.000Z",
-      "description": "Amazon Connect Customer now supports agent-to-agent collaboration, giving customers the choice to bring in specialized AI agents during a live interaction to resolve a customer request. With this launch, Connect Customer AI agents can collaborate with each other, and with AI agents outside Connect Customer, over the open agent-to-agent (A2A) protocol through text or bidirectional voice. For exampl",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS now provides real-time deployment observability in the AWS Management Console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-console-deployment-observability/",
-      "date": "2026-09-21T20:05:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now provides real-time service deployment observability in the Amazon ECS Console for native Linear, Canary, and Blue/Green deployment strategies. With this launch, deployment monitoring and troubleshooting come together in one place in the console, so you can track deployment progress, monitor health, and diagnose failures without switching between to",
-      "tags": [
-        "CloudWatch",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon EVS now in scope for FedRAMP Class C",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-evs-fedramp-class-c/",
-      "date": "2026-09-21T19:08:00.000Z",
-      "description": "The Amazon Elastic VMware Service (EVS) service is now in scope for FedRAMP Class C (formerly Moderate baseline) in all United States Regions. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring for cloud products and services. Amazon EVS lets you run t",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon EC2 X8i instances are now available in the South America (São Paulo) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-x8i-south-america-sao-paulo/",
-      "date": "2026-09-18T22:16:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the South America (São Paulo) region. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. They deliver up to 43% higher performance, ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Continuum now supports credential testing and accessible domain suggestions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-security-agent/",
-      "date": "2026-09-18T18:34:00.000Z",
-      "description": "AWS Continuum for penetration testing is a frontier agent that proactively secures applications throughout the development lifecycle by offering on-demand, customized penetration testing with real exploitability testing. Developers and security teams can now test login credentials and receive suggested domains before a penetration test runs. This makes it easier to configure an accurate network sc",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS Express Mode now supports AWS Graviton (ARM64) workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ecs-express-mode-arm-architecture/",
-      "date": "2026-09-18T17:27:00.000Z",
-      "description": "Amazon Elastic Container Service Express Mode now supports specifying ARM64 as the CPU architecture for your service, making it easy to deploy ARM-based container images on AWS Graviton-powered compute and benefit from up to 40% better price-performance compared to x86-based instances. Amazon ECS Express Mode makes it easy to rapidly launch containerized applications, including web applications an",
-      "tags": [
-        "EC2",
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS Resilience Hub adds three new capabilities",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/resilience-hub-eks-dependency-policy/",
-      "date": "2026-09-18T16:49:00.000Z",
-      "description": "The next generation of AWS Resilience Hub is a central location in the AWS that helps platform engineering and site reliability teams assess and strengthen the resilience of their workloads running on AWS. It provides automated dependency discovery, generative AI-powered failure mode analysis, modular resilience policies, resilience testing, and organization-wide resilience posture reporting. Toda",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon EC2 I7ie instances now available in AWS Israel region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-i7ie-instances-israel-telaviv-region/",
-      "date": "2026-09-18T16:00:00.000Z",
-      "description": "AWS is announcing starting today, Amazon EC2 I7ie instances are now available in AWS Israel (Tel Aviv) region. Designed for large storage I/O intensive workloads, I7ie instances are powered by 5th Gen Intel Xeon Processors with an all-core turbo frequency of 3.2 GHz, offering up to 40% better compute performance and 20% better price performance over existing I3en instances. I7ie instances offer up",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS RTB Fabric now supports configurable Availability Zone affinity",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-rtb-fabric-configurable-availability-zone-affinity/",
-      "date": "2026-09-18T15:30:00.000Z",
-      "description": "AWS RTB Fabric now supports configurable Availability Zone (AZ) affinity for responder gateways. With this capability, you can configure how your partners connect to your responder gateway: either in their own Availability Zone or to any Availability Zone that the gateway spans. This launch helps advertising technology (AdTech) companies use their infrastructure more efficiently—with no extra char",
-      "tags": []
     }
   ],
   "security": [
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-048-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 06/29/2026 11:15 PM PDT Description: AWS WAF is a web application firewall that monitors the HTTP(S) requests that are forwarded to your protected web application resources. We identified CVE-2026-13762 and CVE-2026-13763, which are issues affecting HTTP/2 multi-frame request body inspection by AWS ",
+      "date": "2026-09-22T19:49:10.000Z",
+      "description": "",
       "tags": [
         "WAF",
         "Inspector"
@@ -275,17 +280,15 @@
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT Description: FreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size ",
-      "tags": [
-        "Inspector"
-      ]
+      "date": "2026-09-22T19:49:51.000Z",
+      "description": "",
+      "tags": []
     },
     {
       "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT Description: Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources w",
+      "date": "2026-09-22T19:48:46.000Z",
+      "description": "",
       "tags": [
         "Inspector"
       ]
@@ -303,8 +306,8 @@
     {
       "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Please refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+      "date": "2026-09-22T19:48:45.000Z",
+      "description": "",
       "tags": [
         "Inspector"
       ]
@@ -312,10 +315,9 @@
     {
       "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-031-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 05/14/2026 13:00 PM PDT Description: Amazon SageMaker Python SDK is an open-source library for training and deploying machine learning models on Amazon SageMaker. The ModelBuilder component simplifies model deployment by automating model artifact preparation and SageMaker model creation. We identifi",
+      "date": "2026-09-22T19:49:29.000Z",
+      "description": "",
       "tags": [
-        "ALB",
         "SageMaker",
         "Inspector"
       ]
@@ -333,14 +335,23 @@
     {
       "title": "CVE-2026-15746 - Credential disclosure in Strands Agents Tools elasticsearch_memory tool",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-056-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-056-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/15/2026 11:30 AM PDT Description: Strands Agents is an open-source Python SDK for building and running AI agents. The strands-agents-tools package provides pre-built tools for use with the SDK, including the elasticsearch_memory tool for agent memory storage. We identified CVE-2026-15746, a serve",
+      "date": "2026-09-22T19:48:47.000Z",
+      "description": "",
       "tags": [
         "Inspector"
       ]
     }
   ],
   "blog": [
+    {
+      "title": "Introducing enhanced custom event buses in Amazon EventBridge for enterprise-scale event-driven applications",
+      "link": "https://aws.amazon.com/blogs/aws/introducing-enhanced-custom-event-buses-in-amazon-eventbridge-for-enterprise-scale-event-driven-applications/",
+      "date": "2026-09-24T20:58:46.000Z",
+      "description": "Amazon EventBridge announces an enhanced custom event bus for organizations scaling event-driven applications across teams and accounts. Deploy a single event bus shared across all AWS accounts in your organization, with ordering guarantees, a simplified Subscriber resource, and improved economics at scale.",
+      "tags": [
+        "Organizations"
+      ]
+    },
     {
       "title": "Introducing Amazon CloudWatch Omni: collaborative AI-powered observability for your applications",
       "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-collaborative-ai-powered-observability-for-your-applications/",
@@ -420,15 +431,6 @@
       "date": "2026-09-07T14:24:08.000Z",
       "description": "Last week, Claude Fable 5.1 became available on AWS. According to Anthropic, Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows. Claude Fable 5.1 is built for long-running, high-stakes work that runs for hours and spans many applications. It can own more of a software project on its […]",
       "tags": []
-    },
-    {
-      "title": "Amazon EC2 R9g and R9gd instances powered by AWS Graviton5 processors are now generally available",
-      "link": "https://aws.amazon.com/blogs/aws/amazon-ec2-r9g-and-r9gd-instances-powered-by-aws-graviton5-processors-are-now-generally-available/",
-      "date": "2026-08-31T19:53:34.000Z",
-      "description": "Amazon EC2 R9g and R9gd instances powered by AWS Graviton5 are now generally available, delivering up to 25% better compute performance than R8g, ideal for databases, in-memory caches, and real-time analytics.",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "status": {
