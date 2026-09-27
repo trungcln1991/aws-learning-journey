@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T06:01:12.436Z",
+  "generated_at": "2026-09-27T06:28:15.166Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -87,6 +87,13 @@
       "tags": []
     },
     {
+      "title": "AWS End User Messaging and Amazon SES now offer AI agent skills for the AWS MCP Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-messaging-ses-ai-skills-mcp-server/",
+      "date": "2026-09-25T07:00:00.000Z",
+      "description": "AWS End User Messaging and Amazon SES now publish AI agent skills for the AWS MCP Server, enabling developers to build and send messages by asking their AI coding agent in plain language. Previously, developers had to navigate multiple documentation pages and management console screens to complete messaging tasks. Now, each skill provides your agent with step-by-step, validated guidance for tasks ",
+      "tags": []
+    },
+    {
       "title": "AWS End User Messaging now supports voice calling on WhatsApp",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-end-user-messaging-voice-calling-whatsapp",
       "date": "2026-09-25T07:00:00.000Z",
@@ -95,13 +102,6 @@
         "IAM",
         "SageMaker"
       ]
-    },
-    {
-      "title": "AWS End User Messaging and Amazon SES now offer AI agent skills for the AWS MCP Server",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-messaging-ses-ai-skills-mcp-server/",
-      "date": "2026-09-25T07:00:00.000Z",
-      "description": "AWS End User Messaging and Amazon SES now publish AI agent skills for the AWS MCP Server, enabling developers to build and send messages by asking their AI coding agent in plain language. Previously, developers had to navigate multiple documentation pages and management console screens to complete messaging tasks. Now, each skill provides your agent with step-by-step, validated guidance for tasks ",
-      "tags": []
     },
     {
       "title": "AWS Billing and Cost Management now provides billing context for your account through a new API",
