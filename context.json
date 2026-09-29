@@ -3,6 +3,6 @@
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "session 25/09 (phiên 122): JCOP trình sếp — Sức khoẻ hệ thống (Metrics.cs 15/30 phút), số liệu lấy từ dữ liệu, bộ kiểm thử 298 phép (inventory/tests); trang Kết nối mạng (Indonesia/On-prem/AWS, checklist ✅/chờ mở); thư viện Loại × Chủ đề + tài liệu tải lên hiện chung; Soạn tài liệu cho mọi người có quyền AI; dữ liệu ECS cho Trợ lý; bộ tag chuẩn Lập kế hoạch; email mời + hướng dẫn sử dụng; ticket DigiCare #395490; UAT bank-integ dọn tài nguyên mồ côi; Lambda cảnh báo chống gửi lặp",
-  "updated_at": "2026-09-25T10:01:45Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-09-29 22:44",
+  "updated_at": "2026-09-29T15:45:11Z"
 }
