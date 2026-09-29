@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T06:36:18.939Z",
+  "generated_at": "2026-09-29T06:44:17.983Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,82 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon EC2 Future-dated Capacity Reservations Now Supports Postponing Start Dates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-fcr-postpone-start-date/",
+      "date": "2026-09-28T21:17:00.000Z",
+      "description": "Amazon EC2 Future-dated Capacity Reservations let you secure capacity up to 120 days in advance by specifying the capacity you need, the start date, and a commitment duration. If your plans change before delivery, you can now postpone your start date to match your new timeline. When you postpone your start date, EC2 presents a quote that shows the new start date and the required commitment duratio",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Rekognition Face Liveness now returns Feedback Codes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/rekognition-liveness-feedback-codes/",
+      "date": "2026-09-28T20:41:00.000Z",
+      "description": "Amazon Rekognition Face Liveness now returns Feedback Codes that help customers understand why a liveness check received a low score and how users could retry successfully. The codes are returned in the GetFaceLivenessSessionResults API response, and they identify the specific conditions that contributed to the low score, such as poor lighting, face obstruction, closed eyes, or low video quality. ",
+      "tags": []
+    },
+    {
+      "title": "Grok 4.7 is now available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-grok-4-7/",
+      "date": "2026-09-28T18:29:00.000Z",
+      "description": "Amazon Bedrock now supports SpaceXAI Grok 4.7, a frontier model built for coding, agentic tasks, and knowledge work, with US Geo and Global cross-Region inference. Grok 4.7 builds on Grok 4.6 with better mixed-document handling, more dependable repo-scale coding with planning and error recovery, and enhanced browser-use agents for form fills and portal navigation. Get started with Grok 4.7 in the ",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Claude Sonnet 5.5 now available on AWS",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/claude-sonnet-5-5-aws/",
+      "date": "2026-09-28T15:00:00.000Z",
+      "description": "AWS now offers Claude Sonnet 5.5, a smarter and more efficient Sonnet that delivers a clear leap forward on coding and knowledge work with at a lower cost per task for most work at faster speed. Claude Sonnet 5.5 is a smarter, more efficient Sonnet and a step up from Sonnet 5, making it a natural upgrade for teams already building on Sonnet. It's stronger for coding, completing well-scoped tasks a",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Claude Sonnet 5.5 now available on AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/claude-sonnet-5-5-aws-govcloud-us/",
+      "date": "2026-09-28T15:00:00.000Z",
+      "description": "AWS GovCloud (US) now offers Claude Sonnet 5.5, a smarter and more efficient Sonnet that delivers a clear leap forward on coding and knowledge work with at a lower cost per task for most work ag faster speed. Claude Sonnet 5.5 is a smarter, more efficient Sonnet and a step up from Sonnet 5, making it a natural upgrade for teams already building on Sonnet. It's stronger for coding, completing well-",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Corretto September 2026 Patch Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-corretto-sept-2026-updates/",
+      "date": "2026-09-28T14:00:00.000Z",
+      "description": "On September 25, 2026, Amazon announced a patch update for the following Amazon Corretto Long-Term Support (LTS) and Feature Release (FR) versions of OpenJDK: Corretto 25.0.4.10.1, 21.0.12.11.1, 17.0.20.12.1, and 11.0.32.12.1 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. This patch includes the latest tzdata 2026d updates. ",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) now supports retryable writes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-documentdb-retryable-writes/",
+      "date": "2026-09-28T08:00:00.000Z",
+      "description": "For developers building MongoDB-compatible applications, retryable writes improve application resilience during transient errors such as network interruptions or primary failovers. Amazon DocumentDB (with MongoDB compatibility) now supports retryable writes starting with engine version 8.0.2, eliminating the need for additional code changes when enabling this capability. With retryable writes, the",
+      "tags": []
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) adds support for 5 MongoDB aggregation stages and change stream capabilities in version 8.0.2",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-documentdb-8-0-2/",
+      "date": "2026-09-28T08:00:00.000Z",
+      "description": "Amazon DocumentDB (with MongoDB compatibility) now supports retryable writes, 5 new aggregation stages, and change stream enhancements starting from minor version 8.0.2. This release expands MongoDB API compatibility and improves query performance, making it easier to migrate MongoDB workloads to Amazon DocumentDB without application code changes. Key new capabilities in version 8.0.2 include: - R",
+      "tags": []
+    },
+    {
+      "title": "AWS Backup adds logically air-gapped vault support for Amazon FSx for NetApp ONTAP",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-backup-air-gapped-vault-fsx-ontap/",
+      "date": "2026-09-28T08:00:00.000Z",
+      "description": "AWS Backup logically air-gapped vault now supports Amazon FSx for NetApp ONTAP. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now protect your Amazon FSx for NetApp ONTAP volumes in logically air-gapped vaults. A logically air-g",
+      "tags": [
+        "Organizations"
+      ]
+    },
     {
       "title": "Amazon Transcribe adds customer-managed KMS keys for custom resources",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-transcribe/",
@@ -164,87 +240,6 @@
       "tags": [
         "WAF"
       ]
-    },
-    {
-      "title": "Amazon SageMaker HyperPod Inference Gateway for scalable LLM inference",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-hyperpod-inference-gateway/",
-      "date": "2026-09-24T08:00:00.000Z",
-      "description": "Amazon SageMaker HyperPod Inference Gateway is a Kubernetes-native, GPU-aware routing system that deploys as a single EKS managed add-on on existing SageMaker HyperPod infrastructure with zero application changes. By replacing unintelligent round-robin load balancing with real-time inference-signal-driven routing, it reduces first-token latency by up to 82% and p99 TTFT reductions of 97–98% in mix",
-      "tags": [
-        "EKS",
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Run interactive workloads on Amazon EMR on EKS with Spark Connect",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/emr-eks-spark-connect-interactive/",
-      "date": "2026-09-24T08:00:00.000Z",
-      "description": "Amazon EMR on EKS now supports interactive Apache Spark sessions with Spark Connect. Data engineers and data scientists can develop and debug Apache Spark applications interactively from managed notebooks in Amazon SageMaker Unified Studio and their own IDEs, such as Jupyter and Visual Studio Code, with Spark running on the Amazon EKS clusters they already operate. An interactive session provides ",
-      "tags": [
-        "EKS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Servers now available in 5 new regions and 8 Local Zones",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-gamelift-servers-region-expansion-2026",
-      "date": "2026-09-24T08:00:00.000Z",
-      "description": "Amazon GameLift Servers is a fully managed service for deploying, operating, and scaling dedicated game servers for multiplayer games. High latency caused by geographic distance between players and servers remains one of the most common challenges in multiplayer game development. This expansion helps game developers and studios address that challenge by bringing Amazon GameLift Servers to 5 new AW",
-      "tags": []
-    },
-    {
-      "title": "Amazon ElastiCache Global Datastore now supports tagging and tag-based access control",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-elasticache-global-datastore-tagging/",
-      "date": "2026-09-24T07:00:00.000Z",
-      "description": "Amazon ElastiCache now supports resource tagging and tag-based access control (TBAC) for Global Datastore. Previously, ElastiCache supported tagging on all resources except Global Datastore, which prevented customers from applying a single, consistent permission and cost-allocation model across their ElastiCache fleet. With this launch, you can use AddTagsToResource, RemoveTagsFromResource, and Li",
-      "tags": [
-        "IAM",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon RDS supports Multi-AZ for SQL Server Developer Edition",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-sql-server-multi-az-developer-edition/",
-      "date": "2026-09-24T07:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Multi-AZ deployments using Always On Availability Groups for SQL Server Developer Edition. Multi-AZ deployments maintain a synchronous standby replica in a different Availability Zone and provide automatic failover during infrastructure failure. You can use this capability to build and test high availability configurations",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Kinesis Data Streams announces Service-Managed Partition Keys for simplified data ingestion",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/kinesis/service-managed-partition-keys",
-      "date": "2026-09-23T22:51:00.000Z",
-      "description": "Amazon Kinesis Data Streams now supports service-managed partition keys for On-Demand Standard and On-Demand Advantage streams, automatically distributing records across shards without requiring customers to specify partition keys to publish data. This capability simplifies data ingestion for workloads where record ordering is not required, eliminating hot partition keys and reducing time to produ",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock Managed Knowledge Base now supports Salesforce and Zendesk as native data source connectors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-salesforce-zendesk-native-data-source-connectors/",
-      "date": "2026-09-23T17:41:00.000Z",
-      "description": "AWS announces Salesforce and Zendesk data source connectors for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service. Customers can now sync Salesforce knowledge articles and Zendesk articles and community posts directly into their managed knowledge base. Previously, bringing content from these platforms into Bedrock Knowledge Bases required building ",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now provides routing step data in the analytics data lake",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-routing-step-data/",
-      "date": "2026-09-23T16:00:00.000Z",
-      "description": "Amazon Connect Customer now provides routing step data in the analytics data lake, making it easier for customers to generate insights from routing decisions. Using the data lake, customers can leverage Amazon Athena and Amazon Quick to analyze trends, such as contacts queued and contacts joined at each routing step, without complex data pipelines. For example, an analyst can now report on how con",
-      "tags": []
-    },
-    {
-      "title": "Amazon EMR on EKS now supports IPv6 Amazon EKS clusters",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-eks-ipv6-support",
-      "date": "2026-09-23T15:00:00.000Z",
-      "description": "Today, AWS announces that Amazon EMR on EKS now supports running workloads on IPv6 Amazon Elastic Kubernetes Service (Amazon EKS) clusters. Amazon EMR on EKS enables data platform and analytics teams to run open-source big data frameworks such as Apache Spark and Apache Flink on Amazon EKS. With IPv6 support, teams operating at scale can now run these workloads on IPv6 Amazon EKS clusters, giving ",
-      "tags": [
-        "EKS"
-      ]
     }
   ],
   "security": [
@@ -345,6 +340,16 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Strands harness, and more (September 28, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/",
+      "date": "2026-09-28T16:14:54.000Z",
+      "description": "If there’s one theme that defined last week, it’s choice. The frontier models keep arriving, and the interesting question is no longer just “how smart is it?” but “which model fits this step, at this cost, at this latency?” That’s exactly what landed on Amazon Bedrock over the past few days: GPT-6 Sol and GPT-6 […]",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
       "title": "Introducing enhanced custom event buses in Amazon EventBridge for enterprise-scale event-driven applications",
       "link": "https://aws.amazon.com/blogs/aws/introducing-enhanced-custom-event-buses-in-amazon-eventbridge-for-enterprise-scale-event-driven-applications/",
       "date": "2026-09-24T20:58:46.000Z",
@@ -354,7 +359,7 @@
       ]
     },
     {
-      "title": "Introducing Amazon CloudWatch Omni: collaborative AI-powered observability for your applications",
+      "title": "Now on Amazon CloudWatch Omni: collaborative AI-powered observability for your applications",
       "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-collaborative-ai-powered-observability-for-your-applications/",
       "date": "2026-09-22T22:23:14.000Z",
       "description": "Amazon CloudWatch Omni is the next evolution of CloudWatch — unified observability that brings your applications and AI agents into one reimagined experience, with auto-discovered topology, natural language queries, and AI-guided investigation powered by AWS DevOps Agent.",
@@ -425,13 +430,6 @@
       "tags": [
         "KMS"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: Claude Fable 5.1 on AWS, Amazon Linux 2027 preview, AWS Certified AI Business Strategist, and more (September 7, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-fable-5-1-on-aws-amazon-linux-2027-preview-aws-certified-ai-business-strategist-and-more-september-7-2026/",
-      "date": "2026-09-07T14:24:08.000Z",
-      "description": "Last week, Claude Fable 5.1 became available on AWS. According to Anthropic, Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows. Claude Fable 5.1 is built for long-running, high-stakes work that runs for hours and spans many applications. It can own more of a software project on its […]",
-      "tags": []
     }
   ],
   "status": {
