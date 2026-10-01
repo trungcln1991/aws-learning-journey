@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "skill terraform-ops: CI checkov CKV_AWS_378 + checkov local cũ hơn CI",
-  "updated_at": "2026-10-01T03:22:35Z"
+  "commit_msg": "phiên 124: đóng PBI 33542 (CVE-2026-13763 không áp dụng, 0 TG HTTP2/gRPC), drift 6/6 sạch, ghi skill/chuẩn triển khai, cập nhật NOW/SESSION",
+  "updated_at": "2026-10-01T04:34:13Z"
 }
