@@ -4,6 +4,6 @@
     "RDS & Database Fundamentals",
     "IAM Deep Dive"
   ],
-  "commit_msg": "phiên 124: đóng PBI 33542 (CVE-2026-13763 không áp dụng, 0 TG HTTP2/gRPC), drift 6/6 sạch, ghi skill/chuẩn triển khai, cập nhật NOW/SESSION",
-  "updated_at": "2026-10-01T04:34:13Z"
+  "commit_msg": "phiên 125 (01/10/2026): viết lại hook chặn prod/network v2 + bộ test 132 ca; nạp APEX/AI Day vào skill; quy tắc deny/ask; cổng điều hướng skill",
+  "updated_at": "2026-10-01T07:34:22Z"
 }
