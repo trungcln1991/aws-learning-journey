@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "IAM Deep Dive"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "phiên 125 (01/10/2026): viết lại hook chặn prod/network v2 + bộ test 132 ca; nạp APEX/AI Day vào skill; quy tắc deny/ask; cổng điều hướng skill",
-  "updated_at": "2026-10-01T07:34:22Z"
+  "commit_msg": "session 01/10 (phiên 125): chốt phiên — NOW/SESSION/log, 6 gap mới, memory quyết định; PR #4/#5 terraform đã merge",
+  "updated_at": "2026-10-01T07:49:32Z"
 }
