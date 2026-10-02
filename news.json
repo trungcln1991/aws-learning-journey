@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T07:06:13.535Z",
+  "generated_at": "2026-10-02T06:54:02.080Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,12 +25,183 @@
   ],
   "whats_new": [
     {
+      "title": "GuardDuty Runtime Monitoring is now included in the AWS Security Hub Threat Analytics plan",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-security-hub-runtime-monitoring/",
+      "date": "2026-10-02T03:35:00.000Z",
+      "description": "Today, AWS announces that Amazon GuardDuty Runtime Monitoring is now included in the AWS Security Hub Threat Analytics plan. Runtime Monitoring inspects operating system, network, and file activity to surface threats such as container escapes, privilege escalation, and cryptomining on Amazon EC2 instances, Amazon EKS clusters, and Amazon ECS tasks on AWS Fargate. Security Hub now bills this covera",
+      "tags": [
+        "EC2",
+        "CloudWatch",
+        "ECS"
+      ]
+    },
+    {
+      "title": "AWS Well-Architected Agent is now available in preview",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-well-architected-agent/",
+      "date": "2026-10-01T20:00:00.000Z",
+      "description": "AWS announces the preview of AWS Well-Architected Agent, a AI-powered service that is the next-gen evolution of AWS Trusted Advisor and the AWS Well-Architected Tool. The agent analyzes and optimizes AWS infrastructure across cost, security, performance, and reliability, delivering contextualized recommendations prioritized by business goals. It automatically correlates key metrics and application",
+      "tags": [
+        "CloudWatch",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Redshift now supports cross-Region queries for your data lake",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/redshift-cross-Region-queries-for-data-lake",
+      "date": "2026-10-01T18:41:00.000Z",
+      "description": "Amazon Redshift now supports querying Amazon S3 data lake tables located in a different AWS Region. With enhanced VPC routing, data lake query traffic between Amazon S3 and Amazon Redshift stays within your own VPC. Both capabilities are powered by the integrated data lake query engine that runs directly on the compute of RG provisioned and Serverless clusters. These features are aimed at enterpri",
+      "tags": [
+        "S3",
+        "Lambda",
+        "VPC"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB introduces filtered export to Amazon S3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-dynamodb-introduces-filtered-export/",
+      "date": "2026-10-01T17:00:00.000Z",
+      "description": "Amazon DynamoDB now supports filtered export for tables. Export to Amazon S3 allows you to export your table data for analytics, data sharing, and other offline uses, as either a full export or an incremental export over a time window. Filtered export enables you to specify exactly which items and attributes to export, producing a dataset that contains only the data relevant to your use case. With",
+      "tags": [
+        "S3",
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB Accelerator (DAX) is now available in additional Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-dynamodb-accelerator/",
+      "date": "2026-10-01T16:44:00.000Z",
+      "description": "Today, AWS announces the availability of Amazon DynamoDB Accelerator (DAX) in 17 additional AWS Regions: Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Asia Pacific (New Zealand), Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Taipei), Asia Pacific (Thailand), Canada West (Calgary), Europe (Milan), Europe (Z",
+      "tags": [
+        "ALB",
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Amazon GuardDuty now supports centralized management using AWS Organizations declarative policies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/guardduty-org-enablement-policies/",
+      "date": "2026-10-01T16:01:00.000Z",
+      "description": "Amazon GuardDuty now supports AWS Organizations declarative policies, enabling you to centrally enable GuardDuty threat detection across every account and Region in your AWS organization. Using an organization policy, you can now apply a centrally managed GuardDuty enablement configuration. The configuration applies to existing accounts and is automatically maintained as new accounts join your org",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Corretto 8 September 2026 Patch Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-corretto-8-sept-2026-updates/",
+      "date": "2026-10-01T14:00:00.000Z",
+      "description": "On September 30, 2026, Amazon announced a patch update for the following Amazon Corretto Long-Term Support (LTS) version of OpenJDK: Corretto 8u504 is now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. This patch includes the tzdata 2026d updates. Visit Corretto home page to download Corretto 27, Corretto 25, Corretto 21, Corretto 1",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon S3 Object Lock variable retention with event holds is now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-object-lock-variable-retention-event-holds-aws-govcloud/",
+      "date": "2026-10-01T13:00:00.000Z",
+      "description": "Amazon S3 Object Lock support for variable retention with event holds is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon S3 Object Lock variable retention allows you to apply write-once-read-many (WORM) protection to objects whose required retention period starts with a future event, such as a contract closing or an audit completing. You place an event hold with a retent",
+      "tags": [
+        "S3",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "AWS Security Hub introduces remediation plans to prioritize and fix security exposures",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-security-hub-remediation-plans/",
+      "date": "2026-10-01T10:00:00.000Z",
+      "description": "AWS Security Hub now offers remediation plans that group related exposure findings sharing a root cause. Instead of addressing each exposure individually, you can now fix a single underlying resource, such as a misconfigured setting or overly permissive policy, and resolve or reduce the severity of multiple exposures at once. Each remediation plan includes prioritization guidance (Critical, High, ",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Transfer Family now supports custom CloudWatch log groups for managed workflows",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-custom-cloudwatch-log-groups/",
+      "date": "2026-10-01T10:00:00.000Z",
+      "description": "AWS Transfer Family now lets you choose a custom log group in Amazon CloudWatch Logs for managed workflow execution logs. You can organize workflow logs to monitor individual workflows separately or bring logs from related workflows together. Previously, every workflow attached to a Transfer Family server sent its execution logs to that server’s CloudWatch log group, so you could not set a separat",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3. With table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove exp",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "AWS Budgets now supports email verification for notification subscribers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-budgets/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "AWS Budgets lets you set custom cost and usage thresholds and alerts you by email when your spending crosses the threshold. AWS Budgets now verifies new email subscribers before sending them budget alerts. When you add an email address to a budget notification, AWS Budgets sends a verification email to that address, and the address begins receiving notifications once the recipient confirms it. Ver",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Serverless Storage on Amazon EMR Serverless now supports terabyte-scale shuffle",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/emr-serverless-terabyte-scale-shuffle/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "Amazon EMR Serverless now offers enhanced serverless storage capabilities with support for up to 1TB shuffle operations, raising the previous 200 GB per-job limit. Amazon EMR Serverless makes it simple for data engineers and data scientists to run open-source big data analytics frameworks without configuring, managing, and scaling clusters or servers. This enhancement enables enterprise customers ",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Announcing DNS analytics and insights for Route 53 Global Resolver and DNS Firewall",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/route-53-dns-analytics-insights/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "Route 53 Global Resolver and DNS Firewall now provide DNS analytics and insights through native Amazon CloudWatch integration. These new capabilities enable network administrators and security teams to gain full observability into DNS query patterns, monitor DNS Firewall rule effectiveness, detect anomalous activity, and optimize DNS infrastructure performance. DNS analytics and insights is availa",
+      "tags": [
+        "CloudWatch",
+        "Route 53"
+      ]
+    },
+    {
+      "title": "AWS IAM Identity Center extends multi-Region support to more AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-iam-identity-center-extends-multi-region-support-to-more-aws-regions",
+      "date": "2026-10-01T07:00:00.000Z",
+      "description": "IAM Identity Center helps you connect your workforce identities to AWS once and streamline access management to AWS accounts and applications. You can now replicate IAM Identity Center to opt-in AWS Regions, and between Regions within the AWS GovCloud (US) and AWS China Regions. Previously, multi-Region support was available in the enabled-by-default commercial AWS Regions. This helps you improve ",
+      "tags": [
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Improve your secrets security posture with actionable recommendations in the AWS Secrets Manager console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-secrets-manager-security-posture-recommendations",
+      "date": "2026-10-01T07:00:00.000Z",
+      "description": "​​​AWS Secrets Manager now integrates with the AWS Recommended Actions framework to surface contextual, actionable suggestions for your secrets directly in the Secrets Manager console. ​​ ​​With this launch, you can view tailored recommendations alongside your secrets to improve your security posture and follow best practices without leaving the console. For example, you can identify secrets that ",
+      "tags": []
+    },
+    {
+      "title": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-tables-table-bucket-increase",
+      "date": "2026-10-01T04:00:00.000Z",
+      "description": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account, increased from 10. This allows you to create up to 1 million tables per AWS Region in an AWS account. With a higher table bucket allowance, you can create a separate table bucket for each dataset, workload, or team, and apply table bucket-level settings such as encryption, access policies, and replication to eac",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
       "title": "Amazon WorkSpaces Core Managed Instances adds support for NVIDIA Blackwell GPU",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-workspaces-cmi-g7/",
       "date": "2026-09-30T23:59:00.000Z",
       "description": "Amazon WorkSpaces Core Managed Instances now supports Graphics G7 instances, powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs and Intel Xeon 6 processors. G7 instances deliver up to 2.1X better performance for graphics-intensive workloads compared to previous generation G6 instances. With Graphics G7, customers can run demanding professional applications such as CAD/CAM, 3D rendering, ",
       "tags": [
         "EC2"
+      ]
+    },
+    {
+      "title": "Apache Iceberg materialized views now support system-managed write protection",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/system-managed-iceberg-materialized-views",
+      "date": "2026-09-30T21:19:00.000Z",
+      "description": "Today, AWS announces system-managed materialized views for Apache Iceberg. Materialized views let you precompute an expensive query once and reuse the result across engines. Because this result is an open Iceberg table in your data lake, anyone with write access can change it, either through the catalog or by writing to the files in Amazon S3. System-managed materialized views close this gap by on",
+      "tags": [
+        "S3"
       ]
     },
     {
@@ -87,160 +258,6 @@
         "RDS",
         "Lambda"
       ]
-    },
-    {
-      "title": "Amazon Aurora and RDS now support AMD-based R8a instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aurora-rds-amd-r8a/",
-      "date": "2026-09-30T17:00:00.000Z",
-      "description": "Amazon Aurora and Amazon RDS now support R8a database instances powered by 5th generation AMD EPYC processors, expanding the choice available for your database workloads. Each vCPU in R8a database instances corresponds to a physical CPU core, which delivers consistent per-core performance. For workloads with high I/O requirements, R8a instances provide up to 75 Gbps of network bandwidth and 60 Gbp",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon RDS now supports AMD-based M8a instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aurora-rds-amd-m8a/",
-      "date": "2026-09-30T17:00:00.000Z",
-      "description": "Amazon RDS for PostgreSQL, MySQL, and MariaDB now support M8a database instances powered by 5th generation AMD EPYC processors, expanding the choice available for your database workloads. Each vCPU in M8a database instances corresponds to a physical CPU core, which delivers consistent per-core performance. For workloads with high I/O requirements, M8a instances provide up to 75 Gbps of network ban",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock expands Claude models in-region support in the UK (London)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/claude-region-expansion-lhr/",
-      "date": "2026-09-30T17:00:00.000Z",
-      "description": "We're excited to announce in-region support for Anthropic's Claude Opus 5.5 and Claude Sonnet 5 on Amazon Bedrock in the UK (London) Region. Customers who need to process data within the United Kingdom, including those in financial services, healthcare, and the public sector, can now use these models at scale while keeping inference in-country. In the UK, Amazon Bedrock supports Claude Opus 5.5 an",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Aurora PostgreSQL now supports querying of Apache Iceberg and Parquet data",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aurora-postgresql-query-apache-iceberg-and-parquet/",
-      "date": "2026-09-30T16:00:00.000Z",
-      "description": "Starting today, you can directly query operational data together with data stored in data lakes in Apache Iceberg and Parquet formats using your existing PostgreSQL applications and tools, without extract, transform, and load (ETL) pipelines or data duplication. Applications increasingly need access to data from data lakes, often stored in Apache Iceberg and Parquet formats, to make more informed ",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon RDS for MySQL supports MySQL 26.7 in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/rds-mysql-26-7-preview-environment/",
-      "date": "2026-09-30T16:00:00.000Z",
-      "description": "Starting today, Amazon RDS for MySQL 26.7 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of MySQL 26.7 on Amazon RDS for MySQL. MySQL 26.7 is the first Innovation release to adopt the new YY.M (Year.Month) calendar versioning model. It includes bug fixes, security patches, and new features such as Change Stream Applier, a modular replication ",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Uncover blind spots in AWS data plane operations with CloudTrail Event Coverage",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-cloudtrail-event-coverage/",
-      "date": "2026-09-30T16:00:00.000Z",
-      "description": "AWS CloudTrail introduces Event Coverage, a new console experience that gives customers visibility into their data plane operations coverage at the account and organization level. You can now see which AWS services and resource types in your environment have data event logging enabled and which do not. This helps you quickly identify gaps in your logging posture without manually scanning accounts ",
-      "tags": [
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Partner Revenue Measurement adds Multi-Partner support to Resource Tagging",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/partner-revenue-measurement-multi-partner-resource-tagging",
-      "date": "2026-09-30T12:00:00.000Z",
-      "description": "Partner Revenue Measurement (PRM) provides measurement of AWS consumption driven by Partner solutions. Today, PRM adds multi-Partner support to Resource Tagging, so that multiple AWS Partners can receive revenue attribution for the same AWS resource. Previously, a resource carried only one Partner tag, aws-apn-id , so when multiple Partners contributed to the same workload, only one Partner receiv",
-      "tags": []
-    },
-    {
-      "title": "AWS Transfer Family now automatically approves SFTP connector quota increases up to 1,000",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-transfer-family-sftp-connector-quota-1000/",
-      "date": "2026-09-30T08:00:00.000Z",
-      "description": "AWS Transfer Family now automatically approves requests to increase your SFTP connector quota up to 1,000 connectors per AWS account in each AWS Region. You can add more connectors as your file transfer needs grow without waiting for manual approval. The default quota remains 100 SFTP connectors per AWS account in each AWS Region, and you continue to request increases in the AWS Service Quotas con",
-      "tags": []
-    },
-    {
-      "title": "AWS accounts now support phone number verification",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-accounts-phone-number-verification/",
-      "date": "2026-09-30T08:00:00.000Z",
-      "description": "AWS Accounts now support phone number verification for primary contact phone numbers. Previously, phone numbers in AWS account contact information were validated for format but never verified through an out-of-band mechanism. Now, customers can verify their phone numbers via SMS one-time passcode (OTP). To verify a phone number, customers initiate verification through the AWS Management Console or",
-      "tags": []
-    },
-    {
-      "title": "AWS IAM Identity Center Identity Store APIs now accept resource ARNs in addition to resource IDs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/iam-identity-center-apis-arns/",
-      "date": "2026-09-30T08:00:00.000Z",
-      "description": "AWS IAM Identity Center's Identity Store APIs now accept the Amazon Resource Name (ARN) for a user, group, group membership, or identity store anywhere the APIs previously accepted the resource ID. ARN support is additive and existing integrations continue to work unchanged. If you build on the Identity Store APIs, you may already hold resource ARNs — for example, from IAM policy evaluation, Cloud",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS Marketplace launches an AI agent skill for usage-based metering integration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/marketplace-ai-agent-metering/",
-      "date": "2026-09-30T05:00:00.000Z",
-      "description": "AWS announces the general availability of the AWS Marketplace metering agent skill, an AI-guided experience that helps sellers build, deploy, and validate a usage-based (pay-as-you-go) SaaS metering integration from within their AI coding assistant. The skill guides sellers through the complete integration journey — gathering their product type, pricing model, and usage dimensions; recommending th",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Tables now support all Apache Iceberg V3 data types",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-s3-tables-iceberg-v3-data-types",
-      "date": "2026-09-30T04:00:00.000Z",
-      "description": "Amazon S3 Tables add support for geometry, geography, unknown, and nanosecond timestamp data types, along with column default values, as defined in the Apache Iceberg Version 3 (V3) specification. You can now store geospatial coordinates and nanosecond-precision event times natively instead of encoding them in strings or integers. This helps simplify data architecture while improving storage effic",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "AWS Deadline Cloud now supports expressions in job templates",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-deadline-cloud-expressions-job-templates/",
-      "date": "2026-09-29T21:55:00.000Z",
-      "description": "AWS Deadline Cloud now supports flexible expressions and rich parameter types in job templates, giving customers a cleaner, more powerful way to fit the service to existing production pipelines. Deadline Cloud is a fully managed service that helps teams run compute-intensive workloads in the cloud for visual effects, animation, product design, simulation, and gaming. Customers can now express pipe",
-      "tags": []
-    },
-    {
-      "title": "Amazon Bedrock Managed Agents, powered by OpenAI, is now available in preview",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/bedrock-managed-agents-preview/",
-      "date": "2026-09-29T21:10:00.000Z",
-      "description": "Developed jointly by AWS and OpenAI, Bedrock Managed Agents (BMA) is built on a customized version of OpenAI's Agents API engineered to be AWS-native and integrated with AWS resources. You can now build agents optimized for OpenAI models that run entirely inside AWS with the identities, permissions, and governance controls you already use. BMA manages how the model preserves state, selects and use",
-      "tags": [
-        "IAM",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon RDS now adds full snapshot size information to the Console and API",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-full-snapshot-size-available/",
-      "date": "2026-09-29T21:00:23.000Z",
-      "description": "Amazon RDS now displays the full snapshot size for RDS Snapshots. With this enhancement, customers can now retrieve full snapshot sizes programmatically through the DescribeDBSnapshots API using the new field, ‘FullSnapshotSizeInBytes’. They can also view this on the console with the ‘Full Snapshot Size’ column. Amazon RDS snapshots are incremental. This means that if you take multiple snapshots o",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Deadline Cloud now supports ECS containers on Linux Service-Managed Fleets",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-deadline-cloud-ecs-containers-linux-smf/",
-      "date": "2026-09-29T20:18:00.000Z",
-      "description": "AWS Deadline Cloud now supports running jobs using Docker containers from Amazon Elastic Container Service (ECS) on Linux-based service-managed fleets. Deadline Cloud is a fully managed service that helps teams run compute-intensive workloads in the cloud for visual effects, animation, product design, simulation, and gaming. Deadline Cloud customers can now bring their own software containers dire",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "OpenAI GPT-6.1 Sol is now generally available on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-1-sol-on-amazon-bedrock/",
-      "date": "2026-09-29T20:17:00.000Z",
-      "description": "Today, AWS announces the general availability of GPT-6.1 Sol from OpenAI on Amazon Bedrock. An upgrade to GPT-6 Sol, GPT-6.1 Sol delivers exceptionally strong performance on agentic coding, computer use, and professional work. According to OpenAI, it approaches GPT-6 Astra across demanding evaluations at roughly one-fifth of the cost, giving developers more room to build and run capable agents at ",
-      "tags": [
-        "Bedrock",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets business users manage more reference data to adjust contact center configurations in real time",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-connect-manage-data-tables/",
-      "date": "2026-09-29T17:00:00.000Z",
-      "description": "Amazon Connect Customer now lets administrators store more of the reference data that drives their contact center configurations. Administrators can now use data tables to hold up to 20,000 values per table for defining configurations such as operating hours, escalation rules, AI agent prompts or queue assignments that drive contact flows. Administrators can now also export tables, edit hundreds o",
-      "tags": []
     }
   ],
   "security": [
@@ -343,6 +360,15 @@
   ],
   "blog": [
     {
+      "title": "Announcing AWS Well-Architected Agent, an AI-powered intelligence to optimize your cloud environment (preview)",
+      "link": "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview/",
+      "date": "2026-10-01T20:04:04.000Z",
+      "description": "Introducing the public preview of AWS Well-Architected Agent, an AI-powered service that analyzes your AWS environment to deliver targeted, contextual recommendations for improving your applications' cost, security, performance, and resilience—with ready-to-implement fixes aligned to your business goals.",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
       "title": "Amazon S3 Tables now support all Apache Iceberg V3 data types",
       "link": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-support-all-apache-iceberg-v3-data-types/",
       "date": "2026-09-30T22:10:00.000Z",
@@ -424,16 +450,6 @@
       "date": "2026-09-21T16:11:24.000Z",
       "description": "Living in the Netherlands, I spend a fair amount of time on trains, and that is usually where I catch up on what the builder community is writing. Until now, that meant opening a laptop or squinting at a browser tab on my phone. This week I found myself scrolling through trending articles and checking […]",
       "tags": []
-    },
-    {
-      "title": "New low-cost burstable Amazon EC2 T8i instances are generally available",
-      "link": "https://aws.amazon.com/blogs/aws/new-low-cost-burstable-amazon-ec2-t8i-instances-are-generally-available/",
-      "date": "2026-09-17T21:11:48.000Z",
-      "description": "AWS introduces new low-cost burstable Amazon EC2 T8i instances powered by custom sixth generation Intel Xeon Scalable Processors (Granite Rapids), available only on AWS. T8i instances are among the lowest-cost EC2 instances and deliver up to 30% better price performance over previous generation T3 instances.",
-      "tags": [
-        "EC2",
-        "Cost"
-      ]
     }
   ],
   "status": {
