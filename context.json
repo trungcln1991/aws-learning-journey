@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session 01/10 (phiên 125): chốt phiên — NOW/SESSION/log, 6 gap mới, memory quyết định; PR #4/#5 terraform đã merge",
-  "updated_at": "2026-10-01T07:49:32Z"
+  "commit_msg": "session 02/10 (phien 126): su co CRM (RDS SAP_BILLING) + canh bao tu dong RDS/webapp (PR #7-#10, Lambda Teams v5, SACL dot A), 10 PBI, xoa gap may dev, NOW/SESSION/skill",
+  "updated_at": "2026-10-02T07:16:07Z"
 }
