@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "CloudWatch & Monitoring",
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "session 02/10 (phien 126): su co CRM (RDS SAP_BILLING) + canh bao tu dong RDS/webapp (PR #7-#10, Lambda Teams v5, SACL dot A), 10 PBI, xoa gap may dev, NOW/SESSION/skill",
-  "updated_at": "2026-10-02T07:16:07Z"
+  "commit_msg": "session 02/10 (phien 127): review VPN auto-heal tuan (HC tunnel 13.213.117.9) + triage Security Hub 505 (dev68 Firefox updated, ECR image cu), gap dev68/Dang, NOW/SESSION/skill",
+  "updated_at": "2026-10-02T09:03:54Z"
 }
