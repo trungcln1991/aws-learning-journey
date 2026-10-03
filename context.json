@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "session 02/10 (phien 127): review VPN auto-heal tuan (HC tunnel 13.213.117.9) + triage Security Hub 505 (dev68 Firefox updated, ECR image cu), gap dev68/Dang, NOW/SESSION/skill",
-  "updated_at": "2026-10-02T09:03:54Z"
+  "commit_msg": "session 03/10 (phien 128): thay cert wildcard *.japfa.com.vn (PBI 34024 Done) - ACM 3 region + IIS 104 entry, skill ops/wildcard-cert-renewal, scripts/cert, gap aws-infra T2 05/10, NOW/SESSION",
+  "updated_at": "2026-10-03T08:31:44Z"
 }
