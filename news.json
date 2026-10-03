@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T06:54:02.080Z",
+  "generated_at": "2026-10-03T06:18:12.815Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,77 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon ECS adds Amazon VPC Lattice support for blue/green, linear, and canary deployments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-vpc-lattice-blue-green-deployments",
+      "date": "2026-10-02T20:18:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now supports built-in blue/green, linear, and canary deployment strategies for ECS services using Amazon VPC Lattice . Applications that use VPC Lattice for service-to-service communication across VPCs and AWS accounts can now take advantage of managed traffic shifting natively from Amazon ECS when rolling out updates. With this launch, ECS customers u",
+      "tags": [
+        "VPC",
+        "ECS"
+      ]
+    },
+    {
+      "title": "AWS Health introduces the version catalog for software lifecycle management",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-health-introduces-version-catalog-software-lifecycle-management",
+      "date": "2026-10-02T18:09:00.000Z",
+      "description": "Today, AWS Health introduces the version catalog which provides a centralized source of lifecycle information for software versions across AWS services. The version catalog helps customers move from reactive to proactive management of version upgrades and end-of-support risk. It is available in the AWS Health Dashboard, and customers on Business Support Plus, Enterprise Support, or Unified Operati",
+      "tags": []
+    },
+    {
+      "title": "Amazon Aurora DSQL now supports partial indexes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-dsql-partial-indexes/",
+      "date": "2026-10-02T17:30:00.000Z",
+      "description": "Amazon Aurora DSQL now lets you build an index over a specific subset of a table, storing only qualifying rows rather than every row in the entire table, which improves query performance and lowers index storage cost. Many tables hold a small working set alongside a much larger history, such as open orders among years of completed ones. Add a WHERE clause to CREATE INDEX to index just that working",
+      "tags": [
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
+      "date": "2026-10-02T17:30:00.000Z",
+      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Brazil automates distribution of non-Brazilian software product licenses to Brazilian customers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-brazil-software-license-distribution/",
+      "date": "2026-10-02T16:30:00.000Z",
+      "description": "AWS Brazil now provides an automated distribution workflow through the AWS Brazil 2P Distribution Program. Eligible non-Brazilian independent software vendors (ISVs) grant AWS Brazil the right to distribute their Software-as-a-Service (SaaS) product licenses, and AWS Brazil distributes them to customers in Brazil. AWS Brazil is the seller of record, invoicing Brazilian customers in Brazilian Reais",
+      "tags": [
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "The AWS MCP Server is now available in six additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-mcp-server-six-additional-regions/",
+      "date": "2026-10-02T08:00:00.000Z",
+      "description": "The AWS MCP Server is now available in six additional AWS Regions: Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), Europe (London), and US West (Oregon). The AWS MCP Server, part of the Agent Toolkit for AWS , is a managed Model Context Protocol server that gives AI coding agents a single interface to AWS APIs, so agents can discover and call AWS services w",
+      "tags": []
+    },
+    {
+      "title": "AgentCore Gateway supports private TLS certificates for VPC endpoints",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-private-tls-vpc/",
+      "date": "2026-10-02T08:00:00.000Z",
+      "description": "Amazon Bedrock AgentCore Gateway now supports TLS certificates signed by private certificate authorities (CAs) on MCP, OpenAPI, and HTTP proxy targets. This feature enables you to connect securely to gateway targets that use TLS certificates issued by your own private certificate authority. With this feature, you can establish native connections to private endpoints in your VPC without requiring a",
+      "tags": [
+        "VPC",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon ElastiCache for Valkey now supports OpenTelemetry metrics and detailed monitoring",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-elasticache-valkey-opentelemetry-metrics-detailed-monitoring",
+      "date": "2026-10-02T07:00:00.000Z",
+      "description": "Amazon ElastiCache for Valkey now publishes OpenTelemetry metrics to Amazon CloudWatch for your node-based clusters, and each metric carries attributes you can filter and aggregate on with Prometheus Query Language (PromQL) expressions. ElastiCache now offers two monitoring modes. Standard monitoring, the existing experience, continues to publish CloudWatch Metrics (Classic) every 60 seconds and n",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
     {
       "title": "GuardDuty Runtime Monitoring is now included in the AWS Security Hub Threat Analytics plan",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-security-hub-runtime-monitoring/",
@@ -124,21 +195,21 @@
       ]
     },
     {
-      "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3. With table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove exp",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
       "title": "AWS Budgets now supports email verification for notification subscribers",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-budgets/",
       "date": "2026-10-01T08:00:00.000Z",
       "description": "AWS Budgets lets you set custom cost and usage thresholds and alerts you by email when your spending crosses the threshold. AWS Budgets now verifies new email subscribers before sending them budget alerts. When you add an email address to a budget notification, AWS Budgets sends a verification email to that address, and the address begins receiving notifications once the recipient confirms it. Ver",
       "tags": [
         "Cost"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3. With table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove exp",
+      "tags": [
+        "S3"
       ]
     },
     {
@@ -184,79 +255,6 @@
       "description": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account, increased from 10. This allows you to create up to 1 million tables per AWS Region in an AWS account. With a higher table bucket allowance, you can create a separate table bucket for each dataset, workload, or team, and apply table bucket-level settings such as encryption, access policies, and replication to eac",
       "tags": [
         "S3"
-      ]
-    },
-    {
-      "title": "Amazon WorkSpaces Core Managed Instances adds support for NVIDIA Blackwell GPU",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-workspaces-cmi-g7/",
-      "date": "2026-09-30T23:59:00.000Z",
-      "description": "Amazon WorkSpaces Core Managed Instances now supports Graphics G7 instances, powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs and Intel Xeon 6 processors. G7 instances deliver up to 2.1X better performance for graphics-intensive workloads compared to previous generation G6 instances. With Graphics G7, customers can run demanding professional applications such as CAD/CAM, 3D rendering, ",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Apache Iceberg materialized views now support system-managed write protection",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/system-managed-iceberg-materialized-views",
-      "date": "2026-09-30T21:19:00.000Z",
-      "description": "Today, AWS announces system-managed materialized views for Apache Iceberg. Materialized views let you precompute an expensive query once and reuse the result across engines. Because this result is an open Iceberg table in your data lake, anyone with write access can change it, either through the catalog or by writing to the files in Amazon S3. System-managed materialized views close this gap by on",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "AWS CLI now supports bulk skill updates and version checks for the Agent Toolkit for AWS",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-cli-agent-toolkit-update-skill/",
-      "date": "2026-09-30T20:16:00.000Z",
-      "description": "Today, AWS expanded the AWS Command Line Interface (CLI) commands for the Agent Toolkit for AWS with two new capabilities that make it easier to keep agent skills up to date. Customers can now run aws agent-toolkit check-skill-updates to compare all installed skills against the latest versions available in the registry, and use aws agent-toolkit update-skill --all to update every outdated skill in",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Vectors introduces metadata pre-filtering for up to 5x higher recall on filtered search",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/s3-vectors-introduces-metadata-pre-filtering/",
-      "date": "2026-09-30T20:00:00.000Z",
-      "description": "Amazon S3 Vectors now supports pre-filtering, which evaluates metadata filters before running similarity search, returning up to 5x more of the matching vectors when your filter is selective. S3 Vectors also adds a prefix match operator ($startsWith) for filtering on values like paths and URLs. Together, these improvements give your retrieval-augmented generation (RAG), agentic, and semantic-searc",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon Managed Grafana now supports creating Grafana 13.2 workspaces",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-managed-grafana-now-supports-creating-grafana-13-2-workspaces",
-      "date": "2026-09-30T19:30:00.000Z",
-      "description": "Amazon Managed Grafana now supports creating new workspaces with Grafana version 13.2. This release brings features from open-source Grafana versions 13.0 to 13.2, including Git Sync for dashboards, dynamic dashboards, and PromQL query support in the Amazon CloudWatch data source plugin. With Git Sync, you can treat dashboards as code by linking a workspace to a Git repository, enabling version co",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "OpenAI GPT-6 Astra now supports UltraFast mode on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-ultrafast-on-amazon-bedrock/",
-      "date": "2026-09-30T19:00:00.000Z",
-      "description": "Today, AWS announces the availability of UltraFast mode for GPT-6 Astra from OpenAI on Amazon Bedrock. Ultrafast is a premium speed tier for GPT-6 Astra built for workloads where speed matters most. According to OpenAI, Ultrafast delivers up to 6x faster inference in the API, with up to 300 tokens per second. The Amazon Bedrock inference engine delivers the performance, security, and reliability r",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS Parallel Computing Service now supports scaling logs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-pcs-scaling-logs/",
-      "date": "2026-09-30T19:00:00.000Z",
-      "description": "AWS Parallel Computing Service (AWS PCS) now supports scaling logs, which record how AWS PCS scales the compute node groups in your cluster. Each log entry records one state transition for one compute node—for example, an instance launch, a node registration, a scale-down, or a launch failure with its reason. Using scaling logs, you can more easily troubleshoot scaling issues. For example, you can",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Aurora serverless now scales faster to support agentic AI and other bursty workloads",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/08/aurora-serverless-instant-16-acu-scaling/",
-      "date": "2026-09-30T17:50:00.000Z",
-      "description": "Amazon Aurora serverless now scales in even larger steps, adding up to 16 ACUs to its current capacity within a second and continuing to scale up to 256 ACUs as your workload grows. With this launch, your workload will scale faster and reach capacity that it requires. When the workload finishes, Aurora serverless automatically scales down to zero, so you only pay for what you use. This makes it es",
-      "tags": [
-        "RDS",
-        "Lambda"
       ]
     }
   ],
