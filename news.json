@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T06:18:12.815Z",
+  "generated_at": "2026-10-04T06:43:04.900Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -42,6 +42,15 @@
       "tags": []
     },
     {
+      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
+      "date": "2026-10-02T17:30:00.000Z",
+      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
       "title": "Amazon Aurora DSQL now supports partial indexes",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-dsql-partial-indexes/",
       "date": "2026-10-02T17:30:00.000Z",
@@ -49,15 +58,6 @@
       "tags": [
         "RDS",
         "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
-      "date": "2026-10-02T17:30:00.000Z",
-      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
-      "tags": [
-        "EKS"
       ]
     },
     {
@@ -195,21 +195,21 @@
       ]
     },
     {
-      "title": "AWS Budgets now supports email verification for notification subscribers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-budgets/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "AWS Budgets lets you set custom cost and usage thresholds and alerts you by email when your spending crosses the threshold. AWS Budgets now verifies new email subscribers before sending them budget alerts. When you add an email address to a budget notification, AWS Budgets sends a verification email to that address, and the address begins receiving notifications once the recipient confirms it. Ver",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
       "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/",
       "date": "2026-10-01T08:00:00.000Z",
       "description": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3. With table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove exp",
       "tags": [
         "S3"
+      ]
+    },
+    {
+      "title": "AWS Budgets now supports email verification for notification subscribers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-budgets/",
+      "date": "2026-10-01T08:00:00.000Z",
+      "description": "AWS Budgets lets you set custom cost and usage thresholds and alerts you by email when your spending crosses the threshold. AWS Budgets now verifies new email subscribers before sending them budget alerts. When you add an email address to a budget notification, AWS Budgets sends a verification email to that address, and the address begins receiving notifications once the recipient confirms it. Ver",
+      "tags": [
+        "Cost"
       ]
     },
     {
