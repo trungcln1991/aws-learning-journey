@@ -1,9 +1,7 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "IAM Deep Dive"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "session 03/10 (phien 128): thay cert wildcard *.japfa.com.vn (PBI 34024 Done) - ACM 3 region + IIS 104 entry, skill ops/wildcard-cert-renewal, scripts/cert, gap aws-infra T2 05/10, NOW/SESSION",
-  "updated_at": "2026-10-03T08:31:44Z"
+  "commit_msg": "feat(jcop): tu dong du lieu Van hanh AWS (GitHub Actions 03:00 -> S3 owner-data/ -> may chu keo 07:00/12:00) + nhat ky chi phi Bedrock",
+  "updated_at": "2026-10-05T05:13:39Z"
 }
