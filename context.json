@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "AWS Global Infrastructure",
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "session 06/10 (phien 130): 4 PBI (34136-34138, 34190), bao cao chi phi T9 + Bedrock theo key, goi du lieu App Migration (97 site, tnsnames, ket noi that), report_lib dung chung; skill/memory/NOW/SESSION/task-schedule",
-  "updated_at": "2026-10-06T06:25:09Z"
+  "commit_msg": "session 06/10 (phien 131): poultry gop 1 domain poultrysouth (TF PR #14, TG doi ten, apply + verify), 3 gap moi, skill terraform-ops bay moi, memory/NOW/SESSION/dashboard",
+  "updated_at": "2026-10-06T10:14:20Z"
 }
