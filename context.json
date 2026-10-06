@@ -1,7 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring"
+    "AWS Global Infrastructure",
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 05/10 (phien 129): cert API GW aws-infra ARN enhanced (PBI 34083), ha tang go-live Poultry y UAT (PBI 34084), giai trinh chi phi SecHub/Config (PBI 34085), don khoa bi mat (PBI 34086), Security Review + suppress 877 finding (PBI 34087), JCOP tu dong du lieu AWS + bieu do xu huong; NOW/SESSION/skill/memory/gap",
-  "updated_at": "2026-10-05T06:07:19Z"
+  "commit_msg": "session 06/10 (phien 130): 4 PBI (34136-34138, 34190), bao cao chi phi T9 + Bedrock theo key, goi du lieu App Migration (97 site, tnsnames, ket noi that), report_lib dung chung; skill/memory/NOW/SESSION/task-schedule",
+  "updated_at": "2026-10-06T06:25:09Z"
 }
