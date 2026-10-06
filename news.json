@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T06:47:18.875Z",
+  "generated_at": "2026-10-06T07:26:12.675Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,87 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon Redshift adds support for creating and refreshing Apache Iceberg materialized views",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/redshift-iceberg-materialized-views",
+      "date": "2026-10-05T21:57:18.000Z",
+      "description": "Amazon Redshift now supports the creation and refresh of Apache Iceberg materialized views. Materialized views pre-compute expensive joins and aggregations once and store the results in an Apache Iceberg table in Amazon S3 or Amazon S3 table buckets, registered in the AWS Glue Data Catalog. Materialized views are created using familiar SQL — CREATE MATERIALIZED VIEW ... USING ICEBERG and the resul",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "GLM 5.3 by Z.ai is now generally available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/",
+      "date": "2026-10-05T21:42:00.000Z",
+      "description": "Amazon Bedrock now supports GLM 5.3 from Z.ai, giving you a powerful new option for agentic coding and long-horizon software engineering work. Customers using GLM 5.3 on Amazon Bedrock have access to the latest open weight model with the AWS security and compliance posture. GLM 5.3 is Z.ai’s flagship model, a mixture-of-experts architecture with 753B total parameters and roughly 40B active per tok",
+      "tags": [
+        "Bedrock",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS IAM Identity Center now supports network access controls for Identity Store",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-identity-store-network-controls/",
+      "date": "2026-10-05T21:00:00.000Z",
+      "description": "AWS IAM Identity Center helps you configure the single sign-on experience for your workforce to AWS accounts and applications. IAM Identity Center now supports network access controls for Identity Store, which stores your users and groups. You can restrict access to the Identity Store API and the SCIM API based on the network that requests originate from. Your custom applications and user provisio",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "AWS Continuum for Penetration Testing now supports continuous penetration testing integrated directly into your CI/CD pipeline",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-continuum-penetration-testing/",
+      "date": "2026-10-05T18:32:00.000Z",
+      "description": "AWS Continuum for Penetration Testing now integrates continuous penetration testing directly into your CI/CD pipeline (public preview) AWS Continuum for Penetration Testing (formerly AWS Security Agent) already provides continuous, on-demand penetration testing without the need to contract third-party pentest vendors. Now, in public preview, Continuum for Penetration Testing shifts security testin",
+      "tags": []
+    },
+    {
+      "title": "AWS Advanced Ruby Driver Wrapper is generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ruby-driver-wrapper-available/",
+      "date": "2026-10-05T17:00:00.000Z",
+      "description": "The Amazon Web Services (AWS) Advanced Ruby Driver Wrapper is now generally available for use with Amazon RDS and Amazon Aurora PostgreSQL and MySQL-compatible databases. This advanced database driver reduces RDS Blue/Green switchover, Aurora Global database switchover and database failover times, improving application availability. Additionally, it supports multiple authentication mechanisms for ",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Client VPN now supports device posture assessment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-client-vpn-device-posture/",
+      "date": "2026-10-05T17:00:00.000Z",
+      "description": "AWS Client VPN now supports device posture assessment, allowing you to verify that connecting user devices meet your security and compliance requirements before granting network access. This feature integrates with your existing device posture providers, so only trusted, compliant devices can access your AWS resources through Client VPN. Previously, Client VPN authenticated users through certifica",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Batch now supports Amazon EKS access entry authentication",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-batch-access-entries/",
+      "date": "2026-10-05T15:31:00.000Z",
+      "description": "AWS Batch now supports Amazon EKS access entry authentication for compute environments. EKS access entries provide an API-driven approach to granting IAM principals access to Kubernetes clusters, complementing the existing aws-auth ConfigMap . AWS Batch can now authenticate to your cluster through the access entry mechanism, simplifying cluster setup and authentication lifecycle management. To get",
+      "tags": [
+        "IAM",
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Private CA now provides detailed certificate issuance logs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-private-ca-certificate-issuance-logs/",
+      "date": "2026-10-05T09:00:00.000Z",
+      "description": "AWS Private CA announces detailed certificate issuance logs, a new AWS CloudTrail service event that records the complete certificate content, issuing CA information, requester identity, and signing status for every issuance. You can use these events for compliance auditing, certificate inventory, algorithm migration tracking, and failed-issuance monitoring. Previously, the CloudTrail management e",
+      "tags": [
+        "RDS",
+        "IAM",
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Announcing Amazon Nova 2.5 Sonic with improved reasoning for voice agents",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-nova-2.5-sonic/",
+      "date": "2026-10-05T08:10:00.000Z",
+      "description": "Today, we announce the general availability of Amazon Nova 2.5 Sonic, our latest speech-to-speech model for natural, real-time voice agents. This release brings improved reasoning, instruction following, and tool-calling accuracy to real-time voice applications. The model also delivers lower latency, enabling faster, more natural interactions. Nova 2.5 Sonic helps voice agents maintain context, fo",
+      "tags": []
+    },
+    {
       "title": "Amazon ECS adds Amazon VPC Lattice support for blue/green, linear, and canary deployments",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-vpc-lattice-blue-green-deployments",
       "date": "2026-10-02T20:18:00.000Z",
@@ -42,6 +123,15 @@
       "tags": []
     },
     {
+      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
+      "date": "2026-10-02T17:30:00.000Z",
+      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
       "title": "Amazon Aurora DSQL now supports partial indexes",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-dsql-partial-indexes/",
       "date": "2026-10-02T17:30:00.000Z",
@@ -49,15 +139,6 @@
       "tags": [
         "RDS",
         "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
-      "date": "2026-10-02T17:30:00.000Z",
-      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
-      "tags": [
-        "EKS"
       ]
     },
     {
@@ -110,7 +191,7 @@
       "title": "AWS Well-Architected Agent is now available in preview",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-well-architected-agent/",
       "date": "2026-10-01T20:00:00.000Z",
-      "description": "AWS announces the preview of AWS Well-Architected Agent, a AI-powered service that is the next-gen evolution of AWS Trusted Advisor and the AWS Well-Architected Tool. The agent analyzes and optimizes AWS infrastructure across cost, security, performance, and reliability, delivering contextualized recommendations prioritized by business goals. It automatically correlates key metrics and application",
+      "description": "AWS announces the preview of AWS Well-Architected Agent, an AI-powered service that is the next-gen evolution of AWS Trusted Advisor and the AWS Well-Architected Tool. The agent analyzes and optimizes AWS infrastructure across cost, security, performance, and reliability, delivering contextualized recommendations prioritized by business goals. It automatically correlates key metrics and applicatio",
       "tags": [
         "CloudWatch",
         "Cost"
@@ -125,6 +206,16 @@
         "S3",
         "Lambda",
         "VPC"
+      ]
+    },
+    {
+      "title": "Amazon Q Developer now delivers enhanced visualizations in the AWS Management Console",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-q-developer-enhanced-visualizations-aws-management-console",
+      "date": "2026-10-01T17:43:00.000Z",
+      "description": "Today, AWS announces enhanced visualization for Amazon Q Developer in the AWS Management Console. Amazon Q now reasons across hundreds of AWS APIs to answer complex questions and deliver complete answers about your entire account—across all regions and services. Beyond the resource tables and cost charts introduced earlier this year, Amazon Q now renders health dashboards with status indicators, t",
+      "tags": [
+        "RDS",
+        "Cost"
       ]
     },
     {
@@ -165,97 +256,6 @@
         "CloudFront",
         "Cost"
       ]
-    },
-    {
-      "title": "Amazon S3 Object Lock variable retention with event holds is now available in AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-object-lock-variable-retention-event-holds-aws-govcloud/",
-      "date": "2026-10-01T13:00:00.000Z",
-      "description": "Amazon S3 Object Lock support for variable retention with event holds is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon S3 Object Lock variable retention allows you to apply write-once-read-many (WORM) protection to objects whose required retention period starts with a future event, such as a contract closing or an audit completing. You place an event hold with a retent",
-      "tags": [
-        "S3",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "AWS Security Hub introduces remediation plans to prioritize and fix security exposures",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-security-hub-remediation-plans/",
-      "date": "2026-10-01T10:00:00.000Z",
-      "description": "AWS Security Hub now offers remediation plans that group related exposure findings sharing a root cause. Instead of addressing each exposure individually, you can now fix a single underlying resource, such as a misconfigured setting or overly permissive policy, and resolve or reduce the severity of multiple exposures at once. Each remediation plan includes prioritization guidance (Critical, High, ",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS Transfer Family now supports custom CloudWatch log groups for managed workflows",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-custom-cloudwatch-log-groups/",
-      "date": "2026-10-01T10:00:00.000Z",
-      "description": "AWS Transfer Family now lets you choose a custom log group in Amazon CloudWatch Logs for managed workflow execution logs. You can organize workflow logs to monitor individual workflows separately or bring logs from related workflows together. Previously, every workflow attached to a Transfer Family server sent its execution logs to that server’s CloudWatch log group, so you could not set a separat",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Budgets now supports email verification for notification subscribers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-budgets/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "AWS Budgets lets you set custom cost and usage thresholds and alerts you by email when your spending crosses the threshold. AWS Budgets now verifies new email subscribers before sending them budget alerts. When you add an email address to a budget notification, AWS Budgets sends a verification email to that address, and the address begins receiving notifications once the recipient confirms it. Ver",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3. With table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove exp",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "Serverless Storage on Amazon EMR Serverless now supports terabyte-scale shuffle",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/emr-serverless-terabyte-scale-shuffle/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "Amazon EMR Serverless now offers enhanced serverless storage capabilities with support for up to 1TB shuffle operations, raising the previous 200 GB per-job limit. Amazon EMR Serverless makes it simple for data engineers and data scientists to run open-source big data analytics frameworks without configuring, managing, and scaling clusters or servers. This enhancement enables enterprise customers ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Announcing DNS analytics and insights for Route 53 Global Resolver and DNS Firewall",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/route-53-dns-analytics-insights/",
-      "date": "2026-10-01T08:00:00.000Z",
-      "description": "Route 53 Global Resolver and DNS Firewall now provide DNS analytics and insights through native Amazon CloudWatch integration. These new capabilities enable network administrators and security teams to gain full observability into DNS query patterns, monitor DNS Firewall rule effectiveness, detect anomalous activity, and optimize DNS infrastructure performance. DNS analytics and insights is availa",
-      "tags": [
-        "CloudWatch",
-        "Route 53"
-      ]
-    },
-    {
-      "title": "AWS IAM Identity Center extends multi-Region support to more AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-iam-identity-center-extends-multi-region-support-to-more-aws-regions",
-      "date": "2026-10-01T07:00:00.000Z",
-      "description": "IAM Identity Center helps you connect your workforce identities to AWS once and streamline access management to AWS accounts and applications. You can now replicate IAM Identity Center to opt-in AWS Regions, and between Regions within the AWS GovCloud (US) and AWS China Regions. Previously, multi-Region support was available in the enabled-by-default commercial AWS Regions. This helps you improve ",
-      "tags": [
-        "IAM",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Improve your secrets security posture with actionable recommendations in the AWS Secrets Manager console",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-secrets-manager-security-posture-recommendations",
-      "date": "2026-10-01T07:00:00.000Z",
-      "description": "​​​AWS Secrets Manager now integrates with the AWS Recommended Actions framework to surface contextual, actionable suggestions for your secrets directly in the Secrets Manager console. ​​ ​​With this launch, you can view tailored recommendations alongside your secrets to improve your security posture and follow best practices without leaving the console. For example, you can identify secrets that ",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-tables-table-bucket-increase",
-      "date": "2026-10-01T04:00:00.000Z",
-      "description": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account, increased from 10. This allows you to create up to 1 million tables per AWS Region in an AWS account. With a higher table bucket allowance, you can create a separate table bucket for each dataset, workload, or team, and apply table bucket-level settings such as encryption, access policies, and replication to eac",
-      "tags": [
-        "S3"
-      ]
     }
   ],
   "security": [
@@ -266,25 +266,6 @@
       "description": "",
       "tags": [
         "WAF",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
-      "date": "2026-09-09T21:35:24.000Z",
-      "description": "",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
-      "date": "2026-09-11T19:08:25.000Z",
-      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
-      "tags": [
         "Inspector"
       ]
     },
@@ -309,42 +290,11 @@
       ]
     },
     {
-      "title": "CVE-2026-15895: OS command injection in jsii-diff in AWS jsii",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-057-aws/",
-      "date": "2026-09-22T19:48:47.000Z",
+      "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
+      "date": "2026-09-30T21:17:20.000Z",
       "description": "",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-049-aws/",
-      "date": "2026-09-22T19:49:10.000Z",
-      "description": "",
-      "tags": [
-        "IAM",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-103-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/09/2026 09:30 AM PDT Description: We identified an issue in awslabs.mysql-mcp-server (an open-source, self-hosted Model Context Protocol server distributed via github.com/awslabs/mcp and PyPI). In affected versions, under certain conditions the read-only enforcement could be circumvented via SQL ",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
+      "tags": []
     },
     {
       "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
@@ -354,9 +304,69 @@
       "tags": [
         "Inspector"
       ]
+    },
+    {
+      "title": "CVE-2026-81838 - Zip Slip path traversal in awsdac (diagram-as-code)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-090-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-090-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/27/2026 13:00 PM PDT Description: awsdac (diagram-as-code) is a CLI tool that generates AWS architecture diagrams from YAML definitions, enabling version-controlled, code-driven diagramming. We identified CVE-2026-81838, a Zip Slip (path traversal) issue. When awsdac extracts a zip archive refere",
+      "tags": [
+        "SageMaker",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
+      "date": "2026-09-22T19:48:45.000Z",
+      "description": "",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
+      "date": "2026-10-02T16:38:11.000Z",
+      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
+      "tags": [
+        "ECS",
+        "EKS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
+      "date": "2026-09-22T19:49:29.000Z",
+      "description": "",
+      "tags": [
+        "SageMaker",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
     }
   ],
   "blog": [
+    {
+      "title": "AWS Weekly Roundup: Amazon Bedrock Managed Agents powered by OpenAI, Q3 service availability updates, Kiro workflows, and more (October 5, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-bedrock-managed-agents-powered-by-openai-q3-service-availability-updates-kiro-workflows-and-more-october-5-2026/",
+      "date": "2026-10-05T15:41:19.000Z",
+      "description": "Last week, we announced a public preview of Amazon Bedrock Managed Agents powered by OpenAI, built on a customized version of OpenAI’s Agents API engineered to be AWS-native and integrated with AWS resources. You can now build agents optimized for OpenAI models that run entirely inside AWS with the identities, permissions, and governance controls you […]",
+      "tags": [
+        "IAM",
+        "Bedrock"
+      ]
+    },
     {
       "title": "Announcing AWS Well-Architected Agent, an AI-powered intelligence to optimize your cloud environment (preview)",
       "link": "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview/",
@@ -441,51 +451,48 @@
         "CloudWatch",
         "Bedrock"
       ]
-    },
-    {
-      "title": "AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more (September 21, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/",
-      "date": "2026-09-21T16:11:24.000Z",
-      "description": "Living in the Netherlands, I spend a fair amount of time on trains, and that is usually where I catch up on what the builder community is writing. Until now, that meant opening a laptop or squinting at a browser tab on my phone. This week I found myself scrolling through trending articles and checking […]",
-      "tags": []
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Elevated packet loss",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-10-04T18:56:53.000Z",
-        "description": "Between 8:48 AM and 11:28 AM PDT, we experienced elevated packet loss within a single Availability Zone (eus2-az1) in the EU-SOUTH-2 Region. This issue resulted in elevated API latencies and error rates for multiple workflows and AWS Services. We were automatically alerted to the issue at 8:54 AM, and immediately began work to identify the root cause while taking multiple parallel paths to mitigat",
+        "date": "2026-09-15T10:27:10.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
         "tags": []
       },
       {
-        "title": "Service impact: Elevated packet loss",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-10-04T18:45:47.000Z",
-        "description": "We are seeing early signs of recovery. We will provide you with another update by 12:00 PM PDT.",
+        "date": "2026-09-15T10:22:28.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
         "tags": []
       },
       {
-        "title": "Service impact: Elevated packet loss",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-10-04T17:56:24.000Z",
-        "description": "We have identified the root cause and are currently focusing our mitigation efforts to drive full recovery. While we don't have an exact estimate for how long our current efforts will take, we do expect to see incremental improvements as our efforts proceed. We will provide you with another update by 11:45 AM PDT, or sooner if new information becomes available.",
-        "tags": []
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "tags": [
+          "Lambda"
+        ]
       },
       {
-        "title": "Service impact: Elevated packet loss",
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-10-04T17:06:14.000Z",
-        "description": "Our efforts to mitigate the elevated packet loss with a single Availability Zone (eus2-az1) in the EU-SOUTH-2 Region is still underway. We are seeing some signs of improvement as a result of multiple parallel efforts. We continue to work to confirm root cause and fully mitigate the issue. While we currently do not have an estimate for how long our actions will take, we will keep you informed of ou",
-        "tags": []
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
       },
       {
-        "title": "Service impact: Elevated packet loss",
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-10-04T16:36:48.000Z",
-        "description": "We are experiencing elevated packet loss with a single Availability Zone (eus2-az1) in the EU-SOUTH-2 Region. This issue is also resulting in elevated API latencies and error rates for other workflows and AWS Services. Engineers were automatically engaged and are working to identify the root cause and to mitigate the issue. We will provide you with another update by 10:15 AM PDT or sooner as new i",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
       }
     ]
