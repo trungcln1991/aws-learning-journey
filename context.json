@@ -1,8 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "AWS Global Infrastructure"
   ],
-  "commit_msg": "session 07/10 (phien 132): sang AWS dinh ky + 6 PBI (34217-34222); chieu FMLA: NComputing NC24-29 (WinRM tool scripts/ncom, ncom-who 131 user, quota 4-5GB, sua script don 22:00 + lich 3 ca + r3 hardening, RD license NC25/27 localhost), 3 PBI 34256-34258 parent 22215; Wi-Fi UniFi chia kenh; ra soat FortiGate FMLA; skill/memory/NOW/SESSION/task-schedule/proposals",
-  "updated_at": "2026-10-07T05:56:01Z"
+  "commit_msg": "Zabbix VMware: vCenter VCSA tat tu 24/05, 5 VM thieu open-vm-tools, script dong 4 canh bao restart cu; gap + NOW + skill",
+  "updated_at": "2026-10-07T07:15:19Z"
 }
