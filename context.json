@@ -1,9 +1,7 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL",
-    "EC2 Basics"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "done phien 134 (07/10 toi): SG webapp 58->35/60 (rule dai 62000-62999, TF PR #15), tag Project 31 resource co phi, autoheal VPN them quyen GetMetricStatistics (truoc do dung im), BankLoan Web Deploy (PBI 34272), su co ECS payment image ECR bi xoa, bot VPN DSSR GD1 chi doc, bo learning HTML; SESSION/NOW/proposals/memory/skill",
-  "updated_at": "2026-10-07T09:44:04Z"
+  "commit_msg": "done phien 135 (08/10 sang): NCom tinh lai so quota NTFS 6 may (~104 GB ma, scripts quota-rebuild/check/restore), go WPS per-user 4 user (remove-wps), FortiGate TB reset MK qua FMG Script, IAM/SSO tuan + Automation thang 10, PBI 34296-34300 + chuyen parent 4 PBI sang 22586, LAN FMLA: DNS tinh sai 10.94.3.254, Guest 100 Mbps theo doi, LAN-CCTV noi cheo; SESSION/NOW/proposals/memory/skill/task-schedule",
+  "updated_at": "2026-10-08T04:35:59Z"
 }
