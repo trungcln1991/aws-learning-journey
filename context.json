@@ -1,7 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "done phien 135 (08/10 sang): NCom tinh lai so quota NTFS 6 may (~104 GB ma, scripts quota-rebuild/check/restore), go WPS per-user 4 user (remove-wps), FortiGate TB reset MK qua FMG Script, IAM/SSO tuan + Automation thang 10, PBI 34296-34300 + chuyen parent 4 PBI sang 22586, LAN FMLA: DNS tinh sai 10.94.3.254, Guest 100 Mbps theo doi, LAN-CCTV noi cheo; SESSION/NOW/proposals/memory/skill/task-schedule",
-  "updated_at": "2026-10-08T04:35:59Z"
+  "commit_msg": "kiem region ngoai Singapore (us-west-2 chatbot anh Quang, us-east-1 CloudFront): weekly T3 + skill",
+  "updated_at": "2026-10-08T08:26:30Z"
 }
