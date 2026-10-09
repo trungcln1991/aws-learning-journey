@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 136 (08/10 chieu): bao cao + tracker JCOP, hoa don thang JCOP, region ngoai Singapore, lich dev 06:00; NOW/SESSION/proposals/skill FortiGate/memory",
-  "updated_at": "2026-10-08T09:15:24Z"
+  "commit_msg": "session 137 (09/10 T6): go-live Poultry + JCOP chi phi theo resource (CostResources.cs, kỳ/ước tính/đối chiếu), đổi tag backup dev BackupPlan=dev-weekly, thống kê request Poultry/EScale; NOW/SESSION/memory/skill/task-schedule",
+  "updated_at": "2026-10-09T09:44:19Z"
 }
