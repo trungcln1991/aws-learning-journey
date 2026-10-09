@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T07:13:04.036Z",
+  "generated_at": "2026-10-09T07:16:58.691Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,64 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "OpenAI GPT-6.1 Sol now supports Ultrafast mode on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/",
+      "date": "2026-10-08T19:41:00.000Z",
+      "description": "Today, AWS announces the availability of Ultrafast mode for GPT-6.1 Sol from OpenAI on Amazon Bedrock. Ultrafast mode provides faster inference for workloads where speed matters most. The Amazon Bedrock inference engine delivers the performance, security, and reliability required for production workloads. Use GPT-6.1 Sol Ultrafast for latency-sensitive applications such as real-time coding assista",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Cost Explorer, Budgets, and Dashboards now support Amazon Bedrock product attributes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-bedrock-attributes-in-cost-explorer/",
+      "date": "2026-10-08T18:51:00.000Z",
+      "description": "AWS Cost Explorer, AWS Budgets, and AWS Cost Management Dashboards now let you analyze Amazon Bedrock costs by product attributes, a new dimension that breaks down Bedrock cost by model, model provider, inference type, and feature. In Cost Explorer and Dashboards, you can group and filter costs by these attributes. In Budgets, you can filter budgets by the same attributes. With this launch, financ",
+      "tags": [
+        "RDS",
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon RDS for Oracle now supports minor version upgrade prechecks and a new RDS event to help reduce patching downtime",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-minor-version-upgrade-precheck-new-patching-rds-event/",
+      "date": "2026-10-08T18:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now lets you run a minor version upgrade precheck yourself, before you start an upgrade or before your scheduled maintenance window. RDS for Oracle now also emits a new event during patching that tells you when your DB instance is accepting connections again. With this event, you can bring your applications back while the remaining mainten",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Network Firewall adds wildcard support for container attribute filters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-network-firewall-container-attributes-wildcard",
+      "date": "2026-10-08T16:00:00.000Z",
+      "description": "AWS Network Firewall now supports wildcard matching in container attribute-based inspection filters for Amazon Elastic Kubernetes Service (Amazon EKS) and Amazon Elastic Container Service (Amazon ECS). This enhancement allows you to define attribute filters using wildcard patterns to match multiple container workloads in a single rule, eliminating the need to create individual container associatio",
+      "tags": [
+        "ECS",
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Servers adds CPU burstability for container fleets",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-gamelift-servers-cpu-burstability",
+      "date": "2026-10-08T08:00:00.000Z",
+      "description": "Amazon GameLift Servers now supports CPU burstability for container fleets, giving game developers greater flexibility in how compute resources are allocated and consumed at runtime. Previously, container fleets relied on a fixed CPU value that simultaneously controlled both container packing density and imposed a hard runtime cap. This dual constraint forced developers to choose between efficient",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
+      "title": "Amazon EC2 C8gb instances now generally available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-c8gb/",
+      "date": "2026-10-07T18:26:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8gb instances, powered by the latest-generation AWS Graviton4 processors, are available in the US East (Ohio), US West (N. California), EU (Frankfurt, Ireland, Paris, Stockholm), and Africa (Cape Town) regions. The new instances provide up to 30% better compute performance than AWS Graviton3-based EC2 instances. At up to 300 Gbps EBS bandw",
+      "tags": [
+        "EC2"
+      ]
+    },
     {
       "title": "AWS Capabilities by Region now offers availability notifications for individual features and advanced filters",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/awscapabilities-enhancements/",
@@ -195,58 +253,6 @@
         "VPC",
         "ECS"
       ]
-    },
-    {
-      "title": "AWS Health introduces the version catalog for software lifecycle management",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-health-introduces-version-catalog-software-lifecycle-management",
-      "date": "2026-10-02T18:09:00.000Z",
-      "description": "Today, AWS Health introduces the version catalog which provides a centralized source of lifecycle information for software versions across AWS services. The version catalog helps customers move from reactive to proactive management of version upgrades and end-of-support risk. It is available in the AWS Health Dashboard, and customers on Business Support Plus, Enterprise Support, or Unified Operati",
-      "tags": []
-    },
-    {
-      "title": "Amazon Aurora DSQL now supports partial indexes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-dsql-partial-indexes/",
-      "date": "2026-10-02T17:30:00.000Z",
-      "description": "Amazon Aurora DSQL now lets you build an index over a specific subset of a table, storing only qualifying rows rather than every row in the entire table, which improves query performance and lowers index storage cost. Many tables hold a small working set alongside a much larger history, such as open orders among years of completed ones. Add a WHERE clause to CREATE INDEX to index just that working",
-      "tags": [
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EKS and Amazon EKS Distro now support Kubernetes version 1.37",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-distro-kubernetes-version-1-37",
-      "date": "2026-10-02T17:30:00.000Z",
-      "description": "Kubernetes version 1.37 introduced several new features and bug fixes, and AWS is excited to announce that you can now use Amazon Elastic Kubernetes Service (EKS) and Amazon EKS Distro to run Kubernetes version 1.37. Starting today, you can create new EKS clusters using version 1.37 and upgrade existing clusters to version 1.37 using the EKS console, the eksctl command line interface, or through a",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "AWS Brazil automates distribution of non-Brazilian software product licenses to Brazilian customers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-brazil-software-license-distribution/",
-      "date": "2026-10-02T16:30:00.000Z",
-      "description": "AWS Brazil now provides an automated distribution workflow through the AWS Brazil 2P Distribution Program. Eligible non-Brazilian independent software vendors (ISVs) grant AWS Brazil the right to distribute their Software-as-a-Service (SaaS) product licenses, and AWS Brazil distributes them to customers in Brazil. AWS Brazil is the seller of record, invoicing Brazilian customers in Brazilian Reais",
-      "tags": [
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "The AWS MCP Server is now available in six additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-mcp-server-six-additional-regions/",
-      "date": "2026-10-02T08:00:00.000Z",
-      "description": "The AWS MCP Server is now available in six additional AWS Regions: Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), Europe (London), and US West (Oregon). The AWS MCP Server, part of the Agent Toolkit for AWS , is a managed Model Context Protocol server that gives AI coding agents a single interface to AWS APIs, so agents can discover and call AWS services w",
-      "tags": []
-    },
-    {
-      "title": "AgentCore Gateway supports private TLS certificates for VPC endpoints",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-private-tls-vpc/",
-      "date": "2026-10-02T08:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore Gateway now supports TLS certificates signed by private certificate authorities (CAs) on MCP, OpenAPI, and HTTP proxy targets. This feature enables you to connect securely to gateway targets that use TLS certificates issued by your own private certificate authority. With this feature, you can establish native connections to private endpoints in your VPC without requiring a",
-      "tags": [
-        "VPC",
-        "Bedrock"
-      ]
     }
   ],
   "security": [
@@ -257,6 +263,25 @@
       "description": "",
       "tags": [
         "WAF",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
+      "date": "2026-09-09T21:35:24.000Z",
+      "description": "",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
+      "date": "2026-09-11T19:08:25.000Z",
+      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
+      "tags": [
         "Inspector"
       ]
     },
@@ -281,69 +306,48 @@
       ]
     },
     {
-      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-09-22T19:48:46.000Z",
+      "title": "CVE-2026-15895: OS command injection in jsii-diff in AWS jsii",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-057-aws/",
+      "date": "2026-09-22T19:48:47.000Z",
       "description": "",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-81838 - Zip Slip path traversal in awsdac (diagram-as-code)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-090-aws/",
+      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
       "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-090-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/27/2026 13:00 PM PDT Description: awsdac (diagram-as-code) is a CLI tool that generates AWS architecture diagrams from YAML definitions, enabling version-controlled, code-driven diagramming. We identified CVE-2026-81838, a Zip Slip (path traversal) issue. When awsdac extracts a zip archive refere",
+      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
       "tags": [
-        "SageMaker",
         "Inspector"
       ]
     },
     {
-      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-09-22T19:48:45.000Z",
+      "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-049-aws/",
+      "date": "2026-09-22T19:49:10.000Z",
       "description": "",
       "tags": [
+        "IAM",
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
-      "date": "2026-10-02T16:38:11.000Z",
-      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
+      "title": "CVE-2026-107332 - Insecure default file permissions on cached credentials in AWS Toolkit for Visual Studio Code",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-129-aws/",
+      "date": "2026-10-08T17:43:09.000Z",
+      "description": "Bulletin ID: 2026-129-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/08/2026 10:30 PM PDT Description: AWS Toolkit for Visual Studio Code is an open source extension that lets developers work with AWS services, including Amazon CodeCatalyst, from within Visual Studio Code. We identified CVE-2026-107332, an issue in the CodeCatalyst connection handler. When a user ",
       "tags": [
-        "ECS",
-        "EKS",
+        "IAM",
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-105812 and CVE-2026-106032: Issue with Bedrock AgentCore Starter Toolkit - Import Agent Code Injection and SSRF",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-127-aws/",
-      "date": "2026-10-06T20:41:24.000Z",
-      "description": "Bulletin ID: 2026-127-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/06/2026 13:30 PM PDT Description: bedrock-agentcore-starter-toolkit is an AWS-maintained open-source Python package, distributed via GitHub and PyPI, that provides a command-line interface for importing Amazon Bedrock Agents into local development environments. We identified CVE-2026-105812, a co",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Issue with Amazon SageMaker Python SDK - Model artifact integrity verification issues (CVE-2026-8596 &amp; CVE-2026-8597)",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-031-aws/",
-      "date": "2026-10-06T20:42:03.000Z",
-      "description": "",
-      "tags": [
-        "SageMaker",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-75897 - Uncontrolled resource consumption in OpenSearch Dashboards capabilities route",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-082-aws/",
+      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
       "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-082-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/18/2026 10:00 AM PDT Description: OpenSearch Dashboards is the open-source visualization and management UI for OpenSearch, and ships as part of Amazon OpenSearch Service. We identified CVE-2026-75897, an improper input validation in the capabilities route handler in OpenSearch Dashboards. The han",
+      "description": "Bulletin ID: 2026-103-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/09/2026 09:30 AM PDT Description: We identified an issue in awslabs.mysql-mcp-server (an open-source, self-hosted Model Context Protocol server distributed via github.com/awslabs/mcp and PyPI). In affected versions, under certain conditions the read-only enforcement could be circumvented via SQL ",
       "tags": [
         "RDS",
         "Inspector"
