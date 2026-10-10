@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T07:16:58.691Z",
+  "generated_at": "2026-10-10T06:54:05.901Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,108 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Security Hub now exports findings to S3 in CSV or JSON format",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-exports-s3-csv-json/",
+      "date": "2026-10-09T22:00:00.000Z",
+      "description": "Today, AWS Security Hub announces support for exporting findings to Amazon S3 in CSV or JSON (OCSF) format. Security teams that need findings outside the console for use cases such as compliance reporting and audit evidence can now export findings from every findings page in the Security Hub console, including Threats, Exposure, Vulnerabilities, Posture Management, Sensitive Data, and All Findings",
+      "tags": [
+        "S3",
+        "CloudTrail",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon EC2 R8gd instances are now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8gd-thf/",
+      "date": "2026-10-09T19:29:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) R8gd instances are available in AWS European Sovereign Cloud (Germany) region. These instances feature up to 11.4 TB of local NVMe-based SSD block-level storage and are powered by AWS Graviton4 processors, delivering up to 30% better performance over Graviton3-based instances. These instances are built on the AWS Nitro System and are a great fit for applic",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon EC2 R8g instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8g-instances-thf/",
+      "date": "2026-10-09T19:19:00.000Z",
+      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8g instances are available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 R8g instances are ideal for memory-intensive workloads such as databases, in-memory caches, and real-time big",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock now supports reasoning summaries for OpenAI models",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-reasoning-summaries-openai/",
+      "date": "2026-10-09T17:44:00.000Z",
+      "description": "Amazon Bedrock now supports the reasoning.summary parameter for OpenAI models through the Responses API. This capability lets you request a human-readable summary of a model’s reasoning alongside its response, helping you understand its approach to complex tasks such as coding, analysis, and multi-step problem solving. Reasoning summaries give developers additional context for evaluating responses",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Anthropic Claude Sonnet 5.5 and Claude Opus 5.5 are now available on Kiro in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/kiro-claude-5-5-aws-govcloud-us/",
+      "date": "2026-10-09T17:13:00.000Z",
+      "description": "Two new Anthropic models are now available in the Kiro IDE and CLI for the AWS GovCloud (US) Regions. Claude Opus 5.5 is Anthropic's most capable Opus model yet and a step up from Opus 5 on long-running agentic coding work. Opus 5.5 thinks adaptively on every request, deciding how much effort each task needs, and completes tasks with roughly 40% fewer tool calls and about half the tokens of Opus 5",
+      "tags": []
+    },
+    {
+      "title": "Amazon Connect Customer now provides automated checks to improve performance evaluation forms",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-connect-customer-automated-checks-evaluation-forms/",
+      "date": "2026-10-09T17:00:00.000Z",
+      "description": "Amazon Connect Customer now suggests changes to performance evaluation forms that improve the accuracy of evaluations automatically filled by AI. While setting up an evaluation form, managers can run an automated check that compares the form against best practices with a single click. Managers then receive a list of evaluation questions that are missing context for AI to score reliably, along with",
+      "tags": []
+    },
+    {
+      "title": "Amazon S3 Vectors metadata pre-filtering is now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-vectors-metadata-pre-filtering-in-govcloud-regions/",
+      "date": "2026-10-09T17:00:00.000Z",
+      "description": "Amazon S3 Vectors metadata pre-filtering is now available in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. Pre-filtering evaluates metadata filters before running similarity search, returning up to 5x more of the matching vectors when your filter is selective. S3 Vectors also adds a prefix match operator ($startsWith) for filtering on values like paths and URLs. Together, these im",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "AWS Lambda supports OAuth authentication for self-managed Apache Kafka event sources",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-Lambda-supports-oauth-kafka-esm/",
+      "date": "2026-10-09T16:30:00.000Z",
+      "description": "AWS Lambda now supports OAuth authentication for self-managed Apache Kafka event source mappings (ESM), including Kafka clusters that customers run themselves and managed offerings such as Confluent Cloud, Aiven, and Redpanda. With this launch, customers can authenticate their Lambda Kafka consumers through their enterprise identity provider, helping them meet the security and compliance requireme",
+      "tags": [
+        "Lambda",
+        "IAM",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon Quick now supports brand templates for on-brand presentations and documents",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-quick-brand-templates-on-brand-presentations-documents/",
+      "date": "2026-10-09T15:00:00.000Z",
+      "description": "Starting today, you can upload brand templates in Amazon Quick, allowing you to create presentations and documents that match your approved visual identity. Brand managers set up a template once and everyone gets on-brand output, without hunting for the right file in each chat. Brand managers upload PowerPoint or Word templates, or pull them from a connected file store such as SharePoint. Quick ex",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio now supports custom Tooling blueprints",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-custom-tooling-blueprints/",
+      "date": "2026-10-09T08:00:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports custom Tooling blueprints, giving domain administrators the ability to define the foundation of every project by using their own AWS CloudFormation templates. Administrators can tailor project environments to meet organization-specific requirements, such as IAM role names that comply with company naming standards or custom permissions boundaries instead",
+      "tags": [
+        "RDS",
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "TwelveLabs Pegasus 1.5 model now available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/twelve-labs-pegasus-1-5-aws/",
+      "date": "2026-10-09T05:32:00.000Z",
+      "description": "Amazon Bedrock now supports TwelveLabs Pegasus 1.5, a video-to-text model that generates structured, time-coded metadata from video. Until now, finding a moment in a large video library meant knowing where to look before you could ask about it. Pegasus 1.5 reads an entire video and labels what happens and when, turning footage into data your applications can query. You define what matters to your ",
+      "tags": [
+        "Bedrock",
+        "Security Hub"
+      ]
+    },
     {
       "title": "OpenAI GPT-6.1 Sol now supports Ultrafast mode on Amazon Bedrock",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/",
@@ -71,6 +173,16 @@
       "description": "Amazon GameLift Servers now supports CPU burstability for container fleets, giving game developers greater flexibility in how compute resources are allocated and consumed at runtime. Previously, container fleets relied on a fixed CPU value that simultaneously controlled both container packing density and imposed a hard runtime cap. This dual constraint forced developers to choose between efficient",
       "tags": [
         "ECS"
+      ]
+    },
+    {
+      "title": "Amazon GuardDuty RDS Protection now detects data exfiltration and destruction in Aurora and RDS databases",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/guardduty-rds-data-exfiltration/",
+      "date": "2026-10-08T08:00:00.000Z",
+      "description": "Amazon GuardDuty announces an expansion of RDS Protection that extends threat detection beyond login anomalies to identify data exfiltration and data destruction attacks targeting Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL databases. Available as RDS Protection for data activity, this new capability uses machine learning (ML)-based anomaly detection and integrated threat intelligence t",
+      "tags": [
+        "RDS",
+        "SageMaker"
       ]
     },
     {
@@ -144,144 +256,16 @@
       "tags": [
         "S3"
       ]
-    },
-    {
-      "title": "GLM 5.3 by Z.ai is now generally available on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/",
-      "date": "2026-10-05T21:42:00.000Z",
-      "description": "Amazon Bedrock now supports GLM 5.3 from Z.ai, giving you a powerful new option for agentic coding and long-horizon software engineering work. Customers using GLM 5.3 on Amazon Bedrock have access to the latest open weight model with the AWS security and compliance posture. GLM 5.3 is Z.ai’s flagship model, a mixture-of-experts architecture with 753B total parameters and roughly 40B active per tok",
-      "tags": [
-        "Bedrock",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS IAM Identity Center now supports network access controls for Identity Store",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-identity-store-network-controls/",
-      "date": "2026-10-05T21:00:00.000Z",
-      "description": "AWS IAM Identity Center helps you configure the single sign-on experience for your workforce to AWS accounts and applications. IAM Identity Center now supports network access controls for Identity Store, which stores your users and groups. You can restrict access to the Identity Store API and the SCIM API based on the network that requests originate from. Your custom applications and user provisio",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon EC2 Hpc8a instances are now available in Asia Pacific (Singapore)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-hpc8a-asia-pacific/",
-      "date": "2026-10-05T20:33:00.000Z",
-      "description": "Starting today, Amazon EC2 Hpc8a instances are available in Asia Pacific (Singapore) region. These instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin). With a maximum frequency of 4.5GHz, Hpc8a instances deliver up to 40% higher performance and up to 25% better price performance compared to Hpc7a instances, helping customers accelerate compute-intensive workloads while",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Control Tower AFT now supports plan-only customization runs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-control-tower-aft/",
-      "date": "2026-10-05T19:31:00.000Z",
-      "description": "AWS Control Tower Account Factory for Terraform (AFT) now supports plan-only customization runs, giving administrators the ability to preview Terraform changes before applying them across their managed accounts. AFT is an open-source Terraform module that automates account provisioning and customization in AWS Control Tower environments. Previously, invoking customizations always triggered a full ",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "AWS Continuum for Penetration Testing now supports continuous penetration testing integrated directly into your CI/CD pipeline",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-continuum-penetration-testing/",
-      "date": "2026-10-05T18:32:00.000Z",
-      "description": "AWS Continuum for Penetration Testing now integrates continuous penetration testing directly into your CI/CD pipeline (public preview) AWS Continuum for Penetration Testing (formerly AWS Security Agent) already provides continuous, on-demand penetration testing without the need to contract third-party pentest vendors. Now, in public preview, Continuum for Penetration Testing shifts security testin",
-      "tags": []
-    },
-    {
-      "title": "Amazon EC2 introduces shared tags for Amazon Machine Images",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-ami-shared-tags",
-      "date": "2026-10-05T17:28:00.000Z",
-      "description": "Amazon EC2 now supports AMI tag sharing, a new feature that lets AMI owners make selected tags visible to all AWS accounts an AMI is shared with. Whether an AMI is shared with an account, across an organization, or made public, a shared tag is automatically shared alongside the AMI, eliminating the need to build and maintain custom tag replication workflows. AMI owners simply add the 'ec2:SharedTa",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Client VPN now supports device posture assessment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-client-vpn-device-posture/",
-      "date": "2026-10-05T17:00:00.000Z",
-      "description": "AWS Client VPN now supports device posture assessment, allowing you to verify that connecting user devices meet your security and compliance requirements before granting network access. This feature integrates with your existing device posture providers, so only trusted, compliant devices can access your AWS resources through Client VPN. Previously, Client VPN authenticated users through certifica",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS Advanced Ruby Driver Wrapper is generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ruby-driver-wrapper-available/",
-      "date": "2026-10-05T17:00:00.000Z",
-      "description": "The Amazon Web Services (AWS) Advanced Ruby Driver Wrapper is now generally available for use with Amazon RDS and Amazon Aurora PostgreSQL and MySQL-compatible databases. This advanced database driver reduces RDS Blue/Green switchover, Aurora Global database switchover and database failover times, improving application availability. Additionally, it supports multiple authentication mechanisms for ",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Batch now supports Amazon EKS access entry authentication",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-batch-access-entries/",
-      "date": "2026-10-05T15:31:00.000Z",
-      "description": "AWS Batch now supports Amazon EKS access entry authentication for compute environments. EKS access entries provide an API-driven approach to granting IAM principals access to Kubernetes clusters, complementing the existing aws-auth ConfigMap . AWS Batch can now authenticate to your cluster through the access entry mechanism, simplifying cluster setup and authentication lifecycle management. To get",
-      "tags": [
-        "IAM",
-        "EKS"
-      ]
-    },
-    {
-      "title": "AWS Private CA now provides detailed certificate issuance logs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-private-ca-certificate-issuance-logs/",
-      "date": "2026-10-05T09:00:00.000Z",
-      "description": "AWS Private CA announces detailed certificate issuance logs, a new AWS CloudTrail service event that records the complete certificate content, issuing CA information, requester identity, and signing status for every issuance. You can use these events for compliance auditing, certificate inventory, algorithm migration tracking, and failed-issuance monitoring. Previously, the CloudTrail management e",
-      "tags": [
-        "RDS",
-        "IAM",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Announcing Amazon Nova 2.5 Sonic with improved reasoning for voice agents",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-nova-2.5-sonic/",
-      "date": "2026-10-05T08:10:00.000Z",
-      "description": "Today, we announce the general availability of Amazon Nova 2.5 Sonic, our latest speech-to-speech model for natural, real-time voice agents. This release brings improved reasoning, instruction following, and tool-calling accuracy to real-time voice applications. The model also delivers lower latency, enabling faster, more natural interactions. Nova 2.5 Sonic helps voice agents maintain context, fo",
-      "tags": []
-    },
-    {
-      "title": "Amazon ECS adds Amazon VPC Lattice support for blue/green, linear, and canary deployments",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-vpc-lattice-blue-green-deployments",
-      "date": "2026-10-02T20:18:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) now supports built-in blue/green, linear, and canary deployment strategies for ECS services using Amazon VPC Lattice . Applications that use VPC Lattice for service-to-service communication across VPCs and AWS accounts can now take advantage of managed traffic shifting natively from Amazon ECS when rolling out updates. With this launch, ECS customers u",
-      "tags": [
-        "VPC",
-        "ECS"
-      ]
     }
   ],
   "security": [
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-09-22T19:49:10.000Z",
+      "date": "2026-10-09T18:19:17.000Z",
       "description": "",
       "tags": [
         "WAF",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18830 - Issue with Amazon Bedrock AgentCore harness – Insufficient Input Validation",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-073-aws/",
-      "date": "2026-09-09T21:35:24.000Z",
-      "description": "",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
-      "date": "2026-09-11T19:08:25.000Z",
-      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
-      "tags": [
         "Inspector"
       ]
     },
@@ -306,32 +290,11 @@
       ]
     },
     {
-      "title": "CVE-2026-15895: OS command injection in jsii-diff in AWS jsii",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-057-aws/",
-      "date": "2026-09-22T19:48:47.000Z",
+      "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
+      "date": "2026-10-07T20:16:45.000Z",
       "description": "",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-13769 – Insecure file permissions in AWS CLI",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-049-aws/",
-      "date": "2026-09-22T19:49:10.000Z",
-      "description": "",
-      "tags": [
-        "IAM",
-        "Inspector"
-      ]
+      "tags": []
     },
     {
       "title": "CVE-2026-107332 - Insecure default file permissions on cached credentials in AWS Toolkit for Visual Studio Code",
@@ -344,12 +307,51 @@
       ]
     },
     {
-      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
-      "date": "2026-09-09T21:30:11.000Z",
-      "description": "Bulletin ID: 2026-103-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/09/2026 09:30 AM PDT Description: We identified an issue in awslabs.mysql-mcp-server (an open-source, self-hosted Model Context Protocol server distributed via github.com/awslabs/mcp and PyPI). In affected versions, under certain conditions the read-only enforcement could be circumvented via SQL ",
+      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
+      "date": "2026-09-22T19:48:46.000Z",
+      "description": "",
       "tags": [
-        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-81838 - Zip Slip path traversal in awsdac (diagram-as-code)",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-090-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-090-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/27/2026 13:00 PM PDT Description: awsdac (diagram-as-code) is a CLI tool that generates AWS architecture diagrams from YAML definitions, enabling version-controlled, code-driven diagramming. We identified CVE-2026-81838, a Zip Slip (path traversal) issue. When awsdac extracts a zip archive refere",
+      "tags": [
+        "SageMaker",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
+      "date": "2026-09-22T19:48:45.000Z",
+      "description": "",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
+      "date": "2026-10-02T16:38:11.000Z",
+      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
+      "tags": [
+        "ECS",
+        "EKS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-105812 and CVE-2026-106032: Issue with Bedrock AgentCore Starter Toolkit - Import Agent Code Injection and SSRF",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-127-aws/",
+      "date": "2026-10-06T20:41:24.000Z",
+      "description": "Bulletin ID: 2026-127-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/06/2026 13:30 PM PDT Description: bedrock-agentcore-starter-toolkit is an AWS-maintained open-source Python package, distributed via GitHub and PyPI, that provides a command-line interface for importing Amazon Bedrock Agents into local development environments. We identified CVE-2026-105812, a co",
+      "tags": [
+        "Bedrock",
         "Inspector"
       ]
     }
