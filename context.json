@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
     "VPC Fundamentals"
   ],
-  "commit_msg": "JCOP Bao cao ung dung (ngay/tuan/thang, loc cheo, xem sau ky, Su co & API tu ALB log + Windows event log, dung bu co tien do %) + inventory quet du 5 region SCP (RDS/Redis/ECS Oregon) + recycle 4 pool Poultry, go route API GW escale, 4 PBI 34456-34459; memory/skill/task-schedule",
-  "updated_at": "2026-10-12T05:20:27Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-10-13 15:13",
+  "updated_at": "2026-10-13T08:13:50Z"
 }
