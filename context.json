@@ -2,8 +2,8 @@
   "suggest_topics": [
     "EC2 Basics",
     "RDS & Database Fundamentals",
-    "VPC Fundamentals"
+    "AWS Global Infrastructure"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-10-13 15:13",
-  "updated_at": "2026-10-13T08:13:50Z"
+  "commit_msg": "session 139 (13/10 T3): JCOP song ngu VN/EN + Lo trinh AWS 61 trang (Huong dan & Runbook, icon AWS chinh thuc, so do dung, mo phong) + Xem nhu AWS Console (AwsView) + tab Bao mat app (AppSecurity) + luat Tro ly; goi 1715 chua deploy: Xuat HTML/PDF du so + tab, goi y 2 nhom (Van hanh chi admin), Tro ly hieu cau noi tiep, tai lieu AI co RACI/bao mat/quota; test sweep/wiki/i18n; dev67 camera; RDS conn theo doi; NOW/SESSION/task-schedule",
+  "updated_at": "2026-10-13T10:22:16Z"
 }
