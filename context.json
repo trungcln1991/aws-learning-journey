@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "JCOP kiem tra toan dien: sua ky cuoi bi cat (CloudWatch tra ca ky khi EndTime khong tron Period), che SQL theo vai tro + MaskSql/NormPathStrict, khop IIS cua so 3s + uu tien time-taken, bao doc IIS chua du, chong de ghi de ngay, link tab=slow, race bo loc tu link, cot Gio sap xep; selftest-real tren log that; test 4 bo xanh; skill + memory + gap thu log IIS",
-  "updated_at": "2026-10-14T06:46:16Z"
+  "commit_msg": "done 14/10: JCOP Request cham da len prod (PR #20 + deploy 1344), bay tham so deploy, CI terraform Plan prod do thieu zip Lambda; NOW/SESSION/task-schedule",
+  "updated_at": "2026-10-14T07:53:47Z"
 }
