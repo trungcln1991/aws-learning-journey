@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "AWS Global Infrastructure"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "session 139 (13/10 T3): JCOP song ngu VN/EN + Lo trinh AWS 61 trang (Huong dan & Runbook, icon AWS chinh thuc, so do dung, mo phong) + Xem nhu AWS Console (AwsView) + tab Bao mat app (AppSecurity) + luat Tro ly; goi 1715 chua deploy: Xuat HTML/PDF du so + tab, goi y 2 nhom (Van hanh chi admin), Tro ly hieu cau noi tiep, tai lieu AI co RACI/bao mat/quota; test sweep/wiki/i18n; dev67 camera; RDS conn theo doi; NOW/SESSION/task-schedule",
-  "updated_at": "2026-10-13T10:22:16Z"
+  "commit_msg": "session 141 (14/10 T4 sang): aws-state khong loi (GitHub chay moi dem), dinh ky T4 (webapp/RDS, backup, CE -1.4%), truy chi phi traffic Internet dev67/68 30 ngay $21.86 (OneDrive/SharePoint 33 GB 12-13/10, us-east-1 SaaS, AlienVault), script SSM dev-egress-who/sample; dong gap admin JCOP + poultrysouth; NOW/SESSION/task-schedule/skill",
+  "updated_at": "2026-10-14T01:50:36Z"
 }
