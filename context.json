@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "EC2 Basics",
+    "ALB & Auto Scaling"
   ],
-  "commit_msg": "done 14/10: JCOP Request cham da len prod (PR #20 + deploy 1344), bay tham so deploy, CI terraform Plan prod do thieu zip Lambda; NOW/SESSION/task-schedule",
-  "updated_at": "2026-10-14T07:53:47Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-10-14 14:54",
+  "updated_at": "2026-10-14T07:54:23Z"
 }
