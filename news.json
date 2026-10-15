@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T05:59:03.964Z",
+  "generated_at": "2026-10-15T05:45:16.204Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,105 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon CloudWatch announces log routing and chained log parsers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cloudwatch-pipelines-log-routing/",
+      "date": "2026-10-14T22:14:00.000Z",
+      "description": "Amazon CloudWatch now supports conditional log routing and chained parsers via pipelines, giving you more control over how log data is transformed and which CloudWatch log group it's sent to. CloudWatch pipelines is a fully managed service that ingests, transforms, and routes telemetry to CloudWatch without managing infrastructure. Log pipelines often carry a mix of event types that belong in diff",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Studio simplifies getting started for new AI/ML builders with social sign-in",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-studio-social-sign-in/",
+      "date": "2026-10-14T22:00:00.000Z",
+      "description": "Amazon SageMaker Studio now lets new customers sign up with their Google, GitHub, or Apple credentials and land inside a fully configured Studio environment - no traditional AWS account setup, no credit card, and no console navigation required. Previously, new customers who discovered a model on Hugging Face or an AWS product page had to complete a multi-step AWS account creation process, provide ",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "ARC Region switch adds four new capabilities",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/region-switch-target-health-ssm-lambda/",
+      "date": "2026-10-14T17:38:00.000Z",
+      "description": "Amazon Application Recovery Controller (ARC) Region switch helps you orchestrate the failover of multi-Region applications to achieve a bounded recovery time during a Regional impairment. Today, Region switch adds four new capabilities: AWS Systems Manager Run Command execution block, payloads for custom action Lambda execution block, service quota parity checks, and wait for target group health f",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "AWS License Manager now supports license type conversions for Ubuntu Pro purchased through AWS Marketplace",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-license-manager-conversions-ubuntu-pro-marketplace/",
+      "date": "2026-10-14T17:04:00.000Z",
+      "description": "AWS License Manager now supports in-place upgrades for EC2 Ubuntu LTS (Long Term Support) instances to Ubuntu Pro available on AWS Marketplace. This allows customers to strengthen their security posture and meet compliance requirements without rebuilding their fleet or migrating workloads to a new instance or AMI. With an Ubuntu Pro subscription, customers receive security patches for up to 10 yea",
+      "tags": [
+        "EC2",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS HealthOmics introduces resource fallback order for Nextflow workflows",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-healthomics-resource-fallback-for-Nextflow/",
+      "date": "2026-10-14T16:00:00.000Z",
+      "description": "Today, AWS HealthOmics introduces the resource fallback directive for tasks in your Nextflow workflows, enabling you to define an ordered list of preferred accelerator types, including an option to fallback to CPU instances. Researchers and bioinformaticians can use this directive to reduce time spent diagnosing and resubmitting runs due to accelerator constraints and keep production workflows run",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "AWS Backup now supports Amazon FSx file systems in the Asia Pacific (New Zealand) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-fsx-asia-pacific-new-zealand/",
+      "date": "2026-10-14T08:00:00.000Z",
+      "description": "AWS Backup now supports Amazon FSx for Lustre, Amazon FSx for NetApp ONTAP, Amazon FSx for OpenZFS, and Amazon FSx for Windows File Server in the Asia Pacific (New Zealand) Region. With this launch, you can use AWS Backup to centrally automate and manage data protection for your Amazon FSx file systems in the Asia Pacific (New Zealand) Region, alongside your other supported AWS resources. You can ",
+      "tags": []
+    },
+    {
+      "title": "Announcing Blockchain Snapshots on AWS for node bootstrapping",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/blockchain-snapshots-node-bootstrapping/",
+      "date": "2026-10-14T08:00:00.000Z",
+      "description": "For blockchain node operators running Ethereum or Solana, AWS is announcing Blockchain Snapshots on AWS, an initiative that publishes pre-synced public blockchain node chain data in Amazon Simple Storage Service (Amazon S3) so you can bootstrap a node from a snapshot instead of peer-to-peer syncing from the network. These snapshots are hosted on Amazon S3 within AWS infrastructure, enabling custom",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "AWS Transfer Family console supports SVG logos and ICO favicons for web apps",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-svg-ico-favicons/",
+      "date": "2026-10-14T08:00:00.000Z",
+      "description": "The AWS Transfer Family console now supports SVG files for logos and ICO files for favicons in web apps, with upload limits increased to 2 MB. This gives you more flexibility to use existing branding assets when customizing your web app. Previously, the console accepted only JPG and PNG files and limited logo uploads to 50 KB and favicon uploads to 20 KB. The console automatically resizes images a",
+      "tags": []
+    },
+    {
+      "title": "AWS Transfer Family now supports AWS Secrets Manager storage for SFTP server host keys",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-secrets-host-keys/",
+      "date": "2026-10-14T08:00:00.000Z",
+      "description": "AWS Transfer Family now lets you store SFTP server host keys in AWS Secrets Manager in your own AWS account. This gives you greater control over your server identity and helps simplify server migrations and failover. Previously, Transfer Family stored host keys within the service, so you could not retrieve the associated private key material. With this launch, you can choose Secrets Manager as the",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon RDS Proxy now supports SQL Server 2022",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/rds-proxy-supports-sqlserver-2022",
+      "date": "2026-10-14T07:00:00.000Z",
+      "description": "Amazon RDS Proxy , a fully managed, highly available database proxy for Amazon Relational Database Service (RDS) , now supports Amazon RDS for SQL Server instances running major version 2022. Amazon RDS Proxy sits between your application and the database to pool and share established database connections, improving database efficiency and application scalability. For Amazon RDS for SQL Server Mul",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-vercel-marketplace-v0",
+      "date": "2026-10-14T04:00:00.000Z",
+      "description": "Amazon S3, including S3 Tables and S3 Vectors, is now available on the Vercel Marketplace and v0 by Vercel. Developers can create and connect S3 resources in seconds without leaving their development environment, getting the durability, scalability, and performance of S3 through Vercel's streamlined provisioning workflow. Millions of customers rely on S3 for low-cost, high-performance storage to p",
+      "tags": [
+        "S3",
+        "SageMaker",
+        "Cost"
+      ]
+    },
+    {
       "title": "AWS Security Hub now supports resource criticality for prioritization",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-resource-criticality/",
       "date": "2026-10-14T01:00:00.000Z",
@@ -41,6 +140,15 @@
       "tags": [
         "CloudWatch",
         "ECS"
+      ]
+    },
+    {
+      "title": "AWS Lambda durable functions increases durable operation and checkpoint payload limits",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-durable-gen-limit-increase/",
+      "date": "2026-10-13T22:00:00.000Z",
+      "description": "Starting today, AWS Lambda durable functions increases the maximum number of durable operations per execution from 3,000 to 30,000, and the maximum checkpoint payload size from 256 KB to 1 MB. Higher operation limits let you safely do more work in a single execution including expanding iterative loops, polling for longer time periods, and building more complex rollback paths that run when a step f",
+      "tags": [
+        "Lambda"
       ]
     },
     {
@@ -135,119 +243,13 @@
       "date": "2026-10-12T22:28:00.000Z",
       "description": "Amazon Connect Customer can now fill in the step-by-step guides that agents complete after a contact, using information extracted from customer conversations, such as booking identifiers, claim numbers, and conversation summaries. Managers can set which information populates each form field. Agents can review and submit rather than manually typing in each field, saving time and improving data accu",
       "tags": []
-    },
-    {
-      "title": "AWS Lambda announces Lambda Web Functions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-web-functions/",
-      "date": "2026-10-12T19:30:00.000Z",
-      "description": "AWS Lambda announces Lambda Web Functions, a new serverless compute primitive where your code handles HTTP requests directly. Your code listens on a port and handles requests as it would on any HTTP server. You use frameworks you already know, such as Express or Hono, with no adapters or custom configuration. This enables you to serve workloads such as AI inference endpoints, server-side rendered ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Announcing consumption-based pricing for short-term memory in Amazon Bedrock AgentCore",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-memory-consumption-based-pricing",
-      "date": "2026-10-12T16:00:00.000Z",
-      "description": "Announcing consumption-based pricing for short-term memory in Amazon Bedrock AgentCore Amazon Bedrock AgentCore memory now prices short-term memory (STM) based on the data your agents ingest, retrieve, and store, replacing the previous flat rate per event. AgentCore memory gives agents in-session context through short-term memory and persistent knowledge across sessions through long-term memory. W",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS Transfer Family supports custom ports for public SFTP servers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-custom-ports-sftp/",
-      "date": "2026-10-12T08:00:00.000Z",
-      "description": "AWS Transfer Family now lets you configure custom ports on public SFTP servers and choose a communication mode for each port. You can support clients that require different ports or start SFTP connections differently on a single server. Previously, public SFTP servers accepted connections only on port 22 and used server-first communication. With this launch, you can configure up to three ports (22",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Express One Zone is now available in 4 additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-express-one-zone-4-additional-regions/",
-      "date": "2026-10-12T08:00:00.000Z",
-      "description": "The Amazon S3 Express One Zone storage class is now available in 4 additional AWS Regions: Europe (London), Asia Pacific (Jakarta), Asia Pacific (Hong Kong), and Africa (Cape Town). Amazon S3 Express One Zone is a high-performance, single-Availability Zone storage class purpose-built to deliver consistent single-digit millisecond data access for your most frequently accessed data and latency-sensi",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
-      "title": "AWS Secrets Manager adds managed external secrets support for Databricks and Twilio",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/secrets-manager-managed-external-secrets-databricks-twilio/",
-      "date": "2026-10-12T07:00:00.000Z",
-      "description": "AWS Secrets Manager now extends its managed external secrets capability to include Databricks and Twilio, enabling you to automatically rotate the credentials that your data pipelines and messaging applications use to call these services. You set up rotation directly from the AWS Management Console or API without writing or maintaining any custom rotation Lambda functions. Long-lived credentials o",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon ElastiCache for Valkey introduces ElastiCache Insights",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-elasticache-valkey-elasticache-insights/",
-      "date": "2026-10-12T07:00:00.000Z",
-      "description": "Amazon ElastiCache for Valkey now features ElastiCache Insights, a pre-built dashboard in Amazon CloudWatch for your node-based clusters. ElastiCache Insights brings cluster health, memory, compute, network, command throughput, latency, keyspace, and errors into a single view sourced from a set of OpenTelemetry metrics that ElastiCache publishes automatically. You can use ElastiCache Insights to c",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon EMR now supports native data quality checks in Apache Spark jobs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-emr-data-quality-spark/",
-      "date": "2026-10-12T07:00:00.000Z",
-      "description": "Amazon EMR now validates data quality natively within Apache Spark jobs. Data engineering teams can catch quality issues inline before bad data reaches downstream systems, without building or maintaining separate validation infrastructure. Amazon EMR Data Quality, powered by AWS Glue, is available at no additional cost and uses the same declarative rules language (Data Quality Definition Language)",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Service now supports index-level encryption",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/opensearch-index-level-encryption",
-      "date": "2026-10-12T02:30:00.000Z",
-      "description": "Amazon OpenSearch Service now supports index-level encryption, letting you encrypt each index at rest with its own AWS Key Management Service (AWS KMS) customer managed key. This helps you protect data with different ownership or sensitivity under separate keys on the same domain. For example, you can encrypt each tenant's data with its own key in a multi-tenant application. Index-level encryption",
-      "tags": [
-        "KMS"
-      ]
-    },
-    {
-      "title": "AWS now lets customers sign up for AWS and pay invoices using ACH direct debit",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-sign-up-invoices-ach-direct-debit/",
-      "date": "2026-10-11T08:00:00.000Z",
-      "description": "Starting today, AWS customers in the United States can use a US bank account to sign up for AWS and pay for their AWS services through ACH direct debit. This feature provides a convenient and secure way to manage AWS payments directly from a USD bank account. Customers can securely connect a personal or business US bank account and use it to pay AWS invoices. Previously, new AWS customers needed a",
-      "tags": []
-    },
-    {
-      "title": "AWS Security Hub now exports findings to S3 in CSV or JSON format",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-exports-s3-csv-json/",
-      "date": "2026-10-09T22:00:00.000Z",
-      "description": "Today, AWS Security Hub announces support for exporting findings to Amazon S3 in CSV or JSON (OCSF) format. Security teams that need findings outside the console for use cases such as compliance reporting and audit evidence can now export findings from every findings page in the Security Hub console, including Threats, Exposure, Vulnerabilities, Posture Management, Sensitive Data, and All Findings",
-      "tags": [
-        "S3",
-        "CloudTrail",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon EC2 R8gd instances are now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8gd-thf/",
-      "date": "2026-10-09T19:29:00.000Z",
-      "description": "Amazon Elastic Compute Cloud (Amazon EC2) R8gd instances are available in AWS European Sovereign Cloud (Germany) region. These instances feature up to 11.4 TB of local NVMe-based SSD block-level storage and are powered by AWS Graviton4 processors, delivering up to 30% better performance over Graviton3-based instances. These instances are built on the AWS Nitro System and are a great fit for applic",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon EC2 R8g instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8g-instances-thf/",
-      "date": "2026-10-09T19:19:00.000Z",
-      "description": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8g instances are available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 R8g instances are ideal for memory-intensive workloads such as databases, in-memory caches, and real-time big",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "security": [
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-10-09T18:19:17.000Z",
+      "date": "2026-10-14T18:38:30.000Z",
       "description": "",
       "tags": [
         "WAF",
@@ -277,7 +279,7 @@
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-10-07T20:16:45.000Z",
+      "date": "2026-10-14T18:37:57.000Z",
       "description": "",
       "tags": []
     },
@@ -294,7 +296,7 @@
     {
       "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-09-22T19:48:46.000Z",
+      "date": "2026-10-14T18:38:44.000Z",
       "description": "",
       "tags": [
         "Inspector"
@@ -342,6 +344,15 @@
     }
   ],
   "blog": [
+    {
+      "title": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+      "link": "https://aws.amazon.com/blogs/aws/amazon-s3-vercel-marketplace-v0/",
+      "date": "2026-10-14T19:30:48.000Z",
+      "description": "Amazon Simple Storage Service (Amazon S3), including Amazon S3 Tables and Amazon S3 Vectors, is natively available on the Vercel Marketplace and v0 by Vercel.",
+      "tags": [
+        "S3"
+      ]
+    },
     {
       "title": "AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova 2.5 Sonic, and more (October 13, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-prime-day-2026-by-the-numbers-claude-haiku-5-5-amazon-nova-2-5-sonic-and-more-october-13-2026/",
@@ -424,16 +435,6 @@
       "description": "Today, we’re excited to introduce the newest members of the AWS Heroes program. AWS Heroes are a vibrant, worldwide group of AWS experts who go above and beyond to share knowledge, mentor others, and build thriving communities. These individuals make a real difference in helping developers and organizations succeed with AWS. This month, we welcome […]",
       "tags": [
         "Organizations"
-      ]
-    },
-    {
-      "title": "AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Strands harness, and more (September 28, 2026)",
-      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/",
-      "date": "2026-09-28T16:14:54.000Z",
-      "description": "If there’s one theme that defined last week, it’s choice. The frontier models keep arriving, and the interesting question is no longer just “how smart is it?” but “which model fits this step, at this cost, at this latency?” That’s exactly what landed on Amazon Bedrock over the past few days: GPT-6 Sol and GPT-6 […]",
-      "tags": [
-        "Bedrock",
-        "Cost"
       ]
     }
   ],
