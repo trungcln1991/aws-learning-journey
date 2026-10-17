@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T05:42:26.481Z",
+  "generated_at": "2026-10-17T05:27:42.341Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,92 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon CloudWatch log centralization now available in AWS GovCloud and additional commercial Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-centralization-region-expansion",
+      "date": "2026-10-16T20:04:00.000Z",
+      "description": "Amazon CloudWatch log centralization is now available in AWS GovCloud (US) and 13 additional commercial Regions. CloudWatch log centralization copies log data from multiple AWS accounts and Regions into a single destination account, integrating with AWS Organizations for efficient aggregation without the need for custom solutions. With this launch, organizations in the AWS GovCloud (US) partition ",
+      "tags": [
+        "CloudWatch",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Lambda durable functions are now available in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/durablefunctions-govcloud/",
+      "date": "2026-10-16T18:26:00.000Z",
+      "description": "AWS Lambda durable functions are now available in the AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions. Lambda durable functions enable developers to build reliable multi-step applications and AI workflows within the Lambda developer experience. Lambda durable functions extend the Lambda programming model with new primitives in your event handler, such as \"step\" and \"wait\", allowing you t",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Nemotron 3.5 Super VL model now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/nvidia-nemotron-3.5-super-vl-on-sagemaker-jumpstart/",
+      "date": "2026-10-16T17:59:00.000Z",
+      "description": "NVIDIA's Nemotron 3.5 Super VL is now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This vision-language model from the Nemotron 3.5 family accepts images, video, and text as input and generates text, enabling customers to deploy multimodal AI solutions on AWS infrastructure. Nemotron 3.5 Super VL is designed for document intellig",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Beam model by Reflection is now available on Amazon SageMaker JumpStart and AWS Trainium",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/reflection-beam-on-sagemaker-jumpstart-and-aws-trainium/",
+      "date": "2026-10-16T16:00:00.000Z",
+      "description": "Beam, the first open weight model offered by US-based Reflection, is now available in Amazon SageMaker JumpStart, the model hub in Amazon SageMaker AI. According to Beam, they operate at the frontier of open weight models in its class, with strong performance across reasoning, coding, and agentic benchmarks. With it, customers can now build advanced coding agents and automated workflows on a front",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Transform announces Azure-to-AWS cloud-native code conversion",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transform-azure-to-aws-code-conversion/",
+      "date": "2026-10-16T13:50:00.000Z",
+      "description": "Today, AWS announced the general availability of application code conversion from Azure SDK to AWS SDK in AWS Transform, giving you an accelerated path to migrate Microsoft Azure cloud-native .NET applications to AWS. The AWS Transform .NET modernization agent identifies Azure service code and converts it to equivalent AWS service code. For example, an Azure Functions serverless function that uses",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Second-generation AWS Outposts racks now supported in the AWS Mexico (Central) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-outposts-racks-mexico-central/",
+      "date": "2026-10-16T08:00:00.000Z",
+      "description": "Second-generation AWS Outposts racks are now supported in the AWS Mexico (Central) Region. Outposts racks extend AWS infrastructure, AWS services, APIs, and tools to virtually any on-premises data center or colocation space for a truly consistent hybrid experience. Organizations of every size, from startups to enterprises to public sector agencies, can now order Outposts racks connected to this ne",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS End User Messaging adds registration improvements for faster, higher-quality submissions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-registration-improvements-for-faster-higher-quality-submissions",
+      "date": "2026-10-16T07:00:00.000Z",
+      "description": "AWS End User Messaging now makes it easier to complete messaging registrations correctly the first time, with clearer guidance, explicit field requirements, and help avoiding the most common rejection reasons. Registrations ask for compliance evidence such as opt-in proof and sample messages, and submissions are often delayed or denied when that evidence is incomplete or a required field is missed",
+      "tags": [
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS End User Messaging now supports Brand Profiles",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-now-supports-brand-profiles",
+      "date": "2026-10-16T07:00:00.000Z",
+      "description": "Today, AWS End User Messaging announces Brand Profiles, which let you store your brand and company information once and reuse it across your messaging registrations. To send messages on SMS, RCS, and WhatsApp, you register your brand with carriers and messaging providers, and today you fill in the same company details, address, contact information, and use case by hand on every form, for each chan",
+      "tags": []
+    },
+    {
+      "title": "AWS End User Messaging adds a guided wizard for RCS registration videos",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-guided-wizard-rcs-registration-videos",
+      "date": "2026-10-16T07:00:00.000Z",
+      "description": "Today, AWS End User Messaging adds a wizard that orchestrates the entire video capture for your RCS agent registration. RCS registrations in multiple countries, including the United States, require a screen recording that demonstrates your messaging experience. To record it, you have to send a specific sequence of messages to a test device, and until now you scripted those messages yourself, which",
+      "tags": []
+    },
+    {
+      "title": "AWS End User Messaging now offers managed OTP verification end-to-end",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-end-to-end-managed-OTP",
+      "date": "2026-10-16T07:00:00.000Z",
+      "description": "Today, AWS End User Messaging announces end-to-end managed one-time passcode (OTP) verification in Notify. You get a working OTP solution in under five minutes, including AWS phone numbers and code verification, without setting up a phone number, registering with carriers, or managing how messages are delivered. Before, you generated the passcode yourself and passed it to Notify to send, and you b",
+      "tags": []
+    },
     {
       "title": "Web Search on Amazon Bedrock AgentCore expands to AWS GovCloud and 3 Regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore/",
@@ -51,6 +137,13 @@
         "EC2",
         "RDS"
       ]
+    },
+    {
+      "title": "AWS Transform for migrations is now available in Asia Pacific (Singapore)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transform-singapore",
+      "date": "2026-10-15T19:24:00.000Z",
+      "description": "AWS Transform for migrations is now available in the Asia Pacific (Singapore) Region, giving customers data residency within the region and lower latency to local source infrastructure as they migrate. AWS Transform is a collaborative enterprise IT transformation service powered by agentic AI that accelerates cloud migration, application modernization, and continuous tech debt reduction. With AWS ",
+      "tags": []
     },
     {
       "title": "Amazon DynamoDB Streams now supports timestamp-based stream processing",
@@ -116,6 +209,15 @@
       "tags": []
     },
     {
+      "title": "PostgreSQL 19 RC1 is now available in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/postgresql-19-rc1-amazon-rds-database-preview-environment/",
+      "date": "2026-10-15T16:00:00.000Z",
+      "description": "Starting today, Amazon RDS for PostgreSQL 19 Release Candidate 1 (RC1) is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. PostgreSQL 19 RC1 focuses on stability, with bug fixes and improvements from the Beta 4 testing period. This release improves error handling for complex text-search expressions, h",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
       "title": "Amazon CloudFront announces dual-stack support for VPC origins",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cloudfront-vpc-origin-dualstack/",
       "date": "2026-10-15T16:00:00.000Z",
@@ -124,15 +226,6 @@
         "EC2",
         "VPC",
         "CloudFront"
-      ]
-    },
-    {
-      "title": "PostgreSQL 19 RC1 is now available in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/postgresql-19-rc1-amazon-rds-database-preview-environment/",
-      "date": "2026-10-15T16:00:00.000Z",
-      "description": "Starting today, Amazon RDS for PostgreSQL 19 Release Candidate 1 (RC1) is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. PostgreSQL 19 RC1 focuses on stability, with bug fixes and improvements from the Beta 4 testing period. This release improves error handling for complex text-search expressions, h",
-      "tags": [
-        "RDS"
       ]
     },
     {
@@ -154,104 +247,6 @@
       "tags": [
         "S3"
       ]
-    },
-    {
-      "title": "AWS Security Hub CSPM now supports the Cyber Risk Institute profile version 2.2",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-cspm-cri-profile-v22/",
-      "date": "2026-10-15T08:00:00.000Z",
-      "description": "AWS Security Hub CSPM now supports automated security checks that align with the Cyber Risk Institute (CRI) profile. The CRI Profile is a cybersecurity framework developed by the Cyber Risk Institute, a non-profit coalition of financial institutions and trade associations. The framework harmonizes cybersecurity and regulatory expectations that apply to the financial services sector into a common s",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon Managed Service for Prometheus Collector now available in Asia Pacific (New Zealand) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ams-prometheus-collector-apac-nz/",
-      "date": "2026-10-15T08:00:00.000Z",
-      "description": "Amazon Managed Service for Prometheus collector, a fully-managed agentless collector for Prometheus metrics, is now available in Asia Pacific (New Zealand). Customers in New Zealand can now run their Prometheus-compatible monitoring workloads in-region, with lower latency for local workloads and the ability to keep their data in-country. Amazon Managed Service for Prometheus collector discovers an",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon Managed Workflows for Apache Airflow now offers AI agent skills",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-mwaa-ai-agent-skills/",
-      "date": "2026-10-15T08:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (MWAA) now integrates with the Agent Toolkit for AWS to provide built-in AI agent skills that let you author, debug, and test MWAA workflows and upgrade MWAA environments using any AI coding assistant that supports agent skills. The four skills are authoring-mwaa-workflow, debugging-mwaa-workflow, testing-mwaa-workflow, and upgrading-mwaa-environments. T",
-      "tags": []
-    },
-    {
-      "title": "Oracle Database@AWS supports aggregate and default routes for ODB peering",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/oracle-database-aws-aggregate-routes-odb/",
-      "date": "2026-10-15T08:00:00.000Z",
-      "description": "Oracle Database@AWS (ODB) now supports advertising aggregate routes and a default route (0.0.0.0/0) when configuring ODB peering between applications in an Amazon VPC and databases in an ODB network. This simplifies network operations as customers extend new VPCs or on-premises networks to reach their databases, without updating the advertised CIDRs for each network that needs connectivity to the ",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "Launch AWS DevOps Agent to review findings and test results from AWS Resilience Hub",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-devops-agent-test-results-aws-resilience-hub/",
-      "date": "2026-10-15T07:00:00.000Z",
-      "description": "The next generation of AWS Resilience Hub now integrates with AWS DevOps agent allowing you to review failure mode assessment findings and implement mitigations to resolve findings and review resilience test results. AWS Resilience Hub is a central location in the AWS Management Console that helps platform engineering and site reliability teams assess and strengthen the resilience of their workloa",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch announces log routing and chained log parsers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cloudwatch-pipelines-log-routing/",
-      "date": "2026-10-14T22:14:00.000Z",
-      "description": "Amazon CloudWatch now supports conditional log routing and chained parsers via pipelines, giving you more control over how log data is transformed and which CloudWatch log group it's sent to. CloudWatch pipelines is a fully managed service that ingests, transforms, and routes telemetry to CloudWatch without managing infrastructure. Log pipelines often carry a mix of event types that belong in diff",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS HealthOmics expands container registry support for private workflows",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-healthomics-expanded-container-registry-support/",
-      "date": "2026-10-14T21:55:00.000Z",
-      "description": "You can now use container images from registries such as Seqera (Wave), NVIDIA NGC, and Google Artifact Registry with AWS HealthOmics expanded support for third-party container registries. You can use the containerized tools your workflows already rely on, without manually migrating images into Amazon ECR or editing your workflow definitions. AWS HealthOmics is a HIPAA-eligible service that helps ",
-      "tags": [
-        "ECS"
-      ]
-    },
-    {
-      "title": "AWS Lambda recursive loop detection now supports Amazon EventBridge Custom event buses",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/lambda-recursive-loops-eventbridge-custom",
-      "date": "2026-10-14T18:00:00.000Z",
-      "description": "AWS Lambda recursive loop detection now automatically detects and stops recursive loops between Lambda Event Functions and Amazon EventBridge Custom event buses , helping protect you against unintended usage and unexpected charges from runaway workloads. Lambda recursive loop detection , enabled by default on your AWS account, automatically identifies when a Lambda Event Function is invoked recurs",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "ARC Region switch adds four new capabilities",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/region-switch-target-health-ssm-lambda/",
-      "date": "2026-10-14T17:38:00.000Z",
-      "description": "Amazon Application Recovery Controller (ARC) Region switch helps you orchestrate the failover of multi-Region applications to achieve a bounded recovery time during a Regional impairment. Today, Region switch adds four new capabilities: AWS Systems Manager Run Command execution block, payloads for custom action Lambda execution block, service quota parity checks, and wait for target group health f",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS License Manager now supports license type conversions for Ubuntu Pro purchased through AWS Marketplace",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-license-manager-conversions-ubuntu-pro-marketplace/",
-      "date": "2026-10-14T17:04:00.000Z",
-      "description": "AWS License Manager now supports in-place upgrades for EC2 Ubuntu LTS (Long Term Support) instances to Ubuntu Pro available on AWS Marketplace. This allows customers to strengthen their security posture and meet compliance requirements without rebuilding their fleet or migrating workloads to a new instance or AMI. With an Ubuntu Pro subscription, customers receive security patches for up to 10 yea",
-      "tags": [
-        "EC2",
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS HealthOmics introduces resource fallback order for Nextflow workflows",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-healthomics-resource-fallback-for-Nextflow/",
-      "date": "2026-10-14T16:00:00.000Z",
-      "description": "Today, AWS HealthOmics introduces the resource fallback directive for tasks in your Nextflow workflows, enabling you to define an ordered list of preferred accelerator types, including an option to fallback to CPU instances. Researchers and bioinformaticians can use this directive to reduce time spent diagnosing and resubmitting runs due to accelerator constraints and keep production workflows run",
-      "tags": [
-        "EC2"
-      ]
     }
   ],
   "security": [
@@ -267,7 +262,7 @@
     {
       "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-10-14T18:38:30.000Z",
+      "date": "2026-10-14T19:53:01.000Z",
       "description": "",
       "tags": [
         "WAF",
@@ -297,7 +292,7 @@
     {
       "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-10-14T18:37:57.000Z",
+      "date": "2026-10-14T19:52:26.000Z",
       "description": "",
       "tags": []
     },
@@ -314,7 +309,7 @@
     {
       "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-10-14T18:38:44.000Z",
+      "date": "2026-10-16T17:37:32.000Z",
       "description": "",
       "tags": [
         "Inspector"
@@ -333,7 +328,7 @@
     {
       "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-09-22T19:48:45.000Z",
+      "date": "2026-10-16T17:37:32.000Z",
       "description": "",
       "tags": [
         "Inspector"
