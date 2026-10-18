@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T05:27:42.341Z",
+  "generated_at": "2026-10-18T05:39:57.454Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -69,6 +69,15 @@
       "description": "Today, AWS announced the general availability of application code conversion from Azure SDK to AWS SDK in AWS Transform, giving you an accelerated path to migrate Microsoft Azure cloud-native .NET applications to AWS. The AWS Transform .NET modernization agent identifies Azure service code and converts it to equivalent AWS service code. For example, an Azure Functions serverless function that uses",
       "tags": [
         "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Braket now in scope for FedRAMP Class C",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/braket-fedramp-class-c/",
+      "date": "2026-10-16T08:00:00.000Z",
+      "description": "Amazon Braket is now in scope for FedRAMP Class C in AWS US Regions where Braket is available. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring of cloud products and services. With FedRAMP Class C authorization, government customers and the organizat",
+      "tags": [
+        "CloudWatch"
       ]
     },
     {
@@ -237,15 +246,6 @@
         "S3",
         "CloudTrail",
         "Security Hub"
-      ]
-    },
-    {
-      "title": "Amazon S3 Metadata now available in six additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-metadata-six-additional-regions/",
-      "date": "2026-10-15T13:00:00.000Z",
-      "description": "Amazon S3 Metadata is now available in six additional AWS Regions: Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taipei), Asia Pacific (Thailand), and Mexico (Central). S3 Metadata is a fast and easy way to instantly discover and understand your S3 data with automated, easily queried metadata that updates in near real time. This helps you curate, iden",
-      "tags": [
-        "S3"
       ]
     }
   ],
