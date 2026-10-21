@@ -2,8 +2,8 @@
   "suggest_topics": [
     "EC2 Basics",
     "RDS & Database Fundamentals",
-    "ALB & Auto Scaling"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "done 20/10 (phien 144 tiep): 2 bot Teams /aws (dev67 start|stop|status chi 3 nguoi + tra cuu app 6 tang, 11 owner) kenh va nhom Cloud-DEV-On-Prem, PBI 34929 + 34946; aws-operations tach muc luc + 70 sections, skills/synced bo khoi git, sua agent aws-readonly + pbi-writer, memory index 22.6 -> 18.6 KB; NOW/SESSION/task-schedule/proposals-log/skill/memory",
-  "updated_at": "2026-10-20T14:53:00Z"
+  "commit_msg": "done 21/10 (phien 145): log IIS 19/19 tan goc (SSM v11 publish_multi_logs, task JP-IIS-Log-Archive), bot /aws vao Terraform PR 26 diem van hanh 95%, JCOP Dang ky truy cap (AccessRequests.cs, duyet chi owner, loi moi 48h) deploy prod + test 34/34 kem PageFilter, dung bu ve 19/04, ra soat quyen Dang (DevOps), deck v41 cho buoi chia se Cloud 22/10 (agenda + cloud-infra); NOW/SESSION/task-schedule/skill/memory",
+  "updated_at": "2026-10-21T09:39:27Z"
 }
