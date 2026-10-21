@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T05:50:28.081Z",
+  "generated_at": "2026-10-21T05:52:21.960Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,113 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Announcing Amazon ECS Gateway, a managed ingress solution for your ECS services",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/announcing-amazon-ecs-gateway/",
+      "date": "2026-10-20T23:26:00.000Z",
+      "description": "AWS announces Amazon Elastic Container Service (Amazon ECS) Gateway, a new resource that simplifies ingress networking for containerized applications by dynamically provisioning and managing Application Load Balancers (ALBs) and their supporting resources directly in your account. With ECS Gateway, platform teams define organizational networking standards once on a gateway and associate it with on",
+      "tags": [
+        "RDS",
+        "ECS",
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB global tables now support disassociating replicas",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/dynamodb-global-tables-disassociate/",
+      "date": "2026-10-20T23:00:00.000Z",
+      "description": "Amazon DynamoDB global tables now support disassociating a replica without deleting its table or data. Global tables provide fully managed, multi-Region, multi-active replication. You can now stop replication to and from a replica and continue using the same table as a single-Region table. An account can leave a shared multi-account global table and continue using its table independently. You can ",
+      "tags": [
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Polly Generative engine upgraded with more natural speech, 14 new voices, and 2 new languages",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/polly-generative/",
+      "date": "2026-10-20T15:32:00.000Z",
+      "description": "Today, we are introducing a new model behind the Amazon Polly Generative engine that delivers more natural-sounding, accurate speech output with low latency. With this upgrade, you get access to an enhanced voice portfolio with higher overall quality, 14 new voices across nine locales, and two new languages—Hindi and Finnish—now generally available on the Generative engine for the first time. New ",
+      "tags": []
+    },
+    {
+      "title": "AWS announces TorchNeuron: Native PyTorch Support for AWS Trainium (Public Beta)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium",
+      "date": "2026-10-20T15:00:00.000Z",
+      "description": "Today, AWS launched the public beta of TorchNeuron, an open source native PyTorch backend for AWS Trainium. Trainium is a portfolio of AI chips designed to deliver high performance and cost efficiency for deep learning AI training and inference workloads. TorchNeuron enables AI scientists and researchers to experiment and build models with PyTorch natively on Trainium. With TorchNeuron, developers",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Structured outputs for Claude models available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/claude-structured-outputs-bedrock/",
+      "date": "2026-10-20T14:00:00.000Z",
+      "description": "Amazon Bedrock now supports structured outputs for all Anthropic Claude models across both the bedrock-runtime and the bedrock-mantle endpoint. Whether you call Claude through boto3 and the bedrock-runtime APIs or through the Messages API and the bedrock-mantle endpoint, you can now receive schema-compliant JSON responses that conform to a defined structure, without custom parsing, retry logic, or",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Clean Rooms now supports Databricks as a data source",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-clean-rooms-supports-databricks",
+      "date": "2026-10-20T12:23:00.000Z",
+      "description": "AWS Clean Rooms now supports Databricks as a data source , so collaboration members and their partners can securely analyze data managed in Databricks without moving or revealing the source data. Members query a Databricks table shared through Delta Sharing directly in a collaboration. Databricks joins AWS Glue, Snowflake, and Amazon Athena as supported data sources in AWS Clean Rooms. Previously,",
+      "tags": []
+    },
+    {
+      "title": "AWS IAM Identity Center simplifies identity source changes from Active Directory",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/iam-identity-center-chg-id-src-from-ad/",
+      "date": "2026-10-20T08:00:00.000Z",
+      "description": "AWS IAM Identity Center now retains your workforce identities and their assignments when you change your identity source from Active Directory to an external identity provider (IdP), such as Okta or Microsoft Entra ID, or to the Identity Center directory. Specifically, it preserves your users, groups, group memberships, permission set assignments, and application assignments. Previously, this chan",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock Guardrails now supports Standard tier for contextual grounding checks",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-guardrails-grounding-standard/",
+      "date": "2026-10-20T08:00:00.000Z",
+      "description": "Amazon Bedrock Guardrails now offers a Standard tier for contextual grounding checks, which detect and filter hallucinations by checking whether a model response is grounded in your reference source and relevant to the user's query. The Standard tier is more robust than the Classic tier. It supports responses that include reasoning or conversational content, scores differently worded responses wit",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Partner Central launches Program Navigator, Case Study Generator, and streamlined specialization review",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/partner-central-program-navigator/",
+      "date": "2026-10-20T08:00:00.000Z",
+      "description": "AWS Partner Central now features Program Navigator, a unified experience that lets partners discover, apply for, and track AWS Specialization program applications in one place. Partners can browse specialization designations, view requirements and benefits, and submit applications through a guided, step-by-step workflow. The new Case Study Generator in AWS Partner Central gives partners a redesign",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-prompt-optimization-shortening/",
+      "date": "2026-10-20T08:00:00.000Z",
+      "description": "Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening, an optional setting that reduces the length of your prompt while maintaining or improving your evaluation scores. Advanced Prompt Optimization optimizes prompts for any model on Amazon Bedrock against your own evaluation criteria. Until now, optimization focused on quality alone. Optimized prompts were often longer than th",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Transform for migrations expands support for existing landing zones",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transform-migrations-landing-zones/",
+      "date": "2026-10-20T08:00:00.000Z",
+      "description": "AWS Transform now supports more types of existing AWS environments when building landing zones for your migration, including AWS Control Tower landing zones and landing zones built with AWS Organizations. AWS Transform runs a foundation gap analysis of your current environment against AWS best practices and expands your landing zone on top of what's already in your target accounts, so your team ca",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon ElastiCache Serverless for Valkey now supports online migration with zero downtime",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-elasticache-serverless-valkey-online-migration/",
+      "date": "2026-10-20T07:00:00.000Z",
+      "description": "Amazon ElastiCache Serverless for Valkey now supports online migration from self-managed Valkey and Redis OSS on Amazon EC2 with zero downtime. Zero downtime means zero Errors returned to the client during migration, measured the same way the ElastiCache SLA measures availability. Your application continues reading and writing through cutover, and you do not need third-party replication tools. Onl",
+      "tags": [
+        "EC2",
+        "Lambda"
+      ]
+    },
     {
       "title": "Amazon Connect Customer Global Resiliency now provides business users visibility into resiliency readiness across linked Regions",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-connect-global-resiliency-readiness-overview",
@@ -142,110 +249,6 @@
       "tags": [
         "Lambda"
       ]
-    },
-    {
-      "title": "Nemotron 3.5 Super VL model now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/nvidia-nemotron-3.5-super-vl-on-sagemaker-jumpstart/",
-      "date": "2026-10-16T17:59:00.000Z",
-      "description": "NVIDIA's Nemotron 3.5 Super VL is now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. This vision-language model from the Nemotron 3.5 family accepts images, video, and text as input and generates text, enabling customers to deploy multimodal AI solutions on AWS infrastructure. Nemotron 3.5 Super VL is designed for document intellig",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Beam model by Reflection is now available on Amazon SageMaker JumpStart and AWS Trainium",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/reflection-beam-on-sagemaker-jumpstart-and-aws-trainium/",
-      "date": "2026-10-16T16:00:00.000Z",
-      "description": "Beam, the first open weight model offered by US-based Reflection, is now available in Amazon SageMaker JumpStart, the model hub in Amazon SageMaker AI. According to Beam, they operate at the frontier of open weight models in its class, with strong performance across reasoning, coding, and agentic benchmarks. With it, customers can now build advanced coding agents and automated workflows on a front",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Transform announces Azure-to-AWS cloud-native code conversion",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transform-azure-to-aws-code-conversion/",
-      "date": "2026-10-16T13:50:00.000Z",
-      "description": "Today, AWS announced the general availability of application code conversion from Azure SDK to AWS SDK in AWS Transform, giving you an accelerated path to migrate Microsoft Azure cloud-native .NET applications to AWS. The AWS Transform .NET modernization agent identifies Azure service code and converts it to equivalent AWS service code. For example, an Azure Functions serverless function that uses",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Braket now in scope for FedRAMP Class C",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/braket-fedramp-class-c/",
-      "date": "2026-10-16T08:00:00.000Z",
-      "description": "Amazon Braket is now in scope for FedRAMP Class C in AWS US Regions where Braket is available. The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring of cloud products and services. With FedRAMP Class C authorization, government customers and the organizat",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Second-generation AWS Outposts racks now supported in the AWS Mexico (Central) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-outposts-racks-mexico-central/",
-      "date": "2026-10-16T08:00:00.000Z",
-      "description": "Second-generation AWS Outposts racks are now supported in the AWS Mexico (Central) Region. Outposts racks extend AWS infrastructure, AWS services, APIs, and tools to virtually any on-premises data center or colocation space for a truly consistent hybrid experience. Organizations of every size, from startups to enterprises to public sector agencies, can now order Outposts racks connected to this ne",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "AWS End User Messaging adds registration improvements for faster, higher-quality submissions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-registration-improvements-for-faster-higher-quality-submissions",
-      "date": "2026-10-16T07:00:00.000Z",
-      "description": "AWS End User Messaging now makes it easier to complete messaging registrations correctly the first time, with clearer guidance, explicit field requirements, and help avoiding the most common rejection reasons. Registrations ask for compliance evidence such as opt-in proof and sample messages, and submissions are often delayed or denied when that evidence is incomplete or a required field is missed",
-      "tags": [
-        "Security Hub"
-      ]
-    },
-    {
-      "title": "AWS End User Messaging now supports Brand Profiles",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-now-supports-brand-profiles",
-      "date": "2026-10-16T07:00:00.000Z",
-      "description": "Today, AWS End User Messaging announces Brand Profiles, which let you store your brand and company information once and reuse it across your messaging registrations. To send messages on SMS, RCS, and WhatsApp, you register your brand with carriers and messaging providers, and today you fill in the same company details, address, contact information, and use case by hand on every form, for each chan",
-      "tags": []
-    },
-    {
-      "title": "AWS End User Messaging now offers managed OTP verification end-to-end",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-end-to-end-managed-OTP",
-      "date": "2026-10-16T07:00:00.000Z",
-      "description": "Today, AWS End User Messaging announces end-to-end managed one-time passcode (OTP) verification in Notify. You get a working OTP solution in under five minutes, including AWS phone numbers and code verification, without setting up a phone number, registering with carriers, or managing how messages are delivered. Before, you generated the passcode yourself and passed it to Notify to send, and you b",
-      "tags": []
-    },
-    {
-      "title": "AWS End User Messaging adds a guided wizard for RCS registration videos",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-end-user-messaging-adds-guided-wizard-rcs-registration-videos",
-      "date": "2026-10-16T07:00:00.000Z",
-      "description": "Today, AWS End User Messaging adds a wizard that orchestrates the entire video capture for your RCS agent registration. RCS registrations in multiple countries, including the United States, require a screen recording that demonstrates your messaging experience. To record it, you have to send a specific sequence of messages to a test device, and until now you scripted those messages yourself, which",
-      "tags": []
-    },
-    {
-      "title": "Web Search on Amazon Bedrock AgentCore expands to AWS GovCloud and 3 Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore/",
-      "date": "2026-10-15T20:40:00.000Z",
-      "description": "Web Search on Amazon Bedrock AgentCore is now available in four additional AWS Regions: US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and AWS GovCloud (US-West). Web Search is a fully managed tool that provides AI agents with current grounding from the web, enabling more accurate and up-to-date responses for tasks such as research, summarization, and question answering. With this expans",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Studio simplifies getting started for new AI/ML builders with new sign-in options",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-studio-new-sign-in-options/",
-      "date": "2026-10-15T20:10:00.000Z",
-      "description": "Amazon SageMaker Studio now lets new customers sign up with their Google, GitHub, or Apple credentials and land inside a fully configured Studio environment - no traditional AWS account setup and no console navigation required. Previously, new customers who discovered a model on Hugging Face or an AWS product page had to complete a multi-step AWS account creation process, provide a credit card, na",
-      "tags": [
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon EC2 T8i instances are now available in South America (São Paulo)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-t8i-instances-south-america/",
-      "date": "2026-10-15T20:00:00.000Z",
-      "description": "Amazon Elastic Compute Cloud (Amazon EC2) T8i instances are now available in South America (São Paulo). These instances are powered by custom sixth generation Intel Xeon 6 processors, available exclusively on AWS, and built on the latest sixth generation AWS Nitro cards. T8i instances deliver up to 30% better price performance compared to previous generation T3 instances, and offer four sizes: nan",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
     }
   ],
   "security": [
@@ -259,12 +262,11 @@
       ]
     },
     {
-      "title": "CVE-2026-13762 and CVE-2026-13763 - Issue with HTTP/2 multi-frame request body inspection in AWS WAF",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-048-aws/",
-      "date": "2026-10-19T18:13:26.000Z",
-      "description": "",
+      "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
+      "date": "2026-09-11T19:08:25.000Z",
+      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
       "tags": [
-        "WAF",
         "Inspector"
       ]
     },
@@ -289,11 +291,13 @@
       ]
     },
     {
-      "title": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
-      "date": "2026-10-19T18:12:55.000Z",
-      "description": "",
-      "tags": []
+      "title": "CVE-2026-18428 - OpenSearch SQL Plugin - Async Query Validation Bypass",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-081-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-081-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/13/2026 10:30 AM PDT Description: OpenSearch SQL plugin is a plugin that enables SQL and PPL query capabilities on OpenSearch clusters, including direct query integration with external data sources via Apache Spark. An issue exists where the Flint extension query handler validates SQL queries wit",
+      "tags": [
+        "Inspector"
+      ]
     },
     {
       "title": "CVE-2026-107332 - Insecure default file permissions on cached credentials in AWS Toolkit for Visual Studio Code",
@@ -306,11 +310,12 @@
       ]
     },
     {
-      "title": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
-      "date": "2026-10-19T18:13:43.000Z",
-      "description": "",
+      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-103-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/09/2026 09:30 AM PDT Description: We identified an issue in awslabs.mysql-mcp-server (an open-source, self-hosted Model Context Protocol server distributed via github.com/awslabs/mcp and PyPI). In affected versions, under certain conditions the read-only enforcement could be circumvented via SQL ",
       "tags": [
+        "RDS",
         "Inspector"
       ]
     },
@@ -325,27 +330,36 @@
       ]
     },
     {
-      "title": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
-      "date": "2026-10-19T18:13:43.000Z",
-      "description": "",
+      "title": "CVE-2026-81849 - Path traversal in the aws:downloadContent plugin in amazon-ssm-agent",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-091-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-091-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/28/2026 11:00 AM PDT Description: AWS Systems Manager Agent (amazon-ssm-agent) is Amazon software that runs on Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, on-premises servers, and virtual machines (VMs). Amazon-ssm-agent makes it possible for Systems Manager to update, mana",
       "tags": [
+        "EC2",
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
-      "date": "2026-10-02T16:38:11.000Z",
-      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
+      "title": "CVE-2026-85787 - An incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server to modify data beyond the read-only scope",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-101-aws/",
+      "date": "2026-09-09T21:30:11.000Z",
+      "description": "Bulletin ID: 2026-101-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/04/2026 13:00 PM PDT Description: We have identified CVE-2026-85787, an incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server before version 1.1.7 might allow an unauthenticated actor to modify data beyond the read-only scope by placing crafted",
       "tags": [
-        "ECS",
-        "EKS",
+        "RDS",
         "Inspector"
       ]
     }
   ],
   "blog": [
+    {
+      "title": "Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services",
+      "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-ecs-gateway-a-fully-managed-ingress-solution-for-ecs-services/",
+      "date": "2026-10-20T17:03:38.000Z",
+      "description": "Try Amazon ECS Gateway, a new account-level resource that simplifies ingress networking for containerized workloads by dynamically provisioning and managing the necessary infrastructure on your behalf, with all resources created directly in your account.",
+      "tags": [
+        "ECS"
+      ]
+    },
     {
       "title": "AWS Weekly Roundup: AWS Lambda Web Functions, Amazon S3 on the Vercel Marketplace, and more (October 19, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-lambda-web-functions-amazon-s3-on-the-vercel-marketplace-and-more-october-19-2026/",
@@ -428,16 +442,6 @@
       "description": "Amazon S3 Vectors now supports metadata pre filtering, delivering up to 5x higher recall on filtered searches. Filters evaluate before similarity search so scoped queries return more relevant results. Ideal for RAG, agentic apps, and document search.",
       "tags": [
         "S3"
-      ]
-    },
-    {
-      "title": "Amazon Aurora PostgreSQL now supports direct querying of Apache Iceberg and Parquet data in your data lake",
-      "link": "https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-now-supports-direct-querying-of-apache-iceberg-and-parquet-data-in-your-data-lake/",
-      "date": "2026-09-30T17:22:31.000Z",
-      "description": "Amazon Aurora PostgreSQL now lets you directly query Apache Iceberg and Parquet data stored in your data lake alongside live operational data—no ETL pipelines required. Powered by DuckDB embedded within Aurora, this capability enables single queries that join transactional and historical data using familiar PostgreSQL syntax. It supports AWS Glue Data Catalog, S3, and S3 Tables, with optimizations",
-      "tags": [
-        "S3",
-        "RDS"
       ]
     }
   ],
