@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "ALB & Auto Scaling"
   ],
-  "commit_msg": "done 21/10 (phien 145 tiep): bot /aws v5.3 - the CPU trung binh (dinh hien nho), cau thua -> khong lien quan (extra_words), tin im lang cua Nam = flow bo sot; NOW/SESSION/task-schedule/skill muc 69/memory",
-  "updated_at": "2026-10-21T10:01:47Z"
+  "commit_msg": "done 22/10 (phien 146): viec dinh ky T5, 5 PBI 35031-35035, Terraform network khop thuc te (PR 27), sua lech cot bang JCOP, tat bot tra cuu nhom, deck JCOP v69 (o Dang), bao cao + slide T5; NOW/SESSION/task-schedule/proposals/skill muc 72/memory",
+  "updated_at": "2026-10-22T08:43:06Z"
 }
