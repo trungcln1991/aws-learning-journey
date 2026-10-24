@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T05:53:11.144Z",
+  "generated_at": "2026-10-24T05:37:02.922Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,59 @@
   ],
   "whats_new": [
     {
+      "title": "Web Search on AWS Bedrock now supports domain filtering and user location controls",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
+      "date": "2026-10-23T21:04:00.000Z",
+      "description": "Web Search on AWS Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request. With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you specify",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer Global Resiliency now supports persistent chat across linked AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-connect-global-resiliency-persistent-chat",
+      "date": "2026-10-23T17:00:00.000Z",
+      "description": "Amazon Connect Customer Global Resiliency now provides customers a mechanism to deliver long, persistent chat experiences across linked AWS Regions. With this capability, end users can resume previous conversations with full context, metadata, and transcripts carried over across Regions, eliminating the need for end users to repeat information and allowing agents to provide personalized service wi",
+      "tags": []
+    },
+    {
+      "title": "AWS Transit Gateway and AWS Cloud WAN now support 1:1 NAT",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transit-gateway-cloud-wan-1-1-nat/",
+      "date": "2026-10-23T15:43:00.000Z",
+      "description": "AWS Transit Gateway and AWS Cloud WAN now provide managed one-to-one network address translation (NAT) directly on their attachments, through integration with Regional Private NAT Gateway. This enables customers to connect private networks that share the same IP address ranges without renumbering either network, deploying a NAT appliance, or writing return-traffic rules. Networks with overlapping ",
+      "tags": [
+        "TGW"
+      ]
+    },
+    {
+      "title": "Amazon Corretto October 2026 Quarterly Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-corretto-october-2026-quarterly-updates",
+      "date": "2026-10-23T14:00:00.000Z",
+      "description": "On October 22, 2026 Amazon announced quarterly security and critical updates for Amazon Corretto Long-Term Supported (LTS) versions of OpenJDK. Corretto 27.0.1.0.10, 25.0.5.0.9, 21.0.13.0.10, 17.0.21.0.10, 11.0.33.0.9, and 8u512 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Visit the Corretto home page to download Corretto ",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon MWAA now available in Mexico (Central) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-mwaa-mexico-central/",
+      "date": "2026-10-23T08:00:00.000Z",
+      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) Provisioned environments are now available in the Mexico (Central) Region (mx-central-1). Amazon MWAA Serverless was already available in this Region, and customers can now also use Amazon MWAA Provisioned environments for their Apache Airflow workflows. Amazon MWAA is a managed orchestration service for Apache Airflow that makes it easier ",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon EMR on EKS reduces EMR charge by 30 percent",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/emr-eks-reduces-emr-charge-30-percent/",
+      "date": "2026-10-23T08:00:00.000Z",
+      "description": "Amazon EMR announces a reduction of 30 percent in the EMR charge added to EKS when running EMR on EKS. This price decrease applies to both the per-vCPU-hour charge and the per-GB-hour charge, while the underlying Amazon EKS charges remain unchanged. All EMR workloads running on the EKS deployment option benefit from this change. Now, you can run Apache Spark workloads on Amazon Elastic Kubernetes ",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
       "title": "Amazon Connect Customer now supports customizing the Customer Profiles app on the agent workspace",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-customize-cp",
       "date": "2026-10-22T21:10:00.000Z",
@@ -41,6 +94,16 @@
       ]
     },
     {
+      "title": "Amazon OpenSearch Service introduces intelligent ingestion for logs and documents in Amazon S3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-opensearch-intelligent-ingestion-logs-documents-s3",
+      "date": "2026-10-22T20:54:00.000Z",
+      "description": "Amazon OpenSearch Serverless now offers intelligent ingestion, a fully managed feature that turns logs and documents stored in Amazon S3 into searchable content in Amazon OpenSearch Serverless (NextGen) collections . With intelligent ingestion, you can set up ingestion with a few clicks in the AWS Management Console or a single API call, with no ingestion infrastructure to manage. Intelligent inge",
+      "tags": [
+        "S3",
+        "Lambda"
+      ]
+    },
+    {
       "title": "Amazon OpenSearch Serverless now supports a 5-second default refresh interval",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-opensearch-serverless-supports-5-second-refresh-interval/",
       "date": "2026-10-22T18:34:00.000Z",
@@ -53,7 +116,7 @@
       "title": "AWS CloudFormation now simplifies stack update rollback operations",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-cloudformation-cdk/",
       "date": "2026-10-22T17:30:00.000Z",
-      "description": "AWS CloudFormation now makes it simpler to complete an update rollback and get back to deploying. An update rollback returns your stack to a known good state. Starting today, if some resources cannot roll back automatically, force rollback enables you to complete the rollback it in a single operation. It works across every CloudFormation workflow, from the AWS CLI , and SDKs to AWS CDK and AI agen",
+      "description": "AWS CloudFormation now makes it simpler to complete an update rollback and get back to deploying. An update rollback returns your stack to a known good state. Starting today, if some resources cannot roll back automatically, force rollback enables you to complete the rollback in a single operation. It works across every CloudFormation workflow, from the AWS CLI , and SDKs to AWS CDK and AI agents.",
       "tags": []
     },
     {
@@ -72,6 +135,15 @@
       "date": "2026-10-22T16:00:00.000Z",
       "description": "Today, AWS announced the expansion of 100 Gbps dedicated connections at the existing AWS Direct Connect location in the Netmagic DC2 data center near Bangalore, India. You can now establish private, direct network access to all public AWS Regions (except those in China), AWS GovCloud Regions, and AWS Local Zones from this location. The Direct Connect service enables you to establish a private, phy",
       "tags": []
+    },
+    {
+      "title": "Amazon MSK Connect now supports pausing and resuming connectors",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-connect-pause-resume",
+      "date": "2026-10-22T15:00:00.000Z",
+      "description": "Amazon MSK Connect (Amazon Managed Streaming for Apache Kafka Connect) now supports pausing and resuming connectors, letting you temporarily pause a connector from processing records and resume it later. This is useful when you need to stop data flow during maintenance on a source database or a sink target, or to pause processing while you investigate an upstream or downstream issue. Amazon MSK Co",
+      "tags": [
+        "RDS"
+      ]
     },
     {
       "title": "AWS announces AWS Interconnect - last mile preview with Megaport",
@@ -168,82 +240,6 @@
       "tags": [
         "SageMaker"
       ]
-    },
-    {
-      "title": "AWS Neuron 2.33 adds native PyTorch support, Neuron Observer, and other new features",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-neuron-2-33-0",
-      "date": "2026-10-21T15:00:00.000Z",
-      "description": "AWS Neuron 2.33 is now available, introducing TorchNeuron, the native PyTorch backend for AWS Trainium, in public beta. You can run models written with the standard PyTorch APIs on Amazon EC2 Trn2 and Trn3 instances, in eager mode or with torch.compile. This release also introduces Neuron Observer in public beta, which detects Trainium health issues in under a second and identifies the affected no",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer launches two new layouts for agent workspace",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-new-layouts-agent-workspace",
-      "date": "2026-10-21T13:48:00.000Z",
-      "description": "Amazon Connect Customer now offers two different layouts that optimize screen space on the agent workspace. Contact center agents spend hours each day in the agent workspace, which includes all of the contact controls and applications they need to resolve customer issues. Agents who handle different channels and workflows want the workspace arranged differently, so that they can quickly read, resp",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 server access log delivery to Amazon CloudWatch Logs now available in five additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-server-access-logs-cloudwatch-logs-regions/",
-      "date": "2026-10-21T13:00:00.000Z",
-      "description": "Amazon S3 server access log delivery to Amazon CloudWatch Logs is now available in the AWS GovCloud (US) Regions, AWS European Sovereign Cloud, and AWS China Regions. With your access logs in CloudWatch Logs, you can query them as they arrive, set alarms, and encrypt them with AWS Key Management Service (AWS KMS) keys. This new delivery path complements the existing delivery of server access logs ",
-      "tags": [
-        "S3",
-        "CloudWatch",
-        "KMS"
-      ]
-    },
-    {
-      "title": "AWS Network Firewall now supports Route 53 Resolved IP Validation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/network-firewall-route-53-ip-validation/",
-      "date": "2026-10-21T08:00:00.000Z",
-      "description": "AWS Network Firewall now supports IP validation, extending domain-based filtering beyond HTTP/HTTPS to protocols such as SFTP and SSH. This new capability validates that a connection's destination IP address was resolved through your VPC's Amazon Route 53 VPC Resolver, closing security gaps where clients could bypass domain rules. This feature enables Network Firewall customers to implement domain",
-      "tags": [
-        "VPC",
-        "Route 53"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker AI now supports custom sequence lengths for serverless model customization jobs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-custom-sequence-lengths/",
-      "date": "2026-10-21T08:00:00.000Z",
-      "description": "Today, Amazon SageMaker AI announces the ability to configure the sequence length used during your serverless model customization job. Amazon SageMaker AI serverless model customization supports fine-tuning for many open-weight models, including models from popular families including gpt-oss, Gemma, Llama, Nemotron, and Qwen. Previously, each fine-tuning recipe ran at a fixed sequence length that ",
-      "tags": [
-        "Lambda",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Transform now builds new networks and modernizes security groups",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transform-new-networks/",
-      "date": "2026-10-21T08:00:00.000Z",
-      "description": "AWS Transform for migrations now gives you three ways to bring your network to AWS. In addition to migrating and modernizing your existing network, you can build a new network from scratch or convert your on-premises access rules into optimized security groups and deploy them into existing VPCs. Whichever path you choose, you arrive on AWS with a secure and scalable network foundation. On-premises",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "Announcing Amazon ECS Gateway, a managed ingress solution for your ECS services",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/announcing-amazon-ecs-gateway/",
-      "date": "2026-10-20T23:26:00.000Z",
-      "description": "AWS announces Amazon Elastic Container Service (Amazon ECS) Gateway, a new resource that simplifies ingress networking for containerized applications by dynamically provisioning and managing Application Load Balancers (ALBs) and their supporting resources directly in your account. With ECS Gateway, platform teams define organizational networking standards once on a gateway and associate it with on",
-      "tags": [
-        "RDS",
-        "ECS",
-        "ALB"
-      ]
-    },
-    {
-      "title": "Amazon DynamoDB global tables now support disassociating replicas",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/dynamodb-global-tables-disassociate/",
-      "date": "2026-10-20T23:00:00.000Z",
-      "description": "Amazon DynamoDB global tables now support disassociating a replica without deleting its table or data. Global tables provide fully managed, multi-Region, multi-active replication. You can now stop replication to and from a replica and continue using the same table as a single-Region table. An account can leave a shared multi-account global table and continue using its table independently. You can ",
-      "tags": [
-        "DynamoDB"
-      ]
     }
   ],
   "security": [
@@ -257,30 +253,10 @@
       ]
     },
     {
-      "title": "CVE-2026-89049 - Server-side request forgery in the Session Manager port forwarding functionality in AWS Systems Manager Agent",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-107-aws/",
-      "date": "2026-09-10T18:44:24.000Z",
-      "description": "Bulletin ID: 2026-107-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/10/2026 11:30 AM PDT Description: AWS Systems Manager Agent (SSM Agent) is software that runs on managed nodes (EC2 instances, on-premises servers, and other supported machines) and processes requests from the AWS Systems Manager service, enabling capabilities including Session Manager port forwa",
-      "tags": [
-        "EC2",
-        "Lambda",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-107783 - Insertion of sensitive information into log file in AWS Tools for PowerShell",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-132-aws/",
-      "date": "2026-10-09T15:56:44.000Z",
-      "description": "Bulletin ID: 2026-132-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/09/2026 08:30 AM PDT Description: AWS Tools for PowerShell V5 lets developers and administrators manage their AWS services from the PowerShell scripting environment. We identified CVE-2026-107783, where insertion of sensitive information into log file in AWS Tools for PowerShell before 5.0.306 mi",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
       "title": "CVE-2026-89332 - Kiro IDE Sensitive Workspace Data Exfiltration via Agent-Written Workspace Configuration",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-111-aws/",
       "date": "2026-09-11T19:08:25.000Z",
-      "description": "Bulletin ID: 2026-111-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 12:00 PM PDT Description: Kiro IDE is an agentic development environment that makes it easy for developers to ship real engineering work with the help of AI agents. We identified CVE-2026-89332, where the Kiro agent could modify a workspace's settings file in an untrusted workspace in Kir",
+      "description": "Read this article",
       "tags": [
         "Inspector"
       ]
@@ -289,25 +265,7 @@
       "title": "CVE-2026-89090 - Denial of service in the event stream header decoder in AWS SDK for Go v2",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-110-aws/",
       "date": "2026-09-11T17:09:09.000Z",
-      "description": "Bulletin ID: 2026-110-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/11/2026 10:00 AM PDT Description: An issue exists in the the EventStream header decoder in AWS SDK for Go v2 in versions predating 2026-03-23. An actor can send a malformed EventStream response frame containing a crafted header value type byte outside the valid range, which can cause the host pro",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-103956, CVE-2026-103957, and CVE-2026-103958 - Issues in Loom for AWS",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-124-aws/",
-      "date": "2026-10-02T19:21:29.000Z",
-      "description": "Bulletin ID: 2026-124-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/02/2026 12:00 PM PDT Description: Loom is an AWS Labs open-source AI agent orchestration platform. We have identified and addressed three issues in Loom for AWS, described below. We recommend upgrading to the latest version (1.7.0) and ensuring any forked or derivative code is patched to incorpor",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-94450 - Potential denial of service when configured to send Retry packets in s2n-quic",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-116-aws/",
-      "date": "2026-09-22T20:08:17.000Z",
-      "description": "Bulletin ID: 2026-116-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/22/2026 13:00 PM PDT Description: s2n-quic is a Rust implementation of the QUIC protocol. We identified CVE-2026-94450, an issue with improper validation of the Destination Connection ID length when a server is configured to send Retry packets. s2n-quic 1.88.0 and earlier allow an unauthenticated",
+      "description": "Read this article",
       "tags": [
         "Inspector"
       ]
@@ -332,11 +290,54 @@
       ]
     },
     {
-      "title": "CVE-2026-112380 - Missing authorization in the WhatsApp channel in Kiro Crew",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-140-aws/",
-      "date": "2026-10-20T20:19:42.000Z",
-      "description": "Bulletin ID: 2026-140-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/20/2026 13:00 PM PDT Description: Kiro Crew is an open-source personal AI agent that can be reached from a web dashboard, a CLI, or messaging channels such as WhatsApp, and that runs tools on the operator's machine. We identified CVE-2026-112380, an authorization issue in the WhatsApp channel and",
+      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
+      "date": "2026-10-23T17:44:25.000Z",
+      "description": "Read this article",
       "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-85787 - An incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server to modify data beyond the read-only scope",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-101-aws/",
+      "date": "2026-10-23T17:43:25.000Z",
+      "description": "Read this article",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
+      "date": "2026-10-02T16:38:11.000Z",
+      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
+      "tags": [
+        "ECS",
+        "EKS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-105812 and CVE-2026-106032: Issue with Bedrock AgentCore Starter Toolkit - Import Agent Code Injection and SSRF",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-127-aws/",
+      "date": "2026-10-06T20:41:24.000Z",
+      "description": "Bulletin ID: 2026-127-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/06/2026 13:30 PM PDT Description: bedrock-agentcore-starter-toolkit is an AWS-maintained open-source Python package, distributed via GitHub and PyPI, that provides a command-line interface for importing Amazon Bedrock Agents into local development environments. We identified CVE-2026-105812, a co",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-110812 - Deserialization of untrusted data in the Gremlin graph-import path in Amazon Neptune",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-136-aws/",
+      "date": "2026-10-15T16:41:28.000Z",
+      "description": "Bulletin ID: 2026-136-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/15/2026 09:30 AM PDT Description: Amazon Neptune is a fully managed graph database service. We identified CVE-2026-110812, an issue in Apache TinkerPop related to Gremlin functionality used by Amazon Neptune. Under certain conditions, an authenticated principal with Neptune data-plane (query) per",
+      "tags": [
+        "Lambda",
+        "SageMaker",
         "Inspector"
       ]
     }
