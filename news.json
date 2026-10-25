@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T05:37:02.922Z",
+  "generated_at": "2026-10-25T05:51:57.647Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,10 +25,10 @@
   ],
   "whats_new": [
     {
-      "title": "Web Search on AWS Bedrock now supports domain filtering and user location controls",
+      "title": "Web Search on Amazon Bedrock now supports domain filtering and user location controls",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
       "date": "2026-10-23T21:04:00.000Z",
-      "description": "Web Search on AWS Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request. With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you specify",
+      "description": "Web Search on Amazon Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request. With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you spec",
       "tags": [
         "Bedrock"
       ]
@@ -264,7 +264,7 @@
     {
       "title": "CVE-2026-89090 - Denial of service in the event stream header decoder in AWS SDK for Go v2",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-110-aws/",
-      "date": "2026-09-11T17:09:09.000Z",
+      "date": "2026-10-25T03:13:38.000Z",
       "description": "Read this article",
       "tags": [
         "Inspector"
@@ -292,7 +292,7 @@
     {
       "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
-      "date": "2026-10-23T17:44:25.000Z",
+      "date": "2026-10-25T03:11:39.000Z",
       "description": "Read this article",
       "tags": [
         "RDS",
@@ -302,7 +302,7 @@
     {
       "title": "CVE-2026-85787 - An incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server to modify data beyond the read-only scope",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-101-aws/",
-      "date": "2026-10-23T17:43:25.000Z",
+      "date": "2026-10-25T03:11:39.000Z",
       "description": "Read this article",
       "tags": [
         "RDS",
