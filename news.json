@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T05:56:14.556Z",
+  "generated_at": "2026-10-27T06:07:42.438Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,106 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "OpenAI GPT-6.1 Terra is now generally available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/",
+      "date": "2026-10-26T18:27:00.000Z",
+      "description": "Today, AWS announces the general availability of OpenAI GPT-6.1 Terra on Amazon Bedrock. GPT-6.1 Terra expands the GPT-6 family with a balance of capability, speed, and cost efficiency for everyday workloads. As the newest model in the Terra line, GPT-6.1 Terra combines detailed visual reasoning, accurate computer use, and improved factuality and natural writing over GPT-5.6 Terra, for complex wor",
+      "tags": [
+        "Bedrock",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon WorkSpaces Core Managed Instances now supports ModifyVolume API",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-workspaces-cmi-modifyvolume/",
+      "date": "2026-10-26T18:00:00.000Z",
+      "description": "Amazon WorkSpaces Core Managed Instances now supports the ModifyVolume API, which lets you change volume size, volume type, IOPS, or throughput in place, without detaching the volume or restarting the instance. Previously, changing storage capacity or performance on a deployed managed instance required rebuilding it. With ModifyVolume, you can increase volume size up to 16,384 GiB, switch between ",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio adds light mode support for IDC-based domains",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/smus-light-mode",
+      "date": "2026-10-26T15:32:00.000Z",
+      "description": "Today, AWS announces light mode support in Amazon SageMaker Unified Studio for Identity Center (IDC) based domains. Customers can now configure the visual interface mode to match their preference, choosing between dark and light themes. With this launch, customers can set this visual preference in both IAM-based and IDC-based domains. Light mode helps improve readability in bright environments and",
+      "tags": [
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer expands testing and simulation to validate flow action outcomes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-validate-flow-actions/",
+      "date": "2026-10-26T15:00:00.000Z",
+      "description": "Amazon Connect Customer now enables you to validate the outcomes of your customer experience flow actions during testing and simulation. In addition to confirming that an action started, you can now verify the data it returns when it completes, such as a Lambda function response, an Amazon Lex resolved intent, or the variables set by an Agentic CX block. When a test fails, you can pinpoint the exa",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now lets you view metrics by customer lifetime value and repeat-caller status",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-boma-segment/",
+      "date": "2026-10-26T13:47:00.000Z",
+      "description": "Now you can view your metrics across customer segments: customer lifetime value (LTV) and repeat callers. See how any metric differs for repeat callers versus the rest of your contacts, or how results hold up among your highest-LTV customers; so you can spot the groups trending the wrong way before it shows up in the aggregate. Where a segment is underperforming, you can act. Route high-LTV custom",
+      "tags": [
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now measures the outcomes that drive retention and revenue",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-boma-metrics/",
+      "date": "2026-10-26T13:31:00.000Z",
+      "description": "Amazon Connect Customer now scores the outcome of your customer interactions. It shows whether the customer left satisfied, is at risk of churning, made a purchase, or resolved their need in self-service. You can now see whether an interaction worked, not just how efficiently it ran. Each metric comes with a default definition you can adjust to match how your business defines success and are avail",
+      "tags": []
+    },
+    {
+      "title": "AWS IAM Identity Center now supports cross-Region trusted identity propagation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-iam-identity-center-cross-region-tip/",
+      "date": "2026-10-26T08:00:00.000Z",
+      "description": "Trusted identity propagation carries a user's identity with their request, so AWS services can grant permissions based on who the user is and their underlying group associations, and log that user's access for auditing. With cross-Region support, this identity context can now be propagated to AWS services running in different AWS Regions, giving you greater flexibility in how you architect and dep",
+      "tags": [
+        "IAM",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "AWS Key Management Service now supports ML-KEM for post-quantum key encapsulation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
+      "date": "2026-10-26T08:00:00.000Z",
+      "description": "AWS Key Management Service (KMS) now supports Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), a post-quantum cryptography standard under NIST FIPS 203 , which enables two parties to establish a shared secret. NIST designed ML-KEM to replace the classical key-establishment schemes, like DH/ECDH key agreement, and RSA-based key transport, in their strategic cryptographic roadmap (see NIST",
+      "tags": [
+        "KMS",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS EC2 Auto Scaling now supports Launch Before Terminate at account-level to replace instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-auto-scaling-launch-before-terminate/",
+      "date": "2026-10-26T08:00:00.000Z",
+      "description": "AWS EC2 Auto Scaling now lets you enable Launch Before Terminate as the default replacement behavior across all Auto Scaling groups in your account. When enabled, Auto Scaling launches a replacement instance and waits for it to pass health checks before terminating the instance it replaces, helping your applications maintain full capacity and availability during instance replacement events. This a",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon RDS now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/",
+      "date": "2026-10-26T07:30:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2017 CU31+GDR KB5122774 (RDS version 14.00.3550.4.v1), SQL Server 2019 CU32+GDR KB5122772 (RDS version 15.00.4490.9.v1), SQL Server 2022 CU27 KB5104824 (RDS vers",
+      "tags": [
+        "RDS",
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Catalog now supports OAuth for Apache Iceberg REST Catalog APIs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/glue-catalog-oauth-iceberg-rest/",
+      "date": "2026-10-26T04:00:00.000Z",
+      "description": "AWS Glue Data Catalog now supports OAuth 2.0 bearer token authentication for Apache Iceberg REST Catalog (IRC) APIs using AWS Sign-In. The Apache Iceberg REST Catalog specification defines OAuth 2.0 as its standard authentication mechanism, and query engines such as Apache Spark, Trino, and Apache Flink implement it natively. These engines and external integration partners can now authenticate to ",
+      "tags": []
+    },
     {
       "title": "Web Search on Amazon Bedrock now supports domain filtering and user location controls",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
@@ -144,102 +244,6 @@
       "tags": [
         "RDS"
       ]
-    },
-    {
-      "title": "AWS announces AWS Interconnect - last mile preview with Megaport",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announces-AWS-interconnect-last-mile-megaport-preview/",
-      "date": "2026-10-22T12:00:00.000Z",
-      "description": "AWS launches AWS Interconnect - last mile preview with Megaport, a fully managed connectivity offering that allows customers to connect their branch offices, data centers, and remote locations to AWS with just a few clicks, eliminating the friction and complexity of network setup. As a milestone collaboration between AWS and Megaport, AWS Interconnect - last mile combines AWS cloud innovation with",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker AI now supports serverless model customization for Muse Glimmer, Qwen 3.8 and Ministral 3 models",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-sagemaker-muse-qwen-ministral/",
-      "date": "2026-10-22T08:00:00.000Z",
-      "description": "Amazon SageMaker AI now supports serverless model customization for Muse Glimmer, Qwen3.8 27B, and Ministral 3 3B, 8B, and 14B models. In addition to deploying these models on SageMaker AI, you can now adapt them to your specific domains and workflows, using supervised fine-tuning (SFT), direct preference optimization (DPO), and reinforcement fine-tuning (RFT) techniques. You can also adapt these ",
-      "tags": [
-        "Lambda",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AgentCore Gateway now supports Bedrock InvokeModel APIs and model fallback",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-invokemodel-fallback/",
-      "date": "2026-10-22T08:00:00.000Z",
-      "description": "Amazon Bedrock AgentCore Gateway now supports the Amazon Bedrock InvokeModel and InvokeModelWithResponseStream APIs on its inference endpoint, along with model fallback routing for inference traffic. With InvokeModel support, you can point your existing Amazon Bedrock SDK integration at the gateway and reach any model provider through one governed endpoint, without rewriting client code for each p",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "AWS Lambda MicroVMs is now available in 4 additional AWS regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/lambda-microvms-4-additional-regions",
-      "date": "2026-10-22T07:06:00.000Z",
-      "description": "AWS Lambda MicroVMs is now available in 4 additional AWS Regions: Asia Pacific (Hong Kong), Asia Pacific (Malaysia), Asia Pacific (Thailand), and Europe (Spain). With this launch, you can use Lambda MicroVMs in a total of 14 AWS Regions. Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing us",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Quick Now Available in the AWS Singapore Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-quick-now-available-in-the-aws-singapore-region/",
-      "date": "2026-10-22T07:00:00.000Z",
-      "description": "Amazon Quick is now available in the AWS Asia Pacific (Singapore) region (ap-southeast-1). This launch allows customers in Singapore to access the full power of Amazon Quick while meeting local requirements for data sovereignty. Amazon Quick provides business users an agentic teammate that quickly answers questions at work and turns those answers into actions. With Amazon Quick, every user is empo",
-      "tags": []
-    },
-    {
-      "title": "AWS Transform adds storage migration assessments for Amazon S3, EBS, EFS, and FSx",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/transform-assess-s3-ebs-efs-fsx/",
-      "date": "2026-10-21T19:10:00.000Z",
-      "description": "Migration assessments in AWS Transform now evaluate on-premises storage for migration to AWS. Instead of manually analyzing thousands of volumes across protocols, capacity, and performance, you upload a storage inventory and AWS Transform does the mapping for you. It matches each workload to the best-fit service, sizes the recommendation, and projects costs to produce a total cost of ownership bus",
-      "tags": [
-        "S3",
-        "Cost"
-      ]
-    },
-    {
-      "title": "AWS Service Reference Information now supports global condition keys, service names, and data plane classification",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-service-reference-information-global-condition-keys-service-names-data-plane/",
-      "date": "2026-10-21T18:00:00.000Z",
-      "description": "AWS is expanding programmatic service reference information to help you automate IAM policy management and keep your policies aligned with the latest service updates. The service reference now includes all aws:-prefixed global condition keys in a single machine-readable file, a ServiceName field mapping service identifiers to human-readable names, and an IsDataPlane property identifying which acti",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS Direct Connect announces 100G expansion in Manchester, England",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-direct-connect-100g-manchester/",
-      "date": "2026-10-21T17:21:00.000Z",
-      "description": "Today, AWS announced the expansion of 10 Gbps and 100 Gbps dedicated connections with MACsec encryption capabilities at the existing AWS Direct Connect location in the Equinix MA3 data center near Manchester, England. You can now establish private, direct network access to all public AWS Regions (except those in China), AWS GovCloud Regions, and AWS Local Zones from this location. This is the thir",
-      "tags": []
-    },
-    {
-      "title": "Amazon Aurora and Amazon RDS now support On-Demand Capacity Reservations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-aurora-rds-on-demand-capacity-reservations/",
-      "date": "2026-10-21T17:00:00.000Z",
-      "description": "Starting today, you can reserve compute capacity for your Amazon Aurora and Amazon RDS DB instances in one or more Availability Zones for as long as you need it. Reserving capacity helps ensure that DB instance create, restore, scale-compute, and start operations don't fail because of insufficient capacity. On-Demand Capacity Reservations are designed for workloads that need assurance that specifi",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Cognito extends multi-Region replication to AWS GovCloud (US) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cognito-multi-region-us-govcloud/",
-      "date": "2026-10-21T17:00:00.000Z",
-      "description": "Amazon Cognito multi-Region replication (MRR) now supports AWS GovCloud (US) Regions, extending the resilience benefits of MRR to more workloads. MRR lets you synchronize user and machine identity data, including credentials, user pool configurations, and federation setups, to a secondary user pool in a standby Region you designate, in near real-time. With user data in the standby Region, you can ",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Beam model by Reflection is now available on Amazon SageMaker JumpStart and AWS Trainium",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/reflection-beam-on-sagemaker-jumpstart-and-aws-trainium/",
-      "date": "2026-10-21T15:00:00.000Z",
-      "description": "Beam, the first open weight model offered by US-based Reflection, is now available in Amazon SageMaker JumpStart, the model hub in Amazon SageMaker AI. According to Beam, they operate at the frontier of open weight models in its class, with strong performance across reasoning, coding, and agentic benchmarks. Beam is for teams who build on and with an open weight model, not just call one. Customers",
-      "tags": [
-        "SageMaker"
-      ]
     }
   ],
   "security": [
@@ -344,6 +348,16 @@
   ],
   "blog": [
     {
+      "title": "AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/",
+      "date": "2026-10-26T15:02:24.000Z",
+      "description": "A few weeks ago I presented to a small group of commercial and technology leaders from Brazilian agribusiness at the AWS office in São Paulo. My talk ran through where generative AI fits across the different stages of an agribusiness operation, and the point I kept returning to is that the markets we call traditional […]",
+      "tags": [
+        "EKS",
+        "Bedrock"
+      ]
+    },
+    {
       "title": "AWS Continuum for code vulnerabilities is now generally available",
       "link": "https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/",
       "date": "2026-10-22T20:33:10.000Z",
@@ -423,15 +437,6 @@
       "description": "Introducing the public preview of AWS Well-Architected Agent, an AI-powered service that analyzes your AWS environment to deliver targeted, contextual recommendations for improving your applications' cost, security, performance, and resilience—with ready-to-implement fixes aligned to your business goals.",
       "tags": [
         "Cost"
-      ]
-    },
-    {
-      "title": "Amazon S3 Tables now support all Apache Iceberg V3 data types",
-      "link": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-support-all-apache-iceberg-v3-data-types/",
-      "date": "2026-09-30T22:10:00.000Z",
-      "description": "Amazon S3 Tables now support all data types in the Apache Iceberg V3 spec, along with column default values, deletion vectors, and row lineage. Upgrade existing V2 tables or create new V3 tables with built-in compaction, maintenance, and engine compatibility.",
-      "tags": [
-        "S3"
       ]
     }
   ],
