@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "done 27/10 (phien 150): .NET runtime webapp Pha A (giu Hosting 3.1.15), 8 PBI 35260-35267, doc-iis cho R&D, Security Hub suppress 11, bao cao Mentor Program (11 chu de chua co); NOW/SESSION/task-schedule/dashboard/skill muc 75/memory",
-  "updated_at": "2026-10-27T06:40:38Z"
+  "commit_msg": "done 27/10 (phien 151): Web Deploy cuong.quachvan (PBI 35290), JCOP API tracing X-Ray khong ap dung + Oracle tai thap (deploy goi 1431), DataSync IT Assets IIS -> EFS 734 file; NOW/SESSION/task-schedule/dashboard/proposals/skill muc 75/memory",
+  "updated_at": "2026-10-27T11:08:24Z"
 }
