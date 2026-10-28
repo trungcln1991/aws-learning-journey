@@ -3,6 +3,6 @@
     "RDS & Database Fundamentals",
     "EC2 Basics"
   ],
-  "commit_msg": "done 28/10 (phien 152): quy tac PBI moi (cycle >=20p, tao cach >=30p, gio le, Target khong tre) + watcher/launchd tu dong, rule RDS 1521 cho ECS itassets, filter file-change loai releases, QuickSight/cost/backup/trace JCOP; NOW/SESSION/task-schedule/dashboard/skill muc 76/memory",
-  "updated_at": "2026-10-28T03:48:09Z"
+  "commit_msg": "update 28/10 (sau done): them 5 rule RDS 1521 cho ECS itassets-job/ehs/lac theo danh sach anh Dang (16 rule inbound), script PBI rds-5sg, bo gap cho Dang chot; NOW/SESSION/skill muc 76/memory/dashboard",
+  "updated_at": "2026-10-28T04:13:43Z"
 }
