@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T06:07:42.438Z",
+  "generated_at": "2026-10-28T06:45:35.511Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,69 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon ECS now supports GPU sharing with NVIDIA Multi-Process Service (MPS)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-gpu-sharing-nvidia-mps/",
+      "date": "2026-10-27T23:31:00.000Z",
+      "description": "Amazon Elastic Container Service (Amazon ECS) now supports GPU sharing with NVIDIA Multi-Process Service (MPS), enabling you to run multiple Amazon ECS tasks concurrently on a single NVIDIA GPU. GPU sharing helps you increase GPU utilization and reduce infrastructure costs for workloads that use only part of a GPU's capacity, such as small-model inference, AV/ADAS simulations, embedding generation",
+      "tags": [
+        "ECS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "SageMaker MLflow Apps now support MLflow 3.16",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/mflow-version-3-16/",
+      "date": "2026-10-27T20:40:00.000Z",
+      "description": "Amazon SageMaker AI MLflow Apps now support MLflow 3.16, bringing a redesigned tracing experience and faster experiment tracking to your generative AI and machine learning workflows. MLflow 3.16 improves debugging and analysis of generative AI applications and agents. The redesigned trace explorer is now the default, with adjustable row height, reorderable columns, custom columns from any trace ta",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Aurora serverless now supports up to 384 ACUs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-serverless-supports-384-acu/",
+      "date": "2026-10-27T16:00:00.000Z",
+      "description": "Amazon Aurora serverless now supports database capacity of up to 384 Aurora Capacity Units (ACUs) for Aurora PostgreSQL-Compatible Edition, a 50% increase from the previous maximum of 256 ACUs. Each ACU provides approximately 2 gibibytes (GiB) of memory with corresponding CPU and networking, so a single Aurora serverless database can now scale up to 768 GiB of memory. When the workload completes, ",
+      "tags": [
+        "RDS",
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon ElastiCache for Valkey now supports changing durability on existing clusters",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/elasticache-changing-durability/",
+      "date": "2026-10-27T15:21:00.000Z",
+      "description": "Amazon ElastiCache for Valkey now lets you enable or disable durability on your existing node-based clusters without creating a new cluster. Previously, you couldn't change the durability configuration of an existing cluster in place. This made it harder to move from caching to persistent data store use cases, or to adapt as your application requirements change. Now you can change durability at an",
+      "tags": []
+    },
+    {
+      "title": "Amazon Corretto October 2026 Patch Updates",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-corretto-oct-2026-patch-updates",
+      "date": "2026-10-27T14:00:00.000Z",
+      "description": "On October 26, 2026 Amazon announced a patch update for the following Amazon Corretto Long-Term Support (LTS) and Feature Release (FR) versions of OpenJDK. Corretto 27.0.1.0.11, 25.0.5.0.10, 21.0.13.0.11, 17.0.21.0.11, 11.0.33.0.10, and 8u512 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Visit the Corretto home page to down",
+      "tags": [
+        "CloudFront",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Neptune now supports online index rebuild to reclaim storage",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/neptune-online-index-rebuild/",
+      "date": "2026-10-27T08:00:00.000Z",
+      "description": "Amazon Neptune Database now supports online index rebuild, a new capability that helps database administrators and application teams defragment Neptune indexes and reclaim unused storage space without taking their database offline. Over time, insert, update, and delete operations create gaps of unused space within data pages, keeping the VolumeBytesUsed metric artificially elevated even after data",
+      "tags": []
+    },
+    {
+      "title": "Amazon ECR now supports replication backfill for existing container images",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/replication-backfill-amazon-ecr",
+      "date": "2026-10-26T20:24:00.000Z",
+      "description": "Amazon Elastic Container Registry (Amazon ECR) now supports replication backfill, enabling you to replicate existing images in your private registry to your configured replication registry destinations. Previously, replication only applied to images pushed after the replication configuration was enabled, requiring customers to manually retag images to trigger replication of preexisting images. Wit",
+      "tags": [
+        "ECS"
+      ]
+    },
+    {
       "title": "OpenAI GPT-6.1 Terra is now generally available on Amazon Bedrock",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/",
       "date": "2026-10-26T18:27:00.000Z",
@@ -42,6 +105,13 @@
       "tags": [
         "EC2"
       ]
+    },
+    {
+      "title": "Amazon IVS Low-Latency Streaming now provides a failover slate",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ivs-low-latency-streaming-failover-slate",
+      "date": "2026-10-26T15:40:00.000Z",
+      "description": "Amazon Interactive Video Service (Amazon IVS) Low-Latency Streaming now provides a failover slate, an animated image that IVS displays to viewers when a broadcaster's stream is unexpectedly interrupted. Instead of a buffering wheel or frozen frame, viewers see the slate until the broadcaster reconnects. Live playback then resumes automatically, without viewers needing to refresh their player. The ",
+      "tags": []
     },
     {
       "title": "Amazon SageMaker Unified Studio adds light mode support for IDC-based domains",
@@ -108,6 +178,13 @@
       ]
     },
     {
+      "title": "AWS Elemental MediaConnect Router now supports endpoint connection management",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/mediaconnect-cross-account-endpoints/",
+      "date": "2026-10-26T08:00:00.000Z",
+      "description": "AWS Elemental MediaConnect Router now supports managing external connections through a new endpoint registry. The registry provides a centralized interface to register and manage both standard endpoints—devices or software outside the service, such as cameras, sources, monitors, and other destinations—and connections to other AWS accounts. You can share registered endpoints directly with other AWS",
+      "tags": []
+    },
+    {
       "title": "Amazon RDS now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/",
       "date": "2026-10-26T07:30:00.000Z",
@@ -160,89 +237,12 @@
       ]
     },
     {
-      "title": "Amazon MWAA now available in Mexico (Central) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-mwaa-mexico-central/",
-      "date": "2026-10-23T08:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) Provisioned environments are now available in the Mexico (Central) Region (mx-central-1). Amazon MWAA Serverless was already available in this Region, and customers can now also use Amazon MWAA Provisioned environments for their Apache Airflow workflows. Amazon MWAA is a managed orchestration service for Apache Airflow that makes it easier ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
       "title": "Amazon EMR on EKS reduces EMR charge by 30 percent",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/emr-eks-reduces-emr-charge-30-percent/",
       "date": "2026-10-23T08:00:00.000Z",
       "description": "Amazon EMR announces a reduction of 30 percent in the EMR charge added to EKS when running EMR on EKS. This price decrease applies to both the per-vCPU-hour charge and the per-GB-hour charge, while the underlying Amazon EKS charges remain unchanged. All EMR workloads running on the EKS deployment option benefit from this change. Now, you can run Apache Spark workloads on Amazon Elastic Kubernetes ",
       "tags": [
         "EKS"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now supports customizing the Customer Profiles app on the agent workspace",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-customize-cp",
-      "date": "2026-10-22T21:10:00.000Z",
-      "description": "Amazon Connect Customer Profiles now allows administrators to customize which customer data that agents see in the agent workspace, and how it is displayed, using layouts they build in Profile Explorer. Customer Profiles provides agents with a real-time, unified view of each customer during interactions, combining contact history with customer data from multiple sources. Agents who handle differen",
-      "tags": []
-    },
-    {
-      "title": "AWS Continuum for code vulnerabilities is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-continuum-for-code-vulnerabilities-is-now-generally-available",
-      "date": "2026-10-22T21:00:00.000Z",
-      "description": "Today, AWS announces the general availability of AWS Continuum for code vulnerabilities. Continuum for code vulnerabilities discovers, validates, prioritizes, and remediates code vulnerabilities at machine speed. Continuum for code vulnerabilities builds a context graph from your AWS environment, including resource topology, identity relationships, and network reachability. It knows which resource",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Service introduces intelligent ingestion for logs and documents in Amazon S3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-opensearch-intelligent-ingestion-logs-documents-s3",
-      "date": "2026-10-22T20:54:00.000Z",
-      "description": "Amazon OpenSearch Serverless now offers intelligent ingestion, a fully managed feature that turns logs and documents stored in Amazon S3 into searchable content in Amazon OpenSearch Serverless (NextGen) collections . With intelligent ingestion, you can set up ingestion with a few clicks in the AWS Management Console or a single API call, with no ingestion infrastructure to manage. Intelligent inge",
-      "tags": [
-        "S3",
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Serverless now supports a 5-second default refresh interval",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-opensearch-serverless-supports-5-second-refresh-interval/",
-      "date": "2026-10-22T18:34:00.000Z",
-      "description": "Starting today, Amazon OpenSearch Serverless reduces the default refresh interval to 5 seconds for both search and vector collections. The refresh interval controls how quickly newly ingested documents become available for search. By lowering the default from 10 seconds to 5 seconds, newly written data becomes searchable faster, giving applications quicker read-after-write visibility automatically",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS CloudFormation now simplifies stack update rollback operations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-cloudformation-cdk/",
-      "date": "2026-10-22T17:30:00.000Z",
-      "description": "AWS CloudFormation now makes it simpler to complete an update rollback and get back to deploying. An update rollback returns your stack to a known good state. Starting today, if some resources cannot roll back automatically, force rollback enables you to complete the rollback in a single operation. It works across every CloudFormation workflow, from the AWS CLI , and SDKs to AWS CDK and AI agents.",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker AI announces training session APIs for serverless model customization",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/training-session-apis-on-sagemaker-ai",
-      "date": "2026-10-22T16:30:00.000Z",
-      "description": "Amazon SageMaker AI serverless model customization now supports training session APIs, giving customers full control over their post-training algorithm without provisioning or managing GPU infrastructure. Managed techniques, including SFT, DPO, and other reinforcement learning methods, let customers pick a technique and a model and have SageMaker AI run the training. With training session APIs, te",
-      "tags": [
-        "Lambda",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Direct Connect announces 100G expansion in Bangalore, India",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-direct-connect-100g-bangalore/",
-      "date": "2026-10-22T16:00:00.000Z",
-      "description": "Today, AWS announced the expansion of 100 Gbps dedicated connections at the existing AWS Direct Connect location in the Netmagic DC2 data center near Bangalore, India. You can now establish private, direct network access to all public AWS Regions (except those in China), AWS GovCloud Regions, and AWS Local Zones from this location. The Direct Connect service enables you to establish a private, phy",
-      "tags": []
-    },
-    {
-      "title": "Amazon MSK Connect now supports pausing and resuming connectors",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-connect-pause-resume",
-      "date": "2026-10-22T15:00:00.000Z",
-      "description": "Amazon MSK Connect (Amazon Managed Streaming for Apache Kafka Connect) now supports pausing and resuming connectors, letting you temporarily pause a connector from processing records and resume it later. This is useful when you need to stop data flow during maintenance on a source database or a sink target, or to pause processing while you investigate an upstream or downstream issue. Amazon MSK Co",
-      "tags": [
-        "RDS"
       ]
     }
   ],
