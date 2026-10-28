@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "RDS & Database Fundamentals",
-    "EC2 Basics"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "update 28/10 (sau done): them 5 rule RDS 1521 cho ECS itassets-job/ehs/lac theo danh sach anh Dang (16 rule inbound), script PBI rds-5sg, bo gap cho Dang chot; NOW/SESSION/skill muc 76/memory/dashboard",
-  "updated_at": "2026-10-28T04:13:43Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-10-28 16:48",
+  "updated_at": "2026-10-28T09:48:55Z"
 }
