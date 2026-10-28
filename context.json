@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "EC2 Basics"
   ],
-  "commit_msg": "done 27/10 (phien 151): Web Deploy cuong.quachvan (PBI 35290), JCOP API tracing X-Ray khong ap dung + Oracle tai thap (deploy goi 1431), DataSync IT Assets IIS -> EFS 734 file; NOW/SESSION/task-schedule/dashboard/proposals/skill muc 75/memory",
-  "updated_at": "2026-10-27T11:08:24Z"
+  "commit_msg": "done 28/10 (phien 152): quy tac PBI moi (cycle >=20p, tao cach >=30p, gio le, Target khong tre) + watcher/launchd tu dong, rule RDS 1521 cho ECS itassets, filter file-change loai releases, QuickSight/cost/backup/trace JCOP; NOW/SESSION/task-schedule/dashboard/skill muc 76/memory",
+  "updated_at": "2026-10-28T03:48:09Z"
 }
