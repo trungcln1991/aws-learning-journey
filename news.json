@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T06:45:35.511Z",
+  "generated_at": "2026-10-29T06:54:37.152Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,118 @@
   ],
   "whats_new": [
     {
+      "title": "Amazon RDS for Oracle now supports September 2026 Monthly Recommended Patch",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-september-mrp",
+      "date": "2026-10-28T21:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports the September 2026 Monthly Recommended Patch (MRP) for Oracle Database version 19c and 26ai. An MRP is a minor engine version that builds on a quarterly Release Update (RU), bundling Oracle's Critical Security Patch Update (CSPU) with additional Oracle-recommended fixes. The September 2026 MRP is applied on top of the July 202",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock AgentCore CLI version 1.0 is now available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore-cli-version-1-0-available/",
+      "date": "2026-10-28T20:00:00.000Z",
+      "description": "AWS announces the general availability of Amazon Bedrock AgentCore CLI version 1.0 (@aws/agentcore 1.0.0), rebuilt with faster startup, a consistent command structure, and support for more AgentCore resources. The CLI helps developers create, develop, deploy, and operate AI agents and supporting resources from the terminal. With version 1.0, developers can use the project workflow or work directly",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Lambda supports Seekable OCI (SOCI) lazy loading for Lambda Managed Instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-seekable-oci-soci/",
+      "date": "2026-10-28T18:44:00.000Z",
+      "description": "AWS Lambda now supports Seekable OCI (SOCI) for lazy loading Event Functions packaged as Open Container Initiative (OCI) images running on Lambda Managed Instances . With SOCI support, Lambda fetches only the files needed at each stage of the execution environment startup rather than downloading the entire image upfront, reducing container startup times by up to 70%. Customers building compute-int",
+      "tags": [
+        "EC2",
+        "Lambda",
+        "ECS"
+      ]
+    },
+    {
+      "title": "Introducing time series collections for the next generation of Amazon OpenSearch Serverless",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/time-series-collection-next-generation-opensearch-serverless/",
+      "date": "2026-10-28T18:35:00.000Z",
+      "description": "Today, we're announcing support for time series collections on the next generation of Amazon OpenSearch Serverless. With time series collections, you can ingest, store, and analyze logs, metrics, traces, and event data without provisioning or managing clusters. They absorb ingest spikes automatically, keep recent data fast to query, and make months or years of history searchable at low cost, all i",
+      "tags": [
+        "Lambda",
+        "CloudWatch",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Quick now supports smart approvals for agentic actions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/quick-smart-approvals-agentic-actions/",
+      "date": "2026-10-28T18:28:00.000Z",
+      "description": "Amazon Quick now supports smart approvals, a review layer that reduces unnecessary approval prompts while preserving human oversight of the actions that matter most. As agents take more actions on a user's behalf, such as sending email, updating records, and creating tickets, asking a person to approve every step leads to approval fatigue and weaker oversight over time. With smart approvals, a sep",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon EKS Dashboard now provides fleet-wide visibility into certificate authority (CA) rotation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-dashboard-fleet-wide-visibility-certificate-authority-ca-rotation/",
+      "date": "2026-10-28T18:07:00.000Z",
+      "description": "Today, Amazon Elastic Kubernetes Service (Amazon EKS) announces certificate authority (CA) rotation visibility in the Amazon EKS Dashboard, giving you a consolidated view of CA rotation across your clusters. The Amazon EKS Dashboard already provides centralized visibility into your clusters across AWS Regions and accounts, and it now includes CA rotation, so you can see where action is needed with",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon ECS Managed Instances adds cross-instance and Spot consolidation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ecs-managed-instances-consolidation/",
+      "date": "2026-10-28T18:00:00.000Z",
+      "description": "Today, Amazon Elastic Container Service (Amazon ECS) Managed Instances introduces two infrastructure optimization updates: cross-instance and Spot consolidation. Cross-instance consolidation evaluates tasks running across multiple underutilized instances together, packing them onto fewer instances to raise utilization and lower costs. Spot consolidation extends this capability to Spot capacity, co",
+      "tags": [
+        "EC2",
+        "ECS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Lambda durable functions now exports live telemetry for execution insights",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/lambda-durable-telemetry/",
+      "date": "2026-10-28T18:00:00.000Z",
+      "description": "AWS Lambda announces the Durable Execution Telemetry Exporter plugin for Lambda durable functions. This new observability plugin captures the step-by-step history of your durable executions and sends them to one or more destinations of your choice. You can use the exported data to gather operational and business insights and keep history beyond the standard retention period. We are also releasing ",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon EKS Auto Mode now supports Kubernetes Gateway API",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-auto-mode-kubernetes-gateway-api/",
+      "date": "2026-10-28T17:33:00.000Z",
+      "description": "Amazon EKS Auto Mode now supports the Kubernetes Gateway API, giving customers a standard, portable way to define how traffic reaches their applications. Customers can configure application load balancing using Gateway and HTTPRoute resources, and EKS Auto Mode provisions and manages the underlying AWS infrastructure automatically. With this launch, EKS Auto Mode customers can adopt the next-gener",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Backup adds restore testing support for Amazon Redshift",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-adds-redshift-restore-testing/",
+      "date": "2026-10-28T08:00:00.000Z",
+      "description": "AWS Backup restore testing now supports Amazon Redshift. Restore testing helps you automate and periodically run restore tests of your backups, so you can confirm that your Amazon Redshift backups restore successfully and measure how long the restores take. You can now include Amazon Redshift in your restore testing plans alongside other supported AWS resources across storage, compute, and databas",
+      "tags": []
+    },
+    {
+      "title": "Announcing the AWS Marketplace and Amazon Business unified storefront",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/marketplace-business-storefront/",
+      "date": "2026-10-28T08:00:00.000Z",
+      "description": "Today, AWS Marketplace and Amazon Business announced the unified storefront. Organizations can now give their teams one curated catalog that puts software, data, and AI tools from AWS Marketplace alongside physical goods and supplies from Amazon Business. Many enterprises already buy from both, but they manage two catalogs with duplicated approval rules and separate reporting. The unified storefro",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS IAM Identity Center's Identity Store now supports change notifications through Amazon EventBridge",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-identity-store-change-notifications/",
+      "date": "2026-10-28T08:00:00.000Z",
+      "description": "AWS IAM Identity Center's Identity Store now delivers real-time events to Amazon EventBridge when users, groups, or group memberships or the identity store itself is created, updated, or deleted. AWS IAM Identity Center Identity Store is a central repository that allows you to manage identities and access across AWS accounts and applications, serving as the identity source for AWS IAM Identity Cen",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
       "title": "Amazon ECS now supports GPU sharing with NVIDIA Multi-Process Service (MPS)",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-gpu-sharing-nvidia-mps/",
       "date": "2026-10-27T23:31:00.000Z",
@@ -45,6 +157,13 @@
       ]
     },
     {
+      "title": "Amazon Connect Customer supports inline attachment previews",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-attachment-previews/",
+      "date": "2026-10-27T19:15:00.000Z",
+      "description": "Amazon Connect Customer lets agents preview attachments directly in the agent workspace, reducing contact handling time and limiting the need to download sensitive customer information. Agents can preview PDFs, images, and text files across email, chat, and cases, navigate between attachments, and view multi-page documents without leaving the conversation. Amazon Connect Customer attachment previe",
+      "tags": []
+    },
+    {
       "title": "Amazon Aurora serverless now supports up to 384 ACUs",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-serverless-supports-384-acu/",
       "date": "2026-10-27T16:00:00.000Z",
@@ -55,10 +174,19 @@
       ]
     },
     {
+      "title": "Amazon ElastiCache expands data tiering to R8gd and R7gd nodes in Europe (Spain) and Asia Pacific (Hyderabad)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/09/elasticache-data-tiering-spain/",
+      "date": "2026-10-27T15:25:00.000Z",
+      "description": "Amazon ElastiCache for Valkey data tiering is now available on Graviton4-based R8gd nodes in the AWS Europe (Spain) Region, and on Graviton3-based R7gd nodes in the Europe (Spain) and Asia Pacific (Hyderabad) Regions. Data tiering is a lower-cost way to scale your Valkey clusters to hundreds of terabytes of capacity. It uses solid state drives (SSDs) on each node alongside memory. When memory fill",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
       "title": "Amazon ElastiCache for Valkey now supports changing durability on existing clusters",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/elasticache-changing-durability/",
       "date": "2026-10-27T15:21:00.000Z",
-      "description": "Amazon ElastiCache for Valkey now lets you enable or disable durability on your existing node-based clusters without creating a new cluster. Previously, you couldn't change the durability configuration of an existing cluster in place. This made it harder to move from caching to persistent data store use cases, or to adapt as your application requirements change. Now you can change durability at an",
+      "description": "Amazon ElastiCache for Valkey now lets you enable or disable durability on your existing node-based clusters. Previously, you couldn't change the durability configuration of an existing cluster in place. This made it harder to move from caching to persistent data store use cases, or to adapt as your application requirements change. Now you can change durability at any point in your application's l",
       "tags": []
     },
     {
@@ -122,128 +250,6 @@
         "IAM",
         "SageMaker"
       ]
-    },
-    {
-      "title": "Amazon Connect Customer expands testing and simulation to validate flow action outcomes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-validate-flow-actions/",
-      "date": "2026-10-26T15:00:00.000Z",
-      "description": "Amazon Connect Customer now enables you to validate the outcomes of your customer experience flow actions during testing and simulation. In addition to confirming that an action started, you can now verify the data it returns when it completes, such as a Lambda function response, an Amazon Lex resolved intent, or the variables set by an Agentic CX block. When a test fails, you can pinpoint the exa",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now lets you view metrics by customer lifetime value and repeat-caller status",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-boma-segment/",
-      "date": "2026-10-26T13:47:00.000Z",
-      "description": "Now you can view your metrics across customer segments: customer lifetime value (LTV) and repeat callers. See how any metric differs for repeat callers versus the rest of your contacts, or how results hold up among your highest-LTV customers; so you can spot the groups trending the wrong way before it shows up in the aggregate. Where a segment is underperforming, you can act. Route high-LTV custom",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer now measures the outcomes that drive retention and revenue",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-customer-boma-metrics/",
-      "date": "2026-10-26T13:31:00.000Z",
-      "description": "Amazon Connect Customer now scores the outcome of your customer interactions. It shows whether the customer left satisfied, is at risk of churning, made a purchase, or resolved their need in self-service. You can now see whether an interaction worked, not just how efficiently it ran. Each metric comes with a default definition you can adjust to match how your business defines success and are avail",
-      "tags": []
-    },
-    {
-      "title": "AWS IAM Identity Center now supports cross-Region trusted identity propagation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-iam-identity-center-cross-region-tip/",
-      "date": "2026-10-26T08:00:00.000Z",
-      "description": "Trusted identity propagation carries a user's identity with their request, so AWS services can grant permissions based on who the user is and their underlying group associations, and log that user's access for auditing. With cross-Region support, this identity context can now be propagated to AWS services running in different AWS Regions, giving you greater flexibility in how you architect and dep",
-      "tags": [
-        "IAM",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "AWS Key Management Service now supports ML-KEM for post-quantum key encapsulation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
-      "date": "2026-10-26T08:00:00.000Z",
-      "description": "AWS Key Management Service (KMS) now supports Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), a post-quantum cryptography standard under NIST FIPS 203 , which enables two parties to establish a shared secret. NIST designed ML-KEM to replace the classical key-establishment schemes, like DH/ECDH key agreement, and RSA-based key transport, in their strategic cryptographic roadmap (see NIST",
-      "tags": [
-        "KMS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS EC2 Auto Scaling now supports Launch Before Terminate at account-level to replace instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-auto-scaling-launch-before-terminate/",
-      "date": "2026-10-26T08:00:00.000Z",
-      "description": "AWS EC2 Auto Scaling now lets you enable Launch Before Terminate as the default replacement behavior across all Auto Scaling groups in your account. When enabled, Auto Scaling launches a replacement instance and waits for it to pass health checks before terminating the instance it replaces, helping your applications maintain full capacity and availability during instance replacement events. This a",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "AWS Elemental MediaConnect Router now supports endpoint connection management",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/mediaconnect-cross-account-endpoints/",
-      "date": "2026-10-26T08:00:00.000Z",
-      "description": "AWS Elemental MediaConnect Router now supports managing external connections through a new endpoint registry. The registry provides a centralized interface to register and manage both standard endpoints—devices or software outside the service, such as cameras, sources, monitors, and other destinations—and connections to other AWS accounts. You can share registered endpoints directly with other AWS",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/",
-      "date": "2026-10-26T07:30:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2017 CU31+GDR KB5122774 (RDS version 14.00.3550.4.v1), SQL Server 2019 CU32+GDR KB5122772 (RDS version 15.00.4490.9.v1), SQL Server 2022 CU27 KB5104824 (RDS vers",
-      "tags": [
-        "RDS",
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "AWS Glue Data Catalog now supports OAuth for Apache Iceberg REST Catalog APIs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/glue-catalog-oauth-iceberg-rest/",
-      "date": "2026-10-26T04:00:00.000Z",
-      "description": "AWS Glue Data Catalog now supports OAuth 2.0 bearer token authentication for Apache Iceberg REST Catalog (IRC) APIs using AWS Sign-In. The Apache Iceberg REST Catalog specification defines OAuth 2.0 as its standard authentication mechanism, and query engines such as Apache Spark, Trino, and Apache Flink implement it natively. These engines and external integration partners can now authenticate to ",
-      "tags": []
-    },
-    {
-      "title": "Web Search on Amazon Bedrock now supports domain filtering and user location controls",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
-      "date": "2026-10-23T21:04:00.000Z",
-      "description": "Web Search on Amazon Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request. With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you spec",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer Global Resiliency now supports persistent chat across linked AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-connect-global-resiliency-persistent-chat",
-      "date": "2026-10-23T17:00:00.000Z",
-      "description": "Amazon Connect Customer Global Resiliency now provides customers a mechanism to deliver long, persistent chat experiences across linked AWS Regions. With this capability, end users can resume previous conversations with full context, metadata, and transcripts carried over across Regions, eliminating the need for end users to repeat information and allowing agents to provide personalized service wi",
-      "tags": []
-    },
-    {
-      "title": "AWS Transit Gateway and AWS Cloud WAN now support 1:1 NAT",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-transit-gateway-cloud-wan-1-1-nat/",
-      "date": "2026-10-23T15:43:00.000Z",
-      "description": "AWS Transit Gateway and AWS Cloud WAN now provide managed one-to-one network address translation (NAT) directly on their attachments, through integration with Regional Private NAT Gateway. This enables customers to connect private networks that share the same IP address ranges without renumbering either network, deploying a NAT appliance, or writing return-traffic rules. Networks with overlapping ",
-      "tags": [
-        "TGW"
-      ]
-    },
-    {
-      "title": "Amazon Corretto October 2026 Quarterly Updates",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-corretto-october-2026-quarterly-updates",
-      "date": "2026-10-23T14:00:00.000Z",
-      "description": "On October 22, 2026 Amazon announced quarterly security and critical updates for Amazon Corretto Long-Term Supported (LTS) versions of OpenJDK. Corretto 27.0.1.0.10, 25.0.5.0.9, 21.0.13.0.10, 17.0.21.0.10, 11.0.33.0.9, and 8u512 are now available for download . Amazon Corretto is a no-cost, multi-platform, production-ready distribution of OpenJDK. Visit the Corretto home page to download Corretto ",
-      "tags": [
-        "CloudFront",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EMR on EKS reduces EMR charge by 30 percent",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/emr-eks-reduces-emr-charge-30-percent/",
-      "date": "2026-10-23T08:00:00.000Z",
-      "description": "Amazon EMR announces a reduction of 30 percent in the EMR charge added to EKS when running EMR on EKS. This price decrease applies to both the per-vCPU-hour charge and the per-GB-hour charge, while the underlying Amazon EKS charges remain unchanged. All EMR workloads running on the EKS deployment option benefit from this change. Now, you can run Apache Spark workloads on Amazon Elastic Kubernetes ",
-      "tags": [
-        "EKS"
-      ]
     }
   ],
   "security": [
@@ -252,6 +258,25 @@
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-137-aws/",
       "date": "2026-10-15T19:03:20.000Z",
       "description": "Bulletin ID: 2026-137-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/15/2026 10:30 AM PDT Description: AWS is aware of an issue in the Linux kernel's virtio-net/TAP networking path (CVE-2026-99999) that affects KVM-based hypervisors running unpatched Linux kernel versions 4.4 through 6.18. This issue could allow an actor with privileged access inside a guest virtu",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-89049 - Server-side request forgery in the Session Manager port forwarding functionality in AWS Systems Manager Agent",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-107-aws/",
+      "date": "2026-10-25T03:13:38.000Z",
+      "description": "Read this article",
+      "tags": [
+        "Lambda",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-107783 - Insertion of sensitive information into log file in AWS Tools for PowerShell",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-132-aws/",
+      "date": "2026-10-09T15:56:44.000Z",
+      "description": "Bulletin ID: 2026-132-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/09/2026 08:30 AM PDT Description: AWS Tools for PowerShell V5 lets developers and administrators manage their AWS services from the PowerShell scripting environment. We identified CVE-2026-107783, where insertion of sensitive information into log file in AWS Tools for PowerShell before 5.0.306 mi",
       "tags": [
         "Inspector"
       ]
@@ -275,6 +300,34 @@
       ]
     },
     {
+      "title": "CVE-2026-103956, CVE-2026-103957, and CVE-2026-103958 - Issues in Loom for AWS",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-124-aws/",
+      "date": "2026-10-02T19:21:29.000Z",
+      "description": "Bulletin ID: 2026-124-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/02/2026 12:00 PM PDT Description: Loom is an AWS Labs open-source AI agent orchestration platform. We have identified and addressed three issues in Loom for AWS, described below. We recommend upgrading to the latest version (1.7.0) and ensuring any forked or derivative code is patched to incorpor",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-94450 - Potential denial of service when configured to send Retry packets in s2n-quic",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-116-aws/",
+      "date": "2026-09-22T20:08:17.000Z",
+      "description": "Bulletin ID: 2026-116-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 09/22/2026 13:00 PM PDT Description: s2n-quic is a Rust implementation of the QUIC protocol. We identified CVE-2026-94450, an issue with improper validation of the Destination Connection ID length when a server is configured to send Retry packets. s2n-quic 1.88.0 and earlier allow an unauthenticated",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-118029 - Unverified ownership of the default Athena query result location in AWS SDK for pandas",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-153-aws/",
+      "date": "2026-10-28T15:40:38.000Z",
+      "description": "Bulletin ID: 2026-153-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/28/2026 08:30 AM PDT Description: AWS SDK for pandas (awswrangler) is an open-source Python library that integrates pandas with AWS data services such as Amazon Athena, Amazon S3, and AWS Glue. We identified CVE-2026-118029 in the Athena module, where unverified ownership of the default query res",
+      "tags": [
+        "S3",
+        "Inspector"
+      ]
+    },
+    {
       "title": "CVE-2026-115419 - Unintended disclosure of data element to wrong session in Strands Agents SDK A2A Server",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-146-aws/",
       "date": "2026-10-22T20:07:11.000Z",
@@ -290,58 +343,6 @@
       "description": "Bulletin ID: 2026-129-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/08/2026 10:30 PM PDT Description: AWS Toolkit for Visual Studio Code is an open source extension that lets developers work with AWS services, including Amazon CodeCatalyst, from within Visual Studio Code. We identified CVE-2026-107332, an issue in the CodeCatalyst connection handler. When a user ",
       "tags": [
         "IAM",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-85788 - Issue with awslabs mysql-mcp-server",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-103-aws/",
-      "date": "2026-10-25T03:11:39.000Z",
-      "description": "Read this article",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-85787 - An incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server to modify data beyond the read-only scope",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-101-aws/",
-      "date": "2026-10-25T03:11:39.000Z",
-      "description": "Read this article",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-103505 - Mount Option Injection in Amazon EFS CSI Driver",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-120-aws/",
-      "date": "2026-10-02T16:38:11.000Z",
-      "description": "Bulletin ID: 2026-120-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/01/2026 08:30 AM PDT Description: The Amazon EFS CSI Driver is a Container Storage Interface driver that allows Kubernetes clusters to use Amazon Elastic File System. We identified CVE-2026-103505, where an actor with PersistentVolume creation privileges can inject additional mount options throug",
-      "tags": [
-        "ECS",
-        "EKS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-105812 and CVE-2026-106032: Issue with Bedrock AgentCore Starter Toolkit - Import Agent Code Injection and SSRF",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-127-aws/",
-      "date": "2026-10-06T20:41:24.000Z",
-      "description": "Bulletin ID: 2026-127-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/06/2026 13:30 PM PDT Description: bedrock-agentcore-starter-toolkit is an AWS-maintained open-source Python package, distributed via GitHub and PyPI, that provides a command-line interface for importing Amazon Bedrock Agents into local development environments. We identified CVE-2026-105812, a co",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-110812 - Deserialization of untrusted data in the Gremlin graph-import path in Amazon Neptune",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-136-aws/",
-      "date": "2026-10-15T16:41:28.000Z",
-      "description": "Bulletin ID: 2026-136-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/15/2026 09:30 AM PDT Description: Amazon Neptune is a fully managed graph database service. We identified CVE-2026-110812, an issue in Apache TinkerPop related to Gremlin functionality used by Amazon Neptune. Under certain conditions, an authenticated principal with Neptune data-plane (query) per",
-      "tags": [
-        "Lambda",
-        "SageMaker",
         "Inspector"
       ]
     }
