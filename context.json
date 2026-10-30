@@ -3,6 +3,6 @@
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "29/10: bao cao tuan slide, dem restart ASP.NET cong don, QuickSight, kiem cong 62048 (GetDiscountByLocationEF ~7s), gap 30/10",
-  "updated_at": "2026-10-29T11:15:56Z"
+  "commit_msg": "30/10: JCOP chuyen RUN & SERVICE (Feature 35443, tag RUN 31/31 PBI), 5 PBI 35462/63/69/75/85, vá watcher IPv4, zlib suppress, auto-heal 23-30/10, ke hoach hoc khong trung Mentor, skill muc 78",
+  "updated_at": "2026-10-30T05:48:50Z"
 }
