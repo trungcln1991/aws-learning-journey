@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "CloudWatch & Monitoring",
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "30/10: JCOP chuyen RUN & SERVICE (Feature 35443, tag RUN 31/31 PBI), 5 PBI 35462/63/69/75/85, vá watcher IPv4, zlib suppress, auto-heal 23-30/10, ke hoach hoc khong trung Mentor, skill muc 78",
-  "updated_at": "2026-10-30T05:48:50Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-10-30 12:49",
+  "updated_at": "2026-10-30T05:50:12Z"
 }
