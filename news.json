@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T07:18:04.561Z",
+  "generated_at": "2026-11-02T07:31:44.494Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -182,12 +182,13 @@
       ]
     },
     {
-      "title": "ACM now supports ACME for public certificates in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/acm-acme-support-govcloud-us/",
+      "title": "Amazon Managed Grafana now supports in-place upgrade to Grafana version 13.2",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/managed-grafana-upgrade-version-13-2/",
       "date": "2026-10-29T08:00:00.000Z",
-      "description": "AWS Certificate Manager (ACM) ACME protocol support is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West), providing a fully managed ACME server endpoint that issues public TLS certificates from Amazon Trust Services using any ACMEv2-compatible client, including Certbot, cert-manager for Kubernetes, and acme.sh. With the CA/Browser Forum mandating 47-day certificate lifetimes by 20",
+      "description": "Amazon Managed Grafana now supports in-place upgrade from Grafana version 12.4 to 13.2. Upgrading to version 13.2 brings features launched as part of open-source Grafana versions 13.0 to 13.2. These include Git Sync for dashboards, dynamic dashboards, and PromQL query support in the Amazon CloudWatch data source plugin. With Git Sync, you can treat dashboards as code by linking a workspace to a Gi",
       "tags": [
-        "EKS"
+        "RDS",
+        "CloudWatch"
       ]
     },
     {
@@ -198,6 +199,15 @@
       "tags": []
     },
     {
+      "title": "ACM now supports ACME for public certificates in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/acm-acme-support-govcloud-us/",
+      "date": "2026-10-29T08:00:00.000Z",
+      "description": "AWS Certificate Manager (ACM) ACME protocol support is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West), providing a fully managed ACME server endpoint that issues public TLS certificates from Amazon Trust Services using any ACMEv2-compatible client, including Certbot, cert-manager for Kubernetes, and acme.sh. With the CA/Browser Forum mandating 47-day certificate lifetimes by 20",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
       "title": "Amazon SageMaker AI now supports SOCI-indexed images to start training jobs in seconds",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-ai-soci-images-training/",
       "date": "2026-10-29T08:00:00.000Z",
@@ -205,16 +215,6 @@
       "tags": [
         "ECS",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Managed Grafana now supports in-place upgrade to Grafana version 13.2",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/managed-grafana-upgrade-version-13-2/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Amazon Managed Grafana now supports in-place upgrade from Grafana version 12.4 to 13.2. Upgrading to version 13.2 brings features launched as part of open-source Grafana versions 13.0 to 13.2. These include Git Sync for dashboards, dynamic dashboards, and PromQL query support in the Amazon CloudWatch data source plugin. With Git Sync, you can treat dashboards as code by linking a workspace to a Gi",
-      "tags": [
-        "RDS",
-        "CloudWatch"
       ]
     },
     {
