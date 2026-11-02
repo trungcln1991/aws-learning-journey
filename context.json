@@ -4,6 +4,6 @@
     "RDS & Database Fundamentals",
     "CloudWatch & Monitoring"
   ],
-  "commit_msg": "02/11 phien 158 chieu: card RDS Top SQL co SQL_ID + 1000 ky tu (Lambda rds-top-sql), PBI 35636, gap, skill 09-monitoring, NOW.md",
-  "updated_at": "2026-11-02T09:32:22Z"
+  "commit_msg": "02/11: cach tim API goi cau SQL nang (PI user/host + Logs Insights IIS), ca 6ssfsxcx3usbq = FeedFromByDate_ByKeyDetail",
+  "updated_at": "2026-11-02T09:39:50Z"
 }
