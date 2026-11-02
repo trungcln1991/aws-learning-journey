@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
+    "EC2 Basics",
     "RDS & Database Fundamentals",
-    "IAM Deep Dive",
-    "VPC Fundamentals"
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "02/11: JCOP dong bo fail (dev68) sua + 6 skill dinh huong 2027, tat 3 app IIS, PR #30 dev67, plan prod 7 drift, 7 PBI hang doi, muc 79",
-  "updated_at": "2026-11-02T03:34:13Z"
+  "commit_msg": "02/11 phien 158 chieu: card RDS Top SQL co SQL_ID + 1000 ky tu (Lambda rds-top-sql), PBI 35636, gap, skill 09-monitoring, NOW.md",
+  "updated_at": "2026-11-02T09:32:22Z"
 }
