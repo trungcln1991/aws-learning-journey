@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-10-30 12:49",
-  "updated_at": "2026-10-30T05:50:12Z"
+  "commit_msg": "02/11: JCOP dong bo fail (dev68) sua + 6 skill dinh huong 2027, tat 3 app IIS, PR #30 dev67, plan prod 7 drift, 7 PBI hang doi, muc 79",
+  "updated_at": "2026-11-02T03:34:13Z"
 }
