@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T07:31:44.494Z",
+  "generated_at": "2026-11-03T07:46:21.297Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,137 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon RDS for Oracle now supports M8i and R8i instances in additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-m8i-r8i-instances-new-regions/",
+      "date": "2026-11-03T00:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports M8i and R8i instances in additional AWS Regions. Both M8i and R8i instances are now available in Asia Pacific (New Zealand) and Canada West (Calgary), and R8i instances are now available in Europe (Milan, Stockholm, and Zurich) and Israel (Tel Aviv). These instances are powered by custom Intel Xeon 6 processors, available only",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Haiku 5.5 now available on Kiro in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/kiro-haiku-5-5-aws-govcloud-us/",
+      "date": "2026-11-02T20:45:00.000Z",
+      "description": "A new Anthropic model is now available in the Kiro IDE and CLI for the AWS GovCloud (US) Regions. With Haiku 5.5, all three Claude 5.5 models are now available in Kiro in AWS GovCloud (US). Claude Haiku 5.5 is the fastest model in the Claude 5.5 family. It's a clear step up from Claude Haiku 4.5, built for work that runs in large volumes and needs quick responses. Developers can use it to summariz",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS now supports per snapshot billing",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-per-snapshot-billing/",
+      "date": "2026-11-02T18:43:00.000Z",
+      "description": "Starting today, Amazon RDS supports per snapshot billing for Amazon RDS snapshots. Per snapshot billing allows you to get the cost of each individual snapshot. Previously, RDS snapshot charges were aggregated at the database instance level on the Cost and Usage report as well as the Cost Explorer. This meant that while understanding the snapshot charges, you could only see the aggregate view at th",
+      "tags": [
+        "EC2",
+        "RDS",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon Quick on desktop now uses your organization's existing Amazon Quick sign-in",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-quick-desktop-organization-sign-in/",
+      "date": "2026-11-02T18:36:00.000Z",
+      "description": "For organizations that use Amazon Quick, the desktop application now signs users in with the same sign-in method the organization already uses for Quick on the web. Administrators no longer need to register an OIDC application in their identity provider or set up separate desktop sign-in before users can get started. If a user can sign in to Quick on the web, that user can sign in to the desktop a",
+      "tags": [
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Aurora MySQL 8.4.10 is now generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-aurora-mysql-8410-available/",
+      "date": "2026-11-02T17:00:00.000Z",
+      "description": "Starting today, Amazon Aurora MySQL-Compatible Edition 8.4 supports MySQL 8.4.10. We recommend upgrading to the newer minor versions to accept fixes for Common Vulnerabilities and Exposures (CVEs) in prior versions of MySQL and to benefit from bug fixes, performance improvements, and new functionality added by the MySQL community. For more details, refer to the Aurora MySQL 8.4 and MySQL 8.4.10 re",
+      "tags": [
+        "RDS",
+        "Lambda",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "AWS Lambda now supports queues for Apache Kafka in self-managed Kafka event sources",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-queue-kafka-esm/",
+      "date": "2026-11-02T17:00:00.000Z",
+      "description": "AWS Lambda now supports queues for Apache Kafka in self-managed Kafka event source mappings (ESM), for Kafka clusters that customers run themselves and for managed offerings such as Confluent Cloud. Customers can now scale processing for Kafka workloads beyond the partition count of a topic, increasing throughput during traffic spikes and improving processing resilience. Customers building event-d",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon Aurora MySQL 3.14 (compatible with MySQL 8.0.46) is generally available",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-aurora-mysql-314-available/",
+      "date": "2026-11-02T17:00:00.000Z",
+      "description": "Starting today, Amazon Aurora MySQL-Compatible Edition 3 (compatible with MySQL 8.0) supports MySQL 8.0.46, which includes community MySQL fixes and Aurora-specific improvements. In addition to operational improvements, Aurora MySQL 3.14 introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in-transit. For detai",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now supports Model Context Protocol (MCP) tools in flows",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-flows-mcp-tools/",
+      "date": "2026-11-02T16:00:00.000Z",
+      "description": "Amazon Connect Customer now enables you to invoke Model Context Protocol (MCP) tools in customer experience flows through the new 'External Tool' block. With this launch, you can connect flows to third-party applications through Amazon Bedrock AgentCore Gateway and reuse the same tools used by your agentic experiences to retrieve data or trigger actions, without writing custom Lambda functions. Fo",
+      "tags": [
+        "Lambda",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer now supports Cases and External Tool events in the Wait block",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-wait-block-cases-tool-events/",
+      "date": "2026-11-02T16:00:00.000Z",
+      "description": "Amazon Connect Customer now supports Cases and External Tool events in the Wait block, giving you more control over how your customer experience flows react to real-time data changes. In addition to waiting for a Lambda function to complete, you can now wait until a Connect Case field meets a specified condition or an External Tool invocation completes. This enables you to wait for critical inform",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "EC2 Amazon Machine Images can now be scanned for vulnerabilities through Amazon Inspector",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-amis-scanned-through-inspector/",
+      "date": "2026-11-02T08:00:00.000Z",
+      "description": "Amazon Inspector now extends its vulnerability scanning to EC2 Amazon Machine Images (AMIs), enabling you to identify software vulnerabilities in your AMIs without launching instances or installing additional software. This helps you fix issues at the source before AMIs are used to launch instances across your fleet. With this capability, you can run continuous evaluations to monitor your AMI cata",
+      "tags": [
+        "EC2",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon Textract now available in Asia Pacific (Tokyo) and Europe (Zurich)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/textract-tokyo-zurich/",
+      "date": "2026-11-02T08:00:00.000Z",
+      "description": "Amazon Textract is now available in the Asia Pacific (Tokyo) and Europe (Zurich) Regions. Amazon Textract is a machine learning service that automatically extracts text, handwriting, and data from scanned documents, going beyond simple optical character recognition (OCR) to identify and extract text and structured data. At launch in these Regions, Amazon Textract supports text detection and docume",
+      "tags": [
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Announcing AWS for Fluent Bit 3.0.0 based on Fluent Bit 4.1.1",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2025/10/aws-fluent-bit-3-0-0-based-4-1-1",
+      "date": "2026-11-02T08:00:00.000Z",
+      "description": "AWS for Fluent Bit announces version 3.0.0 , based on Fluent Bit version 4.1.1 and Amazon Linux 2023. Container logging using AWS for Fluent Bit is now more performant and more feature-rich for AWS customers, including those using Amazon Elastic Container Services (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS). AWS for Fluent Bit enables Amazon ECS and Amazon EKS customers to coll",
+      "tags": [
+        "ECS",
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon CloudFront now supports self-service increases in AWS Service Quotas",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-self-service-quotas/",
+      "date": "2026-11-02T08:00:00.000Z",
+      "description": "Amazon CloudFront now supports AWS Service Quotas, so you can view, monitor, and request increases for 28 CloudFront quotas from the Service Quotas console or API. Until now, increasing a quota on resources such as distributions, cache policies, origins, or alternate domain names meant opening a support case and waiting for manual review. If you have AWS Business Support or higher, requests for li",
+      "tags": [
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "Announcing an updated text detection model for Amazon Textract",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/textract-text-detection-model/",
+      "date": "2026-11-02T08:00:00.000Z",
+      "description": "Amazon Textract now provides an updated text detection model that improves accuracy, expands language support, and enhances multilingual table extraction. The updated model applies to the DetectDocumentText and AnalyzeDocument APIs and requires no changes to your Amazon Textract API requests or response schema. Your applications are served by the updated model automatically, so you can continue ca",
+      "tags": []
+    },
     {
       "title": "Amazon Bedrock expands API support and introduces Cross-Region Inferencing for OpenAI models in AWS GovCloud (US)",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/",
@@ -105,144 +236,22 @@
       "tags": []
     },
     {
+      "title": "Amazon Quick Introduces Quick Essentials",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-quick-essentials/",
+      "date": "2026-10-30T08:00:00.000Z",
+      "description": "Amazon Quick introduces Quick Essentials for enterprises. The plan makes it easier for organizations to get started with all the features of Quick such as AI-powered chat, Research, Flows, and Apps, and lets users view and interact with Quick Sight dashboards and reports and then manage adoption at the desired pace. In AWS Regions where Amazon Quick is available, Quick Sight Reader users are upgra",
+      "tags": [
+        "RDS",
+        "Organizations"
+      ]
+    },
+    {
       "title": "Managed Prometheus collectors now support Amazon MSK consumer-group metrics",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/prometheus-collectors-msk-metrics/",
       "date": "2026-10-30T08:00:00.000Z",
       "description": "Managed Prometheus collectors now support Amazon MSK consumer-group metrics for Amazon Managed Service for Prometheus and Amazon CloudWatch . The integration collects Kafka exporter metrics and consumer-group lag metrics from your Amazon MSK clusters. Managed Prometheus collectors discover and collect Prometheus metrics from your workloads, so you don't run and operate collection agents yourself. ",
       "tags": [
         "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Glue Data Catalog now supports Apache Iceberg table optimization in the US West (N. California) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/glue-data-catalog-optimizers-us-west-1/",
-      "date": "2026-10-30T08:00:00.000Z",
-      "description": "AWS Glue Data Catalog now supports automatic table optimization for Apache Iceberg tables in the US West (N. California) Region. Apache Iceberg is an open table format that delivers fast query performance over large tables in data lakes. With this launch, you can enable table optimization for individual tables or for all tables in your Data Catalog. Apache Iceberg tables accumulate small files, sn",
-      "tags": []
-    },
-    {
-      "title": "Amazon SageMaker AI inference now supports GPU partitioning for real-time endpoints",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/",
-      "date": "2026-10-30T08:00:00.000Z",
-      "description": "Amazon SageMaker AI inference now supports GPU partitioning, enabling you to run several models on a single GPU instead of dedicating a whole accelerator to each one. Using NVIDIA Multi-Instance GPU (MIG) technology, SageMaker AI divides a GPU into as many as seven isolated partitions, each with its own memory and compute. Customers serving small and mid-size models, such as fine-tuned variants, e",
-      "tags": [
-        "EC2",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Marketplace now enables partners to list once and sell through multiple subsidiary accounts",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-marketplace-subsidiary-account-authorization",
-      "date": "2026-10-29T20:12:00.000Z",
-      "description": "Today, AWS announces that AWS partners who operate multiple legal entities can publish a product listing once in their primary account and enable their local subsidiaries to sell it through direct private offers — eliminating the need to recreate and maintain duplicate listings across every account. From the primary account, which retains ownership of the listing, partners authorize which products",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS for Oracle and SQL Server now support storage autoscaling on additional storage volumes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-sqlserver-autoscaling-additional-storage-volumes",
-      "date": "2026-10-29T18:06:00.000Z",
-      "description": "Amazon RDS for SQL Server and Amazon RDS for Oracle now support RDS storage autoscaling on additional storage volumes . RDS storage autoscaling automatically scales storage capacity in response to growing database workloads, with zero downtime. Additional storage volumes allow you to add up to three additional volumes to increase your storage capacity up to 256 TiB. Previously, you had to manually",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon Aurora now supports post-quantum TLS key exchange",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aurora-postgresql-post-quantum-tls-key-exchange/",
-      "date": "2026-10-29T16:00:00.000Z",
-      "description": "Starting today, Amazon Aurora PostgreSQL-Compatible Edition introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in transit. Amazon Aurora PostgreSQL versions 18 and higher support modification of the ssl_groups parameter. You can select cryptographic groups from the Amazon Aurora PostgreSQL allow list to align",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon MSK Connect now supports updating connector plugins and worker configurations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-connect-update-plugin-worker-configurations",
-      "date": "2026-10-29T15:00:00.000Z",
-      "description": "Amazon MSK Connect (Amazon Managed Streaming for Apache Kafka Connect) now lets you update the custom plugin and worker configuration of an existing connector. This is useful when you need to update the custom plugin to run a new version of your connector code, for example one with updated dependencies. You can also update the worker configuration to change worker-level settings, such as switching",
-      "tags": []
-    },
-    {
-      "title": "AWS Step Functions workflows now available as AI agent tools",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "You can now use your AWS Step Functions workflows as tools for AI agents through Amazon Bedrock AgentCore Gateway. Your agent decides when to run a workflow and what input to pass, and Step Functions runs each step exactly as you defined it. Agents can use your existing Standard and Express workflows as tools. AWS Step Functions is a visual workflow service capable of orchestrating over 220 AWS se",
-      "tags": [
-        "Lambda",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon DynamoDB Accelerator (DAX) is now available in additional Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/dax-additional-regions/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Amazon DynamoDB Accelerator (DAX) is now available in two additional AWS Regions: Canada (Central) and Africa (Cape Town). DAX is a fully managed, highly available, in-memory cache for Amazon DynamoDB that delivers up to ten times performance improvement, from single-digit milliseconds to microseconds, even at millions of requests per second. With DAX, you can accelerate read-intensive and bursty ",
-      "tags": [
-        "DynamoDB"
-      ]
-    },
-    {
-      "title": "Amazon Managed Grafana now supports in-place upgrade to Grafana version 13.2",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/managed-grafana-upgrade-version-13-2/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Amazon Managed Grafana now supports in-place upgrade from Grafana version 12.4 to 13.2. Upgrading to version 13.2 brings features launched as part of open-source Grafana versions 13.0 to 13.2. These include Git Sync for dashboards, dynamic dashboards, and PromQL query support in the Amazon CloudWatch data source plugin. With Git Sync, you can treat dashboards as code by linking a workspace to a Gi",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS DataSync Enhanced mode now supports Amazon FSx for Windows File Server, FSx for NetApp ONTAP, and Red Hat OpenShift Virtualization",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/datasync-enhanced-fsx-openshift/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "AWS DataSync Enhanced mode now supports Amazon FSx for Windows File Server and Amazon FSx for NetApp ONTAP as source or destination locations. You can now run Windows to Windows transfers, such as from an on-premises file server to FSx for Windows File Server. Additionally, Enhanced mode agents can now run on Red Hat OpenShift Virtualization version 4.20 or later. With this launch, you can use the",
-      "tags": []
-    },
-    {
-      "title": "ACM now supports ACME for public certificates in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/acm-acme-support-govcloud-us/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "AWS Certificate Manager (ACM) ACME protocol support is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West), providing a fully managed ACME server endpoint that issues public TLS certificates from Amazon Trust Services using any ACMEv2-compatible client, including Certbot, cert-manager for Kubernetes, and acme.sh. With the CA/Browser Forum mandating 47-day certificate lifetimes by 20",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker AI now supports SOCI-indexed images to start training jobs in seconds",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-ai-soci-images-training/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Today, Amazon SageMaker AI announces support for Seekable OCI (SOCI)-indexed container images for training and processing jobs, so your jobs start running your code sooner. SOCI-indexed images start Amazon SageMaker AI training containers in seconds, cutting GPU idle time during image pulls by up to 90%, with no impact on training performance. Before a training or processing job can run, SageMaker",
-      "tags": [
-        "ECS",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Amazon Redshift announces hands-off automated cross-region backups",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/redshift-automated-cross-region-backups/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Amazon Redshift announces automated cross-region snapshot copy for Amazon Redshift. You can now have your Amazon Redshift provisioned cluster or serverless workgroup automatically backed up to the target AWS region(s) you choose. The automated cross-region snapshot copy feature will automatically, always copy the most recent snapshot with no manual intervention, continuously and incrementally and ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "AWS Backup now supports cross-account management and cross-account backup in the AWS European Sovereign Cloud",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-cross-account-esc/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "AWS Backup now supports cross-account management, cross-account backup, and delegated administrators in the AWS European Sovereign Cloud (Germany) Region. These capabilities help you centrally manage, monitor, and copy backups across the accounts in your organization using AWS Organizations. With cross-account management, you can deploy organization-wide backup policies from your AWS Organizations",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon SageMaker Unified Studio now supports custom designations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-custom-designations/",
-      "date": "2026-10-29T08:00:00.000Z",
-      "description": "Amazon SageMaker Unified Studio now supports custom designations, named permission sets that control what actions individual project members can perform. Previously, project members could only be assigned Owner or Contributor designations, which provided nearly identical permissions. With custom designations, administrators define permission sets that align with their organization's personas and a",
-      "tags": [
-        "IAM",
-        "SageMaker"
       ]
     }
   ],
@@ -257,19 +266,19 @@
       ]
     },
     {
-      "title": "CVE-2026-107783 - Insertion of sensitive information into log file in AWS Tools for PowerShell",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-132-aws/",
-      "date": "2026-10-09T15:56:44.000Z",
-      "description": "Bulletin ID: 2026-132-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/09/2026 08:30 AM PDT Description: AWS Tools for PowerShell V5 lets developers and administrators manage their AWS services from the PowerShell scripting environment. We identified CVE-2026-107783, where insertion of sensitive information into log file in AWS Tools for PowerShell before 5.0.306 mi",
+      "title": "CVE-2026-119085 - Template injection in the publishing component of Virtual Engineering Workbench",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-162-aws/",
+      "date": "2026-11-02T17:41:34.000Z",
+      "description": "Bulletin ID: 2026-162-AWS Publication Date: 11/02/2026 09:30 AM PST Description: Virtual Engineering Workbench (VEW) is an open-source platform where platform engineers define and publish development environments, and developers provision them on demand through a web portal. We identified CVE-2026-119085, where improper neutralization of special elements used in a template engine in the publishing",
       "tags": [
         "Inspector"
       ]
     },
     {
-      "title": "CVE-2026-103956, CVE-2026-103957, and CVE-2026-103958 - Issues in Loom for AWS",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-124-aws/",
-      "date": "2026-10-02T19:21:29.000Z",
-      "description": "Bulletin ID: 2026-124-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/02/2026 12:00 PM PDT Description: Loom is an AWS Labs open-source AI agent orchestration platform. We have identified and addressed three issues in Loom for AWS, described below. We recommend upgrading to the latest version (1.7.0) and ensuring any forked or derivative code is patched to incorpor",
+      "title": "CVE-2026-107783 - Insertion of sensitive information into log file in AWS Tools for PowerShell",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-132-aws/",
+      "date": "2026-10-09T15:56:44.000Z",
+      "description": "Bulletin ID: 2026-132-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/09/2026 08:30 AM PDT Description: AWS Tools for PowerShell V5 lets developers and administrators manage their AWS services from the PowerShell scripting environment. We identified CVE-2026-107783, where insertion of sensitive information into log file in AWS Tools for PowerShell before 5.0.306 mi",
       "tags": [
         "Inspector"
       ]
@@ -297,7 +306,7 @@
       "title": "CVE-2026-107332 - Insecure default file permissions on cached credentials in AWS Toolkit for Visual Studio Code",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-129-aws/",
       "date": "2026-10-08T17:43:09.000Z",
-      "description": "Bulletin ID: 2026-129-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/08/2026 10:30 PM PDT Description: AWS Toolkit for Visual Studio Code is an open source extension that lets developers work with AWS services, including Amazon CodeCatalyst, from within Visual Studio Code. We identified CVE-2026-107332, an issue in the CodeCatalyst connection handler. When a user ",
+      "description": "Read this article",
       "tags": [
         "IAM",
         "Inspector"
@@ -341,6 +350,16 @@
     }
   ],
   "blog": [
+    {
+      "title": "AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more (November 2, 2026)",
+      "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/",
+      "date": "2026-11-02T16:45:48.000Z",
+      "description": "The agentic launches that stayed with me last week had nothing to do with how capable a model is. They were about reach. AWS Step Functions, which already orchestrates over 220 AWS services, can now be handed to an agent as a tool, so workflows teams already trust became callable without a rewrite. In the […]",
+      "tags": [
+        "Lambda",
+        "Bedrock"
+      ]
+    },
     {
       "title": "AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/",
@@ -422,15 +441,6 @@
       "tags": [
         "IAM",
         "Bedrock"
-      ]
-    },
-    {
-      "title": "Announcing AWS Well-Architected Agent, an AI-powered intelligence to optimize your cloud environment (preview)",
-      "link": "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview/",
-      "date": "2026-10-01T20:04:04.000Z",
-      "description": "Introducing the public preview of AWS Well-Architected Agent, an AI-powered service that analyzes your AWS environment to deliver targeted, contextual recommendations for improving your applications' cost, security, performance, and resilience—with ready-to-implement fixes aligned to your business goals.",
-      "tags": [
-        "Cost"
       ]
     }
   ],
