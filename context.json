@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
+    "S3 & Storage Classes",
     "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "03/11 phien 159: Lambda kiem chuan Japfa Cloud chay prod (PR #32-#36, mail qua flow Power Automate, the Teams day du), bo chuan v1.0.1, NCom r5, PBI hang doi, gap 04/11",
-  "updated_at": "2026-11-03T09:22:28Z"
+  "commit_msg": "04/11 phien 160: quet bao tri khi khong co AWS Health, NAT di S3 o prod (Flow Logs), DB UAT tat qua dem lam payment crash-loop, ECR/CVE, de xuat S3 endpoint cho bao cao T5, 8 PBI xep hang doi, webapp+RDS chuyen weekly, skill muc 81, NOW",
+  "updated_at": "2026-11-04T03:12:27Z"
 }
