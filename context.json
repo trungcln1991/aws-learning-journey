@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "S3 & Storage Classes",
     "EC2 Basics",
     "RDS & Database Fundamentals"
   ],
-  "commit_msg": "04/11 phien 160: quet bao tri khi khong co AWS Health, NAT di S3 o prod (Flow Logs), DB UAT tat qua dem lam payment crash-loop, ECR/CVE, de xuat S3 endpoint cho bao cao T5, 8 PBI xep hang doi, webapp+RDS chuyen weekly, skill muc 81, NOW",
-  "updated_at": "2026-11-04T03:12:27Z"
+  "commit_msg": "05/11 phien 161: kien truc API Gateway VPC Link V2 vs CloudFront vs serverless (so do 30 ngay, don gia Pricing API), WAF 7 luat, NLB, Gen-AI CloudFront chuan, ro ri key (CloudTrail, GuardDuty, quet repo, FMG), quyen trien khai, deck 33 slide, skill muc 82, gap 473, NOW va SESSION",
+  "updated_at": "2026-11-05T03:22:53Z"
 }
