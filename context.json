@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "IAM Deep Dive"
   ],
-  "commit_msg": "05/11 phien 161 (chieu): deck 45 slide (gioi han API Gateway/CloudFront co nguon, vi sao 29 giay, cham diem 5 tru cot, tinh trang resource + bao mat), loi 500 EScale :62171 do DB them cot (khong lien quan deploy), bang tra nhanh 5xx, skill muc 83, memory, 7 gap moi, NOW va SESSION",
-  "updated_at": "2026-11-05T06:45:40Z"
+  "commit_msg": "05/11 phien 161 (sau clear): note can cu cham diem + B khac C, drift tuan (prod/network No changes, 4 module chua init), IAM/SSO audit (PBI 35845), 4 PBI xep hang doi Done truoc 17h, bay length() chia trang, skill muc 84, memory, gap 481-482, NOW va SESSION",
+  "updated_at": "2026-11-05T07:32:15Z"
 }
