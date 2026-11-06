@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:50:07.690Z",
+  "generated_at": "2026-11-06T07:50:22.045Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,157 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Security Hub now provides an SBOM inventory for your compute resources",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
+      "date": "2026-11-06T00:30:00.000Z",
+      "description": "Today, AWS announces that AWS Security Hub now provides a Software Bill of Materials (SBOM) inventory, giving central security teams a continuously updated, organization-wide view of the software packages and applications installed on their compute resources. Security Hub builds the inventory from the SBOMs that Amazon Inspector generates for Amazon EC2 instances, Amazon ECR container images, and ",
+      "tags": [
+        "EC2",
+        "ECS",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Interconnect - last mile announces new metro in Northern Virginia, USA",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/",
+      "date": "2026-11-05T21:30:00.000Z",
+      "description": "Today, AWS announced a new AWS Interconnect - last mile metro in Northern Virginia, USA. Northern Virginia joins New York as the second metro where you can connect your data center, branch office, or colocation facility to AWS. AWS Interconnect - last mile gives you managed, private, resilient connections to AWS, so you don't have to order cross-connects or configure routers. Every connection is p",
+      "tags": []
+    },
+    {
+      "title": "Announcing Web Answer on Amazon Bedrock AgentCore",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/",
+      "date": "2026-11-05T20:56:00.000Z",
+      "description": "Today, we are announcing the general availability of Web Answer on Amazon Bedrock AgentCore. Web Answer is a managed tool that returns a synthesized, grounded, cited answer to a natural-language question in a single call, so agent builders can attach it to an agent and get back a finished answer grounded in current web sources, without building and maintaining their own search, retrieve, synthesis",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Network Load Balancer is now available in the AWS Phoenix Local Zone",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/",
+      "date": "2026-11-05T20:00:00.000Z",
+      "description": "AWS Network Load Balancer is now available in the Phoenix Local Zone (us-west-2-phx-2a). AWS Local Zones is a type of AWS infrastructure deployment that places AWS compute, storage, database, and other select services closer to large population, industry, and IT centers where no AWS Region exists today. With this launch, you can create an AWS Network Load Balancer directly in the Phoenix Local Zon",
+      "tags": [
+        "ALB"
+      ]
+    },
+    {
+      "title": "Amazon DynamoDB now supports bulk put items",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-dynamodb-now-supports-bulk-put-items/",
+      "date": "2026-11-05T18:00:00.000Z",
+      "description": "Today, AWS announces the general availability of bulk put items for Amazon DynamoDB, a fully managed feature that writes data from Amazon S3 into your existing DynamoDB tables. Many DynamoDB applications use data that other systems produce and store in Amazon S3. Writing this data into existing DynamoDB tables has typically meant building custom pipelines and managing table capacity. With bulk put",
+      "tags": [
+        "S3",
+        "DynamoDB"
+      ]
+    },
+    {
+      "title": "Amazon Cognito announces 99.99% Service Level Agreement for the Plus feature plan",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-sla-update/",
+      "date": "2026-11-05T18:00:00.000Z",
+      "description": "Starting November 1, 2026, the Amazon Cognito Service Level Agreement (SLA) commits to a Monthly Uptime Percentage of 99.99% for user pools on the Plus feature plan, up from 99.9%. User pools already on Plus are automatically covered by the new Service Commitment. User pools on Essentials and Lite stay at the 99.9% Service Commitment with no change to their terms. To qualify for the 99.99% Service",
+      "tags": []
+    },
+    {
+      "title": "IAM Roles Anywhere now supports automatic certificate revocation checking",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/",
+      "date": "2026-11-05T17:38:00.000Z",
+      "description": "AWS Identity and Access Management (IAM) Roles Anywhere now supports automatic revocation checking using certificate revocation list (CRL) distribution points (CDPs). This helps keep revocation checks in sync with your certificate authority (CA) and can help improve your security posture. When you enable this capability on a trust anchor, IAM Roles Anywhere reads the CDP URLs embedded in authentic",
+      "tags": [
+        "IAM",
+        "CloudFront"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service optimized engine now supports agent traces",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces",
+      "date": "2026-11-05T17:00:00.000Z",
+      "description": "Today, the Amazon OpenSearch Service optimized engine adds support for agent traces, including OpenTelemetry traces. Your traces and logs now live in the same place. You can follow a request or an agent session from start to finish, find the step that failed or slowed down, and check the related logs without switching tools. The optimized engine maps OpenTelemetry logs and traces to object, nested",
+      "tags": []
+    },
+    {
+      "title": "Amazon FSx for Lustre delivers 16x higher metadata IOPS on Intelligent-Tiering file systems",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-fsx-for-lustre-intelligent-tiering-16x-higher-metadata-iops",
+      "date": "2026-11-05T15:39:00.000Z",
+      "description": "Amazon FSx for Lustre now supports up to 192,000 metadata I/O operations per second (IOPS) on file systems that use the Intelligent-Tiering storage class, 16x higher than the previous maximum of 12,000 IOPS. The FSx for Lustre Intelligent-Tiering storage class delivers the lowest-cost and only fully elastic Lustre file storage in the cloud. It is optimized for workloads that mix hot and cold data ",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon RDS for Oracle now supports Kerberos authentication with self-managed Active Directory",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-kerberos-self-managed-ad/",
+      "date": "2026-11-05T10:30:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle ( Amazon Relational Database Service (Amazon RDS) for Oracle ) now allows customers to join their RDS for Oracle DB instances directly to their self-managed Microsoft Active Directory (AD) domain. Your self-managed AD can run on premises, on Amazon EC2, or with another cloud provider. Users in your AD domain can authenticate to RDS for Ora",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Security Hub Network Scanning now available in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/",
+      "date": "2026-11-05T09:00:00.000Z",
+      "description": "AWS Security Hub Network Scanning feature is now supported in AWS GovCloud (US). Network Scanning probes your resources from the internet to detect actual reachability, not just what could be reachable based on security group rules and route tables. It discovers public IP addresses, virtual machines, and load balancers across your AWS environments, identifies reachable ports, and determines what s",
+      "tags": [
+        "ALB",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "AWS Lambda durable functions increases default execution and API quotas",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "AWS Lambda durable functions has increased default quotas for running executions and API request rates. The new quotas below apply in all AWS Regions except US East (N. Virginia), US West (Oregon), and Europe (Ireland), which have twice these quotas. Running durable executions per account (1 million to 5 million) Function invocation rate to start durable executions (300 to 3,000 requests per secon",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon SageMaker AI Studio Now Supports IAM Identity Center Multi-Region Replication",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "Amazon SageMaker AI now supports IAM Identity Center (IdC) multi-region replication, enabling you to deploy SageMaker AI Studio domains in different regions from your IdC instance's primary region. Previously, the primary IdC instance had to reside in the same region as the SageMaker AI Studio domain; now customers can replicate their primary IdC instance into the region where they wish to use Sag",
+      "tags": [
+        "EC2",
+        "IAM",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS WAF AI traffic monetization now supports fiat payouts through Stripe",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "AWS WAF AI traffic monetization now integrates with Stripe. Publishers, content owners, and API providers can collect stablecoin payments from AI bots and agents that settle in local currency directly to their Stripe balance. With this launch, customers can monetize agent access without holding stablecoins or managing a crypto wallet. Stripe is now available as a new payout method alongside existi",
+      "tags": [
+        "WAF"
+      ]
+    },
+    {
+      "title": "Amazon Q Developer in console is now the AWS assistant",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/q-developer-renamed-aws-assistant/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "Amazon Q Developer in the AWS Management Console and Console Mobile Apps is now called the AWS assistant. Previously, customers interacted with Amazon Q Developer across these surfaces. Now, the AWS assistant provides the same personalized, account-aware guidance and actions with a name that immediately communicates what the product does. The AWS assistant simplifies how customers build, operate, ",
+      "tags": []
+    },
+    {
+      "title": "AWS Systems Manager Parameter Store now allows organization and validation with built-in data types",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/",
+      "date": "2026-11-05T05:00:00.000Z",
+      "description": "AWS Systems Manager Parameter Store now supports 13 new parameter data types that automatically validate parameter values when you create or update a parameter. With built-in validation, you can stop malformed configuration values, such as an invalid IP address, AWS account ID, or JSON document, before your applications read them, without writing your own validation logic. These types allow you to",
+      "tags": []
+    },
+    {
+      "title": "Amazon MWAA now supports cost allocation tags",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/",
+      "date": "2026-11-04T23:00:00.000Z",
+      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports cost allocation tags . Tags you apply to an Amazon MWAA environment now propagate to the compute that runs it, including workers, schedulers, and web servers. You can then track Amazon MWAA spend by tag in AWS Cost Explorer and AWS Cost and Usage Reports. With this launch, platform teams can show back or charge back Airflow cos",
+      "tags": [
+        "Cost"
+      ]
+    },
     {
       "title": "Amazon ECS Managed Daemons can now collect json-file logs from application containers on Amazon ECS Managed Instances",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/",
@@ -98,158 +249,6 @@
         "EKS",
         "Cost"
       ]
-    },
-    {
-      "title": "RHEL 10, Rocky 10 and Ubuntu 26.04 Bundles for WorkSpaces",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rhel-10-rocky-10-ubuntu-26-04-workspaces/",
-      "date": "2026-11-04T08:00:00.000Z",
-      "description": "AWS announces new Linux bundles for Amazon WorkSpaces Personal, including Rocky Linux 10, Red Hat Enterprise Linux 10, and Ubuntu 26.04 LTS. With these bundles, you can launch WorkSpaces on the latest enterprise Linux operating systems and use newer software packages that are only available in these releases. These new bundles feature modern Wayland display technology, giving you access to the lat",
-      "tags": []
-    },
-    {
-      "title": "New features for Amazon EC2 Capacity Manager",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-capacity-manager-supportability-and-fulfillment/",
-      "date": "2026-11-04T07:00:00.000Z",
-      "description": "Amazon EC2 Capacity Manager now offers real-time supportability checks and capacity fulfillment metrics. Real-time supportability checks help customers find capacity by scoring how well each instance type and Availability Zone can support a request, without launching or reserving instances. Capacity fulfillment metrics show how much capacity was delivered against the amount requested. Global enter",
-      "tags": [
-        "EC2",
-        "CloudWatch",
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer lets agents pause and resume emails",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/",
-      "date": "2026-11-03T20:15:00.000Z",
-      "description": "Amazon Connect Customer lets agents pause emails while waiting for information or approvals, freeing them to handle higher-priority contacts and resume their work later. For example, an agent waiting for a supervisor to approve a refund can pause the email and take an incoming call. Paused time is tracked separately from active handling time, giving supervisors a more accurate view of the time age",
-      "tags": []
-    },
-    {
-      "title": "Amazon WorkSpaces for AI agents now supports Linux and Windows 11 cloud desktops",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-ai-agents-linux-windows-11",
-      "date": "2026-11-03T18:00:00.000Z",
-      "description": "WorkSpaces for AI agents now supports Linux and Windows 11 cloud desktops, in addition to Windows Server. You can run each AI agent on the operating system that its workflows and applications require. Your agents can then work in the same environments that your workforce already uses, without re-platforming. Linux desktops give agents full root access to the operating system where many developers ",
-      "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer prefills the email address for new threads started from cases",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-email-addresses/",
-      "date": "2026-11-03T17:00:00.000Z",
-      "description": "Amazon Connect Customer automatically fills in the customer’s email address from the linked customer profile when agents start a new email thread from a case. This saves agents time and reduces manual entry errors by eliminating the need to look up or type the address. Cases is available in the following AWS regions: US East (N. Virginia), US West (Oregon), Canada (Central), Europe (Frankfurt), Eu",
-      "tags": []
-    },
-    {
-      "title": "AWS Config now supports 10 new resource types",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-config-new-resource-types",
-      "date": "2026-11-03T16:00:00.000Z",
-      "description": "AWS Config now supports 10 additional AWS resource types across key services including Amazon ElastiCache and Amazon QuickSight. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources. With this launch, if you have enabled recording for all resource types, then AWS Config will au",
-      "tags": [
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Amazon RDS now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/",
-      "date": "2026-11-03T08:30:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2017 CU31+GDR KB5128496 (RDS version 14.00.3560.2.v1), SQL Server 2019 CU32+GDR KB5128494 (RDS version 15.00.4500.2.v1), SQL Server 2022 CU27+GDR KB5126934 (RDS ",
-      "tags": [
-        "RDS",
-        "CloudFront"
-      ]
-    },
-    {
-      "title": "AWS Transform for mainframe improves the reimagine modernization workflow",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-transform-mainframe-reimagine/",
-      "date": "2026-11-03T08:00:00.000Z",
-      "description": "AWS Transform for mainframe now discovers business functions with field-level precision and generates a new requirements coverage report in the assess and reimagine workflow. Previously, business functions that used the same table or file were grouped together, and you had to build your own traceability reporting from AWS Transform artifacts. With this launch, you can start modernizing z/OS COBOL ",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch now supports API keys for OpenTelemetry traces",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-api-keys-opentelemetry/",
-      "date": "2026-11-03T08:00:00.000Z",
-      "description": "Amazon CloudWatch now supports bearer token authentication, using API keys (bearer tokens), as an additional option for sending OpenTelemetry traces to the AWS X-Ray OpenTelemetry Protocol (OTLP) traces endpoint. Any OTLP/HTTP client that can set an Authorization header, including the OpenTelemetry Collector and OpenTelemetry SDK exporters, can now authenticate with a bearer token instead of signi",
-      "tags": [
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "Amazon EKS Capabilities now supports Argo CD Notifications",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications",
-      "date": "2026-11-03T06:00:00.000Z",
-      "description": "The Amazon Elastic Kubernetes Service (Amazon EKS) Capability for Argo CD now supports Argo CD Notifications, providing notifications when your applications sync, fail, or change health. You define triggers and message templates in your cluster and subscribe individual Applications with an annotation, the same way you do in upstream Argo CD. With this launch, you can deliver notifications to 16 no",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon RDS for Oracle now supports M8i and R8i instances in additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-m8i-r8i-instances-new-regions/",
-      "date": "2026-11-03T00:00:00.000Z",
-      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports M8i and R8i instances in additional AWS Regions. Both M8i and R8i instances are now available in Asia Pacific (New Zealand) and Canada West (Calgary), and R8i instances are now available in Europe (Milan, Stockholm, and Zurich) and Israel (Tel Aviv). These instances are powered by custom Intel Xeon 6 processors, available only",
-      "tags": [
-        "EC2",
-        "RDS"
-      ]
-    },
-    {
-      "title": "Haiku 5.5 now available on Kiro in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/kiro-haiku-5-5-aws-govcloud-us/",
-      "date": "2026-11-02T20:45:00.000Z",
-      "description": "A new Anthropic model is now available in the Kiro IDE and CLI for the AWS GovCloud (US) Regions. With Haiku 5.5, all three Claude 5.5 models are now available in Kiro in AWS GovCloud (US). Claude Haiku 5.5 is the fastest model in the Claude 5.5 family. It's a clear step up from Claude Haiku 4.5, built for work that runs in large volumes and needs quick responses. Developers can use it to summariz",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS now supports per snapshot billing",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-per-snapshot-billing/",
-      "date": "2026-11-02T18:43:00.000Z",
-      "description": "Starting today, Amazon RDS supports per snapshot billing for Amazon RDS snapshots. Per snapshot billing allows you to get the cost of each individual snapshot. Previously, RDS snapshot charges were aggregated at the database instance level on the Cost and Usage report as well as the Cost Explorer. This meant that while understanding the snapshot charges, you could only see the aggregate view at th",
-      "tags": [
-        "EC2",
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon Quick on desktop now uses your organization's existing Amazon Quick sign-in",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-quick-desktop-organization-sign-in/",
-      "date": "2026-11-02T18:36:00.000Z",
-      "description": "For organizations that use Amazon Quick, the desktop application now signs users in with the same sign-in method the organization already uses for Quick on the web. Administrators no longer need to register an OIDC application in their identity provider or set up separate desktop sign-in before users can get started. If a user can sign in to Quick on the web, that user can sign in to the desktop a",
-      "tags": [
-        "IAM",
-        "Organizations"
-      ]
-    },
-    {
-      "title": "Amazon Aurora MySQL 8.4.10 is now generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-aurora-mysql-8410-available/",
-      "date": "2026-11-02T17:00:00.000Z",
-      "description": "Starting today, Amazon Aurora MySQL-Compatible Edition 8.4 supports MySQL 8.4.10. We recommend upgrading to the newer minor versions to accept fixes for Common Vulnerabilities and Exposures (CVEs) in prior versions of MySQL and to benefit from bug fixes, performance improvements, and new functionality added by the MySQL community. For more details, refer to the Aurora MySQL 8.4 and MySQL 8.4.10 re",
-      "tags": [
-        "RDS",
-        "Lambda",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "AWS Lambda now supports queues for Apache Kafka in self-managed Kafka event sources",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-queue-kafka-esm/",
-      "date": "2026-11-02T17:00:00.000Z",
-      "description": "AWS Lambda now supports queues for Apache Kafka in self-managed Kafka event source mappings (ESM), for Kafka clusters that customers run themselves and for managed offerings such as Confluent Cloud. Customers can now scale processing for Kafka workloads beyond the partition count of a topic, increasing throughput during traffic spikes and improving processing resilience. Customers building event-d",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Aurora MySQL 3.14 (compatible with MySQL 8.0.46) is generally available",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-aurora-mysql-314-available/",
-      "date": "2026-11-02T17:00:00.000Z",
-      "description": "Starting today, Amazon Aurora MySQL-Compatible Edition 3 (compatible with MySQL 8.0) supports MySQL 8.0.46, which includes community MySQL fixes and Aurora-specific improvements. In addition to operational improvements, Aurora MySQL 3.14 introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in-transit. For detai",
-      "tags": [
-        "RDS"
-      ]
     }
   ],
   "security": [
@@ -265,15 +264,6 @@
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-162-aws/",
       "date": "2026-11-02T17:41:34.000Z",
       "description": "Bulletin ID: 2026-162-AWS Publication Date: 11/02/2026 09:30 AM PST Description: Virtual Engineering Workbench (VEW) is an open-source platform where platform engineers define and publish development environments, and developers provision them on demand through a web portal. We identified CVE-2026-119085, where improper neutralization of special elements used in a template engine in the publishing",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
-      "title": "CVE-2026-107783 - Insertion of sensitive information into log file in AWS Tools for PowerShell",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-132-aws/",
-      "date": "2026-10-09T16:15:39.000Z",
-      "description": "Read this article",
       "tags": [
         "Inspector"
       ]
@@ -325,21 +315,30 @@
       ]
     },
     {
-      "title": "CVE-2026-108096: Improper authorization in query resolvers for SQL-backed models in AWS Amplify API Category",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-133-aws/",
-      "date": "2026-10-09T18:19:40.000Z",
-      "description": "Read this article",
-      "tags": [
-        "Inspector"
-      ]
-    },
-    {
       "title": "CVE-2026-122266 - Improper isolation of shared resources in aws-network-policy-agent in Amazon EKS",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-170-aws/",
       "date": "2026-11-04T21:53:42.000Z",
       "description": "Bulletin ID: 2026-170-AWS Publication Date: 11/04/2026 13:30 PM PST Description: We identified CVE-2026-122266, an issue in Amazon EKS Network Policy Agent (aws-network-policy-agent). Improper isolation of shared eBPF connection tracking state might allow an authenticated adjacent user to bypass NetworkPolicy ingress enforcement on co-located pods. Impacted versions: - aws-network-policy-agent &lt",
       "tags": [
         "EKS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-119117 - Insertion of sensitive information into a log file and process argument list in the Amazon Kinesis Producer Library for Java",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-159-aws/",
+      "date": "2026-10-30T18:18:40.000Z",
+      "description": "Bulletin ID: 2026-159-AWS Publication Date: 10/30/2026 11:00 AM PDT Description: We published CVE-2026-119117. Insertion of sensitive information into a log file in Amazon Kinesis Producer Library for Java before 1.0.8, when the library's logger is configured at DEBUG log level, might allow local users to obtain the AWS credentials that the library resolved for the application. Separately, affecte",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-115845 - Incomplete validation in the run_script Python sandbox in AWS MCP Server",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-149-aws/",
+      "date": "2026-10-23T19:09:22.000Z",
+      "description": "Read this article",
+      "tags": [
         "Inspector"
       ]
     }
