@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "IAM Deep Dive"
+    "VPC Fundamentals",
+    "Security Groups & NACL",
+    "EC2 Basics"
   ],
-  "commit_msg": "05/11 phien 161 (chieu): 3 slide Toi uu chi phi cho hop 15h (truoc/sau, cac buoc, rollback, theo doi; net -53 USD/thang, crash-loop UAT, lich tat ECS UAT uoc tinh), dieu kien ALB Gen-AI, skill muc 84 phan 6, gap 483-484, ma PBI 35845/35851/35852, NOW va SESSION",
-  "updated_at": "2026-11-05T08:56:00Z"
+  "commit_msg": "06/11 phien 162: VPN auto-heal tuan 30/10-06/11 (12 act, HC .117.9 cham tran 4/24h), go Bedrock cost alert jp:prod (8 muc, plan No changes), EScale do lai 24h (911 5xx gio 13:00), 3 PBI xep hang doi, bay Timestamp AWS CLI gio local, skill muc 85, memory, gap 483, NOW va SESSION",
+  "updated_at": "2026-11-06T01:44:43Z"
 }
