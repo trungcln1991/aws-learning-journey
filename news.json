@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T07:50:22.045Z",
+  "generated_at": "2026-11-07T06:58:34.346Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,85 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Kimi K3.1 Pro (Highspeed) now available on Amazon Bedrock",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock",
+      "date": "2026-11-06T22:47:00.000Z",
+      "description": "Today, Kimi K3.1 Pro from Moonshot AI is available on Amazon Bedrock, expanding our open weight model portfolio with the security and governance that customers rely on. Customers using Amazon Bedrock can now run agentic use cases such as coding and document processing on Kimi K3.1 Pro (Highspeed), which delivers high output tokens per second (OTPS) for faster, more responsive results. According to",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Agent Registry is now generally available in AWS GovCloud (US-West) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/",
+      "date": "2026-11-06T19:48:00.000Z",
+      "description": "AWS Agent Registry, available through Amazon Bedrock AgentCore, is now available in the AWS GovCloud (US-West) Region. AWS Agent Registry is a fully managed discovery service that gives your organization a central catalog for organizing, curating, and discovering resources. You can publish MCP servers, tools, agents, agent skills, and custom resources to a searchable registry, and control what bec",
+      "tags": [
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "Amazon MSK Replicator is now available in AWS GovCloud (US-East, US-West) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions",
+      "date": "2026-11-06T16:00:00.000Z",
+      "description": "You can now use Amazon MSK Replicator in the AWS GovCloud (US-East, US-West) Regions to replicate streaming data across Amazon MSK clusters and from external Apache Kafka clusters including on-premises, self-managed on AWS, or other cloud providers to Amazon MSK Provisioned clusters. MSK Replicator is a feature of Amazon MSK that automates data replication between Kafka clusters, eliminating the n",
+      "tags": []
+    },
+    {
+      "title": "Amazon Redshift expands SUPER data type to store strings up to 16 million bytes",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-redshift-expands-super-to-16-million-bytes/",
+      "date": "2026-11-06T16:00:00.000Z",
+      "description": "Amazon Redshift now supports individual strings up to 16 million bytes within SUPER data types . Once you opt in through a database parameter, this enhancement applies when ingesting structured or semi-structured data from JSON, PARQUET, TEXT, and CSV source files, and when transforming data through extract load and transform (ELT) processes. Previously, individual strings within SUPER data types ",
+      "tags": []
+    },
+    {
+      "title": "AWS launches support for amortization of EC2 Capacity Blocks for ML",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
+      "date": "2026-11-06T15:00:00.000Z",
+      "description": "AWS Data Exports for Cost and Usage Report (CUR) 2.0 and AWS Cost Explorer now amortize the upfront fee for Amazon EC2 Capacity Blocks for ML across the duration of each reservation. You can see the amortized cost of each instance launched into a Capacity Block and the amortized cost of unused capacity, so you can attribute your upfront fee to the workloads that used it and identify capacity that ",
+      "tags": [
+        "EC2",
+        "SageMaker",
+        "Cost"
+      ]
+    },
+    {
+      "title": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "date": "2026-11-06T14:00:00.000Z",
+      "description": "Starting today, you can add Amazon EC2 Capacity Blocks for ML and interruptible Capacity Reservations to Capacity Reservation Resource Groups in AWS GovCloud (US) Regions. Amazon EC2 offers different reservation offerings such as On-Demand Capacity Reservations (ODCRs), interruptible Capacity Reservations, and Capacity Blocks for ML. Previously, a Capacity Reservation Resource Group could only inc",
+      "tags": [
+        "EC2",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "Amazon Simple Email Service is now available in six new AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "date": "2026-11-06T08:00:00.000Z",
+      "description": "Amazon Simple Email Service (Amazon SES) is now available in the Asia Pacific (New Zealand, Melbourne, Taipei, Thailand), Mexico (Central), EU (Spain). Customers can now use these new Regions to leverage Amazon SES to send emails and, if needed, to help manage data requirements. Amazon SES is a scalable, cost-effective, and flexible cloud-based email service that allows digital marketers and appli",
+      "tags": [
+        "ALB",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+      "date": "2026-11-06T08:00:00.000Z",
+      "description": "AWS Glue Data Catalog now supports external catalog's vended credentials in Apache Iceberg REST catalog federation. You can now read external Iceberg tables from Amazon Athena, Amazon EMR, Amazon Redshift, and AWS Glue using coarse-grained table grants in your external Iceberg catalog. Glue Data Catalog already federates to external Iceberg REST catalogs through an AWS IAM role that you configure ",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "AWS Elemental MediaConvert adds a native integration with AWS Elemental Inference Smart Subtitles",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mediaconvert-elemental-smart-subtitles/",
+      "date": "2026-11-06T08:00:00.000Z",
+      "description": "​​AWS Elemental MediaConvert now integrates Smart Subtitles, an AI-powered subtitling solution built on AWS Elemental Inference and the latest speech recognition models. This feature brings automated subtitle generation directly into your video-on-demand (VOD) transcoding and packaging workflows, eliminating the need for separate external captioning pipelines. Customers can now manage both transco",
+      "tags": []
+    },
     {
       "title": "AWS Security Hub now provides an SBOM inventory for your compute resources",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
@@ -133,6 +212,26 @@
       ]
     },
     {
+      "title": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-codeconnections-govcloud-west/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region, in addition to AWS GovCloud (US-East). CodeConnections lets you connect AWS services such as AWS CodePipeline and AWS CodeBuild to source code repositories hosted with third-party providers such as Bitbucket. With this launch, customers running workloads in AWS GovCloud (US-West) can create connections to their source repos",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Amazon EC2 now publishes ImdsV1Enabled CloudWatch metric",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-imdsv1enabled-cloudwatch-metric/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "Amazon EC2 now supports an ImdsV1Enabled CloudWatch metric, giving customers visibility into which of their EC2 instances still have Instance Metadata Service Version 1 (IMDSv1) enabled. You can use this metric to track your migration to IMDSv2 across your accounts and Regions, at scale. With the ImdsV1Enabled metric, you can configure CloudWatch dashboards and alarms to track instances that still",
+      "tags": [
+        "EC2",
+        "RDS",
+        "CloudWatch"
+      ]
+    },
+    {
       "title": "Amazon SageMaker AI Studio Now Supports IAM Identity Center Multi-Region Replication",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/",
       "date": "2026-11-05T08:00:00.000Z",
@@ -150,104 +249,6 @@
       "description": "AWS WAF AI traffic monetization now integrates with Stripe. Publishers, content owners, and API providers can collect stablecoin payments from AI bots and agents that settle in local currency directly to their Stripe balance. With this launch, customers can monetize agent access without holding stablecoins or managing a crypto wallet. Stripe is now available as a new payout method alongside existi",
       "tags": [
         "WAF"
-      ]
-    },
-    {
-      "title": "Amazon Q Developer in console is now the AWS assistant",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/q-developer-renamed-aws-assistant/",
-      "date": "2026-11-05T08:00:00.000Z",
-      "description": "Amazon Q Developer in the AWS Management Console and Console Mobile Apps is now called the AWS assistant. Previously, customers interacted with Amazon Q Developer across these surfaces. Now, the AWS assistant provides the same personalized, account-aware guidance and actions with a name that immediately communicates what the product does. The AWS assistant simplifies how customers build, operate, ",
-      "tags": []
-    },
-    {
-      "title": "AWS Systems Manager Parameter Store now allows organization and validation with built-in data types",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/",
-      "date": "2026-11-05T05:00:00.000Z",
-      "description": "AWS Systems Manager Parameter Store now supports 13 new parameter data types that automatically validate parameter values when you create or update a parameter. With built-in validation, you can stop malformed configuration values, such as an invalid IP address, AWS account ID, or JSON document, before your applications read them, without writing your own validation logic. These types allow you to",
-      "tags": []
-    },
-    {
-      "title": "Amazon MWAA now supports cost allocation tags",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/",
-      "date": "2026-11-04T23:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports cost allocation tags . Tags you apply to an Amazon MWAA environment now propagate to the compute that runs it, including workers, schedulers, and web servers. You can then track Amazon MWAA spend by tag in AWS Cost Explorer and AWS Cost and Usage Reports. With this launch, platform teams can show back or charge back Airflow cos",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon ECS Managed Daemons can now collect json-file logs from application containers on Amazon ECS Managed Instances",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/",
-      "date": "2026-11-04T21:29:00.000Z",
-      "description": "Amazon Elastic Container Service (Amazon ECS) introduces json-file log driver support for Amazon ECS Managed Instances and log driver volumes for Amazon ECS Managed Daemons. Together, these features let you collect application logs with the observability agent of your choice and forward them to any destination you choose. With this launch, your application containers on ECS Managed Instances can w",
-      "tags": [
-        "EC2",
-        "ECS"
-      ]
-    },
-    {
-      "title": "Amazon DocumentDB (with MongoDB compatibility) is now available in the Asia Pacific (Taipei) and Asia Pacific (New Zealand) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-documentdb-mongodb-compatibility-asia-pacific-taipei-new-zealand-regions/",
-      "date": "2026-11-04T19:00:00.000Z",
-      "description": "Amazon DocumentDB (with MongoDB compatibility) is now available in the Asia Pacific (Taipei) and Asia Pacific (New Zealand) Regions, adding to the list of available Regions where you can use Amazon DocumentDB. Amazon DocumentDB is a fully managed, native JSON database that makes it simple and cost-effective to operate critical document workloads at virtually any scale without managing infrastructu",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon RDS for Oracle now supports copying option groups during cross-Region snapshot copy",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-oracle-cross-region-snapshot-copy-option-group/",
-      "date": "2026-11-04T18:40:00.000Z",
-      "description": "Amazon RDS for Oracle now lets you copy the option group associated with a DB snapshot when you copy that snapshot to another AWS Region. Amazon RDS for Oracle uses option groups to enable and configure features that make it simple to manage your databases. Option groups are specific to the AWS Region where you create them. Previously, customers wanting to replicate RDS backups that had option gro",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS announces AWS Interconnect - last mile preview with Equinix",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/",
-      "date": "2026-11-04T17:00:00.000Z",
-      "description": "AWS Interconnect - last mile is now available in preview with Equinix. You can connect your infrastructure across Equinix's global network of 282 data centers worldwide to AWS in a few clicks. Interconnect - last mile gives you managed, private, and resilient connections to AWS, so you don't have to order cross-connects or configure routers. To set up in the AWS Management Console, choose an AWS R",
-      "tags": []
-    },
-    {
-      "title": "Amazon Connect Customer now shows associated cases in contact records",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-contact-records/",
-      "date": "2026-11-04T17:00:00.000Z",
-      "description": "Amazon Connect Customer now includes case IDs and reference numbers in contact records, helping supervisors and analysts understand which customer issues drive contact volume. Cases track issues, such as refund requests or billing disputes, across interactions and teams. Supervisors can now identify the cases associated with an interaction directly on the Contact Details page without searching ind",
-      "tags": [
-        "RDS",
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EC2 and VPC now display related resources for all resource types",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
-      "date": "2026-11-04T08:00:00.000Z",
-      "description": "Amazon Elastic Compute Cloud (Amazon EC2), Amazon Virtual Private Cloud (Amazon VPC), and AWS Global View now display related resources for all resource types in their consoles. Previously, only security groups had an option to view related resources. Now you can see relationships for all EC2 and VPC resource types, including EC2 instances, Amazon Elastic Block Store (Amazon EBS) volumes, Launch T",
-      "tags": [
-        "EC2",
-        "VPC"
-      ]
-    },
-    {
-      "title": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
-      "date": "2026-11-04T08:00:00.000Z",
-      "description": "AWS DataSync Enhanced mode now supports OpenID Connect (OIDC) authentication for Google Cloud Storage and Microsoft Azure Blob Storage locations. DataSync uses an AWS Identity and Access Management (IAM) role to get short-lived credentials from Google Cloud or Microsoft Entra ID and refreshes them automatically so your transfers run without interruption. You can now use DataSync to access your Goo",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon S3 Tables now provide a simple, cost-effective path for data lake modernization",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/",
-      "date": "2026-11-04T08:00:00.000Z",
-      "description": "Amazon S3 Tables now offer managed migration of your Apache Hive tables to Apache Iceberg. Iceberg adds ACID transactions, schema evolution, and time travel to your data lake, but moving off Hive usually means building a migration pipeline for each table, which can take weeks. You can now let S3 Tables manage your migration, resulting in query-ready Iceberg tables that stay optimized as data grows",
-      "tags": [
-        "S3",
-        "EKS",
-        "Cost"
       ]
     }
   ],
@@ -296,16 +297,6 @@
       ]
     },
     {
-      "title": "CVE-2026-107332 - Insecure default file permissions on cached credentials in AWS Toolkit for Visual Studio Code",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-129-aws/",
-      "date": "2026-10-08T17:43:09.000Z",
-      "description": "Read this article",
-      "tags": [
-        "IAM",
-        "Inspector"
-      ]
-    },
-    {
       "title": "CVE-2026-112380 - Missing authorization in the WhatsApp channel in Kiro Crew",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-140-aws/",
       "date": "2026-10-20T20:23:08.000Z",
@@ -328,7 +319,7 @@
       "title": "CVE-2026-119117 - Insertion of sensitive information into a log file and process argument list in the Amazon Kinesis Producer Library for Java",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-159-aws/",
       "date": "2026-10-30T18:18:40.000Z",
-      "description": "Bulletin ID: 2026-159-AWS Publication Date: 10/30/2026 11:00 AM PDT Description: We published CVE-2026-119117. Insertion of sensitive information into a log file in Amazon Kinesis Producer Library for Java before 1.0.8, when the library's logger is configured at DEBUG log level, might allow local users to obtain the AWS credentials that the library resolved for the application. Separately, affecte",
+      "description": "Read this article",
       "tags": [
         "Inspector"
       ]
@@ -337,6 +328,15 @@
       "title": "CVE-2026-115845 - Incomplete validation in the run_script Python sandbox in AWS MCP Server",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-149-aws/",
       "date": "2026-10-23T19:09:22.000Z",
+      "description": "Read this article",
+      "tags": [
+        "Inspector"
+      ]
+    },
+    {
+      "title": "CVE-2026-111943: eMudhra intermediate CA key recovery in AWS trust bundles",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-150-aws/",
+      "date": "2026-10-25T03:11:55.000Z",
       "description": "Read this article",
       "tags": [
         "Inspector"
@@ -438,45 +438,47 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
+      {
+        "title": "Service is operating normally: [RESOLVED] Elevated Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-07T01:12:16.000Z",
+        "description": "Between 2:35 PM and 4:21 PM PST, we experienced elevated EC2 instance launch failures affecting all AZs (usw2-az1, usw2-az2, usw2-az3, usw2-az4) in the US-WEST-2 Region. EC2 Instance Launches, AWS services that instantiated new instances, as well as services such as DataSync or AWS Backup which require new instances to support data transfers to or from the US-WEST-2 Region were affected. Our engin",
+        "tags": [
+          "EC2"
+        ]
+      },
+      {
+        "title": "Service impact: Elevated Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-07T00:08:32.000Z",
+        "description": "We can confirm EC2 instance launch failures affecting all AZs (usw2-az1, usw2-az2, usw2-az3, usw2-az4) in the US-WEST-2 Region. We have identified the issue to be caused by a subsystem that supports EBS Volumes required during instance launch. Services that instantiate new instances, such as cross-region data copy for DataSync, within the US-WEST-2 Region as either the source or destination are al",
+        "tags": [
+          "EC2"
+        ]
+      },
+      {
+        "title": "Service impact: Elevated Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-06T23:19:12.000Z",
+        "description": "We are experiencing elevated launch failures in the US-WEST-2 Region caused by an issue with the EBS service. Services that depend on EBS or EC2 will experience failure rates of their own. We are working to mitigate the issues. We will provide you with another update by 4:00 PM PST or sooner if new information becomes available.",
+        "tags": [
+          "EC2"
+        ]
+      },
+      {
+        "title": "Service impact: Elevated Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-06T22:51:05.000Z",
+        "description": "We are experiencing elevated launch failures in the US-WEST-2 Region.",
+        "tags": []
+      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
         "date": "2026-09-15T10:27:10.000Z",
         "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-15T10:22:28.000Z",
-        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
-        "tags": [
-          "Lambda"
-        ]
-      },
-      {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
-        "tags": [
-          "Cost"
-        ]
-      },
-      {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
       }
     ]
