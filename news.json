@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T06:58:34.346Z",
+  "generated_at": "2026-11-08T07:06:43.079Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -212,15 +212,6 @@
       ]
     },
     {
-      "title": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-codeconnections-govcloud-west/",
-      "date": "2026-11-05T08:00:00.000Z",
-      "description": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region, in addition to AWS GovCloud (US-East). CodeConnections lets you connect AWS services such as AWS CodePipeline and AWS CodeBuild to source code repositories hosted with third-party providers such as Bitbucket. With this launch, customers running workloads in AWS GovCloud (US-West) can create connections to their source repos",
-      "tags": [
-        "S3"
-      ]
-    },
-    {
       "title": "Amazon EC2 now publishes ImdsV1Enabled CloudWatch metric",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-imdsv1enabled-cloudwatch-metric/",
       "date": "2026-11-05T08:00:00.000Z",
@@ -229,6 +220,15 @@
         "EC2",
         "RDS",
         "CloudWatch"
+      ]
+    },
+    {
+      "title": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-codeconnections-govcloud-west/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region, in addition to AWS GovCloud (US-East). CodeConnections lets you connect AWS services such as AWS CodePipeline and AWS CodeBuild to source code repositories hosted with third-party providers such as Bitbucket. With this launch, customers running workloads in AWS GovCloud (US-West) can create connections to their source repos",
+      "tags": [
+        "S3"
       ]
     },
     {
@@ -438,47 +438,45 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
-      {
-        "title": "Service is operating normally: [RESOLVED] Elevated Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-07T01:12:16.000Z",
-        "description": "Between 2:35 PM and 4:21 PM PST, we experienced elevated EC2 instance launch failures affecting all AZs (usw2-az1, usw2-az2, usw2-az3, usw2-az4) in the US-WEST-2 Region. EC2 Instance Launches, AWS services that instantiated new instances, as well as services such as DataSync or AWS Backup which require new instances to support data transfers to or from the US-WEST-2 Region were affected. Our engin",
-        "tags": [
-          "EC2"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-07T00:08:32.000Z",
-        "description": "We can confirm EC2 instance launch failures affecting all AZs (usw2-az1, usw2-az2, usw2-az3, usw2-az4) in the US-WEST-2 Region. We have identified the issue to be caused by a subsystem that supports EBS Volumes required during instance launch. Services that instantiate new instances, such as cross-region data copy for DataSync, within the US-WEST-2 Region as either the source or destination are al",
-        "tags": [
-          "EC2"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-06T23:19:12.000Z",
-        "description": "We are experiencing elevated launch failures in the US-WEST-2 Region caused by an issue with the EBS service. Services that depend on EBS or EC2 will experience failure rates of their own. We are working to mitigate the issues. We will provide you with another update by 4:00 PM PST or sooner if new information becomes available.",
-        "tags": [
-          "EC2"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-06T22:51:05.000Z",
-        "description": "We are experiencing elevated launch failures in the US-WEST-2 Region.",
-        "tags": []
-      },
       {
         "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
         "date": "2026-09-15T10:27:10.000Z",
         "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-09-15T10:22:28.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "tags": [
+          "Lambda"
+        ]
+      },
+      {
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
         "tags": []
       }
     ]
