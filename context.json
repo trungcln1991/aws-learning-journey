@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL",
-    "EC2 Basics"
+    "RDS & Database Fundamentals",
+    "EC2 Basics",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "06/11 phien 162: VPN auto-heal tuan 30/10-06/11 (12 act, HC .117.9 cham tran 4/24h), go Bedrock cost alert jp:prod (8 muc, plan No changes), EScale do lai 24h (911 5xx gio 13:00), 3 PBI xep hang doi, bay Timestamp AWS CLI gio local, skill muc 85, memory, gap 483, NOW va SESSION",
-  "updated_at": "2026-11-06T01:44:43Z"
+  "commit_msg": "09/11 phien 163: Weekly Security Review 431 finding, RDS prod Single-AZ (tat Multi-AZ 07/11) + chi phi UAT + NLB UAT 0 API dung, 4/24 buoi hoc S02-S05, bao cao su co EScale INC-20261105-01, skill bao cao (5 file) + checklist Aurora, 5 PBI xep hang doi, doi nhan CK thanh DevOps, skill muc 86, gap 505, NOW va SESSION",
+  "updated_at": "2026-11-09T04:01:43Z"
 }
