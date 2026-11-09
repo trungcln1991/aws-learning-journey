@@ -1,8 +1,8 @@
 {
   "suggest_topics": [
-    "RDS & Database Fundamentals",
-    "EC2 Basics"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "09/11 phien 164: NCom chan WPS bang SRP 6/6 may + r7 log quota/WPS, RDS prod 3 snapshot/ngay (12:30/18:00/23:00), cua so native do AWS Backup dat (CloudTrail 09/07), PR terraform #38, skill fmla-plant-infra + muc 12, gap +12, NOW va SESSION",
-  "updated_at": "2026-11-09T08:22:52Z"
+  "commit_msg": "10/11 phien 165: su co VPN Long An + Indo (WAN port14 dut ~6h, 2 tunnel AWS cung cong, link ve van ket toi khi restart T1), auto-heal G8 fallback + card skip_hard_cap 1 lan/30 phut + card huong dan restart (deploy 06:41, test 10/10), skill vpn-autoheal/fortigate-bgp-vpn/infra-overview/aws-deploy-standard, gap +6 (524), de xuat 37-39, NOW, SESSION",
+  "updated_at": "2026-11-09T23:57:32Z"
 }
