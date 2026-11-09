@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T07:06:43.079Z",
+  "generated_at": "2026-11-09T07:49:46.604Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -78,14 +78,11 @@
       ]
     },
     {
-      "title": "Amazon Simple Email Service is now available in six new AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "title": "AWS Elemental MediaConvert adds a native integration with AWS Elemental Inference Smart Subtitles",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mediaconvert-elemental-smart-subtitles/",
       "date": "2026-11-06T08:00:00.000Z",
-      "description": "Amazon Simple Email Service (Amazon SES) is now available in the Asia Pacific (New Zealand, Melbourne, Taipei, Thailand), Mexico (Central), EU (Spain). Customers can now use these new Regions to leverage Amazon SES to send emails and, if needed, to help manage data requirements. Amazon SES is a scalable, cost-effective, and flexible cloud-based email service that allows digital marketers and appli",
-      "tags": [
-        "ALB",
-        "Cost"
-      ]
+      "description": "​​AWS Elemental MediaConvert now integrates Smart Subtitles, an AI-powered subtitling solution built on AWS Elemental Inference and the latest speech recognition models. This feature brings automated subtitle generation directly into your video-on-demand (VOD) transcoding and packaging workflows, eliminating the need for separate external captioning pipelines. Customers can now manage both transco",
+      "tags": []
     },
     {
       "title": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation",
@@ -97,11 +94,14 @@
       ]
     },
     {
-      "title": "AWS Elemental MediaConvert adds a native integration with AWS Elemental Inference Smart Subtitles",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mediaconvert-elemental-smart-subtitles/",
+      "title": "Amazon Simple Email Service is now available in six new AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
       "date": "2026-11-06T08:00:00.000Z",
-      "description": "​​AWS Elemental MediaConvert now integrates Smart Subtitles, an AI-powered subtitling solution built on AWS Elemental Inference and the latest speech recognition models. This feature brings automated subtitle generation directly into your video-on-demand (VOD) transcoding and packaging workflows, eliminating the need for separate external captioning pipelines. Customers can now manage both transco",
-      "tags": []
+      "description": "Amazon Simple Email Service (Amazon SES) is now available in the Asia Pacific (New Zealand, Melbourne, Taipei, Thailand), Mexico (Central), EU (Spain). Customers can now use these new Regions to leverage Amazon SES to send emails and, if needed, to help manage data requirements. Amazon SES is a scalable, cost-effective, and flexible cloud-based email service that allows digital marketers and appli",
+      "tags": [
+        "ALB",
+        "Cost"
+      ]
     },
     {
       "title": "AWS Security Hub now provides an SBOM inventory for your compute resources",
@@ -212,6 +212,15 @@
       ]
     },
     {
+      "title": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-codeconnections-govcloud-west/",
+      "date": "2026-11-05T08:00:00.000Z",
+      "description": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region, in addition to AWS GovCloud (US-East). CodeConnections lets you connect AWS services such as AWS CodePipeline and AWS CodeBuild to source code repositories hosted with third-party providers such as Bitbucket. With this launch, customers running workloads in AWS GovCloud (US-West) can create connections to their source repos",
+      "tags": [
+        "S3"
+      ]
+    },
+    {
       "title": "Amazon EC2 now publishes ImdsV1Enabled CloudWatch metric",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-imdsv1enabled-cloudwatch-metric/",
       "date": "2026-11-05T08:00:00.000Z",
@@ -220,15 +229,6 @@
         "EC2",
         "RDS",
         "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-codeconnections-govcloud-west/",
-      "date": "2026-11-05T08:00:00.000Z",
-      "description": "AWS CodeConnections is now available in the AWS GovCloud (US-West) Region, in addition to AWS GovCloud (US-East). CodeConnections lets you connect AWS services such as AWS CodePipeline and AWS CodeBuild to source code repositories hosted with third-party providers such as Bitbucket. With this launch, customers running workloads in AWS GovCloud (US-West) can create connections to their source repos",
-      "tags": [
-        "S3"
       ]
     },
     {
