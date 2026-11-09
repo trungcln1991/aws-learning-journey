@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
     "RDS & Database Fundamentals",
-    "EC2 Basics",
-    "CloudWatch & Monitoring"
+    "EC2 Basics"
   ],
-  "commit_msg": "09/11 phien 163: Weekly Security Review 431 finding, RDS prod Single-AZ (tat Multi-AZ 07/11) + chi phi UAT + NLB UAT 0 API dung, 4/24 buoi hoc S02-S05, bao cao su co EScale INC-20261105-01, skill bao cao (5 file) + checklist Aurora, 5 PBI xep hang doi, doi nhan CK thanh DevOps, skill muc 86, gap 505, NOW va SESSION",
-  "updated_at": "2026-11-09T04:01:43Z"
+  "commit_msg": "09/11 phien 164: NCom chan WPS bang SRP 6/6 may + r7 log quota/WPS, RDS prod 3 snapshot/ngay (12:30/18:00/23:00), cua so native do AWS Backup dat (CloudTrail 09/07), PR terraform #38, skill fmla-plant-infra + muc 12, gap +12, NOW va SESSION",
+  "updated_at": "2026-11-09T08:22:52Z"
 }
