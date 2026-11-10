@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL",
-    "EC2 Basics"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-11-10 17:02",
-  "updated_at": "2026-11-10T10:02:58Z"
+  "commit_msg": "10/11 phien 166: ra soat 9 account (log CloudTrail goc 333k file, quet cua sau, danh muc 6.016 resource), canh bao som nhom A+D (PR terraform #42/#43: console IAM user, quota, Access Analyzer + archive rule, AWS Health, tai nguyen ngoai Singapore, 6 tag chuan, gio VN, giam spam), canh bao VPN (flap/BGP/route/T1) + the VPN ve kenh S2S, kenh bao mat moi, VPN LA chieu (port14 13:09, s2sHO 17:19), chuan 1.0.2 ngoai le NM-01/NM-06, memory chuan tag, NOW, SESSION, gap 530",
+  "updated_at": "2026-11-10T16:13:11Z"
 }
