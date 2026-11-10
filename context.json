@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "VPC Fundamentals",
-    "Security Groups & NACL"
+    "Security Groups & NACL",
+    "EC2 Basics"
   ],
-  "commit_msg": "10/11 phien 165: su co VPN Long An + Indo (WAN port14 dut ~6h, 2 tunnel AWS cung cong, link ve van ket toi khi restart T1), auto-heal G8 fallback + card skip_hard_cap 1 lan/30 phut + card huong dan restart (deploy 06:41, test 10/10), skill vpn-autoheal/fortigate-bgp-vpn/infra-overview/aws-deploy-standard, gap +6 (524), de xuat 37-39, NOW, SESSION",
-  "updated_at": "2026-11-09T23:57:32Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-11-10 17:02",
+  "updated_at": "2026-11-10T10:02:58Z"
 }
