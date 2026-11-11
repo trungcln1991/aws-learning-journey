@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T08:12:46.993Z",
+  "generated_at": "2026-11-11T07:39:27.917Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,147 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "AWS Billing and Cost Management now supports AWS Billing Conductor and AWS Billing Transfer views as source views for custom billing views",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-billing-and-cost-management-multi-source-custom-billing-views",
+      "date": "2026-11-10T23:22:00.000Z",
+      "description": "Custom billing views now support AWS Billing Conductor and AWS Billing Transfer views as source views. These are the views AWS maintains per billing group and per billing transfer relationship. You can combine them into a single custom billing view, apply filters, and use that view in Cost Explorer, AWS Budgets, and the Billing and Cost Management console. There are three source view types. Billin",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "Amazon EC2 G7 instances now available in additional regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-g7-additional-regions/",
+      "date": "2026-11-10T19:30:00.000Z",
+      "description": "Amazon Elastic Compute Cloud (Amazon EC2) G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs are now available in Europe (London), Asia Pacific (Mumbai, Sydney) and South America (Sao Paulo) Regions. G7 instances deliver up to 4.6x AI inference performance and up to 2.1 graphics performance compared to G6 instances. G7 instances also deliver faster performance for GPU-accele",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service announces managed cross-Region disaster recovery",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-managed-cross-region-disaster-recovery/",
+      "date": "2026-11-10T19:00:00.000Z",
+      "description": "Amazon OpenSearch Service now offers managed cross-Region disaster recovery, so you can meet strict availability and business continuity requirements for mission-critical search, AI, and analytics workloads without building or maintaining replication yourself. After you create domains in two Regions, you can pair them with a single API call or a few steps in the AWS Management Console. Managed dis",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS for MySQL 26.10 is now available in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-mysql-26-10-preview-environment/",
+      "date": "2026-11-10T17:00:00.000Z",
+      "description": "Starting today, Amazon RDS for MySQL 26.10 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of MySQL 26.10 on Amazon RDS for MySQL. MySQL 26.10 includes bug fixes, security patches, and some improvements to READ COMMITTED workload performance and purge lag warnings in the error log. On busy READ COMMITTED workloads, NUMA systems performance cou",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon RDS for PostgreSQL announces Extended Support minor versions 13.23-rds.20260819, 12.22-rds.20260820 and 11.22-rds.20260822",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-extended-support/",
+      "date": "2026-11-10T17:00:00.000Z",
+      "description": "Amazon Relational Database Service (RDS) for PostgreSQL announces Amazon RDS Extended Support minor versions 13.23-rds.20260819, 12.22-rds.20260820 and 11.22-rds.20260822. Amazon RDS Extended Support provides up to three additional years of fixes for critical Common Vulnerabilities and Exposures (CVE) and bugs beyond a major version's end of standard support date, giving you more time to upgrade t",
+      "tags": [
+        "RDS",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "AWS Partner Central now provides an improved business planning experience",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/partner-central-business-planning/",
+      "date": "2026-11-10T16:00:00.000Z",
+      "description": "AWS Partner Central now offers a new business planning experience in the AWS Console. AWS Partners can initiate plans for growing their AWS business or collaborate on plans initiated by AWS teams. Partners can collaborate with AWS partner development, technology, marketing, and specialist teams to define plan narratives, goals, and initiatives. AI-assisted plan readiness scores help partners ident",
+      "tags": []
+    },
+    {
+      "title": "Amazon S3 Access Grants now support listing grants across multiple AWS accounts",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-access-grants-list-across-regions/",
+      "date": "2026-11-10T14:00:00.000Z",
+      "description": "Amazon S3 Access Grants can now discover and list all your grants across multiple AWS accounts with a single API call, eliminating the need to query each account separately. A single ListCallerAccessGrants call returns grants from your own S3 Access Grants instance and every instance shared with you, giving you a complete view of the S3 data you can access. By setting the new InstanceScope paramet",
+      "tags": [
+        "EC2",
+        "S3"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock adds bedrock-runtime endpoint support for Daybreak models",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/openai-gpt-daybreak-on-amazon-bedrock-runtime/",
+      "date": "2026-11-10T10:14:00.000Z",
+      "description": "Eligible customers can now access OpenAI’s specialized cybersecurity models Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol through the bedrock-runtime endpoint on Amazon Bedrock. Daybreak Blue is the starting point for most security teams across defensive workflows, including vulnerability discovery, detection engineering, and incident response. Daybreak Red is designed for advanced, a",
+      "tags": [
+        "Bedrock",
+        "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon S3 Tables now support S3 server access logging",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-server-access-logging/",
+      "date": "2026-11-10T08:00:00.000Z",
+      "description": "Amazon S3 Tables now support server access logging, providing you detailed records of the requests made to your table buckets. You can now track table operations, namespace management, and data access to support security audits, access analysis, and cost attribution. Log delivery is available at no additional cost, and you pay only for the storage of the log files. When you enable server access lo",
+      "tags": [
+        "S3",
+        "RDS",
+        "CloudTrail"
+      ]
+    },
+    {
+      "title": "AWS Marketplace SaaS free trials now convert automatically to paid subscriptions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-free-trial-conversion/",
+      "date": "2026-11-10T08:00:00.000Z",
+      "description": "Today, AWS Marketplace announces that free trials of usage-based software as a service (SaaS) products can now convert automatically to paid subscriptions. When a free trial ends, the buyer's subscription continues at the seller's usage-based pricing, so buyers pay only for what they use after the trial. This helps sellers turn more trial users into paying customers. Buyers get a simple way to eva",
+      "tags": []
+    },
+    {
+      "title": "AWS Network Firewall launches next-generation firewall policy",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-launches-ngfw-policy/",
+      "date": "2026-11-10T08:00:00.000Z",
+      "description": "Today, AWS announces next-generation firewall (NGFW) policy for AWS Network Firewall, a new policy model that provides security teams with a simpler policy structure and increased rule capacity. AWS Network Firewall is a managed network security service that protects your Amazon VPCs with access control and threat detection. The new policy model strengthens your security posture by layering firewa",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "Amazon ElastiCache Serverless now supports vector, full-text and hybrid searches plus aggregations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-elasticache-serverless-search-aggregations/",
+      "date": "2026-11-10T08:00:00.000Z",
+      "description": "Amazon ElastiCache Serverless for Valkey now supports vector, full-text, and hybrid search, along with aggregations. Applications searching live data often face a hard trade-off between latency and recall, along with delays before updates become searchable. With search on ElastiCache Serverless, applications can search data with latency as low as microseconds at up to 99% recall for vector search,",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon GameLift Servers now supports Game Session Placement Insights",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/gamelift-game-session-insights/",
+      "date": "2026-11-10T08:00:00.000Z",
+      "description": "Amazon GameLift Servers now offers Game Session Placement Insights, delivering detailed, per-placement diagnostic logs for game session queue routing. Amazon GameLift Servers routes game session placement requests through queues that evaluate multiple fleet locations based on latency and cost factors. This feature is designed for game developers and engineers who need greater transparency into how",
+      "tags": [
+        "Cost"
+      ]
+    },
+    {
+      "title": "CloudWatch PromQL alarms now support EC2 and Application Auto Scaling",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-alarms-autoscaling-group-actions",
+      "date": "2026-11-10T03:00:00.000Z",
+      "description": "Amazon CloudWatch alarms that use Prometheus Query Language (PromQL) can now trigger Amazon EC2 and Application Auto Scaling step and simple scaling policies. You can scale your EC2 Auto Scaling groups on CloudWatch OpenTelemetry metrics using the same kind of PromQL queries you use for dashboards and alerting. In this release, PromQL alarms also support EC2 Auto Scaling simple and step scaling po",
+      "tags": [
+        "EC2",
+        "RDS",
+        "CloudWatch"
+      ]
+    },
+    {
+      "title": "Amazon OpenSearch Service now lets you validate and roll back version upgrades",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service/upgrades/",
+      "date": "2026-11-10T02:30:00.000Z",
+      "description": "Amazon OpenSearch Service now supports clone-based upgrades, which let you validate a new OpenSearch version alongside your current one and cut over to it only when you're satisfied. If you find a problem, you can cancel before you cut over or roll back afterward. With clone-based upgrades, you can move to new versions with more confidence. When you start a clone-based upgrade, OpenSearch Service ",
+      "tags": []
+    },
+    {
+      "title": "Amazon DocumentDB (with MongoDB compatibility) now supports post-quantum TLS, wildcard indexes, and $unionWith in version 8.0.3",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-documentdb-8-0-3/",
+      "date": "2026-11-10T00:00:00.000Z",
+      "description": "Amazon DocumentDB (with MongoDB compatibility) 8.0.3 adds hybrid post-quantum key exchange for TLS, wildcard indexes, the $unionWith aggregation stage, and new change stream events. Post-quantum TLS protects data in transit from traffic that is recorded today and decrypted later with a quantum computer. The new MongoDB APIs let you move more MongoDB workloads to Amazon DocumentDB without changing ",
+      "tags": []
+    },
     {
       "title": "Amazon Bedrock AgentCore now offers a Web Search API",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/",
@@ -98,149 +239,6 @@
       "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports DuckDB operators. DuckDB is an embedded analytical database that lets customers perform data quality checks, summaries, and transformations on data from sources DuckDB supports, including Amazon S3. Native support is available for DuckDB on Amazon MWAA Provisioned environments running Apache Airflow 3.3.1. DuckDB comes preinsta",
       "tags": [
         "S3"
-      ]
-    },
-    {
-      "title": "Introducing an open-source UI for graph analytics over data lakes with Amazon Neptune Analytics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-graphover-datalakes-generally-available",
-      "date": "2026-11-09T17:00:00.000Z",
-      "description": "Today, AWS is introducing an open-source solution with a local web UI that helps customers turn data lake records into graphs for analysis with Amazon Neptune Analytics. By projecting selected records and relationships, customers can investigate connections across tables and run graph algorithms without building their own ETL pipelines. For example, a customer could project accounts and transactio",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "Amazon DocumentDB Serverless now provides up to 35% higher throughput",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/documentdb-serverless-platform-version-4/",
-      "date": "2026-11-09T16:00:00.000Z",
-      "description": "Amazon DocumentDB Serverless now provides up to 35% higher throughput with the launch of platform version 4. Platform versions represent improvements in performance, scaling capabilities, or features, and are automatically managed at the cluster level. All new serverless clusters launch on the latest platform version available in your AWS Region. You can upgrade existing clusters on platform versi",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon Athena introduces system tables for observability, auditing, and usage analytics",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/athena-system-tables/",
-      "date": "2026-11-09T16:00:00.000Z",
-      "description": "Amazon Athena now offers system tables which automatically capture your usage data and make it available for observability, usage analysis, and audit use cases. When you enable system tables, usage data is available within minutes of query completion across your workgroups and stored as service-managed, read-only Iceberg tables on Amazon S3 Tables with configurable retention. You can query it dire",
-      "tags": [
-        "S3",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "Claude Fable 5.2 is now available on AWS",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/claude-fable-5-2-aws/",
-      "date": "2026-11-09T15:00:00.000Z",
-      "description": "Claude Fable 5.2 is now available on AWS and brings Anthropic's most capable generally available model for technical work to all customers. Fable 5.2 sets a new standard on the hardest projects in coding, math, and science, and Anthropic recommends it for fields like software engineering, scientific research, and finance, where judgment, iteration, and accuracy are critical. Claude Mythos 5.2, the",
-      "tags": []
-    },
-    {
-      "title": "AWS Analytics services now support Workday Data Cloud integration",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-analytics-workday-data-cloud/",
-      "date": "2026-11-09T08:00:00.000Z",
-      "description": "Today, AWS announces a new bi-directional, zero-copy integration between AWS Analytics services and Workday Data Cloud. Instead of building and maintaining ETL pipelines to replicate data between systems, joint customers can now query across their AWS and Workday datasets in place, without moving or copying data, while retaining existing security controls in both environments. From AWS, you can us",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Access Points for Amazon FSx are now available in additional AWS Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/s3-access-points-fsx-regions/",
-      "date": "2026-11-09T08:00:00.000Z",
-      "description": "You can now attach Amazon S3 Access Points to your Amazon FSx for NetApp ONTAP file systems in 4 additional AWS Regions, and to your Amazon FSx for OpenZFS file systems in 20 additional AWS Regions. With this capability, your file data in Amazon FSx is accessible for use with the broad range of artificial intelligence, machine learning, and analytics services and applications that work with S3, wh",
-      "tags": [
-        "S3",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "Introducing AWS Nitro Sandboxes on Amazon EKS, ECS and EC2 for hardware isolated pods, tasks and VMs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/nitro-sandboxes-eks-ecs-ec2/",
-      "date": "2026-11-09T08:00:00.000Z",
-      "description": "AWS Nitro Sandboxes are now available as lightweight VMs managed by the Nitro Hypervisor. You can use Nitro Sandboxes for an Amazon EKS pod, or Amazon ECS task, or lightweight Virtual Machines (VMs), including AI agents running inside them, in their own hardware-isolated virtual machine powered by the AWS Nitro System . Each workload gets the isolation boundary of a Nitro isolated virtual machine.",
-      "tags": [
-        "EC2",
-        "ECS",
-        "EKS"
-      ]
-    },
-    {
-      "title": "Amazon Route 53 Profiles now supports multiple Profiles per VPC",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-profiles-multiple-per-vpc/",
-      "date": "2026-11-09T08:00:00.000Z",
-      "description": "Amazon Route 53 Profiles now lets you associate more than one Profile with a VPC. Previously, a VPC could have only one Profile, so teams that managed Route 53 configurations separately (for example, security teams managing DNS Firewall rule groups while cloud infrastructure and network admin teams manage private hosted zones and Resolver forwarding rules) all had to share a single Profile and ass",
-      "tags": [
-        "VPC",
-        "Route 53"
-      ]
-    },
-    {
-      "title": "Amazon EKS Auto Mode and Karpenter now support Dynamic Resource Allocation",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-karpenter-dra/",
-      "date": "2026-11-09T06:00:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now supports Dynamic Resource Allocation (DRA) for NVIDIA GPUs and Elastic Fabric Adapter (EFA) network devices when using Amazon EKS Auto Mode and Karpenter. You can now define the device attributes your Kubernetes workloads need with DRA, share GPU devices across Pods, and allocate topology-aligned GPU and EFA devices while Amazon EKS Auto Mode and ",
-      "tags": [
-        "EKS"
-      ]
-    },
-    {
-      "title": "Kimi K3.1 Pro (Highspeed) now available on Amazon Bedrock",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock",
-      "date": "2026-11-06T22:47:00.000Z",
-      "description": "Today, Kimi K3.1 Pro from Moonshot AI is available on Amazon Bedrock, expanding our open weight model portfolio with the security and governance that customers rely on. Customers using Amazon Bedrock can now run agentic use cases such as coding and document processing on Kimi K3.1 Pro (Highspeed), which delivers high output tokens per second (OTPS) for faster, more responsive results. According to",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Agent Registry is now generally available in AWS GovCloud (US-West) Region",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/",
-      "date": "2026-11-06T19:48:00.000Z",
-      "description": "AWS Agent Registry, available through Amazon Bedrock AgentCore, is now available in the AWS GovCloud (US-West) Region. AWS Agent Registry is a fully managed discovery service that gives your organization a central catalog for organizing, curating, and discovering resources. You can publish MCP servers, tools, agents, agent skills, and custom resources to a searchable registry, and control what bec",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon MWAA Serverless supports Apache Airflow connections and variables",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-connections-variables/",
-      "date": "2026-11-06T18:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) Serverless now supports Apache Airflow connections and variables, so your workflows can reach databases, APIs, and other external systems. You can manage credentials and configuration outside your workflow code. You store sensitive connections and variables in the secrets backend of your choice, such as AWS Secrets Manager, AWS Systems Mana",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon MWAA Serverless now supports custom and provider package operators",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-custom-operators/",
-      "date": "2026-11-06T18:00:00.000Z",
-      "description": "Amazon MWAA Serverless now supports operators from Apache Airflow provider packages, such as HTTP, Snowflake, or dbt, and custom operators that you write. This gives data engineers the flexibility to integrate with more systems and build specialized workflow tasks without provisioning infrastructure. To get started, add the provider package or your own operator to a code package, upload it to Amaz",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon MSK Replicator is now available in AWS GovCloud (US-East, US-West) Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions",
-      "date": "2026-11-06T16:00:00.000Z",
-      "description": "You can now use Amazon MSK Replicator in the AWS GovCloud (US-East, US-West) Regions to replicate streaming data across Amazon MSK clusters and from external Apache Kafka clusters including on-premises, self-managed on AWS, or other cloud providers to Amazon MSK Provisioned clusters. MSK Replicator is a feature of Amazon MSK that automates data replication between Kafka clusters, eliminating the n",
-      "tags": []
-    },
-    {
-      "title": "Amazon Redshift expands SUPER data type to store strings up to 16 million bytes",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-redshift-expands-super-to-16-million-bytes/",
-      "date": "2026-11-06T16:00:00.000Z",
-      "description": "Amazon Redshift now supports individual strings up to 16 million bytes within SUPER data types . Once you opt in through a database parameter, this enhancement applies when ingesting structured or semi-structured data from JSON, PARQUET, TEXT, and CSV source files, and when transforming data through extract load and transform (ELT) processes. Previously, individual strings within SUPER data types ",
-      "tags": []
-    },
-    {
-      "title": "AWS launches support for amortization of EC2 Capacity Blocks for ML",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
-      "date": "2026-11-06T15:00:00.000Z",
-      "description": "AWS Data Exports for Cost and Usage Report (CUR) 2.0 and AWS Cost Explorer now amortize the upfront fee for Amazon EC2 Capacity Blocks for ML across the duration of each reservation. You can see the amortized cost of each instance launched into a Capacity Block and the amortized cost of unused capacity, so you can attribute your upfront fee to the workloads that used it and identify capacity that ",
-      "tags": [
-        "EC2",
-        "SageMaker",
-        "Cost"
       ]
     }
   ],
