@@ -2,8 +2,8 @@
   "suggest_topics": [
     "EC2 Basics",
     "RDS & Database Fundamentals",
-    "VPC Fundamentals"
+    "IAM Deep Dive"
   ],
-  "commit_msg": "10/11 phien 166: ra soat 9 account (log CloudTrail goc 333k file, quet cua sau, danh muc 6.016 resource), canh bao som nhom A+D (PR terraform #42/#43: console IAM user, quota, Access Analyzer + archive rule, AWS Health, tai nguyen ngoai Singapore, 6 tag chuan, gio VN, giam spam), canh bao VPN (flap/BGP/route/T1) + the VPN ve kenh S2S, kenh bao mat moi, VPN LA chieu (port14 13:09, s2sHO 17:19), chuan 1.0.2 ngoai le NM-01/NM-06, memory chuan tag, NOW, SESSION, gap 530",
-  "updated_at": "2026-11-10T16:13:11Z"
+  "commit_msg": "11/11 phien 167: jp:management ReadOnly + ra IAM 8 account, don tu dong hoa/canh bao dev67-68 (PR #44, giu webhook Teams dung chung), PR #45 EBS o E + role mo coi, dinh ky T4 (backup, CE 9 account, Skill Builder), tai lieu JCOP (deck, luong chay, cau truc code; workflow 22:00 VN), HB-LA RPF do static seq 78; skill aws-operations muc 88, fortigate-bgp-vpn, infra-overview; gap +7 -5; NOW, SESSION, proposals 42-45, memory",
+  "updated_at": "2026-11-11T10:18:12Z"
 }
