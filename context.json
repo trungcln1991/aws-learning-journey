@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
+    "CloudWatch & Monitoring",
     "VPC Fundamentals",
     "Security Groups & NACL"
   ],
-  "commit_msg": "12/11 phien 168: VPN HC port13 Viettel chap ~40s (auto-heal fail_threshold 2, alarm BGP 3/4 ky), Wi-Fi HB goc = weight T2 AWS LA (route-map Rm-bgp-la-aws-in-t2, src-check disable 2 tunnel AWS, static 78 disable), bai hoc rollback/reply-direction, quet di vong + du phong Indo qua HC, ECS: phieu ban giao app + cau hoi Dang, de xuat 46-47, gap +10 -2, NOW, SESSION, memory rule kiem het qua API",
-  "updated_at": "2026-11-12T04:32:54Z"
+  "commit_msg": "auto: cập nhật skills/config 2026-11-12 11:34",
+  "updated_at": "2026-11-12T04:34:16Z"
 }
