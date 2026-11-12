@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "CloudWatch & Monitoring",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "auto: cập nhật skills/config 2026-11-12 11:34",
-  "updated_at": "2026-11-12T04:34:16Z"
+  "commit_msg": "12/11 phien 169: chan IOC AntiFox (SOC-QTSC) tren 4 Web ACL (webapp + ECS prod, ECS UAT, ACL CloudFront moi jp-prod-waf-glb-gen-ai), ra log WAF + CloudTrail goc 9 account = 0 dau hieu, ban do phu WAF 8 account, script scripts/waf + cloudtrail-ioc-scan, skill aws-operations muc 89, chuan trien khai 4.4 WAF, infra-overview, memory khong con CK, proposals 48-49, gap +8, NOW, SESSION",
+  "updated_at": "2026-11-12T12:05:05Z"
 }
