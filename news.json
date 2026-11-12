@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T07:39:27.917Z",
+  "generated_at": "2026-11-12T08:08:22.330Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,98 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Ornith-1.0-9B and Ornith-1.0-35B models now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/ornith-1-0-9b-ornith-1-0-35b-on-sagemaker-jumpstart/",
+      "date": "2026-11-11T23:36:00.000Z",
+      "description": "DeepReinforce AI's Ornith-1.0-9B and Ornith-1.0-35B models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models are part of the Ornith 1.0 family of open-source, self-scaffolding agentic coding models released under the MIT license, achieving state-of-the-art performance among open-source models of comparable siz",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "DeepSeek-V4-Pro, DeepSeek-V4-Flash, and DeepSeek-V4.1-Flash models now available on Amazon SageMaker JumpStart",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/",
+      "date": "2026-11-11T23:18:00.000Z",
+      "description": "DeepSeek's DeepSeek-V4-Pro, DeepSeek-V4-Flash, and DeepSeek-V4.1-Flash models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three open-weight Mixture-of-Experts (MoE) language models, released under the MIT license, deliver frontier-class performance across reasoning, coding, and agentic workloads while activating on",
+      "tags": [
+        "Bedrock",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
+      "date": "2026-11-11T21:00:00.000Z",
+      "description": "AWS Network Security Manager is now available in AWS European Sovereign Cloud Region and Thirty-One new Regions Today, AWS announces the general availability of AWS Network Security Manager in the AWS European Sovereign Cloud Region and additional regions. Network Security Manager is a comprehensive network security management solution designed to simplify security policy deployment and enforcemen",
+      "tags": []
+    },
+    {
+      "title": "AWS Cloud WAN now supports Flow Logs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/",
+      "date": "2026-11-11T20:05:00.000Z",
+      "description": "AWS Cloud WAN now supports VPC Flow Logs, giving you central visibility into IP traffic across your global network. Flow Logs capture detailed information for each flow, so you can understand how traffic moves across your core network without leaving your AWS Cloud WAN account. Until now, network administrators had to stitch together VPC Flow Logs from many VPCs, accounts, and Regions to see traff",
+      "tags": [
+        "VPC"
+      ]
+    },
+    {
+      "title": "Amazon EKS Provisioned Control Plane now offers a 24 GB etcd database on 4XL and 8XL tiers",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/",
+      "date": "2026-11-11T19:45:00.000Z",
+      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now offers a larger 24 GB etcd database, up from 16 GB, for 4XL and 8XL Provisioned Control Plane clusters. etcd is the key-value store in the Kubernetes control plane that holds your cluster state, so its size limits how many Kubernetes objects your cluster can store. With 50% more capacity, you can run bigger clusters with more pods, jobs, events, a",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "Amazon Cognito now supports user pool session management",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-session-management/",
+      "date": "2026-11-11T19:00:00.000Z",
+      "description": "Amazon Cognito now supports session management for user pools, giving you visibility into and control over the sessions your users establish when they sign in to your applications. Single sign-on (SSO) sessions are created when a user signs in through managed login and let them access other app clients without re-authenticating. Token sessions are created when a user signs in to an app client and ",
+      "tags": []
+    },
+    {
+      "title": "AWS Lambda MicroVMs now supports the x86 CPU architecture",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/",
+      "date": "2026-11-11T18:00:00.000Z",
+      "description": "AWS Lambda MicroVMs now supports the x86 CPU architecture, so you can run your existing x86 applications, tools, and software dependencies without recompiling or porting them. When you create a MicroVM image, you can now choose between x86 and Arm (AWS Graviton) to give each user or job an isolated MicroVM on the architecture your workload uses. Lambda MicroVMs is a serverless compute primitive th",
+      "tags": [
+        "Lambda"
+      ]
+    },
+    {
+      "title": "Amazon EKS Auto Mode now supports security groups for Pods",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/",
+      "date": "2026-11-11T17:26:00.000Z",
+      "description": "Amazon EKS Auto Mode now supports security groups for Pods, letting you apply dedicated Amazon EC2 security group rules to individual Pods. Different workloads on the same node can carry different security groups, giving your Pods network-level segmentation without creating separate node pools for each application. Security groups for Pods extends your existing AWS network controls to the Pod leve",
+      "tags": [
+        "EC2",
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Emulator is now available for building and testing AWS applications locally",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
+      "date": "2026-11-11T17:00:00.000Z",
+      "description": "AWS Emulator is now available for building and testing AWS applications locally. Starting today, you can use AWS Emulator to build and test AWS applications on your computer or in your continuous integration (CI) environment. Your existing AWS SDK and CLI calls go to AWS Emulator and come back in milliseconds, so you and your coding agents can find and fix errors locally, with no deployments or AW",
+      "tags": []
+    },
+    {
+      "title": "AWS Quick apps are now available in Asia Pacific (Singapore)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-apps-available-in-asia-pacific-singapore/",
+      "date": "2026-11-11T15:20:00.000Z",
+      "description": "The AWS Quick desktop app for macOS and Windows and the Quick mobile app for iOS and Android are now available in the Asia Pacific (Singapore) Region. This launch builds on the recent availability of Quick in Singapore . The desktop app works with your local files and connects to your calendar, email, and business apps. The mobile app lets you chat with Quick, review your activity feed, and open d",
+      "tags": []
+    },
+    {
+      "title": "Amazon SES now supports higher limits for email identities, tenants, and configuration sets",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ses-higher-resource-limits/",
+      "date": "2026-11-11T08:00:00.000Z",
+      "description": "Amazon Simple Email Service (Amazon SES) now supports higher limits for email identities, tenants, and configuration sets. You can view your current usage against each limit and request increases in the AWS Service Quotas console. A single account can now keep pace with your growth, so you no longer need to split email workloads across several accounts to stay within per-account limits. Customers ",
+      "tags": []
+    },
     {
       "title": "AWS Billing and Cost Management now supports AWS Billing Conductor and AWS Billing Transfer views as source views for custom billing views",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-billing-and-cost-management-multi-source-custom-billing-views",
@@ -50,15 +142,6 @@
       "tags": []
     },
     {
-      "title": "Amazon RDS for MySQL 26.10 is now available in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-mysql-26-10-preview-environment/",
-      "date": "2026-11-10T17:00:00.000Z",
-      "description": "Starting today, Amazon RDS for MySQL 26.10 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of MySQL 26.10 on Amazon RDS for MySQL. MySQL 26.10 includes bug fixes, security patches, and some improvements to READ COMMITTED workload performance and purge lag warnings in the error log. On busy READ COMMITTED workloads, NUMA systems performance cou",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
       "title": "Amazon RDS for PostgreSQL announces Extended Support minor versions 13.23-rds.20260819, 12.22-rds.20260820 and 11.22-rds.20260822",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-extended-support/",
       "date": "2026-11-10T17:00:00.000Z",
@@ -66,6 +149,15 @@
       "tags": [
         "RDS",
         "Inspector"
+      ]
+    },
+    {
+      "title": "Amazon RDS for MySQL 26.10 is now available in Amazon RDS Database Preview Environment",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-mysql-26-10-preview-environment/",
+      "date": "2026-11-10T17:00:00.000Z",
+      "description": "Starting today, Amazon RDS for MySQL 26.10 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of MySQL 26.10 on Amazon RDS for MySQL. MySQL 26.10 includes bug fixes, security patches, and some improvements to READ COMMITTED workload performance and purge lag warnings in the error log. On busy READ COMMITTED workloads, NUMA systems performance cou",
+      "tags": [
+        "RDS"
       ]
     },
     {
@@ -150,106 +242,9 @@
         "RDS",
         "CloudWatch"
       ]
-    },
-    {
-      "title": "Amazon OpenSearch Service now lets you validate and roll back version upgrades",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service/upgrades/",
-      "date": "2026-11-10T02:30:00.000Z",
-      "description": "Amazon OpenSearch Service now supports clone-based upgrades, which let you validate a new OpenSearch version alongside your current one and cut over to it only when you're satisfied. If you find a problem, you can cancel before you cut over or roll back afterward. With clone-based upgrades, you can move to new versions with more confidence. When you start a clone-based upgrade, OpenSearch Service ",
-      "tags": []
-    },
-    {
-      "title": "Amazon DocumentDB (with MongoDB compatibility) now supports post-quantum TLS, wildcard indexes, and $unionWith in version 8.0.3",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-documentdb-8-0-3/",
-      "date": "2026-11-10T00:00:00.000Z",
-      "description": "Amazon DocumentDB (with MongoDB compatibility) 8.0.3 adds hybrid post-quantum key exchange for TLS, wildcard indexes, the $unionWith aggregation stage, and new change stream events. Post-quantum TLS protects data in transit from traffic that is recorded today and decrypted later with a quantum computer. The new MongoDB APIs let you move more MongoDB workloads to Amazon DocumentDB without changing ",
-      "tags": []
-    },
-    {
-      "title": "Amazon Bedrock AgentCore now offers a Web Search API",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/",
-      "date": "2026-11-10T00:00:00.000Z",
-      "description": "Today, AWS announces the general availability of the Web Search API on Amazon Bedrock AgentCore, which lets you search the web with a single API call. Web Search on AgentCore has been available as an MCP tool through AgentCore Gateway. The new InvokeWebSearch API gives applications, custom agent loops, and data pipelines search results with no resources to create. The API returns ranked results fr",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon CloudWatch Logs announces account-level retention policies",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-log-retention/",
-      "date": "2026-11-09T22:15:00.000Z",
-      "description": "Amazon CloudWatch Logs now supports account-level retention policies, so you can use a single policy to set how long log data is kept across all or subset of log groups in an AWS account. Account-level policies allow platform and security teams to bring each log group in line with their retention standards. With today's launch, you can create policies that cover all log groups in the account or ap",
-      "tags": [
-        "RDS",
-        "CloudWatch"
-      ]
-    },
-    {
-      "title": "AWS Glue adds 100 new native connectors for popular SaaS applications",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-glue-adds-100-new-native-connectors/",
-      "date": "2026-11-09T21:33:00.000Z",
-      "description": "AWS Glue now supports 100 new native connectors that simplify access to data in popular SaaS and REST API-based applications. Previously, bringing data from SaaS applications into AWS required writing custom code. Now, teams can create a connection once in the AWS Glue Data Catalog and reuse it across ETL jobs with the same permissions model they already use for AWS Glue. The new connectors span g",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "AWS STS now supports cross-partition federation for AWS identities",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-sts-cross-partition",
-      "date": "2026-11-09T20:03:00.000Z",
-      "description": "AWS Security Token Service (AWS STS) now lets your workloads use their AWS Identity and Access Management (IAM) identity in one partition to get temporary credentials for an IAM role in a different partition, without storing long-term credentials, which can help improve your security posture. Partitions are groups of AWS Regions, such as the commercial and AWS GovCloud (US) Regions, and each parti",
-      "tags": [
-        "IAM"
-      ]
-    },
-    {
-      "title": "Amazon Quick is now AWS Quick",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-quick-aws-quick/",
-      "date": "2026-11-09T19:00:00.000Z",
-      "description": "Amazon Quick, the AI workspace built only for work, is now AWS Quick, a name that reflects the enterprise security and governance built into Quick from the start as an AWS service. The new name now appears across the Quick website, the web, desktop, and mobile apps, and AWS documentation. Existing customers don't need to take any action, and Quick works the same way it did before. Amazon Quick Sig",
-      "tags": []
-    },
-    {
-      "title": "Claude Fable 5.2 is now available on AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/claude-fable-5-2-aws-govcloud/",
-      "date": "2026-11-09T18:30:00.000Z",
-      "description": "Claude Fable 5.2 is now available on AWS GovCloud (US) and brings Anthropic's most capable generally available model for technical work to regulated customers. Fable 5.2 sets a new standard on the hardest projects in coding, math, and science, and Anthropic recommends it for fields like software engineering, scientific research, and finance, where judgment, iteration, and accuracy are critical. Cl",
-      "tags": []
-    },
-    {
-      "title": "Amazon Bedrock now offers Claude Mythos 5.2 to Eligible Customers in AWS GovCloud (US)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-claude-mythos-5-2-govcloud/",
-      "date": "2026-11-09T18:30:00.000Z",
-      "description": "Amazon Bedrock, the platform for building generative AI applications and agents at production scale, now offers Claude Mythos 5.2 to eligible customers in AWS GovCloud (US). Claude Mythos 5.2 is Anthropic's most advanced AI model to date for use cases across cybersecurity, software coding, and complex reasoning tasks. The model can identify sophisticated security vulnerabilities in software and de",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Amazon Connect Customer launches evaluation form templates",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-customer-evaluation-form-templates/",
-      "date": "2026-11-09T18:00:00.000Z",
-      "description": "Amazon Connect Customer now provides evaluation form templates so managers don't have to build forms from scratch, reducing the time to deploy automated evaluations of human and AI agent performance. These templates cover typical customer interaction scenarios: customer service, inbound sales, and self-service. Each template assesses human and AI agent behaviors. For example, the customer service ",
-      "tags": []
-    },
-    {
-      "title": "Amazon MWAA now supports DuckDB operators",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-supports-duckdb-operators/",
-      "date": "2026-11-09T18:00:00.000Z",
-      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports DuckDB operators. DuckDB is an embedded analytical database that lets customers perform data quality checks, summaries, and transformations on data from sources DuckDB supports, including Amazon S3. Native support is available for DuckDB on Amazon MWAA Provisioned environments running Apache Airflow 3.3.1. DuckDB comes preinsta",
-      "tags": [
-        "S3"
-      ]
     }
   ],
   "security": [
-    {
-      "title": "Issue in the Linux kernel virtio-net/TAP networking path affecting KVM-based hypervisors",
-      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-137-aws/",
-      "date": "2026-10-15T19:03:20.000Z",
-      "description": "Read this article",
-      "tags": []
-    },
     {
       "title": "CVE-2026-119085 - Template injection in the publishing component of Virtual Engineering Workbench",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-162-aws/",
@@ -262,8 +257,8 @@
     {
       "title": "CVE-2026-121652 - Stored cross-site scripting (XSS) in AWS Amplify maplibre-gl-js-amplify popup rendering",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-167-aws/",
-      "date": "2026-11-03T18:54:53.000Z",
-      "description": "Bulletin ID: 2026-167-AWS Publication Date: 11/03/2026 10:30 AM PST Description: maplibre-gl-js-amplify is an open-source AWS Amplify library that integrates Amazon Location Service with MapLibre GL JS to render maps, markers, popups, and geofencing controls in web applications. We identified CVE-2026-121652, where a stored cross-site scripting (XSS) issue in the library's popup and geofence-contr",
+      "date": "2026-11-03T19:22:49.000Z",
+      "description": "Read this article",
       "tags": [
         "Inspector"
       ]
@@ -308,7 +303,7 @@
       "title": "CVE-2026-122266 - Improper isolation of shared resources in aws-network-policy-agent in Amazon EKS",
       "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-170-aws/",
       "date": "2026-11-04T21:53:42.000Z",
-      "description": "Bulletin ID: 2026-170-AWS Publication Date: 11/04/2026 13:30 PM PST Description: We identified CVE-2026-122266, an issue in Amazon EKS Network Policy Agent (aws-network-policy-agent). Improper isolation of shared eBPF connection tracking state might allow an authenticated adjacent user to bypass NetworkPolicy ingress enforcement on co-located pods. Impacted versions: - aws-network-policy-agent &lt",
+      "description": "Read this article",
       "tags": [
         "EKS",
         "Inspector"
@@ -331,9 +326,25 @@
       "tags": [
         "Inspector"
       ]
+    },
+    {
+      "title": "CVE-2026-111943: eMudhra intermediate CA key recovery in AWS trust bundles",
+      "link": "https://aws.amazon.com/security/security-bulletins/rss/2026-150-aws/",
+      "date": "2026-10-25T03:11:55.000Z",
+      "description": "Read this article",
+      "tags": [
+        "Inspector"
+      ]
     }
   ],
   "blog": [
+    {
+      "title": "Test your applications against AWS locally with AWS Emulator",
+      "link": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+      "date": "2026-11-11T19:00:44.000Z",
+      "description": "AWS Emulator is a free, open-source local emulator in Rust that lets developers test applications against nearly every AWS service on their own machine using the same CLI and SDK commands, with fidelity measured against real AWS behavior.",
+      "tags": []
+    },
     {
       "title": "AWS Weekly Roundup: AgentCore Runtime V2, Amazon DynamoDB bulk put items, and more (November 9, 2026)",
       "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentcore-runtime-v2-amazon-dynamodb-bulk-put-items-and-more-november-9-2026/",
@@ -417,59 +428,57 @@
       "tags": [
         "CloudWatch"
       ]
-    },
-    {
-      "title": "Announcing AWS Lambda Web Functions",
-      "link": "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/",
-      "date": "2026-10-12T22:34:47.000Z",
-      "description": "AWS Lambda Web Functions is a serverless compute primitive that runs your HTTP framework natively, delivering fast, consistent responses through multi-concurrent execution and automated global distribution.",
-      "tags": [
-        "Lambda",
-        "CloudFront"
-      ]
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
       {
-        "title": "Service disruption: Increased Error Rates",
+        "title": "Service is operating normally: [RESOLVED] Elevated API issues and Launch Failures",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-15T10:27:10.000Z",
-        "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-15T10:22:28.000Z",
-        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "date": "2026-11-11T21:11:29.000Z",
+        "description": "日本時間 2026 年 11 月 11 日 午後 11 時 46 分から 2026 年 11 月 12 日 午前 5 時 31 分にかけて、AP-NORTHEAST-1 リージョンの主に単一のアベイラビリティーゾーン (apne1-az1) において、断続的な API エラー率の上昇、および新規起動された EC2 インスタンスにおける接続の問題が発生しておりました。エンジニアが自動的に対応に加わり、直ちに調査を開始いたしました。最初の影響期間は、日本時間 2026 年 11 月 11 日 午後 11 時 46 分から 2026 年 11 月 12 日 午前 2 時 46 分であり、主に API エラーおよび EC2 インスタンスの起動失敗として現れておりました。Auto Scaling、ECS、RDS など、ワークフローを EC2 API に依存している他の AWS サービスも、この問題の",
         "tags": [
-          "Lambda"
+          "EC2",
+          "RDS",
+          "ECS"
         ]
       },
       {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "title": "Service impact: Elevated API issues and Launch Failures",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "date": "2026-11-11T19:54:32.000Z",
+        "description": "引き続き完全な復旧に向けて取り組んでおります。お客様は、他の 2 つの正常なアベイラビリティーゾーン (apne1-az2、apne1-az3) で新しいインスタンスを起動することができます。また、影響を受けているアベイラビリティーゾーンにおける既存のインスタンスへの接続に影響を与えるような変更は行わないことをお客様におすすめいたします。これには、ネットワークインターフェイスやゲートウェイのアタッチおよびデタッチ、VPC ピアリングの変更などのアクションが含まれます。単一のアベイラビリティーゾーン (apne1-az1) において、新規作成または変更されたインスタンスへの断続的な接続の問題の解決に引き続き取り組んでおります。この問題は、新しいインスタンスの起動、新しいクラスターの作成、Auto Scaling グループ、ゲートウェイ、および VPC ゲートウェイエンドポイントなどのアクショ",
         "tags": [
-          "Cost"
+          "VPC"
         ]
       },
       {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "title": "Service impact: Elevated API issues and Launch Failures",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "date": "2026-11-11T18:54:49.000Z",
+        "description": "現在引き続き完全な復旧に向けて取り組んでおります。単一のアベイラビリティーゾーン (apne1-az1) において、新規作成または変更されたインスタンスへの接続の問題が発生していることを確認しております。この問題は、新しいインスタンスの起動、新しいクラスターの作成、Auto Scaling グループ、ゲートウェイ、および VPC ゲートウェイエンドポイントなどのアクションに影響を与えております。既存のリソースへの接続およびインスタンス間の通信には影響はございません。この新しい問題の根本原因は特定済みであり、現在問題の軽減に取り組んでおります。次回の更新は、日本時間午前 5 時までに、もしくは新たな情報が入り次第、お知らせいたします。| We continue to work towards full recovery. We are observing some connectivity ",
+        "tags": [
+          "RDS",
+          "VPC"
+        ]
+      },
+      {
+        "title": "Service impact: Elevated API issues and Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-11T17:59:22.000Z",
+        "description": "AP-NORTHEAST-1 リージョンにおいて、引き続き広範囲で回復の兆候が見られております。現在も緩和策の実施を継続しており、次回の進捗の更新は日本時間午前 3 時 45 分までに、もしくは新たな情報が入り次第、お知らせいたします。| We continue to see broad signs of recovery in the AP-NORTHEAST-1 Region. Our mitigation efforts are still underway, and we will provide you with another update on our progress by 10:45 AM PST or sooner as new information becomes available.",
         "tags": []
+      },
+      {
+        "title": "Service impact: Elevated API issues and Launch Failures",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-11T17:38:01.000Z",
+        "description": "AP-NORTHEAST-1 リージョンにおける API エラー率の上昇および起動失敗について、回復の兆候が見られております。EC2 および EBS の CloudWatch ヘルスデータは、現在正常に報告されております。引き続き復旧作業の進捗を監視し、次回の更新は日本時間午前 3 時までに、もしくは新たな情報が入り次第、お知らせいたします。 | We are seeing early signs of recovery for the elevated API error rates and launch failures in the AP-NORTHEAST-1 Region. EC2 and EBS CloudWatch health data is now reporting correctly. We will continue to monitor the progress ",
+        "tags": [
+          "EC2",
+          "CloudWatch"
+        ]
       }
     ]
   }
