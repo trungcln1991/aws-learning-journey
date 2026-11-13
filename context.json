@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "12/11 phien 169: chan IOC AntiFox (SOC-QTSC) tren 4 Web ACL (webapp + ECS prod, ECS UAT, ACL CloudFront moi jp-prod-waf-glb-gen-ai), ra log WAF + CloudTrail goc 9 account = 0 dau hieu, ban do phu WAF 8 account, script scripts/waf + cloudtrail-ioc-scan, skill aws-operations muc 89, chuan trien khai 4.4 WAF, infra-overview, memory khong con CK, proposals 48-49, gap +8, NOW, SESSION",
-  "updated_at": "2026-11-12T12:05:05Z"
+  "commit_msg": "13/11 phien 170: AntiFox follow-up (WAF 0 hit, FortiGate chua chan IOC, IIS sach, key AKIA POC da chet, pin cert FMG/FAZ), tin bao mat sang (security-news.py + rule bat dau), GitHub wfx-loot sach, ra secret source PROD 15 app (12/15 lo, bao cao), ECS UAT 3 PR draft #108 Swine Sale #111 OCR #112 BankLoan S3 (tam dung cho Manh), runbook + chuan + nghien cuu cong vao API/SG/firewall co gia, 14 PBI hang doi (start_override), proposals 50-54, gap, NOW, SESSION",
+  "updated_at": "2026-11-13T09:18:03Z"
 }
