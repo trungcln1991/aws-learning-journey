@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:08:22.330Z",
+  "generated_at": "2026-11-13T07:44:50.425Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -24,6 +24,146 @@
     }
   ],
   "whats_new": [
+    {
+      "title": "Amazon Cognito now supports OAuth 2.0 token exchange",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-token-exchange/",
+      "date": "2026-11-12T22:00:00.000Z",
+      "description": "Amazon Cognito now supports OAuth 2.0 token exchange (RFC 8693). Amazon Cognito helps you add sign-up, sign-in, and access control to your web applications, mobile applications, and AI agents. With token exchange, a service or AI agent acting on a user's behalf can exchange the user's token for a new token scoped to a specific downstream service. Previously, a service that called another service o",
+      "tags": []
+    },
+    {
+      "title": "Amazon Aurora and RDS now support Graviton5-based R9g database instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-aurora-rds-postgresql-mysql-mariadb-r9g-instances/",
+      "date": "2026-11-12T19:02:00.000Z",
+      "description": "AWS Graviton5-based R9g database instances are now generally available for Amazon Aurora with PostgreSQL compatibility and MySQL compatibility, and for Amazon RDS for PostgreSQL, MySQL, and MariaDB. Graviton5-based R9g instances provide up to a 30% performance improvement and up to a 22% price-performance improvement for on-demand pricing over Graviton4-based instances of equivalent sizes on Amazo",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "Amazon MWAA now supports fine-grained access control with IAM Identity Center and multi-team environments",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-fine-grained-access-control/",
+      "date": "2026-11-12T18:00:00.000Z",
+      "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports fine-grained access control, giving administrators precise control over who can access which workflows and resources in an Apache Airflow environment. Fine-grained access control is delivered through two new capabilities: IAM Identity Center integration and multi-team environments. With IAM Identity Center integration, users si",
+      "tags": [
+        "IAM"
+      ]
+    },
+    {
+      "title": "Amazon Connect Customer supports merging and linking related cases in the agent workspace",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-merge-link/",
+      "date": "2026-11-12T17:00:00.000Z",
+      "description": "Amazon Connect Customer now lets agents merge and link related cases in the agent workspace, so they can resolve customer issues faster and respond consistently. When a customer contacts a business about the same issue more than once, or on different channels, the history can end up split across several cases. Agents can merge those cases into one case with a single, consolidated history. For exam",
+      "tags": []
+    },
+    {
+      "title": "Amazon SNS now supports push notifications in four additional AWS Regions",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sns-push-four-regions/",
+      "date": "2026-11-12T16:00:00.000Z",
+      "description": "Amazon Simple Notification Service (Amazon SNS) now supports sending push notifications in the Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Europe (Zurich), and AWS GovCloud (US-East) Regions. Amazon SNS is a fully managed pub/sub service that provides message delivery to multiple endpoints, including AWS Lambda, Amazon SQS, Amazon Data Firehose, HTTP, SMS (via AWS End User Messaging), push",
+      "tags": [
+        "Lambda",
+        "ALB",
+        "SQS"
+      ]
+    },
+    {
+      "title": "AWS Quick enhances granular governance with the ability to restrict structured data sources",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-structured-data-source-restrictions/",
+      "date": "2026-11-12T09:00:00.000Z",
+      "description": "Today, AWS Quick is announcing the general availability of structured data connector restrictions through custom permissions. This capability gives administrators granular control over which types of data sources users can create, update, or share, helping organizations enforce data governance requirements while enabling self-service analytics. With this feature, administrators can configure custo",
+      "tags": [
+        "IAM",
+        "Organizations"
+      ]
+    },
+    {
+      "title": "Amazon Route 53 Domains now supports self-service restore for expired and deleted domains",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-domains-self-service-restore/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Amazon Route 53 Domains now lets you restore an expired or recently deleted domain yourself, using the Amazon Route 53 console, AWS CLI, or AWS SDKs. Previously, restoring a domain required a request to AWS Support. Now you can recover a domain lost to a missed renewal, an expired payment method, or an accidental deletion, and restore the website, email, and applications that depend on it. To rest",
+      "tags": [
+        "Route 53"
+      ]
+    },
+    {
+      "title": "EC2 Image Builder console now integrates with the DevOps Agent for troubleshooting and resource creation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-image-builder-devops-agent-integration",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "EC2 Image Builder now integrates with the AWS DevOps Agent directly in the Image Builder console, enabling you to troubleshoot failed image pipelines and create resources directly from the console chat panel. You can diagnose up to 50 failed pipelines at once and ask follow-up questions in the same conversation. You can also choose to create resources by describing what you want, and the agent pop",
+      "tags": [
+        "EC2"
+      ]
+    },
+    {
+      "title": "Amazon FSx for Lustre lowers the entry cost of Intelligent-Tiering file systems by 75%",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/fsx-lustre-intelligent-tiering-lower-throughput/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Amazon FSx for Lustre is reducing the minimum provisioned throughput capacity and metadata IOPS on Intelligent-Tiering file systems by 75%, allowing you to use Intelligent-Tiering even more cost-effectively for high-performance computing (HPC) and machine learning workloads that start with small datasets and grow over time. The FSx for Lustre Intelligent-Tiering storage class delivers the lowest-c",
+      "tags": [
+        "SageMaker",
+        "Cost"
+      ]
+    },
+    {
+      "title": "AWS Backup adds logically air-gapped vault support for Amazon EBS Snapshots Archive",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-lag-vault-ebs-archive/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "AWS Backup logically air-gapped vault now supports Amazon EBS Snapshots Archive. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now archive Amazon EBS backups held in a logically air-gapped vault to Amazon EBS Snapshots Archive, ",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "title": "AWS Glue announces automatic version upgrades for Apache Spark jobs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-spark-auto-upgrades/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "AWS Glue introduces automatic version upgrades, a capability that keeps your Apache Spark jobs current on the latest AWS Glue runtime without manual coordination. Staying current on supported runtimes gives your jobs the latest security patches, performance improvements, and support for evolving table formats such as Apache Iceberg. Auto upgrades include multiple levels of validations including as",
+      "tags": []
+    },
+    {
+      "title": "AWS Backup now supports resource modifiers for Amazon EKS restores",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Today, AWS Backup announces support for resource modifiers when restoring Amazon Elastic Kubernetes Service (Amazon EKS) backups. Resource modifiers let you transform Kubernetes resources during a restore, so you can adapt a restored cluster to its target environment. When you restore an EKS backup that has been copied across accounts or across AWS Regions, the restored cluster can carry reference",
+      "tags": [
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments for routing policy",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments, enabling advanced routing controls for enterprise hybrid networks. Previously, Cloud WAN Routing Policy evaluated BGP communities only on Site-to-Site VPN and Connect attachments. Now, customers can tag routes with routing intent on-premises, apply filtering and path preference rules inside Cloud WAN, and propagate communiti",
+      "tags": []
+    },
+    {
+      "title": "Amazon Managed Service for Apache Flink introduces enhanced snapshots",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/managed-flink-enhanced-snapshots/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Amazon Managed Service for Apache Flink now supports enhanced snapshots, a capability that lets you capture, export, and restore application state across Apache Flink applications and AWS Regions, so you can run blue/green deployments, easily migrate self-managed workloads to Amazon Managed Service for Apache Flink without losing state, and keep backup in a secondary Region for cross-Region recove",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS for SQL Server now supports M8id and R8id instances",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-sqlserver-supports-m8id-r8id-instances",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports M8id and R8id instances. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, and include local NVMe SSD storage. They scale up to 384 vCPUs, 3 TiB of memory, and 22.8 TB of local NVMe SSD storage. That's 4x the vCPUs and memory and more than 6x the local storage of M5d and R5d instances. W",
+      "tags": [
+        "EC2",
+        "RDS"
+      ]
+    },
+    {
+      "title": "The next generation AgentCore runtime is now the default",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/new-agentcore-runtime-default/",
+      "date": "2026-11-12T05:00:00.000Z",
+      "description": "Starting today, new runtimes in Amazon Bedrock AgentCore use the next generation of AgentCore runtime by default. The new runtime restores each session from a snapshot of your initialized agent, scales compute and memory with the work, and scales idle agents to zero. Every session still runs in its own hardware-isolated Firecracker microVM. Your agents can run heavy work like compiling a large cod",
+      "tags": [
+        "Bedrock"
+      ]
+    },
     {
       "title": "Ornith-1.0-9B and Ornith-1.0-35B models now available on Amazon SageMaker JumpStart",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/ornith-1-0-9b-ornith-1-0-35b-on-sagemaker-jumpstart/",
@@ -101,147 +241,6 @@
       "date": "2026-11-11T17:00:00.000Z",
       "description": "AWS Emulator is now available for building and testing AWS applications locally. Starting today, you can use AWS Emulator to build and test AWS applications on your computer or in your continuous integration (CI) environment. Your existing AWS SDK and CLI calls go to AWS Emulator and come back in milliseconds, so you and your coding agents can find and fix errors locally, with no deployments or AW",
       "tags": []
-    },
-    {
-      "title": "AWS Quick apps are now available in Asia Pacific (Singapore)",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-apps-available-in-asia-pacific-singapore/",
-      "date": "2026-11-11T15:20:00.000Z",
-      "description": "The AWS Quick desktop app for macOS and Windows and the Quick mobile app for iOS and Android are now available in the Asia Pacific (Singapore) Region. This launch builds on the recent availability of Quick in Singapore . The desktop app works with your local files and connects to your calendar, email, and business apps. The mobile app lets you chat with Quick, review your activity feed, and open d",
-      "tags": []
-    },
-    {
-      "title": "Amazon SES now supports higher limits for email identities, tenants, and configuration sets",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ses-higher-resource-limits/",
-      "date": "2026-11-11T08:00:00.000Z",
-      "description": "Amazon Simple Email Service (Amazon SES) now supports higher limits for email identities, tenants, and configuration sets. You can view your current usage against each limit and request increases in the AWS Service Quotas console. A single account can now keep pace with your growth, so you no longer need to split email workloads across several accounts to stay within per-account limits. Customers ",
-      "tags": []
-    },
-    {
-      "title": "AWS Billing and Cost Management now supports AWS Billing Conductor and AWS Billing Transfer views as source views for custom billing views",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-billing-and-cost-management-multi-source-custom-billing-views",
-      "date": "2026-11-10T23:22:00.000Z",
-      "description": "Custom billing views now support AWS Billing Conductor and AWS Billing Transfer views as source views. These are the views AWS maintains per billing group and per billing transfer relationship. You can combine them into a single custom billing view, apply filters, and use that view in Cost Explorer, AWS Budgets, and the Billing and Cost Management console. There are three source view types. Billin",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "Amazon EC2 G7 instances now available in additional regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-g7-additional-regions/",
-      "date": "2026-11-10T19:30:00.000Z",
-      "description": "Amazon Elastic Compute Cloud (Amazon EC2) G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs are now available in Europe (London), Asia Pacific (Mumbai, Sydney) and South America (Sao Paulo) Regions. G7 instances deliver up to 4.6x AI inference performance and up to 2.1 graphics performance compared to G6 instances. G7 instances also deliver faster performance for GPU-accele",
-      "tags": [
-        "EC2"
-      ]
-    },
-    {
-      "title": "Amazon OpenSearch Service announces managed cross-Region disaster recovery",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-managed-cross-region-disaster-recovery/",
-      "date": "2026-11-10T19:00:00.000Z",
-      "description": "Amazon OpenSearch Service now offers managed cross-Region disaster recovery, so you can meet strict availability and business continuity requirements for mission-critical search, AI, and analytics workloads without building or maintaining replication yourself. After you create domains in two Regions, you can pair them with a single API call or a few steps in the AWS Management Console. Managed dis",
-      "tags": []
-    },
-    {
-      "title": "Amazon RDS for PostgreSQL announces Extended Support minor versions 13.23-rds.20260819, 12.22-rds.20260820 and 11.22-rds.20260822",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-extended-support/",
-      "date": "2026-11-10T17:00:00.000Z",
-      "description": "Amazon Relational Database Service (RDS) for PostgreSQL announces Amazon RDS Extended Support minor versions 13.23-rds.20260819, 12.22-rds.20260820 and 11.22-rds.20260822. Amazon RDS Extended Support provides up to three additional years of fixes for critical Common Vulnerabilities and Exposures (CVE) and bugs beyond a major version's end of standard support date, giving you more time to upgrade t",
-      "tags": [
-        "RDS",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Amazon RDS for MySQL 26.10 is now available in Amazon RDS Database Preview Environment",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-mysql-26-10-preview-environment/",
-      "date": "2026-11-10T17:00:00.000Z",
-      "description": "Starting today, Amazon RDS for MySQL 26.10 is available in the Amazon RDS Database Preview Environment , allowing you to evaluate the pre-release of MySQL 26.10 on Amazon RDS for MySQL. MySQL 26.10 includes bug fixes, security patches, and some improvements to READ COMMITTED workload performance and purge lag warnings in the error log. On busy READ COMMITTED workloads, NUMA systems performance cou",
-      "tags": [
-        "RDS"
-      ]
-    },
-    {
-      "title": "AWS Partner Central now provides an improved business planning experience",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/partner-central-business-planning/",
-      "date": "2026-11-10T16:00:00.000Z",
-      "description": "AWS Partner Central now offers a new business planning experience in the AWS Console. AWS Partners can initiate plans for growing their AWS business or collaborate on plans initiated by AWS teams. Partners can collaborate with AWS partner development, technology, marketing, and specialist teams to define plan narratives, goals, and initiatives. AI-assisted plan readiness scores help partners ident",
-      "tags": []
-    },
-    {
-      "title": "Amazon S3 Access Grants now support listing grants across multiple AWS accounts",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-access-grants-list-across-regions/",
-      "date": "2026-11-10T14:00:00.000Z",
-      "description": "Amazon S3 Access Grants can now discover and list all your grants across multiple AWS accounts with a single API call, eliminating the need to query each account separately. A single ListCallerAccessGrants call returns grants from your own S3 Access Grants instance and every instance shared with you, giving you a complete view of the S3 data you can access. By setting the new InstanceScope paramet",
-      "tags": [
-        "EC2",
-        "S3"
-      ]
-    },
-    {
-      "title": "Amazon Bedrock adds bedrock-runtime endpoint support for Daybreak models",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/openai-gpt-daybreak-on-amazon-bedrock-runtime/",
-      "date": "2026-11-10T10:14:00.000Z",
-      "description": "Eligible customers can now access OpenAI’s specialized cybersecurity models Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol through the bedrock-runtime endpoint on Amazon Bedrock. Daybreak Blue is the starting point for most security teams across defensive workflows, including vulnerability discovery, detection engineering, and incident response. Daybreak Red is designed for advanced, a",
-      "tags": [
-        "Bedrock",
-        "Inspector"
-      ]
-    },
-    {
-      "title": "Amazon S3 Tables now support S3 server access logging",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-server-access-logging/",
-      "date": "2026-11-10T08:00:00.000Z",
-      "description": "Amazon S3 Tables now support server access logging, providing you detailed records of the requests made to your table buckets. You can now track table operations, namespace management, and data access to support security audits, access analysis, and cost attribution. Log delivery is available at no additional cost, and you pay only for the storage of the log files. When you enable server access lo",
-      "tags": [
-        "S3",
-        "RDS",
-        "CloudTrail"
-      ]
-    },
-    {
-      "title": "AWS Marketplace SaaS free trials now convert automatically to paid subscriptions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-free-trial-conversion/",
-      "date": "2026-11-10T08:00:00.000Z",
-      "description": "Today, AWS Marketplace announces that free trials of usage-based software as a service (SaaS) products can now convert automatically to paid subscriptions. When a free trial ends, the buyer's subscription continues at the seller's usage-based pricing, so buyers pay only for what they use after the trial. This helps sellers turn more trial users into paying customers. Buyers get a simple way to eva",
-      "tags": []
-    },
-    {
-      "title": "AWS Network Firewall launches next-generation firewall policy",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-launches-ngfw-policy/",
-      "date": "2026-11-10T08:00:00.000Z",
-      "description": "Today, AWS announces next-generation firewall (NGFW) policy for AWS Network Firewall, a new policy model that provides security teams with a simpler policy structure and increased rule capacity. AWS Network Firewall is a managed network security service that protects your Amazon VPCs with access control and threat detection. The new policy model strengthens your security posture by layering firewa",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "Amazon ElastiCache Serverless now supports vector, full-text and hybrid searches plus aggregations",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-elasticache-serverless-search-aggregations/",
-      "date": "2026-11-10T08:00:00.000Z",
-      "description": "Amazon ElastiCache Serverless for Valkey now supports vector, full-text, and hybrid search, along with aggregations. Applications searching live data often face a hard trade-off between latency and recall, along with delays before updates become searchable. With search on ElastiCache Serverless, applications can search data with latency as low as microseconds at up to 99% recall for vector search,",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon GameLift Servers now supports Game Session Placement Insights",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/gamelift-game-session-insights/",
-      "date": "2026-11-10T08:00:00.000Z",
-      "description": "Amazon GameLift Servers now offers Game Session Placement Insights, delivering detailed, per-placement diagnostic logs for game session queue routing. Amazon GameLift Servers routes game session placement requests through queues that evaluate multiple fleet locations based on latency and cost factors. This feature is designed for game developers and engineers who need greater transparency into how",
-      "tags": [
-        "Cost"
-      ]
-    },
-    {
-      "title": "CloudWatch PromQL alarms now support EC2 and Application Auto Scaling",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-alarms-autoscaling-group-actions",
-      "date": "2026-11-10T03:00:00.000Z",
-      "description": "Amazon CloudWatch alarms that use Prometheus Query Language (PromQL) can now trigger Amazon EC2 and Application Auto Scaling step and simple scaling policies. You can scale your EC2 Auto Scaling groups on CloudWatch OpenTelemetry metrics using the same kind of PromQL queries you use for dashboards and alerting. In this release, PromQL alarms also support EC2 Auto Scaling simple and step scaling po",
-      "tags": [
-        "EC2",
-        "RDS",
-        "CloudWatch"
-      ]
     }
   ],
   "security": [
@@ -431,54 +430,46 @@
     }
   ],
   "status": {
-    "overall": "issues",
+    "overall": "operational",
     "incidents": [
       {
-        "title": "Service is operating normally: [RESOLVED] Elevated API issues and Launch Failures",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-11T21:11:29.000Z",
-        "description": "日本時間 2026 年 11 月 11 日 午後 11 時 46 分から 2026 年 11 月 12 日 午前 5 時 31 分にかけて、AP-NORTHEAST-1 リージョンの主に単一のアベイラビリティーゾーン (apne1-az1) において、断続的な API エラー率の上昇、および新規起動された EC2 インスタンスにおける接続の問題が発生しておりました。エンジニアが自動的に対応に加わり、直ちに調査を開始いたしました。最初の影響期間は、日本時間 2026 年 11 月 11 日 午後 11 時 46 分から 2026 年 11 月 12 日 午前 2 時 46 分であり、主に API エラーおよび EC2 インスタンスの起動失敗として現れておりました。Auto Scaling、ECS、RDS など、ワークフローを EC2 API に依存している他の AWS サービスも、この問題の",
-        "tags": [
-          "EC2",
-          "RDS",
-          "ECS"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated API issues and Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-11T19:54:32.000Z",
-        "description": "引き続き完全な復旧に向けて取り組んでおります。お客様は、他の 2 つの正常なアベイラビリティーゾーン (apne1-az2、apne1-az3) で新しいインスタンスを起動することができます。また、影響を受けているアベイラビリティーゾーンにおける既存のインスタンスへの接続に影響を与えるような変更は行わないことをお客様におすすめいたします。これには、ネットワークインターフェイスやゲートウェイのアタッチおよびデタッチ、VPC ピアリングの変更などのアクションが含まれます。単一のアベイラビリティーゾーン (apne1-az1) において、新規作成または変更されたインスタンスへの断続的な接続の問題の解決に引き続き取り組んでおります。この問題は、新しいインスタンスの起動、新しいクラスターの作成、Auto Scaling グループ、ゲートウェイ、および VPC ゲートウェイエンドポイントなどのアクショ",
-        "tags": [
-          "VPC"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated API issues and Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-11T18:54:49.000Z",
-        "description": "現在引き続き完全な復旧に向けて取り組んでおります。単一のアベイラビリティーゾーン (apne1-az1) において、新規作成または変更されたインスタンスへの接続の問題が発生していることを確認しております。この問題は、新しいインスタンスの起動、新しいクラスターの作成、Auto Scaling グループ、ゲートウェイ、および VPC ゲートウェイエンドポイントなどのアクションに影響を与えております。既存のリソースへの接続およびインスタンス間の通信には影響はございません。この新しい問題の根本原因は特定済みであり、現在問題の軽減に取り組んでおります。次回の更新は、日本時間午前 5 時までに、もしくは新たな情報が入り次第、お知らせいたします。| We continue to work towards full recovery. We are observing some connectivity ",
-        "tags": [
-          "RDS",
-          "VPC"
-        ]
-      },
-      {
-        "title": "Service impact: Elevated API issues and Launch Failures",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-11T17:59:22.000Z",
-        "description": "AP-NORTHEAST-1 リージョンにおいて、引き続き広範囲で回復の兆候が見られております。現在も緩和策の実施を継続しており、次回の進捗の更新は日本時間午前 3 時 45 分までに、もしくは新たな情報が入り次第、お知らせいたします。| We continue to see broad signs of recovery in the AP-NORTHEAST-1 Region. Our mitigation efforts are still underway, and we will provide you with another update on our progress by 10:45 AM PST or sooner as new information becomes available.",
+        "date": "2026-09-15T10:27:10.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
         "tags": []
       },
       {
-        "title": "Service impact: Elevated API issues and Launch Failures",
+        "title": "Service disruption: Increased Error Rates",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-11-11T17:38:01.000Z",
-        "description": "AP-NORTHEAST-1 リージョンにおける API エラー率の上昇および起動失敗について、回復の兆候が見られております。EC2 および EBS の CloudWatch ヘルスデータは、現在正常に報告されております。引き続き復旧作業の進捗を監視し、次回の更新は日本時間午前 3 時までに、もしくは新たな情報が入り次第、お知らせいたします。 | We are seeing early signs of recovery for the elevated API error rates and launch failures in the AP-NORTHEAST-1 Region. EC2 and EBS CloudWatch health data is now reporting correctly. We will continue to monitor the progress ",
+        "date": "2026-09-15T10:22:28.000Z",
+        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
+        "tags": []
+      },
+      {
+        "title": "Service disruption: Increased Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:25:54.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
         "tags": [
-          "EC2",
-          "CloudWatch"
+          "Lambda"
         ]
+      },
+      {
+        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-04-30T07:07:11.000Z",
+        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "tags": [
+          "Cost"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-03-03T16:40:00.000Z",
+        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
+        "tags": []
       }
     ]
   }
