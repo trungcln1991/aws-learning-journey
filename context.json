@@ -4,6 +4,6 @@
     "RDS & Database Fundamentals",
     "VPC Fundamentals"
   ],
-  "commit_msg": "14/11 phien 171: change-digest v2 5 account (the VN, tong hop 08:00, do mat khau/do quyen, GuardDuty Recon P1), 6 kenh Teams 110 nguon (scripts/teams-channel-migrate.py), budget thang + Cost Anomaly, GuardDuty UAT/network, honeytoken 2 key, Vault Lock vault EFS, Swine Sale UAT apply, Security Hub suppress 72, PR terraform #46-#56; skill aws-operations muc 90 + terraform-ops + chuan trien khai + infra-overview; 8 PBI hang doi; gap +14 -6; proposals 55-57; MEMORY gom 22,4->17,7KB; NOW, SESSION",
-  "updated_at": "2026-11-14T10:55:13Z"
+  "commit_msg": "14/11 phien 172: Skill Builder agent nen skillbuilder-learner (13/27 khoa, video 1x lan luot, bang 16 phuong phap ap Japfa), GuardDuty Runtime prod UNHEALTHY do network chua bat (gap do), loc nhieu canh bao (the ENI ECS/Backup im lang PR #57, alarm app pool >=2 PR #58, CPU webapp 3/3, the AWS Health xanh/cam PR #59 + 8 Lambda), kiem VPN/Indo tu bastion, RDS 500/550 GiB; skill aws-operations muc 91 + learning/skillbuilder; gap +9 -1; memory zsh; NOW, SESSION",
+  "updated_at": "2026-11-14T15:10:34Z"
 }
