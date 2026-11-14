@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T07:44:50.425Z",
+  "generated_at": "2026-11-14T07:30:02.503Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -25,6 +25,93 @@
   ],
   "whats_new": [
     {
+      "title": "Aurora PostgreSQL with express configuration now supported in CloudFormation",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aurora-postgresql-cloudformation/",
+      "date": "2026-11-13T16:00:00.000Z",
+      "description": "Aurora PostgreSQL now supports express configuration in AWS CloudFormation for infrastructure as code deployment. This launch enables you to automate the infrastructure deployment of your Aurora clusters through CloudFormation templates while benefiting from the speed of express configuration. Aurora PostgreSQL clusters created with express configuration allow you to create and query an Aurora ser",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "Grok 4.7 now available on Kiro in AWS GovCloud (US)",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/kiro-grok-4-7-aws-govcloud-us/",
+      "date": "2026-11-13T13:13:00.000Z",
+      "description": "A new model is now available in the Kiro IDE and CLI for the AWS GovCloud (US) Regions. Grok 4.7 is SpaceXSI's most capable model for coding and knowledge work. It's built to stay focused through hard tasks that run for hours, and it checks its work before moving on. Compared with Grok 4.6, it plans and recovers from errors more reliably in repo-scale coding work. Grok 4.7 is available with experi",
+      "tags": []
+    },
+    {
+      "title": "Amazon RDS for Oracle reduces downtime for automatic minor version upgrades and scheduled maintenance",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-reduces-maintenance-downtime-for-amvu-scheduled-upgrades/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "Amazon Relational Database Service (Amazon RDS) for Oracle now reduces downtime for automatic minor version upgrades, as well as minor version upgrades and operating system updates scheduled for your maintenance window. Shorter maintenance makes it easier to stay current on the latest Oracle minor versions and operating system updates with less disruption to your applications. If you turned on aut",
+      "tags": [
+        "RDS"
+      ]
+    },
+    {
+      "title": "AWS Security Hub CSPM now supports centralized configuration with AWS Organizations declarative policies",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Security Hub CSPM now supports AWS Organizations declarative policies. You can use them to enable Security Hub CSPM across all accounts and Regions in your organization and to define which security standards and controls are enabled. Policies can apply broadly to every account and Region, or target specific account and Region combinations. Declarative policies help keep each account's configur",
+      "tags": [
+        "RDS",
+        "Organizations",
+        "Security Hub"
+      ]
+    },
+    {
+      "title": "Amazon Bedrock AgentCore Identity now supports OAuth 2.0 discovery URLs",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-oauth2-discovery/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "Amazon Bedrock AgentCore Identity now supports OAuth 2.0 authorization server discovery URLs for both inbound JWT authorization and outbound OAuth credential providers. This update enables developers to configure AgentCore with OAuth 2.0 authorization servers that do not use OpenID Connect (OIDC). Previously, AgentCore Identity accepted only OIDC discovery URLs. Authorization servers that implemen",
+      "tags": [
+        "IAM",
+        "Bedrock"
+      ]
+    },
+    {
+      "title": "AWS Secrets Manager now supports cross-account replication",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-cross-account/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Secrets Manager now supports cross-account replication, enabling you to maintain a synchronized copy of a primary secret in a secondary AWS account for cross-account access, backup, and disaster recovery. Cross-account replication extends the existing multi-Region replication capability across account boundaries. With cross-account replication, platform or security teams can own and rotate a s",
+      "tags": []
+    },
+    {
+      "title": "Amazon SageMaker Unified Studio now supports layout customization for designations",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-studio-layout-customization/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "Amazon SageMaker Unified Studio now supports layout customization, a new capability that gives domain administrators control over which tools and left navigation items project members see based on their designation. Organizations with data engineering, analytics, and machine learning teams on a single platform can configure a layout within each designation definition, and that layout applies acros",
+      "tags": [
+        "Organizations",
+        "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Batch on Amazon EKS adds Linux capabilities, seccomp, and pod-level settings",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-batch-eks-security-context/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Batch now supports additional Kubernetes security context settings in Amazon EKS job definitions, including Linux capabilities, seccomp profiles, and pod-level settings. For EKS clusters that enforce the Kubernetes Pod Security Standards restricted profile, you can now run AWS Batch jobs with only the privileges and system calls they require. To get started, use the RegisterJobDefinition API t",
+      "tags": [
+        "RDS",
+        "EKS"
+      ]
+    },
+    {
+      "title": "AWS Marketplace now supports VAT credit notes for deemed supply refunds",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-vat-credit-notes/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Marketplace sellers can now submit Value Added Tax (VAT) credit notes for refunded deemed supply transactions through a self-service experience in AWS Partner Central. Previously, VAT was disbursed to sellers for eligible transactions, and when a buyer was later refunded, sellers had to contact AWS to submit the corresponding credit note. This launch simplifies post-refund VAT documentation fo",
+      "tags": []
+    },
+    {
+      "title": "AWS Systems Manager simplifies onboarding of Google Cloud VMs for centralized management",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/systems-manager-google-cloud-support/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Systems Manager Cloud Connector now extends simplified multicloud onboarding support to Google Cloud, making it easy to connect your existing Google Cloud VMs to Systems Manager for centralized management alongside AWS, on-premises, and Azure resources without manual agent installation. Previously, managing virtual machines across multiple cloud providers often required coordinating and settin",
+      "tags": []
+    },
+    {
       "title": "Amazon Cognito now supports OAuth 2.0 token exchange",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-token-exchange/",
       "date": "2026-11-12T22:00:00.000Z",
@@ -48,6 +135,17 @@
       "description": "Amazon Managed Workflows for Apache Airflow (Amazon MWAA) now supports fine-grained access control, giving administrators precise control over who can access which workflows and resources in an Apache Airflow environment. Fine-grained access control is delivered through two new capabilities: IAM Identity Center integration and multi-team environments. With IAM Identity Center integration, users si",
       "tags": [
         "IAM"
+      ]
+    },
+    {
+      "title": "Apache Airflow UI available in Amazon MWAA Serverless",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/airflow-ui-for-mwaa-serverless/",
+      "date": "2026-11-12T18:00:00.000Z",
+      "description": "Amazon MWAA Serverless provides the native Apache Airflow UI for your workflows. You can browse workflows, inspect workflow runs and task instances, read task logs, view a workflow's source and versions, and start a workflow run. The UI uses the permissions of the IAM identity that opens it and shows only what that identity can read, so read-only access is possible. AWS CloudTrail records the call",
+      "tags": [
+        "EC2",
+        "RDS",
+        "Lambda"
       ]
     },
     {
@@ -107,15 +205,6 @@
       ]
     },
     {
-      "title": "AWS Backup adds logically air-gapped vault support for Amazon EBS Snapshots Archive",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-lag-vault-ebs-archive/",
-      "date": "2026-11-12T08:00:00.000Z",
-      "description": "AWS Backup logically air-gapped vault now supports Amazon EBS Snapshots Archive. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now archive Amazon EBS backups held in a logically air-gapped vault to Amazon EBS Snapshots Archive, ",
-      "tags": [
-        "Organizations"
-      ]
-    },
-    {
       "title": "AWS Glue announces automatic version upgrades for Apache Spark jobs",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-spark-auto-upgrades/",
       "date": "2026-11-12T08:00:00.000Z",
@@ -123,27 +212,13 @@
       "tags": []
     },
     {
-      "title": "AWS Backup now supports resource modifiers for Amazon EKS restores",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/",
+      "title": "AWS Backup adds logically air-gapped vault support for Amazon EBS Snapshots Archive",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-lag-vault-ebs-archive/",
       "date": "2026-11-12T08:00:00.000Z",
-      "description": "Today, AWS Backup announces support for resource modifiers when restoring Amazon Elastic Kubernetes Service (Amazon EKS) backups. Resource modifiers let you transform Kubernetes resources during a restore, so you can adapt a restored cluster to its target environment. When you restore an EKS backup that has been copied across accounts or across AWS Regions, the restored cluster can carry reference",
+      "description": "AWS Backup logically air-gapped vault now supports Amazon EBS Snapshots Archive. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now archive Amazon EBS backups held in a logically air-gapped vault to Amazon EBS Snapshots Archive, ",
       "tags": [
-        "EKS"
+        "Organizations"
       ]
-    },
-    {
-      "title": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments for routing policy",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/",
-      "date": "2026-11-12T08:00:00.000Z",
-      "description": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments, enabling advanced routing controls for enterprise hybrid networks. Previously, Cloud WAN Routing Policy evaluated BGP communities only on Site-to-Site VPN and Connect attachments. Now, customers can tag routes with routing intent on-premises, apply filtering and path preference rules inside Cloud WAN, and propagate communiti",
-      "tags": []
-    },
-    {
-      "title": "Amazon Managed Service for Apache Flink introduces enhanced snapshots",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/managed-flink-enhanced-snapshots/",
-      "date": "2026-11-12T08:00:00.000Z",
-      "description": "Amazon Managed Service for Apache Flink now supports enhanced snapshots, a capability that lets you capture, export, and restore application state across Apache Flink applications and AWS Regions, so you can run blue/green deployments, easily migrate self-managed workloads to Amazon Managed Service for Apache Flink without losing state, and keep backup in a secondary Region for cross-Region recove",
-      "tags": []
     },
     {
       "title": "Amazon RDS for SQL Server now supports M8id and R8id instances",
@@ -156,91 +231,20 @@
       ]
     },
     {
-      "title": "The next generation AgentCore runtime is now the default",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/new-agentcore-runtime-default/",
-      "date": "2026-11-12T05:00:00.000Z",
-      "description": "Starting today, new runtimes in Amazon Bedrock AgentCore use the next generation of AgentCore runtime by default. The new runtime restores each session from a snapshot of your initialized agent, scales compute and memory with the work, and scales idle agents to zero. Every session still runs in its own hardware-isolated Firecracker microVM. Your agents can run heavy work like compiling a large cod",
-      "tags": [
-        "Bedrock"
-      ]
-    },
-    {
-      "title": "Ornith-1.0-9B and Ornith-1.0-35B models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/ornith-1-0-9b-ornith-1-0-35b-on-sagemaker-jumpstart/",
-      "date": "2026-11-11T23:36:00.000Z",
-      "description": "DeepReinforce AI's Ornith-1.0-9B and Ornith-1.0-35B models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These two models are part of the Ornith 1.0 family of open-source, self-scaffolding agentic coding models released under the MIT license, achieving state-of-the-art performance among open-source models of comparable siz",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "DeepSeek-V4-Pro, DeepSeek-V4-Flash, and DeepSeek-V4.1-Flash models now available on Amazon SageMaker JumpStart",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/",
-      "date": "2026-11-11T23:18:00.000Z",
-      "description": "DeepSeek's DeepSeek-V4-Pro, DeepSeek-V4-Flash, and DeepSeek-V4.1-Flash models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three open-weight Mixture-of-Experts (MoE) language models, released under the MIT license, deliver frontier-class performance across reasoning, coding, and agentic workloads while activating on",
-      "tags": [
-        "Bedrock",
-        "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
-      "date": "2026-11-11T21:00:00.000Z",
-      "description": "AWS Network Security Manager is now available in AWS European Sovereign Cloud Region and Thirty-One new Regions Today, AWS announces the general availability of AWS Network Security Manager in the AWS European Sovereign Cloud Region and additional regions. Network Security Manager is a comprehensive network security management solution designed to simplify security policy deployment and enforcemen",
+      "title": "Amazon Managed Service for Apache Flink introduces enhanced snapshots",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/managed-flink-enhanced-snapshots/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Amazon Managed Service for Apache Flink now supports enhanced snapshots, a capability that lets you capture, export, and restore application state across Apache Flink applications and AWS Regions, so you can run blue/green deployments, easily migrate self-managed workloads to Amazon Managed Service for Apache Flink without losing state, and keep backup in a secondary Region for cross-Region recove",
       "tags": []
     },
     {
-      "title": "AWS Cloud WAN now supports Flow Logs",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/",
-      "date": "2026-11-11T20:05:00.000Z",
-      "description": "AWS Cloud WAN now supports VPC Flow Logs, giving you central visibility into IP traffic across your global network. Flow Logs capture detailed information for each flow, so you can understand how traffic moves across your core network without leaving your AWS Cloud WAN account. Until now, network administrators had to stitch together VPC Flow Logs from many VPCs, accounts, and Regions to see traff",
-      "tags": [
-        "VPC"
-      ]
-    },
-    {
-      "title": "Amazon EKS Provisioned Control Plane now offers a 24 GB etcd database on 4XL and 8XL tiers",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/",
-      "date": "2026-11-11T19:45:00.000Z",
-      "description": "Amazon Elastic Kubernetes Service (Amazon EKS) now offers a larger 24 GB etcd database, up from 16 GB, for 4XL and 8XL Provisioned Control Plane clusters. etcd is the key-value store in the Kubernetes control plane that holds your cluster state, so its size limits how many Kubernetes objects your cluster can store. With 50% more capacity, you can run bigger clusters with more pods, jobs, events, a",
+      "title": "AWS Backup now supports resource modifiers for Amazon EKS restores",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "Today, AWS Backup announces support for resource modifiers when restoring Amazon Elastic Kubernetes Service (Amazon EKS) backups. Resource modifiers let you transform Kubernetes resources during a restore, so you can adapt a restored cluster to its target environment. When you restore an EKS backup that has been copied across accounts or across AWS Regions, the restored cluster can carry reference",
       "tags": [
         "EKS"
       ]
-    },
-    {
-      "title": "Amazon Cognito now supports user pool session management",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-session-management/",
-      "date": "2026-11-11T19:00:00.000Z",
-      "description": "Amazon Cognito now supports session management for user pools, giving you visibility into and control over the sessions your users establish when they sign in to your applications. Single sign-on (SSO) sessions are created when a user signs in through managed login and let them access other app clients without re-authenticating. Token sessions are created when a user signs in to an app client and ",
-      "tags": []
-    },
-    {
-      "title": "AWS Lambda MicroVMs now supports the x86 CPU architecture",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/",
-      "date": "2026-11-11T18:00:00.000Z",
-      "description": "AWS Lambda MicroVMs now supports the x86 CPU architecture, so you can run your existing x86 applications, tools, and software dependencies without recompiling or porting them. When you create a MicroVM image, you can now choose between x86 and Arm (AWS Graviton) to give each user or job an isolated MicroVM on the architecture your workload uses. Lambda MicroVMs is a serverless compute primitive th",
-      "tags": [
-        "Lambda"
-      ]
-    },
-    {
-      "title": "Amazon EKS Auto Mode now supports security groups for Pods",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/",
-      "date": "2026-11-11T17:26:00.000Z",
-      "description": "Amazon EKS Auto Mode now supports security groups for Pods, letting you apply dedicated Amazon EC2 security group rules to individual Pods. Different workloads on the same node can carry different security groups, giving your Pods network-level segmentation without creating separate node pools for each application. Security groups for Pods extends your existing AWS network controls to the Pod leve",
-      "tags": [
-        "EC2",
-        "EKS"
-      ]
-    },
-    {
-      "title": "AWS Emulator is now available for building and testing AWS applications locally",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
-      "date": "2026-11-11T17:00:00.000Z",
-      "description": "AWS Emulator is now available for building and testing AWS applications locally. Starting today, you can use AWS Emulator to build and test AWS applications on your computer or in your continuous integration (CI) environment. Your existing AWS SDK and CLI calls go to AWS Emulator and come back in milliseconds, so you and your coding agents can find and fix errors locally, with no deployments or AW",
-      "tags": []
     }
   ],
   "security": [
