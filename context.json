@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "EC2 Basics",
+    "RDS & Database Fundamentals",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "13/11 phien 170: AntiFox follow-up (WAF 0 hit, FortiGate chua chan IOC, IIS sach, key AKIA POC da chet, pin cert FMG/FAZ), tin bao mat sang (security-news.py + rule bat dau), GitHub wfx-loot sach, ra secret source PROD 15 app (12/15 lo, bao cao), ECS UAT 3 PR draft #108 Swine Sale #111 OCR #112 BankLoan S3 (tam dung cho Manh), runbook + chuan + nghien cuu cong vao API/SG/firewall co gia, 14 PBI hang doi (start_override), proposals 50-54, gap, NOW, SESSION",
-  "updated_at": "2026-11-13T09:18:03Z"
+  "commit_msg": "14/11 phien 171: change-digest v2 5 account (the VN, tong hop 08:00, do mat khau/do quyen, GuardDuty Recon P1), 6 kenh Teams 110 nguon (scripts/teams-channel-migrate.py), budget thang + Cost Anomaly, GuardDuty UAT/network, honeytoken 2 key, Vault Lock vault EFS, Swine Sale UAT apply, Security Hub suppress 72, PR terraform #46-#56; skill aws-operations muc 90 + terraform-ops + chuan trien khai + infra-overview; 8 PBI hang doi; gap +14 -6; proposals 55-57; MEMORY gom 22,4->17,7KB; NOW, SESSION",
+  "updated_at": "2026-11-14T10:55:13Z"
 }
