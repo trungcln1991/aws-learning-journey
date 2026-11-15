@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T07:30:02.503Z",
+  "generated_at": "2026-11-15T07:43:33.889Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -71,6 +71,16 @@
       ]
     },
     {
+      "title": "AWS Batch on Amazon EKS adds Linux capabilities, seccomp, and pod-level settings",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-batch-eks-security-context/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Batch now supports additional Kubernetes security context settings in Amazon EKS job definitions, including Linux capabilities, seccomp profiles, and pod-level settings. For EKS clusters that enforce the Kubernetes Pod Security Standards restricted profile, you can now run AWS Batch jobs with only the privileges and system calls they require. To get started, use the RegisterJobDefinition API t",
+      "tags": [
+        "RDS",
+        "EKS"
+      ]
+    },
+    {
       "title": "AWS Secrets Manager now supports cross-account replication",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-cross-account/",
       "date": "2026-11-13T08:00:00.000Z",
@@ -85,16 +95,6 @@
       "tags": [
         "Organizations",
         "SageMaker"
-      ]
-    },
-    {
-      "title": "AWS Batch on Amazon EKS adds Linux capabilities, seccomp, and pod-level settings",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-batch-eks-security-context/",
-      "date": "2026-11-13T08:00:00.000Z",
-      "description": "AWS Batch now supports additional Kubernetes security context settings in Amazon EKS job definitions, including Linux capabilities, seccomp profiles, and pod-level settings. For EKS clusters that enforce the Kubernetes Pod Security Standards restricted profile, you can now run AWS Batch jobs with only the privileges and system calls they require. To get started, use the RegisterJobDefinition API t",
-      "tags": [
-        "RDS",
-        "EKS"
       ]
     },
     {
@@ -195,6 +195,15 @@
       ]
     },
     {
+      "title": "AWS Backup adds logically air-gapped vault support for Amazon EBS Snapshots Archive",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-lag-vault-ebs-archive/",
+      "date": "2026-11-12T08:00:00.000Z",
+      "description": "AWS Backup logically air-gapped vault now supports Amazon EBS Snapshots Archive. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now archive Amazon EBS backups held in a logically air-gapped vault to Amazon EBS Snapshots Archive, ",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
       "title": "Amazon FSx for Lustre lowers the entry cost of Intelligent-Tiering file systems by 75%",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/fsx-lustre-intelligent-tiering-lower-throughput/",
       "date": "2026-11-12T08:00:00.000Z",
@@ -210,15 +219,6 @@
       "date": "2026-11-12T08:00:00.000Z",
       "description": "AWS Glue introduces automatic version upgrades, a capability that keeps your Apache Spark jobs current on the latest AWS Glue runtime without manual coordination. Staying current on supported runtimes gives your jobs the latest security patches, performance improvements, and support for evolving table formats such as Apache Iceberg. Auto upgrades include multiple levels of validations including as",
       "tags": []
-    },
-    {
-      "title": "AWS Backup adds logically air-gapped vault support for Amazon EBS Snapshots Archive",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-lag-vault-ebs-archive/",
-      "date": "2026-11-12T08:00:00.000Z",
-      "description": "AWS Backup logically air-gapped vault now supports Amazon EBS Snapshots Archive. Logically air-gapped vaults are a type of AWS Backup vault that allows secure sharing of backups across accounts and AWS Organizations, supporting direct restore to reduce recovery time from a data loss event. You can now archive Amazon EBS backups held in a logically air-gapped vault to Amazon EBS Snapshots Archive, ",
-      "tags": [
-        "Organizations"
-      ]
     },
     {
       "title": "Amazon RDS for SQL Server now supports M8id and R8id instances",
