@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "RDS & Database Fundamentals",
-    "VPC Fundamentals",
-    "Security Groups & NACL"
+    "S3 & Storage Classes",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "15/11 phien 173: Indo doi FortiGate sang Palo Alto - AWS<->LA on, chang LA<->Indo rot 11:50-13:05, luat Indo loc theo nguon, baseline flow log 7 ngay chi 6 luong that (sapapp 44310, Oracle 2484, DNS 53, RDS->sapapp, bastion ping), Resolver DNS 367014 chua thong, cai chinh bastion do SG, dev tam bo qua; skill fortigate-bgp-vpn muc 15/11; Skill Builder 16/27 (DRS, RDS Oracle, Systems Manager); gap +7 -1; memory indo-paloalto; NOW, SESSION",
-  "updated_at": "2026-11-15T08:34:32Z"
+  "commit_msg": "15/11 phien 174: dien 3 form HR tang luong (F2 de xuat, F1 danh gia, F-03 thong tin) viet chung theo gia tri, F1 va F2 cung mach; skill docs/fill-word-forms + index; Skill Builder 20/27 (CloudWatch, CloudTrail, FinOps P1, Secrets Manager) + 5 de xuat ap Japfa vao gap; gap +6 (591); memory feedback HR forms; NOW, SESSION",
+  "updated_at": "2026-11-15T09:41:18Z"
 }
