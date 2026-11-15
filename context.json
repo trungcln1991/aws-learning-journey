@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
     "RDS & Database Fundamentals",
-    "VPC Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL"
   ],
-  "commit_msg": "14/11 phien 172: Skill Builder agent nen skillbuilder-learner (13/27 khoa, video 1x lan luot, bang 16 phuong phap ap Japfa), GuardDuty Runtime prod UNHEALTHY do network chua bat (gap do), loc nhieu canh bao (the ENI ECS/Backup im lang PR #57, alarm app pool >=2 PR #58, CPU webapp 3/3, the AWS Health xanh/cam PR #59 + 8 Lambda), kiem VPN/Indo tu bastion, RDS 500/550 GiB; skill aws-operations muc 91 + learning/skillbuilder; gap +9 -1; memory zsh; NOW, SESSION",
-  "updated_at": "2026-11-14T15:10:34Z"
+  "commit_msg": "15/11 phien 173: Indo doi FortiGate sang Palo Alto - AWS<->LA on, chang LA<->Indo rot 11:50-13:05, luat Indo loc theo nguon, baseline flow log 7 ngay chi 6 luong that (sapapp 44310, Oracle 2484, DNS 53, RDS->sapapp, bastion ping), Resolver DNS 367014 chua thong, cai chinh bastion do SG, dev tam bo qua; skill fortigate-bgp-vpn muc 15/11; Skill Builder 16/27 (DRS, RDS Oracle, Systems Manager); gap +7 -1; memory indo-paloalto; NOW, SESSION",
+  "updated_at": "2026-11-15T08:34:32Z"
 }
