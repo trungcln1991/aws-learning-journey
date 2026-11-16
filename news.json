@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T07:43:33.889Z",
+  "generated_at": "2026-11-16T07:50:05.891Z",
   "feeds": [
     {
       "key": "whats_new",
@@ -71,16 +71,6 @@
       ]
     },
     {
-      "title": "AWS Batch on Amazon EKS adds Linux capabilities, seccomp, and pod-level settings",
-      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-batch-eks-security-context/",
-      "date": "2026-11-13T08:00:00.000Z",
-      "description": "AWS Batch now supports additional Kubernetes security context settings in Amazon EKS job definitions, including Linux capabilities, seccomp profiles, and pod-level settings. For EKS clusters that enforce the Kubernetes Pod Security Standards restricted profile, you can now run AWS Batch jobs with only the privileges and system calls they require. To get started, use the RegisterJobDefinition API t",
-      "tags": [
-        "RDS",
-        "EKS"
-      ]
-    },
-    {
       "title": "AWS Secrets Manager now supports cross-account replication",
       "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-cross-account/",
       "date": "2026-11-13T08:00:00.000Z",
@@ -95,6 +85,16 @@
       "tags": [
         "Organizations",
         "SageMaker"
+      ]
+    },
+    {
+      "title": "AWS Batch on Amazon EKS adds Linux capabilities, seccomp, and pod-level settings",
+      "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-batch-eks-security-context/",
+      "date": "2026-11-13T08:00:00.000Z",
+      "description": "AWS Batch now supports additional Kubernetes security context settings in Amazon EKS job definitions, including Linux capabilities, seccomp profiles, and pod-level settings. For EKS clusters that enforce the Kubernetes Pod Security Standards restricted profile, you can now run AWS Batch jobs with only the privileges and system calls they require. To get started, use the RegisterJobDefinition API t",
+      "tags": [
+        "RDS",
+        "EKS"
       ]
     },
     {
@@ -434,46 +434,51 @@
     }
   ],
   "status": {
-    "overall": "operational",
+    "overall": "issues",
     "incidents": [
       {
-        "title": "Service disruption: Increased Error Rates",
+        "title": "Service is operating normally: [RESOLVED] Increased Connectivity issues in US-EAST-1",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-15T10:27:10.000Z",
-        "description": "We are providing an update on the disruption affecting the Middle East (UAE) (me-central-1) Region. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in the mec1-az2 Availability Zone. We continue to work on recovering regional resources, as well as zonal resources hosted in the other affected Availability Zones (mec1-",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-09-15T10:22:28.000Z",
-        "description": "We are providing an update on the disruption affecting the Middle East (Bahrain) (me-south-1) Region. The damage to our infrastructure spanned multiple Availability Zones and exceeded what our regional and multi-AZ services are designed to withstand. After a thorough assessment, we have determined that we are unable to restore access to the resources and data hosted exclusively in this Region. Whe",
-        "tags": []
-      },
-      {
-        "title": "Service disruption: Increased Error Rates",
-        "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:25:54.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (UAE) Region (ME-CENTRAL-1) has suffered damage as a result of the conflict in the Middle East and is currently unable to reliably support customer applications. While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible r",
+        "date": "2026-11-15T14:53:29.000Z",
+        "description": "Between 3:05 AM and 6:10 AM PST we experienced signup errors, authentication issues, and connectivity issues in the US-EAST-1 Region. Customers using IAM Identity Center for authentication into the AWS Console, or for authentication into other AWS Services such as Kiro, Connect, etc would have been affected during this time. Engineers were automatically engaged at 3:10 AM PST and immediately began",
         "tags": [
-          "Lambda"
+          "IAM"
         ]
       },
       {
-        "title": "Service disruption: Increased Connectivity Issues and API Error Rates",
+        "title": "Service impact: Increased Connectivity issues in US-EAST-1",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-04-30T07:07:11.000Z",
-        "description": "We are providing an update on the ongoing service disruption. The Middle East (Bahrain) Region (ME-SOUTH-1) has suffered damage due to the conflict in the Middle East and is currently unavailable. Customers should recover their resources in other Regions from remote backups. Relevant billing operations are currently suspended while we restore normal operations in this AWS Region. This process is e",
+        "date": "2026-11-15T14:32:56.000Z",
+        "description": "We are seeing significant signs of recovery and are continuing to monitor for full recovery.",
+        "tags": []
+      },
+      {
+        "title": "Service impact: Increased Connectivity issues in US-EAST-1",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-15T14:23:47.000Z",
+        "description": "We can confirm recovery for most AWS Services. We have fully mitigated the issue authentication errors from IAM Identity Center that was impacting Kiro, Connect, and other services which rely on IAM Identity Center for authentication. We continue to investigate an issue that is affecting a subset of Network Load Balancers in a single cell, in a single Availability Zone (use1-az1) in the US-EAST-1 ",
         "tags": [
-          "Cost"
+          "IAM",
+          "ALB"
         ]
       },
       {
-        "title": "Service impact: Increased Connectivity Issues and API Error Rates",
+        "title": "Service impact: Increased Connectivity issues in US-EAST-1",
         "link": "https://status.aws.amazon.com/",
-        "date": "2026-03-03T16:40:00.000Z",
-        "description": "We are providing an update on the ongoing service disruptions affecting the AWS Middle East (Bahrain) Region (ME-SOUTH-1). We continue to make progress on recovery efforts across multiple workstreams. With the immediate phase of this event now better understood, we are moving to a more targeted communication model. Going forward, updates will be delivered directly to affected customers through the",
-        "tags": []
+        "date": "2026-11-15T13:22:11.000Z",
+        "description": "We are seeing early signs of recovery for authentication via IAM Identity Center and SignUp.",
+        "tags": [
+          "IAM"
+        ]
+      },
+      {
+        "title": "Service impact: Increased Connectivity issues in US-EAST-1",
+        "link": "https://status.aws.amazon.com/",
+        "date": "2026-11-15T13:15:45.000Z",
+        "description": "We continue to investigate Connectivity issues in the US-EAST-1 Region. IAM Identity center sign-in requests and AWS SignUp are impacted at this time. We can confirm errors when attempted to authenticate when using identity center or when using services that rely on IAM Identity center. For Kiro users, logins from social sign in methods are not impacted at this time. There are no workarounds for i",
+        "tags": [
+          "IAM"
+        ]
       }
     ]
   }
