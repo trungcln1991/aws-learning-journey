@@ -1,9 +1,8 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
-    "Security Groups & NACL",
-    "EC2 Basics"
+    "EC2 Basics",
+    "RDS & Database Fundamentals"
   ],
-  "commit_msg": "16/11 phien 175 bo sung: the Chi phi bat thuong tu tra ai/gi/bao nhieu (PR terraform #60, trien khai 5/5 account, -target tranh drift prod/network); aws-operations muc 92.5; gap +2 (612)",
-  "updated_at": "2026-11-16T06:52:28Z"
+  "commit_msg": "16/11 phien 175 cuoi ngay: Skill Builder 24/27 (cloudfront, bedrock-security; inspector do 23%) - nap kien thuc ap Japfa vao aws-operations muc 93 (KMS, API GW, CloudFront Gen-AI, Bedrock Guardrails) + bai hoc chieu (PowerShell 5.1 mat dau \", Swine Sale UAT PR #115/#3, WAF NoUserAgent e-approval, proxy ARR E-Invoice, tai lieu hop S3 17/11); gap -2 +10 (620); NOW",
+  "updated_at": "2026-11-16T09:33:35Z"
 }
