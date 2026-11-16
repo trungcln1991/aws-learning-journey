@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "EC2 Basics",
-    "RDS & Database Fundamentals",
-    "VPC Fundamentals"
+    "VPC Fundamentals",
+    "Security Groups & NACL",
+    "EC2 Basics"
   ],
-  "commit_msg": "16/11 phien 175: Weekly Security Review 485 finding (+54, 3 CRITICAL brotli), POC da dong; ra canh bao (alarm TG webapp ket = diem mu, DLQ standard-check SES sandbox, alarm UAT mo coi, nhieu da giam); VPN HC rot tunnel khong do autoheal, ECMP HC 72/28 LA 100/0, Indo 15/11 khong failover; su co Binh Thuan (3 reboot, SLA s2sHO 70ms sat wan2 69ms, upload BT->HC); HC du phong LA (2 yeu cau, NAT 10.93.1.60, app prod doc Oracle LA, bang 14 mat xich); skill aws-operations 32/91/92 + fortigate-bgp-vpn 16/11; de xuat 58-59; 3 PBI 36304/36305/36310; gap -2 +16 (605); memory 16/11 + POC; NOW, SESSION",
-  "updated_at": "2026-11-16T05:09:09Z"
+  "commit_msg": "16/11 phien 175 bo sung: the Chi phi bat thuong tu tra ai/gi/bao nhieu (PR terraform #60, trien khai 5/5 account, -target tranh drift prod/network); aws-operations muc 92.5; gap +2 (612)",
+  "updated_at": "2026-11-16T06:52:28Z"
 }
