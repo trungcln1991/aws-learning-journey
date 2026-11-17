@@ -1,8 +1,9 @@
 {
   "suggest_topics": [
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "CloudWatch & Monitoring"
   ],
-  "commit_msg": "16/11 phien 175 cuoi ngay: Skill Builder 24/27 (cloudfront, bedrock-security; inspector do 23%) - nap kien thuc ap Japfa vao aws-operations muc 93 (KMS, API GW, CloudFront Gen-AI, Bedrock Guardrails) + bai hoc chieu (PowerShell 5.1 mat dau \", Swine Sale UAT PR #115/#3, WAF NoUserAgent e-approval, proxy ARR E-Invoice, tai lieu hop S3 17/11); gap -2 +10 (620); NOW",
-  "updated_at": "2026-11-16T09:33:35Z"
+  "commit_msg": "17/11 phien 176 (luu giua chung): JCOP bang su kien kieu Zabbix + chan do mat khau theo IP (deploy prod goi 1005), the tong hop 08:00 gom nhom (terraform PR #61), tat Poultry GL IIS + redirect 62082 (PR #62), JCOP len ECS pha thu (PR #63 dung, #64 trust, #65 1 task header X-JCOP-Target), image Trivy 0 HIGH; thiet ke NAT LA cho app ECS di Indo (JCI chi /32), bang app<->Indo; 7 PBI xep hang; skill aws-operations muc 94 + fortigate-bgp-vpn; memory DN = Dong Nai, Lambda anh Tuan tach rieng; NOW + gap",
+  "updated_at": "2026-11-17T09:48:55Z"
 }
