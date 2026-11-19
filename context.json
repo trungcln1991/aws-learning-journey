@@ -2,8 +2,8 @@
   "suggest_topics": [
     "EC2 Basics",
     "RDS & Database Fundamentals",
-    "CloudWatch & Monitoring"
+    "VPC Fundamentals"
   ],
-  "commit_msg": "18/11 phien 177 done: SESSION + NOW + session-20261118; the tong hop gop 5 account (PR #66/#67); Security Hub 26 viec CloudOps; JCOP len ECS (PR #69); OCR UAT (PR #111, workflow app #6); Swine Sale PROD 21 tai nguyen + image ddb2135-1 (PR #121/#122, app #4); runner CodeBuild PROD (PR #123-#126); skill terraform-ops/aws-deploy-standard/infra-overview; de xuat 63; memory 5 moi (tieng Viet, kiem trang thai sau ngat, Cloud Ops day source prod, key Bedrock anh Thanh, tag+source); agent schoox-learner + hoc Skill Builder het queue; dashboard 640 gap",
-  "updated_at": "2026-11-18T09:20:56Z"
+  "commit_msg": "18/11 phien 178 done: nen hang cho PBI (36450/57/59/60 Done); filecontrol ORA-12570 nghi IP task ngoai /24 FortiGate (muc 96 + gap + memory); NOW < 4KB",
+  "updated_at": "2026-11-19T01:06:58Z"
 }
