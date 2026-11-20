@@ -1,9 +1,9 @@
 {
   "suggest_topics": [
-    "VPC Fundamentals",
     "EC2 Basics",
-    "RDS & Database Fundamentals"
+    "RDS & Database Fundamentals",
+    "VPC Fundamentals"
   ],
-  "commit_msg": "19/11 phien 179 done: NAT LA->Indo 10.94.3.41 (policy 700-703, siet 568/569/552/623); OCR PROD (PR #127/#131, healthy :3, maxPercent 200); BankLoan UAT+PROD (PR #112/#129/#130, subnet 4.0/22, SG RDS, image 1f2485c-1); ra 27 rule AWS->LA + de xuat 64; skill aws-operations muc 97 + deploy-standard + fortigate; 9 PBI; agent hoc dung; NOW + SESSION + session-20261119",
-  "updated_at": "2026-11-19T10:01:14Z"
+  "commit_msg": "20/11 phien 180 done: review VPN tuan + nghien cuu AWS thang; eSigning -> SQL WiseEye (HC/LA, cong 49489); Indonesia Private NAT GW 10.83.16.200 (thiet ke); ECS production checklist; Web Deploy 1 dev; 8 PBI; skill/memory/gap/NOW/SESSION cap nhat",
+  "updated_at": "2026-11-20T09:40:54Z"
 }
